@@ -29,7 +29,7 @@ export default function PlatformShowcase() {
       <div className="px-6 md:px-12 py-16 md:py-20 max-w-[1400px] mx-auto">
         <header className="mb-12 max-w-4xl" style={{ animation: "fadeUp 0.7s both" }}>
           <p className="text-2xl md:text-4xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900">
-            One platform for every stage of{" "}
+            Precision at every stage of{" "}
             <AnimatedText
               text="manufacturing."
               textClassName="text-gray-900 font-bold"
@@ -39,7 +39,7 @@ export default function PlatformShowcase() {
               underlineDuration={1.8}
             />{" "}
             <span className="font-normal text-gray-400">
-              From BOM and supplier selection to production, quality, delivery, and value engineering — operating together as one intelligent system.
+              From BOM and supplier selection to production, quality, delivery, and value engineering. All operating as one intelligent system.
             </span>
           </p>
         </header>
