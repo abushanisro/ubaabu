@@ -24,7 +24,7 @@ function useCountUp(target: number, visible: boolean, duration = 1400, delay = 0
 export function QualityCard() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const replayTimer = useRef<ReturnType<typeof setTimeout>>();
+  const replayTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     const el = ref.current;

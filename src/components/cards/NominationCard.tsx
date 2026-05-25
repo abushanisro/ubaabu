@@ -36,7 +36,7 @@ export function NominationCard() {
     setCycleKey(k => k + 1);
   }, []);
 
-  const intervalRef = useRef<ReturnType<typeof setInterval>>();
+  const intervalRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
   useEffect(() => () => clearInterval(intervalRef.current), []);
 
   return (

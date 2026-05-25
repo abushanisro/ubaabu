@@ -28,7 +28,7 @@ export function SupplierEvalCard() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [scores, setScores] = useState(BASE.map(s => s.score));
-  const replayTimer = useRef<ReturnType<typeof setTimeout>>();
+  const replayTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     const el = ref.current;

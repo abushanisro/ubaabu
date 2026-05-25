@@ -12,7 +12,7 @@ export function ProcessCard() {
   const [prog, setProg] = useState(0);   // 0 → 1 wave rise progress
   const [count, setCount] = useState(0);
 
-  const replayTimer = useRef<ReturnType<typeof setTimeout>>();
+  const replayTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     const el = ref.current;
