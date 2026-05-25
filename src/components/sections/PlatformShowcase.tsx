@@ -1,4 +1,5 @@
 import { ManufacturingCard } from "@/components/ui/ManufacturingCard";
+import { AnimatedText } from "@/components/ui/animated-underline-text-one";
 import { BomCard } from "@/components/cards/BomCard";
 import { ProcessCard } from "@/components/cards/ProcessCard";
 import { SupplierEvalCard } from "@/components/cards/SupplierEvalCard";
@@ -26,13 +27,20 @@ export default function PlatformShowcase() {
   return (
     <section className="platform-showcase bg-white">
       <div className="px-6 md:px-12 py-16 md:py-20 max-w-[1400px] mx-auto">
-        <header className="mb-12" style={{ animation: "fadeUp 0.7s both" }}>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground max-w-4xl leading-tight">
-            One platform for every stage of manufacturing.
-          </h2>
-          <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-3xl">
-            From BOM and supplier selection to production, quality, delivery, and value engineering — operating together as{" "}
-            <span className="text-gradient font-semibold">one intelligent system.</span>
+        <header className="mb-12 max-w-4xl" style={{ animation: "fadeUp 0.7s both" }}>
+          <p className="text-2xl md:text-4xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900">
+            One platform for every stage of{" "}
+            <AnimatedText
+              text="manufacturing."
+              textClassName="text-gray-900 font-bold"
+              underlineColor="oklch(0.68 0.13 180)"
+              underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
+              underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
+              underlineDuration={1.8}
+            />{" "}
+            <span className="font-normal text-gray-400">
+              From BOM and supplier selection to production, quality, delivery, and value engineering — operating together as one intelligent system.
+            </span>
           </p>
         </header>
 
@@ -49,8 +57,8 @@ export default function PlatformShowcase() {
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-5" style={{ animation: "fadeUp 0.7s 600ms both" }}>
           <div className="rounded-2xl bg-card border border-border/40 card-shadow p-6 relative overflow-hidden">
             <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-primary/10 blur-3xl" />
-            <h3 className="text-lg font-semibold mb-2 relative text-foreground">One Intelligent System</h3>
-            <p className="text-xs text-muted-foreground mb-5 relative">All modules working together seamlessly for smarter manufacturing.</p>
+            <h3 className="text-lg font-semibold mb-2 relative text-gray-900">One Intelligent System</h3>
+            <p className="text-xs text-gray-500 mb-5 relative">All modules working together seamlessly for smarter manufacturing.</p>
             <div className="relative rounded-xl border border-border/50 bg-background/60 backdrop-blur p-4 space-y-2">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-semibold text-foreground">Project Alpha</span>

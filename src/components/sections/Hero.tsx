@@ -125,7 +125,7 @@ export default function Hero() {
             maxRotateX={10} maxRotateY={18} smoothing={0.1}
             className="absolute -top-2 -right-2 z-20 hidden w-56 lg:block lg:-right-6"
             cardClassName="overflow-hidden rounded-xl border border-white/12 shadow-2xl"
-            cardStyle={{ background: 'rgba(13,27,42,0.96)', backdropFilter: 'blur(16px)' }}
+            cardStyle={{ background: 'linear-gradient(145deg, #2a2a2a 0%, #141414 50%, #080808 100%)' }}
           >
             <div className="flex items-center justify-between border-b border-white/8 px-4 py-2">
               <span className="text-xs font-semibold text-white">VAVE Analysis</span>
@@ -192,6 +192,22 @@ export default function Hero() {
                 </svg>
               </span>
             </button>
+
+            {/* Live Signal bar — bottom of product card */}
+            <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3" style={{ background: 'linear-gradient(to top, #000000 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.0) 100%)' }}>
+              <div className="flex items-center gap-3">
+                <span className="flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
+                  <span className="text-xs font-semibold text-white">Live Signal</span>
+                </span>
+                <span className="text-[10px] font-medium text-teal-400">AI Agent</span>
+              </div>
+              <div className="flex items-center gap-4 text-[10px] text-white/40">
+                <span>Production · Batch A-2410</span>
+                <span className="text-white/60">120 Hz</span>
+                <span className="font-medium text-white/80">99.4% OTI</span>
+              </div>
+            </div>
           </div>
 
           {/* ── Live Signal wave card — bottom-right ── */}
@@ -199,7 +215,7 @@ export default function Hero() {
             maxRotateX={10} maxRotateY={18} smoothing={0.1}
             className="absolute -bottom-4 -right-2 z-20 w-56 lg:-right-6 lg:bottom-6"
             cardClassName="overflow-hidden rounded-xl border border-white/10 shadow-2xl"
-            cardStyle={{ background: '#0d1b2a' }}
+            cardStyle={{ background: 'linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%)' }}
           >
             <div className="flex items-center justify-between border-b border-white/8 px-4 py-2.5">
               <span className="text-sm font-semibold text-white">Live Signal</span>
