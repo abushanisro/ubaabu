@@ -44,13 +44,17 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 md:flex">
           <a
             href="#"
-            className="text-sm font-medium text-black/60 hover:text-black transition-colors"
+            className="text-sm font-medium transition-colors"
+            style={{ color: "oklch(0.52 0.12 185)" }}
+            onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
+            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
           >
             Sign in
           </a>
           <a
             href="#demo"
-            className="rounded-md bg-[#080808] px-4 py-2 text-sm font-semibold text-white hover:bg-black/80 transition-colors whitespace-nowrap"
+            className="rounded-md px-4 py-2 text-sm font-semibold text-white hover:opacity-85 transition-opacity whitespace-nowrap"
+            style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
           >
             Contact sales →
           </a>
@@ -81,7 +85,8 @@ export default function Navbar() {
           ))}
           <a
             href="#demo"
-            className="mt-2 block w-full rounded-md bg-[#080808] px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-black/80 transition-colors"
+            className="mt-2 block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-white hover:opacity-85 transition-opacity"
+            style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
             onClick={() => setOpen(false)}
           >
             Contact sales →

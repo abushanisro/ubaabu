@@ -1,9 +1,52 @@
+'use client'
+import { useEffect, useRef, useState } from "react";
+
+function easeOutCubic(t: number) { return 1 - Math.pow(1 - t, 3); }
+
+function useCountUp(target: number, visible: boolean, duration = 1400, delay = 0) {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    if (!visible) return;
+    const timeout = setTimeout(() => {
+      const start = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        setValue(Math.round(easeOutCubic(p) * target));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [visible, target, duration, delay]);
+  return value;
+}
+
 export function QualityCard() {
-  const score = 98.6;
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.35 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const scoreVal   = useCountUp(986, visible, 1600, 0);   // 98.6 → stored as 986, divide by 10
+  const passVal    = useCountUp(1227, visible, 1500, 100);
+  const defectVal  = useCountUp(18,   visible, 1200, 150);
+  const compliVal  = useCountUp(100,  visible, 1400, 200);
+
+  const score = scoreVal / 10;
   const r = 60;
   const c = 2 * Math.PI * r;
+
   return (
-    <div className="h-56 relative flex flex-col items-center justify-center">
+    <div ref={ref} className="h-56 relative flex flex-col items-center justify-center">
       <div className="scene">
         <div className="preserve-3d relative" style={{ animation: "drift 5s ease-in-out infinite" }}>
           <div className="relative w-40 h-40">
@@ -17,8 +60,9 @@ export function QualityCard() {
             <svg className="absolute -inset-3 w-[184px] h-[184px] -rotate-90" viewBox="0 0 160 160">
               <circle cx="80" cy="80" r={r} fill="none" stroke="oklch(0.9 0.02 200)" strokeWidth="3" />
               <circle cx="80" cy="80" r={r} fill="none" stroke="url(#qc-grad)" strokeWidth="3" strokeLinecap="round"
-                strokeDasharray={c} strokeDashoffset={c - (c * score) / 100}
-                style={{ filter: "drop-shadow(0 0 6px oklch(0.68 0.13 180))" }} />
+                strokeDasharray={c}
+                strokeDashoffset={c - (c * score) / 100}
+                style={{ filter: "drop-shadow(0 0 6px oklch(0.68 0.13 180))", transition: "stroke-dashoffset 0.05s linear" }} />
               <defs>
                 <linearGradient id="qc-grad">
                   <stop offset="0%" stopColor="oklch(0.78 0.13 175)" />
@@ -27,19 +71,26 @@ export function QualityCard() {
               </defs>
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-              <div className="text-3xl font-bold drop-shadow-md">{score}%</div>
+              <div className="text-3xl font-bold drop-shadow-md tabular-nums">{score.toFixed(1)}%</div>
               <div className="text-[10px] opacity-90 uppercase tracking-wider">Quality</div>
             </div>
           </div>
         </div>
       </div>
+
       <div className="grid grid-cols-3 gap-2 mt-3 w-full text-center">
-        {[["Pass", "1,227"], ["Defects", "18"], ["Compliance", "100%"]].map(([k, v]) => (
-          <div key={k} className="py-1.5 rounded-md bg-muted/40">
-            <div className="text-sm font-bold text-foreground tabular-nums">{v}</div>
-            <div className="text-[9px] text-muted-foreground uppercase">{k}</div>
-          </div>
-        ))}
+        <div className="py-1.5 rounded-md bg-muted/40">
+          <div className="text-sm font-bold text-foreground tabular-nums">{passVal.toLocaleString()}</div>
+          <div className="text-[9px] text-muted-foreground uppercase">Pass</div>
+        </div>
+        <div className="py-1.5 rounded-md bg-muted/40">
+          <div className="text-sm font-bold text-foreground tabular-nums">{defectVal}</div>
+          <div className="text-[9px] text-muted-foreground uppercase">Defects</div>
+        </div>
+        <div className="py-1.5 rounded-md bg-muted/40">
+          <div className="text-sm font-bold text-foreground tabular-nums">{compliVal}%</div>
+          <div className="text-[9px] text-muted-foreground uppercase">Compliance</div>
+        </div>
       </div>
     </div>
   );

@@ -67,12 +67,12 @@ export default function Hero() {
       </div>
 
       <style>{`
-        .hds-btn-primary { display:inline-flex; align-items:center; gap:6px; background:#080808; color:#fff; border:none; border-radius:6px; padding:10px 20px; font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; transition:background 0.2s; }
-        .hds-btn-primary:hover { background:#1a1a1a; }
+        .hds-btn-primary { display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185)); color:#fff; border:none; border-radius:6px; padding:10px 20px; font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; transition:opacity 0.2s; }
+        .hds-btn-primary:hover { opacity:0.85; }
         .hds-btn-primary .arrow-line { transition:transform 0.2s ease; }
         .hds-btn-primary:hover .arrow-line { transform:translateX(2px); }
-        .hds-btn-secondary { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#425466; border:1px solid rgba(0,0,0,0.15); border-radius:6px; padding:10px 20px; font-size:14px; font-weight:500; cursor:pointer; text-decoration:none; transition:background 0.2s, border-color 0.2s; }
-        .hds-btn-secondary:hover { background:#f6f9fc; border-color:rgba(0,0,0,0.25); }
+        .hds-btn-secondary { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#425466; border:1px solid rgba(0,0,0,0.15); border-radius:6px; padding:10px 20px; font-size:14px; font-weight:500; cursor:pointer; text-decoration:none; transition:background 0.2s, border-color 0.2s, color 0.2s; }
+        .hds-btn-secondary:hover { background:oklch(0.95 0.04 180); border-color:oklch(0.68 0.13 180); color:oklch(0.45 0.14 185); }
       `}</style>
 
       <div className="relative mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-6 pt-24 pb-10 lg:grid-cols-2 lg:gap-10 lg:pt-28 lg:pb-12">

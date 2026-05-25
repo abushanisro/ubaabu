@@ -6,7 +6,7 @@ export function CTA() {
         className="absolute inset-0 opacity-60"
         style={{
           background:
-            "radial-gradient(60% 50% at 20% 30%, oklch(0.7 0.18 30 / 0.5), transparent 60%), radial-gradient(50% 50% at 80% 70%, oklch(0.6 0.18 220 / 0.5), transparent 60%)",
+            "radial-gradient(60% 50% at 20% 30%, oklch(0.68 0.13 180 / 0.55), transparent 60%), radial-gradient(50% 50% at 80% 70%, rgba(0,0,0,0.7), transparent 60%)",
         }}
       />
       <div className="relative mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-6 md:grid-cols-2 md:items-end">

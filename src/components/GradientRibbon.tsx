@@ -35,8 +35,8 @@ void main(){
 
   vec3 cBlue   = vec3(0.42, 0.55, 1.00);
   vec3 cPurple = vec3(0.65, 0.35, 1.00);
-  vec3 cPink   = vec3(0.18, 0.83, 0.75);
-  vec3 cOrange = vec3(1.00, 0.55, 0.20);
+  vec3 cPink   = vec3(0.04, 0.04, 0.04);
+  vec3 cOrange = vec3(0.25, 0.75, 0.70);
 
   float g = clamp(n + p.x * 0.4 + 0.5, 0.0, 1.0);
   vec3 col = mix(cBlue, cPurple, smoothstep(0.0, 0.4, g));

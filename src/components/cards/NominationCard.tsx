@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const axes = ["Quality", "Cost", "Delivery", "Tech", "Capacity"];
 const data: Record<string, number[]> = {
@@ -15,13 +15,24 @@ function poly(vals: number[], r: number) {
   }).join(" ");
 }
 
+const tabs = Object.keys(data) as Array<keyof typeof data>;
+
 export function NominationCard() {
-  const [active, setActive] = useState<keyof typeof data>("V2");
+  const [active, setActive] = useState<keyof typeof data>("V1");
+
+  useEffect(() => {
+    let idx = 0;
+    const id = setInterval(() => {
+      idx = (idx + 1) % tabs.length;
+      setActive(tabs[idx]);
+    }, 2000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="h-56 relative">
       <div className="flex gap-1 mb-2 bg-muted/60 rounded-lg p-1">
-        {(Object.keys(data) as Array<keyof typeof data>).map((k) => (
+        {tabs.map((k) => (
           <button key={k} onClick={() => setActive(k)}
             className={`flex-1 text-xs font-semibold py-1 rounded-md transition ${
               active === k ? "gradient-primary text-primary-foreground shadow" : "text-muted-foreground"

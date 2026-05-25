@@ -32,9 +32,14 @@ export function ManufacturingCard({ title, description, children, className = ""
       onMouseLeave={reset}
       onClick={onClick}
       style={style}
-      className={`card-3d card-shadow hover:card-shadow-hover rounded-2xl bg-card p-6 border border-border/40 relative overflow-hidden group cursor-pointer ${className}`}
+      className={`card-3d card-shadow hover:card-shadow-hover rounded-2xl bg-card p-6 border border-gray-200/60 hover:border-black relative overflow-hidden group cursor-pointer transition-colors duration-300 ${className}`}
     >
       <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-primary/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+      {/* teal corner accent — top-left, extends to 50% of each edge */}
+      <span className="absolute top-0 left-0 w-1/2 h-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
+        <span className="absolute top-0 left-0 w-full h-[2px]" style={{ background: "linear-gradient(to right, oklch(0.68 0.13 180), transparent)" }} />
+        <span className="absolute top-0 left-0 h-full w-[2px]" style={{ background: "linear-gradient(to bottom, oklch(0.68 0.13 180), transparent)" }} />
+      </span>
       <div className="mb-2 relative flex items-center justify-between">
         <h3 className="text-lg font-semibold text-foreground tracking-tight">{title}</h3>
         <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md border border-current text-foreground group-hover:bg-black group-hover:border-black group-hover:text-white transition-all duration-200">

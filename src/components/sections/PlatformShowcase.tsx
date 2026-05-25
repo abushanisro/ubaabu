@@ -368,7 +368,7 @@ export default function PlatformShowcase() {
                   </h2>
                   <p className="text-sm text-gray-500 leading-relaxed mb-6">{active.longDesc}</p>
                   <div className="flex items-center gap-3 mb-8">
-                    <button className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition whitespace-nowrap" style={{ background: "linear-gradient(135deg, #2a2a2a, #000000)" }}>
+                    <button className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition whitespace-nowrap" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                       Explore {active.title}
                       <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
                         <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
@@ -449,7 +449,7 @@ export default function PlatformShowcase() {
               <div className="px-8 md:px-16 py-12 text-center bg-white">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Get started with {active.title}</h3>
                 <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <button className="flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, #2a2a2a, #000000)" }}>
+                  <button className="flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                     Start now
                     <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
                       <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
