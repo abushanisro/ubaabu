@@ -1,12 +1,12 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function easeOutCubic(t: number) { return 1 - Math.pow(1 - t, 3); }
 
 function useCountUp(target: number, visible: boolean, duration = 1400, delay = 0) {
   const [value, setValue] = useState(0);
   useEffect(() => {
-    if (!visible) return;
+    if (!visible) { setValue(0); return; }
     const timeout = setTimeout(() => {
       const start = performance.now();
       const tick = (now: number) => {
@@ -24,6 +24,7 @@ function useCountUp(target: number, visible: boolean, duration = 1400, delay = 0
 export function QualityCard() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const replayTimer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     const el = ref.current;
@@ -36,6 +37,14 @@ export function QualityCard() {
     return () => obs.disconnect();
   }, []);
 
+  const replay = useCallback(() => {
+    clearTimeout(replayTimer.current);
+    setVisible(false);
+    replayTimer.current = setTimeout(() => setVisible(true), 40);
+  }, []);
+
+  useEffect(() => () => clearTimeout(replayTimer.current), []);
+
   const scoreVal   = useCountUp(986, visible, 1600, 0);   // 98.6 → stored as 986, divide by 10
   const passVal    = useCountUp(1227, visible, 1500, 100);
   const defectVal  = useCountUp(18,   visible, 1200, 150);
@@ -46,7 +55,7 @@ export function QualityCard() {
   const c = 2 * Math.PI * r;
 
   return (
-    <div ref={ref} className="h-56 relative flex flex-col items-center justify-center">
+    <div ref={ref} className="h-56 relative flex flex-col items-center justify-center" onMouseEnter={replay}>
       <div className="scene">
         <div className="preserve-3d relative" style={{ animation: "drift 5s ease-in-out infinite" }}>
           <div className="relative w-40 h-40">

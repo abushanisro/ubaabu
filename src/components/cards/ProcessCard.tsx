@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function easeOutCubic(t: number) { return 1 - Math.pow(1 - t, 3); }
 function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
@@ -12,6 +12,8 @@ export function ProcessCard() {
   const [prog, setProg] = useState(0);   // 0 → 1 wave rise progress
   const [count, setCount] = useState(0);
 
+  const replayTimer = useRef<ReturnType<typeof setTimeout>>();
+
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -23,9 +25,17 @@ export function ProcessCard() {
     return () => obs.disconnect();
   }, []);
 
+  const replay = useCallback(() => {
+    clearTimeout(replayTimer.current);
+    setVisible(false);
+    replayTimer.current = setTimeout(() => setVisible(true), 40);
+  }, []);
+
+  useEffect(() => () => clearTimeout(replayTimer.current), []);
+
   // Wave rise animation
   useEffect(() => {
-    if (!visible) return;
+    if (!visible) { setProg(0); return; }
     const duration = 1600;
     const start = performance.now();
     const tick = (now: number) => {
@@ -38,7 +48,7 @@ export function ProcessCard() {
 
   // Number count-up
   useEffect(() => {
-    if (!visible) return;
+    if (!visible) { setCount(0); return; }
     const target = 128450;
     const duration = 1400;
     const start = performance.now();
@@ -72,7 +82,7 @@ export function ProcessCard() {
   });
 
   return (
-    <div ref={ref} className="h-56 relative rounded-xl overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-primary/10">
+    <div ref={ref} className="h-56 relative rounded-xl overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-primary/10" onMouseEnter={replay}>
 
       <svg viewBox="0 0 300 200" className="absolute inset-0 w-full h-full">
         <defs>

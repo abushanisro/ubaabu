@@ -184,8 +184,11 @@ export default function Hero() {
               aria-label="Play demo video"
             >
               <span
-                className="flex h-16 w-16 items-center justify-center rounded-full shadow-[0_8px_40px_rgba(0,0,0,0.6)] transition-transform hover:scale-110"
-                style={{ background: 'linear-gradient(145deg, #2a2a2a 0%, #080808 60%, #000000 100%)' }}
+                className="flex h-16 w-16 items-center justify-center rounded-full transition-transform hover:scale-110"
+                style={{
+                  background: 'linear-gradient(135deg, oklch(0.78 0.13 175), oklch(0.55 0.16 185))',
+                  boxShadow: '0 8px 40px oklch(0.68 0.13 180 / 0.6)',
+                }}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
                   <polygon points="6 3 20 12 6 21 6 3" />

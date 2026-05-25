@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const steps = [
   { label: "ISIR",  done: true,  hue: 180 },
@@ -10,29 +10,32 @@ const steps = [
 
 export function ProductionCard() {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(0); // how many steps are visible
+  const [shown, setShown] = useState(0);
+  const stepTimers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const runSteps = useCallback(() => {
+    stepTimers.current.forEach(clearTimeout);
+    setShown(0);
+    stepTimers.current = steps.map((_, i) =>
+      setTimeout(() => setShown(i + 1), 40 + i * 420)
+    );
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          obs.disconnect();
-          // reveal steps one by one, 400ms apart
-          steps.forEach((_, i) => {
-            setTimeout(() => setShown(i + 1), i * 420);
-          });
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) { obs.disconnect(); runSteps(); } },
       { threshold: 0.35 }
     );
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
+  }, [runSteps]);
+
+  useEffect(() => () => stepTimers.current.forEach(clearTimeout), []);
 
   return (
-    <div ref={ref} className="h-56 relative flex flex-col justify-center gap-3 py-2">
+    <div ref={ref} className="h-56 relative flex flex-col justify-center gap-3 py-2" onMouseEnter={runSteps}>
       {steps.map((s, i) => {
         const visible = i < shown;
         return (

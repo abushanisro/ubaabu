@@ -168,16 +168,17 @@ export function VaveCard() {
         style={{ overflow: "visible" }}
       >
         <defs>
-          {/* AI center sphere */}
+          {/* AI center sphere — teal */}
           <radialGradient id="vave-ai" cx="35%" cy="30%">
-            <stop offset="0%"   stopColor="oklch(0.90 0.10 280)" />
-            <stop offset="55%"  stopColor="oklch(0.55 0.20 280)" />
-            <stop offset="100%" stopColor="oklch(0.36 0.18 280)" />
+            <stop offset="0%"   stopColor="oklch(0.88 0.10 175)" />
+            <stop offset="55%"  stopColor="oklch(0.68 0.13 180)" />
+            <stop offset="100%" stopColor="oklch(0.45 0.14 185)" />
           </radialGradient>
-          {/* Satellite nodes */}
+          {/* Satellite nodes — black gradient */}
           <radialGradient id="vave-node" cx="35%" cy="30%">
-            <stop offset="0%"   stopColor="oklch(0.82 0.12 185)" />
-            <stop offset="100%" stopColor="oklch(0.52 0.16 190)" />
+            <stop offset="0%"   stopColor="#4a4a4a" />
+            <stop offset="55%"  stopColor="#1c1c1c" />
+            <stop offset="100%" stopColor="#000000" />
           </radialGradient>
           {/* Glow filter for AI */}
           <filter id="vave-glow-ai" x="-60%" y="-60%" width="220%" height="220%">
@@ -224,9 +225,9 @@ export function VaveCard() {
             {node.isCenter ? (
               <>
                 {/* Pulsing outer ring */}
-                <circle r={node.r + 7} fill="oklch(0.55 0.20 280 / 0.10)" />
+                <circle r={node.r + 7} fill="oklch(0.68 0.13 180 / 0.12)" />
                 <circle r={node.r + 4} fill="none"
-                  stroke="oklch(0.55 0.20 280)" strokeWidth="0.5" strokeOpacity="0.35"
+                  stroke="oklch(0.68 0.13 180)" strokeWidth="0.5" strokeOpacity="0.4"
                   strokeDasharray="3 4" />
                 {/* Main sphere */}
                 <circle r={node.r} fill="url(#vave-ai)" filter="url(#vave-glow-ai)" />
@@ -243,7 +244,7 @@ export function VaveCard() {
                 <circle r={node.r} fill="url(#vave-node)" fillOpacity="0.88"
                   filter="url(#vave-glow-node)" />
                 <circle r={node.r} fill="none"
-                  stroke="oklch(0.78 0.12 185)" strokeWidth="0.4" strokeOpacity="0.55" />
+                  stroke="rgba(120,120,120,0.5)" strokeWidth="0.4" strokeOpacity="0.6" />
                 {/* Tiny glare */}
                 <ellipse cx={-(node.r * 0.28)} cy={-(node.r * 0.32)} rx={node.r * 0.32} ry={node.r * 0.22}
                   fill="white" fillOpacity="0.28" />

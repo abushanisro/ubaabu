@@ -21,6 +21,9 @@ function HierarchyIcon() {
   );
 }
 
+// Round to 4 dp so SSR and client produce identical attribute strings
+const r4 = (n: number) => Math.round(n * 10000) / 10000;
+
 const PARTS = [
   { id: "housing",    label: "Housing",    type: "housing" },
   { id: "outer-ring", label: "Outer Ring", type: "outer-ring" },
@@ -51,7 +54,7 @@ function renderPart(type: string, s = 1, pfx = "ep") {
           <circle cx="0" cy="0" r="5.5" fill="none" stroke="oklch(0.68 0.13 180)" strokeWidth="0.7" strokeOpacity="0.4" />
           <circle cx="0" cy="0" r="2.5" fill="oklch(0.58 0.14 185)" />
           {[0, Math.PI / 2, Math.PI, Math.PI * 1.5].map((a, i) => (
-            <circle key={i} cx={Math.cos(a) * 14} cy={Math.sin(a) * 9} r="2"
+            <circle key={i} cx={r4(Math.cos(a) * 14)} cy={r4(Math.sin(a) * 9)} r="2"
               fill={D} stroke="oklch(0.68 0.13 180)" strokeWidth="0.8" strokeOpacity="0.6" />
           ))}
           <rect x="-17" y="-12" width="34" height="4" rx="1" fill="white" fillOpacity="0.15" />
@@ -66,7 +69,7 @@ function renderPart(type: string, s = 1, pfx = "ep") {
           {[0, 1, 2, 3, 4, 5].map((i) => {
             const a = (i * Math.PI) / 3;
             return (
-              <circle key={i} cx={Math.cos(a) * 13.5} cy={Math.sin(a) * 13.5} r="1.8"
+              <circle key={i} cx={r4(Math.cos(a) * 13.5)} cy={r4(Math.sin(a) * 13.5)} r="1.8"
                 fill={D} stroke="oklch(0.68 0.13 180)" strokeWidth="0.8" strokeOpacity="0.6" />
             );
           })}
@@ -116,7 +119,7 @@ function renderPart(type: string, s = 1, pfx = "ep") {
           {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => {
             const a = (i * Math.PI) / 4;
             return (
-              <circle key={i} cx={Math.cos(a) * 10.5} cy={Math.sin(a) * 10.5} r="1.6"
+              <circle key={i} cx={r4(Math.cos(a) * 10.5)} cy={r4(Math.sin(a) * 10.5)} r="1.6"
                 fill="oklch(0.72 0.11 178)" stroke="oklch(0.52 0.14 185)" strokeWidth="0.5" strokeOpacity="0.6" />
             );
           })}
@@ -266,9 +269,9 @@ function MechanicalHousing({ visible }: { visible: boolean }) {
           <circle cx="0" cy="0" r="3.5" fill="oklch(0.58 0.14 185)" />
           {bolts.map((a, i) => (
             <g key={i}>
-              <circle cx={Math.cos(a) * 35} cy={Math.sin(a) * 23} r="4"
+              <circle cx={r4(Math.cos(a) * 35)} cy={r4(Math.sin(a) * 23)} r="4"
                 fill="url(#mh-bore)" stroke="oklch(0.68 0.13 180 / 0.65)" strokeWidth="1.2" />
-              <circle cx={Math.cos(a) * 35} cy={Math.sin(a) * 23} r="1.8"
+              <circle cx={r4(Math.cos(a) * 35)} cy={r4(Math.sin(a) * 23)} r="1.8"
                 fill="oklch(0.30 0.10 185 / 0.9)" />
             </g>
           ))}

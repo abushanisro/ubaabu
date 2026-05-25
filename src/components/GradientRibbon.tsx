@@ -33,10 +33,10 @@ void main(){
 
   float band = smoothstep(0.55, 0.0, abs(p.y + sin(p.x * 1.4 + uTime * 0.2) * 0.35 + (n - 0.5) * 0.9));
 
-  vec3 cBlue   = vec3(0.42, 0.55, 1.00);
-  vec3 cPurple = vec3(0.65, 0.35, 1.00);
-  vec3 cPink   = vec3(0.04, 0.04, 0.04);
-  vec3 cOrange = vec3(0.25, 0.75, 0.70);
+  vec3 cBlue   = vec3(0.60, 0.95, 0.95);
+  vec3 cPurple = vec3(0.40, 0.90, 0.90);
+  vec3 cPink   = vec3(0.55, 0.92, 0.88);
+  vec3 cOrange = vec3(0.30, 0.88, 0.88);
 
   float g = clamp(n + p.x * 0.4 + 0.5, 0.0, 1.0);
   vec3 col = mix(cBlue, cPurple, smoothstep(0.0, 0.4, g));

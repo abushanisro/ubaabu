@@ -1,12 +1,12 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 function easeOutCubic(t: number) { return 1 - Math.pow(1 - t, 3); }
 
 function useCountUp(target: number, visible: boolean, duration = 1300, delay = 0) {
   const [value, setValue] = useState(0);
   useEffect(() => {
-    if (!visible) return;
+    if (!visible) { setValue(0); return; }
     const t = setTimeout(() => {
       const start = performance.now();
       const tick = (now: number) => {
@@ -33,6 +33,7 @@ const MAX_V = 120450;
 export function BenchmarkCard() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const replayTimer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     const el = ref.current;
@@ -45,13 +46,21 @@ export function BenchmarkCard() {
     return () => obs.disconnect();
   }, []);
 
+  const replay = useCallback(() => {
+    clearTimeout(replayTimer.current);
+    setVisible(false);
+    replayTimer.current = setTimeout(() => setVisible(true), 40);
+  }, []);
+
+  useEffect(() => () => clearTimeout(replayTimer.current), []);
+
   const v0 = useCountUp(projects[0].value, visible, 1300, 0);
   const v1 = useCountUp(projects[1].value, visible, 1300, 150);
   const v2 = useCountUp(projects[2].value, visible, 1300, 300);
   const counts = [v0, v1, v2];
 
   return (
-    <div ref={ref} className="h-56 relative rounded-xl overflow-hidden flex flex-col"
+    <div ref={ref} className="h-56 relative rounded-xl overflow-hidden flex flex-col" onMouseEnter={replay}
       style={{ background: "linear-gradient(135deg, oklch(0.97 0.02 180) 0%, oklch(0.99 0.005 200) 100%)" }}>
 
       {/* header */}

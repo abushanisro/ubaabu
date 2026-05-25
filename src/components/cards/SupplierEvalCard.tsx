@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const BASE = [
   { name: "Supplier A", score: 92, color: "oklch(0.68 0.13 180)" },
@@ -28,6 +28,7 @@ export function SupplierEvalCard() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [scores, setScores] = useState(BASE.map(s => s.score));
+  const replayTimer = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     const el = ref.current;
@@ -40,6 +41,14 @@ export function SupplierEvalCard() {
     return () => obs.disconnect();
   }, []);
 
+  const replay = useCallback(() => {
+    clearTimeout(replayTimer.current);
+    setVisible(false);
+    replayTimer.current = setTimeout(() => setVisible(true), 40);
+  }, []);
+
+  useEffect(() => () => clearTimeout(replayTimer.current), []);
+
   // continuously adjust scores every 1.8s once visible
   useEffect(() => {
     if (!visible) return;
@@ -50,7 +59,7 @@ export function SupplierEvalCard() {
   }, [visible]);
 
   return (
-    <div ref={ref} className="h-56 relative rounded-xl overflow-hidden"
+    <div ref={ref} className="h-56 relative rounded-xl overflow-hidden" onMouseEnter={replay}
       style={{ background: "linear-gradient(135deg, oklch(0.97 0.02 180) 0%, oklch(0.99 0.005 200) 100%)" }}>
 
       <div className="absolute inset-0 flex flex-col justify-center px-4 gap-2.5">
