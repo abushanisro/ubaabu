@@ -1,15 +1,15 @@
 'use client'
 import { useRef, useState, type ReactNode } from "react";
-import { ArrowUpRight } from "lucide-react";
 
 interface Props {
   title: string;
   description: string;
   children: ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-export function ManufacturingCard({ title, description, children, className = "" }: Props) {
+export function ManufacturingCard({ title, description, children, className = "", onClick }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [style, setStyle] = useState<React.CSSProperties>({});
 
@@ -30,15 +30,18 @@ export function ManufacturingCard({ title, description, children, className = ""
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={reset}
+      onClick={onClick}
       style={style}
-      className={`card-3d card-shadow hover:card-shadow-hover rounded-2xl bg-card p-6 border border-border/40 relative overflow-hidden group ${className}`}
+      className={`card-3d card-shadow hover:card-shadow-hover rounded-2xl bg-card p-6 border border-border/40 relative overflow-hidden group cursor-pointer ${className}`}
     >
       <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-primary/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="flex items-start justify-between mb-2 relative">
+      <div className="mb-2 relative flex items-center justify-between">
         <h3 className="text-lg font-semibold text-foreground tracking-tight">{title}</h3>
-        <button className="p-1.5 rounded-md bg-primary/10 text-primary hover:bg-primary/20 transition">
-          <ArrowUpRight className="w-3.5 h-3.5" />
-        </button>
+        <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md border border-current text-foreground group-hover:bg-black group-hover:border-black group-hover:text-white transition-all duration-200">
+          <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 12 12">
+            <path d="M7 1h4v4M11 1L6.5 5.5M5 11H1V7M1 11l4.5-4.5" />
+          </svg>
+        </span>
       </div>
       <p className="text-xs text-muted-foreground leading-relaxed mb-5 max-w-[90%] relative">{description}</p>
       <div className="relative">{children}</div>

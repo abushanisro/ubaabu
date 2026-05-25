@@ -34,11 +34,14 @@ export function VaveCard() {
           {Array.from({ length: 20 }).map((_, i) => {
             const a = (i / 20) * Math.PI * 2;
             const r = 50 + (i % 3) * 15;
+            const tx = (Math.cos(a) * r).toFixed(4);
+            const ty = (Math.sin(a) * r).toFixed(4);
+            const delay = (i * 0.1).toFixed(1);
             return (
               <div key={i} className="absolute top-1/2 left-1/2 w-1 h-1 rounded-full bg-primary"
                 style={{
-                  transform: `translate(${Math.cos(a) * r}px, ${Math.sin(a) * r}px)`,
-                  animation: `drift ${2 + (i % 3)}s ${i * 0.1}s ease-in-out infinite`,
+                  transform: `translate(${tx}px, ${ty}px)`,
+                  animation: `drift ${2 + (i % 3)}s ${delay}s ease-in-out infinite`,
                   opacity: 0.6,
                 }} />
             );
