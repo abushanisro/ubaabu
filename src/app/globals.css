@@ -205,3 +205,57 @@ body::before {
 ::-webkit-scrollbar-track { background: #080808; }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+
+/* ---------- Platform Showcase (light section, teal primary) ---------- */
+.platform-showcase {
+  --primary: oklch(0.68 0.13 180);
+  --primary-glow: oklch(0.78 0.13 175);
+  --primary-deep: oklch(0.52 0.12 185);
+  --primary-foreground: oklch(1 0 0);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.03 220);
+  --foreground: oklch(0.18 0.03 220);
+  --border: oklch(0.929 0.013 255.508);
+  --background: oklch(0.99 0.005 200);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-background: var(--background);
+}
+
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
+  will-change: transform;
+}
+.card-shadow {
+  box-shadow: 0 1px 2px oklch(0.5 0.05 200 / 0.04), 0 8px 30px oklch(0.5 0.08 200 / 0.06);
+}
+.card-shadow-hover {
+  box-shadow: 0 20px 50px -10px oklch(0.5 0.12 185 / 0.25), 0 8px 20px oklch(0.5 0.08 200 / 0.1);
+}
+.gradient-primary {
+  background: linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.78 0.13 175));
+}
+.text-gradient {
+  background: linear-gradient(135deg, oklch(0.52 0.12 185), oklch(0.68 0.13 180));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.scene { perspective: 1000px; }
+.preserve-3d { transform-style: preserve-3d; }
+
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes grow { from { width: 0; } to { width: 100%; } }
+@keyframes growUp { from { height: 0; } }

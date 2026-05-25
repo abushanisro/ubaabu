@@ -1,5 +1,6 @@
 import Hero from '@/components/sections/Hero'
 import LogoMarquee from '@/components/sections/LogoMarquee'
+import PlatformShowcase from '@/components/sections/PlatformShowcase'
 import Capabilities from '@/components/sections/Capabilities'
 import VideoAIBanner from '@/components/sections/VideoAIBanner'
 import StatsSection from '@/components/sections/StatsSection'
@@ -11,6 +12,7 @@ export default function App() {
     <>
       <Hero />
       <LogoMarquee />
+      <PlatformShowcase />
       <VideoAIBanner />
       <Capabilities />
       <StatsSection />

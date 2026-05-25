@@ -38,6 +38,7 @@
   "exclude": [
     "node_modules",
     "emithran-nexus-craft",
+    "interactive-3d-showcase",
     "src/components/sections/FlowDiagram.tsx",
     "src/components/sections/ScrollExperience.tsx",
     "src/components/sections/StickyFeatures.tsx",
