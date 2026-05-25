@@ -13,7 +13,7 @@ const TIMES: Time[] = ['pre-dawn', 'sunrise', 'daytime', 'dusk', 'sunset', 'nigh
 
 const stats = [
   {
-    value: '₹6L Cr+',
+    value: '$72B+',
     label: "in Indian defence procurement managed annually on spreadsheets and legacy ERP systems",
   },
   {

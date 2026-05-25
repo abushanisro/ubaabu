@@ -1,5 +1,6 @@
 'use client'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { FloatingPaths } from "@/components/ui/background-paths";
 import { X } from "lucide-react";
 import { ManufacturingCard } from "@/components/ui/ManufacturingCard";
 import { AnimatedText } from "@/components/ui/animated-underline-text-one";
@@ -246,6 +247,416 @@ const cards: CardData[] = [
   },
 ];
 
+const METRIC_ICONS: Record<string, { bg: string; icon: string }> = {
+  "BOM Completed":       { bg: "#dcfce7", icon: "✓" },
+  "Cost Analysis":       { bg: "#fef9c3", icon: "$" },
+  "Process Planning":    { bg: "#dbeafe", icon: "≡" },
+  "Suppliers Evaluated": { bg: "#fef3c7", icon: "●" },
+  "Production Progress": { bg: "#e0f2fe", icon: "▶" },
+  "Quality Score":       { bg: "#d1fae5", icon: "◆" },
+  "On-Time Delivery":    { bg: "#ccfbf1", icon: "✓" },
+  "Vendor Network":      { bg: "#ede9fe", icon: "⬡" },
+};
+
+const BAR_DATA = [
+  { month: "Jan", val: 62 }, { month: "Feb", val: 75 }, { month: "Mar", val: 58 },
+  { month: "Apr", val: 88 }, { month: "May", val: 72 }, { month: "Jun", val: 95 },
+];
+const SPARK = [40, 55, 48, 70, 62, 80, 74, 90, 85, 95];
+
+function MetricsCard() {
+  return (
+    <div className="p-5 h-full flex flex-col">
+      <h3 className="text-base font-bold mb-1 text-gray-900">One Intelligent System</h3>
+      <p className="text-[11px] text-gray-500 mb-4 leading-relaxed">
+        All modules working together seamlessly for smarter manufacturing.
+      </p>
+      <div className="flex items-center gap-2.5 mb-3 pb-3 border-b border-gray-100">
+        <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
+          style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.52 0.16 185))" }}>
+          P
+        </div>
+        <p className="text-xs font-semibold text-gray-900 flex-1">Project Alpha</p>
+        <span className="flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full flex-shrink-0"
+          style={{ background: "oklch(0.68 0.13 180 / 0.12)", color: "oklch(0.45 0.14 180)" }}>
+          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "oklch(0.68 0.13 180)" }} />
+          Active
+        </span>
+      </div>
+      <div className="space-y-2 flex-1">
+        {[
+          ["BOM Completed",       "100%"],
+          ["Cost Analysis",       "$5K saved"],
+          ["Process Planning",    "12 steps"],
+          ["Suppliers Evaluated", "4 / 4"],
+          ["Production Progress", "75%"],
+          ["Quality Score",       "98.6%"],
+          ["On-Time Delivery",    "Yes"],
+          ["Vendor Network",      "32 active"],
+        ].map(([k, v]) => (
+          <div key={k} className="flex items-center justify-between text-[11px]">
+            <div className="flex items-center gap-2">
+              <span className="w-5 h-5 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0"
+                style={{ background: METRIC_ICONS[k]?.bg ?? "#f3f4f6", color: "#555" }}>
+                {METRIC_ICONS[k]?.icon ?? "●"}
+              </span>
+              <span className="text-gray-500">{k}</span>
+            </div>
+            <span className="font-semibold text-gray-800">{v}</span>
+          </div>
+        ))}
+      </div>
+      <button
+        className="mt-4 w-full py-2 rounded-lg text-white text-[11px] font-semibold flex items-center justify-center gap-1.5 hover:opacity-90 transition"
+        style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.52 0.16 185))" }}
+      >
+        View Dashboard
+        <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
+        </svg>
+      </button>
+    </div>
+  );
+}
+
+function AnalyticsCard() {
+  const maxVal = Math.max(...BAR_DATA.map(d => d.val));
+  const tealFill = "oklch(0.68 0.13 180)";
+  const sparkPts = SPARK.map((v, i) => `${(i / (SPARK.length - 1)) * 180},${40 - (v / 100) * 36}`).join(" ");
+
+  return (
+    <div className="p-5 h-full flex flex-col">
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <h3 className="text-base font-bold text-gray-900">Platform Analytics</h3>
+          <p className="text-[11px] text-gray-500">Cost savings & performance trends</p>
+        </div>
+        <span className="flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full"
+          style={{ background: "oklch(0.68 0.13 180 / 0.12)", color: "oklch(0.45 0.14 180)" }}>
+          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "oklch(0.68 0.13 180)" }} />
+          Live
+        </span>
+      </div>
+
+      {/* KPI pills */}
+      <div className="grid grid-cols-3 gap-2 mb-4">
+        {[
+          { label: "Cost Saved", value: "$5K", delta: "+18%" },
+          { label: "OTD Rate",   value: "98.6%", delta: "+2.1%" },
+          { label: "Suppliers",  value: "32",    delta: "+4" },
+        ].map(k => (
+          <div key={k.label} className="rounded-xl p-2.5 text-center border border-gray-100 bg-gray-50/60">
+            <p className="text-[10px] text-gray-400 mb-0.5">{k.label}</p>
+            <p className="text-sm font-bold text-gray-900">{k.value}</p>
+            <p className="text-[9px] font-semibold" style={{ color: "oklch(0.52 0.14 160)" }}>{k.delta}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Bar chart — monthly cost savings */}
+      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Monthly Cost Reduction ($K)</p>
+      <div className="flex items-end gap-1.5 h-20 mb-1 flex-1">
+        {BAR_DATA.map((d) => (
+          <div key={d.month} className="flex-1 flex flex-col items-center gap-0.5">
+            <div
+              className="w-full rounded-t-md transition-all duration-700"
+              style={{
+                height: `${(d.val / maxVal) * 68}px`,
+                background: `linear-gradient(to top, oklch(0.52 0.16 185), oklch(0.72 0.13 178))`,
+                opacity: d.val === maxVal ? 1 : 0.55 + (d.val / maxVal) * 0.45,
+              }}
+            />
+            <span className="text-[8px] text-gray-400">{d.month}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Sparkline */}
+      <div className="mt-3 rounded-xl border border-gray-100 bg-gray-50/60 px-3 py-2">
+        <div className="flex items-center justify-between mb-1">
+          <span className="text-[10px] font-semibold text-gray-500">Quality Score Trend</span>
+          <span className="text-[10px] font-bold" style={{ color: tealFill }}>↑ 98.6%</span>
+        </div>
+        <svg viewBox="0 0 180 40" className="w-full" style={{ height: 32 }}>
+          <defs>
+            <linearGradient id="ag-spark" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="oklch(0.68 0.13 180)" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="oklch(0.68 0.13 180)" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <polyline points={sparkPts} fill="none" stroke="oklch(0.68 0.13 180)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <polygon points={`0,40 ${sparkPts} 180,40`} fill="url(#ag-spark)" />
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function BentoSystemCard() {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+  const [cardIdx, setCardIdx] = useState(0);
+  const [expanded, setExpanded] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  useEffect(() => {
+    const id = setInterval(() => setCardIdx(p => (p + 1) % 2), 4500);
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = expanded ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [expanded]);
+
+  return (
+    <>
+    <div
+      ref={cardRef}
+      className="mt-8 relative rounded-2xl group"
+      style={{
+        animation: "fadeUp 0.7s 600ms both",
+        background: "linear-gradient(135deg, oklch(0.84 0.10 185) 0%, oklch(0.89 0.07 178) 35%, oklch(0.93 0.05 180) 65%, oklch(0.97 0.02 182) 100%)",
+        boxShadow: "0 4px 40px oklch(0.68 0.13 180 / 0.25), 0 1px 0 white inset",
+        border: "1px solid oklch(0.78 0.09 180 / 0.4)",
+        minHeight: 340,
+      }}
+      onMouseMove={handleMouseMove}
+    >
+      {/* Overflow clip only for decorative layers */}
+      <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+        <FloatingPaths position={1} />
+        <FloatingPaths position={-1} />
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full blur-3xl"
+          style={{ background: "oklch(0.68 0.13 180 / 0.30)" }} />
+        <div className="absolute -top-10 right-10 w-48 h-48 rounded-full blur-3xl"
+          style={{ background: "oklch(0.78 0.10 175 / 0.20)" }} />
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{ background: `radial-gradient(280px circle at ${mouse.x}px ${mouse.y}px, rgba(255,255,255,0.12), transparent 70%)` }} />
+      </div>
+
+      {/* Expand button — sits ABOVE the card at top-right, outside overflow clip */}
+      <button
+        onClick={() => setExpanded(true)}
+        className="absolute -top-3 right-3 z-30 w-7 h-7 rounded-md flex items-center justify-center border border-white/60 bg-white/70 backdrop-blur-sm shadow-md hover:bg-white/90 transition"
+        title="Expand details"
+      >
+        <svg width="13" height="13" viewBox="0 0 20 20" fill="none">
+          <path d="M13.75 6.75H10.25V5H15.5V10.25H13.75V6.75Z" fill="rgba(10,80,80,0.85)" />
+          <path d="M6.75 10.25H5V15.5H10.25V13.75H6.75V10.25Z" fill="rgba(10,80,80,0.85)" />
+        </svg>
+      </button>
+
+      {/* Inner grid */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-5 p-5">
+
+        {/* ── Left: auto-cycling card ── */}
+        <div className="rounded-2xl overflow-hidden shadow-lg relative"
+          style={{ background: "rgba(255,255,255,0.82)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.9)" }}>
+
+          {/* Sliding track */}
+          <div
+            style={{
+              display: "flex",
+              width: "200%",
+              transform: `translateX(${cardIdx === 0 ? "0%" : "-50%"})`,
+              transition: "transform 0.55s cubic-bezier(0.4,0,0.2,1)",
+            }}
+          >
+            <div style={{ width: "50%", flexShrink: 0 }}><MetricsCard /></div>
+            <div style={{ width: "50%", flexShrink: 0 }}><AnalyticsCard /></div>
+          </div>
+
+          {/* Dot indicators */}
+          <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+            {[0, 1].map(i => (
+              <button
+                key={i}
+                onClick={() => setCardIdx(i)}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: cardIdx === i ? 16 : 6,
+                  height: 6,
+                  background: cardIdx === i ? "oklch(0.68 0.13 180)" : "oklch(0.68 0.13 180 / 0.3)",
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* ── Right: dashboard panel ── */}
+        <div className="lg:col-span-2">
+          <DashboardPreview />
+        </div>
+      </div>
+    </div>
+
+    {/* ── Expanded detail modal — same pattern as all other cards ── */}
+    {expanded && (
+      <div
+        className="fixed inset-0 z-50 flex items-end justify-center md:items-stretch md:justify-center md:px-6"
+        style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, oklch(0.85 0.1 185 / 0.45) 100%)", backdropFilter: "blur(16px)" }}
+        onClick={() => setExpanded(false)}
+      >
+        <div
+          className="relative w-full max-w-5xl shadow-2xl overflow-hidden md:mt-12"
+          style={{
+            height: "calc(100vh - 48px)",
+            maxHeight: "calc(100vh - 48px)",
+            animation: "dialogSlideUp 0.3s cubic-bezier(0.22,1,0.36,1)",
+            background: "#ffffff",
+          }}
+          onClick={e => e.stopPropagation()}
+        >
+          {/* close */}
+          <button
+            onClick={() => setExpanded(false)}
+            className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full text-white shadow-sm transition hover:opacity-80"
+            style={{ background: "linear-gradient(135deg, #1a1a1a, #000000)" }}
+          >
+            <X className="w-4 h-4" />
+          </button>
+
+          <div className="overflow-y-auto no-scrollbar" style={{ height: "100%" }}>
+
+            {/* ── Section 1: 2-col hero ── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 md:px-10 pt-10 pb-8">
+              {/* left: title + desc + CTAs + visualization */}
+              <div className="flex flex-col">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight leading-tight mb-3">
+                  One Intelligent System
+                </h2>
+                <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                  Connect every manufacturing module into one unified platform — BOM, process planning, supplier evaluation, production, quality, delivery, benchmarking, and VAVE — all sharing live data and working together to accelerate decisions.
+                </p>
+                <div className="flex items-center gap-3 mb-8">
+                  <button className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition whitespace-nowrap" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+                    Explore Platform
+                    <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
+                      <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
+                    </svg>
+                  </button>
+                  <button className="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition whitespace-nowrap">
+                    See pricing details
+                  </button>
+                </div>
+                {/* visualization — the cycling card */}
+                <div className="platform-showcase">
+                  <div className="rounded-2xl overflow-hidden shadow-lg relative"
+                    style={{ background: "rgba(248,250,252,1)", border: "1px solid #e5e7eb" }}>
+                    <div style={{ display: "flex", width: "200%", transform: `translateX(${cardIdx === 0 ? "0%" : "-50%"})`, transition: "transform 0.55s cubic-bezier(0.4,0,0.2,1)" }}>
+                      <div style={{ width: "50%", flexShrink: 0 }}><MetricsCard /></div>
+                      <div style={{ width: "50%", flexShrink: 0 }}><AnalyticsCard /></div>
+                    </div>
+                    <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+                      {[0, 1].map(i => (
+                        <button key={i} onClick={() => setCardIdx(i)} className="rounded-full transition-all duration-300"
+                          style={{ width: cardIdx === i ? 16 : 6, height: 6, background: cardIdx === i ? "oklch(0.68 0.13 180)" : "oklch(0.68 0.13 180 / 0.3)" }} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* right: features + activity + stat */}
+              <div className="flex flex-col gap-6">
+                <ul className="space-y-4">
+                  {[
+                    "All 9 modules share live data with zero manual sync",
+                    "AI insights surface across BOM, cost, and supplier data",
+                    "Single project view from RFQ to delivery confirmation",
+                    "Real-time alerts and escalations across every stage",
+                    "Audit trail and compliance documentation built-in",
+                  ].map(f => (
+                    <li key={f} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style={{ background: "oklch(0.68 0.13 180 / 0.14)" }}>
+                        <CheckIcon />
+                      </span>
+                      <span className="text-sm text-gray-700 leading-snug">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* activity widget */}
+                <div className="rounded-xl border border-gray-100 p-4 bg-gray-50">
+                  <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-3">Live Activity</p>
+                  <div className="space-y-3">
+                    {[
+                      { label: "Modules Active",         pct: 100 },
+                      { label: "Data Sync Rate",         pct: 99  },
+                      { label: "AI Insights Generated",  pct: 87  },
+                    ].map(({ label, pct }) => (
+                      <div key={label}>
+                        <div className="flex justify-between text-[10px] mb-1">
+                          <span className="text-gray-500">{label}</span>
+                          <span className="font-semibold text-gray-800">{pct}%</span>
+                        </div>
+                        <div className="h-1 rounded-full bg-gray-200">
+                          <div className="h-1 rounded-full" style={{ width: `${pct}%`, background: "linear-gradient(90deg, oklch(0.68 0.13 180), oklch(0.52 0.16 185))" }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* stat card */}
+                <div className="rounded-2xl p-6 text-white relative overflow-hidden" style={{ background: "linear-gradient(135deg, oklch(0.62 0.16 185) 0%, oklch(0.48 0.2 270) 100%)" }}>
+                  <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20" style={{ background: "radial-gradient(circle, white, transparent)" }} />
+                  <div className="text-4xl font-bold mb-2 relative">$1.8M</div>
+                  <div className="text-xs leading-relaxed opacity-80 relative">in total cost savings identified across all active projects using the unified intelligence platform</div>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Section 2: Testimonial ── */}
+            <div className="bg-white px-8 md:px-16 py-12 text-center">
+              <p className="text-sm font-bold text-gray-900 mb-6 tracking-wide uppercase">Aerospace OEM</p>
+              <blockquote className="text-base md:text-lg text-gray-600 leading-relaxed mb-6 max-w-xl mx-auto">
+                &ldquo;For the first time, our engineering, sourcing, and quality teams are looking at the same data in real time. The decisions we make in Emithran flow instantly across every module — it changed how we operate.&rdquo;
+              </blockquote>
+              <p className="text-sm text-gray-500">
+                <span className="font-semibold text-gray-800">Vikram Nair,</span>{" "}
+                CTO, Aerospace OEM
+              </p>
+              <button className="mt-4 text-sm font-medium hover:opacity-70 transition flex items-center gap-1 mx-auto text-gray-900">
+                Read the story
+                <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
+                  <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="mx-8 md:mx-16 border-t border-gray-100" />
+
+            {/* ── Section 3: CTA footer ── */}
+            <div className="px-8 md:px-16 py-12 text-center bg-white">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get started with the full platform</h3>
+              <div className="flex items-center justify-center gap-4 flex-wrap">
+                <button className="flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+                  Start now
+                  <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
+                    <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
+                  </svg>
+                </button>
+                <button className="px-8 py-3 rounded-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
+                  Contact sales
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    )}
+    </>
+  );
+}
+
 function CheckIcon() {
   return (
     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
@@ -296,39 +707,7 @@ export default function PlatformShowcase() {
           ))}
         </div>
 
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-5" style={{ animation: "fadeUp 0.7s 600ms both" }}>
-          <div className="rounded-2xl bg-card border border-border/40 card-shadow p-6 relative overflow-hidden">
-            <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-primary/10 blur-3xl" />
-            <h3 className="text-lg font-semibold mb-2 relative text-gray-900">One Intelligent System</h3>
-            <p className="text-xs text-gray-500 mb-5 relative">All modules working together seamlessly for smarter manufacturing.</p>
-            <div className="relative rounded-xl border border-border/50 bg-background/60 backdrop-blur p-4 space-y-2">
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-foreground">Project Alpha</span>
-                <span className="text-primary font-medium flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Active
-                </span>
-              </div>
-              {[
-                ["BOM Completed", "100%"],
-                ["Suppliers Evaluated", "4 / 4"],
-                ["Production Progress", "75%"],
-                ["Quality Score", "98.6%"],
-                ["On-Time Delivery", "Yes"],
-              ].map(([k, v]) => (
-                <div key={k} className="flex justify-between text-xs py-1 border-t border-border/40">
-                  <span className="text-muted-foreground">{k}</span>
-                  <span className="font-semibold text-foreground">{v}</span>
-                </div>
-              ))}
-              <button className="mt-3 w-full py-2 rounded-lg gradient-primary text-white text-xs font-semibold hover:opacity-90 transition">
-                View Dashboard
-              </button>
-            </div>
-          </div>
-          <div className="lg:col-span-2">
-            <DashboardPreview />
-          </div>
-        </div>
+        <BentoSystemCard />
       </div>
 
       {/* ── Expand dialog ── */}

@@ -65,7 +65,7 @@ export default function AboutUs() {
                   lineHeight: 1.8,
                 }}
               >
-                India spends over ₹6 lakh crore every year on defence — and yet
+                India spends over $72 billion every year on defence — and yet
                 the software running its manufacturing operations was built
                 abroad, for foreign threats, foreign supply chains, and
                 foreign-scale budgets. We built Emithran to change that.
@@ -114,7 +114,7 @@ export default function AboutUs() {
                   lineHeight: 1,
                 }}
               >
-                ₹6L Cr+
+                $72B+
               </p>
               <p
                 style={{

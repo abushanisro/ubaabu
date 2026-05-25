@@ -72,8 +72,8 @@ function BOMGraph({ mode }) {
 
   // Cost labels per node for 'cost' mode
   const costLabels = {
-    root: '₹4.8Cr', n1: '₹1.2Cr', n2: '₹0.9Cr', n3: '₹2.1Cr',
-    n4: '₹0.3Cr', n5: '₹0.4Cr', n6: '₹0.2Cr', n7: '₹0.3Cr', n8: '₹1.1Cr', n9: '₹0.5Cr',
+    root: '$56K', n1: '$14K', n2: '$11K', n3: '$25K',
+    n4: '$3.5K', n5: '$4.8K', n6: '$2.4K', n7: '$3.5K', n8: '$13K', n9: '$6K',
   }
 
   // Supplier labels for 'supplier' mode
