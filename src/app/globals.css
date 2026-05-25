@@ -1,0 +1,207 @@
+@import "tailwindcss" source(none);
+@source "..";
+@import "tw-animate-css";
+
+:root {
+  --perspective-red-bg: #e89c9c;
+  --perspective-red-ring: 220, 130, 130;
+  --perspective-purple-bg: #b8a0db;
+  --perspective-purple-ring: 160, 120, 220;
+  --perspective-green-bg: #9fd68d;
+  --perspective-green-ring: 120, 200, 100;
+}
+
+@keyframes perspective-blur-in {
+  from { opacity: 0; filter: blur(10px); transform: translateY(6px); }
+  to   { opacity: 1; filter: blur(0);    transform: translateY(0); }
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: var(--font-sora), "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --background: #080808;
+  --foreground: #ffffff;
+
+  --card: #111111;
+  --card-foreground: #ffffff;
+
+  --popover: #111111;
+  --popover-foreground: #ffffff;
+
+  --primary: #ffffff;
+  --primary-foreground: #080808;
+
+  --secondary: #1a1a1a;
+  --secondary-foreground: #ffffff;
+
+  --muted: #1a1a1a;
+  --muted-foreground: rgba(255, 255, 255, 0.45);
+
+  --accent: #ffffff;
+  --accent-foreground: #080808;
+
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: #ffffff;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #ffffff;
+
+  /* Stats day/night gradients */
+  --sky-pre-dawn: linear-gradient(180deg, oklch(0.18 0.05 280) 0%, oklch(0.28 0.08 260) 100%);
+  --sky-sunrise:  linear-gradient(180deg, oklch(0.55 0.14 30) 0%, oklch(0.75 0.15 60) 100%);
+  --sky-daytime:  linear-gradient(180deg, oklch(0.78 0.12 230) 0%, oklch(0.92 0.06 220) 100%);
+  --sky-dusk:     linear-gradient(180deg, oklch(0.45 0.13 290) 0%, oklch(0.65 0.16 35) 100%);
+  --sky-sunset:   linear-gradient(180deg, oklch(0.35 0.12 300) 0%, oklch(0.55 0.18 30) 100%);
+  --sky-night:    linear-gradient(180deg, oklch(0.12 0.03 260) 0%, oklch(0.06 0.02 260) 100%);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+/* ---------- Marquee ---------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 40s linear infinite; }
+
+/* ---------- Stats section (day → night cycle) ---------- */
+.stats-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: oklch(0.96 0.005 260);
+}
+.stats-sky {
+  position: absolute; inset: 0;
+  background: var(--sky-night);
+  transition: background 1500ms ease;
+  z-index: -2;
+}
+.stats-sky[data-time="pre-dawn"] { background: var(--sky-pre-dawn); }
+.stats-sky[data-time="sunrise"]  { background: var(--sky-sunrise); }
+.stats-sky[data-time="daytime"]  { background: var(--sky-daytime); }
+.stats-sky[data-time="dusk"]     { background: var(--sky-dusk); }
+.stats-sky[data-time="sunset"]   { background: var(--sky-sunset); }
+.stats-sky[data-time="night"]    { background: var(--sky-night); }
+
+.stats-stage[data-time="daytime"] { color: oklch(0.15 0.02 260); }
+.stats-stage[data-time="sunrise"],
+.stats-stage[data-time="sunset"]  { color: oklch(0.15 0.02 260); }
+
+.stats-stars {
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, #fff, transparent 50%),
+    radial-gradient(1px 1px at 70% 20%, #fff, transparent 50%),
+    radial-gradient(1.5px 1.5px at 40% 60%, #fff, transparent 50%),
+    radial-gradient(1px 1px at 85% 70%, #fff, transparent 50%),
+    radial-gradient(1px 1px at 10% 80%, #fff, transparent 50%),
+    radial-gradient(1.5px 1.5px at 55% 15%, #fff, transparent 50%),
+    radial-gradient(1px 1px at 90% 40%, #fff, transparent 50%),
+    radial-gradient(1px 1px at 30% 50%, #fff, transparent 50%);
+  opacity: 0;
+  transition: opacity 1500ms ease;
+  z-index: -1;
+}
+.stats-stage[data-time="night"] .stats-stars,
+.stats-stage[data-time="pre-dawn"] .stats-stars { opacity: 0.7; }
+
+.stat-pill {
+  position: relative;
+  text-align: left;
+  padding: 1rem 0;
+  border-top: 1px solid currentColor;
+  opacity: 0.5;
+  transition: opacity 300ms ease;
+  width: 100%;
+}
+.stat-pill.active { opacity: 1; }
+.stat-pill::before {
+  content: "";
+  position: absolute; left: 0; top: -1px; height: 2px; width: 0;
+  background: currentColor;
+  transition: width 600ms ease;
+}
+.stat-pill.active::before { width: 100%; }
+
+/* ---------- Chips ---------- */
+.chip {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.3rem 0.8rem; border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.78rem; font-weight: 500;
+  color: rgba(255,255,255,0.7);
+}
+.chip-light {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.3rem 0.8rem; border-radius: 999px;
+  background: rgba(8,8,8,0.06);
+  border: 1px solid rgba(8,8,8,0.1);
+  font-size: 0.78rem; font-weight: 500;
+  color: rgba(8,8,8,0.55);
+}
+
+/* ---------- Fade-up ---------- */
+.fade-up           { opacity: 0; transform: translateY(16px); animation: fadeUp .8s ease forwards; }
+.fade-up-delay-1   { animation-delay: 0.1s; }
+.fade-up-delay-2   { animation-delay: 0.2s; }
+.fade-up-delay-3   { animation-delay: 0.35s; }
+.fade-up-delay-4   { animation-delay: 0.5s; }
+@keyframes fadeUp  { to { opacity: 1; transform: translateY(0); } }
+
+/* ---------- Grain texture ---------- */
+body::before {
+  content: '';
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 999;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #080808; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
