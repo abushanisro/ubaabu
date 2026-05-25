@@ -47,8 +47,11 @@ const sections = [
 ]
 
 // ─── BOM GRAPH — transforms based on active mode ─────────────────────────────
-function BOMGraph({ mode }) {
-  const nodes = [
+type Mode = 'cad' | 'cost' | 'supplier' | 'production' | 'delivery'
+type Node = { id: string; x: number; y: number; r: number; label: string }
+
+function BOMGraph({ mode }: { mode: Mode }) {
+  const nodes: Node[] = [
     { id: 'root', x: 280, y: 280, r: 32, label: 'ASSEMBLY' },
     { id: 'n1',   x: 120, y: 160, r: 22, label: 'FUSELAGE' },
     { id: 'n2',   x: 280, y: 100, r: 22, label: 'AVIONICS' },
@@ -68,16 +71,16 @@ function BOMGraph({ mode }) {
     ['n3','n8'],['n3','n9'],
   ]
 
-  const getNode = (id) => nodes.find(n => n.id === id)
+  const getNode = (id: string) => nodes.find(n => n.id === id)
 
   // Cost labels per node for 'cost' mode
-  const costLabels = {
+  const costLabels: Record<string, string> = {
     root: '$56K', n1: '$14K', n2: '$11K', n3: '$25K',
     n4: '$3.5K', n5: '$4.8K', n6: '$2.4K', n7: '$3.5K', n8: '$13K', n9: '$6K',
   }
 
   // Supplier labels for 'supplier' mode
-  const supplierLabels = {
+  const supplierLabels: Record<string, string> = {
     n1: 'BEL', n2: 'HAL', n3: 'DRDO', n4: 'MTAR', n5: 'L&T',
     n6: 'CENTUM', n7: 'DATA PAT.', n8: 'BHARAT FG', n9: 'APOLLO',
   }
@@ -86,10 +89,10 @@ function BOMGraph({ mode }) {
   const productionOrder = ['root','n1','n2','n3','n4','n5']
 
   // Node color logic
-  const getNodeStyle = (node) => {
+  const getNodeStyle = (node: Node) => {
     if (mode === 'cost') {
-      const costs = { root: 1, n3: 0.9, n8: 0.85, n1: 0.6, n2: 0.5 }
-      const intensity = costs[node.id] || 0.3
+      const costs: Record<string, number> = { root: 1, n3: 0.9, n8: 0.85, n1: 0.6, n2: 0.5 }
+      const intensity = costs[node.id] ?? 0.3
       return {
         stroke: `rgba(255,255,255,${0.3 + intensity * 0.6})`,
         strokeWidth: node.id === 'root' ? 1.8 : 1.2,
@@ -139,8 +142,8 @@ function BOMGraph({ mode }) {
 
       {/* Edges */}
       {edges.map(([from, to], i) => {
-        const a = getNode(from)
-        const b = getNode(to)
+        const a = getNode(from)!
+        const b = getNode(to)!
         const isActive = mode === 'production'
           ? productionOrder.includes(from) && productionOrder.includes(to)
           : true
@@ -274,7 +277,7 @@ function BOMGraph({ mode }) {
 export default function StickyFeatures() {
   const containerRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
-  const sectionRefs = useRef([])
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const observers = sectionRefs.current.map((ref, i) => {
@@ -312,7 +315,7 @@ export default function StickyFeatures() {
             {sections.map((section, i) => (
               <div
                 key={section.num}
-                ref={el => sectionRefs.current[i] = el}
+                ref={el => { sectionRefs.current[i] = el }}
                 className="min-h-screen flex flex-col justify-center py-24 border-b border-border last:border-0"
               >
                 {/* Big background number */}

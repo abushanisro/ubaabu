@@ -19,7 +19,9 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#0a0a0a] py-16">
+    <footer className="border-t border-white/10 bg-[#0a0a0a] py-16 relative">
+      <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08]" style={{ left: 64 }} />
+      <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08]" style={{ right: 64 }} />
       <div className="mx-auto max-w-[1280px] px-6">
         <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2 md:col-span-1">
