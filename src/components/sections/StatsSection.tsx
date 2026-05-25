@@ -58,8 +58,8 @@ export default function StatsSection() {
       <div className="stats-sky" data-time={time} />
       <div className="stats-stars" />
       {/* Column lines — match layout.tsx fixed lines but white for dark bg */}
-      <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08]" style={{ left: 64 }} />
-      <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08]" style={{ right: 64 }} />
+      <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08] hidden md:block" style={{ left: 64 }} />
+      <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08] hidden md:block" style={{ right: 64 }} />
 {/* ── Text content ── */}
       <div className="relative z-10 py-10 md:py-14">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-6 md:grid-cols-2 md:gap-20">

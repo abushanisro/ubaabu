@@ -76,7 +76,7 @@ export default function SupplierIntelligenceBanner() {
         </div>
 
         {/* RIGHT: product mockup + floating panels */}
-        <div className="relative mt-8 pb-16 pt-10 lg:mt-0 lg:pb-20 lg:pt-12">
+        <div className="relative mt-4 pb-4 pt-4 lg:mt-0 lg:pb-20 lg:pt-12">
 
           {/* ── Supplier Score card — top-right ── */}
           <div
@@ -215,7 +215,7 @@ export default function SupplierIntelligenceBanner() {
             {!played && (
               <button
                 onClick={() => setPlayed(true)}
-                className="absolute inset-0 flex flex-col items-center justify-center gap-4 transition hover:bg-black/5"
+                className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 transition hover:bg-black/5"
                 style={{ background: 'rgba(5,17,30,0.50)' }}
                 aria-label="Play supplier intelligence overview"
               >
@@ -232,7 +232,7 @@ export default function SupplierIntelligenceBanner() {
           </div>
 
           {/* ── Delivery Trend wave card — bottom-right ── */}
-          <div className="absolute -bottom-4 -right-2 z-20 w-56 overflow-hidden rounded-xl border border-white/10 shadow-2xl lg:-right-6 lg:bottom-6" style={{ background: '#0d1b2a' }}>
+          <div className="absolute -bottom-4 -right-2 z-20 w-56 overflow-hidden rounded-xl border border-white/10 shadow-2xl lg:-right-6 lg:bottom-6 hidden lg:block" style={{ background: '#0d1b2a' }}>
             <div className="flex items-center justify-between border-b border-white/8 px-4 py-2.5">
               <span className="text-sm font-semibold text-white">OTIF Trend</span>
               <div className="flex items-center gap-1.5">
@@ -269,7 +269,7 @@ export default function SupplierIntelligenceBanner() {
           </div>
 
           {/* ── Emithran AI panel — bottom-left ── */}
-          <div className="absolute -bottom-4 -left-2 z-20 w-72 overflow-hidden rounded-xl border border-white/10 shadow-2xl lg:-left-6 lg:bottom-6" style={{ background: '#0d1b2a' }}>
+          <div className="absolute -bottom-4 -left-2 z-20 w-72 overflow-hidden rounded-xl border border-white/10 shadow-2xl lg:-left-6 lg:bottom-6 hidden lg:block" style={{ background: '#0d1b2a' }}>
             <div className="flex items-center justify-between border-b border-white/8 px-4 py-2.5">
               <span className="text-sm font-semibold text-white">Emithran AI</span>
               <div className="flex items-center gap-1.5">

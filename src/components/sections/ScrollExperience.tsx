@@ -151,9 +151,13 @@ export default function ScrollExperience() {
       </div>
 
       {/* -- LEFT - text -- */}
-      <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-end pb-16 lg:pb-20 px-6 lg:px-16 z-10"
-        style={{ width: '42%' }}
-      >
+      <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-end pb-16 lg:pb-20 px-6 lg:px-16 z-20 w-full lg:w-[42%]">
+        {/* mobile gradient backdrop so text reads over the 3D model */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-3/4 lg:hidden pointer-events-none"
+          style={{ background: isDark ? 'linear-gradient(to top, rgba(8,8,8,0.97) 40%, rgba(8,8,8,0.7) 70%, transparent)' : 'linear-gradient(to top, rgba(232,228,220,0.97) 40%, rgba(232,228,220,0.7) 70%, transparent)', transition: 'background 0.9s ease' }}
+        />
+        <div className="relative">
         {/* Label */}
         <div
           key={`label-${active}`}
@@ -171,7 +175,7 @@ export default function ScrollExperience() {
           key={`headline-${active}`}
           className="font-display leading-none mb-7"
           style={{
-            fontSize: 'clamp(36px, 4.5vw, 68px)',
+            fontSize: 'clamp(28px, 4.5vw, 68px)',
             color: isDark ? '#ffffff' : '#111111',
             whiteSpace: 'pre-line',
             animation: 'fadeSlideUp 0.65s 0.05s ease forwards',
@@ -211,15 +215,16 @@ export default function ScrollExperience() {
             </li>
           ))}
         </ul>
+        </div>
       </div>
 
       {/* -- RIGHT - 3D turbine, takes 60% of width -- */}
       <div
-        className="absolute right-0 top-0 bottom-0 z-10"
+        className="absolute right-0 top-0 bottom-0 z-10 w-full lg:w-[62%] lg:border-l"
         style={{
-          width: '62%',
           height: '100%',
-          borderLeft: `1px solid ${isDark ? '#1a1a1a' : '#ccc8c0'}`,
+          borderLeftColor: isDark ? '#1a1a1a' : '#ccc8c0',
+          transition: 'border-color 0.9s ease',
         }}
       >
         <div style={{ width: '100%', height: '100%', position: 'relative' }}>

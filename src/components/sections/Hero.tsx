@@ -118,7 +118,7 @@ export default function Hero() {
         </div>
 
         {/* ── RIGHT: product mockup + floating panels ── */}
-        <div className="relative w-full pb-16 pt-10 lg:pb-20 lg:pt-12">
+        <div className="relative w-full pb-4 pt-6 lg:pb-20 lg:pt-12">
 
           {/* ── VAVE Analysis card — top-right ── */}
           <Perspective
@@ -216,7 +216,7 @@ export default function Hero() {
           {/* ── Live Signal wave card — bottom-right ── */}
           <Perspective
             maxRotateX={10} maxRotateY={18} smoothing={0.1}
-            className="absolute -bottom-4 -right-2 z-20 w-56 lg:-right-6 lg:bottom-6"
+            className="absolute -bottom-4 -right-2 z-20 w-56 lg:-right-6 lg:bottom-6 hidden lg:block"
             cardClassName="overflow-hidden rounded-xl border border-white/10 shadow-2xl"
             cardStyle={{ background: 'linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%)' }}
           >

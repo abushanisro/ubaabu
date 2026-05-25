@@ -51,21 +51,12 @@ export default function Differentiation() {
             Intelligence.
           </h2>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              border: "1px solid #1f1f1f",
-            }}
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 border-t border-l border-[#1f1f1f]">
             {cols.map((c, i) => (
               <div
                 key={i}
-                style={{
-                  padding: "2.5rem 2rem",
-                  borderRight: i < 3 ? "1px solid #1f1f1f" : "none",
-                  background: c.highlight ? "#111111" : "transparent",
-                }}
+                className="border-b border-r border-[#1f1f1f] px-6 py-8 md:px-8 md:py-10"
+                style={{ background: c.highlight ? "#111111" : "transparent" }}
               >
                 <p
                   style={{
