@@ -1,7 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { Pause, Play, Sun, Moon } from 'lucide-react'
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
 
 const ManufacturingViz = dynamic(
@@ -61,19 +60,7 @@ export default function StatsSection() {
       {/* Column lines — match layout.tsx fixed lines but white for dark bg */}
       <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08]" style={{ left: 64 }} />
       <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08]" style={{ right: 64 }} />
-      {/* Logo banner watermark */}
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center z-0">
-        <Image
-          src="/assets/logo/logo-white.png"
-          alt=""
-          width={420}
-          height={420}
-          className="opacity-[0.04] invert select-none"
-          draggable={false}
-        />
-      </div>
-
-      {/* ── Text content ── */}
+{/* ── Text content ── */}
       <div className="relative z-10 py-10 md:py-14">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-6 md:grid-cols-2 md:gap-20">
           <div>

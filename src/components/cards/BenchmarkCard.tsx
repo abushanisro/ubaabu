@@ -33,7 +33,7 @@ const MAX_V = 120450;
 export function BenchmarkCard() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
-  const replayTimer = useRef<ReturnType<typeof setTimeout>>();
+  const replayTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     const el = ref.current;

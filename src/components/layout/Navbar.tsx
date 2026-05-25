@@ -19,9 +19,9 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/8 bg-white/60 backdrop-blur-md">
       <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" prefetch={false} className="flex items-center gap-2.5">
-          <img src="/assets/logo/logo-black.png" alt="Emithran" className="h-8 w-8" />
-          <span className="font-display text-base font-semibold tracking-tight text-[#080808]">
+        <Link href="/" prefetch={false} className="flex items-center gap-1.5">
+          <img src="/assets/logo/logo-white.png" alt="Emithran" className="h-8 w-8" />
+          <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">
             EMITHRAN
           </span>
         </Link>
