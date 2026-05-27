@@ -420,7 +420,6 @@ function BentoSystemCard() {
       ref={cardRef}
       className="mt-8 relative rounded-2xl group"
       style={{
-        animation: "fadeUp 0.7s 600ms both",
         background: "linear-gradient(135deg, oklch(0.84 0.10 185) 0%, oklch(0.89 0.07 178) 35%, oklch(0.93 0.05 180) 65%, oklch(0.97 0.02 182) 100%)",
         boxShadow: "0 4px 40px oklch(0.68 0.13 180 / 0.25), 0 1px 0 white inset",
         border: "1px solid oklch(0.78 0.09 180 / 0.4)",
@@ -680,7 +679,7 @@ export default function PlatformShowcase() {
   return (
     <section className="platform-showcase bg-white">
       <div className="px-6 md:px-12 py-16 md:py-20 max-w-[1400px] mx-auto">
-        <header className="mb-12 max-w-4xl" style={{ animation: "fadeUp 0.7s both" }}>
+        <header className="mb-12 max-w-4xl">
           <p className="text-2xl md:text-4xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900">
             Precision at every stage of{" "}
             <AnimatedText
@@ -698,12 +697,10 @@ export default function PlatformShowcase() {
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cards.map((c, i) => (
-            <div key={c.title} style={{ animation: `fadeUp 0.6s ${i * 70}ms both` }}>
-              <ManufacturingCard title={c.title} description={c.desc} onClick={() => setActive(c)}>
-                {c.body}
-              </ManufacturingCard>
-            </div>
+          {cards.map((c) => (
+            <ManufacturingCard key={c.title} title={c.title} description={c.desc} onClick={() => setActive(c)}>
+              {c.body}
+            </ManufacturingCard>
           ))}
         </div>
 
