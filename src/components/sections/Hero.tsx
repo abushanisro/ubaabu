@@ -1,8 +1,9 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GradientRibbon } from '@/components/GradientRibbon'
 import { Typewriter } from '@/components/ui/typewriter'
 import { Perspective } from '@/components/ui/perspective-highlight'
+import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
 
 const FEATURES = [
   'BOM to Supplier',
@@ -53,10 +54,7 @@ function LiveSavings() {
 }
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [playing, setPlaying] = useState(false)
-
-  const handlePlay = () => setPlaying(true)
+  const [videoOpen, setVideoOpen] = useState(false)
 
   return (
     <section className="relative bg-white">
@@ -71,8 +69,8 @@ export default function Hero() {
         .hds-btn-primary:hover { opacity:0.85; }
         .hds-btn-primary .arrow-line { transition:transform 0.2s ease; }
         .hds-btn-primary:hover .arrow-line { transform:translateX(2px); }
-        .hds-btn-secondary { display:inline-flex; align-items:center; gap:8px; background:#fff; color:#425466; border:1px solid rgba(0,0,0,0.15); border-radius:6px; padding:10px 20px; font-size:14px; font-weight:500; cursor:pointer; text-decoration:none; transition:background 0.2s, border-color 0.2s, color 0.2s; }
-        .hds-btn-secondary:hover { background:oklch(0.95 0.04 180); border-color:oklch(0.68 0.13 180); color:oklch(0.45 0.14 185); }
+        .hds-btn-secondary { display:inline-flex; align-items:center; gap:8px; background:transparent; color:oklch(0.55 0.14 182); border:1.5px solid oklch(0.68 0.13 180); border-radius:6px; padding:10px 20px; font-size:14px; font-weight:600; cursor:pointer; text-decoration:none; transition:background 0.2s, color 0.2s; }
+        .hds-btn-secondary:hover { background:oklch(0.96 0.04 180); color:oklch(0.45 0.14 185); }
       `}</style>
 
       <div className="relative mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-6 pt-24 pb-10 lg:grid-cols-2 lg:gap-10 lg:pt-28 lg:pb-12">
@@ -107,10 +105,10 @@ export default function Hero() {
                 <path className="arrow-line" d="M1.5 1.5l4 4-4 4" />
               </svg>
             </a>
-            <button onClick={handlePlay} className="hds-btn-secondary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#425466" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <button onClick={() => setVideoOpen(true)} className="hds-btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.14 182)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
-                <polygon points="10 8 16 12 10 16 10 8" fill="#425466" stroke="none" />
+                <polygon points="10 8 16 12 10 16 10 8" fill="oklch(0.55 0.14 182)" stroke="none" />
               </svg>
               Watch Overview
             </button>
@@ -166,57 +164,24 @@ export default function Hero() {
             </div>
           </Perspective>
 
-          {/* Main product card — 3d-drawing.png thumbnail with play overlay */}
+          {/* Main product card — HeroVideoDialog */}
           <div className="relative overflow-hidden rounded-2xl shadow-[0_32px_80px_rgba(0,0,0,0.22)]">
-            <img
-              src="/assets/hero-page/3d-drawing.png"
-              alt="Emithran platform preview"
-              className="block w-full object-cover"
-              style={{ aspectRatio: '16/10' }}
+            <HeroVideoDialog
+              animationStyle="from-center"
+              videoSrc="/videos/emithran.mp4"
+              thumbnailSrc="/assets/hero-page/3d-drawing.png"
+              thumbnailAlt="Emithran platform preview"
+              isOpen={videoOpen}
+              onOpenChange={setVideoOpen}
+              className="[&_img]:rounded-none [&_img]:border-0 [&_img]:shadow-none"
             />
-            {/* dark tint so play button pops */}
-            <div className="absolute inset-0" style={{ background: 'rgba(6,14,26,0.38)' }} />
 
-            {/* Play button — always on top */}
-            <button
-              onClick={handlePlay}
-              className="absolute inset-0 z-10 flex items-center justify-center transition-all"
-              aria-label="Play demo video"
-            >
-              <span
-                className="flex h-16 w-16 items-center justify-center rounded-full transition-transform hover:scale-110"
-                style={{
-                  background: 'linear-gradient(135deg, oklch(0.78 0.13 175), oklch(0.55 0.16 185))',
-                  boxShadow: '0 8px 40px oklch(0.68 0.13 180 / 0.6)',
-                }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-                  <polygon points="6 3 20 12 6 21 6 3" />
-                </svg>
-              </span>
-            </button>
-
-            {/* Live Signal bar — bottom of product card */}
-            <div className="absolute bottom-0 left-0 right-0 z-10 flex items-center justify-between px-4 py-3" style={{ background: 'linear-gradient(to top, #000000 0%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.0) 100%)' }}>
-              <div className="flex items-center gap-3">
-                <span className="flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-                  <span className="text-xs font-semibold text-white">Live Signal</span>
-                </span>
-                <span className="text-[10px] font-medium text-teal-400">AI Agent</span>
-              </div>
-              <div className="flex items-center gap-4 text-[10px] text-white/40">
-                <span>Production · Batch A-2410</span>
-                <span className="text-white/60">120 Hz</span>
-                <span className="font-medium text-white/80">99.4% OTI</span>
-              </div>
-            </div>
           </div>
 
-          {/* ── Live Signal wave card — bottom-right ── */}
+          {/* ── Live Signal wave card — bottom-left ── */}
           <Perspective
             maxRotateX={10} maxRotateY={18} smoothing={0.1}
-            className="absolute -bottom-4 -right-2 z-20 w-56 lg:-right-6 lg:bottom-6 hidden lg:block"
+            className="absolute -bottom-4 -left-2 z-20 w-56 lg:-left-6 lg:bottom-6 hidden lg:block"
             cardClassName="overflow-hidden rounded-xl border border-white/10 shadow-2xl"
             cardStyle={{ background: 'linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%)' }}
           >
@@ -257,38 +222,6 @@ export default function Hero() {
 
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
-      {/* ── Full-screen video modal ── */}
-      {playing && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ background: 'rgba(0,0,0,0.92)' }}
-          onClick={() => setPlaying(false)}
-        >
-          <button
-            onClick={() => setPlaying(false)}
-            className="absolute top-5 right-6 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:bg-white/20"
-            aria-label="Close video"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-              <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-          <div
-            className="relative w-full max-w-7xl mx-6 overflow-hidden rounded-2xl shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <video
-              ref={videoRef}
-              src="/videos/emithran.mp4"
-              poster="/assets/hero-page/3d-drawing.png"
-              controls
-              autoPlay
-              className="w-full"
-              onEnded={() => setPlaying(false)}
-            />
-          </div>
-        </div>
-      )}
     </section>
   )
 }

@@ -197,6 +197,13 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ---------- Integration Connect logo flip ---------- */
+@keyframes integrationFlip {
+  0%, 42%  { transform: rotateX(0deg); }
+  50%, 92% { transform: rotateX(180deg); }
+  100%     { transform: rotateX(0deg); }
+}
+
 /* ---------- Grain texture ---------- */
 body::before {
   content: '';
