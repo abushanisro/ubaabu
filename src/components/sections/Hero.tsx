@@ -4,6 +4,7 @@ import { GradientRibbon } from '@/components/GradientRibbon'
 import { Typewriter } from '@/components/ui/typewriter'
 import { Perspective } from '@/components/ui/perspective-highlight'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
+import AnimatedTextCycle from '@/components/ui/animated-text-cycle'
 
 const FEATURES = [
   'BOM to Supplier',
@@ -73,13 +74,19 @@ export default function Hero() {
         .hds-btn-secondary:hover { background:oklch(0.96 0.04 180); color:oklch(0.45 0.14 185); }
       `}</style>
 
-      <div className="relative mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-6 pt-24 pb-10 lg:grid-cols-2 lg:gap-10 lg:pt-28 lg:pb-12">
+      <div className="relative mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-6 pt-20 pb-8 lg:grid-cols-2 lg:gap-10 lg:pt-28 lg:pb-12">
 
         {/* ── LEFT: copy ── */}
         <div className="w-full max-w-[560px]">
           <LiveSavings />
           <h1 className="text-[32px] font-bold leading-[1.08] tracking-tight text-[#0a0a0a] md:text-[40px] lg:text-[50px]">
-            End-to-End Manufacturing Intelligence
+            End-to-End{' '}
+            <AnimatedTextCycle
+              words={['Manufacturing', 'Procurement', 'Supplier', 'Production', 'Aerospace', 'Defence']}
+              interval={2800}
+              className="text-[#0d9e8a]"
+            />{' '}
+            Intelligence
           </h1>
           <p className="mt-3 text-[17px] font-semibold md:text-[19px]" style={{ minHeight: '1.6em' }}>
             <span className="text-black/45">AI for </span>
@@ -116,7 +123,7 @@ export default function Hero() {
         </div>
 
         {/* ── RIGHT: product mockup + floating panels ── */}
-        <div className="relative w-full pb-4 pt-6 lg:pb-20 lg:pt-12">
+        <div className="relative w-full pb-4 pt-4 lg:pb-20 lg:pt-12">
 
           {/* ── VAVE Analysis card — top-right ── */}
           <Perspective

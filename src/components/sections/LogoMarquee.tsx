@@ -14,14 +14,19 @@ const logos = [
 export default function LogoMarquee() {
   const row = [...logos, ...logos, ...logos, ...logos]
   return (
-    <section className="border-y border-black/[0.06] bg-white py-6">
+    <section className="border-y border-black/[0.06] bg-white pt-8 pb-6">
+      <p className="text-center text-[13px] md:text-[15px] leading-snug mb-6 px-6">
+        <span className="font-bold text-[#0d1117]">Trusted by India's leading aerospace, defence, and manufacturing teams.</span>
+        {' '}
+        <span className="font-normal text-[#64748b]">From defence OEMs to deep-tech startups, Emithran powers the platforms that matter.</span>
+      </p>
       <style>{`
         @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-25%) } }
         .marquee-logos { animation: marquee 32s linear infinite; will-change: transform; }
         .logo-img { opacity: 0.85; }
       `}</style>
-      <div className="overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent 64px, black 64px, black calc(100% - 64px), transparent calc(100% - 64px))', WebkitMaskImage: 'linear-gradient(to right, transparent 64px, black 64px, black calc(100% - 64px), transparent calc(100% - 64px))' }}>
-        <div className="marquee-logos flex w-max items-center gap-12">
+      <div className="overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent clamp(24px,5vw,64px), black clamp(24px,5vw,64px), black calc(100% - clamp(24px,5vw,64px)), transparent calc(100% - clamp(24px,5vw,64px)))', WebkitMaskImage: 'linear-gradient(to right, transparent clamp(24px,5vw,64px), black clamp(24px,5vw,64px), black calc(100% - clamp(24px,5vw,64px)), transparent calc(100% - clamp(24px,5vw,64px)))' }}>
+        <div className="marquee-logos flex w-max items-center gap-8 md:gap-12">
           {row.map((logo, i) => (
             <img
               key={i}

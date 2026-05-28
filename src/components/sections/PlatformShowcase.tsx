@@ -423,7 +423,7 @@ function BentoSystemCard() {
         background: "linear-gradient(135deg, oklch(0.84 0.10 185) 0%, oklch(0.89 0.07 178) 35%, oklch(0.93 0.05 180) 65%, oklch(0.97 0.02 182) 100%)",
         boxShadow: "0 4px 40px oklch(0.68 0.13 180 / 0.25), 0 1px 0 white inset",
         border: "1px solid oklch(0.78 0.09 180 / 0.4)",
-        minHeight: 340,
+        minHeight: 'clamp(240px, 40vw, 340px)',
       }}
       onMouseMove={handleMouseMove}
     >
@@ -521,7 +521,7 @@ function BentoSystemCard() {
             <X className="w-4 h-4" />
           </button>
 
-          <div className="overflow-y-auto no-scrollbar" style={{ height: "100%" }}>
+          <div className="overflow-y-auto no-scrollbar pb-6" style={{ height: "100%" }}>
 
             {/* ── Section 1: 2-col hero ── */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 md:px-10 pt-10 pb-8">
@@ -680,7 +680,7 @@ export default function PlatformShowcase() {
     <section className="platform-showcase bg-white">
       <div className="px-6 md:px-12 py-16 md:py-20 max-w-[1400px] mx-auto">
         <header className="mb-12 max-w-4xl">
-          <p className="text-2xl md:text-4xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900">
+          <p className="text-xl md:text-2xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900">
             Precision at every stage of{" "}
             <AnimatedText
               text="manufacturing."
@@ -733,7 +733,7 @@ export default function PlatformShowcase() {
               <X className="w-4 h-4" />
             </button>
 
-            <div className="overflow-y-auto no-scrollbar" style={{ height: "100%" }}>
+            <div className="overflow-y-auto no-scrollbar pb-6" style={{ height: "100%" }}>
 
               {/* ── Section 1: 2-col hero ── */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 md:px-10 pt-10 pb-8">

@@ -20,7 +20,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" prefetch={false} className="flex items-center gap-1.5">
-          <img src="/assets/logo/logo-white.png" alt="Emithran" className="h-8 w-8" />
+          <img src="/assets/logo/logo-black.png" alt="Emithran" className="h-8 w-8" />
           <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">
             EMITHRAN
           </span>
@@ -43,20 +43,17 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="#"
-            className="text-sm font-medium transition-colors"
-            style={{ color: "oklch(0.52 0.12 185)" }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = "0.75")}
-            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
+            href="/contact"
+            className="rounded-md border border-black/15 px-4 py-2 text-sm font-semibold text-[#0d1117] hover:bg-black/[0.04] transition-colors whitespace-nowrap"
           >
-            Sign in
+            Contact Us
           </a>
           <a
             href="#demo"
             className="rounded-md px-4 py-2 text-sm font-semibold text-white hover:opacity-85 transition-opacity whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
           >
-            Contact sales →
+            Request a Demo
           </a>
         </div>
 
@@ -84,12 +81,19 @@ export default function Navbar() {
             </a>
           ))}
           <a
+            href="/contact"
+            className="mt-2 block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-[#0d1117] border border-black/15 hover:bg-black/[0.04] transition-colors"
+            onClick={() => setOpen(false)}
+          >
+            Contact Us
+          </a>
+          <a
             href="#demo"
             className="mt-2 block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-white hover:opacity-85 transition-opacity"
             style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
             onClick={() => setOpen(false)}
           >
-            Contact sales →
+            Request a Demo
           </a>
         </div>
       )}

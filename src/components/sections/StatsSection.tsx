@@ -24,14 +24,11 @@ const stats = [
     value: '99.4%',
     label: 'BOM accuracy rate across active defence and aerospace programmes on the platform',
   },
-  {
-    value: '01',
-    label: 'Indian-built end-to-end manufacturing intelligence platform — built for Atmanirbhar Bharat',
-  },
 ]
 
 export default function StatsSection() {
   const [active, setActive] = useState(2)
+  const [hovered, setHovered] = useState<number | null>(null)
   const [time, setTime] = useState<Time>('night')
   const [playing, setPlaying] = useState(true)
   const intRef = useRef<ReturnType<typeof setInterval> | null>(null)
@@ -64,8 +61,8 @@ export default function StatsSection() {
       <div className="relative z-10 py-10 md:py-14">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-6 md:grid-cols-2 md:gap-20">
           <div>
-            <h2 className="max-w-md text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              The intelligence layer for Indian manufacturing.
+            <h2 className="max-w-md text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-6xl">
+              The intelligence layer for Every manufacturing.
             </h2>
             <div className="mt-8 flex items-center gap-2">
               <button
@@ -92,11 +89,14 @@ export default function StatsSection() {
                 <li key={s.value}>
                   <button
                     className={`stat-pill ${i === active ? 'active' : ''}`}
-                    onMouseEnter={() => setActive(i)}
+                    onMouseEnter={() => setHovered(i)}
+                    onMouseLeave={() => setHovered(null)}
+                    onTouchStart={() => setHovered(hovered === i ? null : i)}
+                    onTouchEnd={() => setHovered(null)}
                     onClick={() => setActive(i)}
                   >
-                    <p className="font-display text-5xl font-medium md:text-6xl">{s.value}</p>
-                    {i === active && (
+                    <p className="font-display text-4xl font-medium md:text-5xl lg:text-6xl">{s.value}</p>
+                    {(i === active || i === hovered) && (
                       <p className="mt-2 text-sm opacity-80 md:text-base">{s.label}</p>
                     )}
                   </button>
@@ -107,12 +107,9 @@ export default function StatsSection() {
         </div>
       </div>
 
-      {/* ── Animation — separate block below text ── */}
-      <div className="pointer-events-none relative z-0 w-full -mt-16" style={{ paddingLeft: 64, paddingRight: 64 }}>
-        <div
-          className="relative w-full"
-          style={{ aspectRatio: '5 / 1' }}
-        >
+      {/* ── Animation — taller on mobile, wider cinematic on desktop ── */}
+      <div className="pointer-events-none relative z-0 w-full -mt-10 md:-mt-16" style={{ paddingLeft: 'clamp(16px, 5vw, 64px)', paddingRight: 'clamp(16px, 5vw, 64px)' }}>
+        <div className="relative w-full aspect-[2/1] md:aspect-[5/1]">
           <ManufacturingViz index={active as 0 | 1 | 2 | 3} time={time} playing={playing} />
         </div>
       </div>
