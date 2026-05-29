@@ -15,12 +15,7 @@ export default function LogoMarquee() {
   const row = [...logos, ...logos, ...logos, ...logos]
   return (
     <section className="border-y border-black/[0.06] bg-white pt-8 pb-6">
-      <p className="text-center text-[13px] md:text-[15px] leading-snug mb-6 px-6">
-        <span className="font-bold text-[#0d1117]">Trusted by India's leading aerospace, defence, and manufacturing teams.</span>
-        {' '}
-        <span className="font-normal text-[#64748b]">From defence OEMs to deep-tech startups, Emithran powers the platforms that matter.</span>
-      </p>
-      <style>{`
+<style>{`
         @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-25%) } }
         .marquee-logos { animation: marquee 32s linear infinite; will-change: transform; }
         .logo-img { opacity: 0.85; }
