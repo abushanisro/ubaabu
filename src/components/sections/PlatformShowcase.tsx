@@ -683,9 +683,9 @@ export default function PlatformShowcase() {
       className="platform-showcase"
       style={{
         backgroundColor: '#ffffff',
-        backgroundImage: 'url(/assets/cards/projectcard.svg), url(/assets/cards/demo.svg)',
-        backgroundSize: '100% auto, 100% auto',
-        backgroundPosition: 'center -120px, bottom center',
+        backgroundImage: 'url(/assets/cards/demo.svg)',
+        backgroundSize: '100% auto',
+        backgroundPosition: 'bottom center',
         backgroundRepeat: 'no-repeat',
       }}
     >

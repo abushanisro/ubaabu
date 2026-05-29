@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 import dynamic from 'next/dynamic'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { PartType } from '@/components/three/CncPartViewer'
@@ -31,88 +32,88 @@ const modules: Module[] = [
     group: 'DESIGN',
     title: 'BOM Composer',
     part: 'bracket',
-    desc: 'Automatically generate and maintain multi-level Bills of Materials using AI — linking parts, drawings, and revisions with zero manual overhead.',
+    desc: 'Generate accurate multi-level BOMs from CAD files with zero manual entry.',
     features: ['AI-assisted BOM generation from CAD and specs', 'Auto-linked revisions and engineering change orders', 'Real-time cross-team BOM synchronisation'],
-    cta: 'Explore AI BOM Engine',
+    cta: 'Read more',
   },
   {
     id: 'process',
     group: 'DESIGN',
     title: 'Should-Cost Engine',
     part: 'shaft',
-    desc: 'AI builds a ground-up should-cost model for every part — routing, machine time, material, and overhead — so you negotiate from data, not gut feel.',
+    desc: 'Build a ground-up cost model for every part before a single supplier quote arrives.',
     features: ['AI process routing and cycle-time estimation', 'Live material and machine cost benchmarks', 'Instant OEM vs. supplier cost comparison'],
-    cta: 'Explore Should-Cost Modeler',
+    cta: 'Read more',
   },
   {
     id: 'vave',
     group: 'DESIGN',
     title: 'VAVE Studio',
     part: 'blade',
-    desc: 'AI generates targeted VAVE ideas using SCAMPER and TRIZ — grounded in your should-cost data and ranked by savings potential.',
+    desc: 'Surface AI-ranked cost-reduction ideas grounded in your live should-cost data.',
     features: ['AI idea engine via SCAMPER and TRIZ frameworks', 'Savings ranked against live should-cost benchmarks', 'End-to-end idea-to-approval tracking'],
-    cta: 'Explore AI Value Engineering',
+    cta: 'Read more',
   },
   {
     id: 'eval',
     group: 'BUILD',
     title: 'Supplier Radar',
     part: 'housing',
-    desc: 'AI scores supplier capability across technical, financial, and quality dimensions — shortlisting the best-fit partners before you send a single RFQ.',
+    desc: 'Score suppliers on capability and risk before you send a single RFQ.',
     features: ['AI technical feasibility and risk scoring', 'Automated supplier shortlist generation', 'Bulk RFQ dispatch with response consolidation'],
-    cta: 'Explore AI Supplier Scoring',
+    cta: 'Read more',
   },
   {
     id: 'nom',
     group: 'BUILD',
     title: 'Vendor Match',
     part: 'valve',
-    desc: 'AI weighs cost, quality, delivery, and technology signals to surface the optimal supplier nomination — with a full audit trail for compliance.',
+    desc: 'AI-ranked nominations across cost, quality, delivery, and technology fit.',
     features: ['AI multi-criteria supplier ranking', 'Explainable nomination recommendation', 'Compliance-ready decision audit trail'],
-    cta: 'Explore AI Nomination Engine',
+    cta: 'Read more',
   },
   {
     id: 'prod',
     group: 'BUILD',
     title: 'Launch Tracker',
     part: 'flange',
-    desc: 'AI schedules and tracks every production milestone — from ISIR to mass production — flagging delays before they become disruptions.',
+    desc: 'Track every milestone from ISIR to mass production with automatic delay alerts.',
     features: ['AI-driven milestone scheduling and alerts', 'ISIR, PPAP, and lot sign-off automation', 'Cross-functional production visibility dashboard'],
-    cta: 'Explore AI Production Planner',
+    cta: 'Read more',
   },
   {
     id: 'quality',
     group: 'BUILD',
     title: 'Quality Guard',
     part: 'fitting',
-    desc: 'AI-guided inspection protocols detect defect patterns early and auto-generate PPAP and APQP documentation — keeping quality scores consistently high.',
+    desc: 'Detect defect patterns early and auto-generate PPAP and APQP documentation.',
     features: ['AI defect pattern detection and root cause', 'Smart inspection plan generation', 'Automated PPAP and APQP compliance docs'],
-    cta: 'Explore AI Quality Intelligence',
+    cta: 'Read more',
   },
   {
     id: 'delivery',
     group: 'SHIP',
     title: 'Shipment Hub',
     part: 'connector',
-    desc: 'AI monitors shipments end-to-end, predicts delays, and auto-generates customs documentation — giving ops teams one live view of every delivery.',
+    desc: 'Monitor every delivery in real time with AI-predicted delay alerts.',
     features: ['AI shipment delay prediction and alerts', 'Automated packing list and label generation', 'Customs documentation and compliance checks'],
-    cta: 'Explore AI Logistics Tracker',
+    cta: 'Read more',
   },
   {
     id: 'bench',
     group: 'SHIP',
     title: 'Cost Benchmarker',
     part: 'assembly',
-    desc: 'AI overlays BOMs across projects and OEMs to instantly surface cost outliers, repeating patterns, and high-impact VAVE opportunities.',
+    desc: 'Diff BOMs across projects to instantly surface cost outliers and savings opportunities.',
     features: ['AI cross-project BOM cost diffing', 'Top cost-driver identification by category', 'One-click conversion to VAVE pipeline'],
-    cta: 'Explore AI Benchmark Intelligence',
+    cta: 'Read more',
   },
 ]
 
-const GROUPS: { id: Group; label: string }[] = [
-  { id: 'DESIGN', label: 'DESIGN' },
-  { id: 'BUILD',  label: 'BUILD'  },
-  { id: 'SHIP',   label: 'SHIP'   },
+const GROUPS: { id: Group; label: string; tags: string[]; headline: string }[] = [
+  { id: 'DESIGN', label: 'DESIGN', tags: [], headline: 'Cut cost before a single part is made.' },
+  { id: 'BUILD',  label: 'BUILD',  tags: [], headline: 'Find the right supplier. Hit every milestone.' },
+  { id: 'SHIP',   label: 'SHIP',   tags: [], headline: 'Full visibility from factory to delivery.' },
 ]
 
 // ── Curly brace SVG (outer AI bracket) ────────────────────────
@@ -176,41 +177,12 @@ function BracketSvg({ id, colorFrom = '#0a7a6a', colorTo = '#0d9e8a' }: { id: st
 // ── Main section ──────────────────────────────────────────────
 
 export default function ProductIntelligence() {
-  const wrapperRef = useRef<HTMLDivElement>(null)
   const [activeId, setActiveId] = useState('bom')
 
   const activeModule = modules.find((m) => m.id === activeId) ?? modules[0]
 
-  // Scroll → active module (desktop only)
-  useEffect(() => {
-    const onScroll = () => {
-      const el = wrapperRef.current
-      if (!el) return
-      const { top, height } = el.getBoundingClientRect()
-      const scrollable = height - window.innerHeight
-      if (scrollable <= 0) return
-      const progress = Math.max(0, Math.min(1, -top / scrollable))
-      const idx = Math.min(modules.length - 1, Math.floor(progress * modules.length))
-      const next = modules[idx].id
-      setActiveId(next)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const handleSelect = (id: string) => setActiveId(id)
 
-  // Click a module → scroll to its band midpoint (desktop)
-  const handleSelect = (id: string) => {
-    const el = wrapperRef.current
-    if (!el) return
-    const idx = modules.findIndex((m) => m.id === id)
-    if (idx < 0) return
-    const scrollable = el.offsetHeight - window.innerHeight
-    const bandMid = (idx / modules.length) * scrollable + scrollable / (modules.length * 2)
-    window.scrollTo({ top: el.offsetTop + bandMid, behavior: 'smooth' })
-  }
-
-  // Mobile accordion toggle
   const handleMobileToggle = (id: string) => {
     setActiveId((cur) => (cur === id ? '' : id))
   }
@@ -220,20 +192,6 @@ export default function ProductIntelligence() {
       {/* ── Mobile accordion (< lg) ── */}
       <section className="lg:hidden bg-white pt-16 pb-10 border-t border-black/[0.06]">
         <div className="px-6">
-          {/* Header */}
-          <div className="mb-14">
-            <h3 className="text-xl font-bold leading-[1.2] tracking-tight text-[#111827]">
-              Product Intelligence from{' '}
-              <em className="not-italic text-[#0d9e8a]">Design</em>
-              {' '}to{' '}
-              <em className="not-italic text-[#0d9e8a]">Build</em>
-              {' '}to{' '}
-              <em className="not-italic text-[#0d9e8a]">Ship</em>
-            </h3>
-            <span className="mt-2 block text-[13px] leading-relaxed text-[#64748b]">
-              For engineering, procurement, manufacturing, and supply chain teams looking to transform how they develop products, reduce costs, and win profitable business.
-            </span>
-          </div>
 
           {/* Grouped accordion */}
           {GROUPS.map((g) => (
@@ -305,17 +263,11 @@ export default function ProductIntelligence() {
                               className="inline-flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-70"
                               style={{ color: '#0d9e8a' }}
                             >
-                              {mod.cta}
+                              Read more
                               <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" className="w-3.5 h-3.5">
                                 <path d="M5 12H19" /><path d="M13 6L19 12L13 18" />
                               </svg>
                             </a>
-                            <button className="inline-flex items-center gap-2 rounded-full border border-black/15 px-4 py-1.5 text-xs font-medium text-[#555]">
-                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
-                                <circle cx="12" cy="12" r="10" /><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
-                              </svg>
-                              Watch Overview
-                            </button>
                           </div>
                         </div>
                       </div>
@@ -328,192 +280,103 @@ export default function ProductIntelligence() {
         </div>
       </section>
 
-      {/* ── Desktop sticky scroll (lg+) ── */}
-      <div ref={wrapperRef} className="hidden lg:block" style={{ height: `calc(${modules.length * 60}vh + 100vh)` }}>
+      {/* ── Desktop (lg+) ── */}
+      <div className="hidden lg:block">
+        <section className="bg-white text-[#0a0a0a] py-24">
 
-        <section className="sticky top-0 h-screen overflow-hidden bg-white text-[#0a0a0a]">
-          {/* Column lines */}
-          <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-black/[0.06]" style={{ left: 64 }} />
-          <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-black/[0.06]" style={{ right: 64 }} />
+          {/* ── Centered section title ── */}
+          <div className="text-center mb-16 px-6 max-w-4xl mx-auto">
+            <p className="text-xl md:text-2xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900 mb-4">
+              AI Product Intelligence from Design to{' '}
+              <AnimatedText
+                text="Build."
+                textClassName="text-gray-900 font-bold"
+                underlineColor="oklch(0.68 0.13 180)"
+                underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
+                underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
+                underlineDuration={1.8}
+              />
+            </p>
+            <p className="text-base lg:text-lg font-normal text-gray-400 leading-relaxed">
+              For engineering, procurement, and supply chain teams. From first design to final delivery.
+            </p>
+          </div>
 
-          {/* Subtle radial glow */}
-          <div aria-hidden className="pointer-events-none absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 50% at 30% 50%, rgba(72,210,190,0.06) 0%, transparent 70%)' }} />
+          {/* ── Rows: one per group ── */}
+          <div className="mx-auto max-w-[1280px] px-6 md:px-12 space-y-32">
+            {GROUPS.map((g, gi) => {
+              const groupModules = modules.filter((m) => m.group === g.id)
+              const firstMod = groupModules[0]
+              const isReversed = gi % 2 !== 0
+              return (
+                <div
+                  key={g.id}
+                  className={`grid grid-cols-2 gap-16 xl:gap-24 items-center ${isReversed ? 'direction-rtl' : ''}`}
+                  style={{ direction: isReversed ? 'rtl' : 'ltr' }}
+                >
+                  {/* Text */}
+                  <div style={{ direction: 'ltr' }}>
+                    {/* 4-pointed sparkle */}
+                    <svg viewBox="0 0 24 24" className="w-6 h-6 mb-5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 3C12 3 12.8 8.2 15.5 10.5C17.8 12.5 21 12 21 12C21 12 17.8 11.5 15.5 13.5C12.8 15.8 12 21 12 21C12 21 11.2 15.8 8.5 13.5C6.2 11.5 3 12 3 12C3 12 6.2 12.5 8.5 10.5C11.2 8.2 12 3 12 3Z" fill="#0d9e8a" />
+                    </svg>
 
-          <div className="relative h-full mx-auto max-w-[1280px] px-6 md:px-12 flex flex-col">
+                    {/* Headline */}
+                    <h3 className="text-[1.85rem] xl:text-[2.2rem] font-bold text-[#0d0d0d] leading-[1.22] mb-7" style={{ letterSpacing: '-0.01em' }}>
+                      {g.headline}
+                    </h3>
 
-            {/* ── Header ── */}
-            <div className="pt-[112px] pb-6 shrink-0">
-              <h3 className="text-2xl md:text-3xl font-bold leading-[1.2] tracking-tight text-[#111827]">
-                Product Intelligence from{' '}
-                <em className="not-italic text-[#0d9e8a]">Design</em>
-                {' '}to{' '}
-                <em className="not-italic text-[#0d9e8a]">Build</em>
-                {' '}to{' '}
-                <em className="not-italic text-[#0d9e8a]">Ship</em>
-              </h3>
-              <span className="mt-2 block text-[15px] leading-relaxed text-[#64748b] font-normal max-w-2xl">
-                For engineering, procurement, manufacturing, and supply chain teams looking to transform how they develop products, reduce costs, and win profitable business.
-              </span>
-            </div>
+                    {/* Blurbs */}
+                    {groupModules.slice(0, 3).map((mod) => (
+                      <p key={mod.id} className="text-[15.5px] leading-[1.65] text-[#3a3a3a] mb-4">
+                        {mod.desc}
+                      </p>
+                    ))}
 
-            {/* ── Two-column layout ── */}
-            <div className="flex-1 min-h-0 grid grid-cols-1 gap-8 lg:grid-cols-[540px_1fr] lg:gap-12 xl:gap-16 items-start pb-16">
-
-              {/* ── LEFT: accordion ── */}
-              <div className="flex gap-0">
-
-                {/* AI area: sphere on far-left, mirrored curly bracket connecting to accordion */}
-                <div className="flex items-stretch shrink-0 mr-5">
-                  <div className="relative self-center shrink-0">
-                    <AiLoader size={80} text="ASK AI" />
-                  </div>
-                  <div className="relative self-stretch w-10" style={{ transform: 'scaleX(-1)' }}>
-                    <div className="absolute inset-0">
-                      <CurlyBracketSvg />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Items + per-group bracket */}
-                <div className="flex-1 space-y-3">
-                  {GROUPS.map((g) => {
-                    const groupModules = modules.filter((m) => m.group === g.id)
-                    return (
-                      <div key={g.id} className="flex gap-0">
-                        {/* Per-group bracket — mirrored, now on LEFT of items */}
-                        <div className="relative w-10 shrink-0">
-                          <div className="absolute inset-0" style={{ transform: 'scaleX(-1)' }}>
-                            <BracketSvg id={g.id} />
-                          </div>
-                          <div
-                            className="absolute top-1/2 left-0 text-[8px] font-bold tracking-[0.18em] uppercase whitespace-nowrap"
-                            style={{ writingMode: 'vertical-rl', transform: 'translateX(-14px) translateY(-50%)', color: '#0d9e8a' }}
-                          >
-                            {g.label}
-                          </div>
-                        </div>
-                        <div className="flex-1 space-y-1 pl-1">
-                          {groupModules.map((mod) => {
-                            const isActive = mod.id === activeId
-                            return (
-                              <button
-                                key={mod.id}
-                                onClick={() => handleSelect(mod.id)}
-                                className="w-full text-left rounded-xl px-4 py-3 transition-all duration-200 flex items-center"
-                                style={{
-                                  background: isActive ? 'rgba(13,158,138,0.08)' : 'transparent',
-                                  border: isActive ? '1px solid #0d9e8a' : '1px solid rgba(0,0,0,0.18)',
-                                  borderRight: isActive ? '3px solid #0d9e8a' : '1px solid rgba(0,0,0,0.18)',
-                                }}
-                              >
-                                <div className="flex w-full items-center justify-between">
-                                  <span className="text-sm font-medium transition-colors duration-200" style={{ color: isActive ? '#0d9e8a' : 'rgba(0,0,0,0.75)' }}>
-                                    {mod.title}
-                                  </span>
-                                  <span
-                                    className="shrink-0 w-5 h-5 flex items-center justify-center rounded-full border transition-all duration-200 ml-3"
-                                    style={{ borderColor: isActive ? '#0d9e8a' : 'rgba(0,0,0,0.2)', color: isActive ? '#0d9e8a' : 'rgba(0,0,0,0.4)' }}
-                                  >
-                                    <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" className="w-3 h-3" stroke="currentColor">
-                                      {isActive ? <path d="M5 12H19" /> : <><path d="M12 5V19" /><path d="M5 12H19" /></>}
-                                    </svg>
-                                  </span>
-                                </div>
-                              </button>
-                            )
-                          })}
-                        </div>
-                      </div>
-                    )
-                  })}
-                </div>
-
-              </div>
-
-              {/* ── RIGHT: display panel ── */}
-              <div
-                className="rounded-2xl overflow-hidden"
-                style={{ background: '#f7fafa', border: '1px solid rgba(72,210,190,0.2)' }}
-              >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeId}
-                    initial={{ opacity: 0, y: 16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                    style={{ willChange: 'opacity, transform' }}
-                  >
-                    {/* 3D part viewer */}
-                    <div
-                      className="relative w-full"
-                      style={{ height: 240, background: 'linear-gradient(160deg, #0a1a1a 0%, #0d2020 60%, #091515 100%)' }}
+                    <a
+                      href="#demo"
+                      className="mt-3 inline-flex items-center px-7 py-3 rounded-full text-[14px] font-semibold text-white transition-opacity hover:opacity-80"
+                      style={{ background: '#0d0d0d' }}
                     >
-                      <CncPartViewer part={activeModule.part} className="absolute inset-0" />
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-                        style={{
-                          backgroundImage: 'linear-gradient(rgba(72,210,190,1) 1px,transparent 1px),linear-gradient(90deg,rgba(72,210,190,1) 1px,transparent 1px)',
-                          backgroundSize: '40px 40px',
-                        }}
-                      />
+                      Read more
+                    </a>
+                  </div>
+
+                  {/* Canvas card */}
+                  <div style={{ direction: 'ltr', height: 500 }}>
+                    <div
+                      className="relative w-full h-full rounded-3xl overflow-hidden"
+                      style={{
+                        backgroundImage: `url('/assets/cards/card1,2,3.svg')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: gi === 0 ? 'center top' : gi === 1 ? 'center center' : 'center bottom',
+                        backgroundRepeat: 'no-repeat',
+                        boxShadow: '0 24px 64px rgba(13,158,138,0.18), 0 4px 16px rgba(0,0,0,0.12)',
+                      }}
+                    >
+                      {gi === 0 ? (
+                        <div className="absolute inset-0 flex items-center justify-center p-6">
+                          <img
+                            src="/videos/card/demo.gif"
+                            alt="Product demo"
+                            className="w-full h-full object-contain rounded-xl"
+                          />
+                        </div>
+                      ) : (
+                        <CncPartViewer part={firstMod.part} className="absolute inset-0" />
+                      )}
                       <div className="absolute top-4 left-4">
                         <span className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-widest uppercase" style={{ background: 'rgba(72,210,190,0.12)', color: '#48d2be', border: '1px solid rgba(72,210,190,0.2)' }}>
-                          {activeModule.group}
+                          {g.label}
                         </span>
                       </div>
                     </div>
-
-                    {/* Teal divider */}
-                    <div className="h-px mx-6" style={{ background: 'linear-gradient(90deg, transparent, #48d2be, transparent)', opacity: 0.35 }} />
-
-                    {/* Copy */}
-                    <div className="px-6 py-6 md:px-8 md:py-7">
-                      <h3 className="text-xl font-semibold text-[#0a0a0a] mb-3 tracking-tight">
-                        {activeModule.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-[#444] mb-5">
-                        {activeModule.desc}
-                      </p>
-
-                      <ul className="space-y-2 mb-7">
-                        {activeModule.features.map((f) => (
-                          <li key={f} className="flex items-start gap-2.5 text-sm text-[#4b5563]">
-                            <svg viewBox="0 0 16 16" className="w-3.5 h-3.5 mt-0.5 shrink-0" fill="none">
-                              <circle cx="8" cy="8" r="7" stroke="#48d2be" strokeWidth="1.2" opacity="0.6" />
-                              <path d="M5 8l2 2 4-4" stroke="#48d2be" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="flex flex-wrap items-center gap-3">
-                        <a
-                          href="#demo"
-                          className="inline-flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-70"
-                          style={{ color: '#0d9e8a' }}
-                        >
-                          {activeModule.cta}
-                          <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" stroke="currentColor" className="w-3.5 h-3.5">
-                            <path d="M5 12H19" /><path d="M13 6L19 12L13 18" />
-                          </svg>
-                        </a>
-                        <button className="inline-flex items-center gap-2 rounded-full border border-black/15 px-4 py-1.5 text-xs font-medium text-[#555] transition hover:border-black/25 hover:text-[#222]">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
-                            <circle cx="12" cy="12" r="10" /><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
-                          </svg>
-                          Watch Overview
-                        </button>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-            </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
+
         </section>
       </div>
     </>
