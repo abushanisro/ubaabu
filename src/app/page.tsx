@@ -15,6 +15,7 @@ export default function App() {
       <PlatformShowcase />
       <StatsSection />
       <ProductIntelligence />
+      <div className="bg-white h-16 lg:h-24" />
       <WatchDemo />
       <CaseStudies />
       <FinalCTA />

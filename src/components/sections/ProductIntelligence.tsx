@@ -218,10 +218,10 @@ export default function ProductIntelligence() {
   return (
     <>
       {/* ── Mobile accordion (< lg) ── */}
-      <section className="lg:hidden bg-white py-10 border-t border-black/[0.06]">
+      <section className="lg:hidden bg-white pt-16 pb-10 border-t border-black/[0.06]">
         <div className="px-6">
           {/* Header */}
-          <div className="mb-6">
+          <div className="mb-14">
             <h3 className="text-xl font-bold leading-[1.2] tracking-tight text-[#111827]">
               Product Intelligence from{' '}
               <em className="not-italic text-[#0d9e8a]">Design</em>
@@ -342,7 +342,7 @@ export default function ProductIntelligence() {
           <div className="relative h-full mx-auto max-w-[1280px] px-6 md:px-12 flex flex-col">
 
             {/* ── Header ── */}
-            <div className="pt-[72px] pb-4 shrink-0">
+            <div className="pt-[112px] pb-6 shrink-0">
               <h3 className="text-2xl md:text-3xl font-bold leading-[1.2] tracking-tight text-[#111827]">
                 Product Intelligence from{' '}
                 <em className="not-italic text-[#0d9e8a]">Design</em>
@@ -357,7 +357,7 @@ export default function ProductIntelligence() {
             </div>
 
             {/* ── Two-column layout ── */}
-            <div className="flex-1 min-h-0 grid grid-cols-1 gap-8 lg:grid-cols-[540px_1fr] lg:gap-12 xl:gap-16 items-start pb-6">
+            <div className="flex-1 min-h-0 grid grid-cols-1 gap-8 lg:grid-cols-[540px_1fr] lg:gap-12 xl:gap-16 items-start pb-16">
 
               {/* ── LEFT: accordion ── */}
               <div className="flex gap-0">
