@@ -362,6 +362,14 @@ export default function ProductIntelligence() {
                             className="w-full h-full object-contain rounded-xl"
                           />
                         </div>
+                      ) : gi === 1 ? (
+                        <div className="absolute inset-0 flex items-center justify-center p-6">
+                          <img
+                            src="/videos/card/demo2.gif"
+                            alt="Product demo"
+                            className="w-full h-full object-contain rounded-xl"
+                          />
+                        </div>
                       ) : (
                         <CncPartViewer part={firstMod.part} className="absolute inset-0" />
                       )}
