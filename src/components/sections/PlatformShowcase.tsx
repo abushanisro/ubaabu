@@ -420,7 +420,9 @@ function BentoSystemCard() {
       ref={cardRef}
       className="mt-8 relative rounded-2xl group"
       style={{
-        background: "linear-gradient(135deg, oklch(0.84 0.10 185) 0%, oklch(0.89 0.07 178) 35%, oklch(0.93 0.05 180) 65%, oklch(0.97 0.02 182) 100%)",
+        background: "linear-gradient(135deg, oklch(0.84 0.10 185 / 0.35) 0%, oklch(0.89 0.07 178 / 0.25) 50%, oklch(0.97 0.02 182 / 0.20) 100%)",
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
         boxShadow: "0 4px 40px oklch(0.68 0.13 180 / 0.25), 0 1px 0 white inset",
         border: "1px solid oklch(0.78 0.09 180 / 0.4)",
         minHeight: 'clamp(240px, 40vw, 340px)',
@@ -677,7 +679,16 @@ export default function PlatformShowcase() {
   }, [active]);
 
   return (
-    <section className="platform-showcase bg-white">
+    <section
+      className="platform-showcase"
+      style={{
+        backgroundColor: '#ffffff',
+        backgroundImage: 'url(/assets/cards/projectcard.svg), url(/assets/cards/demo.svg)',
+        backgroundSize: '100% auto, 100% auto',
+        backgroundPosition: 'center -120px, bottom center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="px-6 md:px-12 py-16 md:py-20 max-w-[1400px] mx-auto">
         <header className="mb-12 max-w-4xl">
           <p className="text-xl md:text-2xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900">
@@ -720,7 +731,7 @@ export default function PlatformShowcase() {
               height: "calc(100vh - 48px)",
               maxHeight: "calc(100vh - 48px)",
               animation: "dialogSlideUp 0.3s cubic-bezier(0.22,1,0.36,1)",
-              background: "#ffffff",
+              background: "#f0f4f4",
             }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -844,3 +855,5 @@ export default function PlatformShowcase() {
     </section>
   );
 }
+
+

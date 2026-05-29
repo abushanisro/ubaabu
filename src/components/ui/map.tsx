@@ -35,9 +35,9 @@ export function WorldMap({
     () =>
       map.getSVG({
         radius: 0.22,
-        color: "#00000030",
+        color: "#0a6e6055",
         shape: "circle",
-        backgroundColor: "white",
+        backgroundColor: "transparent",
       }),
     [map]
   );

@@ -7,7 +7,6 @@ import WatchDemo from '@/components/sections/WatchDemo'
 import CaseStudies from '@/components/sections/CaseStudies'
 import FinalCTA from '@/components/sections/FinalCTA'
 import FAQ from '@/components/sections/FAQ'
-
 export default function App() {
   return (
     <>

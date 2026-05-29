@@ -1,53 +1,107 @@
-const cols = [
+"use client";
+import React from "react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
+import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer";
+
+const footerLinks = [
   {
-    t: 'Platform',
-    l: ['CAD to Cost', 'Should Cost Analysis', 'Supplier Intelligence', 'Production Tracking', 'Quality & PPAP', 'Analytics'],
+    title: "Platform",
+    links: [
+      { label: "CAD to Cost",           href: "#" },
+      { label: "Should Cost Analysis",  href: "#" },
+      { label: "Supplier Intelligence", href: "#" },
+      { label: "Production Tracking",   href: "#" },
+      { label: "Quality & PPAP",        href: "#" },
+      { label: "Analytics",             href: "#" },
+    ],
   },
   {
-    t: 'Industries',
-    l: ['Space', 'Defence', 'Aerospace', 'Precision Manufacturing'],
+    title: "Industries",
+    links: [
+      { label: "Space",                   href: "#" },
+      { label: "Defence",                 href: "#" },
+      { label: "Aerospace",               href: "#" },
+      { label: "Precision Manufacturing", href: "#" },
+    ],
   },
   {
-    t: 'Company',
-    l: ['About', 'Careers', 'Contact', 'Privacy Policy'],
+    title: "Company",
+    links: [
+      { label: "About",   href: "#" },
+      { label: "Careers", href: "#", pulse: true },
+      { label: "Contact", href: "#" },
+      { label: "Blog",    href: "#" },
+    ],
   },
-  {
-    t: 'Resources',
-    l: ['Documentation', 'Case Studies', 'Data Sovereignty', 'Compliance'],
-  },
-]
+];
+
+const contactInfo = [
+  { icon: <Mail   size={16} className="text-[#0d9e8a]" />, text: "contact@emithran.in",      href: "mailto:contact@emithran.in" },
+  { icon: <Phone  size={16} className="text-[#0d9e8a]" />, text: "+91 98765 43210",           href: "tel:+919876543210" },
+  { icon: <MapPin size={16} className="text-[#0d9e8a]" />, text: "Bangalore, Karnataka, India" },
+];
+
+const socialLinks = [
+  { icon: <Linkedin size={18} />, label: "LinkedIn", href: "#" },
+  { icon: <Twitter  size={18} />, label: "Twitter",  href: "#" },
+  { icon: <Github   size={18} />, label: "GitHub",   href: "#" },
+];
+
+const legalLinks = ["Terms of Service", "Privacy Notice", "Acceptable Use", "Legal", "Cookie Settings"];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#0a0a0a] py-16 relative">
-      <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08]" style={{ left: 64 }} />
-      <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08]" style={{ right: 64 }} />
-      <div className="mx-auto max-w-[1280px] px-6">
-        <div className="grid grid-cols-2 gap-10 md:grid-cols-5">
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2.5 font-display text-base font-semibold text-white">
-              <span className="flex h-7 w-7 items-center justify-center rounded-md bg-white text-[#080808] text-xs font-bold">
-                E
-              </span>
-              EMITHRAN
+    <footer className="bg-[#080808] relative overflow-hidden rounded-t-3xl m-0">
+      <div className="max-w-[1280px] mx-auto px-8 pt-16 z-40 relative">
+
+
+        {/* ── Main columns ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.07]">
+
+          {/* Brand + contact */}
+          <div className="lg:col-span-2 flex flex-col space-y-4">
+            <div className="flex items-center gap-2">
+              <span className="flex h-7 w-7 items-center justify-center rounded bg-[#0d9e8a] text-white text-xs font-black">E</span>
+              <span className="text-white text-xl font-bold tracking-wide">EMITHRAN</span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-white/50">
+            <p className="text-sm text-white/40 leading-relaxed max-w-[280px]">
               End-to-end manufacturing intelligence for India's space, defence, and aerospace industry.
             </p>
-            <p className="mt-3 text-xs uppercase tracking-widest text-white/30">
-              Bangalore, India
-            </p>
+            <ul className="space-y-3 pt-2">
+              {contactInfo.map((item, i) => (
+                <li key={i} className="flex items-center gap-2.5">
+                  {item.icon}
+                  {item.href ? (
+                    <a href={item.href} className="text-[13px] text-white/40 hover:text-[#0d9e8a] transition-colors">{item.text}</a>
+                  ) : (
+                    <span className="text-[13px] text-white/40">{item.text}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {cols.map((c) => (
-            <div key={c.t}>
-              <p className="text-xs font-semibold uppercase tracking-widest text-white/40">{c.t}</p>
-              <ul className="mt-4 space-y-2.5 text-sm text-white/55">
-                {c.l.map((x) => (
-                  <li key={x}>
-                    <a href="#" className="hover:text-white transition-colors">
-                      {x}
+          {/* Nav link columns */}
+          {footerLinks.map((section) => (
+            <div key={section.title}>
+              <h4 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-5">
+                {section.title}
+              </h4>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.label} className="relative">
+                    <a
+                      href={link.href}
+                      className="text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors"
+                    >
+                      {link.label}
                     </a>
+                    {link.pulse && (
+                      <span className="absolute top-0.5 -right-3 flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0d9e8a] opacity-75" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0d9e8a]" />
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -55,15 +109,44 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/30 md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Emithran Technologies Pvt. Ltd. All rights reserved.</p>
-          <div className="flex gap-5">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="mailto:contact@emithran.in" className="hover:text-white transition-colors">contact@emithran.in</a>
+        {/* ── Bottom bar ── */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 pb-4 text-sm">
+          {/* Social icons */}
+          <div className="flex items-center gap-4 text-white/40">
+            {socialLinks.map(({ icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="hover:text-[#0d9e8a] transition-colors"
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
+
+          {/* Legal + copyright */}
+          <div className="flex flex-col items-center md:items-end gap-1.5">
+            <div className="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-1">
+              {legalLinks.map(l => (
+                <a key={l} href="#" className="text-[11px] text-white/30 hover:text-white/70 transition-colors whitespace-nowrap">
+                  {l}
+                </a>
+              ))}
+            </div>
+            <p className="text-[11px] text-white/20">
+              © {new Date().getFullYear()} Emithran Technologies Pvt. Ltd. All rights reserved.
+            </p>
           </div>
         </div>
       </div>
+
+      {/* ── Text hover effect — EMITHRAN at bottom ── */}
+      <div className="w-full relative z-10" style={{ aspectRatio: '500 / 100' }}>
+        <TextHoverEffect text="EMITHRAN" duration={0} className="w-full h-full" />
+      </div>
+
+      <FooterBackgroundGradient />
     </footer>
-  )
+  );
 }

@@ -4,7 +4,6 @@ import { GradientRibbon } from '@/components/GradientRibbon'
 import { Typewriter } from '@/components/ui/typewriter'
 import { Perspective } from '@/components/ui/perspective-highlight'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
-import AnimatedTextCycle from '@/components/ui/animated-text-cycle'
 
 const FEATURES = [
   'BOM to Supplier',
@@ -81,11 +80,7 @@ export default function Hero() {
           <LiveSavings />
           <h1 className="text-[32px] font-bold leading-[1.08] tracking-tight text-[#0a0a0a] md:text-[40px] lg:text-[50px]">
             End-to-End{' '}
-            <AnimatedTextCycle
-              words={['Manufacturing', 'Procurement', 'Supplier', 'Production', 'Aerospace', 'Defence']}
-              interval={2800}
-              className="text-[#0d9e8a]"
-            />{' '}
+            <span className="text-[#0d9e8a]">Manufacturing</span>{' '}
             Intelligence
           </h1>
           <p className="mt-3 text-[17px] font-semibold md:text-[19px]" style={{ minHeight: '1.6em' }}>

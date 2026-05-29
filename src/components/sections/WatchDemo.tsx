@@ -3,11 +3,12 @@ import { useEffect, useRef, useState } from 'react'
 import FlowCards from '@/components/sections/FlowCards'
 import { BudgetCard } from '@/components/ui/analytics-bento'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
-import { Sparkles, TrendingUp, Zap, CheckCircle, Users, Clock } from 'lucide-react'
+import { Sparkles, TrendingUp, Zap, CheckCircle, Users, Clock, X } from 'lucide-react'
 
 export default function WatchDemo() {
   const [savings, setSavings] = useState(0)
   const [animated, setAnimated] = useState(false)
+  const [videoOpen, setVideoOpen] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -86,16 +87,16 @@ export default function WatchDemo() {
                 <path d="M0.5 4h6" /><path d="M1 1l3 3-3 3" />
               </svg>
             </a>
-            <a
-              href="#demo"
+            <button
               className="inline-flex items-center gap-1.5 rounded-full border border-black/20 bg-white/70 backdrop-blur-sm px-3 py-1.5 text-[11px] font-semibold text-[#0d1117]"
+              onClick={() => setVideoOpen(true)}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3">
                 <circle cx="12" cy="12" r="10" />
                 <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
               </svg>
               Watch Overview
-            </a>
+            </button>
           </div>
         </div>
 
@@ -199,8 +200,8 @@ export default function WatchDemo() {
                     <path d="M0.5 5.5h7" /><path d="M1.5 1.5l4 4-4 4" />
                   </svg>
                 </a>
-                <a
-                  href="#demo"
+                <button
+                  onClick={() => setVideoOpen(true)}
                   className="inline-flex items-center gap-2 rounded-full border border-black/20 bg-white/70 backdrop-blur-sm px-5 py-2 text-sm font-semibold text-[#0d1117] hover:bg-white/90 transition-colors"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
@@ -208,7 +209,7 @@ export default function WatchDemo() {
                     <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
                   </svg>
                   Watch Overview
-                </a>
+                </button>
               </div>
             </div>
 
@@ -255,6 +256,34 @@ export default function WatchDemo() {
         </div>
 
       </div>
+
+      {/* ── Video modal ── */}
+      {videoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-md"
+          onClick={() => setVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl aspect-video mx-4"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              className="absolute -top-12 right-0 flex items-center justify-center w-9 h-9 rounded-full bg-neutral-900/60 ring-1 ring-white/20 backdrop-blur-md text-white hover:opacity-80 transition"
+              onClick={() => setVideoOpen(false)}
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <div className="w-full h-full border-2 border-white rounded-2xl overflow-hidden">
+              <video
+                src="/videos/hero-bg.mp4"
+                controls
+                autoPlay
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

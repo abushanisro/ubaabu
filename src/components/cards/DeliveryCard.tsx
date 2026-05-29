@@ -26,12 +26,14 @@ const ROUTES = [
 
 export function DeliveryCard() {
   return (
-    <div className="relative overflow-hidden rounded-xl border border-black/[0.06]"
-      style={{ background: 'oklch(0.985 0.004 200)' }}>
-      <WorldMap dots={ROUTES} lineColor="#14b8a6" showLabels animationDuration={2} loop />
-      <div className="flex items-center justify-between px-4 py-2 border-t border-black/[0.06]">
-        <span className="text-[11px] font-medium text-black/40">32 active routes</span>
-        <span className="text-[11px] font-medium text-teal-600">98% on-time</span>
+    <div
+      className="relative overflow-hidden rounded-xl border border-teal-200/60"
+      style={{ background: 'linear-gradient(135deg, #d4f0eb 0%, #c2e8e2 40%, #d8f2ee 100%)' }}
+    >
+      <WorldMap dots={ROUTES} lineColor="#0d9e8a" showLabels animationDuration={2} loop />
+      <div className="flex items-center justify-between px-4 py-2 border-t border-teal-200/50">
+        <span className="text-[11px] font-medium text-teal-800/60">32 active routes</span>
+        <span className="text-[11px] font-semibold text-teal-700">98% on-time</span>
       </div>
     </div>
   )

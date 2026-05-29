@@ -4,14 +4,10 @@ import { useState, useRef, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { PartType } from '@/components/three/CncPartViewer'
+import { Component as AiLoader } from '@/components/ui/ai-loader'
 
 const CncPartViewer = dynamic(
   () => import('@/components/three/CncPartViewer'),
-  { ssr: false, loading: () => <div className="w-full h-full" /> }
-)
-
-const AiSphere = dynamic(
-  () => import('@/components/three/AiSphere'),
   { ssr: false, loading: () => <div className="w-full h-full" /> }
 )
 
@@ -181,8 +177,7 @@ function BracketSvg({ id, colorFrom = '#0a7a6a', colorTo = '#0d9e8a' }: { id: st
 
 export default function ProductIntelligence() {
   const wrapperRef = useRef<HTMLDivElement>(null)
-  const [activeId, setActiveId]     = useState('bom')
-  const [burstCount, setBurstCount] = useState(0)
+  const [activeId, setActiveId] = useState('bom')
 
   const activeModule = modules.find((m) => m.id === activeId) ?? modules[0]
 
@@ -197,10 +192,7 @@ export default function ProductIntelligence() {
       const progress = Math.max(0, Math.min(1, -top / scrollable))
       const idx = Math.min(modules.length - 1, Math.floor(progress * modules.length))
       const next = modules[idx].id
-      setActiveId((cur) => {
-        if (cur !== next) setBurstCount((c) => c + 1)
-        return next
-      })
+      setActiveId(next)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
@@ -372,16 +364,8 @@ export default function ProductIntelligence() {
 
                 {/* AI area: sphere on far-left, mirrored curly bracket connecting to accordion */}
                 <div className="flex items-stretch shrink-0 mr-5">
-                  <div className="relative self-center shrink-0" style={{ width: 160, height: 160 }}>
-                    <AiSphere className="absolute inset-0" burst={burstCount} moduleId={activeId} />
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <span
-                        className="text-2xl font-black tracking-[0.18em] uppercase select-none"
-                        style={{ color: '#ffffff', textShadow: '0 0 16px rgba(255,255,255,1), 0 0 30px rgba(72,210,190,1), 0 0 50px rgba(72,210,190,0.7)' }}
-                      >
-                        AI
-                      </span>
-                    </div>
+                  <div className="relative self-center shrink-0">
+                    <AiLoader size={80} text="ASK AI" />
                   </div>
                   <div className="relative self-stretch w-10" style={{ transform: 'scaleX(-1)' }}>
                     <div className="absolute inset-0">

@@ -20,6 +20,33 @@ const tabs = Object.keys(data) as Array<keyof typeof data>;
 export function NominationCard() {
   const [active, setActive] = useState<keyof typeof data>("V1");
   const [cycleKey, setCycleKey] = useState(0);
+  const activeRef = useRef(active);
+  const labelRefs = useRef<(SVGTextElement | null)[]>([]);
+  const rafRef = useRef<number>();
+  const startTimeRef = useRef<number | null>(null);
+
+  useEffect(() => { activeRef.current = active; }, [active]);
+
+  // Counter-rotate labels each frame to keep them upright despite the spin animation
+  useEffect(() => {
+    function tick(now: number) {
+      if (startTimeRef.current === null) startTimeRef.current = now;
+      const elapsed = now - startTimeRef.current;
+      const spinAngle = ((elapsed / 30000) * 360) % 360;
+      const vals = data[activeRef.current];
+      labelRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const v = vals[i];
+        const a = (Math.PI * 2 * i) / axes.length - Math.PI / 2;
+        const lx = Math.cos(a) * (75 * v + 14);
+        const ly = Math.sin(a) * (75 * v + 14);
+        el.setAttribute("transform", `rotate(${-spinAngle}, ${lx}, ${ly})`);
+      });
+      rafRef.current = requestAnimationFrame(tick);
+    }
+    rafRef.current = requestAnimationFrame(tick);
+    return () => { if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, []);
 
   useEffect(() => {
     let idx = tabs.indexOf(active);
@@ -68,7 +95,24 @@ export function NominationCard() {
             <polygon points={poly(data[active], 75)} fill="url(#nom-radGlow)" stroke="#1a1a1a" strokeWidth="2" style={{ filter: "drop-shadow(0 0 8px rgba(0,0,0,0.45))", transition: "all 0.6s" }} />
             {data[active].map((v, i) => {
               const a = (Math.PI * 2 * i) / axes.length - Math.PI / 2;
-              return <circle key={i} cx={Math.cos(a) * 75 * v} cy={Math.sin(a) * 75 * v} r="3" fill="white" stroke="#1a1a1a" strokeWidth="1.5" />;
+              const cx = Math.cos(a) * 75 * v;
+              const cy = Math.sin(a) * 75 * v;
+              const labelX = Math.cos(a) * (75 * v + 14);
+              const labelY = Math.sin(a) * (75 * v + 14);
+              return (
+                <g key={i}>
+                  <circle cx={cx} cy={cy} r="3" fill="white" stroke="#1a1a1a" strokeWidth="1.5" />
+                  <text
+                    ref={el => { labelRefs.current[i] = el; }}
+                    x={labelX} y={labelY}
+                    textAnchor="middle" dominantBaseline="middle"
+                    fontSize="8" fontWeight="bold" fill="#0d9e8a"
+                    style={{ transition: "x 0.6s, y 0.6s" }}
+                  >
+                    {Math.round(v * 100)}
+                  </text>
+                </g>
+              );
             })}
           </svg>
         </div>
