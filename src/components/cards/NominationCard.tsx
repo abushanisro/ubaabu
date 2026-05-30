@@ -22,7 +22,7 @@ export function NominationCard() {
   const [cycleKey, setCycleKey] = useState(0);
   const activeRef = useRef(active);
   const labelRefs = useRef<(SVGTextElement | null)[]>([]);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
   const startTimeRef = useRef<number | null>(null);
 
   useEffect(() => { activeRef.current = active; }, [active]);
