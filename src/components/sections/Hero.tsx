@@ -1,6 +1,5 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { GradientRibbon } from '@/components/GradientRibbon'
 import { Typewriter } from '@/components/ui/typewriter'
 import { Perspective } from '@/components/ui/perspective-highlight'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
@@ -58,10 +57,10 @@ export default function Hero() {
 
   return (
     <section className="relative bg-white">
-      {/* ribbon + overlay clipped independently so floating cards aren't cut */}
+      {/* hero background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <GradientRibbon className="absolute inset-0 h-full w-full" />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #ffffff 28%, rgba(255,255,255,0.75) 46%, rgba(255,255,255,0.15) 65%, transparent 80%)' }} />
+        <img src="/assets/cards/projectcardmobile.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center translate-y-20 lg:hidden" />
+        <img src="/assets/cards/projectcard.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center hidden lg:block lg:translate-y-20" />
       </div>
 
       <style>{`
