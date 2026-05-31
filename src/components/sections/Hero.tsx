@@ -119,51 +119,14 @@ export default function Hero() {
         {/* ── RIGHT: product mockup + floating panels ── */}
         <div className="relative w-full pb-4 pt-4 lg:pb-20 lg:pt-12">
 
-          {/* ── VAVE Analysis card — top-right ── */}
-          <Perspective
-            maxRotateX={10} maxRotateY={18} smoothing={0.1}
-            className="absolute -top-2 -right-2 z-20 hidden w-56 lg:block lg:-right-6"
-            cardClassName="overflow-hidden rounded-xl border border-white/12 shadow-2xl"
-            cardStyle={{ background: 'linear-gradient(145deg, #2a2a2a 0%, #141414 50%, #080808 100%)' }}
-          >
-            <div className="flex items-center justify-between border-b border-white/8 px-4 py-2">
-              <span className="text-xs font-semibold text-white">VAVE Analysis</span>
-              <span className="rounded-full bg-violet-500/15 px-2 py-0.5 text-[10px] font-semibold text-violet-300">IDEAS</span>
-            </div>
-
-            {/* savings summary */}
-            <div className="flex items-center justify-between border-b border-white/6 px-4 py-2">
-              <div>
-                <p className="text-[10px] text-white/35">Potential Saving</p>
-                <p className="text-sm font-bold text-teal-400">$268</p>
-              </div>
-              <div className="text-right">
-                <p className="text-[10px] text-white/35">Function Risk</p>
-                <p className="text-sm font-bold text-amber-300">Low</p>
-              </div>
-            </div>
-
-            {/* idea rows */}
-            <div className="divide-y divide-white/4 px-4">
-              {[
-                { idea: 'Consolidate seal + piston', save: '$74', type: 'VA', color: 'text-blue-300',   bg: 'bg-blue-500/12'   },
-                { idea: 'Standard thread pitch',     save: '$46', type: 'VE', color: 'text-violet-300', bg: 'bg-violet-500/12' },
-                { idea: 'Reduce wall by 0.4 mm',     save: '$61', type: 'VA', color: 'text-blue-300',   bg: 'bg-blue-500/12'   },
-                { idea: 'Alt Al-6061 alloy grade',   save: '$87', type: 'VE', color: 'text-violet-300', bg: 'bg-violet-500/12' },
-              ].map((r) => (
-                <div key={r.idea} className="flex items-center gap-2 py-2">
-                  <span className={`shrink-0 rounded px-1.5 py-0.5 text-[9px] font-bold ${r.bg} ${r.color}`}>{r.type}</span>
-                  <p className="flex-1 text-[11px] leading-snug text-white/55">{r.idea}</p>
-                  <span className="shrink-0 text-[11px] font-semibold text-teal-400">{r.save}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex items-center justify-between border-t border-white/6 px-4 py-2">
-              <span className="text-[10px] text-white/30">TVC-12 · Rev 2</span>
-              <span className="text-[10px] font-medium text-teal-400">↓ 18% cost</span>
-            </div>
-          </Perspective>
+          {/* ── VAVE gif — top-right ── */}
+          <div className="absolute -top-2 -right-2 z-20 hidden w-56 lg:block lg:-right-6 overflow-hidden rounded-2xl shadow-2xl">
+            <img
+              src="/videos/card/herovave.gif"
+              alt="VAVE Analysis"
+              className="w-full h-auto block"
+            />
+          </div>
 
           {/* Main product card — HeroVideoDialog */}
           <div className="relative overflow-hidden rounded-2xl shadow-[0_32px_80px_rgba(0,0,0,0.22)]">
@@ -183,14 +146,20 @@ export default function Hero() {
           <Perspective
             maxRotateX={10} maxRotateY={18} smoothing={0.1}
             className="absolute -bottom-4 -left-2 z-20 w-56 lg:-left-6 lg:bottom-6 hidden lg:block"
-            cardClassName="overflow-hidden rounded-xl border border-white/10 shadow-2xl"
-            cardStyle={{ background: 'linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 50%, #000000 100%)' }}
+            cardClassName="overflow-hidden rounded-xl shadow-2xl"
+            cardStyle={{
+              background: 'linear-gradient(180deg, #444850 0%, #3A3D44 20%, #30343A 60%, #25292D 100%)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              boxShadow: 'inset 0 0 80px rgba(0,0,0,0.35), inset 0 0 120px rgba(0,0,0,0.25)',
+            }}
           >
-            <div className="flex items-center justify-between border-b border-white/8 px-4 py-2.5">
+            {/* layer 3 — white noise/dust */}
+            <div aria-hidden className="pointer-events-none absolute inset-0 z-0" style={{ opacity: 0.08, backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '12px 12px', mixBlendMode: 'screen', filter: 'blur(0.3px)' }} />
+            <div className="relative z-10 flex items-center justify-between border-b border-white/8 px-4 py-2.5">
               <span className="text-sm font-semibold text-white">Live Signal</span>
               <span className="text-[11px] font-medium text-teal-400">AI Agent</span>
             </div>
-            <div className="px-4 pt-3 pb-1">
+            <div className="relative z-10 px-4 pt-3 pb-1">
               <p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-white/30">Production · Batch A-2410</p>
               <style>{`
                 @keyframes hwdrift1{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
@@ -207,12 +176,12 @@ export default function Hero() {
                 </circle>
               </svg>
             </div>
-            <div className="flex items-end gap-[3px] px-4 pb-3" style={{ height: 34 }}>
+            <div className="relative z-10 flex items-end gap-[3px] px-4 pb-3" style={{ height: 34 }}>
               {[0.5,0.8,0.4,1,0.6,0.9,0.3,0.7,0.5,1,0.4,0.8,0.6,0.9,0.3,0.7,0.5,0.8,1,0.4].map((h, i) => (
                 <div key={i} className="flex-1 rounded-sm" style={{ height: `${h * 24}px`, background: `rgba(59,130,246,${0.3 + h * 0.5})`, animation: `hwbar ${1.2 + (i % 5) * 0.3}s ease-in-out ${i * 0.08}s infinite`, transformOrigin: 'bottom' }} />
               ))}
             </div>
-            <div className="flex items-center justify-between border-t border-white/6 px-4 py-2">
+            <div className="relative z-10 flex items-center justify-between border-t border-white/6 px-4 py-2">
               <span className="text-[10px] text-white/30">120 Hz</span>
               <span className="text-[10px] font-medium text-blue-300">99.4% OTIF</span>
             </div>

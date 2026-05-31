@@ -1,237 +1,228 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 interface Study {
   id: string
-  logo: string
+  label: string
+  logo?: string
   metric: string
-  gradient: string
-  headline: string
-  description: string
-  cta: string
+  image: string
+  headline?: string
+  sub?: string
+  href?: string
 }
 
 const studies: Study[] = [
   {
-    id: 'tata-power',
-    logo: '/assets/trustedby/TATAPower.png',
-    metric: '40% faster RFQ',
-    gradient: 'from-blue-900 via-blue-800 to-indigo-900',
-    headline: 'Tata Power cut procurement cycle time by 40% using AI-driven should-cost models.',
-    description: "Engineering teams replaced manual Excel costing with Emithran's should-cost engine, compressing RFQ cycles and sharpening negotiation baselines across 200+ components.",
-    cta: 'Read case study',
+    id: 'f1-exhaust',
+    label: 'High-Performance Automotive',
+    metric: '£1.3m annual saving',
+    image: '/assets/casestudy/f1card.png',
+    headline: 'Should Costing for Exhaust System',
+    sub: 'Titanium vs Stainless Steel · 300 pcs · UK volume',
+    href: '/case-studies/exhaust-system',
   },
   {
-    id: 'ashok-leyland',
-    logo: '/assets/trustedby/ashokleyland.png',
-    metric: '12 platforms unified',
-    gradient: 'from-slate-800 via-zinc-800 to-neutral-900',
-    headline: 'Ashok Leyland standardised BOM workflows across 12 vehicle platforms on Emithran.',
-    description: 'From multi-level assembly structures to engineering change orders, Emithran gave the team a single source of truth for component data and cost rollups.',
-    cta: 'Read case study',
+    id: 'hgv-chassis',
+    label: 'Electric HGV OEM',
+    metric: '38% rail cost reduction',
+    image: '/assets/casestudy/truck.png',
+    headline: 'Assy Chassis Ladder Frame — HGV 4×2 4M',
+    sub: 'India vs Northern Europe · €5,248 assembly cost',
+    href: '/case-studies/hgv-chassis',
   },
   {
-    id: 'pixxel',
-    logo: '/assets/trustedby/Pixxel.png',
-    metric: '₹1.2Cr savings identified',
-    gradient: 'from-violet-900 via-purple-900 to-indigo-950',
-    headline: 'Pixxel identified ₹1.2Cr in satellite component savings using VAVE Studio.',
-    description: 'AI-generated VAVE ideas ranked by savings potential helped the space-tech team redesign three critical assemblies before tooling was locked.',
-    cta: 'Read case study',
+    id: 'dc-dc-converter',
+    label: 'Electric Two-Wheeler OEM',
+    metric: '−39% body cost negotiated',
+    image: '/assets/casestudy/case3.png',
+    headline: 'DC-DC Converter Teardown & VAVE',
+    sub: '13 VAVE ideas · ₹831 should cost · India sourcing',
+    href: '/case-studies/dc-dc-converter',
   },
   {
-    id: 'digantara',
-    logo: '/assets/trustedby/digantara.png',
-    metric: '80+ suppliers scored',
-    gradient: 'from-teal-900 via-cyan-900 to-sky-950',
-    headline: 'Digantara qualified its entire supplier base in days using Emithran Supplier Radar.',
-    description: 'AI scored 80+ vendors across technical, financial, and quality dimensions — giving the team full confidence before their first production run.',
-    cta: 'Read case study',
+    id: 'electronics-teardown',
+    label: 'Electronics OEM',
+    metric: 'PCB savings: $19.89 → $8.07',
+    image: '/assets/casestudy/case4.png',
+    headline: 'PCB Teardown, Should Costing & VAVE',
+    sub: 'Radar sensor · EV BTMS · Wire harness · India & China',
+    href: '/case-studies/electronics-teardown',
   },
   {
-    id: 'roland-berger',
-    logo: '/assets/trustedby/RolandBerger.png',
-    metric: '40 OEM programmes',
-    gradient: 'from-rose-900 via-red-900 to-orange-950',
-    headline: 'Roland Berger benchmarked defence BOM costs across 40 OEM programmes with Emithran.',
-    description: 'Cross-project cost diffing surfaced outliers and high-impact VAVE opportunities in minutes, supporting a major Indian defence procurement review.',
-    cta: 'Read case study',
+    id: 'hgv-cab-strategy',
+    label: 'Hydrogen HGV OEM',
+    metric: '6 solutions · £0.85m–£10.6m',
+    image: '/assets/casestudy/case5.png',
+    headline: 'HGV CAB Structure Strategy',
+    sub: 'Hydrogen vehicle · 191 kg composite · 4,034 units ramp',
+    href: '/case-studies/hgv-cab-strategy',
+  },
+  {
+    id: 'chassis-india-belgium',
+    label: 'Hydrogen HGV — Rail Sourcing',
+    metric: '38% India vs Belgium saving',
+    image: '/assets/casestudy/truck.png',
+    headline: 'Chassis Rail Should Cost — India vs Belgium',
+    sub: 'DDP Chennai → Scotland · €538 vs €872 landed',
+    href: '/case-studies/chassis-india-belgium',
+  },
+  {
+    id: 'rear-view-mirror',
+    label: 'Automotive OEM',
+    metric: '₹80.25 full BOM should cost',
+    image: '/assets/casestudy/case3.png',
+    headline: 'Rear View Mirror Assembly — Full BOM Should Cost',
+    sub: '5 parts · 5 processes · 1,50,000 units/yr · India',
+    href: '/case-studies/rear-view-mirror',
+  },
+  {
+    id: 'rear-axle-should-cost',
+    label: 'LCV Drivetrain OEM',
+    metric: '₹20,526 per axle · 46% in Drive Head',
+    image: '/assets/casestudy/truck.png',
+    headline: '2T LCV Rear Drive Axle — Should Cost Analysis',
+    sub: '51.2 kg assembly · 40,000 units/yr · India manufacturing',
+    href: '/case-studies/rear-axle-should-cost',
   },
 ]
 
-function ArrowLeft() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
-      <path d="M9.613 2.62 5.107 7.124h9.137v1.75H5.107l4.506 4.506-1.238 1.238-6-6L1.756 8l.619-.62 6-6 1.238 1.24Z" />
-    </svg>
-  )
-}
-
-function ArrowRight() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
-      <path d="m6.387 2.62 4.506 4.505H1.756v1.75h9.137l-4.506 4.506 1.238 1.238 6-6L14.245 8l-.618-.62-6-6-1.239 1.24Z" />
-    </svg>
-  )
-}
-
-function ChevronArrow() {
-  return (
-    <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M0.5 5.5h7" />
-      <path d="M1.5 1.5l4 4-4 4" />
-    </svg>
-  )
-}
-
 export default function CaseStudies() {
   const [active, setActive] = useState(0)
-  const [direction, setDirection] = useState<'next' | 'prev'>('next')
-
-  const go = (dir: 'next' | 'prev') => {
-    setDirection(dir)
-    setActive((i) =>
-      dir === 'next'
-        ? (i + 1) % studies.length
-        : (i - 1 + studies.length) % studies.length
-    )
-  }
-
-  const getTranslate = (i: number): string => {
-    if (i === active) return '0%'
-    if (direction === 'next') return i < active ? '-100%' : '100%'
-    return i > active ? '100%' : '-100%'
-  }
 
   return (
     <section className="bg-white py-16 md:py-20 border-t border-black/[0.06]">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
 
-        {/* Header row */}
-        <div className="flex items-start justify-between mb-8 md:mb-10">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0d1117]">Case Studies</h2>
-            <p className="mt-1 text-[15px] text-[#64748b]">See how India's top manufacturers use Emithran.</p>
-          </div>
-          <div className="flex gap-2 mt-1" role="group" aria-label="Carousel navigation">
-            <button
-              onClick={() => go('prev')}
-              aria-label="Previous slide"
-              className="h-8 w-8 flex items-center justify-center rounded border border-black/15 text-[#0d1117] hover:bg-black/5 transition-colors"
-            >
-              <ArrowLeft />
-            </button>
-            <button
-              onClick={() => go('next')}
-              aria-label="Next slide"
-              className="h-8 w-8 flex items-center justify-center rounded border border-black/15 text-[#0d1117] hover:bg-black/5 transition-colors"
-            >
-              <ArrowRight />
-            </button>
-          </div>
+        <div className="mb-8 md:mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#0d1117]">Case Studies</h2>
+          <p className="mt-1 text-[15px] text-[#64748b]">See how manufacturers use Emithran to cut cost and compress cycle time.</p>
         </div>
 
-        {/* Desktop carousel */}
-        <div className="hidden md:grid grid-cols-[58%_42%] rounded-2xl overflow-hidden border border-black/[0.06]" style={{ height: 340 }}>
+        {/* ── Image accordion — desktop ── */}
+        <div
+          className="hidden md:flex gap-2 rounded-2xl overflow-hidden"
+          style={{ height: 400 }}
+          onMouseLeave={() => setActive(0)}
+        >
+          {studies.map((s, i) => {
+            const Wrapper = s.href && active === i ? Link : 'div'
+            return (
+            <Wrapper
+              key={s.id}
+              {...(s.href && active === i ? { href: s.href } : {})}
+              className="relative overflow-hidden rounded-xl cursor-pointer"
+              style={{
+                flex: active === i ? '5 1 0%' : '1 1 0%',
+                minWidth: 52,
+                transition: 'flex 0.55s cubic-bezier(0.4,0,0.2,1)',
+              }}
+              onMouseEnter={() => setActive(i)}
+            >
+              {/* background image */}
+              <img
+                src={s.image}
+                alt={s.label}
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{
+                  transition: 'transform 0.55s cubic-bezier(0.4,0,0.2,1)',
+                  transform: active === i ? 'scale(1.04)' : 'scale(1)',
+                }}
+              />
 
-          {/* Visual panel — gradient crossfade */}
-          <div className="relative overflow-hidden">
-            {studies.map((s, i) => (
+              {/* dark scrim — heavier at bottom */}
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%)' }} />
+
+              {/* expanded content */}
               <div
-                key={s.id}
-                aria-hidden={i !== active}
-                className={`absolute inset-0 bg-gradient-to-br ${s.gradient} transition-opacity duration-500`}
-                style={{ opacity: i === active ? 1 : 0 }}
+                className="absolute inset-0 flex flex-col justify-between p-6"
+                style={{ opacity: active === i ? 1 : 0, transition: 'opacity 0.3s ease 0.05s' }}
               >
-                <img
-                  src={s.logo}
-                  alt={s.id}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-14 w-auto object-contain brightness-0 invert opacity-75"
-                />
-                <span className="absolute bottom-6 left-6 rounded-full px-3 py-1 text-xs font-semibold bg-white/15 text-white border border-white/20">
-                  {s.metric}
+                {/* top — logo or headline */}
+                <div>
+                  {s.logo ? (
+                    <img src={s.logo} alt={s.label} className="h-10 w-auto object-contain brightness-0 invert opacity-85" />
+                  ) : (
+                    <span className="text-[10px] font-semibold uppercase tracking-widest text-white/50">{s.label}</span>
+                  )}
+                </div>
+
+                {/* bottom — headline + metric */}
+                <div>
+                  {s.headline && (
+                    <p className="mb-2 text-[15px] font-bold leading-snug text-white">{s.headline}</p>
+                  )}
+                  {s.sub && (
+                    <p className="mb-3 text-[11px] text-white/55">{s.sub}</p>
+                  )}
+                  <span className="inline-block rounded-full px-3 py-1 text-xs font-semibold bg-white/15 text-white border border-white/20 backdrop-blur-sm">
+                    {s.metric}
+                  </span>
+                </div>
+              </div>
+
+              {/* vertical label — visible when collapsed */}
+              <div
+                className="absolute inset-0 flex items-center justify-center"
+                style={{ opacity: active === i ? 0 : 1, transition: 'opacity 0.2s ease' }}
+              >
+                <span
+                  className="text-white/50 text-[10px] font-semibold uppercase tracking-widest select-none"
+                  style={{ writingMode: 'vertical-rl', textOrientation: 'mixed', transform: 'rotate(180deg)' }}
+                >
+                  {s.label}
                 </span>
               </div>
-            ))}
-          </div>
-
-          {/* Text slides */}
-          <div className="relative bg-[#f8fafb] overflow-hidden">
-            {studies.map((s, i) => (
-              <div
-                key={s.id}
-                aria-hidden={i !== active}
-                className="absolute inset-0 flex flex-col justify-center px-8 py-8"
-                style={{
-                  transform: `translateX(${getTranslate(i)})`,
-                  opacity: i === active ? 1 : 0,
-                  pointerEvents: i === active ? 'auto' : 'none',
-                  transition: 'transform 0.4s ease, opacity 0.3s ease',
-                }}
-              >
-                <p className="text-[15px] leading-[1.65] mb-6">
-                  <span className="font-bold text-[#0d1117]">{s.headline}</span>
-                  {' '}
-                  <span className="font-normal text-[#64748b]">{s.description}</span>
-                </p>
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0d1117] border border-black/20 rounded-md px-4 py-2 w-fit hover:bg-black/5 transition-colors"
-                >
-                  {s.cta}
-                  <ChevronArrow />
-                </a>
-              </div>
-            ))}
-          </div>
-
+            </Wrapper>
+            )
+          })}
         </div>
 
-        {/* Mobile horizontal scroll cards */}
+        {/* ── Mobile horizontal scroll ── */}
         <ul
           role="list"
-          className="md:hidden flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 no-scrollbar"
+          className="md:hidden flex gap-3 overflow-x-auto pb-4 -mx-6 px-6"
           style={{ scrollSnapType: 'x mandatory' }}
         >
           {studies.map((s) => (
-            <li
-              key={s.id}
-              className="shrink-0 w-[85vw] max-w-[320px] rounded-2xl overflow-hidden border border-black/[0.06] bg-[#f8fafb]"
-              style={{ scrollSnapAlign: 'start' }}
+            <li key={s.id} style={{ scrollSnapAlign: 'start' }}>
+            {s.href ? (
+              <Link href={s.href} className="relative block shrink-0 w-[75vw] max-w-[300px] rounded-2xl overflow-hidden" style={{ height: 220 }}>
+                <img src={s.image} alt={s.label} className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%)' }} />
+                <div className="absolute inset-0 flex flex-col justify-between p-4">
+                  <div>{s.logo ? <img src={s.logo} alt={s.label} className="h-8 w-auto object-contain brightness-0 invert opacity-80" /> : <span className="text-[10px] font-semibold uppercase tracking-widest text-white/50">{s.label}</span>}</div>
+                  <div>{s.headline && <p className="mb-1.5 text-[13px] font-bold leading-snug text-white">{s.headline}</p>}<span className="inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold bg-white/15 text-white border border-white/20">{s.metric}</span></div>
+                </div>
+              </Link>
+            ) : (
+            <div
+              className="relative shrink-0 w-[75vw] max-w-[300px] rounded-2xl overflow-hidden"
+              style={{ height: 220 }}
             >
-              <div className={`h-48 relative bg-gradient-to-br ${s.gradient}`}>
-                <img
-                  src={s.logo}
-                  alt={s.id}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-auto object-contain brightness-0 invert opacity-75"
-                />
-                <span className="absolute bottom-4 left-4 rounded-full px-2.5 py-0.5 text-[11px] font-semibold bg-white/15 text-white border border-white/20">
-                  {s.metric}
-                </span>
+              <img src={s.image} alt={s.label} className="absolute inset-0 h-full w-full object-cover" />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%)' }} />
+              <div className="absolute inset-0 flex flex-col justify-between p-4">
+                <div>
+                  {s.logo
+                    ? <img src={s.logo} alt={s.label} className="h-8 w-auto object-contain brightness-0 invert opacity-80" />
+                    : <span className="text-[10px] font-semibold uppercase tracking-widest text-white/50">{s.label}</span>
+                  }
+                </div>
+                <div>
+                  {s.headline && <p className="mb-1.5 text-[13px] font-bold leading-snug text-white">{s.headline}</p>}
+                  <span className="inline-block rounded-full px-2.5 py-0.5 text-[11px] font-semibold bg-white/15 text-white border border-white/20">
+                    {s.metric}
+                  </span>
+                </div>
               </div>
-              <div className="p-5">
-                <p className="text-[14px] leading-[1.6] mb-4">
-                  <span className="font-bold text-[#0d1117]">{s.headline}</span>
-                  {' '}
-                  <span className="font-normal text-[#64748b]">{s.description}</span>
-                </p>
-                <a
-                  href="#"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0d1117] border border-black/20 rounded-md px-3 py-1.5 hover:bg-black/5 transition-colors"
-                >
-                  {s.cta}
-                  <ChevronArrow />
-                </a>
-              </div>
+            </div>
+            )}
             </li>
           ))}
         </ul>
-
-        {/* Slide counter */}
-        <p className="hidden md:block mt-4 text-xs text-[#94a3b8] text-right">
-          {active + 1} / {studies.length}
-        </p>
 
       </div>
     </section>
