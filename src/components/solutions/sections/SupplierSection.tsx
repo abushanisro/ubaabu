@@ -84,7 +84,7 @@ export default function SupplierSection() {
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.75, ease: EASE }}
               >
-                <div className="text-[11px] uppercase tracking-[0.3em]" style={{ color: T }}>
+                <div className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: T }}>
                   02 · Supplier intelligence
                 </div>
 
@@ -97,7 +97,7 @@ export default function SupplierSection() {
 
                 <div className="mt-8 space-y-5">
                   <div>
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-white/40">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
                       The problem
                     </div>
                     <p className="mt-1.5 text-sm leading-relaxed text-white/75">
@@ -107,7 +107,7 @@ export default function SupplierSection() {
                   </div>
                   <div>
                     <div
-                      className="text-[10px] uppercase tracking-[0.2em]"
+                      className="font-mono text-[10px] uppercase tracking-[0.2em]"
                       style={{ color: 'rgba(45,212,191,0.8)' }}
                     >
                       Emithran approach
@@ -274,8 +274,8 @@ export default function SupplierSection() {
                     transition={{ duration: 0.55, delay: 0.38 + i * 0.08, ease: EASE }}
                     className="em-glass em-glow-border em-hover-lift rounded-xl p-4"
                   >
-                    <div className="em-teal-text text-2xl font-semibold">{value}</div>
-                    <div className="mt-1 text-[11px] uppercase tracking-[0.18em] text-white/50">
+                    <div className="em-teal-text font-display text-2xl font-semibold">{value}</div>
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white/50">
                       {label}
                     </div>
                   </motion.div>
@@ -288,11 +288,11 @@ export default function SupplierSection() {
                 transition={{ duration: 0.7, delay: 0.72, ease: EASE }}
                 className="em-glass mt-5 rounded-xl p-5"
               >
-                <blockquote className="text-pretty text-sm leading-relaxed text-white/85">
+                <blockquote className="font-display text-pretty text-sm leading-relaxed text-white/85">
                   "Before Emithran, each buyer maintained separate supplier lists. Now we have
                   one intelligent system with standardized pricing and better supplier scores."
                 </blockquote>
-                <figcaption className="mt-3 text-[11px] uppercase tracking-[0.18em] text-white/40">
+                <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
                   — ₹500Cr+ engineering firm · 5 procurement officers
                 </figcaption>
               </motion.figure>

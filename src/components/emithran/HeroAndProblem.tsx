@@ -285,7 +285,7 @@ function HiddenCosts() {
                   animate={headInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
                   className="tracking-tight"
-                  style={{ fontFamily: "'Georgia', 'Times New Roman', ui-serif, serif", fontWeight: 700, lineHeight: 1.08, marginBottom: '3rem' }}
+                  style={{ fontFamily: 'var(--font-sora), Sora, ui-sans-serif, sans-serif', fontWeight: 700, lineHeight: 1.08, marginBottom: '3rem' }}
                 >
                   <span
                     className="block"

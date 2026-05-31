@@ -79,33 +79,31 @@ export default function WhyIndia() {
       }}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-24">
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-20"
-          style={{ alignItems: 'flex-start' }}
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
 
           {/* ── Left: sticky heading ── */}
-          <div ref={headRef}>
-            <motion.h2
-              initial={{ opacity: 0, y: 18 }}
-              animate={headInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.65, ease: EASE }}
-              className="font-display font-bold tracking-tighter uppercase sticky"
-              style={{
-                fontSize: 'clamp(2.8rem, 6vw, 5.5rem)',
-                lineHeight: 0.9,
-                color: '#ffffff',
-                top: '8rem',
-              }}
-            >
-              Why Built
-              <br />
-              For <span style={{ color: T }}>India</span>
-              <br />
-              Changes
-              <br />
-              Everything.
-            </motion.h2>
+          <div ref={headRef} className="relative">
+            <div className="sticky" style={{ top: '8rem' }}>
+              <motion.h2
+                initial={{ opacity: 0, y: 18 }}
+                animate={headInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.65, ease: EASE }}
+                className="font-display font-bold tracking-tighter uppercase"
+                style={{
+                  fontSize: 'clamp(2.8rem, 6vw, 5.5rem)',
+                  lineHeight: 0.9,
+                  color: '#ffffff',
+                }}
+              >
+                Why Built
+                <br />
+                For <span style={{ color: T }}>India</span>
+                <br />
+                Changes
+                <br />
+                Everything.
+              </motion.h2>
+            </div>
           </div>
 
           {/* ── Right: reason cards + quote ── */}

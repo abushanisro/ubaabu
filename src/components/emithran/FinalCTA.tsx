@@ -44,7 +44,7 @@ export default function FinalCTA() {
             fontSize: '30vw',
             color: '#ffffff',
             lineHeight: 1,
-            fontFamily: "'Georgia', 'Times New Roman', ui-serif, serif",
+            fontFamily: 'var(--font-sora), Sora, ui-sans-serif, sans-serif',
           }}
         >
           EMITHRAN
@@ -65,7 +65,7 @@ export default function FinalCTA() {
           <h2
             className="font-bold tracking-tighter uppercase"
             style={{
-              fontFamily: "'Georgia', 'Times New Roman', ui-serif, serif",
+              fontFamily: 'var(--font-sora), Sora, ui-sans-serif, sans-serif',
               fontSize: 'clamp(2.8rem, 6.5vw, 6rem)',
               lineHeight: 0.92,
               color: '#ffffff',
