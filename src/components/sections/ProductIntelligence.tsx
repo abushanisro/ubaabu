@@ -98,14 +98,38 @@ const GROUPS: { id: Group; label: string; tags: string[]; headline: string }[] =
   { id: 'SHIP',   label: 'SHIP',   tags: [], headline: 'Full visibility from factory to delivery.' },
 ]
 
+const GROUP_ICONS = [
+  <svg key="g0" xmlns="http://www.w3.org/2000/svg" width="33" height="36" viewBox="0 0 33 36" fill="none" className="mb-5">
+    <path d="M10.1449 17.3154L1.75122 21.2284V21.2099L10.1449 25.1229L13.7229 34.3241H13.6977L17.2673 25.1229L25.661 21.2099V21.2284L17.2673 17.3154L13.6977 8.11426H13.7229L10.1449 17.3154Z" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M24.0174 6.31266L20.1438 8.11849V8.10998L24.0174 9.91581L25.6687 14.1621H25.657L27.3044 9.91581L31.178 8.10998V8.11849L27.3044 6.31266L25.657 2.06641H25.6687L24.0174 6.31266Z" stroke="#0d9e8a" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>,
+  <svg key="g1" xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" className="mb-5">
+    <path d="M13.4529 6.47559L13.4529 13.3161L6.92644 13.3158" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M13.4527 13.3141L4.01514 3.87646" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round"/>
+    <path d="M20.2935 6.47559L20.2934 13.3161L26.8199 13.3158" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M20.2936 13.3141L29.7312 3.87646" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round"/>
+    <path d="M20.2935 25.915L20.2934 19.0745L26.8199 19.0748" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M20.2936 19.0766L29.7312 28.5142" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round"/>
+    <path d="M13.4529 25.915L13.4529 19.0745L6.92645 19.0748" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M13.4527 19.0766L4.01514 28.5142" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round"/>
+  </svg>,
+  <svg key="g2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none" className="mb-5">
+    <path d="M2 1.25146H10.1533" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
+    <path d="M2 8.52344H23.7422" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
+    <path d="M2 23.1396H23.7422" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
+    <path d="M2 15.708H12.8711" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
+    <path d="M18.3066 15.708H23.7422" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
+  </svg>,
+]
+
 export default function ProductIntelligence() {
   const [activeId, setActiveId] = useState('bom')
 
   return (
-    <section className="bg-white text-[#0a0a0a] py-16 lg:py-24">
+    <section className="bg-white text-[#0a0a0a] pt-6 pb-4 lg:pt-10 lg:pb-8">
 
       {/* Section title */}
-      <div className="text-center mb-12 lg:mb-16 px-6 max-w-4xl mx-auto">
+      <div className="text-center mb-6 lg:mb-8 px-6 max-w-4xl mx-auto">
         <p className="text-2xl md:text-3xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900 mb-4">
           AI Product Intelligence from Design to{' '}
           <AnimatedText
@@ -136,9 +160,7 @@ export default function ProductIntelligence() {
             >
               {/* Text */}
               <div style={{ direction: 'ltr' }}>
-                <svg viewBox="0 0 24 24" className="w-6 h-6 mb-5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 3C12 3 12.8 8.2 15.5 10.5C17.8 12.5 21 12 21 12C21 12 17.8 11.5 15.5 13.5C12.8 15.8 12 21 12 21C12 21 11.2 15.8 8.5 13.5C6.2 11.5 3 12 3 12C3 12 6.2 12.5 8.5 10.5C11.2 8.2 12 3 12 3Z" fill="#0d9e8a" />
-                </svg>
+                {GROUP_ICONS[gi]}
 
                 <h3 className="text-[1.5rem] lg:text-[1.85rem] xl:text-[2.2rem] font-bold text-[#0d0d0d] leading-[1.22] mb-5 lg:mb-7" style={{ letterSpacing: '-0.01em' }}>
                   {g.headline}

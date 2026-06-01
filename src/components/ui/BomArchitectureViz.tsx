@@ -27,7 +27,7 @@ export default function BomArchitectureViz() {
         viewBox="0 0 500 80"
         width="100%"
         height="100%"
-        preserveAspectRatio="xMidYMid slice"
+        preserveAspectRatio="xMidYMid meet"
         style={{ background: 'transparent', display: 'block' }}
       >
         <defs>
