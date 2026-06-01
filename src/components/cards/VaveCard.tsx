@@ -151,7 +151,6 @@ export function VaveCard() {
       <div className="absolute inset-0" style={{ opacity: 0.38 }}>
         <CpuArchitecture
           text="AI"
-          showCpuBox={false}
           showCpuConnections={false}
           animateText={false}
           animateMarkers={false}
