@@ -3,8 +3,13 @@ import { useEffect, useRef, useState } from 'react'
 import { Pause, Play, Sun, Moon } from 'lucide-react'
 import dynamic from 'next/dynamic'
 
-const StatsKnowledgeSection = dynamic(
-  () => import('@/components/sections/StatsKnowledgeSection'),
+const ManufacturingViz = dynamic(
+  () => import('@/components/ManufacturingViz').then(m => ({ default: m.ManufacturingViz })),
+  { ssr: false, loading: () => null }
+)
+
+const BomArchitectureViz = dynamic(
+  () => import('@/components/ui/BomArchitectureViz'),
   { ssr: false, loading: () => null }
 )
 
@@ -89,9 +94,20 @@ export default function StatsSection() {
         </div>
       </div>
 
-      {/* Knowledge Graph / Manufacturing Viz */}
-      <div className="relative z-10 w-full" style={{ minHeight: 480 }}>
-        <StatsKnowledgeSection active={active} time={time} playing={playing} />
+      {/* Per-stat animation */}
+      <div className="pointer-events-none relative z-0 w-full -mt-10 md:-mt-16"
+        style={{ paddingLeft: 'clamp(16px, 5vw, 64px)', paddingRight: 'clamp(16px, 5vw, 64px)' }}>
+        <div className="pointer-events-auto relative w-full aspect-[2/1] md:aspect-[5/1] overflow-hidden rounded-2xl">
+          {active === 0 && (
+            <ManufacturingViz key="mfg-0" index={0} time={time} playing={playing} />
+          )}
+          {active === 1 && (
+            <BomArchitectureViz key="bom" />
+          )}
+          {active === 2 && (
+            <ManufacturingViz key="mfg-2" index={1} time={time} playing={playing} />
+          )}
+        </div>
       </div>
     </section>
   )
