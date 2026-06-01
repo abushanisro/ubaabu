@@ -3,13 +3,8 @@ import { useEffect, useRef, useState } from 'react'
 import { Pause, Play, Sun, Moon } from 'lucide-react'
 import dynamic from 'next/dynamic'
 
-const ManufacturingViz = dynamic(
-  () => import('@/components/ManufacturingViz').then((m) => ({ default: m.ManufacturingViz })),
-  { ssr: false, loading: () => null }
-)
-
-const ShaderBackground = dynamic(
-  () => import('@/components/ui/shader-background'),
+const StatsKnowledgeSection = dynamic(
+  () => import('@/components/sections/StatsKnowledgeSection'),
   { ssr: false, loading: () => null }
 )
 
@@ -17,35 +12,22 @@ type Time = 'pre-dawn' | 'sunrise' | 'daytime' | 'dusk' | 'sunset' | 'night'
 const TIMES: Time[] = ['pre-dawn', 'sunrise', 'daytime', 'dusk', 'sunset', 'night']
 
 const stats = [
-  {
-    value: '$72B+',
-    label: "in Indian defence procurement managed annually on spreadsheets and legacy ERP systems",
-  },
-  {
-    value: '40%',
-    label: 'faster RFQ turnaround time for engineering teams using Emithran should-cost models',
-  },
-  {
-    value: '99.4%',
-    label: 'BOM accuracy rate across active defence and aerospace programmes on the platform',
-  },
+  { value: '$72B+',  label: 'in Indian defence procurement managed annually on spreadsheets and legacy ERP systems' },
+  { value: '99.4%',  label: 'BOM accuracy rate across active defence and aerospace programmes on the platform' },
+  { value: '40%',    label: 'faster RFQ turnaround time for engineering teams using Emithran should-cost models' },
 ]
 
 export default function StatsSection() {
-  const [active, setActive] = useState(2)
+  const [active, setActive]   = useState(0)
   const [hovered, setHovered] = useState<number | null>(null)
-  const [time, setTime] = useState<Time>('night')
+  const [time, setTime]       = useState<Time>('night')
   const [playing, setPlaying] = useState(true)
   const intRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
     if (!playing) return
-    intRef.current = setInterval(() => {
-      setActive((a) => (a + 1) % stats.length)
-    }, 3500)
-    return () => {
-      if (intRef.current) clearInterval(intRef.current)
-    }
+    intRef.current = setInterval(() => setActive(a => (a + 1) % stats.length), 3500)
+    return () => { if (intRef.current) clearInterval(intRef.current) }
   }, [playing])
 
   const cycleTime = () => {
@@ -59,10 +41,11 @@ export default function StatsSection() {
     <section className="stats-stage relative" data-time={time}>
       <div className="stats-sky" data-time={time} />
       <div className="stats-stars" />
-      {/* Column lines — match layout.tsx fixed lines but white for dark bg */}
+
       <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08] hidden md:block" style={{ left: 64 }} />
       <span aria-hidden className="pointer-events-none absolute inset-y-0 z-40 w-px bg-white/[0.08] hidden md:block" style={{ right: 64 }} />
-{/* ── Text content ── */}
+
+      {/* Text content */}
       <div className="relative z-10 py-10 md:py-14">
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-6 md:grid-cols-2 md:gap-20">
           <div>
@@ -70,18 +53,12 @@ export default function StatsSection() {
               The intelligence layer for Every manufacturing.
             </h2>
             <div className="mt-8 flex items-center gap-2">
-              <button
-                onClick={() => setPlaying((p) => !p)}
-                aria-label={playing ? 'Pause' : 'Play'}
-                className="grid h-9 w-9 place-items-center rounded-full border border-current/40 hover:bg-white/10 transition-colors"
-              >
+              <button onClick={() => setPlaying(p => !p)} aria-label={playing ? 'Pause' : 'Play'}
+                className="grid h-9 w-9 place-items-center rounded-full border border-current/40 hover:bg-white/10 transition-colors">
                 {playing ? <Pause size={14} /> : <Play size={14} />}
               </button>
-              <button
-                onClick={cycleTime}
-                aria-label="Time of day"
-                className="grid h-9 w-9 place-items-center rounded-full border border-current/40 hover:bg-white/10 transition-colors"
-              >
+              <button onClick={cycleTime} aria-label="Time of day"
+                className="grid h-9 w-9 place-items-center rounded-full border border-current/40 hover:bg-white/10 transition-colors">
                 {isDay ? <Sun size={14} /> : <Moon size={14} />}
               </button>
               <span className="ml-2 text-xs uppercase tracking-widest opacity-70">{time}</span>
@@ -112,15 +89,9 @@ export default function StatsSection() {
         </div>
       </div>
 
-      {/* ── Animation — taller on mobile, wider cinematic on desktop ── */}
-      <div className="pointer-events-none relative z-0 w-full -mt-10 md:-mt-16" style={{ paddingLeft: 'clamp(16px, 5vw, 64px)', paddingRight: 'clamp(16px, 5vw, 64px)' }}>
-        <div className="relative w-full aspect-[2/1] md:aspect-[5/1] overflow-hidden rounded-2xl">
-          {active === 2 ? (
-            <ShaderBackground className="absolute inset-0" />
-          ) : (
-            <ManufacturingViz index={active as 0 | 1 | 2 | 3} time={time} playing={playing} />
-          )}
-        </div>
+      {/* Knowledge Graph / Manufacturing Viz */}
+      <div className="relative z-10 w-full" style={{ minHeight: 480 }}>
+        <StatsKnowledgeSection active={active} time={time} playing={playing} />
       </div>
     </section>
   )

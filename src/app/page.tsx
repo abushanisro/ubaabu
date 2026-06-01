@@ -5,6 +5,7 @@ import ProductIntelligence from '@/components/sections/ProductIntelligence'
 import StatsSection from '@/components/sections/StatsSection'
 import WatchDemo from '@/components/sections/WatchDemo'
 import CaseStudies from '@/components/sections/CaseStudies'
+import EnterpriseSection from '@/components/sections/EnterpriseSection'
 import FinalCTA from '@/components/sections/FinalCTA'
 import FAQ from '@/components/sections/FAQ'
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
       <div className="bg-white h-16 lg:h-24" />
       <WatchDemo />
       <CaseStudies />
+      <EnterpriseSection />
       <FinalCTA />
       <FAQ />
     </>
