@@ -2,8 +2,9 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 
-const T    = '#2dd4bf'
+const T    = '#0d9e8a'
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const STATS = [
@@ -13,12 +14,11 @@ const STATS = [
   { value: '99%',   label: 'First-pass DFM'    },
 ]
 
-// Annotation card config — position, colour theme, float timing
 const ANNOTATIONS = [
   {
     pos:     { top: '18%', left: '8%' },
-    border:  'rgba(252,211,77,0.4)',
-    color:   'rgb(253,230,138)',
+    border:  'rgba(252,211,77,0.5)',
+    color:   'rgb(202,158,30)',
     label:   'Tolerance H7',
     body:    '40% costlier with Indian suppliers — optimize?',
     delay:   0.55,
@@ -28,7 +28,7 @@ const ANNOTATIONS = [
   },
   {
     pos:     { top: '55%', right: '6%' },
-    border:  'rgba(45,212,191,0.6)',
+    border:  `rgba(13,158,138,0.6)`,
     color:   T,
     label:   'Material Ti-6Al-4V',
     body:    '3-week lead time. 2 alternatives ≤7 days.',
@@ -39,8 +39,8 @@ const ANNOTATIONS = [
   },
   {
     pos:     { bottom: '12%', left: '12%' },
-    border:  'rgba(110,231,183,0.5)',
-    color:   'rgb(167,243,208)',
+    border:  'rgba(13,158,138,0.4)',
+    color:   '#0d7a6a',
     label:   'Should-cost',
     body:    '₹4,820 / unit · benchmark across 72K data points',
     delay:   0.88,
@@ -58,19 +58,18 @@ export default function DesignSection() {
     <section
       ref={ref}
       id="design"
-      className="relative"
+      className="relative bg-white"
       style={{
-        background:      '#070707',
         paddingTop:      'clamp(4rem, 8vw, 7rem)',
         paddingBottom:   'clamp(5rem, 10vw, 9rem)',
-        borderTop:       '1px solid rgba(255,255,255,0.05)',
+        borderTop:       '1px solid rgba(0,0,0,0.06)',
         scrollMarginTop: '160px',
       }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-[1280px] px-6">
         <div className="grid gap-12 md:grid-cols-12">
 
-          {/* ── LEFT: Sticky editorial ─────────────────────────────── */}
+          {/* ── LEFT: Sticky editorial ── */}
           <div className="md:col-span-5">
             <div className="sticky top-40">
               <motion.div
@@ -81,27 +80,32 @@ export default function DesignSection() {
                 <div className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: T }}>
                   01 · Design intelligence
                 </div>
-                <h2
-                  className="em-text-gradient mt-4 text-balance font-semibold leading-[1.05] tracking-[-0.03em]"
-                  style={{ fontSize: 'clamp(2rem, 4vw, 3.6rem)' }}
-                >
-                  Design with the supply chain built in.
-                </h2>
+                <p className="mt-4 text-balance text-xl md:text-2xl lg:text-[2.2rem] font-bold leading-[1.25] tracking-tight text-gray-900">
+                  Design with the{' '}
+                  <AnimatedText
+                    text="supply chain built in."
+                    textClassName="text-gray-900 font-bold"
+                    underlineColor="oklch(0.68 0.13 180)"
+                    underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
+                    underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
+                    underlineDuration={1.8}
+                  />
+                </p>
                 <div className="mt-8 space-y-5">
                   <div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-black/40">
                       The problem
                     </div>
-                    <p className="mt-1.5 text-sm leading-relaxed text-white/75">
+                    <p className="mt-1.5 text-sm leading-relaxed text-black/60">
                       Design teams decide without supply chain input. Cost and manufacturability
                       surprises emerge after design lock. Every redesign costs time and money.
                     </p>
                   </div>
                   <div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: 'rgba(45,212,191,0.8)' }}>
+                    <div className="font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: T }}>
                       Emithran approach
                     </div>
-                    <p className="mt-1.5 text-sm leading-relaxed text-white/85">
+                    <p className="mt-1.5 text-sm leading-relaxed text-black/75">
                       Embed manufacturing and supplier intelligence directly into the design
                       process — real-time, in the CAD.
                     </p>
@@ -111,14 +115,19 @@ export default function DesignSection() {
             </div>
           </div>
 
-          {/* ── RIGHT: Visuals ─────────────────────────────────────── */}
+          {/* ── RIGHT: Visuals ── */}
           <div className="md:col-span-7">
 
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
-              className="em-glow-border em-glass relative overflow-hidden rounded-2xl"
+              className="relative overflow-hidden rounded-2xl"
+              style={{
+                background: 'rgba(13,17,23,0.97)',
+                border: `1px solid rgba(13,158,138,0.2)`,
+                boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
+              }}
             >
               {/* Window chrome */}
               <div className="flex items-center justify-between border-b border-white/5 px-5 py-3
@@ -130,24 +139,21 @@ export default function DesignSection() {
               {/* Viewport */}
               <div className="relative h-[460px]">
 
-                {/* One-shot scan line — sweeps down the viewport on enter */}
                 <motion.div
                   className="pointer-events-none absolute left-0 right-0 z-10 h-px"
-                  style={{ background: `linear-gradient(90deg, transparent, ${T}88, transparent)` }}
+                  style={{ background: `linear-gradient(90deg, transparent, rgba(13,158,138,0.6), transparent)` }}
                   initial={{ top: 0, opacity: 0 }}
                   animate={inView ? { top: '100%', opacity: [0, 0.85, 0.85, 0] } : {}}
                   transition={{ duration: 1.8, delay: 0.3, ease: 'linear' }}
                 />
 
-                {/* CAD grid */}
                 <div className="em-grid absolute inset-0 opacity-50" />
 
-                {/* Rotating wireframe */}
                 <svg viewBox="0 0 400 400" className="absolute inset-0 m-auto h-[80%] w-[80%]">
                   <defs>
                     <linearGradient id="em-wire" x1="0" x2="1" y1="0" y2="1">
                       <stop offset="0%"   stopColor="white"           stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="rgb(45,212,191)" stopOpacity="0.9" />
+                      <stop offset="100%" stopColor="rgb(13,158,138)" stopOpacity="0.9" />
                     </linearGradient>
                   </defs>
                   <g
@@ -170,18 +176,21 @@ export default function DesignSection() {
                 {/* Floating annotation cards */}
                 {ANNOTATIONS.map(({ pos, border, color, label, body, delay, floatY, floatDur, floatDelay }) => (
                   <div key={label} className="absolute" style={pos}>
-                    {/* Entrance */}
                     <motion.div
                       initial={{ opacity: 0, scale: 0.88, y: 10 }}
                       animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
                       transition={{ duration: 0.55, delay, ease: EASE }}
                     >
-                      {/* Continuous float — different rhythm per card */}
                       <motion.div
                         animate={{ y: [0, floatY, 0] }}
                         transition={{ duration: floatDur, repeat: Infinity, ease: 'easeInOut', delay: floatDelay }}
-                        className="em-glass max-w-[230px] rounded-xl p-3 text-[11px]"
-                        style={{ border: `1px solid ${border}`, color }}
+                        className="max-w-[230px] rounded-xl p-3 text-[11px]"
+                        style={{
+                          background: 'rgba(13,17,23,0.9)',
+                          backdropFilter: 'blur(12px)',
+                          border: `1px solid ${border}`,
+                          color,
+                        }}
                       >
                         <div className="mb-1 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] opacity-80">
                           <span className="relative flex h-1.5 w-1.5">
@@ -195,7 +204,6 @@ export default function DesignSection() {
                     </motion.div>
                   </div>
                 ))}
-
               </div>
             </motion.div>
 
@@ -208,10 +216,10 @@ export default function DesignSection() {
                     initial={{ opacity: 0, y: 16 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.55, delay: 0.38 + i * 0.08, ease: EASE }}
-                    className="em-glass em-glow-border em-hover-lift rounded-xl p-4"
+                    className="rounded-xl border border-black/8 bg-white p-4 shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <div className="em-teal-text font-display text-2xl font-semibold">{value}</div>
-                    <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white/50">
+                    <div className="font-display text-2xl font-semibold" style={{ color: T }}>{value}</div>
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
                       {label}
                     </div>
                   </motion.div>
@@ -222,13 +230,13 @@ export default function DesignSection() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.72, ease: EASE }}
-                className="em-glass mt-5 rounded-xl p-5"
+                className="mt-5 rounded-xl border border-black/8 bg-[#fafafa] p-5"
               >
-                <blockquote className="font-display text-pretty text-sm leading-relaxed text-white/85">
+                <blockquote className="font-display text-pretty text-sm leading-relaxed text-black/70">
                   "Our design team used to learn about manufacturing constraints from rejection
                   emails. Now they design with them built in. Saves us 15 days per product cycle."
                 </blockquote>
-                <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
+                <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
                   — Aerospace component manufacturer
                 </figcaption>
               </motion.figure>

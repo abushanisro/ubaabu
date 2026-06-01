@@ -4,19 +4,10 @@ import { useRef } from 'react'
 import type { ReactNode } from 'react'
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowRight, ArrowUpRight, Shield, Zap } from 'lucide-react'
+import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 
-const T    = '#2dd4bf'
+const T    = '#0d9e8a'
 const EASE = [0.16, 1, 0.3, 1] as const
-
-// ── Stagger variants ──────────────────────────────────────────────────────────
-const staggerParent = {
-  hidden:  {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.22 } },
-}
-const lineReveal = {
-  hidden:  { y: '110%' },
-  visible: { y: '0%', transition: { duration: 1.05, ease: EASE } },
-}
 
 // ── Magnetic button wrapper ───────────────────────────────────────────────────
 function Magnet({ children }: { children: ReactNode }) {
@@ -45,15 +36,7 @@ function Magnet({ children }: { children: ReactNode }) {
   )
 }
 
-// ── Static data (precomputed to avoid hydration mismatch) ─────────────────────
-const HEADLINE = [
-  { text: 'Manufacturing', teal: false },
-  { text: 'intelligence',  teal: false },
-  { text: 'across your',   teal: false },
-  { text: 'entire value',  teal: true  },
-  { text: 'chain.',        teal: false },
-]
-
+// ── Static data ───────────────────────────────────────────────────────────────
 const TRUST = [
   { value: '72K+',   label: 'Verified suppliers'  },
   { value: '98.6%',  label: 'OTIF accuracy'       },
@@ -88,7 +71,6 @@ const PANEL_METRICS = [
   { label: 'Risk',      value: '3 ↓',   pct: '22%', hi: false },
 ]
 
-// OTIF ring: r=36 in 100×100 viewBox → circumference ≈ 226.2
 const RING_R    = 36
 const RING_CIRC = 2 * Math.PI * RING_R
 const RING_DASH = RING_CIRC * 0.986
@@ -102,64 +84,33 @@ export default function SolutionsHero() {
     <section
       ref={sectionRef}
       aria-label="Solutions Hero"
-      className="relative min-h-screen overflow-hidden"
-      style={{ background: '#070707' }}
+      className="relative min-h-screen overflow-hidden bg-white"
     >
-
-      {/* ── Layer 1: animated teal light blobs ─────────────────────────── */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div
-          style={{
-            position: 'absolute',
-            width: '90vw', height: '90vw',
-            top: '-55vw', left: '0',
-            borderRadius: '50%',
-            background: `radial-gradient(circle, ${T} 0%, transparent 68%)`,
-            opacity: 0.06,
-            animation: 'em-blob1 26s ease-in-out infinite',
-            willChange: 'transform',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            width: '65vw', height: '65vw',
-            bottom: '-32vw', right: '-5vw',
-            borderRadius: '50%',
-            background: `radial-gradient(circle, ${T} 0%, transparent 68%)`,
-            opacity: 0.04,
-            animation: 'em-blob2 32s ease-in-out infinite',
-            willChange: 'transform',
-          }}
-        />
-        {/* Horizon line */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '56%', left: 0, right: 0,
-            height: '1px',
-            background: `linear-gradient(90deg,
-              transparent 0%,
-              rgba(45,212,191,0.1) 25%,
-              rgba(45,212,191,0.18) 50%,
-              rgba(45,212,191,0.1) 75%,
-              transparent 100%)`,
-          }}
-        />
-      </div>
-
-      {/* ── Layer 2: fine dot grid ──────────────────────────────────────── */}
+      {/* Dot grid pattern */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
-          opacity: 0.032,
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)',
-          backgroundSize:  '32px 32px',
+          backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px)',
+          backgroundSize:  '28px 28px',
+          opacity: 0.8,
         }}
       />
 
-      {/* ── Layer 3: drifting particles ─────────────────────────────────── */}
+      {/* Subtle teal glow */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          style={{
+            position: 'absolute',
+            width: '70vw', height: '70vw',
+            top: '-35vw', left: '10vw',
+            borderRadius: '50%',
+            background: `radial-gradient(circle, rgba(13,158,138,0.06) 0%, transparent 68%)`,
+          }}
+        />
+      </div>
+
+      {/* Drifting particles */}
       <svg aria-hidden className="pointer-events-none absolute inset-0 h-full w-full">
         {PARTICLES.map((p, i) => (
           <circle
@@ -167,12 +118,12 @@ export default function SolutionsHero() {
             cx={`${p.x}%`}
             cy={`${p.y}%`}
             r={p.size}
-            fill={p.teal ? T : '#ffffff'}
-            opacity={p.teal ? 0.3 : 0.09}
+            fill={p.teal ? T : '#0d1117'}
+            opacity={p.teal ? 0.2 : 0.05}
           >
             <animate
               attributeName="opacity"
-              values={p.teal ? '0.1;0.44;0.1' : '0.04;0.17;0.04'}
+              values={p.teal ? '0.08;0.28;0.08' : '0.02;0.1;0.02'}
               dur={`${p.dur}s`}
               begin={`${p.delay}s`}
               repeatCount="indefinite"
@@ -189,91 +140,73 @@ export default function SolutionsHero() {
         ))}
       </svg>
 
-      {/* ── Content ─────────────────────────────────────────────────────── */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
+      {/* ── Content ── */}
+      <div className="relative z-10 mx-auto max-w-[1280px] px-6">
         <div
-          className="grid min-h-screen grid-cols-1 items-center gap-12 pb-20 pt-24
+          className="grid min-h-screen grid-cols-1 items-center gap-12 pb-20 pt-28
                      lg:grid-cols-[1fr_1.08fr] lg:gap-16 xl:gap-24"
         >
 
-          {/* ── LEFT: Editorial copy ──────────────────────────────────── */}
+          {/* ── LEFT: Copy ── */}
           <div>
-
-            {/* Badge */}
+            {/* Chip label */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: EASE }}
-              className="mb-8 inline-flex items-center gap-2.5 rounded-full border
-                         border-white/[0.09] bg-white/[0.04] px-4 py-1.5 backdrop-blur-sm"
+              className="mb-8"
             >
-              <span className="relative flex h-1.5 w-1.5">
-                <span
-                  className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60"
-                  style={{ background: T }}
-                />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: T }} />
-              </span>
-              <span className="text-[11px] uppercase tracking-[0.2em] text-white/55">
+              <span className="chip-light inline-flex items-center gap-2">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span
+                    className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-60"
+                    style={{ background: T }}
+                  />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: T }} />
+                </span>
                 Manufacturing intelligence, reimagined
               </span>
             </motion.div>
 
-            {/* Headline — staggered per-line reveal ──────────────────── */}
-            <motion.h1
-              variants={staggerParent}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-            >
-              {HEADLINE.map(({ text, teal }) => (
-                <div key={text} className="overflow-hidden">
-                  <motion.span
-                    variants={lineReveal}
-                    className="block font-display font-semibold"
-                    style={{
-                      fontSize:      'clamp(2.8rem, 5.6vw, 5.2rem)',
-                      lineHeight:    0.95,
-                      letterSpacing: '-0.04em',
-                      color:         teal ? T : '#ffffff',
-                    }}
-                  >
-                    {text}
-                  </motion.span>
-                </div>
-              ))}
-            </motion.h1>
-
-            {/* Subtitle */}
+            {/* Headline */}
             <motion.p
-              initial={{ opacity: 0, y: 18 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.78, ease: EASE }}
-              className="mt-8 max-w-[26rem] text-[15px] leading-[1.78] text-white/42"
+              transition={{ duration: 0.95, delay: 0.22, ease: EASE }}
+              className="text-xl md:text-2xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900 mt-2"
             >
-              From design conception to supplier delivery, Emithran powers smarter decisions
-              at every stage — orchestrated by AI, grounded in 72,000+ supplier data points.
+              Manufacturing intelligence across your{' '}
+              <AnimatedText
+                text="entire value chain."
+                textClassName="text-gray-900 font-bold"
+                underlineColor="oklch(0.68 0.13 180)"
+                underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
+                underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
+                underlineDuration={1.8}
+              />{' '}
+              <span className="font-normal text-gray-400">
+                From design conception to supplier delivery, Emithran powers smarter decisions
+                at every stage — orchestrated by AI, grounded in 72,000+ supplier data points.
+              </span>
             </motion.p>
 
-            {/* CTA row ─────────────────────────────────────────────── */}
+            {/* CTA row */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.92, ease: EASE }}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
-              {/* Primary — teal, shine sweep, magnetic */}
               <Magnet>
                 <a
                   href="#journey"
                   className="group relative inline-flex items-center gap-2.5 overflow-hidden
-                             rounded-full px-7 py-3.5 text-sm font-semibold text-black
-                             transition-shadow duration-300
-                             hover:shadow-[0_0_36px_rgba(45,212,191,0.5)]"
-                  style={{ background: T }}
+                             rounded-full px-7 py-3.5 text-sm font-semibold text-white
+                             transition-opacity hover:opacity-85"
+                  style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
                 >
-                  {/* Shine sweep */}
                   <span className="pointer-events-none absolute inset-0 -skew-x-12 -translate-x-full
-                                   bg-white/30 transition-transform duration-700
+                                   bg-white/20 transition-transform duration-700
                                    group-hover:translate-x-[260%]" />
                   <span className="relative z-10">Explore solutions</span>
                   <ArrowRight
@@ -284,27 +217,16 @@ export default function SolutionsHero() {
                 </a>
               </Magnet>
 
-              {/* Secondary — glass, animated glow ring, magnetic */}
               <Magnet>
                 <a
                   href="#cta"
-                  className="group relative inline-flex items-center gap-2 overflow-hidden
-                             rounded-full border border-white/[0.1] bg-white/[0.04] px-7 py-3.5
-                             text-sm font-medium text-white backdrop-blur-sm
-                             transition-all duration-300
-                             hover:border-[rgba(45,212,191,0.36)]
-                             hover:bg-white/[0.07]
-                             hover:shadow-[0_0_28px_rgba(45,212,191,0.1)]"
+                  className="group inline-flex items-center gap-2 rounded-full border border-black/15
+                             px-7 py-3.5 text-sm font-medium text-[#0d1117] hover:bg-black/[0.04]
+                             transition-colors duration-300"
                 >
-                  {/* Inner teal glow ring */}
-                  <span
-                    className="pointer-events-none absolute inset-0 rounded-full opacity-0
-                               transition-opacity duration-500 group-hover:opacity-100"
-                    style={{ boxShadow: `inset 0 0 0 1px rgba(45,212,191,0.2)` }}
-                  />
                   <span className="relative z-10">Book consultation</span>
                   <ArrowUpRight
-                    className="relative z-10 h-4 w-4 transition-transform duration-300
+                    className="h-4 w-4 transition-transform duration-300
                                group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     aria-hidden
                   />
@@ -312,12 +234,12 @@ export default function SolutionsHero() {
               </Magnet>
             </motion.div>
 
-            {/* Trust stats ─────────────────────────────────────────── */}
+            {/* Trust stats */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 1.18 }}
-              className="mt-14 border-t border-white/[0.07] pt-10"
+              className="mt-14 border-t border-black/[0.07] pt-10"
             >
               <div className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4">
                 {TRUST.map(({ value, label }, i) => (
@@ -328,13 +250,12 @@ export default function SolutionsHero() {
                     transition={{ duration: 0.55, delay: 1.22 + i * 0.08 }}
                   >
                     <div
-                      className="font-display text-[1.65rem] font-semibold
-                                 leading-none tracking-tight"
-                      style={{ color: i % 2 === 0 ? T : '#ffffff' }}
+                      className="font-display text-[1.65rem] font-semibold leading-none tracking-tight"
+                      style={{ color: i % 2 === 0 ? T : '#0d1117' }}
                     >
                       {value}
                     </div>
-                    <div className="mt-1.5 text-[10px] uppercase tracking-[0.16em] text-white/30">
+                    <div className="mt-1.5 text-[10px] uppercase tracking-[0.16em] text-black/35">
                       {label}
                     </div>
                   </motion.div>
@@ -344,7 +265,7 @@ export default function SolutionsHero() {
 
           </div>
 
-          {/* ── RIGHT: Animated visual system ────────────────────────── */}
+          {/* ── RIGHT: Animated visual system (dark panels on white) ── */}
           <VisualSystem inView={inView} />
 
         </div>
@@ -353,12 +274,12 @@ export default function SolutionsHero() {
   )
 }
 
-// ── Visual system ─────────────────────────────────────────────────────────────
+// ── Visual system — dark cards as contrast elements ───────────────────────────
 function VisualSystem({ inView }: { inView: boolean }) {
   return (
     <div className="relative hidden lg:block" style={{ height: '600px' }}>
 
-      {/* ── CAD wireframe backdrop ── */}
+      {/* CAD wireframe backdrop */}
       <svg
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -367,52 +288,49 @@ function VisualSystem({ inView }: { inView: boolean }) {
         height="520"
         overflow="visible"
       >
-        {/* Slow-rotating dashed outer ring */}
         <circle cx="260" cy="260" r="228" fill="none" stroke={T}
-          strokeWidth="0.6" strokeOpacity="0.08" strokeDasharray="5 14">
+          strokeWidth="0.6" strokeOpacity="0.1" strokeDasharray="5 14">
           <animateTransform attributeName="transform" type="rotate"
             values="0 260 260;360 260 260" dur="90s" repeatCount="indefinite" />
         </circle>
         <circle cx="260" cy="260" r="198" fill="none" stroke={T}
-          strokeWidth="0.35" strokeOpacity="0.055" />
+          strokeWidth="0.35" strokeOpacity="0.07" />
         <circle cx="260" cy="260" r="168" fill="none" stroke={T}
-          strokeWidth="0.25" strokeOpacity="0.038" strokeDasharray="2 10" />
-        {/* Crosshairs */}
-        <line x1="260" y1="38"  x2="260" y2="482" stroke={T} strokeWidth="0.28" strokeOpacity="0.05" />
-        <line x1="38"  y1="260" x2="482" y2="260" stroke={T} strokeWidth="0.28" strokeOpacity="0.05" />
-        {/* 12-point tick marks */}
+          strokeWidth="0.25" strokeOpacity="0.05" strokeDasharray="2 10" />
+        <line x1="260" y1="38"  x2="260" y2="482" stroke={T} strokeWidth="0.28" strokeOpacity="0.06" />
+        <line x1="38"  y1="260" x2="482" y2="260" stroke={T} strokeWidth="0.28" strokeOpacity="0.06" />
         {Array.from({ length: 12 }, (_, i) => {
           const a = (Math.PI / 6) * i
           return (
             <line key={i}
               x1={260 + 161 * Math.cos(a)} y1={260 + 161 * Math.sin(a)}
               x2={260 + 176 * Math.cos(a)} y2={260 + 176 * Math.sin(a)}
-              stroke={T} strokeWidth="0.7" strokeOpacity="0.17"
+              stroke={T} strokeWidth="0.7" strokeOpacity="0.2"
             />
           )
         })}
       </svg>
 
-      {/* ── Main intelligence panel ── */}
+      {/* Main dark panel */}
       <motion.div
         initial={{ opacity: 0, y: 26, scale: 0.975 }}
         animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
         transition={{ duration: 1.05, delay: 0.45, ease: EASE }}
         className="absolute inset-x-[52px] bottom-[52px] top-[52px] rounded-2xl"
         style={{
-          background:     'rgba(7,7,7,0.86)',
-          border:         '1px solid rgba(255,255,255,0.07)',
+          background:     'rgba(13,17,23,0.95)',
+          border:         '1px solid rgba(255,255,255,0.08)',
           backdropFilter: 'blur(22px)',
           boxShadow:
-            '0 44px 88px -22px rgba(0,0,0,0.75), ' +
+            '0 44px 88px -22px rgba(0,0,0,0.3), ' +
             '0 0 0 1px rgba(255,255,255,0.04), ' +
-            '0 0 110px -35px rgba(45,212,191,0.11)',
+            '0 0 110px -35px rgba(13,158,138,0.15)',
         }}
       >
         {/* Window chrome */}
         <div
           className="flex items-center justify-between px-5 py-3.5"
-          style={{ borderBottom: '1px solid rgba(255,255,255,0.052)' }}
+          style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
         >
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-white/14" />
@@ -467,8 +385,8 @@ function VisualSystem({ inView }: { inView: boolean }) {
         <div
           className="grid grid-cols-4"
           style={{
-            borderTop:    '1px solid rgba(255,255,255,0.052)',
-            borderBottom: '1px solid rgba(255,255,255,0.052)',
+            borderTop:    '1px solid rgba(255,255,255,0.06)',
+            borderBottom: '1px solid rgba(255,255,255,0.06)',
           }}
         >
           {PANEL_METRICS.map(({ label, value, pct, hi }, i) => (
@@ -514,7 +432,7 @@ function VisualSystem({ inView }: { inView: boolean }) {
                 className="flex-1 origin-bottom rounded-[2px]"
                 style={{
                   height:     `${h}%`,
-                  background: `linear-gradient(to top, rgba(45,212,191,0.2), ${T})`,
+                  background: `linear-gradient(to top, rgba(13,158,138,0.2), ${T})`,
                   animation:  `em-bar-rise .9s ${0.98 + i * 0.07}s cubic-bezier(.2,.7,.2,1) both`,
                 }}
               />
@@ -523,7 +441,7 @@ function VisualSystem({ inView }: { inView: boolean }) {
         </div>
       </motion.div>
 
-      {/* ── Floating card: OTIF arc ring (top-right) ── */}
+      {/* Floating card: OTIF arc ring (top-right) */}
       <motion.div
         initial={{ opacity: 0, x: 22, y: -6 }}
         animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
@@ -537,10 +455,10 @@ function VisualSystem({ inView }: { inView: boolean }) {
           <div
             className="flex items-center gap-3 rounded-2xl px-4 py-3.5"
             style={{
-              background:     'rgba(5,5,5,0.9)',
-              border:         '1px solid rgba(255,255,255,0.09)',
+              background:     'rgba(13,17,23,0.95)',
+              border:         '1px solid rgba(255,255,255,0.1)',
               backdropFilter: 'blur(18px)',
-              boxShadow:      '0 22px 52px -14px rgba(0,0,0,0.65)',
+              boxShadow:      '0 22px 52px -14px rgba(0,0,0,0.2)',
             }}
           >
             <svg width="48" height="48" viewBox="0 0 100 100">
@@ -563,10 +481,7 @@ function VisualSystem({ inView }: { inView: boolean }) {
             </svg>
             <div>
               <div className="text-[12px] font-semibold text-white">OTIF Prediction</div>
-              <div
-                className="font-display text-[15px] font-bold leading-tight"
-                style={{ color: T }}
-              >
+              <div className="font-display text-[15px] font-bold leading-tight" style={{ color: T }}>
                 98.6%
               </div>
               <div className="mt-0.5 text-[9px] uppercase tracking-[0.15em] text-white/32">
@@ -577,7 +492,7 @@ function VisualSystem({ inView }: { inView: boolean }) {
         </motion.div>
       </motion.div>
 
-      {/* ── Floating card: Supply risk monitor (bottom-left) ── */}
+      {/* Floating card: Supply risk monitor (bottom-left) */}
       <motion.div
         initial={{ opacity: 0, x: -22 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -591,24 +506,22 @@ function VisualSystem({ inView }: { inView: boolean }) {
           <div
             className="min-w-[178px] rounded-2xl px-4 py-3.5"
             style={{
-              background:     'rgba(5,5,5,0.9)',
-              border:         '1px solid rgba(255,255,255,0.09)',
+              background:     'rgba(13,17,23,0.95)',
+              border:         '1px solid rgba(255,255,255,0.1)',
               backdropFilter: 'blur(18px)',
-              boxShadow:      '0 22px 52px -14px rgba(0,0,0,0.65)',
+              boxShadow:      '0 22px 52px -14px rgba(0,0,0,0.2)',
             }}
           >
             <div className="mb-2.5 flex items-center gap-2">
               <div
                 className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
-                style={{ background: 'rgba(45,212,191,0.1)' }}
+                style={{ background: 'rgba(13,158,138,0.15)' }}
               >
                 <Shield className="h-3.5 w-3.5" style={{ color: T }} />
               </div>
               <div>
                 <div className="text-[11px] font-semibold text-white">Supply Risk</div>
-                <div className="text-[9px] uppercase tracking-[0.12em] text-white/28">
-                  live monitor
-                </div>
+                <div className="text-[9px] uppercase tracking-[0.12em] text-white/28">live monitor</div>
               </div>
             </div>
             {[
@@ -617,15 +530,10 @@ function VisualSystem({ inView }: { inView: boolean }) {
               { name: 'Chennai hub',   level: 'medium', ok: false },
             ].map(({ name, level, ok }) => (
               <div key={name} className="mt-1.5 flex items-center gap-2">
-                <div
-                  className="h-1.5 w-1.5 rounded-full shrink-0"
-                  style={{ background: ok ? T : '#fbbf24' }}
-                />
+                <div className="h-1.5 w-1.5 rounded-full shrink-0" style={{ background: ok ? T : '#fbbf24' }} />
                 <span className="text-[10px] text-white/46">{name}</span>
-                <span
-                  className="ml-auto text-[9px] uppercase tracking-[0.11em] shrink-0"
-                  style={{ color: ok ? T : '#fbbf24' }}
-                >
+                <span className="ml-auto text-[9px] uppercase tracking-[0.11em] shrink-0"
+                  style={{ color: ok ? T : '#fbbf24' }}>
                   {level}
                 </span>
               </div>
@@ -634,7 +542,7 @@ function VisualSystem({ inView }: { inView: boolean }) {
         </motion.div>
       </motion.div>
 
-      {/* ── Floating card: AI VAVE savings (bottom-right) ── */}
+      {/* Floating card: AI VAVE savings (bottom-right) */}
       <motion.div
         initial={{ opacity: 0, y: 22 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -648,10 +556,10 @@ function VisualSystem({ inView }: { inView: boolean }) {
           <div
             className="rounded-2xl px-4 py-3.5"
             style={{
-              background:     'rgba(5,5,5,0.9)',
-              border:         '1px solid rgba(255,255,255,0.09)',
+              background:     'rgba(13,17,23,0.95)',
+              border:         '1px solid rgba(255,255,255,0.1)',
               backdropFilter: 'blur(18px)',
-              boxShadow:      '0 22px 52px -14px rgba(0,0,0,0.65)',
+              boxShadow:      '0 22px 52px -14px rgba(0,0,0,0.2)',
             }}
           >
             <div className="mb-1 flex items-center gap-1.5">
@@ -662,7 +570,6 @@ function VisualSystem({ inView }: { inView: boolean }) {
               ₹2.3Cr
             </div>
             <div className="mt-0.5 text-[10px] text-white/36">12 opportunities found</div>
-            {/* Mini sparkline */}
             <div className="mt-2.5 flex h-5 items-end gap-[2px]">
               {[28, 52, 38, 68, 48, 76, 62, 96].map((h, i) => (
                 <div
@@ -670,9 +577,7 @@ function VisualSystem({ inView }: { inView: boolean }) {
                   className="flex-1 rounded-[1px]"
                   style={{
                     height:     `${h}%`,
-                    background: i === 7
-                      ? T
-                      : `rgba(45,212,191,${0.18 + i * 0.065})`,
+                    background: i === 7 ? T : `rgba(13,158,138,${0.18 + i * 0.065})`,
                   }}
                 />
               ))}

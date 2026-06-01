@@ -11,7 +11,7 @@ import {
   Activity,
 } from 'lucide-react'
 
-const T = '#2dd4bf'
+const T = '#0d9e8a'
 
 const NAV_ITEMS = [
   { id: 'design',   label: 'Design',    Icon: Cpu        },
@@ -24,13 +24,11 @@ const NAV_ITEMS = [
 
 export default function SolutionsNav() {
   const [active, setActive] = useState<string>('design')
-  // ref so scroll handler always sees the latest value without re-registering
   const activeRef = useRef(active)
   activeRef.current = active
 
   useEffect(() => {
     const getActive = () => {
-      // threshold: 28% down from viewport top
       const threshold = window.scrollY + window.innerHeight * 0.28
       let found = NAV_ITEMS[0].id as string
 
@@ -50,14 +48,21 @@ export default function SolutionsNav() {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true })
-    // run once on mount in case page is loaded mid-scroll
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <div className="sticky top-20 z-30 mx-auto flex justify-center px-4 py-3">
-      <div className="em-glass flex max-w-full items-center gap-1 overflow-x-auto rounded-full p-1.5">
+      <div
+        className="flex max-w-full items-center gap-1 overflow-x-auto rounded-full p-1.5"
+        style={{
+          background: 'rgba(255,255,255,0.85)',
+          backdropFilter: 'blur(12px)',
+          border: '1px solid rgba(0,0,0,0.08)',
+          boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+        }}
+      >
         {NAV_ITEMS.map(({ id, label, Icon }) => {
           const isActive = active === id
           return (
@@ -67,17 +72,17 @@ export default function SolutionsNav() {
               className={[
                 'relative flex items-center gap-2 whitespace-nowrap rounded-full',
                 'px-3.5 py-1.5 text-xs font-medium transition-colors duration-200',
-                isActive ? 'text-black' : 'text-white/60 hover:text-white',
+                isActive ? 'text-black/80' : 'text-black/50 hover:text-black/80',
               ].join(' ')}
             >
-              {/* Sliding teal pill — shared layoutId so it animates between tabs */}
               {isActive && (
                 <motion.span
                   layoutId="solutions-nav-pill"
                   className="absolute inset-0 -z-0 rounded-full"
                   style={{
-                    background: T,
-                    boxShadow: `0 0 28px ${T}55`,
+                    background: 'rgba(255,255,255,1)',
+                    boxShadow: '0 1px 6px rgba(0,0,0,0.10)',
+                    border: '1px solid rgba(0,0,0,0.07)',
                   }}
                   transition={{ type: 'spring', stiffness: 420, damping: 36 }}
                 />

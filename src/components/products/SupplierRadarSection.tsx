@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Radar, Database, Shield, AlertTriangle, Map } from 'lucide-react'
+import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -186,7 +187,7 @@ export default function SupplierRadarSection() {
 
         {/* ── Decorative divider ── */}
         <div className="flex items-center gap-4 pt-10 pb-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-black/8 to-transparent" />
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -196,7 +197,7 @@ export default function SupplierRadarSection() {
             <Radar className="w-3.5 h-3.5" />
             MOD_04 · Supplier Radar
           </motion.div>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-black/8 to-transparent" />
         </div>
 
         {/* ── Two-column layout ── */}
@@ -220,25 +221,24 @@ export default function SupplierRadarSection() {
                   style={{ boxShadow: '0 0 0 6px rgba(20,184,166,0.08)' }} />
               </motion.div>
 
-              <motion.h2
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.1, ease: EASE }}
-                className="text-4xl md:text-5xl font-semibold tracking-tight text-slate-900 mb-3 leading-[1.1]"
+                className="text-xl md:text-2xl lg:text-[2.2rem] font-bold leading-[1.25] tracking-tight text-gray-900 mb-3"
               >
                 Supplier{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-br from-teal-500 to-teal-700">
-                  Radar
+                <AnimatedText
+                  text="Radar"
+                  textClassName="text-gray-900 font-bold"
+                  underlineColor="oklch(0.68 0.13 180)"
+                  underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
+                  underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
+                  underlineDuration={1.8}
+                />{' '}
+                <span className="font-normal text-gray-400">
+                  Know Your Supplier Ecosystem in Real Time
                 </span>
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 14 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.18, ease: EASE }}
-                className="text-base text-slate-500 leading-relaxed mb-3"
-              >
-                Know Your Supplier Ecosystem in Real Time
               </motion.p>
 
               <motion.div
@@ -269,13 +269,13 @@ export default function SupplierRadarSection() {
               initial={{ opacity: 0, x: 24 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
-              className="relative rounded-2xl overflow-hidden border border-slate-100 hover:border-teal-200 transition-colors duration-300"
-              style={{ background: 'linear-gradient(135deg, #f8fffd 0%, #ffffff 60%)' }}
+              className="relative rounded-2xl overflow-hidden border border-black/8 hover:border-teal-200 transition-colors duration-300"
+              style={{ background: '#ffffff' }}
             >
               <div className="absolute left-0 inset-y-0 w-1 rounded-l-2xl"
                 style={{ background: 'linear-gradient(to bottom, #14b8a6, #0d9488)' }} />
               <div className="pl-7 pr-7 pt-7 pb-7">
-                <h3 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-5 flex items-center gap-2">
+                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-5 flex items-center gap-2">
                   <Radar className="w-3.5 h-3.5 text-teal-500" />
                   Capabilities
                 </h3>
@@ -292,7 +292,7 @@ export default function SupplierRadarSection() {
                                       group-hover/item:bg-teal-100 group-hover/item:border-teal-200 transition-colors duration-200">
                         <Icon className="w-3.5 h-3.5 text-teal-500" />
                       </div>
-                      <span className="text-sm text-slate-600 leading-relaxed group-hover/item:text-slate-800 transition-colors duration-200">{text}</span>
+                      <span className="text-sm text-black/60 leading-relaxed group-hover/item:text-black/80 transition-colors duration-200">{text}</span>
                     </motion.li>
                   ))}
                 </ul>
@@ -305,11 +305,11 @@ export default function SupplierRadarSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.65, delay: 0.32, ease: EASE }}
-                className="relative rounded-2xl border border-slate-100 bg-white p-6 overflow-hidden hover:border-slate-200 hover:shadow-md transition-all duration-300"
+                className="relative rounded-2xl border border-black/8 bg-white p-6 overflow-hidden hover:border-black/15 hover:shadow-md transition-all duration-300"
               >
                 <div className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
                   style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%)', transform: 'translate(30%,-30%)' }} />
-                <h3 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4">Key Features</h3>
+                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-4">Key Features</h3>
                 <div className="flex flex-wrap gap-2">
                   {KEY_FEATURES.map((f, i) => (
                     <motion.span
@@ -317,7 +317,7 @@ export default function SupplierRadarSection() {
                       initial={{ opacity: 0, scale: 0.88 }}
                       animate={inView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.4, delay: 0.4 + i * 0.06, ease: EASE }}
-                      className="inline-flex items-center gap-1.5 text-xs text-slate-600 bg-slate-50 border border-slate-200
+                      className="inline-flex items-center gap-1.5 text-xs text-black/60 bg-black/[0.03] border border-black/8
                                  px-3 py-1.5 rounded-lg hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700
                                  transition-all duration-200 cursor-default"
                     >
@@ -332,11 +332,11 @@ export default function SupplierRadarSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.65, delay: 0.38, ease: EASE }}
-                className="relative rounded-2xl border border-slate-100 bg-white p-6 overflow-hidden hover:border-slate-200 hover:shadow-md transition-all duration-300"
+                className="relative rounded-2xl border border-black/8 bg-white p-6 overflow-hidden hover:border-black/15 hover:shadow-md transition-all duration-300"
               >
                 <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full pointer-events-none"
                   style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.05) 0%, transparent 70%)', transform: 'translate(-30%,30%)' }} />
-                <h3 className="text-xs font-mono text-slate-400 uppercase tracking-widest mb-4">Built For</h3>
+                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-4">Built For</h3>
                 <div className="flex flex-col gap-2.5">
                   {BUILT_FOR.map(({ role, initials }, i) => (
                     <motion.div
@@ -351,7 +351,7 @@ export default function SupplierRadarSection() {
                                       group-hover/role:from-teal-100 group-hover/role:to-teal-200 transition-colors duration-200">
                         {initials}
                       </div>
-                      <span className="text-sm text-slate-600 group-hover/role:text-slate-800 transition-colors duration-200">{role}</span>
+                      <span className="text-sm text-black/60 group-hover/role:text-black/80 transition-colors duration-200">{role}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -366,21 +366,20 @@ export default function SupplierRadarSection() {
                   initial={{ opacity: 0, y: 18, scale: 0.97 }}
                   animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
                   transition={{ duration: 0.55, delay: 0.46 + i * 0.09, ease: EASE }}
-                  className="relative overflow-hidden rounded-xl border border-slate-100 p-5 group/stat cursor-default
+                  className="relative overflow-hidden rounded-xl border border-black/8 p-5 group/stat cursor-default
                              hover:border-teal-200 hover:shadow-lg transition-all duration-300"
-                  style={{ background: 'linear-gradient(135deg, #f8fffe 0%, #ffffff 100%)' }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-teal-400/0 via-teal-400/[0.06] to-teal-400/0
                                   -translate-x-full group-hover/stat:translate-x-full transition-transform duration-700 ease-in-out" />
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 origin-left scale-x-0
                                   group-hover/stat:scale-x-100 transition-transform duration-400 ease-out rounded-b-xl"
                     style={{ background: 'linear-gradient(90deg, #14b8a6, transparent)' }} />
-                  <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider mb-2 relative z-10">{label}</div>
+                  <div className="text-[10px] font-mono text-black/40 uppercase tracking-wider mb-2 relative z-10">{label}</div>
                   <div className="relative z-10 flex items-baseline gap-0.5">
-                    <span className="text-2xl md:text-3xl font-bold text-slate-800 group-hover/stat:text-teal-600 transition-colors duration-300 leading-none">
+                    <span className="text-2xl md:text-3xl font-bold text-[#0d1117] group-hover/stat:text-[#0d9e8a] transition-colors duration-300 leading-none">
                       {value}
                     </span>
-                    <span className="text-sm font-medium text-slate-500 group-hover/stat:text-teal-500 transition-colors duration-300">
+                    <span className="text-sm font-medium text-black/55 group-hover/stat:text-[#0d9e8a] transition-colors duration-300">
                       {suffix}
                     </span>
                   </div>

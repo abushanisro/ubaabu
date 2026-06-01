@@ -1,9 +1,10 @@
-﻿'use client'
+'use client'
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 
-const T    = '#2dd4bf'
+const T    = '#0d9e8a'
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const INDUSTRIES = [
@@ -39,20 +40,20 @@ function IndustryRow({
       initial={{ opacity: 0, y: 16 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.1, ease: EASE }}
-      className="group flex flex-col md:flex-row md:items-center md:justify-between md:gap-12 transition-colors duration-200 hover:bg-[rgba(255,255,255,0.03)] -mx-6 px-6 lg:-mx-10 lg:px-10"
+      className="group flex flex-col md:flex-row md:items-center md:justify-between md:gap-12 hover:bg-black/[0.02] -mx-6 px-6 transition-colors duration-200"
       style={{
-        borderTop: '1px solid rgba(255,255,255,0.09)',
-        borderBottom: isLast ? '1px solid rgba(255,255,255,0.09)' : 'none',
+        borderTop: '1px solid rgba(0,0,0,0.08)',
+        borderBottom: isLast ? '1px solid rgba(0,0,0,0.08)' : 'none',
         paddingTop: '2.25rem',
         paddingBottom: '2.25rem',
-        gap: '1rem',
       }}
     >
       <h3
-        className="font-display font-bold text-white group-hover:text-[#2dd4bf] transition-colors duration-200"
+        className="font-display font-bold group-hover:text-[#0d9e8a] transition-colors duration-200"
         style={{
           fontSize: '1.25rem',
           letterSpacing: '-0.02em',
+          color: '#0d1117',
           flex: '0 0 auto',
           maxWidth: '26rem',
         }}
@@ -61,7 +62,7 @@ function IndustryRow({
       </h3>
 
       <p
-        className="text-white/40 group-hover:text-white/70 transition-colors duration-200"
+        className="text-black/45 group-hover:text-black/65 transition-colors duration-200"
         style={{
           fontSize: '15px',
           lineHeight: 1.72,
@@ -81,28 +82,40 @@ export default function BuiltForSupplyChains() {
   return (
     <section
       style={{
-        background: '#0c0c0c',
+        background: '#fafafa',
         paddingTop:    'clamp(5rem, 9vw, 8rem)',
         paddingBottom: 'clamp(5rem, 9vw, 8rem)',
-        borderTop: '1px solid rgba(255,255,255,0.06)',
+        borderTop: '1px solid rgba(0,0,0,0.06)',
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="max-w-[1280px] mx-auto px-6">
 
         {/* ── Heading ── */}
         <div ref={headRef} style={{ marginBottom: '4rem' }}>
-          <motion.h2
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={headInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, ease: EASE }}
+            className="chip-light inline-block mb-6"
+          >
+            Built For
+          </motion.span>
+          <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={headInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.65, ease: EASE }}
-            className="font-display font-bold tracking-tighter uppercase"
-            style={{ fontSize: 'clamp(2.8rem, 6vw, 5.5rem)', lineHeight: 0.92, color: '#ffffff' }}
+            className="text-xl md:text-2xl lg:text-[2.2rem] font-bold leading-[1.25] tracking-tight text-gray-900"
           >
             Built for{' '}
-            <span style={{ color: T }}>Complex</span>
-            <br />
-            Supply Chains
-          </motion.h2>
+            <AnimatedText
+              text="Complex Supply Chains."
+              textClassName="text-gray-900 font-bold"
+              underlineColor="oklch(0.68 0.13 180)"
+              underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
+              underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
+              underlineDuration={1.8}
+            />
+          </motion.p>
         </div>
 
         {/* ── Industry rows ── */}

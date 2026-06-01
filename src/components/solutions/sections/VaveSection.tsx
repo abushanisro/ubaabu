@@ -3,13 +3,11 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Lightbulb } from 'lucide-react'
+import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 
-const T    = '#2dd4bf'
+const T    = '#0d9e8a'
 const EASE = [0.16, 1, 0.3, 1] as const
 
-// ── Data ──────────────────────────────────────────────────────────────────────
-
-// After VAVE: first 3 cells are consolidated (teal), remainder are neutral
 const AFTER_CELLS = [true, true, true, false, false, false, false, false, false]
 
 const OPPORTUNITIES = [
@@ -26,7 +24,6 @@ const STATS = [
   { value: '₹5.0L', label: 'Avg savings'     },
 ]
 
-// Framer-motion variants for the "After" teal cells
 const tealGrid = {
   hidden:  {},
   visible: { transition: { staggerChildren: 0.09, delayChildren: 0.55 } },
@@ -36,7 +33,6 @@ const tealCell = {
   visible: { opacity: 1, scale: 1,   transition: { duration: 0.32 } },
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
 export default function VaveSection() {
   const ref    = useRef<HTMLElement>(null)
   const inView = useInView(ref, { once: true, margin: '-10%' })
@@ -45,19 +41,18 @@ export default function VaveSection() {
     <section
       ref={ref}
       id="vave"
-      className="relative"
+      className="relative bg-white"
       style={{
-        background:      '#070707',
         paddingTop:      'clamp(4rem, 8vw, 7rem)',
         paddingBottom:   'clamp(5rem, 10vw, 9rem)',
-        borderTop:       '1px solid rgba(255,255,255,0.05)',
+        borderTop:       '1px solid rgba(0,0,0,0.06)',
         scrollMarginTop: '160px',
       }}
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-[1280px] px-6">
         <div className="grid gap-12 md:grid-cols-12">
 
-          {/* ── LEFT: Sticky editorial ─────────────────────────────── */}
+          {/* ── LEFT: Sticky editorial ── */}
           <div className="md:col-span-5">
             <div className="sticky top-40">
               <motion.div
@@ -68,32 +63,32 @@ export default function VaveSection() {
                 <div className="font-mono text-[11px] uppercase tracking-[0.3em]" style={{ color: T }}>
                   05 · Value engineering
                 </div>
-
-                <h2
-                  className="em-text-gradient mt-4 text-balance font-semibold leading-[1.05] tracking-[-0.03em]"
-                  style={{ fontSize: 'clamp(2rem, 4vw, 3.6rem)' }}
-                >
-                  VAVE that never sleeps.
-                </h2>
-
+                <p className="mt-4 text-balance text-xl md:text-2xl lg:text-[2.2rem] font-bold leading-[1.25] tracking-tight text-gray-900">
+                  VAVE that{' '}
+                  <AnimatedText
+                    text="never sleeps."
+                    textClassName="text-gray-900 font-bold"
+                    underlineColor="oklch(0.68 0.13 180)"
+                    underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
+                    underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
+                    underlineDuration={1.8}
+                  />
+                </p>
                 <div className="mt-8 space-y-5">
                   <div>
-                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/40">
+                    <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-black/40">
                       The problem
                     </div>
-                    <p className="mt-1.5 text-sm leading-relaxed text-white/75">
+                    <p className="mt-1.5 text-sm leading-relaxed text-black/60">
                       VAVE is labor-intensive. Optimization opportunities slip through the
                       cracks every quarter.
                     </p>
                   </div>
                   <div>
-                    <div
-                      className="font-mono text-[10px] uppercase tracking-[0.2em]"
-                      style={{ color: 'rgba(45,212,191,0.8)' }}
-                    >
+                    <div className="font-mono text-[10px] uppercase tracking-[0.2em]" style={{ color: T }}>
                       Emithran approach
                     </div>
-                    <p className="mt-1.5 text-sm leading-relaxed text-white/85">
+                    <p className="mt-1.5 text-sm leading-relaxed text-black/75">
                       AI continuously reviews complexity, materials, processes and
                       consolidation — surfacing prioritized opportunities.
                     </p>
@@ -103,7 +98,7 @@ export default function VaveSection() {
             </div>
           </div>
 
-          {/* ── RIGHT: Visuals ─────────────────────────────────────── */}
+          {/* ── RIGHT: Visuals ── */}
           <div className="md:col-span-7">
             <div className="space-y-5">
 
@@ -112,13 +107,15 @@ export default function VaveSection() {
                 initial={{ opacity: 0, y: 28 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
-                className="em-glow-border em-glass grid overflow-hidden rounded-2xl md:grid-cols-2"
+                className="grid overflow-hidden rounded-2xl md:grid-cols-2"
+                style={{
+                  background: 'rgba(13,17,23,0.97)',
+                  border: `1px solid rgba(13,158,138,0.2)`,
+                  boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
+                }}
               >
                 {/* Before pane */}
-                <div
-                  className="border-b border-white/5 p-6 md:border-b-0 md:border-r"
-                  style={{ borderColor: 'rgba(255,255,255,0.05)' }}
-                >
+                <div className="border-b border-white/5 p-6 md:border-b-0 md:border-r" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
                   <div className="text-[10px] uppercase tracking-[0.18em] text-white/40">
                     Before
                   </div>
@@ -135,9 +132,9 @@ export default function VaveSection() {
                   </div>
                 </div>
 
-                {/* After pane — teal cells stagger in */}
+                {/* After pane */}
                 <div className="relative p-6">
-                  <div className="em-teal-text text-[10px] uppercase tracking-[0.18em]">
+                  <div className="text-[10px] uppercase tracking-[0.18em]" style={{ color: T }}>
                     After AI VAVE
                   </div>
                   <motion.div
@@ -152,8 +149,8 @@ export default function VaveSection() {
                         variants={isTeal ? tealCell : undefined}
                         className={`aspect-square rounded-md${isTeal ? ' em-vave-teal-pulse' : ''}`}
                         style={isTeal ? {
-                          border:    `1px solid rgba(45,212,191,0.6)`,
-                          background:'rgba(45,212,191,0.2)',
+                          border:    `1px solid rgba(13,158,138,0.6)`,
+                          background:`rgba(13,158,138,0.2)`,
                         } : {
                           border:    '1px solid rgba(255,255,255,0.1)',
                           background:'rgba(255,255,255,0.03)',
@@ -161,7 +158,7 @@ export default function VaveSection() {
                       />
                     ))}
                   </motion.div>
-                  <div className="em-teal-text mt-4 text-xs">
+                  <div className="mt-4 text-xs" style={{ color: T }}>
                     3 parts · 2 suppliers · 5 ops · −38% cost
                   </div>
                 </div>
@@ -172,7 +169,12 @@ export default function VaveSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="em-glow-border em-glass rounded-2xl p-5"
+                className="rounded-2xl p-5"
+                style={{
+                  background: 'rgba(13,17,23,0.97)',
+                  border: `1px solid rgba(13,158,138,0.2)`,
+                  boxShadow: '0 24px 60px rgba(0,0,0,0.08)',
+                }}
               >
                 <div className="text-[10px] uppercase tracking-[0.18em] text-white/40">
                   Prioritized opportunities
@@ -184,18 +186,18 @@ export default function VaveSection() {
                       initial={{ opacity: 0, x: -12 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.45, delay: 0.45 + i * 0.09, ease: EASE }}
-                      className="em-hover-lift flex items-center justify-between rounded-lg
+                      className="flex items-center justify-between rounded-lg
                                  border border-white/5 bg-white/[0.02] px-4 py-3 text-sm"
                     >
                       <div className="flex items-center gap-3">
-                        <Lightbulb className="em-teal-text h-4 w-4 shrink-0" aria-hidden />
+                        <Lightbulb className="h-4 w-4 shrink-0" style={{ color: T }} aria-hidden />
                         <span className="text-white/85">{label}</span>
                       </div>
                       <div className="flex items-center gap-3 text-xs text-white/60">
                         <span>{feasibility} feasibility</span>
                         <span
-                          className="em-teal-text rounded-md px-2 py-0.5"
-                          style={{ background: 'rgba(45,212,191,0.15)' }}
+                          className="rounded-md px-2 py-0.5"
+                          style={{ color: T, background: 'rgba(13,158,138,0.15)' }}
                         >
                           {savings}
                         </span>
@@ -204,7 +206,6 @@ export default function VaveSection() {
                   ))}
                 </div>
               </motion.div>
-
             </div>
 
             {/* Stats + quote */}
@@ -216,10 +217,10 @@ export default function VaveSection() {
                     initial={{ opacity: 0, y: 16 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.55, delay: 0.38 + i * 0.08, ease: EASE }}
-                    className="em-glass em-glow-border em-hover-lift rounded-xl p-4"
+                    className="rounded-xl border border-black/8 bg-white p-4 shadow-sm hover:shadow-md transition-shadow"
                   >
-                    <div className="em-teal-text font-display text-2xl font-semibold">{value}</div>
-                    <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-white/50">
+                    <div className="font-display text-2xl font-semibold" style={{ color: T }}>{value}</div>
+                    <div className="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
                       {label}
                     </div>
                   </motion.div>
@@ -230,13 +231,13 @@ export default function VaveSection() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.7, delay: 0.72, ease: EASE }}
-                className="em-glass mt-5 rounded-xl p-5"
+                className="mt-5 rounded-xl border border-black/8 bg-[#fafafa] p-5"
               >
-                <blockquote className="font-display text-pretty text-sm leading-relaxed text-white/85">
+                <blockquote className="font-display text-pretty text-sm leading-relaxed text-black/70">
                   "We went from 6 VAVE projects a year to 30, with a higher realization rate.
                   The AI does the boring work."
                 </blockquote>
-                <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/40">
+                <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
                   — ₹1000Cr+ manufacturing conglomerate
                 </figcaption>
               </motion.figure>

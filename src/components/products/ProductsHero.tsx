@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ArrowRight, Play } from 'lucide-react'
+import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -45,7 +46,7 @@ export default function ProductsHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: EASE }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-teal-200 bg-teal-50 text-xs font-mono text-teal-700 mb-8 cursor-pointer hover:bg-teal-100 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 bg-black/[0.06] text-xs font-mono text-black/55 mb-8 cursor-pointer hover:bg-black/[0.09] transition-colors"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-500 opacity-60" />
@@ -55,28 +56,25 @@ export default function ProductsHero() {
         </motion.div>
 
         {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.95, delay: 0.15, ease: EASE }}
-          className="text-5xl md:text-7xl lg:text-[5.5rem] font-medium tracking-tight text-slate-900 mb-8 leading-[1.05]"
+          className="text-xl md:text-2xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900 max-w-3xl mx-auto mb-12"
         >
-          Product Modules
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-br from-teal-600 via-teal-500 to-slate-700">
-            Designed to Work Together.
+          Product modules,{' '}
+          <AnimatedText
+            text="designed to work together."
+            textClassName="text-gray-900 font-bold"
+            underlineColor="oklch(0.68 0.13 180)"
+            underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
+            underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
+            underlineDuration={1.8}
+          />{' '}
+          <span className="font-normal text-gray-400">
+            Start with one, scale to your full value chain. Every module connects to every
+            other, creating a seamless flow of intelligence across your enterprise.
           </span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.85, delay: 0.32, ease: EASE }}
-          className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-12 font-light"
-        >
-          Start with one, scale to your full value chain. Every module connects to every
-          other, creating a seamless flow of intelligence across your enterprise.
         </motion.p>
 
         {/* CTA buttons */}
@@ -86,11 +84,11 @@ export default function ProductsHero() {
           transition={{ duration: 0.75, delay: 0.48, ease: EASE }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
-          <button className="w-full sm:w-auto h-12 px-6 rounded-lg bg-teal-600 text-white font-medium hover:bg-teal-700 transition-all duration-300 flex items-center justify-center gap-2 group shadow-[0_1px_3px_rgba(13,148,136,0.3)] hover:shadow-[0_6px_24px_rgba(13,148,136,0.35)]">
+          <button className="w-full sm:w-auto h-12 px-6 rounded-lg text-white font-medium transition-all duration-300 flex items-center justify-center gap-2 group shadow-[0_1px_3px_rgba(13,148,136,0.3)] hover:shadow-[0_6px_24px_rgba(13,148,136,0.35)]" style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}>
             Request Demo
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="w-full sm:w-auto h-12 px-6 rounded-lg bg-white border border-slate-200 text-slate-700 font-medium hover:bg-slate-50 hover:border-slate-300 transition-colors duration-300 flex items-center justify-center gap-2 shadow-sm">
+          <button className="w-full sm:w-auto h-12 px-6 rounded-lg bg-white border border-black/15 text-[#0d1117] font-medium hover:bg-black/[0.04] transition-colors duration-300 flex items-center justify-center gap-2 shadow-sm">
             <Play className="w-4 h-4" />
             Watch Overview
           </button>

@@ -8,6 +8,11 @@ const ManufacturingViz = dynamic(
   { ssr: false, loading: () => null }
 )
 
+const ShaderBackground = dynamic(
+  () => import('@/components/ui/shader-background'),
+  { ssr: false, loading: () => null }
+)
+
 type Time = 'pre-dawn' | 'sunrise' | 'daytime' | 'dusk' | 'sunset' | 'night'
 const TIMES: Time[] = ['pre-dawn', 'sunrise', 'daytime', 'dusk', 'sunset', 'night']
 
@@ -109,8 +114,12 @@ export default function StatsSection() {
 
       {/* ── Animation — taller on mobile, wider cinematic on desktop ── */}
       <div className="pointer-events-none relative z-0 w-full -mt-10 md:-mt-16" style={{ paddingLeft: 'clamp(16px, 5vw, 64px)', paddingRight: 'clamp(16px, 5vw, 64px)' }}>
-        <div className="relative w-full aspect-[2/1] md:aspect-[5/1]">
-          <ManufacturingViz index={active as 0 | 1 | 2 | 3} time={time} playing={playing} />
+        <div className="relative w-full aspect-[2/1] md:aspect-[5/1] overflow-hidden rounded-2xl">
+          {active === 2 ? (
+            <ShaderBackground className="absolute inset-0" />
+          ) : (
+            <ManufacturingViz index={active as 0 | 1 | 2 | 3} time={time} playing={playing} />
+          )}
         </div>
       </div>
     </section>

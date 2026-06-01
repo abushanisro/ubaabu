@@ -347,15 +347,26 @@ export default function ProductIntelligence() {
                     <div
                       className="relative w-full h-full rounded-3xl overflow-hidden"
                       style={{
+                        backgroundColor: '#0a8f7c',
                         backgroundImage: `url('/assets/cards/card1,2,3.svg')`,
                         backgroundSize: 'cover',
                         backgroundPosition: gi === 0 ? 'center top' : gi === 1 ? 'center center' : 'center bottom',
                         backgroundRepeat: 'no-repeat',
-                        boxShadow: '0 24px 64px rgba(13,158,138,0.18), 0 4px 16px rgba(0,0,0,0.12)',
+                        backgroundBlendMode: 'multiply',
+                        boxShadow: '0 24px 64px rgba(13,158,138,0.28), 0 4px 16px rgba(13,158,138,0.15)',
                       }}
                     >
+                      {/* dot grid overlay */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-0 z-0"
+                        style={{
+                          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px)',
+                          backgroundSize: '24px 24px',
+                        }}
+                      />
                       {gi === 0 ? (
-                        <div className="absolute inset-0 flex items-center justify-center p-6">
+                        <div className="absolute inset-0 z-10 flex items-center justify-center p-6">
                           <img
                             src="/videos/card/demo.gif"
                             alt="Product demo"
@@ -363,7 +374,7 @@ export default function ProductIntelligence() {
                           />
                         </div>
                       ) : gi === 1 ? (
-                        <div className="absolute inset-0 flex items-center justify-center p-6">
+                        <div className="absolute inset-0 z-10 flex items-center justify-center p-6">
                           <img
                             src="/videos/card/demo2.gif"
                             alt="Product demo"
@@ -371,9 +382,9 @@ export default function ProductIntelligence() {
                           />
                         </div>
                       ) : (
-                        <CncPartViewer part={firstMod.part} className="absolute inset-0" />
+                        <CncPartViewer part={firstMod.part} className="absolute inset-0 z-10" />
                       )}
-                      <div className="absolute top-4 left-4">
+                      <div className="absolute top-4 left-4 z-20">
                         <span className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-widest uppercase" style={{ background: 'rgba(72,210,190,0.12)', color: '#48d2be', border: '1px solid rgba(72,210,190,0.2)' }}>
                           {g.label}
                         </span>
