@@ -16,11 +16,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/8 bg-white/60 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/8 bg-white">
       <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" prefetch={false} className="flex items-center">
-          <img src="/assets/logo/logo-white.png" alt="Emithran" className="h-10 w-auto" />
+        <Link href="/" prefetch={false} className="flex items-center gap-1">
+          <img src="/assets/logo/logo-white.png" alt="Emithran" className="h-8 w-auto" />
+          <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">EMITHRAN</span>
         </Link>
 
         {/* Desktop nav */}
