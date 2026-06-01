@@ -274,8 +274,6 @@ export default function EnterpriseSection() {
                   style={{ fontSize: isMob ? 9 : 12 }}>{item.label}</p>
                 {!isMob && <p className="text-[9px] text-white/35 whitespace-nowrap mt-0.5">{item.sub}</p>}
               </div>
-              <span className="rounded-full shrink-0"
-                style={{ width: isMob ? 5 : 6, height: isMob ? 5 : 6, background: active ? '#2dd4bf' : '#0d9e8a', boxShadow: active ? '0 0 6px #2dd4bf' : 'none' }} />
             </div>
           )
         })}
@@ -305,8 +303,6 @@ export default function EnterpriseSection() {
                   style={{ fontSize: isMob ? 9 : 12 }}>{item.label}</p>
                 {!isMob && <p className="text-[9px] text-white/35 whitespace-nowrap mt-0.5">{item.sub}</p>}
               </div>
-              <span className="rounded-full shrink-0"
-                style={{ width: isMob ? 5 : 6, height: isMob ? 5 : 6, background: active ? '#2dd4bf' : '#0d9e8a', boxShadow: active ? '0 0 6px #2dd4bf' : 'none' }} />
             </div>
           )
         })}
@@ -334,25 +330,21 @@ export default function EnterpriseSection() {
             <>
               <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
                 style={{ top: '12%', left: '-22%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#2dd4bf', boxShadow: '0 0 5px #2dd4bf' }} />
                 <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>BOM</span>
                 <span className="text-[8px] text-white/40">99.4%</span>
               </div>
               <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
                 style={{ top: '12%', right: '-22%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#f59e0b', boxShadow: '0 0 5px #f59e0b' }} />
-                <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#f59e0b' }}>RFQ</span>
+                <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>RFQ</span>
                 <span className="text-[8px] text-white/40">-40%</span>
               </div>
               <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
                 style={{ bottom: '20%', left: '-26%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#2dd4bf', boxShadow: '0 0 5px #2dd4bf' }} />
                 <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>AI</span>
                 <span className="text-[8px] text-white/40">Active</span>
               </div>
               <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
                 style={{ bottom: '20%', right: '-26%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#0d9e8a', boxShadow: '0 0 5px #0d9e8a' }} />
                 <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#0d9e8a' }}>MFG</span>
                 <span className="text-[8px] text-white/40">Live</span>
               </div>
