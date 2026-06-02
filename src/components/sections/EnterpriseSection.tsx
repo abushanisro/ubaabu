@@ -310,7 +310,7 @@ export default function EnterpriseSection() {
       />
 
       {/* Trust pillars */}
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6 pt-2 sm:pt-6 pb-0">
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6 pt-2 sm:pt-3 pb-0">
         <div className="text-center mb-1.5 sm:mb-4">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: '#2dd4bf' }}>
             Built for the Enterprise
@@ -368,7 +368,7 @@ export default function EnterpriseSection() {
       </div>
 
       {/* Infographic header */}
-      <div className="relative z-10 text-center pt-1 sm:pt-4 pb-0 sm:pb-2 px-6">
+      <div className="relative z-10 text-center pt-1 sm:pt-2 pb-0 px-6">
         <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: '#2dd4bf' }}>
           Platform Integrations
         </p>
@@ -729,7 +729,7 @@ export default function EnterpriseSection() {
         </div>
       </div>
 
-      <div className="relative z-10 pb-0 sm:pb-3" />
+      <div className="relative z-10 pb-4 sm:pb-8" />
     </section>
   )
 }
