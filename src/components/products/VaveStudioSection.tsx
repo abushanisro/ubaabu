@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
@@ -126,16 +126,20 @@ function VaveOrbitViz({ inView }: { inView: boolean }) {
           const x = round(Math.cos(rad) * R)
           const y = round(Math.sin(rad) * R)
           return (
-            <motion.div
+            <div
               key={label}
-              initial={{ opacity: 0, scale: 0.7 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.35 + i * 0.1, ease: EASE }}
-              className="absolute text-[10px] font-mono text-teal-300 bg-teal-500/10 border border-teal-500/25 px-2 py-1 rounded-md"
-              style={{ transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))` }}
+              className="absolute"
+              style={{ top: `calc(50% + ${y}px)`, left: `calc(50% + ${x}px)`, transform: 'translate(-50%, -50%)' }}
             >
-              {label}
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.35 + i * 0.1, ease: EASE }}
+                className="text-[10px] font-mono text-teal-300 bg-teal-500/10 border border-teal-500/25 px-2 py-1 rounded-md"
+              >
+                {label}
+              </motion.div>
+            </div>
           )
         })}
 

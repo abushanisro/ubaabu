@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
@@ -13,7 +13,8 @@ const PROBLEMS = [
     title: 'Design happens in isolation',
     impact: "Engineers don't know if designs are manufacturable or cost-optimal until RFQ stage.",
     workaround: 'Redesigns, delays, frustration',
-  },
+  }
+  ,
   {
     num: '02',
     title: 'Selection is guesswork',
