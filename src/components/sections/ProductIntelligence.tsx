@@ -151,15 +151,13 @@ export default function ProductIntelligence() {
         {GROUPS.map((g, gi) => {
           const groupModules = modules.filter((m) => m.group === g.id)
           const firstMod = groupModules[0]
-          const isReversed = gi % 2 !== 0
           return (
             <div
               key={g.id}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center`}
-              style={{ direction: isReversed ? 'rtl' : 'ltr' }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24 items-center"
             >
               {/* Text */}
-              <div style={{ direction: 'ltr' }}>
+              <div>
                 {GROUP_ICONS[gi]}
 
                 <h3 className="text-[1.5rem] lg:text-[1.85rem] xl:text-[2.2rem] font-bold text-[#0d0d0d] leading-[1.22] mb-5 lg:mb-7" style={{ letterSpacing: '-0.01em' }}>
@@ -182,17 +180,12 @@ export default function ProductIntelligence() {
               </div>
 
               {/* Canvas card */}
-              <div style={{ direction: 'ltr' }} className="h-64 sm:h-80 lg:h-[500px]">
+              <div className="h-64 sm:h-80 lg:h-[500px]">
                 <div
                   className="relative w-full h-full rounded-2xl lg:rounded-3xl overflow-hidden"
                   style={{
-                    backgroundColor: '#0a8f7c',
-                    backgroundImage: `url('/assets/cards/card1,2,3.svg')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: gi === 0 ? 'center top' : gi === 1 ? 'center center' : 'center bottom',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundBlendMode: 'multiply',
-                    boxShadow: '0 24px 64px rgba(13,158,138,0.28), 0 4px 16px rgba(13,158,138,0.15)',
+                    background: '#080808',
+                    boxShadow: '0 24px 64px rgba(0,0,0,0.45), 0 4px 16px rgba(0,0,0,0.30)',
                   }}
                 >
                   <div

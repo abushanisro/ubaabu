@@ -566,6 +566,73 @@ export default function EnterpriseSection() {
           )}
         </div>
 
+        {/* Tap hint — shown only when nothing is selected */}
+        {isMob && (
+          <div
+            className="absolute z-20 pointer-events-none"
+            style={{
+              left: '50%',
+              top: 'calc(43% + 50px)',
+              transform: 'translateX(-50%)',
+              opacity: activeItem ? 0 : 1,
+              transition: 'opacity 0.3s ease',
+            }}
+          >
+            <div
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full"
+              style={{
+                background: 'rgba(6,12,16,0.82)',
+                border: '1px solid rgba(45,212,191,0.22)',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <circle cx="5" cy="5" r="4" stroke="rgba(45,212,191,0.7)" strokeWidth="1" />
+                <circle cx="5" cy="5" r="1.5" fill="#2dd4bf" />
+              </svg>
+              <span style={{ fontSize: 9, fontWeight: 600, color: 'rgba(255,255,255,0.65)', whiteSpace: 'nowrap', letterSpacing: '0.04em' }}>
+                Tap a card to learn more
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* Desktop idle hint — shown when nothing is hovered */}
+        {!isMob && (
+          <div
+            className="absolute z-20 pointer-events-none"
+            style={{
+              left: '50%',
+              top: 'calc(50% + 124px)',
+              transform: 'translateX(-50%)',
+              width: 300,
+              opacity: activeItem ? 0 : 1,
+              transition: 'opacity 0.3s ease',
+            }}
+          >
+            <div
+              className="text-center rounded-xl"
+              style={{
+                padding: '14px 18px',
+                background: 'rgba(6,12,16,0.88)',
+                border: '1px solid rgba(45,212,191,0.18)',
+                backdropFilter: 'blur(16px)',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.6)',
+              }}
+            >
+              <div className="flex items-center justify-center gap-1.5 mb-2">
+                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#2dd4bf', boxShadow: '0 0 6px rgba(45,212,191,0.8)' }} />
+                <p style={{ fontSize: 9, fontWeight: 700, color: '#2dd4bf', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+                  Hover a card to explore
+                </p>
+              </div>
+              <p style={{ fontSize: 11.5, lineHeight: 1.6, color: 'rgba(255,255,255,0.45)' }}>
+                Each integration connects Emithran intelligence directly into your existing tools and workflows.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Centre description card */}
         <div
           className="absolute z-20"
