@@ -250,7 +250,7 @@ export default function EnterpriseSection() {
       {/* Background image — desktop PNG */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/assets/cards/entrpisebg.png"
+        src="/assets/cards/entrpisebg.svg"
         alt=""
         aria-hidden="true"
         className="hidden sm:block"
@@ -264,8 +264,8 @@ export default function EnterpriseSection() {
       />
 
       {/* Trust pillars */}
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6 pt-4 sm:pt-6 pb-0">
-        <div className="text-center mb-2 sm:mb-4">
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6 pt-2 sm:pt-6 pb-0">
+        <div className="text-center mb-1.5 sm:mb-4">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: '#2dd4bf' }}>
             Built for the Enterprise
           </p>
@@ -274,7 +274,7 @@ export default function EnterpriseSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3 sm:mb-4">
+        <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-2 sm:mb-4">
           {PILLARS.map(({ icon: Icon, title, body, badge }) => (
             <div
               key={title}
@@ -282,7 +282,7 @@ export default function EnterpriseSection() {
               style={{
                 background: 'linear-gradient(135deg, rgba(13,30,27,0.95) 0%, rgba(8,10,12,0.98) 55%, rgba(5,18,16,0.92) 100%)',
                 borderColor: 'rgba(45,212,191,0.14)',
-                minHeight: 80,
+                minHeight: 60,
                 boxShadow: 'inset 0 1px 0 rgba(45,212,191,0.07)',
               }}
             >
@@ -293,15 +293,15 @@ export default function EnterpriseSection() {
               />
 
               {/* Content */}
-              <div className="relative z-10 p-2.5 sm:p-4 flex flex-col gap-1 sm:gap-2 h-full">
-                <div className="flex items-start gap-1.5 sm:gap-2.5">
+              <div className="relative z-10 p-2 sm:p-3 flex flex-col items-center sm:items-start gap-1 sm:gap-1.5 h-full">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-2.5">
                   <div
-                    className="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg flex items-center justify-center shrink-0 mt-0.5 sm:mt-0"
+                    className="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg flex items-center justify-center shrink-0"
                     style={{ background: 'rgba(13,158,138,0.15)', border: '1px solid rgba(45,212,191,0.18)' }}
                   >
                     <Icon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" style={{ color: '#2dd4bf' }} />
                   </div>
-                  <div className="min-w-0">
+                  <div className="min-w-0 text-center sm:text-left">
                     <h3 className="text-[8.5px] sm:text-[12px] font-semibold text-white leading-tight">{title}</h3>
                     {badge && (
                       <span
@@ -322,7 +322,7 @@ export default function EnterpriseSection() {
       </div>
 
       {/* Infographic header */}
-      <div className="relative z-10 text-center pt-2 sm:pt-4 pb-1 sm:pb-2 px-6">
+      <div className="relative z-10 text-center pt-1 sm:pt-4 pb-0 sm:pb-2 px-6">
         <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: '#2dd4bf' }}>
           Platform Integrations
         </p>
@@ -335,7 +335,7 @@ export default function EnterpriseSection() {
       <div
         ref={stageRef}
         className="relative z-10 mx-auto"
-        style={{ height: isMob ? 420 : 500, maxWidth: 1280 }}
+        style={{ height: isMob ? 360 : 500, maxWidth: 1280 }}
         onMouseLeave={leave}
         onClick={() => { setActiveId(null); setPinnedId(null) }}
       >
@@ -571,7 +571,7 @@ export default function EnterpriseSection() {
           className="absolute z-20"
           style={{
             left: '50%',
-            top: isMob ? 'calc(43% + 56px)' : 'calc(50% + 124px)',
+            top: isMob ? 'calc(43% + 50px)' : 'calc(50% + 124px)',
             transform: 'translateX(-50%)',
             width: isMob ? 140 : 300,
             pointerEvents: activeItem ? 'auto' : 'none',
@@ -602,7 +602,7 @@ export default function EnterpriseSection() {
         </div>
       </div>
 
-      <div className="relative z-10 pb-2 sm:pb-3" />
+      <div className="relative z-10 pb-0 sm:pb-3" />
     </section>
   )
 }
