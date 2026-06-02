@@ -117,12 +117,12 @@ export default function EnterpriseSection() {
     const W = stage.clientWidth
     const H = stage.clientHeight
     if (!W || !H) return
-    const mob = W < 640
+    const mob = W < 768
 
     if (mob) {
       const cx = W / 2
       const cy = H * 0.43
-      const r  = Math.min(W * 0.45, H * 0.39)
+      const r  = Math.min(W * 0.42, H * 0.38)
       const DEG = Math.PI / 180
       const placeArc = (id: string, angle: number) => {
         const el = itemElsRef.current.get(id)
@@ -141,8 +141,8 @@ export default function EnterpriseSection() {
 
     // Desktop — two vertical columns
     const N      = LEFT.length
-    const topY   = H * 0.06
-    const botY   = H * 0.94
+    const topY   = H * 0.08
+    const botY   = H * 0.92
     const gap    = N > 1 ? (botY - topY) / (N - 1) : 0
     const leftX  = W * 0.17
     const rightX = W * 0.83
@@ -381,7 +381,7 @@ export default function EnterpriseSection() {
       <div
         ref={stageRef}
         className="relative z-10 mx-auto"
-        style={{ height: isMob ? 360 : 500, maxWidth: 1280 }}
+        style={{ height: isMob ? 360 : 440, maxWidth: 1280 }}
         onMouseLeave={leave}
         onClick={() => { setActiveId(null); setPinnedId(null) }}
       >
