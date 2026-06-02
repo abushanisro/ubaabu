@@ -43,7 +43,34 @@ const SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode'
 
 type Pt = { x: number; y: number }
 
+function RobotSkeleton({ size }: { size: number }) {
+  return (
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
+      <div style={{ width: size, height: size, position: 'relative' }}>
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{ border: '1px solid rgba(45,212,191,0.15)' }}
+        />
+        <div
+          className="absolute inset-0 rounded-full"
+          style={{ border: '1px solid rgba(45,212,191,0.25)', animation: 'em-ping-ring 2s ease-out infinite', transformOrigin: 'center' }}
+        />
+        <div
+          className="absolute rounded-full"
+          style={{
+            inset: '22%',
+            background: 'linear-gradient(90deg, rgba(45,212,191,0.05) 0%, rgba(45,212,191,0.15) 50%, rgba(45,212,191,0.05) 100%)',
+            backgroundSize: '200% auto',
+            animation: 'em-shimmer-anim 2.4s linear infinite',
+          }}
+        />
+      </div>
+    </div>
+  )
+}
+
 export default function EnterpriseSection() {
+  const sectionRef  = useRef<HTMLElement>(null)
   const stageRef   = useRef<HTMLDivElement>(null)
   const canvasRef  = useRef<HTMLCanvasElement>(null)
   const coreRef    = useRef<HTMLDivElement>(null)
@@ -52,9 +79,10 @@ export default function EnterpriseSection() {
   const rafRef     = useRef<number>(0)
   const timerRef   = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const [activeId,  setActiveId]  = useState<string | null>(null)
-  const [pinnedId,  setPinnedId]  = useState<string | null>(null)
-  const [isMob,     setIsMob]     = useState(false)
+  const [activeId,      setActiveId]      = useState<string | null>(null)
+  const [pinnedId,      setPinnedId]      = useState<string | null>(null)
+  const [isMob,         setIsMob]         = useState(false)
+  const [splineVisible, setSplineVisible] = useState(false)
 
   useEffect(() => { activeRef.current = activeId }, [activeId])
 
@@ -63,6 +91,18 @@ export default function EnterpriseSection() {
     check()
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
+  }, [])
+
+  // Gate Spline load until section is near viewport (200px pre-load buffer)
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setSplineVisible(true); io.disconnect() } },
+      { rootMargin: '200px 0px', threshold: 0 }
+    )
+    io.observe(el)
+    return () => io.disconnect()
   }, [])
 
   function layoutItems() {
@@ -227,7 +267,7 @@ export default function EnterpriseSection() {
   const robotSize  = isMob ? 108 : 260
 
   return (
-    <section className="relative bg-[#080808] overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[#080808] overflow-hidden">
 
       {/* Dotted wave surface — sits above bg image, below content */}
       <DottedSurface style={{ zIndex: 1 }} />
@@ -523,7 +563,11 @@ export default function EnterpriseSection() {
           {/* Spline robot with brand teal filter */}
           <div className="relative w-full h-full"
             style={{ filter: 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)' }}>
-            <SplineScene scene={SCENE} className="w-full h-full" />
+            {splineVisible ? (
+              <SplineScene scene={SCENE} className="w-full h-full" />
+            ) : (
+              <RobotSkeleton size={robotSize} />
+            )}
             {/* Teal colour wash overlay */}
             <div className="absolute inset-0 pointer-events-none rounded-full"
               style={{ background: 'radial-gradient(circle at 50% 40%, rgba(45,212,191,0.10) 0%, transparent 68%)', mixBlendMode: 'screen' }} />
