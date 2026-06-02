@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
+import { DottedSurface } from '@/components/ui/dotted-surface'
 import {
   Lock, Globe, Activity,
   Calculator, Layers, Search, Lightbulb, ShieldCheck, Flag,
@@ -34,9 +35,9 @@ const RIGHT: Item[] = [
 ]
 const ALL = [...LEFT, ...RIGHT]
 const PILLARS = [
-  { icon: Lock,     title: 'Enterprise-grade security', badge: 'ISO 27001', body: 'ISO 27001 certified. SOC 2 Type II compliant with role-based access controls meeting defence data-sovereignty requirements.', image: '/assets/element-bg/Enterprise-grade.png' },
-  { icon: Globe,    title: 'Scalable platform',         badge: undefined,   body: 'Single unified platform spanning programmes, geographies, and Tier-1 to Tier-4 supplier networks at full scale.',                   image: '/assets/element-bg/Scalable.png' },
-  { icon: Activity, title: 'Operational stability',     badge: undefined,   body: 'Proven reliability for mission-critical manufacturing and sourcing workflows across long-cycle defence programmes.',                image: '/assets/element-bg/Operational.png' },
+  { icon: Lock,     title: 'Enterprise-grade security', badge: 'ISO 27001', body: 'ISO 27001 certified. SOC 2 Type II compliant with role-based access controls meeting defence data-sovereignty requirements.' },
+  { icon: Globe,    title: 'Scalable platform',         badge: undefined,   body: 'Single unified platform spanning programmes, geographies, and Tier-1 to Tier-4 supplier networks at full scale.' },
+  { icon: Activity, title: 'Operational stability',     badge: undefined,   body: 'Proven reliability for mission-critical manufacturing and sourcing workflows across long-cycle defence programmes.' },
 ]
 const SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode'
 
@@ -226,11 +227,45 @@ export default function EnterpriseSection() {
   const robotSize  = isMob ? 108 : 260
 
   return (
-    <section className="bg-[#080808] overflow-hidden">
+    <section className="relative bg-[#080808] overflow-hidden">
+
+      {/* Dotted wave surface — sits above bg image, below content */}
+      <DottedSurface style={{ zIndex: 1 }} />
+
+      {/* Background image — mobile SVG */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/assets/cards/entrise-mobile.svg"
+        alt=""
+        aria-hidden="true"
+        className="sm:hidden"
+        style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover', objectPosition: 'center',
+          pointerEvents: 'none', userSelect: 'none',
+          zIndex: 0,
+        }}
+      />
+      {/* Background image — desktop PNG */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/assets/cards/entrpisebg.png"
+        alt=""
+        aria-hidden="true"
+        className="hidden sm:block"
+        style={{
+          position: 'absolute', inset: 0,
+          width: '100%', height: '100%',
+          objectFit: 'cover', objectPosition: 'center',
+          pointerEvents: 'none', userSelect: 'none',
+          zIndex: 0,
+        }}
+      />
 
       {/* Trust pillars */}
-      <div className="mx-auto max-w-[1100px] px-4 sm:px-6 pt-6 sm:pt-10 pb-0">
-        <div className="text-center mb-3 sm:mb-5">
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6 pt-4 sm:pt-6 pb-0">
+        <div className="text-center mb-2 sm:mb-4">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: '#2dd4bf' }}>
             Built for the Enterprise
           </p>
@@ -239,35 +274,22 @@ export default function EnterpriseSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-7">
-          {PILLARS.map(({ icon: Icon, title, body, badge, image }) => (
+        <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3 sm:mb-4">
+          {PILLARS.map(({ icon: Icon, title, body, badge }) => (
             <div
               key={title}
               className="rounded-xl border flex flex-col relative overflow-hidden"
               style={{
-                background: 'rgba(8,10,14,0.9)',
-                borderColor: 'rgba(255,255,255,0.07)',
+                background: 'linear-gradient(135deg, rgba(13,30,27,0.95) 0%, rgba(8,10,12,0.98) 55%, rgba(5,18,16,0.92) 100%)',
+                borderColor: 'rgba(45,212,191,0.14)',
                 minHeight: 80,
+                boxShadow: 'inset 0 1px 0 rgba(45,212,191,0.07)',
               }}
             >
-              {/* Background illustration */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={image}
-                alt=""
-                aria-hidden="true"
-                style={{
-                  position: 'absolute', top: 0, left: 0,
-                  width: '100%', height: '100%',
-                  objectFit: 'cover', objectPosition: 'center',
-                  opacity: 0.55,
-                  pointerEvents: 'none',
-                }}
-              />
-              {/* Light scrim — just enough to keep text readable */}
+              {/* Teal corner glow */}
               <div
                 className="absolute inset-0 pointer-events-none"
-                style={{ background: 'linear-gradient(160deg, rgba(6,10,14,0.72) 0%, rgba(6,10,14,0.40) 60%, rgba(6,10,14,0.10) 100%)' }}
+                style={{ background: 'radial-gradient(ellipse at 0% 0%, rgba(45,212,191,0.10) 0%, transparent 60%)' }}
               />
 
               {/* Content */}
@@ -300,7 +322,7 @@ export default function EnterpriseSection() {
       </div>
 
       {/* Infographic header */}
-      <div className="text-center pt-4 sm:pt-7 pb-1 sm:pb-3 px-6">
+      <div className="relative z-10 text-center pt-2 sm:pt-4 pb-1 sm:pb-2 px-6">
         <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: '#2dd4bf' }}>
           Platform Integrations
         </p>
@@ -312,8 +334,8 @@ export default function EnterpriseSection() {
       {/* Infographic stage */}
       <div
         ref={stageRef}
-        className="relative mx-auto"
-        style={{ height: isMob ? 480 : 560, maxWidth: 1280 }}
+        className="relative z-10 mx-auto"
+        style={{ height: isMob ? 420 : 500, maxWidth: 1280 }}
         onMouseLeave={leave}
         onClick={() => { setActiveId(null); setPinnedId(null) }}
       >
@@ -363,17 +385,18 @@ export default function EnterpriseSection() {
                   </span>
                 </div>
               ) : (
-                /* Desktop: full neural-bg pill */
+                /* Desktop: brand-gradient pill */
                 <div
                   className="flex items-center rounded-xl border transition-all duration-200"
                   style={{
                     padding: '7px 10px', gap: 9,
-                    backgroundImage: `linear-gradient(${active ? 'rgba(4,10,16,0.84)' : 'rgba(6,13,18,0.76)'}, ${active ? 'rgba(4,10,16,0.84)' : 'rgba(6,13,18,0.76)'}), url('/assets/element-bg/aicard.png')`,
-                    backgroundSize: 'cover', backgroundPosition: 'center',
-                    borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.18)',
+                    background: active
+                      ? 'linear-gradient(135deg,rgba(13,30,27,0.97) 0%,rgba(8,10,12,0.99) 55%,rgba(5,18,16,0.95) 100%)'
+                      : 'linear-gradient(135deg,rgba(10,24,22,0.92) 0%,rgba(7,9,11,0.95) 55%,rgba(4,15,13,0.90) 100%)',
+                    borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.14)',
                     boxShadow: active
-                      ? '0 0 18px rgba(45,212,191,0.20), inset 0 0 0 1px rgba(45,212,191,0.08)'
-                      : '0 2px 8px rgba(0,0,0,0.45)',
+                      ? '0 0 18px rgba(45,212,191,0.20), inset 0 1px 0 rgba(45,212,191,0.08)'
+                      : 'inset 0 1px 0 rgba(45,212,191,0.05), 0 2px 8px rgba(0,0,0,0.45)',
                     transform: active ? 'translateX(-5px) rotate(-0.7deg)' : 'translateX(0) rotate(0deg)',
                   }}
                 >
@@ -447,17 +470,18 @@ export default function EnterpriseSection() {
                   </span>
                 </div>
               ) : (
-                /* Desktop: full neural-bg pill, reversed */
+                /* Desktop: brand-gradient pill, reversed */
                 <div
                   className="flex flex-row-reverse items-center rounded-xl border transition-all duration-200"
                   style={{
                     padding: '7px 10px', gap: 9,
-                    backgroundImage: `linear-gradient(${active ? 'rgba(4,10,16,0.84)' : 'rgba(6,13,18,0.76)'}, ${active ? 'rgba(4,10,16,0.84)' : 'rgba(6,13,18,0.76)'}), url('/assets/element-bg/aicard.png')`,
-                    backgroundSize: 'cover', backgroundPosition: 'center',
-                    borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.18)',
+                    background: active
+                      ? 'linear-gradient(135deg,rgba(13,30,27,0.97) 0%,rgba(8,10,12,0.99) 55%,rgba(5,18,16,0.95) 100%)'
+                      : 'linear-gradient(135deg,rgba(10,24,22,0.92) 0%,rgba(7,9,11,0.95) 55%,rgba(4,15,13,0.90) 100%)',
+                    borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.14)',
                     boxShadow: active
-                      ? '0 0 18px rgba(45,212,191,0.20), inset 0 0 0 1px rgba(45,212,191,0.08)'
-                      : '0 2px 8px rgba(0,0,0,0.45)',
+                      ? '0 0 18px rgba(45,212,191,0.20), inset 0 1px 0 rgba(45,212,191,0.08)'
+                      : 'inset 0 1px 0 rgba(45,212,191,0.05), 0 2px 8px rgba(0,0,0,0.45)',
                     transform: active ? 'translateX(5px) rotate(0.7deg)' : 'translateX(0) rotate(0deg)',
                   }}
                 >
@@ -547,7 +571,7 @@ export default function EnterpriseSection() {
           className="absolute z-20"
           style={{
             left: '50%',
-            top: isMob ? 'calc(43% + 62px)' : 'calc(50% + 136px)',
+            top: isMob ? 'calc(43% + 56px)' : 'calc(50% + 124px)',
             transform: 'translateX(-50%)',
             width: isMob ? 140 : 300,
             pointerEvents: activeItem ? 'auto' : 'none',
@@ -578,7 +602,7 @@ export default function EnterpriseSection() {
         </div>
       </div>
 
-      <div className="pb-3 sm:pb-6" />
+      <div className="relative z-10 pb-2 sm:pb-3" />
     </section>
   )
 }

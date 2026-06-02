@@ -69,7 +69,7 @@ export default function WatchDemo() {
 
         {/* ── Headline + CTAs ── */}
         <div className="flex flex-col items-center text-center shrink-0 mb-2">
-          <h2 className="text-[15px] font-bold tracking-tight text-[#0d1117] leading-[1.3]">
+          <h2 className="text-[22px] font-bold tracking-tight text-[#0d1117] leading-[1.25]">
             End-to-End Supplier Intelligence<br />
             <span className="text-[#0d9e8a]">at the speed of AI</span>
           </h2>
