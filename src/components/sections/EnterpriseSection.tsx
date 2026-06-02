@@ -2,28 +2,35 @@
 
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
-import { Lock, Globe, Activity } from 'lucide-react'
+import {
+  Lock, Globe, Activity,
+  Calculator, Layers, Search, Lightbulb, ShieldCheck, Flag,
+  Database, Package, ShoppingCart, Cpu, TrendingUp, Settings2,
+  type LucideIcon,
+} from 'lucide-react'
 
 const SplineScene = dynamic(
   () => import('@/components/ui/splite').then(m => ({ default: m.SplineScene })),
   { ssr: false, loading: () => null }
 )
 
-const LEFT = [
-  { id: 'should-cost',    label: 'Should Cost',    sub: 'plus 8% accuracy, minus 80% RFQ time',  desc: 'Fast & robust cost guidance for procurement and quoting with plus 8% accuracy, cutting RFQ cycle time by 80%.' },
-  { id: 'bom-composer',   label: 'BOM Composer',   sub: '99.4% accuracy, 80% faster',             desc: 'Automated BOM assembly with 99.4% accuracy across complex defence programme structures, 80% faster than manual.' },
-  { id: 'supplier-radar', label: 'Supplier Radar', sub: '+300% discovery, minus 75% risk',        desc: 'AI-powered supplier discovery across 50K+ verified Indian vendors with 75% reduction in supply chain risk incidents.' },
-  { id: 'vave-studio',    label: 'VAVE Studio',    sub: '3-5x ideas, savings per year',            desc: 'Value analysis and engineering platform generating 3-5x more cost reduction ideas per programme cycle.' },
-  { id: 'quality-guard',  label: 'Quality Guard',  sub: 'AI inspection, real-time alerts',        desc: 'Real-time AI-powered inspection and quality monitoring with instant alert workflows for defence-grade standards.' },
-  { id: 'launch-tracker', label: 'Launch Tracker', sub: 'Milestones, NPI tracking',               desc: 'End-to-end NPI milestone tracking across complex multi-year defence and aerospace programmes.' },
+type Item = { id: string; label: string; sub: string; desc: string; icon: LucideIcon }
+
+const LEFT: Item[] = [
+  { id: 'should-cost',    icon: Calculator,  label: 'Should Cost',    sub: '+8% accuracy, −80% RFQ time',   desc: 'Fast & robust cost guidance for procurement and quoting with plus 8% accuracy, cutting RFQ cycle time by 80%.' },
+  { id: 'bom-composer',   icon: Layers,      label: 'BOM Composer',   sub: '99.4% accuracy, 80% faster',    desc: 'Automated BOM assembly with 99.4% accuracy across complex defence programme structures, 80% faster than manual.' },
+  { id: 'supplier-radar', icon: Search,      label: 'Supplier Radar', sub: '+300% discovery, −75% risk',    desc: 'AI-powered supplier discovery across 50K+ verified Indian vendors with 75% reduction in supply chain risk incidents.' },
+  { id: 'vave-studio',    icon: Lightbulb,   label: 'VAVE Studio',    sub: '3-5× ideas, savings per year',  desc: 'Value analysis and engineering platform generating 3-5x more cost reduction ideas per programme cycle.' },
+  { id: 'quality-guard',  icon: ShieldCheck, label: 'Quality Guard',  sub: 'AI inspection, real-time alerts', desc: 'Real-time AI-powered inspection and quality monitoring with instant alert workflows for defence-grade standards.' },
+  { id: 'launch-tracker', icon: Flag,        label: 'Launch Tracker', sub: 'Milestones, NPI tracking',      desc: 'End-to-end NPI milestone tracking across complex multi-year defence and aerospace programmes.' },
 ]
-const RIGHT = [
-  { id: 'erp',      label: 'ERP Systems',     sub: 'SAP, Oracle, MS Dynamics',  desc: 'Bi-directional ERP sync that surfaces cost gaps between should-cost models and actuals in real time.' },
-  { id: 'plm',      label: 'PLM Software',     sub: 'Siemens, PTC, Dassault',    desc: 'Native PLM connectors for Teamcenter, Windchill, and ENOVIA to embed cost intelligence into design workflows.' },
-  { id: 'proc',     label: 'Procurement',      sub: 'Ariba, Coupa, Jaggaer',     desc: 'Direct procurement platform integration for automated RFQ dispatch and purchase order creation at scale.' },
-  { id: 'ai-lakes', label: 'AI & Data Lakes', sub: 'BI, Warehouses, REST APIs',  desc: 'REST APIs and data lake connectors feed Emithran intelligence into BI tools and custom AI pipelines.' },
-  { id: 'mes',      label: 'MES / SCADA',      sub: 'Siemens, Rockwell, GE',     desc: 'Shop-floor integration with MES and SCADA systems for real-time production data and quality traceability.' },
-  { id: 'finance',  label: 'Finance & Cost',   sub: 'Tally, SAP FICO, Oracle',   desc: 'Finance system connectors for cost actuals comparison, variance reporting, and programme P&L analysis.' },
+const RIGHT: Item[] = [
+  { id: 'erp',      icon: Database,    label: 'ERP Systems',    sub: 'SAP · Oracle · MS Dynamics',   desc: 'Bi-directional ERP sync that surfaces cost gaps between should-cost models and actuals in real time.' },
+  { id: 'plm',      icon: Package,     label: 'PLM Software',   sub: 'Siemens · PTC · Dassault',     desc: 'Native PLM connectors for Teamcenter, Windchill, and ENOVIA to embed cost intelligence into design workflows.' },
+  { id: 'proc',     icon: ShoppingCart,label: 'Procurement',    sub: 'Ariba · Coupa · Jaggaer',      desc: 'Direct procurement platform integration for automated RFQ dispatch and purchase order creation at scale.' },
+  { id: 'ai-lakes', icon: Cpu,         label: 'AI & Data Lakes',sub: 'BI · Warehouses · REST APIs',   desc: 'REST APIs and data lake connectors feed Emithran intelligence into BI tools and custom AI pipelines.' },
+  { id: 'mes',      icon: Settings2,   label: 'MES / SCADA',    sub: 'Siemens · Rockwell · GE',      desc: 'Shop-floor integration with MES and SCADA systems for real-time production data and quality traceability.' },
+  { id: 'finance',  icon: TrendingUp,  label: 'Finance & Cost', sub: 'Tally · SAP FICO · Oracle',    desc: 'Finance system connectors for cost actuals comparison, variance reporting, and programme P&L analysis.' },
 ]
 const ALL = [...LEFT, ...RIGHT]
 const PILLARS = [
@@ -242,7 +249,7 @@ export default function EnterpriseSection() {
       {/* Infographic stage */}
       <div
         ref={stageRef}
-        className="relative mx-auto overflow-hidden"
+        className="relative mx-auto"
         style={{ height: isMob ? 480 : 560, maxWidth: 1280 }}
         onMouseLeave={leave}
         onClick={() => { setActiveId(null); setPinnedId(null) }}
@@ -252,27 +259,53 @@ export default function EnterpriseSection() {
         {/* Left items */}
         {LEFT.map(item => {
           const active = activeId === item.id
+          const Icon = item.icon
           return (
             <div
               key={item.id}
               ref={el => { if (el) itemElsRef.current.set(item.id, el); else itemElsRef.current.delete(item.id) }}
-              className="absolute left-0 top-0 z-10 flex items-center rounded-lg border cursor-pointer select-none transition-all duration-200"
-              style={{
-                transform: 'translate(-9999px,0)',
-                padding: isMob ? '4px 7px' : '8px 12px',
-                gap: isMob ? 4 : 8,
-                background: active ? 'rgba(45,212,191,0.07)' : 'rgba(255,255,255,0.03)',
-                borderColor: active ? 'rgba(45,212,191,0.35)' : 'rgba(255,255,255,0.08)',
-                boxShadow: active ? '0 0 12px rgba(45,212,191,0.12)' : 'none',
-              }}
+              className="absolute left-0 top-0 z-10 cursor-pointer select-none"
+              style={{ transform: 'translate(-9999px,0)' }}
               onPointerEnter={e => { if (e.pointerType === 'mouse') enter(item.id) }}
               onPointerLeave={e => { if (e.pointerType === 'mouse') leave() }}
               onClick={e => { e.stopPropagation(); toggle(item.id) }}
             >
-              <div className="text-left">
-                <p className="font-semibold text-white/90 whitespace-nowrap leading-tight"
-                  style={{ fontSize: isMob ? 9 : 12 }}>{item.label}</p>
-                {!isMob && <p className="text-[9px] text-white/35 whitespace-nowrap mt-0.5">{item.sub}</p>}
+              <div
+                className="flex items-center rounded-xl border transition-all duration-200"
+                style={{
+                  padding: isMob ? '4px 6px' : '7px 10px',
+                  gap: isMob ? 5 : 9,
+                  background: active ? 'rgba(6,18,22,0.97)' : 'rgba(6,14,18,0.88)',
+                  borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.14)',
+                  boxShadow: active
+                    ? '0 0 18px rgba(45,212,191,0.20), inset 0 0 0 1px rgba(45,212,191,0.08)'
+                    : '0 2px 8px rgba(0,0,0,0.45)',
+                  backdropFilter: 'blur(12px)',
+                  transform: active ? 'translateX(-5px) rotate(-0.7deg)' : 'translateX(0) rotate(0deg)',
+                }}
+              >
+                <div
+                  className="flex items-center justify-center rounded-lg shrink-0 transition-all duration-200"
+                  style={{
+                    width: isMob ? 22 : 34,
+                    height: isMob ? 22 : 34,
+                    background: active
+                      ? 'linear-gradient(135deg,rgba(13,158,138,0.30) 0%,rgba(6,12,16,0.92) 100%)'
+                      : 'linear-gradient(135deg,rgba(13,158,138,0.13) 0%,rgba(6,12,16,0.85) 100%)',
+                    border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(45,212,191,0.20)'}`,
+                    boxShadow: active ? '0 0 10px rgba(45,212,191,0.24)' : 'none',
+                  }}
+                >
+                  <Icon style={{
+                    width: isMob ? 11 : 16, height: isMob ? 11 : 16,
+                    color: active ? '#2dd4bf' : 'rgba(45,212,191,0.72)',
+                    filter: active ? 'drop-shadow(0 0 4px rgba(45,212,191,0.65))' : 'none',
+                  }} />
+                </div>
+                <span className="font-semibold text-white/90 whitespace-nowrap leading-tight"
+                  style={{ fontSize: isMob ? 9 : 12 }}>
+                  {item.label}
+                </span>
               </div>
             </div>
           )
@@ -281,27 +314,53 @@ export default function EnterpriseSection() {
         {/* Right items */}
         {RIGHT.map(item => {
           const active = activeId === item.id
+          const Icon = item.icon
           return (
             <div
               key={item.id}
               ref={el => { if (el) itemElsRef.current.set(item.id, el); else itemElsRef.current.delete(item.id) }}
-              className="absolute left-0 top-0 z-10 flex flex-row-reverse items-center rounded-lg border cursor-pointer select-none transition-all duration-200"
-              style={{
-                transform: 'translate(-9999px,0)',
-                padding: isMob ? '4px 7px' : '8px 12px',
-                gap: isMob ? 4 : 8,
-                background: active ? 'rgba(45,212,191,0.07)' : 'rgba(255,255,255,0.03)',
-                borderColor: active ? 'rgba(45,212,191,0.35)' : 'rgba(255,255,255,0.08)',
-                boxShadow: active ? '0 0 12px rgba(45,212,191,0.12)' : 'none',
-              }}
+              className="absolute left-0 top-0 z-10 cursor-pointer select-none"
+              style={{ transform: 'translate(-9999px,0)' }}
               onPointerEnter={e => { if (e.pointerType === 'mouse') enter(item.id) }}
               onPointerLeave={e => { if (e.pointerType === 'mouse') leave() }}
               onClick={e => { e.stopPropagation(); toggle(item.id) }}
             >
-              <div className="text-right">
-                <p className="font-semibold text-white/90 whitespace-nowrap leading-tight"
-                  style={{ fontSize: isMob ? 9 : 12 }}>{item.label}</p>
-                {!isMob && <p className="text-[9px] text-white/35 whitespace-nowrap mt-0.5">{item.sub}</p>}
+              <div
+                className="flex flex-row-reverse items-center rounded-xl border transition-all duration-200"
+                style={{
+                  padding: isMob ? '4px 6px' : '7px 10px',
+                  gap: isMob ? 5 : 9,
+                  background: active ? 'rgba(6,18,22,0.97)' : 'rgba(6,14,18,0.88)',
+                  borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.14)',
+                  boxShadow: active
+                    ? '0 0 18px rgba(45,212,191,0.20), inset 0 0 0 1px rgba(45,212,191,0.08)'
+                    : '0 2px 8px rgba(0,0,0,0.45)',
+                  backdropFilter: 'blur(12px)',
+                  transform: active ? 'translateX(5px) rotate(0.7deg)' : 'translateX(0) rotate(0deg)',
+                }}
+              >
+                <div
+                  className="flex items-center justify-center rounded-lg shrink-0 transition-all duration-200"
+                  style={{
+                    width: isMob ? 22 : 34,
+                    height: isMob ? 22 : 34,
+                    background: active
+                      ? 'linear-gradient(135deg,rgba(13,158,138,0.30) 0%,rgba(6,12,16,0.92) 100%)'
+                      : 'linear-gradient(135deg,rgba(13,158,138,0.13) 0%,rgba(6,12,16,0.85) 100%)',
+                    border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(45,212,191,0.20)'}`,
+                    boxShadow: active ? '0 0 10px rgba(45,212,191,0.24)' : 'none',
+                  }}
+                >
+                  <Icon style={{
+                    width: isMob ? 11 : 16, height: isMob ? 11 : 16,
+                    color: active ? '#2dd4bf' : 'rgba(45,212,191,0.72)',
+                    filter: active ? 'drop-shadow(0 0 4px rgba(45,212,191,0.65))' : 'none',
+                  }} />
+                </div>
+                <span className="font-semibold text-white/90 whitespace-nowrap leading-tight"
+                  style={{ fontSize: isMob ? 9 : 12 }}>
+                  {item.label}
+                </span>
               </div>
             </div>
           )
@@ -362,7 +421,7 @@ export default function EnterpriseSection() {
           )}
         </div>
 
-        {/* Description card */}
+        {/* Centre description card */}
         <div
           className="absolute z-20"
           style={{
