@@ -34,9 +34,9 @@ const RIGHT: Item[] = [
 ]
 const ALL = [...LEFT, ...RIGHT]
 const PILLARS = [
-  { icon: Lock,     title: 'Enterprise-grade security', badge: 'ISO 27001', body: 'ISO 27001 certified. SOC 2 Type II compliant with role-based access controls meeting defence data-sovereignty requirements.' },
-  { icon: Globe,    title: 'Scalable platform',         badge: undefined,   body: 'Single unified platform spanning programmes, geographies, and Tier-1 to Tier-4 supplier networks at full scale.' },
-  { icon: Activity, title: 'Operational stability',     badge: undefined,   body: 'Proven reliability for mission-critical manufacturing and sourcing workflows across long-cycle defence programmes.' },
+  { icon: Lock,     title: 'Enterprise-grade security', badge: 'ISO 27001', body: 'ISO 27001 certified. SOC 2 Type II compliant with role-based access controls meeting defence data-sovereignty requirements.', image: '/assets/element-bg/Enterprise-grade.png' },
+  { icon: Globe,    title: 'Scalable platform',         badge: undefined,   body: 'Single unified platform spanning programmes, geographies, and Tier-1 to Tier-4 supplier networks at full scale.',                   image: '/assets/element-bg/Scalable.png' },
+  { icon: Activity, title: 'Operational stability',     badge: undefined,   body: 'Proven reliability for mission-critical manufacturing and sourcing workflows across long-cycle defence programmes.',                image: '/assets/element-bg/Operational.png' },
 ]
 const SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode'
 
@@ -70,19 +70,41 @@ export default function EnterpriseSection() {
     const W = stage.clientWidth
     const H = stage.clientHeight
     if (!W || !H) return
-    const mob    = W < 640
+    const mob = W < 640
+
+    if (mob) {
+      const cx = W / 2
+      const cy = H * 0.43
+      const r  = Math.min(W * 0.45, H * 0.39)
+      const DEG = Math.PI / 180
+      const placeArc = (id: string, angle: number) => {
+        const el = itemElsRef.current.get(id)
+        if (!el) return
+        const x = cx + r * Math.cos(angle)
+        const y = cy + r * Math.sin(angle)
+        el.style.transform = `translate(${x - el.offsetWidth / 2}px,${y - el.offsetHeight / 2}px)`
+      }
+      // Near-full circle: ~30° gap top, ~20° gap bottom — uniform 31° spacing
+      const leftStep  = (155 * DEG) / (LEFT.length  - 1)
+      const rightStep = (155 * DEG) / (RIGHT.length - 1)
+      LEFT.forEach( (it, i) => placeArc(it.id, 100 * DEG + leftStep  * i))
+      RIGHT.forEach((it, i) => placeArc(it.id, -75 * DEG + rightStep * i))
+      return
+    }
+
+    // Desktop — two vertical columns
     const N      = LEFT.length
-    const topY   = H * (mob ? 0.04 : 0.06)
-    const botY   = H * (mob ? 0.96 : 0.94)
+    const topY   = H * 0.06
+    const botY   = H * 0.94
     const gap    = N > 1 ? (botY - topY) / (N - 1) : 0
-    const leftX  = W * (mob ? 0.16 : 0.22)
-    const rightX = W * (mob ? 0.84 : 0.78)
+    const leftX  = W * 0.17
+    const rightX = W * 0.83
     const place  = (id: string, cx: number, i: number) => {
       const el = itemElsRef.current.get(id)
       if (!el) return
       el.style.transform = `translate(${cx - el.offsetWidth / 2}px,${topY + gap * i - el.offsetHeight / 2}px)`
     }
-    LEFT.forEach((it, i)  => place(it.id, leftX,  i))
+    LEFT.forEach( (it, i) => place(it.id, leftX,  i))
     RIGHT.forEach((it, i) => place(it.id, rightX, i))
   }
 
@@ -115,6 +137,10 @@ export default function EnterpriseSection() {
       const sr   = stage!.getBoundingClientRect()
       const er   = el.getBoundingClientRect()
       const side = LEFT.some(l => l.id === id) ? 'left' : 'right'
+      if (stage!.clientWidth < 640) {
+        // Circular layout — connect from item centre
+        return { x: er.left - sr.left + er.width / 2, y: er.top - sr.top + er.height / 2, side }
+      }
       return { x: side === 'left' ? er.right - sr.left + 4 : er.left - sr.left - 4, y: er.top - sr.top + er.height / 2, side }
     }
     function arrow(from: Pt, to: Pt, active: boolean) {
@@ -141,8 +167,11 @@ export default function EnterpriseSection() {
       ctx.stroke(); if (reverse) arrow(e, s, active); else arrow(s, e, active); ctx.restore()
     }
     function connectors(from: Pt & { side: string }, to: Pt, active: boolean, phase: number) {
-      if (from.side === 'right') { line(from, to, active, phase, -4, false); line(from, to, active, phase, 4, true) }
-      else line(from, to, active, phase, 0, false)
+      if (stage!.clientWidth >= 640 && from.side === 'right') {
+        line(from, to, active, phase, -4, false); line(from, to, active, phase, 4, true)
+      } else {
+        line(from, to, active, phase, 0, false)
+      }
     }
     function rings(cx: number, cy: number, r: number, phase: number) {
       ;[{ rm: 0.52, a: 0.48, solid: true }, { rm: 0.70, a: 0.28, solid: true }, { rm: 0.88, a: 0.16, solid: false }]
@@ -211,25 +240,59 @@ export default function EnterpriseSection() {
         </div>
 
         <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-4 sm:mb-7">
-          {PILLARS.map(({ icon: Icon, title, body, badge }) => (
-            <div key={title} className="rounded-xl p-2.5 sm:p-4 border flex flex-col gap-1 sm:gap-2"
-              style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(255,255,255,0.07)' }}>
-              <div className="flex items-start gap-1.5 sm:gap-2.5">
-                <div className="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg flex items-center justify-center shrink-0 mt-0.5 sm:mt-0"
-                  style={{ background: 'rgba(13,158,138,0.15)', border: '1px solid rgba(45,212,191,0.18)' }}>
-                  <Icon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" style={{ color: '#2dd4bf' }} />
+          {PILLARS.map(({ icon: Icon, title, body, badge, image }) => (
+            <div
+              key={title}
+              className="rounded-xl border flex flex-col relative overflow-hidden"
+              style={{
+                background: 'rgba(8,10,14,0.9)',
+                borderColor: 'rgba(255,255,255,0.07)',
+                minHeight: 80,
+              }}
+            >
+              {/* Background illustration */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={image}
+                alt=""
+                aria-hidden="true"
+                style={{
+                  position: 'absolute', top: 0, left: 0,
+                  width: '100%', height: '100%',
+                  objectFit: 'cover', objectPosition: 'center',
+                  opacity: 0.55,
+                  pointerEvents: 'none',
+                }}
+              />
+              {/* Light scrim — just enough to keep text readable */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{ background: 'linear-gradient(160deg, rgba(6,10,14,0.72) 0%, rgba(6,10,14,0.40) 60%, rgba(6,10,14,0.10) 100%)' }}
+              />
+
+              {/* Content */}
+              <div className="relative z-10 p-2.5 sm:p-4 flex flex-col gap-1 sm:gap-2 h-full">
+                <div className="flex items-start gap-1.5 sm:gap-2.5">
+                  <div
+                    className="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg flex items-center justify-center shrink-0 mt-0.5 sm:mt-0"
+                    style={{ background: 'rgba(13,158,138,0.15)', border: '1px solid rgba(45,212,191,0.18)' }}
+                  >
+                    <Icon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" style={{ color: '#2dd4bf' }} />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-[8.5px] sm:text-[12px] font-semibold text-white leading-tight">{title}</h3>
+                    {badge && (
+                      <span
+                        className="hidden sm:inline-block text-[9px] font-bold px-1.5 py-0.5 rounded mt-0.5"
+                        style={{ background: 'rgba(45,212,191,0.12)', color: '#2dd4bf', border: '1px solid rgba(45,212,191,0.25)' }}
+                      >
+                        {badge}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <h3 className="text-[8.5px] sm:text-[12px] font-semibold text-white leading-tight">{title}</h3>
-                  {badge && (
-                    <span className="hidden sm:inline-block text-[9px] font-bold px-1.5 py-0.5 rounded"
-                      style={{ background: 'rgba(45,212,191,0.12)', color: '#2dd4bf', border: '1px solid rgba(45,212,191,0.25)' }}>
-                      {badge}
-                    </span>
-                  )}
-                </div>
+                <p className="hidden sm:block text-[11px] leading-relaxed text-white/40">{body}</p>
               </div>
-              <p className="hidden sm:block text-[11px] leading-relaxed text-white/38">{body}</p>
             </div>
           ))}
         </div>
@@ -270,43 +333,72 @@ export default function EnterpriseSection() {
               onPointerLeave={e => { if (e.pointerType === 'mouse') leave() }}
               onClick={e => { e.stopPropagation(); toggle(item.id) }}
             >
-              <div
-                className="flex items-center rounded-xl border transition-all duration-200"
-                style={{
-                  padding: isMob ? '4px 6px' : '7px 10px',
-                  gap: isMob ? 5 : 9,
-                  background: active ? 'rgba(6,18,22,0.97)' : 'rgba(6,14,18,0.88)',
-                  borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.14)',
-                  boxShadow: active
-                    ? '0 0 18px rgba(45,212,191,0.20), inset 0 0 0 1px rgba(45,212,191,0.08)'
-                    : '0 2px 8px rgba(0,0,0,0.45)',
-                  backdropFilter: 'blur(12px)',
-                  transform: active ? 'translateX(-5px) rotate(-0.7deg)' : 'translateX(0) rotate(0deg)',
-                }}
-              >
+              {isMob ? (
+                /* Mobile: bare icon + 1-line label, no card bg */
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
+                  <div
+                    style={{
+                      width: 24, height: 24,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      borderRadius: 7,
+                      background: active
+                        ? 'linear-gradient(135deg,rgba(13,158,138,0.35) 0%,rgba(6,12,16,0.92) 100%)'
+                        : 'linear-gradient(135deg,rgba(13,158,138,0.18) 0%,rgba(6,12,16,0.88) 100%)',
+                      border: `1px solid ${active ? 'rgba(45,212,191,0.50)' : 'rgba(45,212,191,0.25)'}`,
+                      boxShadow: active ? '0 0 8px rgba(45,212,191,0.30)' : 'none',
+                    }}
+                  >
+                    <Icon style={{
+                      width: 12, height: 12,
+                      color: active ? '#2dd4bf' : 'rgba(45,212,191,0.80)',
+                      filter: active ? 'drop-shadow(0 0 3px rgba(45,212,191,0.7))' : 'none',
+                    }} />
+                  </div>
+                  <span style={{
+                    fontSize: 7.5, fontWeight: 600, whiteSpace: 'nowrap',
+                    color: active ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.75)',
+                    lineHeight: 1,
+                  }}>
+                    {item.label}
+                  </span>
+                </div>
+              ) : (
+                /* Desktop: full neural-bg pill */
                 <div
-                  className="flex items-center justify-center rounded-lg shrink-0 transition-all duration-200"
+                  className="flex items-center rounded-xl border transition-all duration-200"
                   style={{
-                    width: isMob ? 22 : 34,
-                    height: isMob ? 22 : 34,
-                    background: active
-                      ? 'linear-gradient(135deg,rgba(13,158,138,0.30) 0%,rgba(6,12,16,0.92) 100%)'
-                      : 'linear-gradient(135deg,rgba(13,158,138,0.13) 0%,rgba(6,12,16,0.85) 100%)',
-                    border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(45,212,191,0.20)'}`,
-                    boxShadow: active ? '0 0 10px rgba(45,212,191,0.24)' : 'none',
+                    padding: '7px 10px', gap: 9,
+                    backgroundImage: `linear-gradient(${active ? 'rgba(4,10,16,0.84)' : 'rgba(6,13,18,0.76)'}, ${active ? 'rgba(4,10,16,0.84)' : 'rgba(6,13,18,0.76)'}), url('/assets/element-bg/aicard.png')`,
+                    backgroundSize: 'cover', backgroundPosition: 'center',
+                    borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.18)',
+                    boxShadow: active
+                      ? '0 0 18px rgba(45,212,191,0.20), inset 0 0 0 1px rgba(45,212,191,0.08)'
+                      : '0 2px 8px rgba(0,0,0,0.45)',
+                    transform: active ? 'translateX(-5px) rotate(-0.7deg)' : 'translateX(0) rotate(0deg)',
                   }}
                 >
-                  <Icon style={{
-                    width: isMob ? 11 : 16, height: isMob ? 11 : 16,
-                    color: active ? '#2dd4bf' : 'rgba(45,212,191,0.72)',
-                    filter: active ? 'drop-shadow(0 0 4px rgba(45,212,191,0.65))' : 'none',
-                  }} />
+                  <div
+                    className="flex items-center justify-center rounded-lg shrink-0 transition-all duration-200"
+                    style={{
+                      width: 34, height: 34,
+                      background: active
+                        ? 'linear-gradient(135deg,rgba(13,158,138,0.30) 0%,rgba(6,12,16,0.92) 100%)'
+                        : 'linear-gradient(135deg,rgba(13,158,138,0.13) 0%,rgba(6,12,16,0.85) 100%)',
+                      border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(45,212,191,0.20)'}`,
+                      boxShadow: active ? '0 0 10px rgba(45,212,191,0.24)' : 'none',
+                    }}
+                  >
+                    <Icon style={{
+                      width: 16, height: 16,
+                      color: active ? '#2dd4bf' : 'rgba(45,212,191,0.72)',
+                      filter: active ? 'drop-shadow(0 0 4px rgba(45,212,191,0.65))' : 'none',
+                    }} />
+                  </div>
+                  <span className="font-semibold text-white/90 whitespace-nowrap leading-tight" style={{ fontSize: 12 }}>
+                    {item.label}
+                  </span>
                 </div>
-                <span className="font-semibold text-white/90 whitespace-nowrap leading-tight"
-                  style={{ fontSize: isMob ? 9 : 12 }}>
-                  {item.label}
-                </span>
-              </div>
+              )}
             </div>
           )
         })}
@@ -325,43 +417,72 @@ export default function EnterpriseSection() {
               onPointerLeave={e => { if (e.pointerType === 'mouse') leave() }}
               onClick={e => { e.stopPropagation(); toggle(item.id) }}
             >
-              <div
-                className="flex flex-row-reverse items-center rounded-xl border transition-all duration-200"
-                style={{
-                  padding: isMob ? '4px 6px' : '7px 10px',
-                  gap: isMob ? 5 : 9,
-                  background: active ? 'rgba(6,18,22,0.97)' : 'rgba(6,14,18,0.88)',
-                  borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.14)',
-                  boxShadow: active
-                    ? '0 0 18px rgba(45,212,191,0.20), inset 0 0 0 1px rgba(45,212,191,0.08)'
-                    : '0 2px 8px rgba(0,0,0,0.45)',
-                  backdropFilter: 'blur(12px)',
-                  transform: active ? 'translateX(5px) rotate(0.7deg)' : 'translateX(0) rotate(0deg)',
-                }}
-              >
+              {isMob ? (
+                /* Mobile: bare icon + 1-line label, no card bg */
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
+                  <div
+                    style={{
+                      width: 24, height: 24,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      borderRadius: 7,
+                      background: active
+                        ? 'linear-gradient(135deg,rgba(13,158,138,0.35) 0%,rgba(6,12,16,0.92) 100%)'
+                        : 'linear-gradient(135deg,rgba(13,158,138,0.18) 0%,rgba(6,12,16,0.88) 100%)',
+                      border: `1px solid ${active ? 'rgba(45,212,191,0.50)' : 'rgba(45,212,191,0.25)'}`,
+                      boxShadow: active ? '0 0 8px rgba(45,212,191,0.30)' : 'none',
+                    }}
+                  >
+                    <Icon style={{
+                      width: 12, height: 12,
+                      color: active ? '#2dd4bf' : 'rgba(45,212,191,0.80)',
+                      filter: active ? 'drop-shadow(0 0 3px rgba(45,212,191,0.7))' : 'none',
+                    }} />
+                  </div>
+                  <span style={{
+                    fontSize: 7.5, fontWeight: 600, whiteSpace: 'nowrap',
+                    color: active ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.75)',
+                    lineHeight: 1,
+                  }}>
+                    {item.label}
+                  </span>
+                </div>
+              ) : (
+                /* Desktop: full neural-bg pill, reversed */
                 <div
-                  className="flex items-center justify-center rounded-lg shrink-0 transition-all duration-200"
+                  className="flex flex-row-reverse items-center rounded-xl border transition-all duration-200"
                   style={{
-                    width: isMob ? 22 : 34,
-                    height: isMob ? 22 : 34,
-                    background: active
-                      ? 'linear-gradient(135deg,rgba(13,158,138,0.30) 0%,rgba(6,12,16,0.92) 100%)'
-                      : 'linear-gradient(135deg,rgba(13,158,138,0.13) 0%,rgba(6,12,16,0.85) 100%)',
-                    border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(45,212,191,0.20)'}`,
-                    boxShadow: active ? '0 0 10px rgba(45,212,191,0.24)' : 'none',
+                    padding: '7px 10px', gap: 9,
+                    backgroundImage: `linear-gradient(${active ? 'rgba(4,10,16,0.84)' : 'rgba(6,13,18,0.76)'}, ${active ? 'rgba(4,10,16,0.84)' : 'rgba(6,13,18,0.76)'}), url('/assets/element-bg/aicard.png')`,
+                    backgroundSize: 'cover', backgroundPosition: 'center',
+                    borderColor: active ? 'rgba(45,212,191,0.45)' : 'rgba(45,212,191,0.18)',
+                    boxShadow: active
+                      ? '0 0 18px rgba(45,212,191,0.20), inset 0 0 0 1px rgba(45,212,191,0.08)'
+                      : '0 2px 8px rgba(0,0,0,0.45)',
+                    transform: active ? 'translateX(5px) rotate(0.7deg)' : 'translateX(0) rotate(0deg)',
                   }}
                 >
-                  <Icon style={{
-                    width: isMob ? 11 : 16, height: isMob ? 11 : 16,
-                    color: active ? '#2dd4bf' : 'rgba(45,212,191,0.72)',
-                    filter: active ? 'drop-shadow(0 0 4px rgba(45,212,191,0.65))' : 'none',
-                  }} />
+                  <div
+                    className="flex items-center justify-center rounded-lg shrink-0 transition-all duration-200"
+                    style={{
+                      width: 34, height: 34,
+                      background: active
+                        ? 'linear-gradient(135deg,rgba(13,158,138,0.30) 0%,rgba(6,12,16,0.92) 100%)'
+                        : 'linear-gradient(135deg,rgba(13,158,138,0.13) 0%,rgba(6,12,16,0.85) 100%)',
+                      border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(45,212,191,0.20)'}`,
+                      boxShadow: active ? '0 0 10px rgba(45,212,191,0.24)' : 'none',
+                    }}
+                  >
+                    <Icon style={{
+                      width: 16, height: 16,
+                      color: active ? '#2dd4bf' : 'rgba(45,212,191,0.72)',
+                      filter: active ? 'drop-shadow(0 0 4px rgba(45,212,191,0.65))' : 'none',
+                    }} />
+                  </div>
+                  <span className="font-semibold text-white/90 whitespace-nowrap leading-tight" style={{ fontSize: 12 }}>
+                    {item.label}
+                  </span>
                 </div>
-                <span className="font-semibold text-white/90 whitespace-nowrap leading-tight"
-                  style={{ fontSize: isMob ? 9 : 12 }}>
-                  {item.label}
-                </span>
-              </div>
+              )}
             </div>
           )
         })}
