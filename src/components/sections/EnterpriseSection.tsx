@@ -563,62 +563,66 @@ export default function EnterpriseSection() {
           className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
           style={{ width: robotSize, height: robotSize, top: isMob ? '43%' : '50%' }}
         >
-          {/* Outer ambient glow rings */}
-          <div className="absolute inset-0 pointer-events-none" style={{ borderRadius: '50%', boxShadow: '0 0 60px 20px rgba(45,212,191,0.18), 0 0 120px 40px rgba(13,158,138,0.10)' }} />
-
-          {/* Spline robot with brand teal filter */}
-          <div className="relative w-full h-full"
-            style={{ filter: 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)' }}>
-            {/* Skeleton — always in the DOM; SSR-safe; fades out once Spline is ready */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{ opacity: clientMounted && splineReady ? 0 : 1, transition: 'opacity 0.5s ease' }}
-            >
-              <RobotSkeleton size={robotSize} />
-            </div>
-            {/* SplineScene — mounted only after hydration + viewport entry */}
-            {clientMounted && splineVisible && (
-              <SplineScene scene={SCENE} className="w-full h-full" onLoad={() => setSplineReady(true)} />
-            )}
-            {/* Teal colour wash overlay */}
-            <div className="absolute inset-0 pointer-events-none rounded-full"
-              style={{ background: 'radial-gradient(circle at 50% 40%, rgba(45,212,191,0.10) 0%, transparent 68%)', mixBlendMode: 'screen' }} />
-          </div>
-
-          {/* Floating manufacturing data chips — desktop only */}
-          {!isMob && (
+          {clientMounted ? (
             <>
-              <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
-                style={{ top: '12%', left: '-22%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
-                <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>BOM</span>
-                <span className="text-[8px] text-white/40">99.4%</span>
-              </div>
-              <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
-                style={{ top: '12%', right: '-22%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
-                <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>RFQ</span>
-                <span className="text-[8px] text-white/40">-40%</span>
-              </div>
-              <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
-                style={{ bottom: '20%', left: '-26%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
-                <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>AI</span>
-                <span className="text-[8px] text-white/40">Active</span>
-              </div>
-              <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
-                style={{ bottom: '20%', right: '-26%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
-                <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#0d9e8a' }}>MFG</span>
-                <span className="text-[8px] text-white/40">Live</span>
-              </div>
-            </>
-          )}
+              {/* Outer ambient glow rings */}
+              <div className="absolute inset-0 pointer-events-none" style={{ borderRadius: '50%', boxShadow: '0 0 60px 20px rgba(45,212,191,0.18), 0 0 120px 40px rgba(13,158,138,0.10)' }} />
 
-          {/* Brand label */}
-          {!isMob && (
-            <div className="absolute inset-x-0 flex justify-center pointer-events-none" style={{ bottom: 8 }}>
-              <span className="text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md"
-                style={{ color: '#2dd4bf', background: 'rgba(0,0,0,0.72)', border: '1px solid rgba(45,212,191,0.28)', backdropFilter: 'blur(6px)', letterSpacing: '0.12em' }}>
-                Emithran Engine
-              </span>
-            </div>
+              {/* Spline robot with brand teal filter */}
+              <div className="relative w-full h-full"
+                style={{ filter: 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)' }}>
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ opacity: splineReady ? 0 : 1, transition: 'opacity 0.5s ease' }}
+                >
+                  <RobotSkeleton size={robotSize} />
+                </div>
+                {splineVisible && (
+                  <SplineScene scene={SCENE} className="w-full h-full" onLoad={() => setSplineReady(true)} />
+                )}
+                <div className="absolute inset-0 pointer-events-none rounded-full"
+                  style={{ background: 'radial-gradient(circle at 50% 40%, rgba(45,212,191,0.10) 0%, transparent 68%)', mixBlendMode: 'screen' }} />
+              </div>
+
+              {/* Floating manufacturing data chips — desktop only */}
+              {!isMob && (
+                <>
+                  <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
+                    style={{ top: '12%', left: '-22%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
+                    <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>BOM</span>
+                    <span className="text-[8px] text-white/40">99.4%</span>
+                  </div>
+                  <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
+                    style={{ top: '12%', right: '-22%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
+                    <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>RFQ</span>
+                    <span className="text-[8px] text-white/40">-40%</span>
+                  </div>
+                  <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
+                    style={{ bottom: '20%', left: '-26%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
+                    <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#2dd4bf' }}>AI</span>
+                    <span className="text-[8px] text-white/40">Active</span>
+                  </div>
+                  <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
+                    style={{ bottom: '20%', right: '-26%', background: 'rgba(6,12,16,0.82)', border: '1px solid rgba(45,212,191,0.22)', backdropFilter: 'blur(8px)' }}>
+                    <span className="text-[8px] font-semibold uppercase tracking-widest" style={{ color: '#0d9e8a' }}>MFG</span>
+                    <span className="text-[8px] text-white/40">Live</span>
+                  </div>
+                </>
+              )}
+
+              {/* Brand label */}
+              {!isMob && (
+                <div className="absolute inset-x-0 flex justify-center pointer-events-none" style={{ bottom: 8 }}>
+                  <span className="text-[8px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-md"
+                    style={{ color: '#2dd4bf', background: 'rgba(0,0,0,0.72)', border: '1px solid rgba(45,212,191,0.28)', backdropFilter: 'blur(6px)', letterSpacing: '0.12em' }}>
+                    Emithran Engine
+                  </span>
+                </div>
+              )}
+            </>
+          ) : (
+            /* SSR / first-paint placeholder — no dynamic imports in this branch */
+            <RobotSkeleton size={robotSize} />
           )}
         </div>
 
