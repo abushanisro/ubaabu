@@ -82,9 +82,15 @@ export default function EnterpriseSection() {
   const [activeId,      setActiveId]      = useState<string | null>(null)
   const [pinnedId,      setPinnedId]      = useState<string | null>(null)
   const [isMob,         setIsMob]         = useState(false)
+  const [clientMounted, setClientMounted] = useState(false)
   const [splineVisible, setSplineVisible] = useState(false)
+  const [splineReady,   setSplineReady]   = useState(false)
 
   useEffect(() => { activeRef.current = activeId }, [activeId])
+
+  // Must be declared before the IO effect so it runs first and
+  // clientMounted is true before splineVisible can ever become true.
+  useEffect(() => { setClientMounted(true) }, [])
 
   useEffect(() => {
     const check = () => setIsMob(window.innerWidth < 768)
@@ -563,10 +569,16 @@ export default function EnterpriseSection() {
           {/* Spline robot with brand teal filter */}
           <div className="relative w-full h-full"
             style={{ filter: 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)' }}>
-            {splineVisible ? (
-              <SplineScene scene={SCENE} className="w-full h-full" />
-            ) : (
+            {/* Skeleton — always in the DOM; SSR-safe; fades out once Spline is ready */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ opacity: clientMounted && splineReady ? 0 : 1, transition: 'opacity 0.5s ease' }}
+            >
               <RobotSkeleton size={robotSize} />
+            </div>
+            {/* SplineScene — mounted only after hydration + viewport entry */}
+            {clientMounted && splineVisible && (
+              <SplineScene scene={SCENE} className="w-full h-full" onLoad={() => setSplineReady(true)} />
             )}
             {/* Teal colour wash overlay */}
             <div className="absolute inset-0 pointer-events-none rounded-full"
