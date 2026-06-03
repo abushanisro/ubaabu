@@ -1,19 +1,53 @@
 'use client'
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
-const items = [
+type DropdownItem = { label: string; href: string }
+type NavItem = {
+  label: string
+  href?: string
+  children?: DropdownItem[]
+}
+
+const items: NavItem[] = [
   { label: 'Why Emithran?', href: '/why-emithran' },
-  { label: 'Solutions',     href: '/solutions' },
-  { label: 'Products',      href: '/products' },
-  { label: 'Pricing',       href: '/pricing' },
-  { label: 'About',         href: '/about' },
-  { label: 'Resources',     href: '/resources' },
+  { label: 'Solutions', href: '/solutions' },
+  {
+    label: 'Products',
+    href: '/products',
+    children: [
+      { label: 'Engineering Support', href: '/products/engineering-support' },
+      { label: 'Training', href: '/products/training' },
+    ],
+  },
+  { label: 'Pricing', href: '/pricing' },
+  {
+    label: 'About',
+    href: '/about',
+    children: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Careers', href: '/about/careers' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Leadership', href: '/about/leadership' },
+      { label: 'Partners', href: '/about/partners' },
+    ],
+  },
+  {
+    label: 'Resources',
+    href: '/resources',
+    children: [
+      { label: 'Blogs', href: '/resources/blogs' },
+      { label: 'Case Studies', href: '/resources/case-studies' },
+      { label: 'FAQs', href: '/resources/faqs' },
+    ],
+  },
 ]
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/8 bg-white">
@@ -26,16 +60,49 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-0.5 md:flex">
-          {items.map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="rounded-md px-3 py-2 text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors whitespace-nowrap"
+          {items.map((item) =>
+            item.children ? (
+              <li
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => setHoveredItem(item.label)}
+                onMouseLeave={() => setHoveredItem(null)}
               >
-                {item.label}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={item.href}
+                  className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors whitespace-nowrap"
+                >
+                  {item.label}
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-200 ${hoveredItem === item.label ? 'rotate-180' : ''}`}
+                  />
+                </a>
+                {hoveredItem === item.label && (
+                  <div className="absolute left-0 top-full z-50 mt-0 min-w-[190px] rounded-xl border border-black/8 bg-white py-1.5 shadow-xl">
+                    {item.children.map((child) => (
+                      <a
+                        key={child.label}
+                        href={child.href}
+                        className="block px-4 py-2 text-sm text-black/60 hover:text-black hover:bg-black/5 transition-colors"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </li>
+            ) : (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  className="rounded-md px-3 py-2 text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors whitespace-nowrap"
+                >
+                  {item.label}
+                </a>
+              </li>
+            )
+          )}
         </ul>
 
         {/* Desktop CTA */}
@@ -58,30 +125,59 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           className="md:hidden text-[#080808]"
-          onClick={() => setOpen(!open)}
+          onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
       {/* Mobile menu */}
-      {open && (
+      {mobileOpen && (
         <div className="mx-4 mb-2 rounded-xl border border-black/8 bg-white p-4 shadow-lg md:hidden">
-          {items.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="block rounded-md px-3 py-2.5 text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors"
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
+          {items.map((item) =>
+            item.children ? (
+              <div key={item.label}>
+                <button
+                  onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                  className="flex w-full items-center justify-between rounded-md px-3 py-2.5 text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors"
+                >
+                  {item.label}
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-200 ${mobileExpanded === item.label ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {mobileExpanded === item.label && (
+                  <div className="ml-3 mt-0.5 mb-1">
+                    {item.children.map((child) => (
+                      <a
+                        key={child.label}
+                        href={child.href}
+                        className="block rounded-md px-3 py-2 text-sm text-black/50 hover:text-black hover:bg-black/5 transition-colors"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                className="block rounded-md px-3 py-2.5 text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </a>
+            )
+          )}
           <a
             href="/contact"
             className="mt-2 block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-[#0d1117] border border-black/15 hover:bg-black/[0.04] transition-colors"
-            onClick={() => setOpen(false)}
+            onClick={() => setMobileOpen(false)}
           >
             Contact Us
           </a>
@@ -89,7 +185,7 @@ export default function Navbar() {
             href="#demo"
             className="mt-2 block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-white hover:opacity-85 transition-opacity"
             style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
-            onClick={() => setOpen(false)}
+            onClick={() => setMobileOpen(false)}
           >
             Request a Demo
           </a>
