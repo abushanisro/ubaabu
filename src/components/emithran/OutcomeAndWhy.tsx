@@ -144,14 +144,6 @@ export default function OutcomeAndWhy() {
 
         {/* ── Heading ── */}
         <div ref={headRef} style={{ marginBottom: '6rem' }}>
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={headInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, ease: EASE }}
-            className="chip-light inline-block mb-6"
-          >
-            Outcomes
-          </motion.span>
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={headInView ? { opacity: 1, y: 0 } : {}}

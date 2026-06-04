@@ -1,9 +1,5 @@
 import PricingHero from '@/components/pricing/PricingHero'
-import PricingNav from '@/components/pricing/PricingNav'
 import PricingPackages from '@/components/pricing/PricingPackages'
-import PricingCompare from '@/components/pricing/PricingCompare'
-import PricingROI from '@/components/pricing/PricingROI'
-import PricingAddons from '@/components/pricing/PricingAddons'
 import PricingFAQs from '@/components/pricing/PricingFAQs'
 import PricingCTA from '@/components/pricing/PricingCTA'
 
@@ -17,11 +13,7 @@ export default function PricingPage() {
   return (
     <>
       <PricingHero />
-      <PricingNav />
       <PricingPackages />
-      <PricingCompare />
-      <PricingROI />
-      <PricingAddons />
       <PricingFAQs />
       <PricingCTA />
     </>

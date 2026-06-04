@@ -85,14 +85,6 @@ export default function WhyIndia() {
           {/* ── Left: sticky heading ── */}
           <div ref={headRef} className="relative">
             <div className="sticky" style={{ top: '8rem' }}>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={headInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.5, ease: EASE }}
-                className="chip-light inline-block mb-6"
-              >
-                Why India
-              </motion.span>
               <motion.p
                 initial={{ opacity: 0, y: 18 }}
                 animate={headInView ? { opacity: 1, y: 0 } : {}}

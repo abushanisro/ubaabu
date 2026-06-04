@@ -92,14 +92,6 @@ export default function BuiltForSupplyChains() {
 
         {/* ── Heading ── */}
         <div ref={headRef} style={{ marginBottom: '4rem' }}>
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={headInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.5, ease: EASE }}
-            className="chip-light inline-block mb-6"
-          >
-            Built For
-          </motion.span>
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={headInView ? { opacity: 1, y: 0 } : {}}

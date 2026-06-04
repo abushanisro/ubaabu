@@ -98,14 +98,6 @@ export default function ApproachAndBenefits() {
           style={{ borderBottom: '1px solid rgba(0,0,0,0.08)' }}
         >
           <div>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={headerInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.5, ease: EASE }}
-              className="chip-light inline-block mb-6"
-            >
-              Our Approach
-            </motion.span>
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={headerInView ? { opacity: 1, y: 0 } : {}}

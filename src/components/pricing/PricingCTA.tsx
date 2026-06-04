@@ -48,7 +48,7 @@ export default function PricingCTA() {
 
         {/* Col 1 — headline + CTAs */}
         <div className="cta-fade-up">
-          <h2 className="text-3xl font-semibold tracking-tight text-[var(--ink)] md:text-[40px] md:leading-[1.1]">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#0f1b2d] md:text-[40px] md:leading-[1.1]">
             Ready to get started? Book a demo or request a custom quote.
           </h2>
           <p className="mt-5 max-w-md text-[15px] leading-relaxed text-[#0f1b2d]/60">
@@ -57,14 +57,14 @@ export default function PricingCTA() {
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <a
               href="#"
-              className="cta-pill group inline-flex items-center gap-2 rounded-full bg-[var(--teal)] px-5 py-2.5 text-sm font-medium text-[var(--ink)] shadow-[0_10px_30px_-12px_color-mix(in_oklab,var(--teal)_60%,transparent)] transition-all hover:-translate-y-px hover:shadow-[0_14px_34px_-12px_color-mix(in_oklab,var(--teal)_70%,transparent)]"
+              className="cta-pill group inline-flex items-center gap-2 rounded-full bg-[#2dd4bf] px-5 py-2.5 text-sm font-medium text-[#0f1b2d] shadow-[0_10px_30px_-12px_color-mix(in_oklab,#2dd4bf_60%,transparent)] transition-all hover:-translate-y-px hover:shadow-[0_14px_34px_-12px_color-mix(in_oklab,#2dd4bf_70%,transparent)]"
             >
               Book a demo
               <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </a>
             <a
               href="#"
-              className="cta-link group inline-flex items-center gap-1.5 text-sm font-medium text-[var(--teal-deep)] transition-colors hover:text-[var(--ink)]"
+              className="cta-link group inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] transition-colors hover:text-[#0f1b2d]"
             >
               Contact sales
               <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
@@ -74,59 +74,34 @@ export default function PricingCTA() {
 
         {/* Col 2 — See our customers */}
         <div className="cta-fade-up group relative" style={{ animationDelay: '0.1s' }}>
-          <span
-            aria-hidden
-            className="absolute left-0 top-[2.35rem] h-4 w-[3px] rounded-full bg-[var(--teal)] transition-all duration-300 group-hover:h-6 group-hover:bg-[var(--teal-deep)]"
-          />
+          <span aria-hidden className="absolute left-0 top-[2.35rem] h-4 w-[3px] rounded-full bg-[#2dd4bf] transition-all duration-300 group-hover:h-6 group-hover:bg-[#0d9488]" />
           <div className="pl-5">
-            <div
-              className="mb-3 inline-flex size-11 items-center justify-center rounded-lg border border-border/70 bg-[var(--surface-subtle)] transition-transform duration-300 group-hover:-translate-y-0.5"
-              style={iconVars}
-            >
+            <div className="mb-3 inline-flex size-11 items-center justify-center rounded-lg border border-border/70 bg-[#f3f7f9] transition-transform duration-300 group-hover:-translate-y-0.5" style={iconVars}>
               <BuildingsIcon />
             </div>
-            <h3 className="text-[15px] font-semibold tracking-tight text-[var(--ink)]">See our customers</h3>
+            <h3 className="text-[15px] font-semibold tracking-tight text-[#0f1b2d]">See our customers</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#0f1b2d]/60">
               From mid-market manufacturers to global OEMs, explore how leading teams use Emithran to cut design costs and accelerate sourcing.
             </p>
-            <a
-              href="#"
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--teal-deep)] transition-colors hover:text-[var(--ink)]"
-            >
-              Learn more
-              <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
-            </a>
           </div>
         </div>
 
         {/* Col 3 — Explore the platform */}
         <div className="cta-fade-up group relative" style={{ animationDelay: '0.2s' }}>
-          <span
-            aria-hidden
-            className="absolute left-0 top-[2.35rem] h-4 w-[3px] rounded-full bg-[var(--teal)] transition-all duration-300 group-hover:h-6 group-hover:bg-[var(--teal-deep)]"
-          />
+          <span aria-hidden className="absolute left-0 top-[2.35rem] h-4 w-[3px] rounded-full bg-[#2dd4bf] transition-all duration-300 group-hover:h-6 group-hover:bg-[#0d9488]" />
           <div className="pl-5">
-            <div
-              className="mb-3 inline-flex size-11 items-center justify-center rounded-lg border border-border/70 bg-[var(--surface-subtle)] transition-transform duration-300 group-hover:-translate-y-0.5"
-              style={iconVars}
-            >
+            <div className="mb-3 inline-flex size-11 items-center justify-center rounded-lg border border-border/70 bg-[#f3f7f9] transition-transform duration-300 group-hover:-translate-y-0.5" style={iconVars}>
               <DocumentsIcon />
             </div>
-            <h3 className="text-[15px] font-semibold tracking-tight text-[var(--ink)]">Explore the platform</h3>
+            <h3 className="text-[15px] font-semibold tracking-tight text-[#0f1b2d]">Explore the platform</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#0f1b2d]/60">
               See the modules behind Emithran — design intelligence, supplier sourcing, and end-to-end supply chain visibility in one workspace.
             </p>
-            <a
-              href="#"
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--teal-deep)] transition-colors hover:text-[var(--ink)]"
-            >
-              Read the docs
-              <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
-            </a>
           </div>
         </div>
 
       </div>
+
     </section>
   )
 }

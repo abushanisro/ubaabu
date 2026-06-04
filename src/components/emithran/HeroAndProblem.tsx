@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import HeroWave from './HeroWave'
 
 const T    = '#0d9e8a'
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -47,107 +48,143 @@ export default function HeroAndProblem() {
       <section
         aria-label="Why Teams Choose Emithran"
         className="relative overflow-hidden bg-white"
-        style={{
-          paddingTop:    'clamp(6rem, 12vw, 10rem)',
-          paddingBottom: 'clamp(5rem, 10vw, 8rem)',
-        }}
+        style={{ minHeight: 'clamp(560px, 90vh, 780px)' }}
       >
-        {/* Dot grid pattern */}
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px)',
-            backgroundSize: '24px 24px',
-            opacity: 0.7,
-          }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 55% 40% at 18% 65%, rgba(13,158,138,0.06) 0%, transparent 70%)' }}
-        />
+        {/* Animated ribbon background */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+          <HeroWave className="absolute inset-0 h-full w-full" />
+        </div>
 
-        <div ref={heroRef} className="relative max-w-[1280px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
 
-            <div className="lg:col-span-8">
-              {/* Chip label */}
-              <div className="overflow-hidden mb-6">
-                <motion.span
-                  initial={{ y: '110%' }}
-                  animate={heroInView ? { y: '0%' } : {}}
-                  transition={{ duration: 0.8, delay: 0.05, ease: EASE }}
-                  className="chip-light inline-block"
-                >
-                  The Manufacturing OS
-                </motion.span>
-              </div>
+        <div
+          ref={heroRef}
+          className="relative mx-auto max-w-[1200px] px-6 flex flex-col justify-center"
+          style={{ paddingTop: 'clamp(7rem, 14vw, 11rem)', paddingBottom: 'clamp(5rem, 10vw, 8rem)' }}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            {/* ── Left: headline + CTAs ── */}
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: 28 }}
+                animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.9, delay: 0.1, ease: EASE }}
+                className="text-[2.4rem] font-bold leading-[1.1] tracking-tight text-[#0f1b2d] md:text-[3rem] lg:text-[3.6rem]"
+              >
+                Design.{' '}
+                <span className="text-[#2dd4bf]">Source.</span>{' '}
+                Track.
+              </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.95, delay: 0.2, ease: EASE }}
-                className="text-xl md:text-2xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900"
+                transition={{ duration: 0.85, delay: 0.25, ease: EASE }}
+                className="mt-5 max-w-md text-[15px] leading-relaxed text-[#0f1b2d]/55"
               >
-                Why teams{' '}
-                <AnimatedText
-                  text="choose Emithran."
-                  textClassName="text-gray-900 font-bold"
-                  underlineColor="oklch(0.68 0.13 180)"
-                  underlinePath="M 0,10 Q 75,2 150,10 Q 225,18 300,10"
-                  underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
-                  underlineDuration={1.8}
-                />{' '}
-                <span className="font-normal text-gray-400">
-                  The AI platform built for the realities of Indian manufacturing—not just theory.
-                </span>
+                Emithran is the AI platform built for Indian manufacturers — cutting design costs, compressing sourcing cycles, and giving you real-time supply chain visibility in one workspace.
               </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.75, delay: 0.4, ease: EASE }}
+                className="mt-8 flex flex-wrap items-center gap-3"
+              >
+                <a
+                  href="#demo"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#2dd4bf] px-6 py-2.5 text-sm font-semibold text-[#0f1b2d] transition-all hover:-translate-y-px hover:bg-[#2dd4bf]/90"
+                >
+                  Request a Demo
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+                <a
+                  href="/case-studies"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/15 px-6 py-2.5 text-sm font-semibold text-[#0f1b2d] transition-all hover:border-[#0d9488]/50 hover:bg-black/[0.03]"
+                >
+                  See Case Studies
+                </a>
+              </motion.div>
+
+              {/* Secondary callout card */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.55, ease: EASE }}
+                className="mt-8 inline-flex flex-col gap-1 rounded-2xl border border-black/[0.08] bg-[#f3f7f9] px-5 py-4"
+              >
+                <span className="text-[10px] font-semibold uppercase tracking-widest text-[#2dd4bf]">For Manufacturing Teams</span>
+                <p className="max-w-xs text-[13px] leading-snug text-[#0f1b2d]/55">
+                  From design-to-cost to supplier tracking — built for OEMs, tier-1 and tier-2 manufacturers across India.
+                </p>
+                <a href="/solutions" className="mt-1 inline-flex items-center gap-1 text-[12px] font-medium text-[#2dd4bf] hover:underline">
+                  Explore solutions
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </motion.div>
             </div>
 
+            {/* ── Right: floating platform preview card ── */}
             <motion.div
-              className="lg:col-span-4 pb-1"
-              initial={{ opacity: 0, y: 20 }}
-              animate={heroInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.75, delay: 0.55, ease: EASE }}
+              initial={{ opacity: 0, y: 32, scale: 0.97 }}
+              animate={heroInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 1, delay: 0.35, ease: EASE }}
+              className="hidden lg:flex flex-col gap-3"
             >
-              <div className="lg:border-l lg:pl-8" style={{ borderColor: 'rgba(0,0,0,0.1)' }}>
-                <p
-                  className="text-[13px] leading-relaxed mb-8"
-                  style={{ color: 'rgba(0,0,0,0.55)', lineHeight: 1.78 }}
-                >
-                  Every manufacturing decision leaves money on the table. Supplier selection costs 30% more than it should. Design cycles run weeks longer. Emithran rewires how your entire organization makes decisions together.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href="#demo"
-                    className="inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
-                    style={{
-                      background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))',
-                      textDecoration: 'none',
-                    }}
-                  >
-                    Request a Demo
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                      fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                    </svg>
-                  </a>
-                  <a
-                    href="/case-studies"
-                    className="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-2.5 text-sm font-semibold text-[#0d1117] hover:bg-black/[0.04] transition-colors"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    See Case Studies
-                  </a>
+              {/* Top metric cards row */}
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { label: 'Avg. cost reduction', value: '18%', sub: 'across active BOMs' },
+                  { label: 'RFQ cycle time', value: '−62%', sub: 'vs. manual process' },
+                ].map((m) => (
+                  <div key={m.label} className="rounded-2xl border border-black/[0.08] bg-white p-5 shadow-[0_1px_4px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.06)]">
+                    <p className="text-[11px] text-[#0f1b2d]/40">{m.label}</p>
+                    <p className="mt-1 text-2xl font-bold text-[#0d9488]">{m.value}</p>
+                    <p className="text-[11px] text-[#0f1b2d]/30">{m.sub}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Main platform preview card */}
+              <div className="rounded-2xl border border-black/[0.08] bg-white p-5 shadow-[0_1px_4px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.06)]">
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0f1b2d]/40">Supplier Radar</span>
+                  <span className="rounded-full bg-[#2dd4bf]/15 px-2 py-0.5 text-[10px] font-medium text-[#2dd4bf]">Live</span>
+                </div>
+                {[
+                  { name: 'Precision Parts Ltd.', score: 94, tag: 'Best match' },
+                  { name: 'IndoForge Components', score: 87, tag: 'Shortlisted' },
+                  { name: 'StellarCast Works',   score: 81, tag: 'Shortlisted' },
+                ].map((s, i) => (
+                  <div key={s.name} className={`flex items-center justify-between py-2.5 text-[12px] ${i < 2 ? 'border-b border-black/[0.05]' : ''}`}>
+                    <div>
+                      <p className="font-medium text-[#0f1b2d]/80">{s.name}</p>
+                      <p className="text-[10px] text-[#0f1b2d]/35">{s.tag}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="h-1 w-16 overflow-hidden rounded-full bg-black/[0.07]">
+                        <div className="h-full rounded-full bg-[#0d9488]" style={{ width: `${s.score}%` }} />
+                      </div>
+                      <span className="w-7 text-right font-mono text-[11px] text-[#0d9488]">{s.score}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom cost card */}
+              <div className="rounded-2xl border border-black/[0.08] bg-white px-5 py-4 shadow-[0_1px_4px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.06)]">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-[11px] text-[#0f1b2d]/40">Should-cost estimate</p>
+                    <p className="mt-0.5 text-xl font-bold text-[#0f1b2d]">₹12.4L <span className="text-sm font-normal text-[#0f1b2d]/40">/ assembly</span></p>
+                  </div>
+                  <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-semibold text-emerald-400">−18% vs. quote</span>
                 </div>
               </div>
             </motion.div>
 
           </div>
         </div>
-
-        <div aria-hidden className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'rgba(0,0,0,0.06)' }} />
       </section>
 
       {/* ── Hidden Costs section ── */}
@@ -264,14 +301,6 @@ function HiddenCosts() {
             <div className="sticky top-32">
               <div ref={headRef}>
 
-                <motion.span
-                  initial={{ opacity: 0 }}
-                  animate={headInView ? { opacity: 1 } : {}}
-                  transition={{ duration: 0.6, ease: EASE }}
-                  className="chip-light inline-block mb-10"
-                >
-                  The Problem Space
-                </motion.span>
 
                 <motion.p
                   initial={{ opacity: 0, y: 16 }}
