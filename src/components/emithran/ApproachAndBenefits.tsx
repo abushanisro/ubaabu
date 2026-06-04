@@ -42,15 +42,15 @@ function PillarCard({ item, index }: { item: (typeof PILLARS)[number]; index: nu
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
     >
-      {/* Background roman numeral */}
+      {/* Background roman numeral — increased opacity */}
       <div
         className="absolute -top-6 -left-2 font-display font-bold pointer-events-none select-none leading-none transition-colors duration-500"
         style={{
           fontSize: '5rem',
-          color: hov ? `rgba(13,158,138,0.08)` : 'rgba(0,0,0,0.04)',
+          color: hov ? `rgba(13,158,138,0.32)` : 'rgba(13,158,138,0.18)',
         }}
       >
-        {item.roman}
+        {index + 1}
       </div>
 
       {/* Title */}
@@ -84,8 +84,8 @@ export default function ApproachAndBenefits() {
     <section
       className="bg-white"
       style={{
-        paddingTop:    'clamp(5rem, 9vw, 8rem)',
-        paddingBottom: 'clamp(3rem, 6vw, 5rem)',
+        paddingTop:    'clamp(2rem, 3.5vw, 3rem)',
+        paddingBottom: 'clamp(2rem, 3.5vw, 3rem)',
         borderTop: '1px solid rgba(0,0,0,0.06)',
       }}
     >
@@ -94,7 +94,7 @@ export default function ApproachAndBenefits() {
         {/* ── Header ── */}
         <div
           ref={headerRef}
-          className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 pb-12"
+          className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-8 pb-8"
           style={{ borderBottom: '1px solid rgba(0,0,0,0.08)' }}
         >
           <div>
@@ -121,7 +121,7 @@ export default function ApproachAndBenefits() {
         </div>
 
         {/* ── Three pillars ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 pt-2">
           {PILLARS.map((item, i) => (
             <PillarCard key={item.roman} item={item} index={i} />
           ))}
@@ -129,48 +129,96 @@ export default function ApproachAndBenefits() {
 
       </div>
 
-      {/* ── Impact / CTA block ── */}
-      <div className="max-w-[1280px] mx-auto px-6">
-        <motion.div
-          ref={ctaRef}
-          initial={{ opacity: 0, y: 24 }}
-          animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: EASE }}
-          className="flex flex-col md:flex-row items-center justify-between gap-12 rounded-2xl"
-          style={{
-            background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))',
-            color: '#ffffff',
-            padding: 'clamp(2.5rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem)',
-          }}
+      {/* ── Single testimonial card with all 3 inside ── */}
+      <motion.div
+        ref={ctaRef}
+        initial={{ opacity: 0, y: 24 }}
+        animate={ctaInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, ease: EASE }}
+        className="max-w-[1280px] mx-auto px-6"
+      >
+        <div
+          className="relative rounded-2xl overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #0f1b2d 0%, #0a2a26 55%, #0f1b2d 100%)' }}
         >
-          <p
-            className="font-display font-medium leading-tight tracking-tight"
-            style={{
-              fontSize: 'clamp(1.5rem, 3.5vw, 2.8rem)',
-              maxWidth: '52rem',
-              color: '#ffffff',
-            }}
-          >
-            &ldquo;Teams using Emithran cut RFQ cycles by 40%, improve BOM accuracy to 99.4%, and identify &#8377;1.2Cr+ in annual savings.&rdquo;
-          </p>
+          {/* Teal radial glow — stronger, centred */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45,212,191,0.22), transparent 65%)' }}
+          />
+          {/* Bottom teal wash */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(45,212,191,0.08), transparent 70%)' }}
+          />
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="96" height="96"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="shrink-0 opacity-25"
-            aria-hidden="true"
+          {/* Inner grid */}
+          <div
+            className="relative z-10 grid grid-cols-1 md:grid-cols-3"
+            style={{ padding: 'clamp(2rem, 4vw, 3rem)' }}
           >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </motion.div>
-      </div>
+            {[
+              {
+                quote: '"We cut our RFQ cycle from 40 hours to 8. Emithran\'s should-cost engine changed how we negotiate."',
+                role: 'Head of Procurement',
+                company: 'Aerospace OEM',
+                metric: '80% time saved',
+              },
+              {
+                quote: '"DFM feedback inside our CAD workflow means we catch issues before they become expensive late-stage revisions."',
+                role: 'Design Lead',
+                company: 'Tier-1 Manufacturer',
+                metric: '40% faster cycles',
+              },
+              {
+                quote: '"For the first time I have live visibility into supplier capacity. No more fire-fighting at deadlines."',
+                role: 'VP Operations',
+                company: 'Deep-Tech Startup',
+                metric: '99.4% accuracy',
+              },
+            ].map((t, i) => (
+              <div
+                key={i}
+                className="flex flex-col"
+                style={{
+                  padding: 'clamp(1.25rem, 2.5vw, 2rem)',
+                  borderLeft: i > 0 ? '1px solid rgba(45,212,191,0.12)' : 'none',
+                  borderTop: '0',
+                }}
+              >
+                {/* Quote mark */}
+                <svg aria-hidden className="mb-4 shrink-0" width="28" height="20" viewBox="0 0 32 24" fill="none" style={{ opacity: 0.5 }}>
+                  <path d="M0 24V14.4C0 6.4 4.267 1.6 12.8 0l1.6 2.4C10.133 3.6 8 6.533 8 10.4H13.6V24H0ZM18.4 24V14.4C18.4 6.4 22.667 1.6 31.2 0l1.6 2.4C28.533 3.6 26.4 6.533 26.4 10.4H32V24H18.4Z" fill="#2dd4bf"/>
+                </svg>
+
+                {/* Quote */}
+                <p
+                  className="font-display font-medium leading-relaxed flex-1"
+                  style={{ fontSize: 'clamp(0.88rem, 1.3vw, 1rem)', color: 'rgba(255,255,255,0.85)', lineHeight: 1.75 }}
+                >
+                  {t.quote}
+                </p>
+
+                {/* Footer */}
+                <div className="mt-5 flex items-end justify-between gap-3">
+                  <div>
+                    <p className="text-[12px] font-semibold" style={{ color: 'rgba(255,255,255,0.9)' }}>{t.role}</p>
+                    <p className="text-[11px] mt-0.5" style={{ color: 'rgba(45,212,191,0.5)' }}>{t.company}</p>
+                  </div>
+                  <span
+                    className="shrink-0 text-[11px] font-bold"
+                    style={{ color: '#2dd4bf' }}
+                  >
+                    {t.metric}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
     </section>
   )
 }

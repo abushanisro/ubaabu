@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
@@ -48,13 +48,27 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/8 bg-white">
+    <header
+      className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
+      style={{
+        background:     scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,1)',
+        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        borderBottom:   '1px solid rgba(0,0,0,0.08)',
+      }}
+    >
       <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" prefetch={false} className="flex items-center gap-1">
-          <img src="/assets/logo/logo-white.png" alt="Emithran" className="h-8 w-auto" />
+          <img src="/assets/infographics/logo/logo-white.png" alt="Emithran" className="h-8 w-auto" />
           <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">EMITHRAN</span>
         </Link>
 

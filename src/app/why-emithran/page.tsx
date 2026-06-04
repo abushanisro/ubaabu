@@ -18,8 +18,8 @@ export default function WhyEmithranPage() {
       <ApproachAndBenefits />
       <BuiltForSupplyChains />
       <OutcomeAndWhy />
-      <WhyIndia />
       <FinalCTA />
+      <WhyIndia />
     </>
   )
 }

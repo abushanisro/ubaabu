@@ -1,5 +1,4 @@
 import SolutionsHero from '@/components/solutions/SolutionsHero'
-import SolutionsNav from '@/components/solutions/SolutionsNav'
 import DesignSection   from '@/components/solutions/sections/DesignSection'
 import SupplierSection from '@/components/solutions/sections/SupplierSection'
 import CostSection     from '@/components/solutions/sections/CostSection'
@@ -25,7 +24,6 @@ export default function SolutionsPage() {
         All section components live here in nav order.
       */}
       <div>
-        <SolutionsNav />
         <DesignSection />
         <SupplierSection />
         <CostSection />

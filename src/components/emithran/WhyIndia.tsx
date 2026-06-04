@@ -74,8 +74,8 @@ export default function WhyIndia() {
     <section
       style={{
         background: '#fafafa',
-        paddingTop:    'clamp(5rem, 9vw, 8rem)',
-        paddingBottom: 'clamp(5rem, 9vw, 8rem)',
+        paddingTop:    'clamp(2rem, 3.5vw, 3rem)',
+        paddingBottom: 'clamp(2rem, 3.5vw, 3rem)',
         borderTop: '1px solid rgba(0,0,0,0.06)',
       }}
     >
@@ -110,8 +110,8 @@ export default function WhyIndia() {
                 animate={quoteInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.7, ease: EASE }}
                 style={{
-                  paddingTop: '3rem',
-                  marginTop: '3rem',
+                  paddingTop: '1.75rem',
+                  marginTop: '1.75rem',
                   borderTop: '1px solid rgba(0,0,0,0.08)',
                 }}
               >

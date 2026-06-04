@@ -2,25 +2,25 @@
 
 import { useEffect, useRef } from 'react'
 
-const EASE = (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
-
 export default function HeroWave({ className }: { className?: string }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const mouseRef  = useRef({ x: 0.5, y: 0.5 })
-  const frameRef  = useRef<number>(0)
-  const timeRef   = useRef(0)
+  const canvasRef     = useRef<HTMLCanvasElement>(null)
+  const mouseRef      = useRef({ x: 0.5, y: 0.5 })
+  const targetMouse   = useRef({ x: 0.5, y: 0.5 })
+  const frameRef      = useRef<number>(0)
+  const timeRef       = useRef(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const raw = canvas.getContext('2d')
+    if (!raw) return
+    const ctx: CanvasRenderingContext2D = raw
 
     const onMouse = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect()
-      mouseRef.current = {
-        x: (e.clientX - rect.left) / rect.width,
-        y: (e.clientY - rect.top)  / rect.height,
+      const r = canvas.getBoundingClientRect()
+      targetMouse.current = {
+        x: (e.clientX - r.left) / r.width,
+        y: (e.clientY - r.top)  / r.height,
       }
     }
     window.addEventListener('mousemove', onMouse)
@@ -33,51 +33,27 @@ export default function HeroWave({ className }: { className?: string }) {
       ctx.scale(dpr, dpr)
     }
     resize()
-    window.addEventListener('resize', resize)
+    const ro = new ResizeObserver(resize)
+    ro.observe(canvas)
 
-    // ── draw one filled wave blob ──────────────────────────────────────────────
-    function drawBlob(
-      w: number,
-      h: number,
-      t: number,
-      mx: number,    // 0-1 mouse x
-      my: number,    // 0-1 mouse y
-      // left-edge anchor (0-1 in x/y)
-      lx: number,
-      ly0: number,
-      ly1: number,
-      // control point params
-      cpTopX: number,
-      cpTopY: number,
-      cpBotX: number,
-      cpBotY: number,
-      gradient: CanvasGradient,
+    /** Fill a shape from a bezier left-boundary to the right edge */
+    function fillWave(
+      w: number, h: number,
+      sx: number, sy: number,
+      c1x: number, c1y: number,
+      c2x: number, c2y: number,
+      ex: number, ey: number,
+      grad: CanvasGradient,
       alpha: number,
     ) {
-      const MI = 0.05 // 5% mouse influence
-      const wave = Math.sin(t) * 0.035
-
-      // left edge of blob — sweeps from (lx, ly0) at top to (lx, ly1) at bottom
-      const topX = (lx + wave + (mx - 0.5) * MI) * w
-      const topY = ly0 * h
-      const botX = (lx + wave * 0.4 + (mx - 0.5) * MI * 0.5) * w
-      const botY = ly1 * h
-
-      // bezier control points for the left S-curve
-      const cp1x = (cpTopX + Math.sin(t * 1.1) * 0.04 + (mx - 0.5) * MI * 0.8) * w
-      const cp1y = (cpTopY + Math.cos(t * 0.7) * 0.05 + (my - 0.5) * MI * 0.4) * h
-      const cp2x = (cpBotX + Math.cos(t * 0.9) * 0.04 + (mx - 0.5) * MI * 0.6) * w
-      const cp2y = (cpBotY + Math.sin(t * 1.3) * 0.05 + (my - 0.5) * MI * 0.4) * h
-
-      ctx.beginPath()
-      ctx.moveTo(w, 0)          // top-right
-      ctx.lineTo(topX, topY)    // top of left edge
-      ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, botX, botY) // S-curve left edge
-      ctx.lineTo(w, h)          // bottom-right
-      ctx.closePath()
-
-      ctx.fillStyle = gradient
       ctx.globalAlpha = alpha
+      ctx.beginPath()
+      ctx.moveTo(w, 0)
+      ctx.lineTo(sx, sy)
+      ctx.bezierCurveTo(c1x, c1y, c2x, c2y, ex, ey)
+      ctx.lineTo(w, h)
+      ctx.closePath()
+      ctx.fillStyle = grad
       ctx.fill()
       ctx.globalAlpha = 1
     }
@@ -85,60 +61,182 @@ export default function HeroWave({ className }: { className?: string }) {
     const draw = () => {
       const w = canvas.offsetWidth
       const h = canvas.offsetHeight
-      timeRef.current += 0.004   // slow drift
+      if (w === 0 || h === 0) { frameRef.current = requestAnimationFrame(draw); return }
 
+      // Smooth mouse lag
+      mouseRef.current.x += (targetMouse.current.x - mouseRef.current.x) * 0.04
+      mouseRef.current.y += (targetMouse.current.y - mouseRef.current.y) * 0.04
+
+      timeRef.current += 0.0025
       const t  = timeRef.current
-      const mx = mouseRef.current.x
-      const my = mouseRef.current.y
+      const mx = (mouseRef.current.x - 0.5) * 0.04
+      const my = (mouseRef.current.y - 0.5) * 0.04
+
+      // Independent oscillators for organic motion
+      const a1 = Math.sin(t * 1.00)
+      const a2 = Math.sin(t * 0.65 + 1.2)
+      const a3 = Math.sin(t * 1.40 + 0.5)
+      const a4 = Math.sin(t * 0.45 + 2.1)
+      const b1 = Math.cos(t * 0.90 + 0.8)
+      const b2 = Math.cos(t * 1.15 + 1.5)
+      const b3 = Math.cos(t * 0.55 + 0.3)
+      const breathe = 0.95 + Math.sin(t * 0.3) * 0.05
 
       ctx.clearRect(0, 0, w, h)
 
-      // ── Layer 1: widest, lightest — light mint fills right ~65% ──────────────
-      const g1 = ctx.createLinearGradient(w * 0.25, h * 0.5, w, h * 0.2)
-      g1.addColorStop(0,   'rgba(153,246,228,0.0)')   // #99f6e4 transparent edge
-      g1.addColorStop(0.3, 'rgba(103,232,249,0.35)')  // #67e8f9
-      g1.addColorStop(0.7, 'rgba(45,212,191,0.55)')   // #2dd4bf
-      g1.addColorStop(1,   'rgba(20,184,166,0.45)')   // #14b8a6
+      const isMobile = w < 768
+      const isTablet = w < 1024 && !isMobile
 
-      drawBlob(w, h, t, mx, my,
-        0.32, 0.0, 1.0,           // left edge: x=32%, top=0%, bot=100%
-        0.18, 0.35, 0.45, 0.65,   // control points
-        g1, 1,
-      )
+      // ── Desktop wave base positions ───────────────────────────────────────────
+      // On tablet shift slightly right; desktop stays at designed positions
+      const dShift = isTablet ? 0.08 : 0
+      const W1     = 0.42 + dShift
+      const W2     = 0.51 + dShift
+      const W3     = 0.60 + dShift
 
-      // ── Layer 2: mid — richer teal fills right ~50% ───────────────────────────
-      const g2 = ctx.createLinearGradient(w * 0.4, 0, w, h * 0.5)
-      g2.addColorStop(0,   'rgba(103,232,249,0.0)')   // transparent
-      g2.addColorStop(0.25,'rgba(45,212,191,0.5)')    // #2dd4bf
-      g2.addColorStop(0.65,'rgba(13,148,136,0.65)')   // #0d9488
-      g2.addColorStop(1,   'rgba(15,118,110,0.4)')    // darker teal
+      if (isMobile) {
+        // ── Mobile: clip to safe zone — right ~45% at top, full-width at bottom ─
+        // This diagonal clip keeps waves away from the text column entirely.
+        ctx.save()
+        ctx.beginPath()
+        // Top: start at 58% across the top edge
+        ctx.moveTo(w * 0.58, 0)
+        // Diagonal bezier sweep down-left to left edge at 62% height
+        ctx.bezierCurveTo(
+          w * 0.30, h * 0.28,
+          w * 0.10, h * 0.46,
+          0,        h * 0.62,
+        )
+        // Down left edge to bottom-left
+        ctx.lineTo(0, h)
+        // Along bottom to bottom-right
+        ctx.lineTo(w, h)
+        // Up right edge to top-right
+        ctx.lineTo(w, 0)
+        ctx.closePath()
+        ctx.clip()
 
-      drawBlob(w, h, t * 1.15 + 0.8, mx, my,
-        0.44, 0.0, 1.0,
-        0.28, 0.3, 0.55, 0.7,
-        g2, 1,
-      )
+        // Draw waves in the clipped safe zone (no shift needed — clip handles it)
+        const M1 = 0.54, M2 = 0.62, M3 = 0.70
 
-      // ── Layer 3: accent highlight — top-right bright teal ────────────────────
-      const g3 = ctx.createRadialGradient(w * 0.85, h * 0.12, 0, w * 0.85, h * 0.12, w * 0.45)
-      g3.addColorStop(0,   'rgba(153,246,228,0.7)')   // bright mint center
-      g3.addColorStop(0.4, 'rgba(45,212,191,0.35)')
-      g3.addColorStop(1,   'rgba(45,212,191,0.0)')
+        // Wave 1
+        {
+          const g = ctx.createLinearGradient(M1 * w, 0, w, h * 0.6)
+          g.addColorStop(0,    '#a7f3d0')
+          g.addColorStop(0.4,  '#5eead4')
+          g.addColorStop(0.8,  '#2dd4bf')
+          g.addColorStop(1,    '#0d9488')
+          fillWave(w, h,
+            (M1      + a1 * 0.02 + mx) * w,  0,
+            (M1-0.10 + a2 * 0.025+ mx) * w,  h * 0.32,
+            (M1+0.04 + b1 * 0.02 + mx) * w,  h * 0.65,
+            (M1+0.08 + a3 * 0.015+ mx) * w,  h,
+            g, 0.45 * breathe)
+        }
+        // Wave 2
+        {
+          const g = ctx.createLinearGradient(M2 * w, 0, w, h)
+          g.addColorStop(0,    '#67e8f9')
+          g.addColorStop(0.3,  '#2dd4bf')
+          g.addColorStop(0.7,  '#0d9488')
+          g.addColorStop(1,    '#0f766e')
+          fillWave(w, h,
+            (M2      + a2 * 0.015+ mx) * w,  0,
+            (M2-0.08 + b2 * 0.02 + mx) * w,  h * 0.28,
+            (M2+0.05 + a1 * 0.02 + mx) * w,  h * 0.70,
+            (M2+0.09 + b1 * 0.015+ mx) * w,  h,
+            g, 0.60 * breathe)
+        }
+        // Wave 3 — radial glow in top-right
+        {
+          const cx = (0.86 + a3 * 0.03 + mx) * w
+          const cy = (0.08 + b3 * 0.03 + my) * h
+          const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, w * 0.5)
+          g.addColorStop(0,    'rgba(167,243,208,0.9)')
+          g.addColorStop(0.3,  'rgba(103,232,249,0.6)')
+          g.addColorStop(0.65, 'rgba(45,212,191,0.25)')
+          g.addColorStop(1,    'rgba(45,212,191,0)')
+          fillWave(w, h,
+            (M3      + a4 * 0.014+ mx) * w,  0,
+            (M3-0.06 + b3 * 0.018+ mx) * w,  h * 0.30,
+            (M3+0.05 + a2 * 0.018+ mx) * w,  h * 0.67,
+            (M3+0.09 + b1 * 0.014+ mx) * w,  h,
+            g, 0.70 * breathe)
+        }
 
-      drawBlob(w, h, t * 0.9 + 1.6, mx, my,
-        0.52, 0.0, 1.0,
-        0.38, 0.2, 0.62, 0.75,
-        g3, 1,
-      )
+        ctx.restore()
 
-      // ── Layer 4: soft white veil on the very right edge ──────────────────────
-      const g4 = ctx.createLinearGradient(w * 0.7, 0, w, 0)
-      g4.addColorStop(0, 'rgba(255,255,255,0.0)')
-      g4.addColorStop(1, 'rgba(255,255,255,0.18)')
+        // Feather the diagonal clip boundary with a soft white gradient
+        {
+          const g = ctx.createLinearGradient(w * 0.44, h * 0.10, w * 0.64, h * 0.55)
+          g.addColorStop(0,   'rgba(255,255,255,1)')
+          g.addColorStop(0.6, 'rgba(255,255,255,0.85)')
+          g.addColorStop(1,   'rgba(255,255,255,0)')
+          ctx.fillStyle = g
+          ctx.fillRect(0, 0, w, h)
+        }
 
-      ctx.fillStyle = g4
-      ctx.globalAlpha = 1
-      ctx.fillRect(w * 0.7, 0, w * 0.3, h)
+      } else {
+        // ── Desktop / Tablet waves ────────────────────────────────────────────
+
+        // Wave 1 — wide, soft, light aqua
+        {
+          const g = ctx.createLinearGradient((W1 - 0.04) * w, 0, w, h * 0.55)
+          g.addColorStop(0,    '#a7f3d0')
+          g.addColorStop(0.35, '#5eead4')
+          g.addColorStop(0.75, '#2dd4bf')
+          g.addColorStop(1,    '#0d9488')
+          fillWave(w, h,
+            (W1      + a1 * 0.022 + mx) * w,  0,
+            (W1-0.12 + a2 * 0.028 + mx) * w,  h * 0.32,
+            (W1+0.04 + b1 * 0.026 + mx) * w,  h * 0.66,
+            (W1+0.08 + a3 * 0.018 + mx) * w,  h,
+            g, 0.40 * breathe)
+        }
+
+        // Wave 2 — vivid teal core
+        {
+          const g = ctx.createLinearGradient((W2 - 0.05) * w, 0, w, h * 0.9)
+          g.addColorStop(0,    '#67e8f9')
+          g.addColorStop(0.30, '#2dd4bf')
+          g.addColorStop(0.68, '#0d9488')
+          g.addColorStop(1,    '#0f766e')
+          fillWave(w, h,
+            (W2      + a2 * 0.018 + mx) * w,  0,
+            (W2-0.10 + b2 * 0.024 + mx) * w,  h * 0.28,
+            (W2+0.05 + a1 * 0.024 + mx) * w,  h * 0.70,
+            (W2+0.10 + b1 * 0.016 + mx) * w,  h,
+            g, 0.58 * breathe)
+        }
+
+        // Wave 3 — bright top-right radial glow
+        {
+          const cx = (0.84 + a3 * 0.035 + mx) * w
+          const cy = (0.10 + b3 * 0.035 + my) * h
+          const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, w * 0.52)
+          g.addColorStop(0,    'rgba(167,243,208,0.95)')
+          g.addColorStop(0.25, 'rgba(103,232,249,0.70)')
+          g.addColorStop(0.60, 'rgba(45,212,191,0.30)')
+          g.addColorStop(1,    'rgba(45,212,191,0)')
+          fillWave(w, h,
+            (W3      + a4 * 0.016 + mx) * w,  0,
+            (W3-0.08 + b3 * 0.020 + mx) * w,  h * 0.30,
+            (W3+0.06 + a2 * 0.020 + mx) * w,  h * 0.67,
+            (W3+0.10 + b1 * 0.016 + mx) * w,  h,
+            g, 0.68 * breathe)
+        }
+
+        // Feather — white gradient that softens the left wave edge
+        {
+          const FEATHER = 0.44 + dShift
+          const ex = (FEATHER + a1 * 0.016 + mx) * w
+          const g  = ctx.createLinearGradient(ex - w * 0.12, 0, ex + w * 0.06, 0)
+          g.addColorStop(0, 'rgba(255,255,255,1)')
+          g.addColorStop(1, 'rgba(255,255,255,0)')
+          ctx.fillStyle = g
+          ctx.fillRect(0, 0, ex + w * 0.06, h)
+        }
+      }
 
       frameRef.current = requestAnimationFrame(draw)
     }
@@ -148,7 +246,7 @@ export default function HeroWave({ className }: { className?: string }) {
     return () => {
       cancelAnimationFrame(frameRef.current)
       window.removeEventListener('mousemove', onMouse)
-      window.removeEventListener('resize', resize)
+      ro.disconnect()
     }
   }, [])
 

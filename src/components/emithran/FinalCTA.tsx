@@ -13,11 +13,10 @@ export default function FinalCTA() {
   return (
     <section
       style={{
-        minHeight: '80vh',
         background: '#080808',
         color: '#ffffff',
-        display: 'flex',
-        alignItems: 'center',
+        paddingTop: 'clamp(3rem, 6vw, 5rem)',
+        paddingBottom: 'clamp(3rem, 6vw, 5rem)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -67,8 +66,6 @@ export default function FinalCTA() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: EASE }}
         >
-          <span className="chip inline-block mb-8">Ready to start?</span>
-
           <h2
             className="font-display font-bold tracking-tight"
             style={{
@@ -85,8 +82,8 @@ export default function FinalCTA() {
           </h2>
 
           <p
-            className="mx-auto mb-12"
-            style={{ fontSize: '1.1rem', color: 'rgba(255,255,255,0.5)', maxWidth: '32rem', lineHeight: 1.7 }}
+            className="mx-auto mb-8"
+            style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.5)', maxWidth: '32rem', lineHeight: 1.7 }}
           >
             Join the teams already running on Emithran&rsquo;s manufacturing intelligence platform.
           </p>

@@ -83,15 +83,15 @@ export default function BuiltForSupplyChains() {
     <section
       style={{
         background: '#fafafa',
-        paddingTop:    'clamp(5rem, 9vw, 8rem)',
-        paddingBottom: 'clamp(5rem, 9vw, 8rem)',
+        paddingTop:    'clamp(2rem, 3.5vw, 3rem)',
+        paddingBottom: 'clamp(2rem, 3.5vw, 3rem)',
         borderTop: '1px solid rgba(0,0,0,0.06)',
       }}
     >
       <div className="max-w-[1280px] mx-auto px-6">
 
         {/* ── Heading ── */}
-        <div ref={headRef} style={{ marginBottom: '4rem' }}>
+        <div ref={headRef} style={{ marginBottom: '2rem' }}>
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={headInView ? { opacity: 1, y: 0 } : {}}

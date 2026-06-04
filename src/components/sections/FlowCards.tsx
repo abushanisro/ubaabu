@@ -108,7 +108,7 @@ export default function FlowCards() {
                   <div className="text-xs font-semibold text-[#0d1117]">3D Comments</div>
                 </div>
                 <div className="flex -space-x-1.5 mt-1">
-                  {['/assets/logo/abushan.png', '/assets/logo/sinigi.png', '/assets/logo/emuski.png'].map((src, i) => (
+                  {['/assets/infographics/logo/abushan.png', '/assets/infographics/logo/sinigi.png', '/assets/infographics/logo/emuski.png'].map((src, i) => (
                     <img key={i} src={src} alt="" className="h-5 w-5 rounded-full border-2 border-white object-cover" />
                   ))}
                   <div className="flex h-5 items-center rounded-full border-2 border-white bg-[#f1f5f9] px-1 text-[9px] font-medium text-[#64748b]">+8</div>
@@ -182,7 +182,7 @@ export default function FlowCards() {
               </div>
             </div>
             <div className="mt-1 flex -space-x-1.5">
-              {['/assets/logo/abushan.png', '/assets/logo/sinigi.png', '/assets/logo/emuski.png'].map((src, i) => (
+              {['/assets/infographics/logo/abushan.png', '/assets/infographics/logo/sinigi.png', '/assets/infographics/logo/emuski.png'].map((src, i) => (
                 <img key={i} src={src} alt="" className="h-6 w-6 rounded-full border-2 border-white object-cover" />
               ))}
               <div className="flex h-6 items-center rounded-full border-2 border-white bg-[#f1f5f9] px-1.5 text-[9px] font-medium text-[#64748b]">

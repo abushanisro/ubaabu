@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   keywords:
     'manufacturing intelligence, defence manufacturing, supply chain, India, aerospace, should cost, BOM management',
   icons: {
-    icon: '/assets/logo/logo-black.png',
-    apple: '/assets/logo/logo-black.png',
+    icon: '/assets/infographics/logo/logo-black.png',
+    apple: '/assets/infographics/logo/logo-black.png',
   },
   openGraph: {
     title: 'Emithran — End-to-End Manufacturing Intelligence',

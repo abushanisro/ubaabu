@@ -41,7 +41,7 @@ export function DashboardPreview() {
             <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-red-500 text-white text-[9px] font-bold flex items-center justify-center">2</span>
           </button>
           <div className="shrink-0 w-8 h-8 rounded-full overflow-hidden border border-black/10 bg-white flex items-center justify-center">
-            <img src="/assets/logo/logo-black.png" alt="Logo" className="w-full h-full object-contain p-0.5" />
+            <img src="/assets/infographics/logo/logo-black.png" alt="Logo" className="w-full h-full object-contain p-0.5" />
           </div>
         </div>
 

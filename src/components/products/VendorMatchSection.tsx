@@ -205,21 +205,6 @@ export default function VendorMatchSection() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
 
-        {/* ── Decorative divider ── */}
-        <div className="flex items-center gap-4 pt-10 pb-8">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-black/8 to-transparent" />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
-            animate={inView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, ease: EASE }}
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-teal-200 bg-teal-50 text-xs font-mono text-teal-600 shrink-0"
-          >
-            <Users className="w-3.5 h-3.5" />
-            MOD_05 · Vendor Match
-          </motion.div>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-black/8 to-transparent" />
-        </div>
-
         {/* ── Two-column layout ── */}
         <div className="relative flex flex-col lg:flex-row gap-16 pb-14 group">
 

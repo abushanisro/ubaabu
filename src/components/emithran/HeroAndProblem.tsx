@@ -1,7 +1,7 @@
 ﻿'use client'
 
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 import HeroWave from './HeroWave'
 
@@ -36,22 +36,28 @@ const PROBLEMS = [
   },
 ] as const
 
+// ── Pixel dissolve overlay ────────────────────────────────────────────────────
+
 // ── Hero ─────────────────────────────────────────────────────────────────────
 
 export default function HeroAndProblem() {
-  const heroRef    = useRef<HTMLDivElement>(null)
-  const heroInView = useInView(heroRef, { once: true, margin: '-60px' })
+  const heroRef        = useRef<HTMLDivElement>(null)
+  const heroInView     = useInView(heroRef, { once: true, margin: '-60px' })
+  const heroSectionRef = useRef<HTMLElement>(null)
 
   return (
     <>
       {/* ── Hero section ── */}
       <section
+        ref={heroSectionRef}
         aria-label="Why Teams Choose Emithran"
         className="relative overflow-hidden bg-white"
-        style={{ minHeight: 'clamp(560px, 90vh, 780px)' }}
       >
         {/* Animated ribbon background */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+        >
           <HeroWave className="absolute inset-0 h-full w-full" />
         </div>
 
@@ -59,7 +65,7 @@ export default function HeroAndProblem() {
         <div
           ref={heroRef}
           className="relative mx-auto max-w-[1200px] px-6 flex flex-col justify-center"
-          style={{ paddingTop: 'clamp(7rem, 14vw, 11rem)', paddingBottom: 'clamp(5rem, 10vw, 8rem)' }}
+          style={{ paddingTop: 'clamp(4.5rem, 9vw, 7rem)', paddingBottom: 'clamp(3rem, 5vw, 4.5rem)' }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -210,8 +216,8 @@ function ProblemRow({ p, index }: { p: (typeof PROBLEMS)[number]; index: number 
       className="group relative"
       style={{
         borderBottom: DIVIDER,
-        paddingTop:    '3rem',
-        paddingBottom: '3rem',
+        paddingTop:    '2rem',
+        paddingBottom: '2rem',
       }}
     >
       {/* Teal sweep line on hover */}
@@ -281,15 +287,23 @@ function ProblemRow({ p, index }: { p: (typeof PROBLEMS)[number]; index: number 
 }
 
 function HiddenCosts() {
+  const sectionRef = useRef<HTMLElement>(null)
   const headRef    = useRef<HTMLDivElement>(null)
   const headInView = useInView(headRef, { once: true, margin: '-60px' })
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+  const imgY = useTransform(scrollYProgress, [0, 1], ['0%', '-18%'])
+
   return (
     <section
+      ref={sectionRef}
       style={{
         background:    '#fafafa',
-        paddingTop:    'clamp(5rem, 9vw, 8rem)',
-        paddingBottom: 'clamp(5rem, 9vw, 8rem)',
+        paddingTop:    'clamp(2rem, 4vw, 3.5rem)',
+        paddingBottom: '0.5rem',
         borderTop:     '1px solid rgba(0,0,0,0.06)',
       }}
     >
@@ -301,12 +315,11 @@ function HiddenCosts() {
             <div className="sticky top-32">
               <div ref={headRef}>
 
-
                 <motion.p
                   initial={{ opacity: 0, y: 16 }}
                   animate={headInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.65, delay: 0.08, ease: EASE }}
-                  className="text-xl md:text-2xl lg:text-[2.2rem] font-bold leading-[1.25] tracking-tight text-gray-900 mb-12"
+                  className="text-xl md:text-2xl lg:text-[2.2rem] font-bold leading-[1.25] tracking-tight text-gray-900 mb-5"
                 >
                   The Hidden{' '}
                   <AnimatedText
@@ -327,6 +340,7 @@ function HiddenCosts() {
                     borderLeft: `2px solid ${T}`,
                     paddingLeft: '1.4rem',
                     maxWidth: '22rem',
+                    marginBottom: '2.5rem',
                   }}
                 >
                   <p
@@ -335,6 +349,22 @@ function HiddenCosts() {
                   >
                     "You're running a 21st-century business on&nbsp;1990s tools."
                   </p>
+                </motion.div>
+
+                {/* Parallax image */}
+                <motion.div
+                  initial={{ opacity: 0, y: 14 }}
+                  animate={headInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
+                  style={{ y: imgY }}
+                  className="overflow-hidden rounded-2xl"
+                >
+                  <img
+                    src="/assets/cards/why-emithran/hiddencost.png"
+                    alt="Hidden manufacturing costs — quality vs cost"
+                    className="object-cover w-full rounded-2xl block"
+                    style={{ height: '420px', objectPosition: 'center' }}
+                  />
                 </motion.div>
 
               </div>
