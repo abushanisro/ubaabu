@@ -15,21 +15,6 @@ const CAPABILITIES = [
   { icon: History,   text: 'Historical BOM tracking (understand cost/design evolution)' },
 ]
 
-const KEY_FEATURES = [
-  'CAD integration (Creo, Solidworks)',
-  'Revision control & change management',
-  'Supplier capability mapping',
-  'Cost roll-up',
-  'Compliance tracking',
-]
-
-const BUILT_FOR = [
-  { role: 'Design engineers',  initials: 'DE' },
-  { role: 'Procurement teams', initials: 'PT' },
-  { role: 'Manufacturing',     initials: 'MF' },
-  { role: 'Quality',           initials: 'QA' },
-]
-
 const STATS = [
   { label: 'BOM accuracy',        value: '99.4%+',     suffix: '' },
   { label: 'Time to generate',    value: '80%',         suffix: 'faster' },
@@ -62,11 +47,11 @@ const L2_NODES = [
 // ── BOM Tree Visualization ────────────────────────────────────────────────────
 function BomTreeViz({ inView }: { inView: boolean }) {
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
+    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0f1b2d' }}>
 
-      {/* Subtle teal glow at top */}
-      <div className="absolute inset-x-0 top-0 h-32 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 60% 60% at 50% -10%, rgba(20,184,166,0.14) 0%, transparent 100%)' }} />
+      {/* Primary teal glow at top — #2dd4bf */}
+      <div className="absolute inset-x-0 top-0 h-40 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 70% 70% at 50% -10%, rgba(45,212,191,0.22) 0%, rgba(13,148,136,0.08) 55%, transparent 100%)' }} />
 
       {/* Chrome bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
@@ -76,10 +61,7 @@ function BomTreeViz({ inView }: { inView: boolean }) {
           <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
         </div>
         <span className="text-[10px] font-mono text-white/30 tracking-widest">BOM COMPOSER · TVC-12</span>
-        <div className="flex items-center gap-1 text-[10px] text-teal-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-          LIVE
-        </div>
+        <div />
       </div>
 
       {/* SVG tree */}
@@ -92,7 +74,7 @@ function BomTreeViz({ inView }: { inView: boolean }) {
               <motion.path
                 d={p.d}
                 fill="none"
-                stroke={p.teal ? 'rgba(20,184,166,0.5)' : 'rgba(255,255,255,0.12)'}
+                stroke={p.teal ? 'rgba(45,212,191,0.55)' : 'rgba(255,255,255,0.10)'}
                 strokeWidth={p.teal ? 1.5 : 1}
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={inView ? { pathLength: 1, opacity: 1 } : {}}
@@ -109,19 +91,19 @@ function BomTreeViz({ inView }: { inView: boolean }) {
             </g>
           ))}
 
-          {/* Root node */}
+          {/* Root node — primary #2dd4bf border, deep #0d9488 fill tint */}
           <motion.g
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
           >
             <rect x="148" y="22" width="104" height="32" rx="6"
-              fill="rgba(20,184,166,0.12)" stroke="rgba(20,184,166,0.5)" strokeWidth="1.5" />
+              fill="rgba(13,148,136,0.18)" stroke="#2dd4bf" strokeWidth="1.5" />
             <text x="200" y="35" textAnchor="middle" fill="#2dd4bf" fontSize="9" fontWeight="700" fontFamily="monospace" letterSpacing="1">TVC-12</text>
-            <text x="200" y="46" textAnchor="middle" fill="rgba(45,212,191,0.6)" fontSize="8" fontFamily="system-ui">Turbine Assembly</text>
+            <text x="200" y="46" textAnchor="middle" fill="rgba(45,212,191,0.65)" fontSize="8" fontFamily="system-ui">Turbine Assembly</text>
           </motion.g>
 
-          {/* L1 nodes */}
+          {/* L1 nodes — deep teal border hint */}
           {L1_NODES.map((n) => (
             <motion.g key={n.label}
               initial={{ opacity: 0, y: 8 }}
@@ -129,9 +111,9 @@ function BomTreeViz({ inView }: { inView: boolean }) {
               transition={{ duration: 0.5, delay: n.delay, ease: EASE }}
             >
               <rect x={n.x} y={n.y} width="50" height="20" rx="4"
-                fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.16)" strokeWidth="1" />
-              <text x={n.x + 25} y={n.y + 10} textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="8" fontWeight="600" fontFamily="monospace">{n.label}</text>
-              <text x={n.x + 25} y={n.y + 18} textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="7" fontFamily="system-ui">{n.sub}</text>
+                fill="rgba(13,148,136,0.10)" stroke="rgba(45,212,191,0.25)" strokeWidth="1" />
+              <text x={n.x + 25} y={n.y + 10} textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="8" fontWeight="600" fontFamily="monospace">{n.label}</text>
+              <text x={n.x + 25} y={n.y + 18} textAnchor="middle" fill="rgba(45,212,191,0.45)" fontSize="7" fontFamily="system-ui">{n.sub}</text>
             </motion.g>
           ))}
 
@@ -143,23 +125,23 @@ function BomTreeViz({ inView }: { inView: boolean }) {
               transition={{ duration: 0.5, delay: n.delay, ease: EASE }}
             >
               <rect x={n.x} y={n.y} width="40" height="16" rx="3"
-                fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.09)" strokeWidth="1" />
-              <text x={n.x + 20} y={n.y + 10} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="7.5" fontFamily="monospace">{n.label}</text>
+                fill="rgba(13,148,136,0.07)" stroke="rgba(45,212,191,0.15)" strokeWidth="1" />
+              <text x={n.x + 20} y={n.y + 10} textAnchor="middle" fill="rgba(45,212,191,0.5)" fontSize="7.5" fontFamily="monospace">{n.label}</text>
             </motion.g>
           ))}
         </svg>
       </div>
 
       {/* Footer stats bar */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t border-white/[0.06]">
+      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: 'rgba(13,148,136,0.2)' }}>
         {[['127', 'parts'], ['4', 'levels'], ['72K+', 'suppliers']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold text-teal-400">{val}</span>
+            <span className="text-xs font-semibold" style={{ color: '#2dd4bf' }}>{val}</span>
             <span className="text-[10px] text-white/30">{lbl}</span>
           </div>
         ))}
         <div className="ml-auto flex items-center gap-1 text-[10px] text-white/25">
-          <span className="h-1 w-1 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="h-1 w-1 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
           synced
         </div>
       </div>
@@ -186,10 +168,10 @@ export default function BomComposerSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-16 lg:pt-24 pb-16">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-14 group">
+        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
 
           {/* ── LEFT: sticky info ──────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
@@ -206,7 +188,6 @@ export default function BomComposerSection() {
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{ background: 'linear-gradient(135deg, rgba(20,184,166,0.15), rgba(20,184,166,0.05))' }} />
                 <Layers className="w-7 h-7 text-teal-600 relative z-10" />
-                {/* Glow ring on hover */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{ boxShadow: '0 0 0 6px rgba(20,184,166,0.08)' }} />
               </motion.div>
@@ -293,68 +274,6 @@ export default function BomComposerSection() {
                 </ul>
               </div>
             </motion.div>
-
-            {/* Key Features + Built For */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-
-              {/* Key Features */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.65, delay: 0.32, ease: EASE }}
-                className="relative rounded-2xl border border-black/8 bg-white p-6 overflow-hidden hover:border-black/15 hover:shadow-md transition-all duration-300"
-              >
-                <div className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%)', transform: 'translate(30%, -30%)' }} />
-                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-4">Key Features</h3>
-                <div className="flex flex-wrap gap-2">
-                  {KEY_FEATURES.map((f, i) => (
-                    <motion.span
-                      key={f}
-                      initial={{ opacity: 0, scale: 0.88 }}
-                      animate={inView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.4, delay: 0.4 + i * 0.06, ease: EASE }}
-                      className="inline-flex items-center gap-1.5 text-xs text-black/60 bg-black/[0.03] border border-black/8
-                                 px-3 py-1.5 rounded-lg hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700
-                                 transition-all duration-200 cursor-default"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-teal-400 shrink-0" />
-                      {f}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-
-              {/* Built For */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.65, delay: 0.38, ease: EASE }}
-                className="relative rounded-2xl border border-black/8 bg-white p-6 overflow-hidden hover:border-black/15 hover:shadow-md transition-all duration-300"
-              >
-                <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.05) 0%, transparent 70%)', transform: 'translate(-30%, 30%)' }} />
-                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-4">Built For</h3>
-                <div className="flex flex-col gap-2.5">
-                  {BUILT_FOR.map(({ role, initials }, i) => (
-                    <motion.div
-                      key={role}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.45, delay: 0.44 + i * 0.07, ease: EASE }}
-                      className="flex items-center gap-3 group/role cursor-default"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200/60
-                                      flex items-center justify-center shrink-0 text-[9px] font-bold text-teal-600
-                                      group-hover/role:from-teal-100 group-hover/role:to-teal-200 transition-colors duration-200">
-                        {initials}
-                      </div>
-                      <span className="text-sm text-black/60 group-hover/role:text-black/80 transition-colors duration-200">{role}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
 
             {/* Stats — 2×2 grid */}
             <div className="grid grid-cols-2 gap-4">

@@ -17,7 +17,7 @@ type Time = 'pre-dawn' | 'sunrise' | 'daytime' | 'dusk' | 'sunset' | 'night'
 const TIMES: Time[] = ['pre-dawn', 'sunrise', 'daytime', 'dusk', 'sunset', 'night']
 
 const stats = [
-  { value: '$72B+',  label: 'in Indian defence procurement managed annually on spreadsheets and legacy ERP systems' },
+  { value: '₹4.2L Cr+', label: 'in Indian defence and aerospace manufacturing procurement still running on spreadsheets and legacy systems' },
   { value: '99.4%',  label: 'BOM accuracy rate across active defence and aerospace programmes on the platform' },
   { value: '40%',    label: 'faster RFQ turnaround time for engineering teams using Emithran should-cost models' },
 ]
@@ -55,7 +55,9 @@ export default function StatsSection() {
         <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-6 md:grid-cols-2 md:gap-20">
           <div>
             <h2 className="max-w-md text-3xl font-semibold leading-tight tracking-tight md:text-4xl lg:text-6xl">
-              The intelligence layer for Every manufacturing.
+              The intelligence layer for{' '}
+              <span style={{ color: '#2dd4bf' }}>Every</span>{' '}
+              manufacturing.
             </h2>
             <div className="mt-8 flex items-center gap-2">
               <button onClick={() => setPlaying(p => !p)} aria-label={playing ? 'Pause' : 'Play'}
@@ -82,7 +84,12 @@ export default function StatsSection() {
                     onTouchEnd={() => setHovered(null)}
                     onClick={() => setActive(i)}
                   >
-                    <p className="font-display text-4xl font-medium md:text-5xl lg:text-6xl">{s.value}</p>
+                    <p
+                      className="font-display text-4xl font-medium md:text-5xl lg:text-6xl transition-colors duration-300"
+                      style={{ color: i === active ? '#2dd4bf' : 'inherit' }}
+                    >
+                      {s.value}
+                    </p>
                     {(i === active || i === hovered) && (
                       <p className="mt-2 text-sm opacity-80 md:text-base">{s.label}</p>
                     )}

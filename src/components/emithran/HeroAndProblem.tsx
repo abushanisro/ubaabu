@@ -143,48 +143,48 @@ export default function HeroAndProblem() {
                   { label: 'Avg. cost reduction', value: '18%', sub: 'across active BOMs' },
                   { label: 'RFQ cycle time', value: '−62%', sub: 'vs. manual process' },
                 ].map((m) => (
-                  <div key={m.label} className="rounded-2xl border border-black/[0.08] bg-white p-5 shadow-[0_1px_4px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.06)]">
-                    <p className="text-[11px] text-[#0f1b2d]/40">{m.label}</p>
-                    <p className="mt-1 text-2xl font-bold text-[#0d9488]">{m.value}</p>
-                    <p className="text-[11px] text-[#0f1b2d]/30">{m.sub}</p>
+                  <div key={m.label} className="rounded-2xl border bg-white p-5" style={{ borderColor: 'rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.06),0 4px 16px rgba(0,0,0,0.06)' }}>
+                    <p style={{ fontSize: 11, color: 'rgba(15,27,45,0.5)' }}>{m.label}</p>
+                    <p className="mt-1 text-2xl font-bold" style={{ color: '#0d9488' }}>{m.value}</p>
+                    <p style={{ fontSize: 11, color: 'rgba(15,27,45,0.45)' }}>{m.sub}</p>
                   </div>
                 ))}
               </div>
 
               {/* Main platform preview card */}
-              <div className="rounded-2xl border border-black/[0.08] bg-white p-5 shadow-[0_1px_4px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.06)]">
+              <div className="rounded-2xl border bg-white p-5" style={{ borderColor: 'rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.06),0 4px 16px rgba(0,0,0,0.06)' }}>
                 <div className="mb-3 flex items-center justify-between">
-                  <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0f1b2d]/40">Supplier Radar</span>
-                  <span className="rounded-full bg-[#2dd4bf]/15 px-2 py-0.5 text-[10px] font-medium text-[#2dd4bf]">Live</span>
+                  <span className="font-semibold uppercase tracking-wider" style={{ fontSize: 11, color: 'rgba(15,27,45,0.5)' }}>Supplier Radar</span>
+                  <span className="rounded-full px-2 py-0.5 font-medium" style={{ fontSize: 10, color: '#2dd4bf', background: 'rgba(45,212,191,0.12)' }}>Live</span>
                 </div>
                 {[
                   { name: 'Precision Parts Ltd.', score: 94, tag: 'Best match' },
                   { name: 'IndoForge Components', score: 87, tag: 'Shortlisted' },
                   { name: 'StellarCast Works',   score: 81, tag: 'Shortlisted' },
                 ].map((s, i) => (
-                  <div key={s.name} className={`flex items-center justify-between py-2.5 text-[12px] ${i < 2 ? 'border-b border-black/[0.05]' : ''}`}>
+                  <div key={s.name} className="flex items-center justify-between py-2.5" style={{ borderBottom: i < 2 ? '1px solid rgba(0,0,0,0.05)' : 'none' }}>
                     <div>
-                      <p className="font-medium text-[#0f1b2d]/80">{s.name}</p>
-                      <p className="text-[10px] text-[#0f1b2d]/35">{s.tag}</p>
+                      <p className="font-medium" style={{ fontSize: 12, color: 'rgba(15,27,45,0.85)' }}>{s.name}</p>
+                      <p style={{ fontSize: 10, color: 'rgba(15,27,45,0.45)' }}>{s.tag}</p>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="h-1 w-16 overflow-hidden rounded-full bg-black/[0.07]">
-                        <div className="h-full rounded-full bg-[#0d9488]" style={{ width: `${s.score}%` }} />
+                      <div className="h-1 w-16 overflow-hidden rounded-full" style={{ background: 'rgba(0,0,0,0.07)' }}>
+                        <div className="h-full rounded-full" style={{ width: `${s.score}%`, background: '#0d9488' }} />
                       </div>
-                      <span className="w-7 text-right font-mono text-[11px] text-[#0d9488]">{s.score}</span>
+                      <span className="w-7 text-right font-mono" style={{ fontSize: 11, color: '#0d9488' }}>{s.score}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Bottom cost card */}
-              <div className="rounded-2xl border border-black/[0.08] bg-white px-5 py-4 shadow-[0_1px_4px_rgba(0,0,0,0.06),0_4px_16px_rgba(0,0,0,0.06)]">
+              <div className="rounded-2xl border bg-white px-5 py-4" style={{ borderColor: 'rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.06),0 4px 16px rgba(0,0,0,0.06)' }}>
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-[11px] text-[#0f1b2d]/40">Should-cost estimate</p>
-                    <p className="mt-0.5 text-xl font-bold text-[#0f1b2d]">₹12.4L <span className="text-sm font-normal text-[#0f1b2d]/40">/ assembly</span></p>
+                    <p style={{ fontSize: 11, color: 'rgba(15,27,45,0.5)' }}>Should-cost estimate</p>
+                    <p className="mt-0.5 text-xl font-bold" style={{ color: '#0f1b2d' }}>₹12.4L <span className="text-sm font-normal" style={{ color: 'rgba(15,27,45,0.45)' }}>/ assembly</span></p>
                   </div>
-                  <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-[11px] font-semibold text-emerald-400">−18% vs. quote</span>
+                  <span className="rounded-full px-3 py-1 font-semibold" style={{ fontSize: 11, color: '#10b981', background: 'rgba(16,185,129,0.12)' }}>−18% vs. quote</span>
                 </div>
               </div>
             </motion.div>

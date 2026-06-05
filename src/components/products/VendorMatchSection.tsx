@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Users, ScanSearch, ListOrdered, FileSearch, MousePointerClick } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
@@ -12,20 +12,6 @@ const CAPABILITIES = [
   { icon: ListOrdered,      text: 'Returns ranked shortlist with matching analysis'  },
   { icon: FileSearch,       text: 'Shows transparent selection rationale'            },
   { icon: MousePointerClick,text: 'Enables one-click RFQ initiation'                },
-]
-
-const KEY_FEATURES = [
-  'Intelligent requirements capture',
-  'Multi-criteria matching',
-  'Weighted ranking',
-  'Supplier data sheets',
-  'One-click RFQ send',
-]
-
-const BUILT_FOR = [
-  { role: 'Procurement teams',   initials: 'PT' },
-  { role: 'Sourcing specialists',initials: 'SS' },
-  { role: 'Design engineers',    initials: 'DE' },
 ]
 
 const STATS = [
@@ -51,6 +37,41 @@ const MATCHES = [
 
 // ── Vendor match visualization ────────────────────────────────────────────────
 function VendorMatchViz({ inView }: { inView: boolean }) {
+  const containerRef  = useRef<HTMLDivElement>(null)
+  const svgParentRef  = useRef<HTMLDivElement>(null)
+  const hubRef        = useRef<HTMLDivElement>(null)
+  const leftRefs  = useRef<(HTMLDivElement | null)[]>([null, null, null])
+  const rightRefs = useRef<(HTMLDivElement | null)[]>([null, null, null])
+  const [leftY,  setLeftY]  = useState([70, 128, 186])
+  const [rightY, setRightY] = useState([70, 128, 186])
+  const [hubX, setHubX] = useState({ left: 80, right: 120, svgWidth: 200 })
+
+  useEffect(() => {
+    const container = containerRef.current
+    const svgParent = svgParentRef.current
+    const hub       = hubRef.current
+    if (!container || !svgParent || !hub) return
+
+    const { top: cTop }              = container.getBoundingClientRect()
+    const { left: svgLeft, width: svgW } = svgParent.getBoundingClientRect()
+    const hubRect                    = hub.getBoundingClientRect()
+
+    setHubX({
+      left:     hubRect.left  - svgLeft,
+      right:    hubRect.right - svgLeft,
+      svgWidth: svgW,
+    })
+
+    const measure = (refs: (HTMLDivElement | null)[]) =>
+      refs.map(el => {
+        if (!el) return 128
+        const r = el.getBoundingClientRect()
+        return r.top + r.height / 2 - cTop
+      })
+    setLeftY(measure(leftRefs.current))
+    setRightY(measure(rightRefs.current))
+  }, [])
+
   return (
     <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
 
@@ -73,13 +94,14 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Matching scene */}
-      <div className="relative flex items-center justify-between px-8" style={{ height: 256 }}>
+      <div ref={containerRef} className="relative flex items-center justify-between px-8" style={{ height: 256 }}>
 
         {/* Left: Requirements */}
         <div className="flex flex-col gap-4 z-10">
           {INPUTS.map(({ id, label }, i) => (
             <motion.div
               key={id}
+              ref={(el) => { leftRefs.current[i] = el }}
               initial={{ opacity: 0, x: -14 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.1, ease: EASE }}
@@ -92,38 +114,46 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
         </div>
 
         {/* Center connectors + hub (SVG) */}
-        <div className="relative flex-1 h-full flex items-center justify-center">
-          <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
-            {/* Left → Hub paths */}
-            <motion.path d="M 0 70 C 40 70, 40 128, 80 128"
-              fill="none" stroke="rgba(20,184,166,0.45)" strokeWidth="1.5" strokeDasharray="4 4"
-              initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }} />
-            <motion.path d="M 0 128 C 40 128, 40 128, 80 128"
-              fill="none" stroke="rgba(20,184,166,0.45)" strokeWidth="1.5" strokeDasharray="4 4"
-              initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }} />
-            <motion.path d="M 0 186 C 40 186, 40 128, 80 128"
-              fill="none" stroke="rgba(20,184,166,0.45)" strokeWidth="1.5" strokeDasharray="4 4"
-              initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.55, ease: 'easeOut' }} />
-            {/* Hub → Right paths */}
-            <motion.path d="M 120 128 C 160 128, 160 70, 200 70"
-              fill="none" stroke="rgba(20,184,166,0.35)" strokeWidth="1.5"
-              initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.75, ease: 'easeOut' }} />
-            <motion.path d="M 120 128 C 160 128, 160 128, 200 128"
-              fill="none" stroke="rgba(20,184,166,0.55)" strokeWidth="2"
-              initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.8, ease: 'easeOut' }} />
-            <motion.path d="M 120 128 C 160 128, 160 186, 200 186"
-              fill="none" stroke="rgba(20,184,166,0.25)" strokeWidth="1"
-              initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
-              transition={{ duration: 0.7, delay: 0.85, ease: 'easeOut' }} />
-          </svg>
+        <div ref={svgParentRef} className="relative flex-1 h-full flex items-center justify-center">
+          {(() => {
+            const { left: hL, right: hR, svgWidth: sW } = hubX
+            const lcx = hL / 2
+            const rcx = (hR + sW) / 2
+            return (
+              <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none" style={{ overflow: 'visible' }}>
+                {/* Left → Hub paths */}
+                <motion.path d={`M 0 ${leftY[0]} C ${lcx} ${leftY[0]}, ${lcx} 128, ${hL} 128`}
+                  fill="none" stroke="rgba(20,184,166,0.45)" strokeWidth="1.5" strokeDasharray="4 4"
+                  initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.7, delay: 0.45, ease: 'easeOut' }} />
+                <motion.path d={`M 0 ${leftY[1]} C ${lcx} ${leftY[1]}, ${lcx} 128, ${hL} 128`}
+                  fill="none" stroke="rgba(20,184,166,0.45)" strokeWidth="1.5" strokeDasharray="4 4"
+                  initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }} />
+                <motion.path d={`M 0 ${leftY[2]} C ${lcx} ${leftY[2]}, ${lcx} 128, ${hL} 128`}
+                  fill="none" stroke="rgba(20,184,166,0.45)" strokeWidth="1.5" strokeDasharray="4 4"
+                  initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.7, delay: 0.55, ease: 'easeOut' }} />
+                {/* Hub → Right paths */}
+                <motion.path d={`M ${hR} 128 C ${rcx} 128, ${rcx} ${rightY[0]}, ${sW} ${rightY[0]}`}
+                  fill="none" stroke="rgba(20,184,166,0.35)" strokeWidth="1.5"
+                  initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.7, delay: 0.75, ease: 'easeOut' }} />
+                <motion.path d={`M ${hR} 128 C ${rcx} 128, ${rcx} ${rightY[1]}, ${sW} ${rightY[1]}`}
+                  fill="none" stroke="rgba(20,184,166,0.55)" strokeWidth="2"
+                  initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.7, delay: 0.8, ease: 'easeOut' }} />
+                <motion.path d={`M ${hR} 128 C ${rcx} 128, ${rcx} ${rightY[2]}, ${sW} ${rightY[2]}`}
+                  fill="none" stroke="rgba(20,184,166,0.25)" strokeWidth="1"
+                  initial={{ pathLength: 0, opacity: 0 }} animate={inView ? { pathLength: 1, opacity: 1 } : {}}
+                  transition={{ duration: 0.7, delay: 0.85, ease: 'easeOut' }} />
+              </svg>
+            )
+          })()}
 
           {/* AI Hub */}
           <motion.div
+            ref={hubRef}
             initial={{ opacity: 0, scale: 0.7 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.55, delay: 0.65, ease: EASE }}
@@ -143,6 +173,7 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
           {MATCHES.map(({ rank, id, name, score, teal }, i) => (
             <motion.div
               key={id}
+              ref={(el) => { rightRefs.current[i] = el }}
               initial={{ opacity: 0, x: 14 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.85 + i * 0.1, ease: EASE }}
@@ -203,10 +234,10 @@ export default function VendorMatchSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-14 group">
+        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
@@ -303,65 +334,6 @@ export default function VendorMatchSection() {
                 </ul>
               </div>
             </motion.div>
-
-            {/* Key Features + Built For */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.65, delay: 0.32, ease: EASE }}
-                className="relative rounded-2xl border border-black/8 bg-white p-6 overflow-hidden hover:border-black/15 hover:shadow-md transition-all duration-300"
-              >
-                <div className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%)', transform: 'translate(30%,-30%)' }} />
-                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-4">Key Features</h3>
-                <div className="flex flex-wrap gap-2">
-                  {KEY_FEATURES.map((f, i) => (
-                    <motion.span
-                      key={f}
-                      initial={{ opacity: 0, scale: 0.88 }}
-                      animate={inView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.4, delay: 0.4 + i * 0.06, ease: EASE }}
-                      className="inline-flex items-center gap-1.5 text-xs text-black/60 bg-black/[0.03] border border-black/8
-                                 px-3 py-1.5 rounded-lg hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700
-                                 transition-all duration-200 cursor-default"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-teal-400 shrink-0" />
-                      {f}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.65, delay: 0.38, ease: EASE }}
-                className="relative rounded-2xl border border-black/8 bg-white p-6 overflow-hidden hover:border-black/15 hover:shadow-md transition-all duration-300"
-              >
-                <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.05) 0%, transparent 70%)', transform: 'translate(-30%,30%)' }} />
-                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-4">Built For</h3>
-                <div className="flex flex-col gap-2.5">
-                  {BUILT_FOR.map(({ role, initials }, i) => (
-                    <motion.div
-                      key={role}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.45, delay: 0.44 + i * 0.07, ease: EASE }}
-                      className="flex items-center gap-3 group/role cursor-default"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200/60
-                                      flex items-center justify-center shrink-0 text-[9px] font-bold text-teal-600
-                                      group-hover/role:from-teal-100 group-hover/role:to-teal-200 transition-colors duration-200">
-                        {initials}
-                      </div>
-                      <span className="text-sm text-black/60 group-hover/role:text-black/80 transition-colors duration-200">{role}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">

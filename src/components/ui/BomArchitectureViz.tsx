@@ -27,7 +27,7 @@ export default function BomArchitectureViz() {
         viewBox="0 0 500 80"
         width="100%"
         height="100%"
-        preserveAspectRatio="xMidYMid meet"
+        preserveAspectRatio="xMidYMid slice"
         style={{ background: 'transparent', display: 'block' }}
       >
         <defs>
@@ -124,21 +124,15 @@ export default function BomArchitectureViz() {
         {/* ── Floating stat labels ── */}
         {/* 99.4% — left side */}
         <g>
-          <rect x="14" y="5" width="28" height="14" rx="2.5"
-            fill="rgba(13,158,138,0.12)" stroke="rgba(45,212,191,0.22)" strokeWidth="0.4" />
           <text x="28" y="14.5" fontSize="5.5" fill="#2dd4bf" fontWeight="700" textAnchor="middle">99.4%</text>
         </g>
         {/* 14.5K nodes — upper right */}
         <g>
-          <rect x="440" y="2" width="30" height="14" rx="2.5"
-            fill="rgba(13,158,138,0.12)" stroke="rgba(45,212,191,0.22)" strokeWidth="0.4" />
           <text x="455" y="11.5" fontSize="5" fill="#2dd4bf" fontWeight="700" textAnchor="middle">14.5K</text>
           <text x="455" y="14.5" fontSize="3.5" fill="rgba(255,255,255,0.35)" textAnchor="middle">BOM Nodes</text>
         </g>
         {/* 47 programmes — bottom right */}
         <g>
-          <rect x="430" y="62" width="34" height="14" rx="2.5"
-            fill="rgba(13,158,138,0.12)" stroke="rgba(45,212,191,0.22)" strokeWidth="0.4" />
           <text x="447" y="71" fontSize="5" fill="#f59e0b" fontWeight="700" textAnchor="middle">47 Progs</text>
           <text x="447" y="74" fontSize="3.5" fill="rgba(255,255,255,0.35)" textAnchor="middle">Active</text>
         </g>

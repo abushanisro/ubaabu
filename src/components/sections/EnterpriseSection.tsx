@@ -3,41 +3,204 @@
 import { useEffect, useRef, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { DottedSurface } from '@/components/ui/dotted-surface'
-import {
-  Lock, Globe, Activity,
-  Calculator, Layers, Search, Lightbulb, ShieldCheck, Flag,
-  Database, Package, ShoppingCart, Cpu, TrendingUp, Settings2,
-  type LucideIcon,
-} from 'lucide-react'
 
 const SplineScene = dynamic(
   () => import('@/components/ui/splite').then(m => ({ default: m.SplineScene })),
   { ssr: false, loading: () => null }
 )
 
-type Item = { id: string; label: string; sub: string; desc: string; icon: LucideIcon }
+type Item = { id: string; label: string; sub: string; desc: string; bg: string; fg: string; int: string }
+
+function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: string; int: string; size: number }) {
+  const shapes: Record<string, React.ReactNode> = {
+    /* Should Cost — rising bar chart with trend line */
+    'should-cost': <>
+      <rect x="4"  y="28" width="8" height="8"  rx="1.5" fill={bg}/>
+      <rect x="16" y="20" width="8" height="16" rx="1.5" fill={ix}/>
+      <rect x="28" y="12" width="8" height="24" rx="1.5" fill={bg}/>
+      <rect x="4"  y="8"  width="20" height="7" rx="2"   fill={fg}/>
+      <circle cx="10" cy="11.5" r="2" fill={ix}/>
+    </>,
+    /* BOM Composer — stacked hierarchy layers */
+    'bom-composer': <>
+      <rect x="10" y="6"  width="20" height="7"  rx="2" fill={bg}/>
+      <rect x="4"  y="18" width="14" height="7"  rx="2" fill={ix}/>
+      <rect x="22" y="18" width="14" height="7"  rx="2" fill={ix}/>
+      <rect x="4"  y="30" width="8"  height="5"  rx="1.5" fill={fg}/>
+      <rect x="16" y="30" width="8"  height="5"  rx="1.5" fill={fg}/>
+      <rect x="28" y="30" width="8"  height="5"  rx="1.5" fill={fg}/>
+      <rect x="19" y="13" width="2"  height="5"  fill={fg} opacity="0.6"/>
+      <rect x="8"  y="25" width="2"  height="5"  fill={fg} opacity="0.6"/>
+      <rect x="30" y="25" width="2"  height="5"  fill={fg} opacity="0.6"/>
+    </>,
+    /* Supplier Radar — radar circles with beam */
+    'supplier-radar': <>
+      <circle cx="20" cy="22" r="14" fill="none" stroke={bg}  strokeWidth="2.5"/>
+      <circle cx="20" cy="22" r="9"  fill="none" stroke={ix}  strokeWidth="2"/>
+      <circle cx="20" cy="22" r="4"  fill={ix}/>
+      <path d="M20 22 L32 8" stroke={bg} strokeWidth="2.5" strokeLinecap="round"/>
+      <circle cx="32" cy="8" r="3" fill={bg}/>
+    </>,
+    /* VAVE Studio — lightbulb with spark */
+    'vave-studio': <>
+      <path d="M20 5 C12 5 7 11 7 18 C7 23 10 27 14 29 L14 34 L26 34 L26 29 C30 27 33 23 33 18 C33 11 28 5 20 5Z" fill={bg}/>
+      <rect x="14" y="34" width="12" height="3" rx="1.5" fill={fg}/>
+      <rect x="16" y="37" width="8"  height="2" rx="1"   fill={fg}/>
+      <path d="M17 18 L21 12 L21 19 L25 13" stroke={ix} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    </>,
+    /* Quality Guard — shield with check */
+    'quality-guard': <>
+      <path d="M20 4 L33 9 L33 21 C33 29 27 35 20 37 C13 35 7 29 7 21 L7 9 Z" fill={bg}/>
+      <path d="M20 4 L33 9 L33 21 C33 29 27 35 20 37 C13 35 7 29 7 21 L7 9 Z" fill={fg} opacity="0.25"/>
+      <path d="M13 20 L18 25 L27 14" stroke={ix} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+    </>,
+    /* Launch Tracker — rocket with milestone dots */
+    'launch-tracker': <>
+      <path d="M20 4 C20 4 28 10 28 22 L20 28 L12 22 C12 10 20 4 20 4Z" fill={bg}/>
+      <ellipse cx="20" cy="22" rx="4" ry="4" fill={ix}/>
+      <path d="M14 26 L10 34 L20 30 L30 34 L26 26" fill={fg}/>
+      <circle cx="10" cy="14" r="2.5" fill={ix} opacity="0.8"/>
+      <circle cx="30" cy="14" r="2.5" fill={ix} opacity="0.8"/>
+    </>,
+    /* ERP Systems — database cylinder */
+    'erp': <>
+      <ellipse cx="20" cy="10" rx="14" ry="5" fill={bg}/>
+      <rect    x="6"  y="10"  width="28" height="20" fill={fg}/>
+      <ellipse cx="20" cy="30" rx="14" ry="5" fill={fg}/>
+      <ellipse cx="20" cy="10" rx="14" ry="5" fill={ix} opacity="0.7"/>
+      <ellipse cx="20" cy="20" rx="14" ry="5" fill="none" stroke={ix} strokeWidth="1.5" opacity="0.5"/>
+    </>,
+    /* PLM Software — 3‑D layered boxes */
+    'plm': <>
+      <rect x="4"  y="4"  width="18" height="18" rx="2.5" fill={fg}/>
+      <rect x="18" y="18" width="18" height="18" rx="2.5" fill={bg}/>
+      <rect x="11" y="11" width="18" height="18" rx="2.5" fill={ix} opacity="0.85"/>
+    </>,
+    /* Procurement — two circular arrows (exchange) */
+    'proc': <>
+      <path d="M10 14 A10 10 0 1 1 30 14" stroke={bg} strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <path d="M30 26 A10 10 0 1 1 10 26" stroke={ix} strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <polygon points="10,8 5,14 15,14" fill={bg}/>
+      <polygon points="30,32 25,26 35,26" fill={ix}/>
+    </>,
+    /* AI & Data Lakes — neural net nodes */
+    'ai-lakes': <>
+      <circle cx="20" cy="8"  r="4" fill={bg}/>
+      <circle cx="8"  cy="24" r="4" fill={bg}/>
+      <circle cx="32" cy="24" r="4" fill={bg}/>
+      <circle cx="14" cy="36" r="3" fill={ix}/>
+      <circle cx="26" cy="36" r="3" fill={ix}/>
+      <line x1="20" y1="8"  x2="8"  y2="24" stroke={fg} strokeWidth="2" opacity="0.8"/>
+      <line x1="20" y1="8"  x2="32" y2="24" stroke={fg} strokeWidth="2" opacity="0.8"/>
+      <line x1="8"  y1="24" x2="14" y2="36" stroke={ix} strokeWidth="1.8" opacity="0.7"/>
+      <line x1="32" y1="24" x2="26" y2="36" stroke={ix} strokeWidth="1.8" opacity="0.7"/>
+      <line x1="8"  y1="24" x2="32" y2="24" stroke={fg} strokeWidth="1.5" opacity="0.5"/>
+    </>,
+    /* MES / SCADA — gear */
+    'mes': <>
+      <circle cx="20" cy="20" r="8" fill={bg}/>
+      <circle cx="20" cy="20" r="4" fill={fg}/>
+      {[0,45,90,135,180,225,270,315].map(a => {
+        const rad = a * Math.PI / 180
+        const x = 20 + Math.cos(rad) * 14
+        const y = 20 + Math.sin(rad) * 14
+        return <rect key={a} x={x-2.5} y={y-2.5} width="5" height="5" rx="1"
+          fill={ix} transform={`rotate(${a},${x},${y})`}/>
+      })}
+    </>,
+    /* Finance & Cost — trend line with area fill */
+    'finance': <>
+      <path d="M4 32 L12 24 L20 28 L28 14 L36 10 L36 36 L4 36Z" fill={bg} opacity="0.4"/>
+      <path d="M4 32 L12 24 L20 28 L28 14 L36 10" stroke={bg} strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="36" cy="10" r="3.5" fill={ix}/>
+      <circle cx="28" cy="14" r="2.5" fill={fg}/>
+      <circle cx="12" cy="24" r="2.5" fill={fg}/>
+    </>,
+  }
+
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden
+      style={{ overflow: 'visible' }}>
+      {shapes[id] ?? <rect x="4" y="4" width="32" height="32" rx="4" fill={bg}/>}
+    </svg>
+  )
+}
 
 const LEFT: Item[] = [
-  { id: 'should-cost',    icon: Calculator,  label: 'Should Cost',    sub: '+8% accuracy, −80% RFQ time',   desc: 'Fast & robust cost guidance for procurement and quoting with plus 8% accuracy, cutting RFQ cycle time by 80%.' },
-  { id: 'bom-composer',   icon: Layers,      label: 'BOM Composer',   sub: '99.4% accuracy, 80% faster',    desc: 'Automated BOM assembly with 99.4% accuracy across complex defence programme structures, 80% faster than manual.' },
-  { id: 'supplier-radar', icon: Search,      label: 'Supplier Radar', sub: '+300% discovery, −75% risk',    desc: 'AI-powered supplier discovery across 50K+ verified Indian vendors with 75% reduction in supply chain risk incidents.' },
-  { id: 'vave-studio',    icon: Lightbulb,   label: 'VAVE Studio',    sub: '3-5× ideas, savings per year',  desc: 'Value analysis and engineering platform generating 3-5x more cost reduction ideas per programme cycle.' },
-  { id: 'quality-guard',  icon: ShieldCheck, label: 'Quality Guard',  sub: 'AI inspection, real-time alerts', desc: 'Real-time AI-powered inspection and quality monitoring with instant alert workflows for defence-grade standards.' },
-  { id: 'launch-tracker', icon: Flag,        label: 'Launch Tracker', sub: 'Milestones, NPI tracking',      desc: 'End-to-end NPI milestone tracking across complex multi-year defence and aerospace programmes.' },
+  { id: 'should-cost',    bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9488', label: 'Should Cost',    sub: '+8% accuracy, −80% RFQ time',     desc: 'Fast & robust cost guidance for procurement and quoting with plus 8% accuracy, cutting RFQ cycle time by 80%.' },
+  { id: 'bom-composer',   bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9488', label: 'BOM Composer',   sub: '99.4% accuracy, 80% faster',      desc: 'Automated BOM assembly with 99.4% accuracy across complex defence programme structures, 80% faster than manual.' },
+  { id: 'supplier-radar', bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9e8a', label: 'Supplier Radar', sub: '+300% discovery, −75% risk',      desc: 'AI-powered supplier discovery across 50K+ verified Indian vendors with 75% reduction in supply chain risk incidents.' },
+  { id: 'vave-studio',    bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9488', label: 'VAVE Studio',    sub: '3-5× ideas, savings per year',    desc: 'Value analysis and engineering platform generating 3-5x more cost reduction ideas per programme cycle.' },
+  { id: 'quality-guard',  bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9e8a', label: 'Quality Guard',  sub: 'AI inspection, real-time alerts', desc: 'Real-time AI-powered inspection and quality monitoring with instant alert workflows for defence-grade standards.' },
+  { id: 'launch-tracker', bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9488', label: 'Launch Tracker', sub: 'Milestones, NPI tracking',        desc: 'End-to-end NPI milestone tracking across complex multi-year defence and aerospace programmes.' },
 ]
 const RIGHT: Item[] = [
-  { id: 'erp',      icon: Database,    label: 'ERP Systems',    sub: 'SAP · Oracle · MS Dynamics',   desc: 'Bi-directional ERP sync that surfaces cost gaps between should-cost models and actuals in real time.' },
-  { id: 'plm',      icon: Package,     label: 'PLM Software',   sub: 'Siemens · PTC · Dassault',     desc: 'Native PLM connectors for Teamcenter, Windchill, and ENOVIA to embed cost intelligence into design workflows.' },
-  { id: 'proc',     icon: ShoppingCart,label: 'Procurement',    sub: 'Ariba · Coupa · Jaggaer',      desc: 'Direct procurement platform integration for automated RFQ dispatch and purchase order creation at scale.' },
-  { id: 'ai-lakes', icon: Cpu,         label: 'AI & Data Lakes',sub: 'BI · Warehouses · REST APIs',   desc: 'REST APIs and data lake connectors feed Emithran intelligence into BI tools and custom AI pipelines.' },
-  { id: 'mes',      icon: Settings2,   label: 'MES / SCADA',    sub: 'Siemens · Rockwell · GE',      desc: 'Shop-floor integration with MES and SCADA systems for real-time production data and quality traceability.' },
-  { id: 'finance',  icon: TrendingUp,  label: 'Finance & Cost', sub: 'Tally · SAP FICO · Oracle',    desc: 'Finance system connectors for cost actuals comparison, variance reporting, and programme P&L analysis.' },
+  { id: 'erp',      bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9488', label: 'ERP Systems',    sub: 'SAP · Oracle · MS Dynamics',  desc: 'Bi-directional ERP sync that surfaces cost gaps between should-cost models and actuals in real time.' },
+  { id: 'plm',      bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9e8a', label: 'PLM Software',   sub: 'Siemens · PTC · Dassault',    desc: 'Native PLM connectors for Teamcenter, Windchill, and ENOVIA to embed cost intelligence into design workflows.' },
+  { id: 'proc',     bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9488', label: 'Procurement',    sub: 'Ariba · Coupa · Jaggaer',     desc: 'Direct procurement platform integration for automated RFQ dispatch and purchase order creation at scale.' },
+  { id: 'ai-lakes', bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9e8a', label: 'AI & Data Lakes', sub: 'BI · Warehouses · REST APIs', desc: 'REST APIs and data lake connectors feed Emithran intelligence into BI tools and custom AI pipelines.' },
+  { id: 'mes',      bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9488', label: 'MES / SCADA',    sub: 'Siemens · Rockwell · GE',     desc: 'Shop-floor integration with MES and SCADA systems for real-time production data and quality traceability.' },
+  { id: 'finance',  bg: '#2dd4bf', fg: '#0f1b2d', int: '#0d9e8a', label: 'Finance & Cost', sub: 'Tally · SAP FICO · Oracle',   desc: 'Finance system connectors for cost actuals comparison, variance reporting, and programme P&L analysis.' },
 ]
 const ALL = [...LEFT, ...RIGHT]
+function SecurityIcon({ size }: { size: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden>
+      {/* Shield body */}
+      <path d="M20 3 L34 8.5 L34 22 C34 30.5 27.5 36.5 20 38.5 C12.5 36.5 6 30.5 6 22 L6 8.5 Z" fill="#2dd4bf" opacity="0.25"/>
+      <path d="M20 3 L34 8.5 L34 22 C34 30.5 27.5 36.5 20 38.5 C12.5 36.5 6 30.5 6 22 L6 8.5 Z" fill="none" stroke="#2dd4bf" strokeWidth="2"/>
+      {/* Lock body */}
+      <rect x="13" y="19" width="14" height="12" rx="2.5" fill="#0d9488"/>
+      {/* Lock shackle */}
+      <path d="M15 19 L15 15 A5 5 0 0 1 25 15 L25 19" fill="none" stroke="#2dd4bf" strokeWidth="2.2" strokeLinecap="round"/>
+      {/* Keyhole */}
+      <circle cx="20" cy="24" r="2.2" fill="#2dd4bf"/>
+      <rect x="19" y="24" width="2" height="4" rx="1" fill="#2dd4bf"/>
+    </svg>
+  )
+}
+
+function ScaleIcon({ size }: { size: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden>
+      {/* Globe outline */}
+      <circle cx="20" cy="20" r="15" fill="none" stroke="#2dd4bf" strokeWidth="2"/>
+      {/* Latitude lines */}
+      <ellipse cx="20" cy="20" rx="15" ry="7" fill="none" stroke="#0d9488" strokeWidth="1.5"/>
+      {/* Vertical axis */}
+      <line x1="20" y1="5" x2="20" y2="35" stroke="#0d9488" strokeWidth="1.5"/>
+      {/* Horizontal equator */}
+      <line x1="5" y1="20" x2="35" y2="20" stroke="#2dd4bf" strokeWidth="1.5"/>
+      {/* Tier dots (Tier 1-4) */}
+      <circle cx="20" cy="20" r="2.5" fill="#2dd4bf"/>
+      <circle cx="12" cy="16" r="1.8" fill="#2dd4bf" opacity="0.7"/>
+      <circle cx="28" cy="16" r="1.8" fill="#2dd4bf" opacity="0.7"/>
+      <circle cx="8"  cy="23" r="1.4" fill="#0d9488" opacity="0.6"/>
+      <circle cx="32" cy="23" r="1.4" fill="#0d9488" opacity="0.6"/>
+    </svg>
+  )
+}
+
+function StabilityIcon({ size }: { size: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden>
+      {/* Flatline base */}
+      <path d="M3 28 L10 28 L14 18 L18 32 L22 22 L26 26 L30 14 L34 28 L37 28"
+        stroke="#2dd4bf" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* Uptime bar at bottom */}
+      <rect x="4" y="33" width="32" height="3.5" rx="1.75" fill="#0d9488" opacity="0.35"/>
+      <rect x="4" y="33" width="30" height="3.5" rx="1.75" fill="#2dd4bf" opacity="0.7"/>
+      {/* Pulse dot */}
+      <circle cx="30" cy="14" r="3.5" fill="#2dd4bf"/>
+      <circle cx="30" cy="14" r="6" fill="none" stroke="#2dd4bf" strokeWidth="1" opacity="0.4"/>
+    </svg>
+  )
+}
+
 const PILLARS = [
-  { icon: Lock,     title: 'Enterprise-grade security', badge: 'ISO 27001', body: 'ISO 27001 certified. SOC 2 Type II compliant with role-based access controls meeting defence data-sovereignty requirements.' },
-  { icon: Globe,    title: 'Scalable platform',         badge: undefined,   body: 'Single unified platform spanning programmes, geographies, and Tier-1 to Tier-4 supplier networks at full scale.' },
-  { icon: Activity, title: 'Operational stability',     badge: undefined,   body: 'Proven reliability for mission-critical manufacturing and sourcing workflows across long-cycle defence programmes.' },
+  { Icon: SecurityIcon,  title: 'Enterprise-grade security', badge: 'ISO 27001', body: 'ISO 27001 certified. SOC 2 Type II compliant with role-based access controls meeting defence data-sovereignty requirements.' },
+  { Icon: ScaleIcon,     title: 'Scalable platform',         badge: undefined,   body: 'Single unified platform spanning programmes, geographies, and Tier-1 to Tier-4 supplier networks at full scale.' },
+  { Icon: StabilityIcon, title: 'Operational stability',     badge: undefined,   body: 'Proven reliability for mission-critical manufacturing and sourcing workflows across long-cycle defence programmes.' },
 ]
 const SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode'
 
@@ -321,7 +484,7 @@ export default function EnterpriseSection() {
         </div>
 
         <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-2 sm:mb-4">
-          {PILLARS.map(({ icon: Icon, title, body, badge }) => (
+          {PILLARS.map(({ Icon, title, body, badge }) => (
             <div
               key={title}
               className="rounded-xl border flex flex-col relative overflow-hidden"
@@ -342,10 +505,10 @@ export default function EnterpriseSection() {
               <div className="relative z-10 p-2 sm:p-3 flex flex-col items-center sm:items-start gap-1 sm:gap-1.5 h-full">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-2.5">
                   <div
-                    className="w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg flex items-center justify-center shrink-0"
-                    style={{ background: 'rgba(13,158,138,0.15)', border: '1px solid rgba(45,212,191,0.18)' }}
+                    className="w-6 h-6 sm:w-9 sm:h-9 rounded-md sm:rounded-lg flex items-center justify-center shrink-0"
+                    style={{ background: 'rgba(255,255,255,0.07)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,0.14)', boxShadow: '0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1)' }}
                   >
-                    <Icon className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" style={{ color: '#2dd4bf' }} />
+                    <Icon size={isMob ? 14 : 22} />
                   </div>
                   <div className="min-w-0 text-center sm:text-left">
                     <h3 className="text-[8.5px] sm:text-[12px] font-semibold text-white leading-tight">{title}</h3>
@@ -390,7 +553,6 @@ export default function EnterpriseSection() {
         {/* Left items */}
         {LEFT.map(item => {
           const active = activeId === item.id
-          const Icon = item.icon
           return (
             <div
               key={item.id}
@@ -402,25 +564,19 @@ export default function EnterpriseSection() {
               onClick={e => { e.stopPropagation(); toggle(item.id) }}
             >
               {isMob ? (
-                /* Mobile: bare icon + 1-line label, no card bg */
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
-                  <div
-                    style={{
-                      width: 24, height: 24,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      borderRadius: 7,
-                      background: active
-                        ? 'linear-gradient(135deg,rgba(13,158,138,0.35) 0%,rgba(6,12,16,0.92) 100%)'
-                        : 'linear-gradient(135deg,rgba(13,158,138,0.18) 0%,rgba(6,12,16,0.88) 100%)',
-                      border: `1px solid ${active ? 'rgba(45,212,191,0.50)' : 'rgba(45,212,191,0.25)'}`,
-                      boxShadow: active ? '0 0 8px rgba(45,212,191,0.30)' : 'none',
-                    }}
-                  >
-                    <Icon style={{
-                      width: 12, height: 12,
-                      color: active ? '#2dd4bf' : 'rgba(45,212,191,0.80)',
-                      filter: active ? 'drop-shadow(0 0 3px rgba(45,212,191,0.7))' : 'none',
-                    }} />
+                  <div style={{
+                    width: 28, height: 28,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    borderRadius: 8,
+                    background: 'rgba(255,255,255,0.07)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    border: `1px solid ${active ? 'rgba(45,212,191,0.5)' : 'rgba(255,255,255,0.12)'}`,
+                    boxShadow: active ? '0 0 8px rgba(45,212,191,0.30), inset 0 1px 0 rgba(255,255,255,0.1)' : '0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
+                    transition: 'all 0.2s',
+                  }}>
+                    <ItemIcon id={item.id} bg={item.bg} fg={item.fg} int={item.int} size={18} />
                   </div>
                   <span style={{
                     fontSize: 7.5, fontWeight: 600, whiteSpace: 'nowrap',
@@ -431,7 +587,6 @@ export default function EnterpriseSection() {
                   </span>
                 </div>
               ) : (
-                /* Desktop: brand-gradient pill */
                 <div
                   className="flex items-center rounded-xl border transition-all duration-200"
                   style={{
@@ -450,18 +605,14 @@ export default function EnterpriseSection() {
                     className="flex items-center justify-center rounded-lg shrink-0 transition-all duration-200"
                     style={{
                       width: 34, height: 34,
-                      background: active
-                        ? 'linear-gradient(135deg,rgba(13,158,138,0.30) 0%,rgba(6,12,16,0.92) 100%)'
-                        : 'linear-gradient(135deg,rgba(13,158,138,0.13) 0%,rgba(6,12,16,0.85) 100%)',
-                      border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(45,212,191,0.20)'}`,
-                      boxShadow: active ? '0 0 10px rgba(45,212,191,0.24)' : 'none',
+                      background: 'rgba(255,255,255,0.07)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
+                      border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(255,255,255,0.12)'}`,
+                      boxShadow: active ? '0 0 10px rgba(45,212,191,0.24), inset 0 1px 0 rgba(255,255,255,0.1)' : '0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
                     }}
                   >
-                    <Icon style={{
-                      width: 16, height: 16,
-                      color: active ? '#2dd4bf' : 'rgba(45,212,191,0.72)',
-                      filter: active ? 'drop-shadow(0 0 4px rgba(45,212,191,0.65))' : 'none',
-                    }} />
+                    <ItemIcon id={item.id} bg={item.bg} fg={item.fg} int={item.int} size={22} />
                   </div>
                   <span className="font-semibold text-white/90 whitespace-nowrap leading-tight" style={{ fontSize: 12 }}>
                     {item.label}
@@ -475,7 +626,6 @@ export default function EnterpriseSection() {
         {/* Right items */}
         {RIGHT.map(item => {
           const active = activeId === item.id
-          const Icon = item.icon
           return (
             <div
               key={item.id}
@@ -487,25 +637,19 @@ export default function EnterpriseSection() {
               onClick={e => { e.stopPropagation(); toggle(item.id) }}
             >
               {isMob ? (
-                /* Mobile: bare icon + 1-line label, no card bg */
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
-                  <div
-                    style={{
-                      width: 24, height: 24,
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      borderRadius: 7,
-                      background: active
-                        ? 'linear-gradient(135deg,rgba(13,158,138,0.35) 0%,rgba(6,12,16,0.92) 100%)'
-                        : 'linear-gradient(135deg,rgba(13,158,138,0.18) 0%,rgba(6,12,16,0.88) 100%)',
-                      border: `1px solid ${active ? 'rgba(45,212,191,0.50)' : 'rgba(45,212,191,0.25)'}`,
-                      boxShadow: active ? '0 0 8px rgba(45,212,191,0.30)' : 'none',
-                    }}
-                  >
-                    <Icon style={{
-                      width: 12, height: 12,
-                      color: active ? '#2dd4bf' : 'rgba(45,212,191,0.80)',
-                      filter: active ? 'drop-shadow(0 0 3px rgba(45,212,191,0.7))' : 'none',
-                    }} />
+                  <div style={{
+                    width: 28, height: 28,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    borderRadius: 8,
+                    background: 'rgba(255,255,255,0.07)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    border: `1px solid ${active ? 'rgba(45,212,191,0.5)' : 'rgba(255,255,255,0.12)'}`,
+                    boxShadow: active ? '0 0 8px rgba(45,212,191,0.30), inset 0 1px 0 rgba(255,255,255,0.1)' : '0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
+                    transition: 'all 0.2s',
+                  }}>
+                    <ItemIcon id={item.id} bg={item.bg} fg={item.fg} int={item.int} size={18} />
                   </div>
                   <span style={{
                     fontSize: 7.5, fontWeight: 600, whiteSpace: 'nowrap',
@@ -516,7 +660,6 @@ export default function EnterpriseSection() {
                   </span>
                 </div>
               ) : (
-                /* Desktop: brand-gradient pill, reversed */
                 <div
                   className="flex flex-row-reverse items-center rounded-xl border transition-all duration-200"
                   style={{
@@ -535,18 +678,14 @@ export default function EnterpriseSection() {
                     className="flex items-center justify-center rounded-lg shrink-0 transition-all duration-200"
                     style={{
                       width: 34, height: 34,
-                      background: active
-                        ? 'linear-gradient(135deg,rgba(13,158,138,0.30) 0%,rgba(6,12,16,0.92) 100%)'
-                        : 'linear-gradient(135deg,rgba(13,158,138,0.13) 0%,rgba(6,12,16,0.85) 100%)',
-                      border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(45,212,191,0.20)'}`,
-                      boxShadow: active ? '0 0 10px rgba(45,212,191,0.24)' : 'none',
+                      background: 'rgba(255,255,255,0.07)',
+                      backdropFilter: 'blur(12px)',
+                      WebkitBackdropFilter: 'blur(12px)',
+                      border: `1px solid ${active ? 'rgba(45,212,191,0.44)' : 'rgba(255,255,255,0.12)'}`,
+                      boxShadow: active ? '0 0 10px rgba(45,212,191,0.24), inset 0 1px 0 rgba(255,255,255,0.1)' : '0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.08)',
                     }}
                   >
-                    <Icon style={{
-                      width: 16, height: 16,
-                      color: active ? '#2dd4bf' : 'rgba(45,212,191,0.72)',
-                      filter: active ? 'drop-shadow(0 0 4px rgba(45,212,191,0.65))' : 'none',
-                    }} />
+                    <ItemIcon id={item.id} bg={item.bg} fg={item.fg} int={item.int} size={22} />
                   </div>
                   <span className="font-semibold text-white/90 whitespace-nowrap leading-tight" style={{ fontSize: 12 }}>
                     {item.label}
@@ -681,7 +820,6 @@ export default function EnterpriseSection() {
               }}
             >
               <div className="flex items-center justify-center gap-1.5 mb-2">
-                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#2dd4bf', boxShadow: '0 0 6px rgba(45,212,191,0.8)' }} />
                 <p style={{ fontSize: 9, fontWeight: 700, color: '#2dd4bf', letterSpacing: '0.1em', textTransform: 'uppercase' }}>
                   Hover a card to explore
                 </p>

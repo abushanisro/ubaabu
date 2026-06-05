@@ -143,7 +143,7 @@ export function HeroVideoDialog({
               className="relative w-full max-w-4xl aspect-video mx-4 md:mx-0"
             >
               <motion.button
-                className="absolute -top-16 right-0 text-white text-xl bg-neutral-900/50 ring-1 backdrop-blur-md rounded-full p-2 dark:bg-neutral-100/50 dark:text-black"
+                className="absolute top-3 right-3 z-10 text-white bg-black/50 hover:bg-black/70 ring-1 ring-white/20 backdrop-blur-md rounded-full p-1.5 transition-colors"
                 onClick={close}
               >
                 <XIcon className="size-5" />

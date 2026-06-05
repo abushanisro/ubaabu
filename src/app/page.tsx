@@ -1,5 +1,4 @@
 import Hero from '@/components/sections/Hero'
-import LogoMarquee from '@/components/sections/LogoMarquee'
 import PlatformShowcase from '@/components/sections/PlatformShowcase'
 import ProductIntelligence from '@/components/sections/ProductIntelligence'
 import StatsSection from '@/components/sections/StatsSection'
@@ -12,7 +11,6 @@ export default function App() {
   return (
     <>
       <Hero />
-      <LogoMarquee />
       <PlatformShowcase />
       <StatsSection />
       <ProductIntelligence />

@@ -42,8 +42,22 @@ export function ManufacturingCard({ title, description, children, className = ""
       </span>
       <div className="mb-2 relative flex items-center justify-between">
         <h3 className="text-lg font-semibold text-foreground tracking-tight">{title}</h3>
-        <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-md border border-current text-foreground group-hover:bg-black group-hover:border-black group-hover:text-white transition-all duration-200">
-          <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 12 12">
+        {/* Enterprise-style icon container */}
+        <span
+          className="relative flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-xl transition-all duration-200"
+          style={{
+            background: 'rgba(255,255,255,0.07)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+            border: '1px solid rgba(45,212,191,0.22)',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
+          }}
+        >
+          <div
+            className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+            style={{ boxShadow: '0 0 0 6px rgba(20,184,166,0.08)' }}
+          />
+          <svg width="12" height="12" fill="none" strokeWidth="2" viewBox="0 0 12 12" style={{ color: '#0d9488' }} stroke="currentColor">
             <path d="M7 1h4v4M11 1L6.5 5.5M5 11H1V7M1 11l4.5-4.5" />
           </svg>
         </span>

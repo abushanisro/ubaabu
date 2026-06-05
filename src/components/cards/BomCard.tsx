@@ -363,15 +363,6 @@ function StatsBar({ exploded }: { exploded: boolean }) {
       backdropFilter: exploded ? "blur(4px)" : "none",
       transition: "background 0.4s ease",
     }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 4, color: exploded ? teal : "oklch(0.5 0.03 200)" }}>
-        <CubeIcon />
-        <span style={{ fontSize: 10, fontFamily: "monospace" }}>204 parts</span>
-      </div>
-      {exploded && <div style={{ width: 1, height: 14, background: "oklch(0.68 0.13 180 / 0.4)" }} />}
-      <div style={{ display: "flex", alignItems: "center", gap: 4, color: exploded ? teal : "oklch(0.5 0.03 200)" }}>
-        <HierarchyIcon />
-        <span style={{ fontSize: 10, fontFamily: "monospace" }}>12 assemblies</span>
-      </div>
     </div>
   );
 }

@@ -14,20 +14,6 @@ const CAPABILITIES = [
   { icon: Wrench,    text: 'Manages corrective action workflows'                  },
 ]
 
-const KEY_FEATURES = [
-  'Quality data integration',
-  'Defect trend analysis',
-  'ML-assisted root cause analysis',
-  'Supplier quality scorecards',
-  'Corrective action workflow',
-]
-
-const BUILT_FOR = [
-  { role: 'Quality teams',              initials: 'QT' },
-  { role: 'Procurement teams',          initials: 'PT' },
-  { role: 'Supplier quality engineers', initials: 'SQ' },
-]
-
 const STATS = [
   { label: 'Quality visibility', value: 'Real',    suffix: '-time' },
   { label: 'Quality variance',   value: '−18',     suffix: '%'     },
@@ -211,10 +197,10 @@ export default function QualityGuardSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-14 group">
+        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
@@ -311,65 +297,6 @@ export default function QualityGuardSection() {
                 </ul>
               </div>
             </motion.div>
-
-            {/* Key Features + Built For */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.65, delay: 0.32, ease: EASE }}
-                className="relative rounded-2xl border border-black/8 bg-white p-6 overflow-hidden hover:border-black/15 hover:shadow-md transition-all duration-300"
-              >
-                <div className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%)', transform: 'translate(30%,-30%)' }} />
-                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-4">Key Features</h3>
-                <div className="flex flex-wrap gap-2">
-                  {KEY_FEATURES.map((f, i) => (
-                    <motion.span
-                      key={f}
-                      initial={{ opacity: 0, scale: 0.88 }}
-                      animate={inView ? { opacity: 1, scale: 1 } : {}}
-                      transition={{ duration: 0.4, delay: 0.4 + i * 0.06, ease: EASE }}
-                      className="inline-flex items-center gap-1.5 text-xs text-black/60 bg-black/[0.03] border border-black/8
-                                 px-3 py-1.5 rounded-lg hover:bg-teal-50 hover:border-teal-200 hover:text-teal-700
-                                 transition-all duration-200 cursor-default"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-teal-400 shrink-0" />
-                      {f}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.65, delay: 0.38, ease: EASE }}
-                className="relative rounded-2xl border border-black/8 bg-white p-6 overflow-hidden hover:border-black/15 hover:shadow-md transition-all duration-300"
-              >
-                <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full pointer-events-none"
-                  style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.05) 0%, transparent 70%)', transform: 'translate(-30%,30%)' }} />
-                <h3 className="text-xs font-mono text-black/40 uppercase tracking-widest mb-4">Built For</h3>
-                <div className="flex flex-col gap-2.5">
-                  {BUILT_FOR.map(({ role, initials }, i) => (
-                    <motion.div
-                      key={role}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.45, delay: 0.44 + i * 0.07, ease: EASE }}
-                      className="flex items-center gap-3 group/role cursor-default"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-teal-50 to-teal-100 border border-teal-200/60
-                                      flex items-center justify-center shrink-0 text-[9px] font-bold text-teal-600
-                                      group-hover/role:from-teal-100 group-hover/role:to-teal-200 transition-colors duration-200">
-                        {initials}
-                      </div>
-                      <span className="text-sm text-black/60 group-hover/role:text-black/80 transition-colors duration-200">{role}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">

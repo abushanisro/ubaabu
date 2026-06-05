@@ -9,7 +9,6 @@ import QualityGuardSection from '@/components/products/QualityGuardSection'
 import BenchmarkAnalysisSection from '@/components/products/BenchmarkAnalysisSection'
 import ShipmentHubSection from '@/components/products/ShipmentHubSection'
 import CostBenchmarkerSection from '@/components/products/CostBenchmarkerSection'
-import ProductsCTA from '@/components/products/ProductsCTA'
 
 export const metadata = {
   title: 'Products | Emithran Manufacturing Intelligence',
@@ -31,7 +30,6 @@ export default function ProductsPage() {
       <BenchmarkAnalysisSection />
       <ShipmentHubSection />
       <CostBenchmarkerSection />
-      <ProductsCTA />
     </>
   )
 }

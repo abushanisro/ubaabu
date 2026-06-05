@@ -81,8 +81,8 @@ export function NominationCard() {
           <svg width="180" height="180" viewBox="-90 -90 180 180">
             <defs>
               <radialGradient id="nom-radGlow">
-                <stop offset="0%" stopColor="rgba(30,30,30,0.6)" />
-                <stop offset="100%" stopColor="rgba(0,0,0,0.05)" />
+                <stop offset="0%" stopColor="rgba(13,158,138,0.5)" />
+                <stop offset="100%" stopColor="rgba(13,158,138,0.05)" />
               </radialGradient>
             </defs>
             {[0.3, 0.6, 0.9].map((s) => (
@@ -92,7 +92,7 @@ export function NominationCard() {
               const a = (Math.PI * 2 * i) / axes.length - Math.PI / 2;
               return <line key={i} x1="0" y1="0" x2={Math.cos(a) * 75} y2={Math.sin(a) * 75} stroke="oklch(0.7 0.05 200 / 0.3)" strokeWidth="0.5" />;
             })}
-            <polygon points={poly(data[active], 75)} fill="url(#nom-radGlow)" stroke="#1a1a1a" strokeWidth="2" style={{ filter: "drop-shadow(0 0 8px rgba(0,0,0,0.45))", transition: "all 0.6s" }} />
+            <polygon points={poly(data[active], 75)} fill="url(#nom-radGlow)" stroke="#0d9e8a" strokeWidth="2" style={{ filter: "drop-shadow(0 0 8px rgba(13,158,138,0.45))", transition: "all 0.6s" }} />
             {data[active].map((v, i) => {
               const a = (Math.PI * 2 * i) / axes.length - Math.PI / 2;
               const cx = Math.cos(a) * 75 * v;
@@ -101,12 +101,12 @@ export function NominationCard() {
               const labelY = Math.sin(a) * (75 * v + 14);
               return (
                 <g key={i}>
-                  <circle cx={cx} cy={cy} r="3" fill="white" stroke="#1a1a1a" strokeWidth="1.5" />
+                  <circle cx={cx} cy={cy} r="3" fill="white" stroke="#0d9e8a" strokeWidth="1.5" />
                   <text
                     ref={el => { labelRefs.current[i] = el; }}
                     x={labelX} y={labelY}
                     textAnchor="middle" dominantBaseline="middle"
-                    fontSize="8" fontWeight="bold" fill="#0d9e8a"
+                    fontSize="8" fontWeight="bold" fill="#000000"
                     style={{ transition: "x 0.6s, y 0.6s" }}
                   >
                     {Math.round(v * 100)}

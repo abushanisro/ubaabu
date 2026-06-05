@@ -1,18 +1,9 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { Typewriter } from '@/components/ui/typewriter'
-import { Perspective } from '@/components/ui/perspective-highlight'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
+import { Typewriter } from '@/components/ui/typewriter'
 
-const FEATURES = [
-  'BOM to Supplier',
-  'Should-Cost Analysis',
-  'Supplier Intelligence',
-  'Production Planning',
-  'Quality & PPAP',
-  'Delivery Tracking',
-  'Cost Benchmarking',
-]
+const CAPABILITIES = ['BOM Intelligence', 'Should-Cost', 'Supplier Radar', 'Quality & PPAP']
 
 function Digit({ cur, prev }: { cur: string; prev: string }) {
   const changed = cur !== prev
@@ -52,11 +43,12 @@ function LiveSavings() {
   )
 }
 
+
 export default function Hero() {
   const [videoOpen, setVideoOpen] = useState(false)
 
   return (
-    <section className="relative bg-white">
+    <section className="relative bg-white" style={{ minHeight: '100svh' }}>
       {/* hero background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         <img src="/assets/cards/projectcardmobile.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center translate-y-20 lg:hidden" />
@@ -85,7 +77,7 @@ export default function Hero() {
           <p className="mt-3 text-[17px] font-semibold md:text-[19px]" style={{ minHeight: '1.6em' }}>
             <span className="text-black/45">AI for </span>
             <Typewriter
-              text={FEATURES}
+              text={CAPABILITIES}
               speed={55}
               deleteSpeed={35}
               waitTime={1800}
@@ -119,14 +111,6 @@ export default function Hero() {
         {/* ── RIGHT: product mockup + floating panels ── */}
         <div className="relative w-full pb-4 pt-4 lg:pb-20 lg:pt-12">
 
-          {/* ── VAVE gif — top-right ── */}
-          <div className="absolute -top-2 -right-2 z-20 hidden w-56 lg:block lg:-right-6 overflow-hidden rounded-2xl shadow-2xl">
-            <img
-              src="/videos/card/herovave.gif"
-              alt="VAVE Analysis"
-              className="w-full h-auto block"
-            />
-          </div>
 
           {/* Main product card — HeroVideoDialog */}
           <div className="relative overflow-hidden rounded-2xl shadow-[0_32px_80px_rgba(0,0,0,0.22)]">
@@ -142,55 +126,49 @@ export default function Hero() {
 
           </div>
 
-          {/* ── Live Signal wave card — bottom-left ── */}
-          <Perspective
-            maxRotateX={10} maxRotateY={18} smoothing={0.1}
-            className="absolute -bottom-4 -left-2 z-20 w-56 lg:-left-6 lg:bottom-6 hidden lg:block"
-            cardClassName="overflow-hidden rounded-xl shadow-2xl"
-            cardStyle={{
-              background: 'linear-gradient(180deg, #444850 0%, #3A3D44 20%, #30343A 60%, #25292D 100%)',
-              border: '1px solid rgba(255,255,255,0.08)',
-              boxShadow: 'inset 0 0 80px rgba(0,0,0,0.35), inset 0 0 120px rgba(0,0,0,0.25)',
-            }}
-          >
-            {/* layer 3 — white noise/dust */}
-            <div aria-hidden className="pointer-events-none absolute inset-0 z-0" style={{ opacity: 0.08, backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '12px 12px', mixBlendMode: 'screen', filter: 'blur(0.3px)' }} />
-            <div className="relative z-10 flex items-center justify-between border-b border-white/8 px-4 py-2.5">
-              <span className="text-sm font-semibold text-white">Live Signal</span>
-              <span className="text-[11px] font-medium text-teal-400">AI Agent</span>
-            </div>
-            <div className="relative z-10 px-4 pt-3 pb-1">
-              <p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-white/30">Production · Batch A-2410</p>
-              <style>{`
-                @keyframes hwdrift1{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
-                @keyframes hwdrift2{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
-                @keyframes hwbar{0%,100%{transform:scaleY(1)}50%{transform:scaleY(0.35)}}
-                .hws1{animation:hwdrift1 3s ease-in-out infinite}
-                .hws2{animation:hwdrift2 4.5s ease-in-out infinite}
-              `}</style>
-              <svg viewBox="0 0 210 40" xmlns="http://www.w3.org/2000/svg" className="w-full" style={{ height: 40, overflow: 'visible' }}>
-                <path className="hws2" d="M0,20 C26,8 50,32 76,20 C102,8 126,32 152,20 C178,8 196,32 210,20" fill="none" stroke="rgba(59,130,246,0.25)" strokeWidth="2" />
-                <path className="hws1" d="M0,20 C22,5 46,35 70,20 C94,5 118,35 142,20 C166,5 190,35 210,20" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" />
-                <circle r="3" fill="#60a5fa" opacity="0.9">
-                  <animateMotion dur="3s" repeatCount="indefinite" path="M0,20 C22,5 46,35 70,20 C94,5 118,35 142,20 C166,5 190,35 210,20" />
-                </circle>
-              </svg>
-            </div>
-            <div className="relative z-10 flex items-end gap-[3px] px-4 pb-3" style={{ height: 34 }}>
-              {[0.5,0.8,0.4,1,0.6,0.9,0.3,0.7,0.5,1,0.4,0.8,0.6,0.9,0.3,0.7,0.5,0.8,1,0.4].map((h, i) => (
-                <div key={i} className="flex-1 rounded-sm" style={{ height: `${h * 24}px`, background: `rgba(59,130,246,${0.3 + h * 0.5})`, animation: `hwbar ${1.2 + (i % 5) * 0.3}s ease-in-out ${i * 0.08}s infinite`, transformOrigin: 'bottom' }} />
-              ))}
-            </div>
-            <div className="relative z-10 flex items-center justify-between border-t border-white/6 px-4 py-2">
-              <span className="text-[10px] text-white/30">120 Hz</span>
-              <span className="text-[10px] font-medium text-blue-300">99.4% OTIF</span>
-            </div>
-          </Perspective>
 
         </div>
       </div>
 
-      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
+
+      {/* ── Partner logos — fills the bottom gap ── */}
+      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-black/[0.06] bg-white/80 backdrop-blur-sm py-5">
+        <style>{`
+          @keyframes marquee-p { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+          .marquee-p { animation: marquee-p 32s linear infinite; will-change: transform; }
+        `}</style>
+        <div
+          className="overflow-hidden"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 24px, black 80px, black calc(100% - 80px), transparent calc(100% - 24px))',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 24px, black 80px, black calc(100% - 80px), transparent calc(100% - 24px))',
+          }}
+        >
+          {(() => {
+            const logos = [
+              { src: '/assets/trustedby/ashokleyland.png', alt: 'Ashok Leyland' },
+              { src: '/assets/trustedby/TATAPower.png',    alt: 'TATA Power' },
+              { src: '/assets/trustedby/digantara.png',    alt: 'Digantara' },
+              { src: '/assets/trustedby/Pixxel.png',       alt: 'Pixxel' },
+              { src: '/assets/trustedby/RolandBerger.png', alt: 'Roland Berger' },
+              { src: '/assets/trustedby/rainmaker.png',    alt: 'Rainmaker' },
+              { src: '/assets/trustedby/ForusHealth.png',  alt: 'Forus Health' },
+              { src: '/assets/trustedby/Aadya.png',        alt: 'Aadya' },
+              { src: '/assets/trustedby/Tanbo.png',        alt: 'Tanbo' },
+              { src: '/assets/trustedby/emuski.png',       alt: 'Emuski' },
+            ]
+            const row = [...logos, ...logos]
+            return (
+              <div className="marquee-p flex w-max items-center gap-10 md:gap-14">
+                {row.map((logo, i) => (
+                  <img key={i} src={logo.src} alt={logo.alt} className="h-6 w-auto object-contain opacity-70" />
+                ))}
+              </div>
+            )
+          })()}
+        </div>
+      </div>
 
     </section>
   )

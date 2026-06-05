@@ -82,16 +82,6 @@ export function ProductionCard() {
                   {s.done ? "✓ Complete" : "○ Planning"}
                 </span>
               </div>
-              {s.done && (
-                <div
-                  className="absolute inset-0 opacity-40"
-                  style={{
-                    background: "linear-gradient(90deg, transparent, white, transparent)",
-                    backgroundSize: "200% 100%",
-                    animation: "shimmer 3s linear infinite",
-                  }}
-                />
-              )}
             </div>
           </div>
         );

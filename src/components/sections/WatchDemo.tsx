@@ -1,41 +1,12 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import FlowCards from '@/components/sections/FlowCards'
 import { BudgetCard } from '@/components/ui/analytics-bento'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
 import { Sparkles, TrendingUp, Zap, CheckCircle, Users, Clock, X } from 'lucide-react'
 
 export default function WatchDemo() {
-  const [savings, setSavings] = useState(0)
-  const [animated, setAnimated] = useState(false)
   const [videoOpen, setVideoOpen] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !animated) {
-          setAnimated(true)
-          const duration = 2000
-          const start = performance.now()
-          const tick = (now: number) => {
-            const t = Math.min((now - start) / duration, 1)
-            const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
-            setSavings(parseFloat((eased * 1.2).toFixed(2)))
-            if (t < 1) requestAnimationFrame(tick)
-          }
-          requestAnimationFrame(tick)
-        }
-      },
-      { threshold: 0.25 }
-    )
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [animated])
-
-  const displaySavings = savings < 0.05 ? '₹0' : `₹${Math.min(savings, 1.2).toFixed(1)}Cr`
 
   const stats = [
     { value: '40%',    label: 'Faster RFQ',      icon: Zap },
@@ -46,7 +17,7 @@ export default function WatchDemo() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white overflow-hidden">
+    <section className="relative w-full bg-white overflow-hidden">
 
       {/* ── Mobile background SVG (9:16) — sets section height on mobile ── */}
       <img
@@ -88,7 +59,7 @@ export default function WatchDemo() {
               </svg>
             </a>
             <button
-              className="inline-flex items-center gap-1.5 rounded-full border border-black/20 bg-white/70 backdrop-blur-sm px-3 py-1.5 text-[11px] font-semibold text-[#0d1117]"
+              className="inline-flex items-center gap-1.5 rounded-full border border-black/20 bg-white px-3 py-1.5 text-[11px] font-semibold text-[#0d1117]"
               onClick={() => setVideoOpen(true)}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3">
@@ -104,7 +75,7 @@ export default function WatchDemo() {
         <div className="shrink-0 overflow-hidden rounded-2xl mb-2" style={{ aspectRatio: '16/9' }}>
           <HeroVideoDialog
             animationStyle="from-center"
-            videoSrc="/videos/hero-bg.mp4"
+            videoSrc="/videos/emuski.mp4"
             thumbnailSrc="/assets/cards/videocard.svg"
             thumbnailAlt="Watch Emithran in action"
             className="h-full [&_img]:rounded-none [&_img]:border-0 [&_img]:shadow-none [&_img]:block [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
@@ -119,7 +90,7 @@ export default function WatchDemo() {
             { icon: Users,      title: 'Collaborate & Take Action', desc: 'Work with procurement and engineering teams in real time.' },
             { icon: Zap,        title: 'View & Comment on 3D Models', desc: 'Interact with CAD assemblies and manufacturing views.' },
           ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="rounded-xl border border-black/10 bg-white/90 backdrop-blur-sm p-2 shadow-sm flex flex-col gap-0.5">
+            <div key={title} className="rounded-xl border border-black/10 bg-white p-2 shadow-sm flex flex-col gap-0.5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1">
                   <Icon className="h-2.5 w-2.5 shrink-0 text-[#0d9e8a]" />
@@ -135,15 +106,15 @@ export default function WatchDemo() {
         {/* ── BudgetCard + AI Negotiation — compact 2-col ── */}
         <div className="grid grid-cols-2 gap-2 shrink-0 mb-2">
           <BudgetCard />
-          <div className="rounded-xl border border-black/10 bg-white/90 backdrop-blur-sm p-2.5 shadow-lg">
+          <div className="rounded-xl border border-black/10 bg-white p-2.5 shadow-lg">
             <div className="flex items-center gap-1">
               <Sparkles className="h-3 w-3 shrink-0 text-[#0d9e8a]" />
-              <div className="text-[10px] font-semibold text-[#0d1117] leading-tight">AI Negotiation</div>
+              <div className="text-[10px] font-semibold text-[#0d1117] leading-tight">Negotiation Summary</div>
             </div>
             <div className="mt-0.5 text-[9px] text-[#64748b]">Potential annual savings</div>
             <div className="mt-1 flex items-end justify-between">
               <div className="text-lg font-bold tracking-tight text-[#0d1117] tabular-nums" style={{ fontVariantNumeric: 'tabular-nums' }}>
-                {displaySavings}
+                ₹1.2Cr
               </div>
               <TrendingUp className="h-4 w-5 text-[#0d9e8a]" />
             </div>
@@ -156,7 +127,7 @@ export default function WatchDemo() {
             {stats.map((s) => {
               const Icon = s.icon
               return (
-                <div key={s.value} className="flex flex-col gap-0.5 px-1.5 py-2 rounded-lg bg-white/80 backdrop-blur-sm border border-black/[0.07] items-center text-center">
+                <div key={s.value} className="flex flex-col gap-0.5 px-1.5 py-2 rounded-lg bg-white border border-black/[0.07] items-center text-center">
                   <Icon className="h-2.5 w-2.5 text-[#0d9e8a]" />
                   <span className="text-[10px] font-bold tracking-tight text-[#0d1117] leading-tight">{s.value}</span>
                   <span className="text-[8px] leading-tight text-[#64748b]">{s.label}</span>
@@ -202,7 +173,7 @@ export default function WatchDemo() {
                 </a>
                 <button
                   onClick={() => setVideoOpen(true)}
-                  className="inline-flex items-center gap-2 rounded-full border border-black/20 bg-white/70 backdrop-blur-sm px-5 py-2 text-sm font-semibold text-[#0d1117] hover:bg-white/90 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full border border-black/20 bg-white px-5 py-2 text-sm font-semibold text-[#0d1117] hover:bg-black/[0.03] transition-colors"
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3.5 h-3.5">
                     <circle cx="12" cy="12" r="10" />
@@ -214,15 +185,15 @@ export default function WatchDemo() {
             </div>
 
             <div className="w-44 shrink-0">
-              <div className="rounded-xl border border-black/10 bg-white/90 backdrop-blur-sm p-3 shadow-lg">
+              <div className="rounded-xl border border-black/10 bg-white p-3 shadow-lg">
                 <div className="flex items-center gap-1.5">
                   <Sparkles className="h-3.5 w-3.5 shrink-0 text-[#0d9e8a]" />
-                  <div className="text-[11px] font-semibold text-[#0d1117] leading-tight">AI Negotiation Summary</div>
+                  <div className="text-[11px] font-semibold text-[#0d1117] leading-tight">Negotiation Summary</div>
                 </div>
                 <div className="mt-1 text-[10px] text-[#64748b]">Potential annual savings</div>
                 <div className="mt-1.5 flex items-end justify-between">
-                  <div className="text-2xl font-bold tracking-tight text-[#0d1117] tabular-nums transition-all duration-75" style={{ fontVariantNumeric: 'tabular-nums' }}>
-                    {displaySavings}
+                  <div className="text-2xl font-bold tracking-tight text-[#0d1117] tabular-nums" style={{ fontVariantNumeric: 'tabular-nums' }}>
+                    ₹1.2Cr
                   </div>
                   <TrendingUp className="h-6 w-8 text-[#0d9e8a]" />
                 </div>
@@ -245,7 +216,7 @@ export default function WatchDemo() {
             {stats.map((s) => {
               const Icon = s.icon
               return (
-                <div key={s.value} className="flex flex-col gap-1 px-3 py-2.5 rounded-xl bg-white/80 backdrop-blur-sm border border-black/[0.07]">
+                <div key={s.value} className="flex flex-col gap-1 px-3 py-2.5 rounded-xl bg-white border border-black/[0.07]">
                   <Icon className="h-3.5 w-3.5 text-[#0d9e8a]" />
                   <span className="text-lg font-bold tracking-tight text-[#0d1117]">{s.value}</span>
                   <span className="text-[10px] leading-snug text-[#64748b]">{s.label}</span>
@@ -275,7 +246,7 @@ export default function WatchDemo() {
             </button>
             <div className="w-full h-full border-2 border-white rounded-2xl overflow-hidden">
               <video
-                src="/videos/hero-bg.mp4"
+                src="/videos/emuski.mp4"
                 controls
                 autoPlay
                 className="w-full h-full object-cover"

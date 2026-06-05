@@ -39,6 +39,15 @@ When generating code or UI components for Emithran, you **MUST** strictly adhere
 * Do NOT create new global CSS files; keep styles in component files via Tailwind or inline `style` props.
 * Do NOT use `margin` for offset below fixed navbar — use `padding` to prevent margin collapse.
 
+### 5. Anti-AI-Slop Visual Rules
+* Do NOT use typewriter/cycling text animations — show copy as static text.
+* Do NOT animate numeric metrics — display them as static numbers.
+* Do NOT use `backdrop-blur` on regular cards — use solid `bg-white` with a border.
+* Do NOT use dark backgrounds with teal/neon glow accents in body sections — keep to light `bg-white` or `bg-[#fafafa]`.
+* Do NOT use pulsing orbs, floating particle animations, or blur-circle decorative div backgrounds.
+* Do NOT use continuous `animation: ... infinite` loops on purely decorative elements.
+* Subtle scroll-triggered fade-in (Framer Motion `useInView`, `once: true`) is acceptable.
+
 ## Asset Paths
 * Logo (white): `/assets/infographics/logo/logo-white.png`
 * Logo (black): `/assets/infographics/logo/logo-black.png`

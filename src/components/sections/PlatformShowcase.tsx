@@ -505,19 +505,24 @@ function BentoSystemCard() {
         onClick={() => setExpanded(false)}
       >
         <div
-          className="relative w-full max-w-5xl shadow-2xl overflow-hidden md:mt-12"
+          className="relative w-full max-w-5xl shadow-2xl overflow-hidden rounded-t-2xl md:rounded-2xl md:mt-12"
           style={{
-            height: "calc(100vh - 48px)",
-            maxHeight: "calc(100vh - 48px)",
+            height: "calc(100dvh - 48px)",
+            maxHeight: "calc(100dvh - 48px)",
             animation: "dialogSlideUp 0.3s cubic-bezier(0.22,1,0.36,1)",
             background: "#ffffff",
           }}
           onClick={e => e.stopPropagation()}
         >
+          {/* mobile drag handle */}
+          <div className="flex justify-center pt-3 pb-1 md:hidden">
+            <div className="w-10 h-1 rounded-full bg-gray-300" />
+          </div>
+
           {/* close */}
           <button
             onClick={() => setExpanded(false)}
-            className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full text-white shadow-sm transition hover:opacity-80"
+            className="absolute top-10 sm:top-4 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full text-white shadow-sm transition hover:opacity-80"
             style={{ background: "linear-gradient(135deg, #1a1a1a, #000000)" }}
           >
             <X className="w-4 h-4" />
@@ -526,24 +531,24 @@ function BentoSystemCard() {
           <div className="overflow-y-auto no-scrollbar pb-6" style={{ height: "100%" }}>
 
             {/* ── Section 1: 2-col hero ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 md:px-10 pt-10 pb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-4 sm:px-6 md:px-10 pt-6 md:pt-10 pb-6 md:pb-8">
               {/* left: title + desc + CTAs + visualization */}
               <div className="flex flex-col">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight leading-tight mb-3">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 tracking-tight leading-tight mb-3">
                   One Intelligent System
                 </h2>
-                <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                <p className="text-sm text-gray-500 leading-relaxed mb-4 md:mb-6">
                   Connect every manufacturing module into one unified platform — BOM, process planning, supplier evaluation, production, quality, delivery, benchmarking, and VAVE — all sharing live data and working together to accelerate decisions.
                 </p>
-                <div className="flex items-center gap-3 mb-8">
-                  <button className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition whitespace-nowrap" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+                <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-6 md:mb-8">
+                  <button className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                     Explore Platform
                     <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
                       <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
                     </svg>
                   </button>
-                  <button className="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition whitespace-nowrap">
-                    See pricing details
+                  <button className="px-4 md:px-5 py-2.5 rounded-lg text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
+                    See pricing
                   </button>
                 </div>
                 {/* visualization — the cycling card */}
@@ -565,8 +570,8 @@ function BentoSystemCard() {
               </div>
 
               {/* right: features + activity + stat */}
-              <div className="flex flex-col gap-6">
-                <ul className="space-y-4">
+              <div className="flex flex-col gap-5 md:gap-6">
+                <ul className="space-y-3 md:space-y-4">
                   {[
                     "All 9 modules share live data with zero manual sync",
                     "AI insights surface across BOM, cost, and supplier data",
@@ -606,18 +611,18 @@ function BentoSystemCard() {
                 </div>
 
                 {/* stat card */}
-                <div className="rounded-2xl p-6 text-white relative overflow-hidden" style={{ background: "linear-gradient(135deg, oklch(0.62 0.16 185) 0%, oklch(0.48 0.2 270) 100%)" }}>
+                <div className="rounded-2xl p-5 md:p-6 text-white relative overflow-hidden" style={{ background: "linear-gradient(135deg, oklch(0.62 0.16 185) 0%, oklch(0.48 0.2 270) 100%)" }}>
                   <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20" style={{ background: "radial-gradient(circle, white, transparent)" }} />
-                  <div className="text-4xl font-bold mb-2 relative">$1.8M</div>
+                  <div className="text-3xl md:text-4xl font-bold mb-2 relative">$1.8M</div>
                   <div className="text-xs leading-relaxed opacity-80 relative">in total cost savings identified across all active projects using the unified intelligence platform</div>
                 </div>
               </div>
             </div>
 
             {/* ── Section 2: Testimonial ── */}
-            <div className="bg-white px-8 md:px-16 py-12 text-center">
-              <p className="text-sm font-bold text-gray-900 mb-6 tracking-wide uppercase">Aerospace OEM</p>
-              <blockquote className="text-base md:text-lg text-gray-600 leading-relaxed mb-6 max-w-xl mx-auto">
+            <div className="bg-white px-4 sm:px-8 md:px-16 py-10 md:py-12 text-center">
+              <p className="text-sm font-bold text-gray-900 mb-4 md:mb-6 tracking-wide uppercase">Aerospace OEM</p>
+              <blockquote className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 md:mb-6 max-w-xl mx-auto">
                 &ldquo;For the first time, our engineering, sourcing, and quality teams are looking at the same data in real time. The decisions we make in Emithran flow instantly across every module — it changed how we operate.&rdquo;
               </blockquote>
               <p className="text-sm text-gray-500">
@@ -632,19 +637,19 @@ function BentoSystemCard() {
               </button>
             </div>
 
-            <div className="mx-8 md:mx-16 border-t border-gray-100" />
+            <div className="mx-4 sm:mx-8 md:mx-16 border-t border-gray-100" />
 
             {/* ── Section 3: CTA footer ── */}
-            <div className="px-8 md:px-16 py-12 text-center bg-white">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get started with the full platform</h3>
-              <div className="flex items-center justify-center gap-4 flex-wrap">
-                <button className="flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+            <div className="px-4 sm:px-8 md:px-16 py-10 md:py-12 text-center bg-white">
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-5 md:mb-6">Get started with the full platform</h3>
+              <div className="flex items-center justify-center gap-3 flex-wrap">
+                <button className="flex items-center gap-2 px-6 md:px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                   Start now
                   <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
                     <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
                   </svg>
                 </button>
-                <button className="px-8 py-3 rounded-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
+                <button className="px-6 md:px-8 py-3 rounded-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
                   Contact sales
                 </button>
               </div>
@@ -726,19 +731,24 @@ export default function PlatformShowcase() {
           onClick={() => setActive(null)}
         >
           <div
-            className="relative w-full max-w-5xl shadow-2xl overflow-hidden md:mt-12"
+            className="relative w-full max-w-5xl shadow-2xl overflow-hidden rounded-t-2xl md:rounded-2xl md:mt-12"
             style={{
-              height: "calc(100vh - 48px)",
-              maxHeight: "calc(100vh - 48px)",
+              height: "calc(100dvh - 48px)",
+              maxHeight: "calc(100dvh - 48px)",
               animation: "dialogSlideUp 0.3s cubic-bezier(0.22,1,0.36,1)",
               background: "#f0f4f4",
             }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* mobile drag handle */}
+            <div className="flex justify-center pt-3 pb-1 md:hidden">
+              <div className="w-10 h-1 rounded-full bg-gray-300" />
+            </div>
+
             {/* close */}
             <button
               onClick={() => setActive(null)}
-              className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full text-white shadow-sm transition hover:opacity-80"
+              className="absolute top-10 sm:top-4 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full text-white shadow-sm transition hover:opacity-80"
               style={{ background: "linear-gradient(135deg, #1a1a1a, #000000)" }}
             >
               <X className="w-4 h-4" />
@@ -747,22 +757,22 @@ export default function PlatformShowcase() {
             <div className="overflow-y-auto no-scrollbar pb-6" style={{ height: "100%" }}>
 
               {/* ── Section 1: 2-col hero ── */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 md:px-10 pt-10 pb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 px-4 sm:px-6 md:px-10 pt-6 md:pt-10 pb-6 md:pb-8">
                 {/* left: title + desc + CTAs + visualization */}
                 <div className="flex flex-col">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight leading-tight mb-3">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 tracking-tight leading-tight mb-3">
                     {active.title}
                   </h2>
-                  <p className="text-sm text-gray-500 leading-relaxed mb-6">{active.longDesc}</p>
-                  <div className="flex items-center gap-3 mb-8">
-                    <button className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition whitespace-nowrap" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-4 md:mb-6">{active.longDesc}</p>
+                  <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-6 md:mb-8">
+                    <button className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                       Explore {active.title}
                       <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
                         <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
                       </svg>
                     </button>
-                    <button className="px-5 py-2.5 rounded-lg text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition whitespace-nowrap">
-                      See pricing details
+                    <button className="px-4 md:px-5 py-2.5 rounded-lg text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
+                      See pricing
                     </button>
                   </div>
                   {/* visualization */}
@@ -772,8 +782,8 @@ export default function PlatformShowcase() {
                 </div>
 
                 {/* right: feature bullets + stat card */}
-                <div className="flex flex-col gap-6">
-                  <ul className="space-y-4">
+                <div className="flex flex-col gap-5 md:gap-6">
+                  <ul className="space-y-3 md:space-y-4">
                     {active.features.map((f) => (
                       <li key={f} className="flex items-start gap-3">
                         <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style={{ background: "oklch(0.68 0.13 180 / 0.14)" }}>
@@ -795,7 +805,7 @@ export default function PlatformShowcase() {
                             <span className="font-semibold text-gray-800">{pct}%</span>
                           </div>
                           <div className="h-1 rounded-full bg-gray-200">
-                            <div className="h-1 rounded-full" style={{ width: `${pct}%`, background: "linear-gradient(90deg, #2a2a2a, #000000)" }} />
+                            <div className="h-1 rounded-full" style={{ width: `${pct}%`, background: "linear-gradient(90deg, oklch(0.68 0.13 180), oklch(0.52 0.16 185))" }} />
                           </div>
                         </div>
                       ))}
@@ -803,18 +813,18 @@ export default function PlatformShowcase() {
                   </div>
 
                   {/* stat card */}
-                  <div className="rounded-2xl p-6 text-white relative overflow-hidden" style={{ background: "linear-gradient(135deg, oklch(0.62 0.16 185) 0%, oklch(0.48 0.2 270) 100%)" }}>
+                  <div className="rounded-2xl p-5 md:p-6 text-white relative overflow-hidden" style={{ background: "linear-gradient(135deg, oklch(0.62 0.16 185) 0%, oklch(0.48 0.2 270) 100%)" }}>
                     <div className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20" style={{ background: "radial-gradient(circle, white, transparent)" }} />
-                    <div className="text-4xl font-bold mb-2 relative">{active.stat.value}</div>
+                    <div className="text-3xl md:text-4xl font-bold mb-2 relative">{active.stat.value}</div>
                     <div className="text-xs leading-relaxed opacity-80 relative">{active.stat.label}</div>
                   </div>
                 </div>
               </div>
 
               {/* ── Section 2: Testimonial (white bg, centered) ── */}
-              <div className="bg-white px-8 md:px-16 py-12 text-center">
-                <p className="text-sm font-bold text-gray-900 mb-6 tracking-wide uppercase">{active.testimonial.company}</p>
-                <blockquote className="text-base md:text-lg text-gray-600 leading-relaxed mb-6 max-w-xl mx-auto">
+              <div className="bg-white px-4 sm:px-8 md:px-16 py-10 md:py-12 text-center">
+                <p className="text-sm font-bold text-gray-900 mb-4 md:mb-6 tracking-wide uppercase">{active.testimonial.company}</p>
+                <blockquote className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 md:mb-6 max-w-xl mx-auto">
                   &ldquo;{active.testimonial.quote}&rdquo;
                 </blockquote>
                 <p className="text-sm text-gray-500">
@@ -830,19 +840,19 @@ export default function PlatformShowcase() {
               </div>
 
               {/* divider */}
-              <div className="mx-8 md:mx-16 border-t border-gray-100" />
+              <div className="mx-4 sm:mx-8 md:mx-16 border-t border-gray-100" />
 
               {/* ── Section 3: CTA footer (centered) ── */}
-              <div className="px-8 md:px-16 py-12 text-center bg-white">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Get started with {active.title}</h3>
-                <div className="flex items-center justify-center gap-4 flex-wrap">
-                  <button className="flex items-center gap-2 px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+              <div className="px-4 sm:px-8 md:px-16 py-10 md:py-12 text-center bg-white">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-5 md:mb-6">Get started with {active.title}</h3>
+                <div className="flex items-center justify-center gap-3 flex-wrap">
+                  <button className="flex items-center gap-2 px-6 md:px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                     Start now
                     <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
                       <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
                     </svg>
                   </button>
-                  <button className="px-8 py-3 rounded-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
+                  <button className="px-6 md:px-8 py-3 rounded-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
                     Contact sales
                   </button>
                 </div>
