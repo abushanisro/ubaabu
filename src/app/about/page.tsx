@@ -1,17 +1,11 @@
-import AboutHero from '@/components/about/AboutHero'
-import AboutMission from '@/components/about/AboutMission'
+import AboutReferencePage from "@/components/about/AboutReferencePage";
 
 export const metadata = {
-  title: 'About Emithran | Built by Engineers',
+  title: "About Emithran - Manufacturing Intelligence, Built on the Shop Floor",
   description:
-    'Learn about Emithran — the manufacturing intelligence platform built by engineers who refused to accept the broken system.',
-}
+    "Emithran is an AI-driven manufacturing intelligence platform built by engineers who lived the problem. Should-cost precision, supplier intelligence, and end-to-end visibility for global OEMs.",
+};
 
 export default function AboutPage() {
-  return (
-    <>
-      <AboutHero />
-      <AboutMission />
-    </>
-  )
+  return <AboutReferencePage />;
 }
