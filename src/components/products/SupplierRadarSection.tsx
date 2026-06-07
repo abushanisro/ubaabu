@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Radar, Database, Shield, AlertTriangle, Map } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { SectionDivider } from '@/components/products/SectionDivider'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -41,24 +42,34 @@ const STATUS_COLOR: Record<string, string> = {
 // ── Radar visualization ───────────────────────────────────────────────────────
 function RadarViz({ inView }: { inView: boolean }) {
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
-
-      {/* Teal ambient centre glow */}
+    <div
+      className="relative w-full h-full overflow-hidden rounded-2xl"
+      style={{
+        background: 'linear-gradient(180deg, #ffffff 0%, #f0fdf9 100%)',
+        border: '1px solid rgba(20,184,166,0.18)',
+        boxShadow: '0 0 20px rgba(45,212,191,0.12), 0 0 60px rgba(45,212,191,0.06), 0 24px 64px rgba(0,0,0,0.06)',
+      }}
+    >
+      {/* Grid background */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(circle 110px at 50% 56%, rgba(20,184,166,0.13) 0%, transparent 100%)' }} />
+        style={{
+          backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(13,148,136,0.07) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }} />
+
+      {/* Teal radial glow */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(circle 120px at 50% 56%, rgba(45,212,191,0.10) 0%, transparent 100%)' }} />
 
       {/* Chrome bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: '#d9f2ee' }}>
         <div className="flex gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400/60" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/60" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
+          <span className="h-2 w-2 rounded-full bg-red-300/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-300/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
         </div>
-        <span className="text-[10px] font-mono text-white/30 tracking-widest">SUPPLIER RADAR · 72K+ NODES</span>
-        <div className="flex items-center gap-1 text-[10px] text-teal-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-          LIVE
-        </div>
+        <span className="text-[10px] font-mono tracking-widest" style={{ color: '#94a3b8' }}>SUPPLIER RADAR · 72K+ NODES</span>
+        <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
       </div>
 
       {/* Radar scene */}
@@ -66,8 +77,8 @@ function RadarViz({ inView }: { inView: boolean }) {
 
         {/* Crosshair lines */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="absolute w-full h-px" style={{ background: 'rgba(20,184,166,0.08)' }} />
-          <div className="absolute h-full w-px" style={{ background: 'rgba(20,184,166,0.08)' }} />
+          <div className="absolute w-full h-px" style={{ background: 'rgba(13,148,136,0.12)' }} />
+          <div className="absolute h-full w-px" style={{ background: 'rgba(13,148,136,0.12)' }} />
         </div>
 
         {/* Concentric rings */}
@@ -77,8 +88,8 @@ function RadarViz({ inView }: { inView: boolean }) {
             initial={{ opacity: 0, scale: 0.3 }}
             animate={inView ? { opacity: 1 - i * 0.22, scale } : {}}
             transition={{ duration: 0.7, delay: 0.15 + i * 0.12, ease: EASE }}
-            className="absolute rounded-full border border-teal-500/25"
-            style={{ width: 110, height: 110 }}
+            className="absolute rounded-full"
+            style={{ width: 110, height: 110, border: '1px solid rgba(45,212,191,0.30)' }}
           />
         ))}
 
@@ -90,13 +101,13 @@ function RadarViz({ inView }: { inView: boolean }) {
           style={{
             width: 110 * 2.3,
             height: 110 * 2.3,
-            background: 'conic-gradient(transparent 70%, rgba(20,184,166,0.22) 100%)',
+            background: 'conic-gradient(transparent 70%, rgba(45,212,191,0.18) 100%)',
           }}
         />
 
         {/* Centre dot */}
-        <div className="absolute w-2.5 h-2.5 rounded-full bg-teal-400 z-10"
-          style={{ boxShadow: '0 0 12px rgba(20,184,166,0.9)' }} />
+        <div className="absolute w-2.5 h-2.5 rounded-full z-10"
+          style={{ background: '#2dd4bf', boxShadow: '0 0 12px rgba(45,212,191,0.8)' }} />
 
         {/* Supplier blips */}
         {BLIPS.map(({ x, y, status, label, score }, i) => (
@@ -108,20 +119,18 @@ function RadarViz({ inView }: { inView: boolean }) {
             className="absolute group/blip cursor-default"
             style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
           >
-            {/* Pulse ring */}
             <motion.div
               className="absolute inset-0 rounded-full"
               style={{ border: `1px solid ${STATUS_COLOR[status]}` }}
               animate={{ scale: [1, 2.2], opacity: [0.6, 0] }}
               transition={{ duration: 2, repeat: Infinity, delay: i * 0.3, ease: 'easeOut' }}
             />
-            {/* Dot */}
             <div className="w-2 h-2 rounded-full"
               style={{ background: STATUS_COLOR[status], boxShadow: `0 0 6px ${STATUS_COLOR[status]}` }} />
-            {/* Tooltip on hover */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 opacity-0 group-hover/blip:opacity-100
                             transition-opacity duration-200 pointer-events-none z-20 whitespace-nowrap">
-              <div className="bg-slate-900 border border-white/10 rounded-md px-2 py-1 text-[9px] font-mono text-white/70">
+              <div className="rounded-md px-2 py-1 text-[9px] font-mono"
+                style={{ background: '#0f1b2d', border: '1px solid rgba(217,242,238,0.3)', color: '#94a3b8' }}>
                 {label} · <span style={{ color: STATUS_COLOR[status] }}>{score}</span>
               </div>
             </div>
@@ -130,11 +139,11 @@ function RadarViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t border-white/[0.06]">
+      <div className="flex items-center gap-5 px-4 py-2.5 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['1,284', 'active'], ['3', 'at risk'], ['98.6%', 'OTIF']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold text-teal-400">{val}</span>
-            <span className="text-[10px] text-white/30">{lbl}</span>
+            <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
+            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>
           </div>
         ))}
         <div className="ml-auto flex items-center gap-3 text-[9px] font-mono">
@@ -168,14 +177,14 @@ export default function SupplierRadarSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-12">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
+        <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -223,7 +232,7 @@ export default function SupplierRadarSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="hidden lg:block h-[340px] w-full rounded-2xl overflow-hidden"
+                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <RadarViz inView={inView} />
@@ -232,7 +241,7 @@ export default function SupplierRadarSection() {
           </div>
 
           {/* ── RIGHT ─────────────────────────────────────────────── */}
-          <div className="lg:w-7/12 space-y-5 z-10">
+          <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
             {/* Capabilities */}
             <motion.div
@@ -301,6 +310,7 @@ export default function SupplierRadarSection() {
           </div>
         </div>
       </div>
+      <SectionDivider />
     </section>
   )
 }

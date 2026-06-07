@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Calculator, Cpu, BarChart2, TrendingDown, Activity } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { SectionDivider } from '@/components/products/SectionDivider'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -34,23 +35,36 @@ const BARS = [
 // ── Cost bar chart visualization ──────────────────────────────────────────────
 function CostBarViz({ inView }: { inView: boolean }) {
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
+    <div
+      className="relative w-full h-full overflow-hidden rounded-2xl"
+      style={{
+        background: 'linear-gradient(180deg, #ffffff 0%, #f0fdf9 100%)',
+        border: '1px solid rgba(20,184,166,0.18)',
+        boxShadow: '0 0 20px rgba(45,212,191,0.12), 0 0 60px rgba(45,212,191,0.06), 0 24px 64px rgba(0,0,0,0.06)',
+      }}
+    >
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(13,148,136,0.07) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }} />
 
-      {/* Top teal glow */}
+      {/* Soft teal radial glow */}
       <div className="absolute inset-x-0 top-0 h-28 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 55% 55% at 50% -5%, rgba(20,184,166,0.12) 0%, transparent 100%)' }} />
+        style={{ background: 'radial-gradient(ellipse 65% 55% at 50% 0%, rgba(45,212,191,0.13) 0%, transparent 80%)' }} />
 
       {/* Chrome bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: '#d9f2ee' }}>
         <div className="flex gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400/60" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/60" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
+          <span className="h-2 w-2 rounded-full bg-red-300/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-300/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
         </div>
-        <span className="text-[10px] font-mono text-white/30 tracking-widest">SHOULD-COST ENGINE · TVC-12</span>
-        <div className="flex items-center gap-1 text-[10px] text-teal-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-          AI
+        <span className="text-[10px] font-mono tracking-widest" style={{ color: '#94a3b8' }}>SHOULD-COST ENGINE · TVC-12</span>
+        <div className="flex items-center gap-1">
+          <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
+          <span className="text-[10px] font-mono" style={{ color: '#0d9488' }}>AI</span>
         </div>
       </div>
 
@@ -63,27 +77,30 @@ function CostBarViz({ inView }: { inView: boolean }) {
           animate={inView ? { scaleX: 1, opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.9, ease: 'easeOut' }}
           className="absolute left-6 right-6 origin-left pointer-events-none"
-          style={{ bottom: 36 + 174 * 0.62, borderTop: '1px dashed rgba(255,255,255,0.18)' }}
+          style={{ bottom: 36 + 174 * 0.62, borderTop: '1px dashed rgba(13,148,136,0.35)' }}
         >
-          <span className="absolute right-0 -top-4 text-[9px] font-mono text-white/30">MKT AVG</span>
+          <span className="absolute right-0 -top-4 text-[9px] font-mono" style={{ color: '#94a3b8' }}>MKT AVG</span>
         </motion.div>
 
         {BARS.map((bar, i) => (
           <div key={bar.label} className="relative flex flex-col items-center gap-1" style={{ flex: 1 }}>
-            {/* OPT tooltip */}
             {bar.teal && (
               <motion.div
                 initial={{ opacity: 0, y: 4 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 1.3, ease: EASE }}
-                className="absolute text-[9px] font-mono text-teal-400 bg-teal-500/10 border border-teal-500/25 px-1.5 py-0.5 rounded whitespace-nowrap"
-                style={{ bottom: `calc(${bar.pct}% + 8px)` }}
+                className="absolute text-[9px] font-mono px-1.5 py-0.5 rounded whitespace-nowrap font-semibold"
+                style={{
+                  bottom: `calc(${bar.pct}% + 8px)`,
+                  color: '#0d9488',
+                  background: 'rgba(45,212,191,0.12)',
+                  border: '1px solid rgba(45,212,191,0.3)',
+                }}
               >
                 −23%
               </motion.div>
             )}
 
-            {/* Bar */}
             <motion.div
               initial={{ scaleY: 0, opacity: 0 }}
               animate={inView ? { scaleY: 1, opacity: 1 } : {}}
@@ -92,19 +109,20 @@ function CostBarViz({ inView }: { inView: boolean }) {
               style={{
                 height: `${bar.pct * 1.74}px`,
                 background: bar.teal
-                  ? 'linear-gradient(to top, rgba(13,148,136,0.6), rgba(20,184,166,0.4))'
-                  : 'rgba(255,255,255,0.06)',
+                  ? 'linear-gradient(to top, #0d9488, #2dd4bf)'
+                  : 'rgba(13,148,136,0.07)',
                 border: bar.teal
-                  ? '1px solid rgba(20,184,166,0.45)'
-                  : '1px solid rgba(255,255,255,0.1)',
+                  ? '1px solid rgba(45,212,191,0.5)'
+                  : '1px solid #d9f2ee',
                 borderBottom: 'none',
-                boxShadow: bar.teal ? '0 0 20px rgba(20,184,166,0.15)' : 'none',
+                boxShadow: bar.teal
+                  ? '0 0 20px rgba(45,212,191,0.25), 0 0 60px rgba(45,212,191,0.10)'
+                  : 'none',
               }}
             />
 
-            {/* X-axis label */}
             <span className="text-[9px] font-mono absolute -bottom-5"
-              style={{ color: bar.teal ? 'rgba(45,212,191,0.8)' : 'rgba(255,255,255,0.3)' }}>
+              style={{ color: bar.teal ? '#0d9488' : '#94a3b8' }}>
               {bar.label}
             </span>
           </div>
@@ -112,16 +130,18 @@ function CostBarViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t border-white/[0.06]">
+      <div className="flex items-center gap-5 px-4 py-2.5 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['−23%', 'vs market avg'], ['₹2.4L', 'savings found'], ['6', 'scenarios']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold text-teal-400">{val}</span>
-            <span className="text-[10px] text-white/30">{lbl}</span>
+            <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
+            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>
           </div>
         ))}
-        <div className="ml-auto flex items-center gap-1 text-[10px] text-white/25">
-          <span className="h-1 w-1 rounded-full bg-teal-400 animate-pulse" />
-          live data
+        <div className="ml-auto">
+          <span className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold"
+            style={{ background: 'rgba(45,212,191,0.12)', color: '#0d9488' }}>
+            Active
+          </span>
         </div>
       </div>
     </div>
@@ -147,14 +167,14 @@ export default function ShouldCostSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-12">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
+        <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
 
               {/* Icon */}
               <motion.div
@@ -206,7 +226,7 @@ export default function ShouldCostSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="hidden lg:block h-[340px] w-full rounded-2xl overflow-hidden"
+                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <CostBarViz inView={inView} />
@@ -215,7 +235,7 @@ export default function ShouldCostSection() {
           </div>
 
           {/* ── RIGHT ─────────────────────────────────────────────── */}
-          <div className="lg:w-7/12 space-y-5 z-10">
+          <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
             {/* Capabilities card */}
             <motion.div
@@ -285,6 +305,7 @@ export default function ShouldCostSection() {
           </div>
         </div>
       </div>
+      <SectionDivider />
     </section>
   )
 }

@@ -100,113 +100,18 @@ export default function VaveSection() {
 
           {/* ── RIGHT: Visuals ── */}
           <div className="md:col-span-7">
-            <div className="space-y-5">
-
-              {/* Before / After comparison card */}
-              <motion.div
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
-                className="grid overflow-hidden rounded-2xl md:grid-cols-2"
-                style={{
-                  background: 'rgba(13,17,23,0.97)',
-                  border: `1px solid rgba(13,158,138,0.2)`,
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
-                }}
-              >
-                {/* Before pane */}
-                <div className="border-b border-white/5 p-6 md:border-b-0 md:border-r" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
-                  <div className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-                    Before
-                  </div>
-                  <div className="mt-4 grid grid-cols-3 gap-2">
-                    {Array.from({ length: 9 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="aspect-square rounded-md border border-white/10 bg-white/[0.03]"
-                      />
-                    ))}
-                  </div>
-                  <div className="mt-4 text-xs text-white/60">
-                    9 parts · 4 suppliers · 12 ops
-                  </div>
-                </div>
-
-                {/* After pane */}
-                <div className="relative p-6">
-                  <div className="text-[10px] uppercase tracking-[0.18em]" style={{ color: T }}>
-                    After AI VAVE
-                  </div>
-                  <motion.div
-                    className="mt-4 grid grid-cols-3 gap-2"
-                    variants={tealGrid}
-                    initial="hidden"
-                    animate={inView ? 'visible' : 'hidden'}
-                  >
-                    {AFTER_CELLS.map((isTeal, i) => (
-                      <motion.div
-                        key={i}
-                        variants={isTeal ? tealCell : undefined}
-                        className={`aspect-square rounded-md${isTeal ? ' em-vave-teal-pulse' : ''}`}
-                        style={isTeal ? {
-                          border:    `1px solid rgba(13,158,138,0.6)`,
-                          background:`rgba(13,158,138,0.2)`,
-                        } : {
-                          border:    '1px solid rgba(255,255,255,0.1)',
-                          background:'rgba(255,255,255,0.03)',
-                        }}
-                      />
-                    ))}
-                  </motion.div>
-                  <div className="mt-4 text-xs" style={{ color: T }}>
-                    3 parts · 2 suppliers · 5 ops · −38% cost
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Prioritized opportunities */}
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="rounded-2xl p-5"
-                style={{
-                  background: 'rgba(13,17,23,0.97)',
-                  border: `1px solid rgba(13,158,138,0.2)`,
-                  boxShadow: '0 24px 60px rgba(0,0,0,0.08)',
-                }}
-              >
-                <div className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-                  Prioritized opportunities
-                </div>
-                <div className="mt-4 space-y-2">
-                  {OPPORTUNITIES.map(({ label, feasibility, savings }, i) => (
-                    <motion.div
-                      key={label}
-                      initial={{ opacity: 0, x: -12 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.45, delay: 0.45 + i * 0.09, ease: EASE }}
-                      className="flex items-center justify-between rounded-lg
-                                 border border-white/5 bg-white/[0.02] px-4 py-3 text-sm"
-                    >
-                      <div className="flex items-center gap-3">
-                        <Lightbulb className="h-4 w-4 shrink-0" style={{ color: T }} aria-hidden />
-                        <span className="text-white/85">{label}</span>
-                      </div>
-                      <div className="flex items-center gap-3 text-xs text-white/60">
-                        <span>{feasibility} feasibility</span>
-                        <span
-                          className="rounded-md px-2 py-0.5"
-                          style={{ color: T, background: 'rgba(13,158,138,0.15)' }}
-                        >
-                          {savings}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
+              className="relative overflow-hidden rounded-2xl"
+            >
+              <img
+                src="/assets/cards/solution/card/vave.png"
+                alt="VAVE intelligence card"
+                className="w-full"
+              />
+            </motion.div>
 
             {/* Stats + quote */}
             <div className="mt-10">

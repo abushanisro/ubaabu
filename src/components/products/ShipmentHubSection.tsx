@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Truck, MapPin, AlertTriangle, IndianRupee, FileText } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { SectionDivider } from '@/components/products/SectionDivider'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -36,24 +37,24 @@ const ROUTE_D = 'M 0 64 Q 100 0, 200 64 T 400 64'
 // ── Shipment Hub visualization ────────────────────────────────────────────────
 function ShipmentViz({ inView }: { inView: boolean }) {
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
+    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0fdf9 100%)', border: '1px solid rgba(20,184,166,0.18)', boxShadow: '0 0 20px rgba(45,212,191,0.12),0 0 60px rgba(45,212,191,0.06),0 24px 64px rgba(0,0,0,0.06)' }}>
+
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(13,148,136,0.07) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
 
       {/* Teal glow along route */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 70% 30% at 60% 55%, rgba(20,184,166,0.1) 0%, transparent 100%)' }} />
+        style={{ background: 'radial-gradient(ellipse 70% 30% at 60% 55%, rgba(45,212,191,0.10) 0%, transparent 100%)' }} />
 
       {/* Chrome bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: '#d9f2ee' }}>
         <div className="flex gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400/60" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/60" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
+          <span className="h-2 w-2 rounded-full bg-red-300/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-300/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
         </div>
-        <span className="text-[10px] font-mono text-white/30 tracking-widest">SHIPMENT HUB · LIVE TRACKING</span>
-        <div className="flex items-center gap-1 text-[10px] text-teal-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-          LIVE
-        </div>
+        <span className="text-[10px] font-mono tracking-widest" style={{ color: '#94a3b8' }}>SHIPMENT HUB · TRACKING</span>
+        <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
       </div>
 
       <div className="px-5 pt-3 pb-3 flex flex-col gap-3" style={{ height: 'calc(100% - 44px)' }}>
@@ -62,23 +63,23 @@ function ShipmentViz({ inView }: { inView: boolean }) {
         <div className="relative" style={{ height: 100 }}>
           {/* Origin / Destination markers */}
           <div className="absolute left-3 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
-            <div className="w-2 h-2 rounded-full bg-white/40" />
-            <span className="text-[8px] font-mono text-white/25">ORIGIN</span>
+            <div className="w-2 h-2 rounded-full" style={{ background: 'rgba(13,148,136,0.4)' }} />
+            <span className="text-[8px] font-mono" style={{ color: '#94a3b8' }}>ORIGIN</span>
           </div>
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1">
-            <div className="w-3 h-3 rounded-full border-2 border-white/25 flex items-center justify-center">
-              <div className="w-1 h-1 rounded-full bg-white/40" />
+            <div className="w-3 h-3 rounded-full border-2 flex items-center justify-center" style={{ borderColor: 'rgba(13,148,136,0.3)' }}>
+              <div className="w-1 h-1 rounded-full" style={{ background: 'rgba(13,148,136,0.5)' }} />
             </div>
-            <span className="text-[8px] font-mono text-white/25">DEST</span>
+            <span className="text-[8px] font-mono" style={{ color: '#94a3b8' }}>DEST</span>
           </div>
 
           <svg className="absolute inset-0 w-full h-full overflow-visible px-10" style={{ paddingLeft: 32, paddingRight: 32 }} preserveAspectRatio="none">
             {/* Background dashed route */}
-            <path d={ROUTE_D} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="2" strokeDasharray="6 6" />
+            <path d={ROUTE_D} fill="none" stroke="rgba(13,148,136,0.15)" strokeWidth="2" strokeDasharray="6 6" />
             {/* Teal route drawn on scroll */}
             <motion.path
               d={ROUTE_D}
-              fill="none" stroke="rgba(20,184,166,0.45)" strokeWidth="2"
+              fill="none" stroke="rgba(20,184,166,0.55)" strokeWidth="2"
               initial={{ pathLength: 0 }} animate={inView ? { pathLength: 1 } : {}}
               transition={{ duration: 1.2, delay: 0.3, ease: 'easeOut' }}
             />
@@ -117,21 +118,21 @@ function ShipmentViz({ inView }: { inView: boolean }) {
 
         {/* Shipment status rows */}
         <div className="space-y-2">
-          <div className="text-[9px] font-mono text-white/25 uppercase tracking-widest">Active shipments</div>
+          <div className="text-[9px] font-mono uppercase tracking-widest" style={{ color: '#94a3b8' }}>Active shipments</div>
           {SHIPMENTS.map(({ id, origin, dest, progress, status, eta }, i) => (
             <motion.div
               key={id}
               initial={{ opacity: 0, x: -8 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.45, delay: 0.5 + i * 0.1, ease: EASE }}
-              className="flex items-center gap-3 rounded-lg px-3 py-2 border border-white/[0.06]"
-              style={{ background: 'rgba(255,255,255,0.02)' }}
+              className="flex items-center gap-3 rounded-lg px-3 py-2 border"
+              style={{ background: '#ffffff', borderColor: '#d9f2ee' }}
             >
               <div className="w-2 h-2 rounded-full shrink-0"
                 style={{ background: STATUS_COLOR[status as keyof typeof STATUS_COLOR], boxShadow: `0 0 5px ${STATUS_COLOR[status as keyof typeof STATUS_COLOR]}` }} />
-              <span className="text-[10px] font-mono text-white/50 w-16 shrink-0">{id}</span>
-              <span className="text-[10px] text-white/35 shrink-0">{origin}</span>
-              <div className="flex-1 h-1 bg-white/[0.06] rounded-full overflow-hidden">
+              <span className="text-[10px] font-mono w-16 shrink-0" style={{ color: '#94a3b8' }}>{id}</span>
+              <span className="text-[10px] shrink-0" style={{ color: '#64748b' }}>{origin}</span>
+              <div className="flex-1 h-1 rounded-full overflow-hidden" style={{ background: 'rgba(13,148,136,0.10)' }}>
                 <motion.div
                   className="h-full rounded-full"
                   style={{ background: STATUS_COLOR[status as keyof typeof STATUS_COLOR] }}
@@ -140,9 +141,9 @@ function ShipmentViz({ inView }: { inView: boolean }) {
                   transition={{ duration: 0.8, delay: 0.6 + i * 0.1, ease: EASE }}
                 />
               </div>
-              <span className="text-[10px] text-white/35 shrink-0">{dest}</span>
+              <span className="text-[10px] shrink-0" style={{ color: '#64748b' }}>{dest}</span>
               <span className="text-[10px] font-mono shrink-0"
-                style={{ color: status === 'delayed' ? '#f59e0b' : 'rgba(45,212,191,0.7)' }}>
+                style={{ color: status === 'delayed' ? '#f59e0b' : '#0d9488' }}>
                 {eta}
               </span>
             </motion.div>
@@ -153,21 +154,21 @@ function ShipmentViz({ inView }: { inView: boolean }) {
         <div className="flex items-center gap-4 pt-1">
           <div className="flex-1">
             <div className="flex justify-between mb-1">
-              <span className="text-[9px] font-mono text-white/30">OTIF</span>
-              <span className="text-[9px] font-mono text-teal-400">98.6%</span>
+              <span className="text-[9px] font-mono" style={{ color: '#94a3b8' }}>OTIF</span>
+              <span className="text-[9px] font-mono" style={{ color: '#0d9488' }}>98.6%</span>
             </div>
-            <div className="h-1 bg-white/[0.06] rounded-full overflow-hidden">
-              <motion.div className="h-full rounded-full bg-teal-500"
+            <div className="h-1 rounded-full overflow-hidden" style={{ background: 'rgba(13,148,136,0.10)' }}>
+              <motion.div className="h-full rounded-full" style={{ background: '#14b8a6' }}
                 initial={{ width: 0 }} animate={inView ? { width: '98.6%' } : {}}
                 transition={{ duration: 1.2, delay: 0.8, ease: EASE }} />
             </div>
           </div>
           <div className="flex-1">
             <div className="flex justify-between mb-1">
-              <span className="text-[9px] font-mono text-white/30">On-Time</span>
-              <span className="text-[9px] font-mono text-amber-400">94.1%</span>
+              <span className="text-[9px] font-mono" style={{ color: '#94a3b8' }}>On-Time</span>
+              <span className="text-[9px] font-mono text-amber-500">94.1%</span>
             </div>
-            <div className="h-1 bg-white/[0.06] rounded-full overflow-hidden">
+            <div className="h-1 rounded-full overflow-hidden" style={{ background: 'rgba(13,148,136,0.10)' }}>
               <motion.div className="h-full rounded-full bg-amber-400"
                 initial={{ width: 0 }} animate={inView ? { width: '94.1%' } : {}}
                 transition={{ duration: 1.2, delay: 0.9, ease: EASE }} />
@@ -177,16 +178,16 @@ function ShipmentViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t border-white/[0.06]">
+      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['3', 'in transit'], ['1', 'at risk'], ['98.6%', 'OTIF']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold text-teal-400">{val}</span>
-            <span className="text-[10px] text-white/30">{lbl}</span>
+            <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
+            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>
           </div>
         ))}
         <div className="ml-auto flex items-center gap-3 text-[9px] font-mono">
           {([['#22c55e', 'on-time'], ['#f59e0b', 'delayed']] as const).map(([color, lbl]) => (
-            <span key={lbl} className="flex items-center gap-1 text-white/25">
+            <span key={lbl} className="flex items-center gap-1" style={{ color: '#94a3b8' }}>
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: color }} />
               {lbl}
             </span>
@@ -215,14 +216,14 @@ export default function ShipmentHubSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-12">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
+        <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -270,7 +271,7 @@ export default function ShipmentHubSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="hidden lg:block h-[340px] w-full rounded-2xl overflow-hidden"
+                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <ShipmentViz inView={inView} />
@@ -279,7 +280,7 @@ export default function ShipmentHubSection() {
           </div>
 
           {/* ── RIGHT ─────────────────────────────────────────────── */}
-          <div className="lg:w-7/12 space-y-5 z-10">
+          <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
             {/* Capabilities */}
             <motion.div
@@ -348,6 +349,7 @@ export default function ShipmentHubSection() {
           </div>
         </div>
       </div>
+      <SectionDivider />
     </section>
   )
 }

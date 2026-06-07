@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Layers, CircleCheck, GitBranch, Link2, Bell, RefreshCw, History } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { SectionDivider } from '@/components/products/SectionDivider'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -47,21 +48,37 @@ const L2_NODES = [
 // ── BOM Tree Visualization ────────────────────────────────────────────────────
 function BomTreeViz({ inView }: { inView: boolean }) {
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0f1b2d' }}>
+    <div
+      className="relative w-full h-full overflow-hidden rounded-2xl"
+      style={{
+        background: 'linear-gradient(180deg, #ffffff 0%, #f0fdf9 100%)',
+        border: '1px solid rgba(20,184,166,0.18)',
+        boxShadow: '0 0 20px rgba(45,212,191,0.12), 0 0 60px rgba(45,212,191,0.06), 0 24px 64px rgba(0,0,0,0.06)',
+      }}
+    >
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(13,148,136,0.07) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }} />
 
-      {/* Primary teal glow at top — #2dd4bf */}
-      <div className="absolute inset-x-0 top-0 h-40 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 70% 70% at 50% -10%, rgba(45,212,191,0.22) 0%, rgba(13,148,136,0.08) 55%, transparent 100%)' }} />
+      {/* Soft teal radial glow behind tree */}
+      <div className="absolute inset-x-0 top-0 h-48 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 65% 60% at 50% 0%, rgba(45,212,191,0.14) 0%, transparent 80%)' }} />
 
       {/* Chrome bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: '#d9f2ee' }}>
         <div className="flex gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400/60" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/60" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
+          <span className="h-2 w-2 rounded-full bg-red-300/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-300/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
         </div>
-        <span className="text-[10px] font-mono text-white/30 tracking-widest">BOM COMPOSER · TVC-12</span>
-        <div />
+        <span className="text-[10px] font-mono tracking-widest" style={{ color: '#94a3b8' }}>BOM COMPOSER · TVC-12</span>
+        <div className="flex items-center gap-1">
+          <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
+          <span className="text-[10px] font-mono" style={{ color: '#0d9488' }}>synced</span>
+        </div>
       </div>
 
       {/* SVG tree */}
@@ -74,13 +91,13 @@ function BomTreeViz({ inView }: { inView: boolean }) {
               <motion.path
                 d={p.d}
                 fill="none"
-                stroke={p.teal ? 'rgba(45,212,191,0.55)' : 'rgba(255,255,255,0.10)'}
+                stroke={p.teal ? '#2dd4bf' : '#d9f2ee'}
                 strokeWidth={p.teal ? 1.5 : 1}
+                strokeDasharray={p.teal ? undefined : '4 3'}
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={inView ? { pathLength: 1, opacity: 1 } : {}}
                 transition={{ duration: 0.7, delay: p.delay, ease: 'easeOut' }}
               />
-              {/* Travelling dot along teal paths */}
               {p.teal && (
                 <circle r="2.5" fill="#2dd4bf" opacity="0">
                   <animateMotion path={p.d} dur={`${2.8 + i * 0.3}s`} repeatCount="indefinite" begin={`${p.delay + 0.8}s`} />
@@ -91,29 +108,36 @@ function BomTreeViz({ inView }: { inView: boolean }) {
             </g>
           ))}
 
-          {/* Root node — primary #2dd4bf border, deep #0d9488 fill tint */}
+          {/* Root node */}
           <motion.g
             initial={{ opacity: 0, scale: 0.8 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
           >
-            <rect x="148" y="22" width="104" height="32" rx="6"
-              fill="rgba(13,148,136,0.18)" stroke="#2dd4bf" strokeWidth="1.5" />
-            <text x="200" y="35" textAnchor="middle" fill="#2dd4bf" fontSize="9" fontWeight="700" fontFamily="monospace" letterSpacing="1">TVC-12</text>
-            <text x="200" y="46" textAnchor="middle" fill="rgba(45,212,191,0.65)" fontSize="8" fontFamily="system-ui">Turbine Assembly</text>
+            <rect x="148" y="20" width="104" height="34" rx="8"
+              fill="url(#rootGrad)" stroke="#2dd4bf" strokeWidth="1.5"
+              style={{ filter: 'drop-shadow(0 0 8px rgba(45,212,191,0.30))' }} />
+            <defs>
+              <linearGradient id="rootGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#2dd4bf" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="#0d9488" stopOpacity="0.08" />
+              </linearGradient>
+            </defs>
+            <text x="200" y="33" textAnchor="middle" fill="#0d9488" fontSize="9" fontWeight="700" fontFamily="monospace" letterSpacing="1">TVC-12</text>
+            <text x="200" y="46" textAnchor="middle" fill="#64748b" fontSize="7.5" fontFamily="system-ui">Turbine Assembly</text>
           </motion.g>
 
-          {/* L1 nodes — deep teal border hint */}
+          {/* L1 nodes */}
           {L1_NODES.map((n) => (
             <motion.g key={n.label}
               initial={{ opacity: 0, y: 8 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: n.delay, ease: EASE }}
             >
-              <rect x={n.x} y={n.y} width="50" height="20" rx="4"
-                fill="rgba(13,148,136,0.10)" stroke="rgba(45,212,191,0.25)" strokeWidth="1" />
-              <text x={n.x + 25} y={n.y + 10} textAnchor="middle" fill="rgba(255,255,255,0.8)" fontSize="8" fontWeight="600" fontFamily="monospace">{n.label}</text>
-              <text x={n.x + 25} y={n.y + 18} textAnchor="middle" fill="rgba(45,212,191,0.45)" fontSize="7" fontFamily="system-ui">{n.sub}</text>
+              <rect x={n.x} y={n.y} width="50" height="22" rx="6"
+                fill="white" stroke="#d9f2ee" strokeWidth="1.2" />
+              <text x={n.x + 25} y={n.y + 11} textAnchor="middle" fill="#0f1b2d" fontSize="8" fontWeight="600" fontFamily="monospace">{n.label}</text>
+              <text x={n.x + 25} y={n.y + 19} textAnchor="middle" fill="#0d9488" fontSize="7" fontFamily="system-ui">{n.sub}</text>
             </motion.g>
           ))}
 
@@ -124,25 +148,27 @@ function BomTreeViz({ inView }: { inView: boolean }) {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: n.delay, ease: EASE }}
             >
-              <rect x={n.x} y={n.y} width="40" height="16" rx="3"
-                fill="rgba(13,148,136,0.07)" stroke="rgba(45,212,191,0.15)" strokeWidth="1" />
-              <text x={n.x + 20} y={n.y + 10} textAnchor="middle" fill="rgba(45,212,191,0.5)" fontSize="7.5" fontFamily="monospace">{n.label}</text>
+              <rect x={n.x} y={n.y} width="40" height="16" rx="5"
+                fill="#f0fdf9" stroke="#d9f2ee" strokeWidth="1" />
+              <text x={n.x + 20} y={n.y + 10} textAnchor="middle" fill="#0d9488" fontSize="7.5" fontWeight="600" fontFamily="monospace">{n.label}</text>
             </motion.g>
           ))}
         </svg>
       </div>
 
       {/* Footer stats bar */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: 'rgba(13,148,136,0.2)' }}>
+      <div className="flex items-center gap-5 px-4 py-2.5 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['127', 'parts'], ['4', 'levels'], ['72K+', 'suppliers']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold" style={{ color: '#2dd4bf' }}>{val}</span>
-            <span className="text-[10px] text-white/30">{lbl}</span>
+            <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
+            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>
           </div>
         ))}
-        <div className="ml-auto flex items-center gap-1 text-[10px] text-white/25">
-          <span className="h-1 w-1 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
-          synced
+        <div className="ml-auto">
+          <span className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold"
+            style={{ background: 'rgba(45,212,191,0.12)', color: '#0d9488' }}>
+            Active
+          </span>
         </div>
       </div>
     </div>
@@ -171,11 +197,11 @@ export default function BomComposerSection() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-16 lg:pt-24 pb-16">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
+        <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">
 
           {/* ── LEFT: sticky info ──────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
 
               {/* Icon */}
               <motion.div
@@ -227,7 +253,7 @@ export default function BomComposerSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="hidden lg:block h-[340px] w-full rounded-2xl overflow-hidden"
+                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <BomTreeViz inView={inView} />
@@ -236,7 +262,7 @@ export default function BomComposerSection() {
           </div>
 
           {/* ── RIGHT: cards ───────────────────────────────────────── */}
-          <div className="lg:w-7/12 space-y-5 z-10">
+          <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
             {/* Capabilities card — teal left-border accent */}
             <motion.div
@@ -312,6 +338,7 @@ export default function BomComposerSection() {
           </div>
         </div>
       </div>
+      <SectionDivider />
     </section>
   )
 }

@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ChartColumn, Search, TrendingDown, LineChart, AlertCircle } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { SectionDivider } from '@/components/products/SectionDivider'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -39,23 +40,25 @@ const DIMENSIONS = [
 // ── Benchmark visualization ───────────────────────────────────────────────────
 function BenchmarkViz({ inView }: { inView: boolean }) {
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
+    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0fdf9 100%)', border: '1px solid rgba(20,184,166,0.18)', boxShadow: '0 0 20px rgba(45,212,191,0.12),0 0 60px rgba(45,212,191,0.06),0 24px 64px rgba(0,0,0,0.06)' }}>
+
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(13,148,136,0.07) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
 
       {/* Teal glow on the "YOU" bar area */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 30% 60% at 58% 70%, rgba(20,184,166,0.12) 0%, transparent 100%)' }} />
+        style={{ background: 'radial-gradient(ellipse 30% 60% at 58% 70%, rgba(45,212,191,0.10) 0%, transparent 100%)' }} />
 
       {/* Chrome bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: '#d9f2ee' }}>
         <div className="flex gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400/60" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/60" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
+          <span className="h-2 w-2 rounded-full bg-red-300/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-300/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
         </div>
-        <span className="text-[10px] font-mono text-white/30 tracking-widest">BENCHMARK ANALYSIS · PART TVC-12</span>
-        <div className="flex items-center gap-1 text-[10px] text-teal-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-          LIVE
+        <span className="text-[10px] font-mono tracking-widest" style={{ color: '#94a3b8' }}>BENCHMARK ANALYSIS · PART TVC-12</span>
+        <div className="flex items-center gap-1">
+          <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
         </div>
       </div>
 
@@ -64,24 +67,22 @@ function BenchmarkViz({ inView }: { inView: boolean }) {
         {/* Main bar chart */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[9px] font-mono text-white/30 uppercase tracking-widest">Unit cost comparison (₹/pc)</span>
-            <span className="text-[9px] font-mono text-teal-400">You are −44% below avg</span>
+            <span className="text-[9px] font-mono uppercase tracking-widest" style={{ color: '#94a3b8' }}>Unit cost comparison (₹/pc)</span>
+            <span className="text-[9px] font-mono" style={{ color: '#0d9488' }}>You are −44% below avg</span>
           </div>
 
           <div className="flex items-end gap-5 justify-center" style={{ height: 110 }}>
             {BARS.map(({ label, pct, teal, value }, i) => (
               <div key={label} className="flex flex-col items-center gap-2" style={{ flex: 1 }}>
-                {/* Cost label above */}
                 <motion.div
                   initial={{ opacity: 0, y: -4 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.4, delay: 0.5 + i * 0.1, ease: EASE }}
                   className="text-[9px] font-mono text-center"
-                  style={{ color: teal ? '#2dd4bf' : 'rgba(255,255,255,0.35)' }}
+                  style={{ color: teal ? '#0d9488' : '#94a3b8' }}
                 >
                   {value}
                 </motion.div>
-                {/* Bar */}
                 <div className="w-full flex items-end" style={{ height: 80 }}>
                   <motion.div
                     initial={{ scaleY: 0, opacity: 0 }}
@@ -91,17 +92,16 @@ function BenchmarkViz({ inView }: { inView: boolean }) {
                     style={{
                       height: `${pct}%`,
                       background: teal
-                        ? 'linear-gradient(to top, rgba(13,148,136,0.7), rgba(20,184,166,0.45))'
-                        : 'rgba(255,255,255,0.08)',
-                      border: teal ? '1px solid rgba(20,184,166,0.5)' : '1px solid rgba(255,255,255,0.1)',
+                        ? 'linear-gradient(to top, #0d9488, #2dd4bf)'
+                        : 'rgba(13,148,136,0.07)',
+                      border: teal ? '1px solid rgba(45,212,191,0.5)' : '1px solid #d9f2ee',
                       borderBottom: 'none',
-                      boxShadow: teal ? '0 0 16px rgba(20,184,166,0.2)' : 'none',
+                      boxShadow: teal ? '0 0 20px rgba(45,212,191,0.25), 0 0 60px rgba(45,212,191,0.10)' : 'none',
                     }}
                   />
                 </div>
-                {/* Label */}
                 <span className="text-[10px] font-mono font-semibold"
-                  style={{ color: teal ? 'rgba(45,212,191,0.9)' : 'rgba(255,255,255,0.35)' }}>
+                  style={{ color: teal ? '#0d9488' : '#94a3b8' }}>
                   {label}
                 </span>
               </div>
@@ -111,7 +111,7 @@ function BenchmarkViz({ inView }: { inView: boolean }) {
 
         {/* Dimension comparison */}
         <div className="space-y-2.5">
-          <div className="text-[9px] font-mono text-white/25 uppercase tracking-widest mb-1">Performance dimensions vs market</div>
+          <div className="text-[9px] font-mono uppercase tracking-widest mb-1" style={{ color: '#94a3b8' }}>Performance dimensions vs market</div>
           {DIMENSIONS.map(({ label, you, mkt }, i) => (
             <motion.div
               key={label}
@@ -120,11 +120,12 @@ function BenchmarkViz({ inView }: { inView: boolean }) {
               transition={{ duration: 0.45, delay: 0.6 + i * 0.1, ease: EASE }}
               className="flex items-center gap-3"
             >
-              <span className="text-[10px] text-white/40 w-28 shrink-0">{label}</span>
-              <div className="relative flex-1 h-2 bg-white/[0.05] rounded-full overflow-hidden">
+              <span className="text-[10px] w-28 shrink-0" style={{ color: '#64748b' }}>{label}</span>
+              <div className="relative flex-1 h-2 rounded-full overflow-hidden" style={{ background: 'rgba(13,148,136,0.08)' }}>
                 {/* Market bar */}
                 <motion.div
-                  className="absolute top-0 left-0 h-full rounded-full bg-white/15"
+                  className="absolute top-0 left-0 h-full rounded-full"
+                  style={{ background: 'rgba(13,148,136,0.20)' }}
                   initial={{ width: 0 }}
                   animate={inView ? { width: `${mkt}%` } : {}}
                   transition={{ duration: 0.7, delay: 0.7 + i * 0.1, ease: EASE }}
@@ -132,43 +133,45 @@ function BenchmarkViz({ inView }: { inView: boolean }) {
                 {/* You bar */}
                 <motion.div
                   className="absolute top-0 left-0 h-full rounded-full"
-                  style={{ background: 'rgba(20,184,166,0.6)' }}
+                  style={{ background: 'rgba(13,148,136,0.55)' }}
                   initial={{ width: 0 }}
                   animate={inView ? { width: `${you}%` } : {}}
                   transition={{ duration: 0.7, delay: 0.8 + i * 0.1, ease: EASE }}
                 />
               </div>
               <div className="flex gap-2 shrink-0 text-[9px] font-mono">
-                <span style={{ color: 'rgba(20,184,166,0.8)' }}>{you}</span>
-                <span className="text-white/20">vs</span>
-                <span className="text-white/30">{mkt}</span>
+                <span style={{ color: '#0d9488' }}>{you}</span>
+                <span style={{ color: '#94a3b8' }}>vs</span>
+                <span style={{ color: '#94a3b8' }}>{mkt}</span>
               </div>
             </motion.div>
           ))}
           <div className="flex items-center gap-4 pt-1">
             <div className="flex items-center gap-1.5">
-              <div className="w-3 h-1.5 rounded-full" style={{ background: 'rgba(20,184,166,0.6)' }} />
-              <span className="text-[8px] text-white/25">You</span>
+              <div className="w-3 h-1.5 rounded-full" style={{ background: 'rgba(13,148,136,0.55)' }} />
+              <span className="text-[8px]" style={{ color: '#94a3b8' }}>You</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <div className="w-3 h-1.5 rounded-full bg-white/15" />
-              <span className="text-[8px] text-white/25">Market</span>
+              <div className="w-3 h-1.5 rounded-full" style={{ background: 'rgba(13,148,136,0.20)' }} />
+              <span className="text-[8px]" style={{ color: '#94a3b8' }}>Market</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t border-white/[0.06]">
+      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['−44%', 'vs market avg'], ['₹8.4L', 'annual saving'], ['3', 'outliers flagged']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold text-teal-400">{val}</span>
-            <span className="text-[10px] text-white/30">{lbl}</span>
+            <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
+            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>
           </div>
         ))}
-        <div className="ml-auto flex items-center gap-1 text-[10px] text-white/25">
-          <span className="h-1 w-1 rounded-full bg-teal-400 animate-pulse" />
-          updated
+        <div className="ml-auto">
+          <span className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold"
+            style={{ background: 'rgba(45,212,191,0.12)', color: '#0d9488' }}>
+            Active
+          </span>
         </div>
       </div>
     </div>
@@ -193,14 +196,14 @@ export default function BenchmarkAnalysisSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-12">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
+        <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -248,7 +251,7 @@ export default function BenchmarkAnalysisSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="hidden lg:block h-[340px] w-full rounded-2xl overflow-hidden"
+                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <BenchmarkViz inView={inView} />
@@ -257,7 +260,7 @@ export default function BenchmarkAnalysisSection() {
           </div>
 
           {/* ── RIGHT ─────────────────────────────────────────────── */}
-          <div className="lg:w-7/12 space-y-5 z-10">
+          <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
             {/* Capabilities */}
             <motion.div
@@ -328,6 +331,7 @@ export default function BenchmarkAnalysisSection() {
           </div>
         </div>
       </div>
+      <SectionDivider />
     </section>
   )
 }

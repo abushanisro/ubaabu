@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Gem, Globe, BarChart3, Sliders, TrendingUp } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { SectionDivider } from '@/components/products/SectionDivider'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -39,22 +40,26 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
   ]
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
+    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0fdf9 100%)', border: '1px solid rgba(20,184,166,0.18)', boxShadow: '0 0 20px rgba(45,212,191,0.12),0 0 60px rgba(45,212,191,0.06),0 24px 64px rgba(0,0,0,0.06)' }}>
 
-      {/* Stronger teal glow — premium feel */}
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(13,148,136,0.07) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
+
+      {/* Teal glow — premium feel */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(circle 140px at 50% 52%, rgba(20,184,166,0.16) 0%, transparent 100%)' }} />
+        style={{ background: 'radial-gradient(circle 140px at 50% 52%, rgba(45,212,191,0.12) 0%, transparent 100%)' }} />
 
       {/* Chrome bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: '#d9f2ee' }}>
         <div className="flex gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400/60" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/60" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
+          <span className="h-2 w-2 rounded-full bg-red-300/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-300/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
         </div>
-        <span className="text-[10px] font-mono text-white/30 tracking-widest">COST BENCHMARKER · PREMIUM</span>
+        <span className="text-[10px] font-mono tracking-widest" style={{ color: '#94a3b8' }}>COST BENCHMARKER · PREMIUM</span>
         <div className="flex items-center gap-1.5">
-          <span className="text-[9px] font-bold text-teal-400 bg-teal-500/10 border border-teal-500/20 px-2 py-0.5 rounded-full">
+          <span className="text-[9px] font-bold px-2 py-0.5 rounded-full"
+            style={{ background: 'rgba(45,212,191,0.12)', color: '#0d9488', border: '1px solid rgba(45,212,191,0.35)' }}>
             PREMIUM
           </span>
         </div>
@@ -71,10 +76,7 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
             className="relative"
-            style={{
-              width: 96, height: 96,
-              transformStyle: 'preserve-3d',
-            }}
+            style={{ width: 96, height: 96, transformStyle: 'preserve-3d' }}
           >
             <motion.div
               style={{ transformStyle: 'preserve-3d' }}
@@ -85,15 +87,16 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
               {RING_ROTATIONS.map((rot, i) => (
                 <div
                   key={i}
-                  className="absolute inset-0 rounded-full border border-teal-500/30"
-                  style={{ transform: rot }}
+                  className="absolute inset-0 rounded-full border"
+                  style={{ transform: rot, borderColor: 'rgba(13,148,136,0.30)' }}
                 />
               ))}
             </motion.div>
             {/* Centre glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-teal-400 rounded-full opacity-50"
-              style={{ filter: 'blur(14px)' }} />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-teal-400 rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full opacity-50"
+              style={{ background: '#2dd4bf', filter: 'blur(14px)' }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full"
+              style={{ background: '#0d9488' }} />
           </motion.div>
 
           {/* Floating metric chips around sphere */}
@@ -109,15 +112,15 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
               transition={{ duration: 0.5, delay: 0.45 + i * 0.12, ease: EASE }}
               className={`absolute ${pos} text-center`}
             >
-              <div className="text-xs font-bold text-teal-400">{label}</div>
-              <div className="text-[9px] text-white/30">{sub}</div>
+              <div className="text-xs font-bold" style={{ color: '#0d9488' }}>{label}</div>
+              <div className="text-[9px]" style={{ color: '#94a3b8' }}>{sub}</div>
             </motion.div>
           ))}
         </div>
 
         {/* Scenario comparison */}
         <div>
-          <div className="text-[9px] font-mono text-white/25 uppercase tracking-widest mb-2">Scenario modelling</div>
+          <div className="text-[9px] font-mono uppercase tracking-widest mb-2" style={{ color: '#94a3b8' }}>Scenario modelling</div>
           <div className="grid grid-cols-2 gap-1.5">
             {SCENARIOS.map(({ label, saving, delta, active }, i) => (
               <motion.div
@@ -127,15 +130,15 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
                 transition={{ duration: 0.4, delay: 0.5 + i * 0.08, ease: EASE }}
                 className="rounded-lg px-3 py-2 border flex items-center justify-between"
                 style={{
-                  background: active ? 'rgba(20,184,166,0.1)' : 'rgba(255,255,255,0.02)',
-                  borderColor: active ? 'rgba(20,184,166,0.4)' : 'rgba(255,255,255,0.07)',
+                  background: active ? 'rgba(45,212,191,0.08)' : '#ffffff',
+                  borderColor: active ? 'rgba(20,184,166,0.45)' : '#d9f2ee',
                 }}
               >
                 <div>
-                  <div className="text-[9px] font-mono" style={{ color: active ? 'rgba(45,212,191,0.9)' : 'rgba(255,255,255,0.4)' }}>{label}</div>
-                  <div className="text-[10px] font-semibold" style={{ color: active ? '#2dd4bf' : 'rgba(255,255,255,0.5)' }}>{saving}</div>
+                  <div className="text-[9px] font-mono" style={{ color: active ? '#0d9488' : '#94a3b8' }}>{label}</div>
+                  <div className="text-[10px] font-semibold" style={{ color: active ? '#0d9488' : '#64748b' }}>{saving}</div>
                 </div>
-                <div className="text-[9px] font-mono" style={{ color: active ? '#2dd4bf' : 'rgba(255,255,255,0.25)' }}>{delta}</div>
+                <div className="text-[9px] font-mono" style={{ color: active ? '#0d9488' : '#94a3b8' }}>{delta}</div>
               </motion.div>
             ))}
           </div>
@@ -143,16 +146,16 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t border-white/[0.06]">
+      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['₹41L', 'best scenario'], ['22%', 'uplift'], ['4', 'scenarios']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold text-teal-400">{val}</span>
-            <span className="text-[10px] text-white/30">{lbl}</span>
+            <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
+            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>
           </div>
         ))}
-        <div className="ml-auto flex items-center gap-1 text-[10px] text-teal-400/60 font-mono">
+        <div className="ml-auto flex items-center gap-1 font-mono" style={{ color: '#0d9488' }}>
           <Gem className="w-3 h-3" />
-          premium
+          <span className="text-[10px]">premium</span>
         </div>
       </div>
     </div>
@@ -177,14 +180,14 @@ export default function CostBenchmarkerSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-12">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
+        <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
 
               {/* Icon — slightly premium styling */}
               <motion.div
@@ -237,7 +240,7 @@ export default function CostBenchmarkerSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="hidden lg:block h-[340px] w-full rounded-2xl overflow-hidden"
+                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.12), 0 0 0 1px rgba(20,184,166,0.1)' }}
               >
                 <CostBenchmarkerViz inView={inView} />
@@ -246,7 +249,7 @@ export default function CostBenchmarkerSection() {
           </div>
 
           {/* ── RIGHT ─────────────────────────────────────────────── */}
-          <div className="lg:w-7/12 space-y-5 z-10">
+          <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
             {/* Capabilities */}
             <motion.div

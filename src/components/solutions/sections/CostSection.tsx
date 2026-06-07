@@ -105,112 +105,13 @@ export default function CostSection() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
-              className="overflow-hidden rounded-2xl p-6"
-              style={{
-                background: 'rgba(13,17,23,0.97)',
-                border: `1px solid rgba(13,158,138,0.2)`,
-                boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
-              }}
+              className="relative overflow-hidden rounded-2xl"
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-white/40">
-                <span>Should-cost model · Part #A2310</span>
-                <span style={{ color: T }}>Quote +18% above should-cost</span>
-              </div>
-
-              {/* Horizontal comparison bars */}
-              <div className="mt-6 space-y-5">
-                {COMPARISON.map(({ label, value, width, bg, delay }) => (
-                  <div key={label}>
-                    <div className="flex justify-between text-xs text-white/70">
-                      <span>{label}</span>
-                      <span className="font-semibold text-white">{value}</span>
-                    </div>
-                    <div className="mt-1.5 h-2.5 overflow-hidden rounded-full bg-white/[0.08]">
-                      <motion.div
-                        className="h-full rounded-full"
-                        style={{ background: bg }}
-                        initial={{ width: 0 }}
-                        animate={inView ? { width } : { width: 0 }}
-                        transition={{ duration: 0.9, delay, ease: EASE }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Cost variance drivers */}
-              <div className="mt-8">
-                <div className="text-[10px] uppercase tracking-[0.18em] text-white/40">
-                  Cost variance drivers
-                </div>
-                <div className="mt-3 grid grid-cols-4 gap-2">
-                  {DRIVERS.map(({ label, pct, h }, i) => (
-                    <div key={label}>
-                      <div className="flex h-32 items-end overflow-hidden rounded-md bg-white/5">
-                        <motion.div
-                          className="w-full"
-                          style={{
-                            height: h,
-                            transformOrigin: 'bottom',
-                            background: `linear-gradient(to top, rgba(13,158,138,0.3), ${T})`,
-                          }}
-                          initial={{ scaleY: 0 }}
-                          animate={inView ? { scaleY: 1 } : {}}
-                          transition={{ duration: 0.75, delay: 0.62 + i * 0.1, ease: EASE }}
-                        />
-                      </div>
-                      <div className="mt-1.5 flex items-center justify-between text-[10px] text-white/60">
-                        <span>{label}</span>
-                        <span>{pct}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Sparkline */}
-              <div
-                className="mt-8 rounded-xl p-4"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
-              >
-                <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-white/40">
-                  <span>Quote vs Should-cost · last 12 RFQs</span>
-                  <span style={{ color: T }}>−₹2.3 Cr saved</span>
-                </div>
-                <svg viewBox="0 0 100 50" className="mt-3 h-24 w-full">
-                  <defs>
-                    <linearGradient id="em-sg" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%"   stopColor={T} stopOpacity="0.4" />
-                      <stop offset="100%" stopColor={T} stopOpacity="0"   />
-                    </linearGradient>
-                  </defs>
-                  <motion.path
-                    d={SPARK_FILL}
-                    fill="url(#em-sg)"
-                    initial={{ opacity: 0 }}
-                    animate={inView ? { opacity: 1 } : {}}
-                    transition={{ duration: 0.7, delay: 0.85 }}
-                  />
-                  <motion.path
-                    d={SPARK}
-                    fill="none"
-                    stroke={T}
-                    strokeWidth="0.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    initial={{ pathLength: 0 }}
-                    animate={inView ? { pathLength: 1 } : {}}
-                    transition={{ duration: 1.5, delay: 0.68, ease: [0.4, 0, 0.2, 1] }}
-                  />
-                  {inView && (
-                    <circle cx={100} cy={28.95} r="2" fill={T} opacity="0">
-                      <animate attributeName="opacity" values="0;0.9" dur="0.3s" begin="2.3s" fill="freeze" />
-                      <animate attributeName="r"       values="2;4.5;2" dur="2.2s" begin="2.6s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.9;0.5;0.9" dur="2.2s" begin="2.6s" repeatCount="indefinite" />
-                    </circle>
-                  )}
-                </svg>
-              </div>
+              <img
+                src="/assets/cards/solution/card/cost.png"
+                alt="Cost intelligence card"
+                className="w-full"
+              />
             </motion.div>
 
             {/* Stats + quote */}

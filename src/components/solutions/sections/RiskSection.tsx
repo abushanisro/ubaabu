@@ -139,65 +139,13 @@ export default function RiskSection() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
-              className="overflow-hidden rounded-2xl p-6"
-              style={{
-                background: 'rgba(13,17,23,0.97)',
-                border: `1px solid rgba(13,158,138,0.2)`,
-                boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
-              }}
+              className="relative overflow-hidden rounded-2xl"
             >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-white/40">
-                <span>OTIF risk heatmap · next 90 days</span>
-                <span className="text-red-400">3 critical alerts</span>
-              </div>
-
-              {/* Heatmap grid */}
-              <div className="relative mt-4">
-                <motion.div
-                  className="pointer-events-none absolute inset-x-0 z-10 h-px"
-                  style={{ background: `linear-gradient(90deg, transparent, rgba(13,158,138,0.7), transparent)` }}
-                  initial={{ top: 0, opacity: 0 }}
-                  animate={inView ? { top: '100%', opacity: [0, 0.75, 0.75, 0] } : {}}
-                  transition={{ duration: 1.3, delay: 1.2, ease: 'linear' }}
-                />
-                <motion.div
-                  className="grid gap-1.5"
-                  style={{ gridTemplateColumns: 'repeat(12, 1fr)' }}
-                  variants={gridContainer}
-                  initial="hidden"
-                  animate={inView ? 'visible' : 'hidden'}
-                >
-                  {HEATMAP.map((cell, i) => (
-                    <motion.div
-                      key={i}
-                      className={`aspect-square rounded${cell === 'r' ? ' em-risk-pulse-red' : ''}`}
-                      style={{ background: CELL_BG[cell] }}
-                      variants={cellItem}
-                    />
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* Alert cards */}
-              <div className="mt-5 grid gap-3 md:grid-cols-3">
-                {ALERTS.map(({ Icon, color, border, title, detail }, i) => (
-                  <motion.div
-                    key={title}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.55, delay: 0.9 + i * 0.1, ease: EASE }}
-                    className="rounded-xl p-3"
-                    style={{
-                      background: 'rgba(255,255,255,0.04)',
-                      border: `1px solid ${border}`,
-                    }}
-                  >
-                    <Icon className="h-4 w-4" style={{ color }} aria-hidden />
-                    <div className="mt-2 text-xs font-medium text-white">{title}</div>
-                    <div className="text-[11px] text-white/60">{detail}</div>
-                  </motion.div>
-                ))}
-              </div>
+              <img
+                src="/assets/cards/solution/card/risk.png"
+                alt="Risk intelligence card"
+                className="w-full"
+              />
             </motion.div>
 
             {/* Stats + quote */}

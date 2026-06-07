@@ -123,88 +123,12 @@ export default function DesignSection() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
               className="relative overflow-hidden rounded-2xl"
-              style={{
-                background: 'rgba(13,17,23,0.97)',
-                border: `1px solid rgba(13,158,138,0.2)`,
-                boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
-              }}
             >
-              {/* Window chrome */}
-              <div className="flex items-center justify-between border-b border-white/5 px-5 py-3
-                              text-[10px] uppercase tracking-[0.18em] text-white/40">
-                <span>bracket_v12.step</span>
-                <span>CAD · live DFM</span>
-              </div>
-
-              {/* Viewport */}
-              <div className="relative h-[460px]">
-
-                <motion.div
-                  className="pointer-events-none absolute left-0 right-0 z-10 h-px"
-                  style={{ background: `linear-gradient(90deg, transparent, rgba(13,158,138,0.6), transparent)` }}
-                  initial={{ top: 0, opacity: 0 }}
-                  animate={inView ? { top: '100%', opacity: [0, 0.85, 0.85, 0] } : {}}
-                  transition={{ duration: 1.8, delay: 0.3, ease: 'linear' }}
-                />
-
-                <div className="em-grid absolute inset-0 opacity-50" />
-
-                <svg viewBox="0 0 400 400" className="absolute inset-0 m-auto h-[80%] w-[80%]">
-                  <defs>
-                    <linearGradient id="em-wire" x1="0" x2="1" y1="0" y2="1">
-                      <stop offset="0%"   stopColor="white"           stopOpacity="0.9" />
-                      <stop offset="100%" stopColor="rgb(13,158,138)" stopOpacity="0.9" />
-                    </linearGradient>
-                  </defs>
-                  <g
-                    fill="none"
-                    stroke="url(#em-wire)"
-                    strokeWidth="1"
-                    strokeLinejoin="round"
-                    style={{ transformOrigin: '200px 200px', animation: 'em-spin-slow 40s linear infinite' }}
-                  >
-                    <polygon points="120,80 280,80 320,160 200,260 80,160" />
-                    <polygon points="120,80 200,40 280,80" />
-                    <polygon points="280,80 320,160 360,140 320,80" />
-                    <polygon points="80,160 200,260 240,310 60,220" />
-                    <line x1="200" y1="40"  x2="200" y2="260" strokeDasharray="3 4" />
-                    <line x1="120" y1="80"  x2="200" y2="260" strokeDasharray="2 5" />
-                    <line x1="280" y1="80"  x2="200" y2="260" strokeDasharray="2 5" />
-                  </g>
-                </svg>
-
-                {/* Floating annotation cards */}
-                {ANNOTATIONS.map(({ pos, border, color, label, body, delay, floatY, floatDur, floatDelay }) => (
-                  <div key={label} className="absolute" style={pos}>
-                    <motion.div
-                      initial={{ opacity: 0, scale: 0.88, y: 10 }}
-                      animate={inView ? { opacity: 1, scale: 1, y: 0 } : {}}
-                      transition={{ duration: 0.55, delay, ease: EASE }}
-                    >
-                      <motion.div
-                        animate={{ y: [0, floatY, 0] }}
-                        transition={{ duration: floatDur, repeat: Infinity, ease: 'easeInOut', delay: floatDelay }}
-                        className="max-w-[230px] rounded-xl p-3 text-[11px]"
-                        style={{
-                          background: 'rgba(13,17,23,0.9)',
-                          backdropFilter: 'blur(12px)',
-                          border: `1px solid ${border}`,
-                          color,
-                        }}
-                      >
-                        <div className="mb-1 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] opacity-80">
-                          <span className="relative flex h-1.5 w-1.5">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-75" />
-                            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-current" />
-                          </span>
-                          {label}
-                        </div>
-                        <div className="text-white/90">{body}</div>
-                      </motion.div>
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
+              <img
+                src="/assets/cards/solution/card/design.png"
+                alt="Design intelligence card"
+                className="w-full"
+              />
             </motion.div>
 
             {/* Stats + quote */}

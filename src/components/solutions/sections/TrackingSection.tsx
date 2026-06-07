@@ -125,120 +125,13 @@ export default function TrackingSection() {
               initial={{ opacity: 0, y: 28 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
-              className="overflow-hidden rounded-2xl"
-              style={{
-                background: 'rgba(13,17,23,0.97)',
-                border: `1px solid rgba(13,158,138,0.2)`,
-                boxShadow: '0 24px 60px rgba(0,0,0,0.12)',
-              }}
+              className="relative overflow-hidden rounded-2xl"
             >
-              {/* Window chrome */}
-              <div className="flex items-center justify-between border-b border-white/5 px-5 py-3
-                             text-[10px] uppercase tracking-[0.18em] text-white/40">
-                <span>Project · NX-Engine-Mount · 12,400 units</span>
-                <motion.span
-                  style={{ color: T }}
-                  animate={{ opacity: [1, 0.4, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  ● healthy · 2 watch
-                </motion.span>
-              </div>
-
-              {/* Timeline */}
-              <div className="relative px-6 py-8">
-                <div className="absolute left-6 right-6 top-1/2 h-px bg-white/10" />
-                <motion.div
-                  className="absolute left-6 top-1/2 h-px"
-                  style={{ background: T, boxShadow: `0 0 18px ${T}` }}
-                  initial={{ width: 0 }}
-                  animate={inView ? { width: '62%' } : { width: 0 }}
-                  transition={{ duration: 1.2, delay: 0.52, ease: EASE }}
-                />
-                <motion.div
-                  className="relative grid grid-cols-6 gap-2"
-                  variants={stepContainer}
-                  initial="hidden"
-                  animate={inView ? 'visible' : 'hidden'}
-                >
-                  {TIMELINE.map(({ num, label, state }) => (
-                    <motion.div
-                      key={num}
-                      variants={stepItem}
-                      className="flex flex-col items-center"
-                    >
-                      <div
-                        className="relative grid h-7 w-7 place-items-center rounded-full
-                                   text-[10px] font-semibold"
-                        style={stepStyle[state]}
-                      >
-                        {state === 'current' && (
-                          <span
-                            className="absolute inset-0 rounded-full"
-                            style={{
-                              background: 'rgba(13,158,138,0.4)',
-                              animation:  'em-ping-ring 2s ease-out infinite',
-                            }}
-                          />
-                        )}
-                        {num}
-                      </div>
-                      <div className="mt-2 text-[10px] uppercase tracking-[0.18em] text-white/60">
-                        {label}
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </div>
-
-              {/* Metric cards */}
-              <div className="grid gap-3 border-t border-white/5 p-5 md:grid-cols-3">
-                {METRICS.map(({ label, value, pct }, i) => (
-                  <motion.div
-                    key={label}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.72 + i * 0.09, ease: EASE }}
-                    className="rounded-xl p-4"
-                    style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
-                  >
-                    <div className="text-[10px] uppercase tracking-[0.18em] text-white/40">{label}</div>
-                    <div className="mt-1 text-lg font-semibold text-white">{value}</div>
-                    <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/[0.08]">
-                      <motion.div
-                        className="h-full rounded-full"
-                        style={{ background: T }}
-                        initial={{ width: 0 }}
-                        animate={inView ? { width: pct } : { width: 0 }}
-                        transition={{ duration: 0.9, delay: 0.88 + i * 0.1, ease: EASE }}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Live alerts */}
-              <div className="border-t border-white/5 p-5">
-                <div className="text-[10px] uppercase tracking-[0.18em] text-white/40">Live alerts</div>
-                <div className="mt-3 space-y-2 text-xs">
-                  {ALERTS.map(({ color, text }, i) => (
-                    <motion.div
-                      key={text}
-                      initial={{ opacity: 0, x: -8 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.4, delay: 1.02 + i * 0.08, ease: EASE }}
-                      className="flex items-center gap-3 rounded-lg border border-white/5
-                                 bg-white/[0.02] px-3 py-2"
-                    >
-                      <span
-                        className="h-1.5 w-1.5 shrink-0 rounded-full"
-                        style={{ background: color, boxShadow: `0 0 8px ${color}` }}
-                      />
-                      <span className="text-white/80">{text}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
+              <img
+                src="/assets/cards/solution/card/status.png"
+                alt="Order tracking card"
+                className="w-full"
+              />
             </motion.div>
 
             {/* Stats + quote */}

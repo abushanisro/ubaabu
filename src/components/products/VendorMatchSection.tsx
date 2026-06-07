@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Users, ScanSearch, ListOrdered, FileSearch, MousePointerClick } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { SectionDivider } from '@/components/products/SectionDivider'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -73,23 +74,25 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
   }, [])
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
+    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0fdf9 100%)', border: '1px solid rgba(20,184,166,0.18)', boxShadow: '0 0 20px rgba(45,212,191,0.12),0 0 60px rgba(45,212,191,0.06),0 24px 64px rgba(0,0,0,0.06)' }}>
 
-      {/* Teal ambient glow at center */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(circle 100px at 50% 56%, rgba(20,184,166,0.12) 0%, transparent 100%)' }} />
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(13,148,136,0.07) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
+
+      {/* Teal radial glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(circle 120px at 50% 56%,rgba(45,212,191,0.10) 0%,transparent 100%)' }} />
 
       {/* Chrome bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: '#d9f2ee' }}>
         <div className="flex gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400/60" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/60" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
+          <span className="h-2 w-2 rounded-full bg-red-300/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-300/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
         </div>
-        <span className="text-[10px] font-mono text-white/30 tracking-widest">VENDOR MATCH · AI SHORTLISTING</span>
-        <div className="flex items-center gap-1 text-[10px] text-teal-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-          AI
+        <span className="text-[10px] font-mono tracking-widest" style={{ color: '#94a3b8' }}>VENDOR MATCH · AI SHORTLISTING</span>
+        <div className="flex items-center gap-1">
+          <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
+          <span className="text-[10px] font-mono" style={{ color: '#0d9488' }}>AI</span>
         </div>
       </div>
 
@@ -105,10 +108,11 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
               initial={{ opacity: 0, x: -14 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.1, ease: EASE }}
-              className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-lg px-3 py-2"
+              className="flex items-center gap-2 rounded-lg px-3 py-2 border"
+              style={{ background: '#ffffff', borderColor: '#d9f2ee' }}
             >
-              <span className="text-[9px] font-mono text-teal-400/60">{id}</span>
-              <span className="text-[10px] text-white/55">{label}</span>
+              <span className="text-[9px] font-mono" style={{ color: '#0d9488' }}>{id}</span>
+              <span className="text-[10px]" style={{ color: '#0f1b2d' }}>{label}</span>
             </motion.div>
           ))}
         </div>
@@ -158,9 +162,9 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.55, delay: 0.65, ease: EASE }}
             className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center"
-            style={{ background: 'rgba(20,184,166,0.18)', border: '1px solid rgba(20,184,166,0.5)', boxShadow: '0 0 28px rgba(20,184,166,0.18)' }}
+            style={{ background: 'linear-gradient(135deg,#f0fdf9 0%,#ccfbf1 100%)', border: '1px solid rgba(20,184,166,0.45)', boxShadow: '0 0 28px rgba(45,212,191,0.20)' }}
           >
-            <Users className="w-6 h-6 text-teal-400" />
+            <Users className="w-6 h-6" style={{ color: '#0d9488' }} />
             {/* Pulse */}
             <motion.div className="absolute inset-0 rounded-2xl border border-teal-400/30"
               animate={{ scale: [1, 1.6], opacity: [0.5, 0] }}
@@ -179,18 +183,18 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
               transition={{ duration: 0.5, delay: 0.85 + i * 0.1, ease: EASE }}
               className="flex items-center gap-2.5 rounded-lg px-3 py-2 border"
               style={teal
-                ? { background: 'rgba(20,184,166,0.1)', borderColor: 'rgba(20,184,166,0.45)' }
-                : { background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.08)' }
+                ? { background: 'rgba(45,212,191,0.08)', borderColor: 'rgba(20,184,166,0.45)' }
+                : { background: '#ffffff', borderColor: '#d9f2ee' }
               }
             >
-              <span className="text-[9px] font-bold w-3" style={{ color: teal ? '#2dd4bf' : 'rgba(255,255,255,0.3)' }}>
+              <span className="text-[9px] font-bold w-3" style={{ color: teal ? '#0d9488' : '#94a3b8' }}>
                 #{rank}
               </span>
               <div>
-                <div className="text-[10px] font-semibold" style={{ color: teal ? '#2dd4bf' : 'rgba(255,255,255,0.6)' }}>
+                <div className="text-[10px] font-semibold" style={{ color: teal ? '#0d9488' : '#0f1b2d' }}>
                   {name}
                 </div>
-                <div className="text-[9px] font-mono" style={{ color: teal ? 'rgba(45,212,191,0.6)' : 'rgba(255,255,255,0.25)' }}>
+                <div className="text-[9px] font-mono" style={{ color: teal ? '#2dd4bf' : '#94a3b8' }}>
                   {id} · {score}%
                 </div>
               </div>
@@ -200,16 +204,18 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t border-white/[0.06]">
+      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['1,284', 'evaluated'], ['3', 'shortlisted'], ['< 4hr', 'RFQ turnaround']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold text-teal-400">{val}</span>
-            <span className="text-[10px] text-white/30">{lbl}</span>
+            <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
+            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>
           </div>
         ))}
-        <div className="ml-auto flex items-center gap-1 text-[10px] text-white/25">
-          <span className="h-1 w-1 rounded-full bg-teal-400 animate-pulse" />
-          matched
+        <div className="ml-auto">
+          <span className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold"
+            style={{ background: 'rgba(45,212,191,0.12)', color: '#0d9488' }}>
+            matched
+          </span>
         </div>
       </div>
     </div>
@@ -234,14 +240,14 @@ export default function VendorMatchSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-12">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
+        <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -289,7 +295,7 @@ export default function VendorMatchSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="hidden lg:block h-[340px] w-full rounded-2xl overflow-hidden"
+                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <VendorMatchViz inView={inView} />
@@ -298,7 +304,7 @@ export default function VendorMatchSection() {
           </div>
 
           {/* ── RIGHT ─────────────────────────────────────────────── */}
-          <div className="lg:w-7/12 space-y-5 z-10">
+          <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
             {/* Capabilities */}
             <motion.div
@@ -367,6 +373,7 @@ export default function VendorMatchSection() {
           </div>
         </div>
       </div>
+      <SectionDivider />
     </section>
   )
 }

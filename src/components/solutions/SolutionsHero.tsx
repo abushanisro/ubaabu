@@ -5,6 +5,7 @@ import type { ReactNode } from 'react'
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { CircularGallery } from '@/components/ui/circular-gallery'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -309,94 +310,50 @@ export default function SolutionsHero() {
 
             </div>
 
-            {/* ── Right: floating platform cards ── */}
+            {/* ── Right: circular solution card gallery ── */}
             <motion.div
               initial={{ opacity: 0, y: 32, scale: 0.97 }}
               animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 1.0, delay: 0.28, ease: EASE }}
-              className="hidden lg:flex flex-col gap-3"
+              className="block"
+              style={{ height: 'clamp(280px, 45vw, 480px)' }}
             >
-              {/* Top 2 metric cards */}
-              <div className="grid grid-cols-2 gap-3">
-                {METRICS.map((m) => (
-                  <div
-                    key={m.label}
-                    className="rounded-2xl p-5"
-                    style={{
-                      background:  'white',
-                      border:      '1px solid rgba(0,0,0,0.08)',
-                      boxShadow:   '0 2px 16px rgba(0,0,0,0.07)',
-                    }}
-                  >
-                    <p style={{ fontSize: '11px', color: 'rgba(0,0,0,0.38)' }}>{m.label}</p>
-                    <p className="mt-1 font-display font-bold" style={{ fontSize: '1.6rem', color: '#0d9488' }}>{m.value}</p>
-                    <p style={{ fontSize: '11px', color: 'rgba(0,0,0,0.30)' }}>{m.sub}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Supplier Radar card */}
-              <div
-                className="rounded-2xl p-5"
-                style={{
-                  background: 'white',
-                  border:     '1px solid rgba(0,0,0,0.08)',
-                  boxShadow:  '0 2px 16px rgba(0,0,0,0.07)',
-                }}
-              >
-                <div className="mb-3 flex items-center justify-between">
-                  <span style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(0,0,0,0.38)' }}>
-                    Supplier Radar
-                  </span>
-                </div>
-                {SUPPLIERS.map((s, i) => (
-                  <div
-                    key={s.name}
-                    className="flex items-center justify-between py-2.5"
-                    style={{ borderBottom: i < 2 ? '1px solid rgba(0,0,0,0.06)' : 'none' }}
-                  >
-                    <div>
-                      <p style={{ fontSize: '12px', fontWeight: 500, color: 'rgba(0,0,0,0.75)' }}>{s.name}</p>
-                      <p style={{ fontSize: '10px', color: 'rgba(0,0,0,0.35)' }}>{s.tag}</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="h-1 w-16 overflow-hidden rounded-full" style={{ background: 'rgba(0,0,0,0.07)' }}>
-                        <div className="h-full rounded-full" style={{ width: `${s.score}%`, background: '#0d9488' }} />
-                      </div>
-                      <span className="font-mono" style={{ fontSize: '11px', color: '#0d9488', width: '1.75rem', textAlign: 'right' }}>{s.score}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Should-cost card */}
-              <div
-                className="rounded-2xl px-5 py-4"
-                style={{
-                  background: 'white',
-                  border:     '1px solid rgba(0,0,0,0.08)',
-                  boxShadow:  '0 2px 16px rgba(0,0,0,0.07)',
-                }}
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p style={{ fontSize: '11px', color: 'rgba(0,0,0,0.38)' }}>Should-cost estimate</p>
-                    <p className="mt-0.5 font-display font-bold" style={{ fontSize: '1.25rem', color: '#0f1b2d' }}>
-                      ₹12.4L{' '}
-                      <span style={{ fontSize: '0.85rem', fontWeight: 400, color: 'rgba(0,0,0,0.38)' }}>
-                        / assembly
-                      </span>
-                    </p>
-                  </div>
-                  <span
-                    className="rounded-full px-3 py-1 text-[11px] font-semibold"
-                    style={{ background: 'rgba(16,185,129,0.10)', color: '#059669' }}
-                  >
-                    −18% vs. quote
-                  </span>
-                </div>
-              </div>
-
+              <CircularGallery
+                radius={240}
+                autoRotateSpeed={0.04}
+                items={[
+                  {
+                    label: 'Design Intelligence',
+                    sub: 'Live DFM · CAD-integrated cost feedback',
+                    photo: { url: '/assets/cards/solution/card/design.png', text: 'Design intelligence card', pos: 'center top' },
+                  },
+                  {
+                    label: 'Supplier Intelligence',
+                    sub: 'Rank 1,000+ suppliers in seconds',
+                    photo: { url: '/assets/cards/solution/card/supler.png', text: 'Supplier network card', pos: 'center top' },
+                  },
+                  {
+                    label: 'Cost Intelligence',
+                    sub: 'Should-cost engine · 72K data points',
+                    photo: { url: '/assets/cards/solution/card/cost.png', text: 'Cost intelligence card', pos: 'center top' },
+                  },
+                  {
+                    label: 'Risk Management',
+                    sub: 'OTIF heatmap · live disruption alerts',
+                    photo: { url: '/assets/cards/solution/card/risk.png', text: 'Risk management card', pos: 'center top' },
+                  },
+                  {
+                    label: 'VAVE',
+                    sub: 'AI-driven value engineering',
+                    photo: { url: '/assets/cards/solution/card/vave.png', text: 'VAVE card', pos: 'center top' },
+                  },
+                  {
+                    label: 'Order Tracking',
+                    sub: 'Real-time project & delivery status',
+                    photo: { url: '/assets/cards/solution/card/status.png', text: 'Order tracking card', pos: 'center top' },
+                  },
+                ]}
+              />
             </motion.div>
 
           </div>

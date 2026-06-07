@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { ShieldCheck, BarChart2, Search, Star, Wrench } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
+import { SectionDivider } from '@/components/products/SectionDivider'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -42,23 +43,26 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
   const maxT = Math.max(...TREND)
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: '#0c1117' }}>
+    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0fdf9 100%)', border: '1px solid rgba(20,184,166,0.18)', boxShadow: '0 0 20px rgba(45,212,191,0.12),0 0 60px rgba(45,212,191,0.06),0 24px 64px rgba(0,0,0,0.06)' }}>
+
+      {/* Grid background */}
+      <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(13,148,136,0.07) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
 
       {/* Teal glow */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 55% 45% at 50% 0%, rgba(20,184,166,0.12) 0%, transparent 100%)' }} />
+      <div className="absolute inset-x-0 top-0 h-28 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 65% 55% at 50% 0%, rgba(45,212,191,0.13) 0%, transparent 80%)' }} />
 
       {/* Chrome bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/[0.07]">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: '#d9f2ee' }}>
         <div className="flex gap-1.5">
-          <span className="h-2 w-2 rounded-full bg-red-400/60" />
-          <span className="h-2 w-2 rounded-full bg-amber-400/60" />
-          <span className="h-2 w-2 rounded-full bg-emerald-400/60" />
+          <span className="h-2 w-2 rounded-full bg-red-300/80" />
+          <span className="h-2 w-2 rounded-full bg-amber-300/80" />
+          <span className="h-2 w-2 rounded-full bg-emerald-300/80" />
         </div>
-        <span className="text-[10px] font-mono text-white/30 tracking-widest">QUALITY GUARD · LIVE INSPECTION</span>
-        <div className="flex items-center gap-1 text-[10px] text-teal-400">
-          <span className="h-1.5 w-1.5 rounded-full bg-teal-400 animate-pulse" />
-          AI
+        <span className="text-[10px] font-mono tracking-widest" style={{ color: '#94a3b8' }}>QUALITY GUARD · INSPECTION</span>
+        <div className="flex items-center gap-1">
+          <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: '#2dd4bf' }} />
+          <span className="text-[10px] font-mono" style={{ color: '#0d9488' }}>AI</span>
         </div>
       </div>
 
@@ -68,36 +72,36 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
         <div className="flex gap-4 flex-1">
 
           {/* Scan panel */}
-          <div className="relative w-28 h-full rounded-xl overflow-hidden border border-white/[0.08] flex items-center justify-center shrink-0"
-            style={{ background: 'rgba(255,255,255,0.02)' }}>
-            <ShieldCheck className="w-12 h-12 text-white/15" />
+          <div className="relative w-28 h-full rounded-xl overflow-hidden flex items-center justify-center shrink-0"
+            style={{ background: '#f0fdf9', border: '1px solid #d9f2ee' }}>
+            <ShieldCheck className="w-12 h-12" style={{ color: '#d9f2ee' }} />
             {/* Scan line */}
             <motion.div
               className="absolute left-0 right-0 h-0.5"
-              style={{ background: 'rgba(20,184,166,0.85)', boxShadow: '0 0 12px rgba(20,184,166,0.9)' }}
+              style={{ background: 'rgba(20,184,166,0.85)', boxShadow: '0 0 12px rgba(20,184,166,0.7)' }}
               animate={{ top: ['10%', '90%', '10%'] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             />
             {/* Scanned overlay */}
             <motion.div
               className="absolute left-0 right-0 top-0"
-              style={{ background: 'rgba(20,184,166,0.1)' }}
+              style={{ background: 'rgba(20,184,166,0.08)' }}
               animate={{ height: ['10%', '90%', '10%'] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             />
             {/* Corner markers */}
             {[['top-2 left-2', 'border-t border-l'], ['top-2 right-2', 'border-t border-r'],
               ['bottom-2 left-2', 'border-b border-l'], ['bottom-2 right-2', 'border-b border-r']].map(([pos, border], i) => (
-              <div key={i} className={`absolute ${pos} w-3 h-3 ${border} border-teal-500/50`} />
+              <div key={i} className={`absolute ${pos} w-3 h-3 ${border}`} style={{ borderColor: 'rgba(13,148,136,0.4)' }} />
             ))}
-            <div className="absolute bottom-2 inset-x-0 text-center text-[8px] font-mono text-teal-400/70">SCANNING</div>
+            <div className="absolute bottom-2 inset-x-0 text-center text-[8px] font-mono" style={{ color: '#0d9488' }}>SCANNING</div>
           </div>
 
           {/* Defect trend chart */}
           <div className="flex-1">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[9px] font-mono text-white/30 uppercase tracking-widest">Defect trend</span>
-              <span className="text-[9px] font-mono text-teal-400">↓ improving</span>
+              <span className="text-[9px] font-mono uppercase tracking-widest" style={{ color: '#94a3b8' }}>Defect trend</span>
+              <span className="text-[9px] font-mono" style={{ color: '#0d9488' }}>↓ improving</span>
             </div>
             <div className="relative flex items-end gap-[3px]" style={{ height: 60 }}>
               {TREND.map((v, i) => (
@@ -110,22 +114,22 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
                   style={{
                     height: `${(v / maxT) * 100}%`,
                     background: i >= 8
-                      ? 'rgba(20,184,166,0.55)'
-                      : `rgba(239,68,68,${0.15 + (v / maxT) * 0.35})`,
+                      ? 'rgba(13,148,136,0.50)'
+                      : `rgba(239,68,68,${0.12 + (v / maxT) * 0.28})`,
                   }}
                 />
               ))}
             </div>
             <div className="flex justify-between mt-1">
-              <span className="text-[8px] text-white/20 font-mono">12 wks ago</span>
-              <span className="text-[8px] text-white/20 font-mono">now</span>
+              <span className="text-[8px] font-mono" style={{ color: '#94a3b8' }}>12 wks ago</span>
+              <span className="text-[8px] font-mono" style={{ color: '#94a3b8' }}>now</span>
             </div>
           </div>
         </div>
 
         {/* Supplier quality table */}
         <div>
-          <div className="text-[9px] font-mono text-white/25 uppercase tracking-widest mb-2">Supplier quality scores</div>
+          <div className="text-[9px] font-mono uppercase tracking-widest mb-2" style={{ color: '#94a3b8' }}>Supplier quality scores</div>
           <div className="space-y-1.5">
             {SUPPLIERS.map(({ name, score, yield: yld, defects, status }, i) => {
               const sc = STATUS_COLOR[status]
@@ -135,12 +139,12 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
                   initial={{ opacity: 0, x: -8 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.45, delay: 0.5 + i * 0.1, ease: EASE }}
-                  className="flex items-center gap-3 rounded-lg px-3 py-1.5 border border-white/[0.06]"
-                  style={{ background: 'rgba(255,255,255,0.02)' }}
+                  className="flex items-center gap-3 rounded-lg px-3 py-1.5 border"
+                  style={{ background: '#ffffff', borderColor: '#d9f2ee' }}
                 >
-                  <span className="text-[10px] font-medium text-white/55 w-28 truncate">{name}</span>
+                  <span className="text-[10px] font-medium w-28 truncate" style={{ color: '#0f1b2d' }}>{name}</span>
                   {/* Score bar */}
-                  <div className="flex-1 h-1.5 bg-white/[0.07] rounded-full overflow-hidden">
+                  <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(13,148,136,0.10)' }}>
                     <motion.div
                       className="h-full rounded-full"
                       initial={{ width: 0 }}
@@ -150,8 +154,8 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
                     />
                   </div>
                   <span className="text-[9px] font-mono w-6 text-right" style={{ color: sc.dot }}>{score}</span>
-                  <span className="text-[9px] font-mono text-white/30 w-10 text-center">{yld}</span>
-                  <span className="text-[9px] font-mono" style={{ color: defects > 10 ? '#ef4444' : '#f59e0b', opacity: defects > 10 ? 1 : 0.7 }}>
+                  <span className="text-[9px] font-mono w-10 text-center" style={{ color: '#94a3b8' }}>{yld}</span>
+                  <span className="text-[9px] font-mono" style={{ color: defects > 10 ? '#ef4444' : '#f59e0b', opacity: defects > 10 ? 1 : 0.8 }}>
                     {defects}d
                   </span>
                   <span className="text-[8px] font-mono font-bold" style={{ color: sc.dot }}>{sc.label}</span>
@@ -163,16 +167,18 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t border-white/[0.06]">
+      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['99.1%', 'best yield'], ['−71%', 'defects (12wk)'], ['1', 'CAPA open']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
-            <span className="text-xs font-semibold text-teal-400">{val}</span>
-            <span className="text-[10px] text-white/30">{lbl}</span>
+            <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
+            <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>
           </div>
         ))}
-        <div className="ml-auto flex items-center gap-1 text-[10px] text-white/25">
-          <span className="h-1 w-1 rounded-full bg-teal-400 animate-pulse" />
-          scanning
+        <div className="ml-auto">
+          <span className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold"
+            style={{ background: 'rgba(45,212,191,0.12)', color: '#0d9488' }}>
+            scanning
+          </span>
         </div>
       </div>
     </div>
@@ -197,14 +203,14 @@ export default function QualityGuardSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-12">
 
         {/* ── Two-column layout ── */}
-        <div className="relative flex flex-col lg:flex-row gap-16 pb-0 group">
+        <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">
 
           {/* ── LEFT ─────────────────────────────────────────────── */}
           <div className="lg:w-5/12 relative z-10">
-            <div className="sticky top-28">
+            <div className="lg:sticky lg:top-28">
 
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -252,7 +258,7 @@ export default function QualityGuardSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="hidden lg:block h-[340px] w-full rounded-2xl overflow-hidden"
+                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <QualityGuardViz inView={inView} />
@@ -261,7 +267,7 @@ export default function QualityGuardSection() {
           </div>
 
           {/* ── RIGHT ─────────────────────────────────────────────── */}
-          <div className="lg:w-7/12 space-y-5 z-10">
+          <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
             {/* Capabilities */}
             <motion.div
@@ -332,6 +338,7 @@ export default function QualityGuardSection() {
           </div>
         </div>
       </div>
+      <SectionDivider />
     </section>
   )
 }
