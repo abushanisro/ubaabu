@@ -1,36 +1,50 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
 import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer";
 
+type FooterLink = {
+  title: string;
+  href: string;
+  pulse?: boolean;
+};
+
+const platformLinks: FooterLink[] = [
+  { title: "CAD to Cost", href: "/blogs/cad-to-cost" },
+  { title: "Should Cost Analysis", href: "/blogs/should-cost-analysis" },
+  { title: "Supplier Intelligence", href: "/blogs/supplier-intelligence" },
+  { title: "Production Tracking", href: "/blogs/production-tracking" },
+  { title: "Quality & PPAP", href: "/blogs/quality-and-ppap" },
+  { title: "Manufacturing Analytics", href: "/blogs/analytics" },
+];
+
+const industryLinks: FooterLink[] = [
+  { title: "Space Manufacturing", href: "/blogs/space-manufacturing" },
+  { title: "Defence Manufacturing", href: "/blogs/defence-manufacturing" },
+  { title: "Aerospace Manufacturing", href: "/blogs/aerospace-manufacturing" },
+  { title: "Automotive Manufacturing", href: "/blogs/automotive-manufacturing" },
+  { title: "Precision Manufacturing", href: "/blogs/precision-manufacturing-intelligence" },
+];
+
 const footerLinks = [
   {
     title: "Platform",
-    links: [
-      { label: "CAD to Cost",           href: "#" },
-      { label: "Should Cost Analysis",  href: "#" },
-      { label: "Supplier Intelligence", href: "#" },
-      { label: "Production Tracking",   href: "#" },
-      { label: "Quality & PPAP",        href: "#" },
-      { label: "Analytics",             href: "#" },
-    ],
+    links: platformLinks,
+    useNextLink: true,
   },
   {
     title: "Industries",
-    links: [
-      { label: "Space",                   href: "#" },
-      { label: "Defence",                 href: "#" },
-      { label: "Aerospace",               href: "#" },
-      { label: "Precision Manufacturing", href: "#" },
-    ],
+    links: industryLinks,
+    useNextLink: true,
   },
   {
     title: "Company",
     links: [
-      { label: "About",   href: "#" },
-      { label: "Careers", href: "#", pulse: true },
-      { label: "Contact", href: "#" },
-      { label: "Blog",    href: "#" },
+      { title: "About", href: "#" },
+      { title: "Careers", href: "#", pulse: true },
+      { title: "Contact", href: "#" },
+      { title: "Blog", href: "#" },
     ],
   },
 ];
@@ -53,11 +67,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#080808] relative overflow-hidden rounded-t-3xl m-0">
       <div className="max-w-[1280px] mx-auto px-8 pt-16 z-40 relative">
-
-
         {/* ── Main columns ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.07]">
-
           {/* Brand + contact */}
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <div className="flex items-center gap-2">
@@ -89,13 +100,22 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 {section.links.map((link) => (
-                  <li key={link.label} className="relative">
-                    <a
-                      href={link.href}
-                      className="text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors"
-                    >
-                      {link.label}
-                    </a>
+                  <li key={link.title} className="relative">
+                    {section.useNextLink ? (
+                      <Link
+                        href={link.href}
+                        className="text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors"
+                      >
+                        {link.title}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors"
+                      >
+                        {link.title}
+                      </a>
+                    )}
                     {link.pulse && (
                       <span className="absolute top-0.5 -right-3 flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0d9e8a] opacity-75" />

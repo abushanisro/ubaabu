@@ -365,6 +365,7 @@ function HiddenCosts() {
                     className="object-cover w-full rounded-2xl block"
                     style={{ height: '420px', objectPosition: 'center' }}
                   />
+
                 </motion.div>
 
               </div>
