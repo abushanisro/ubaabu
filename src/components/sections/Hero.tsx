@@ -133,7 +133,7 @@ export default function Hero() {
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
       {/* ── Partner logos — fills the bottom gap ── */}
-      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-black/[0.06] bg-white/80 backdrop-blur-sm py-5">
+      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-b border-black/[0.06] bg-white/80 backdrop-blur-sm py-5">
         <style>{`
           @keyframes marquee-p { from { transform: translateX(0) } to { transform: translateX(-50%) } }
           .marquee-p { animation: marquee-p 32s linear infinite; will-change: transform; }

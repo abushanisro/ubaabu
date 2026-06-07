@@ -65,7 +65,7 @@ export default function HeroAndProblem() {
         <div
           ref={heroRef}
           className="relative mx-auto max-w-[1200px] px-6 flex flex-col justify-center"
-          style={{ paddingTop: 'clamp(4.5rem, 9vw, 7rem)', paddingBottom: 'clamp(3rem, 5vw, 4.5rem)' }}
+          style={{ paddingTop: 'clamp(6rem, 11vw, 9rem)', paddingBottom: 'clamp(1.5rem, 2.5vw, 2.5rem)' }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
@@ -112,79 +112,62 @@ export default function HeroAndProblem() {
                 </a>
               </motion.div>
 
-              {/* Secondary callout card */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.7, delay: 0.55, ease: EASE }}
-                className="mt-8 inline-flex flex-col gap-1 rounded-2xl border border-black/[0.08] bg-[#f3f7f9] px-5 py-4"
-              >
-                <span className="text-[10px] font-semibold uppercase tracking-widest text-[#2dd4bf]">For Manufacturing Teams</span>
-                <p className="max-w-xs text-[13px] leading-snug text-[#0f1b2d]/55">
-                  From design-to-cost to supplier tracking — built for OEMs, tier-1 and tier-2 manufacturers across India.
-                </p>
-                <a href="/solutions" className="mt-1 inline-flex items-center gap-1 text-[12px] font-medium text-[#2dd4bf] hover:underline">
-                  Explore solutions
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-              </motion.div>
             </div>
 
-            {/* ── Right: floating platform preview card ── */}
+            {/* ── Right: dashboard preview images ── */}
             <motion.div
               initial={{ opacity: 0, y: 32, scale: 0.97 }}
               animate={heroInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 1, delay: 0.35, ease: EASE }}
-              className="hidden lg:flex flex-col gap-3"
+              className="hidden lg:flex items-center justify-center relative"
+              style={{ perspective: '900px', paddingRight: '1.5rem' }}
             >
-              {/* Top metric cards row */}
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { label: 'Avg. cost reduction', value: '18%', sub: 'across active BOMs' },
-                  { label: 'RFQ cycle time', value: '−62%', sub: 'vs. manual process' },
-                ].map((m) => (
-                  <div key={m.label} className="rounded-2xl border bg-white p-5" style={{ borderColor: 'rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.06),0 4px 16px rgba(0,0,0,0.06)' }}>
-                    <p style={{ fontSize: 11, color: 'rgba(15,27,45,0.5)' }}>{m.label}</p>
-                    <p className="mt-1 text-2xl font-bold" style={{ color: '#0d9488' }}>{m.value}</p>
-                    <p style={{ fontSize: 11, color: 'rgba(15,27,45,0.45)' }}>{m.sub}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Main platform preview card */}
-              <div className="rounded-2xl border bg-white p-5" style={{ borderColor: 'rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.06),0 4px 16px rgba(0,0,0,0.06)' }}>
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="font-semibold uppercase tracking-wider" style={{ fontSize: 11, color: 'rgba(15,27,45,0.5)' }}>Supplier Radar</span>
-                  <span className="rounded-full px-2 py-0.5 font-medium" style={{ fontSize: 10, color: '#2dd4bf', background: 'rgba(45,212,191,0.12)' }}>Live</span>
+              <div
+                style={{
+                  transform: 'rotateX(8deg) rotateY(-18deg) skewY(1deg)',
+                  transformStyle: 'preserve-3d',
+                  transformOrigin: 'left center',
+                  maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)',
+                  position: 'relative',
+                  width: '100%',
+                  maxWidth: 420,
+                  paddingBottom: '30px',
+                }}
+              >
+                {/* Image 1 — top */}
+                <div
+                  className="relative rounded-2xl overflow-hidden border"
+                  style={{
+                    borderColor: 'rgba(13,148,136,0.2)',
+                    boxShadow: '0 24px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(13,148,136,0.1)',
+                    zIndex: 1,
+                    marginBottom: '-40px',
+                  }}
+                >
+                  <img
+                    src="/videos/card/ChatGPT Image Jun 7, 2026, 04_37_08 AM.png"
+                    alt="Emithran platform overview"
+                    className="w-full h-auto block"
+                  />
                 </div>
-                {[
-                  { name: 'Precision Parts Ltd.', score: 94, tag: 'Best match' },
-                  { name: 'IndoForge Components', score: 87, tag: 'Shortlisted' },
-                  { name: 'StellarCast Works',   score: 81, tag: 'Shortlisted' },
-                ].map((s, i) => (
-                  <div key={s.name} className="flex items-center justify-between py-2.5" style={{ borderBottom: i < 2 ? '1px solid rgba(0,0,0,0.05)' : 'none' }}>
-                    <div>
-                      <p className="font-medium" style={{ fontSize: 12, color: 'rgba(15,27,45,0.85)' }}>{s.name}</p>
-                      <p style={{ fontSize: 10, color: 'rgba(15,27,45,0.45)' }}>{s.tag}</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div className="h-1 w-16 overflow-hidden rounded-full" style={{ background: 'rgba(0,0,0,0.07)' }}>
-                        <div className="h-full rounded-full" style={{ width: `${s.score}%`, background: '#0d9488' }} />
-                      </div>
-                      <span className="w-7 text-right font-mono" style={{ fontSize: 11, color: '#0d9488' }}>{s.score}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
 
-              {/* Bottom cost card */}
-              <div className="rounded-2xl border bg-white px-5 py-4" style={{ borderColor: 'rgba(0,0,0,0.08)', boxShadow: '0 1px 4px rgba(0,0,0,0.06),0 4px 16px rgba(0,0,0,0.06)' }}>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p style={{ fontSize: 11, color: 'rgba(15,27,45,0.5)' }}>Should-cost estimate</p>
-                    <p className="mt-0.5 text-xl font-bold" style={{ color: '#0f1b2d' }}>₹12.4L <span className="text-sm font-normal" style={{ color: 'rgba(15,27,45,0.45)' }}>/ assembly</span></p>
-                  </div>
-                  <span className="rounded-full px-3 py-1 font-semibold" style={{ fontSize: 11, color: '#10b981', background: 'rgba(16,185,129,0.12)' }}>−18% vs. quote</span>
+                {/* Image 2 — below */}
+                <div
+                  className="relative rounded-2xl overflow-hidden border"
+                  style={{
+                    borderColor: 'rgba(0,0,0,0.08)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+                    zIndex: 0,
+                    marginLeft: '24px',
+                    marginTop: '-100px',
+                  }}
+                >
+                  <img
+                    src="/videos/card/ChatGPT Image Jun 7, 2026, 04_35_49 AM.png"
+                    alt="Emithran dashboard"
+                    className="w-full h-auto block"
+                  />
                 </div>
               </div>
             </motion.div>

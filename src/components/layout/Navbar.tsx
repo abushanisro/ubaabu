@@ -12,13 +12,21 @@ type NavItem = {
 
 const items: NavItem[] = [
   { label: 'Why Emithran?', href: '/why-emithran' },
-  { label: 'Solutions', href: '/solutions' },
+  {
+    label: 'Solutions',
+    href: '/solutions',
+    children: [
+      { label: 'Solutions', href: '/solutions' },
+      { label: 'Partners', href: '/about/partners' },
+    ],
+  },
   {
     label: 'Products',
     href: '/products',
     children: [
-      { label: 'Engineering Support', href: '/products/engineering-support' },
+      { label: 'Products', href: '/products' },
       { label: 'Training', href: '/products/training' },
+      { label: 'Engineering Support', href: '/products/engineering-support' },
     ],
   },
   { label: 'Pricing', href: '/pricing' },
@@ -27,10 +35,7 @@ const items: NavItem[] = [
     href: '/about',
     children: [
       { label: 'About Us', href: '/about' },
-      { label: 'Careers', href: '/about/careers' },
       { label: 'Contact', href: '/contact' },
-      { label: 'Leadership', href: '/about/leadership' },
-      { label: 'Partners', href: '/about/partners' },
     ],
   },
   {

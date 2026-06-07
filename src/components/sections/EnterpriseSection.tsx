@@ -268,7 +268,7 @@ export default function EnterpriseSection() {
     if (!el) return
     const io = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setSplineVisible(true); io.disconnect() } },
-      { rootMargin: '200px 0px', threshold: 0 }
+      { rootMargin: '800px 0px', threshold: 0 }
     )
     io.observe(el)
     return () => io.disconnect()
