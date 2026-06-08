@@ -13,7 +13,7 @@ export interface BlogPost {
 
 export const POSTS: BlogPost[] = [
   {
-    slug: 'should-cost-analysis-manufacturing',
+    slug: 'should-cost-analysis-supplier-negotiation',
     title: "How Should-Cost Analysis Is Rewriting the Rules of Supplier Negotiation",
     excerpt:
       "When procurement teams negotiate from real cost intelligence rather than market quotes, win rates improve dramatically. Here is how Emithran's Should-Cost Engine changes the dynamic.",
