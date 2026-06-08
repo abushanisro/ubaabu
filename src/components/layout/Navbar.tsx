@@ -40,11 +40,10 @@ const items: NavItem[] = [
   },
   {
     label: 'Resources',
-    href: '/resources',
     children: [
-      { label: 'Blogs', href: '/resources/blogs' },
-      { label: 'Case Studies', href: '/resources/case-studies' },
-      { label: 'FAQs', href: '/resources/faqs' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Case Studies', href: '/case-studies' },
+      { label: 'FAQ', href: '/faq' },
     ],
   },
 ]

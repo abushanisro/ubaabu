@@ -216,14 +216,22 @@ export default function QualityGuardSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.55, ease: EASE }}
-                className="relative w-16 h-16 rounded-2xl mb-6 flex items-center justify-center overflow-hidden"
-                style={{ background: 'linear-gradient(135deg, #f0fdf4 0%, #ccfbf1 100%)', border: '1px solid rgba(20,184,166,0.25)' }}
+                className="flex items-center justify-center rounded-lg shrink-0 mb-6"
+                style={{
+                  width: 44, height: 44,
+                  background: 'rgba(240,253,249,0.9)',
+                  backdropFilter: 'blur(12px)',
+                  border: '1px solid rgba(20,184,166,0.22)',
+                  boxShadow: 'rgba(0,0,0,0.06) 0px 2px 6px, rgba(255,255,255,0.75) 0px 1px 0px inset',
+                }}
               >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: 'linear-gradient(135deg, rgba(20,184,166,0.15), rgba(20,184,166,0.05))' }} />
-                <ShieldCheck className="w-7 h-7 text-teal-600 relative z-10" />
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ boxShadow: '0 0 0 6px rgba(20,184,166,0.08)' }} />
+                <svg width="26" height="26" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ overflow: 'visible' }}>
+                  <rect x="8" y="4" width="24" height="22" rx="4" fill="rgba(45,212,191,0.15)" />
+                  <rect x="8" y="4" width="24" height="6" rx="2" fill="#2dd4bf" />
+                  <rect x="12" y="15" width="16" height="3" rx="1.5" fill="#0d9488" />
+                  <rect x="12" y="21" width="12" height="2" rx="1" fill="#0d9488" opacity="0.5" />
+                  <rect x="16" y="30" width="8" height="6" rx="2" fill="#0f1b2d" />
+                </svg>
               </motion.div>
 
               <motion.p

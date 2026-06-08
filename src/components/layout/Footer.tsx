@@ -72,7 +72,7 @@ export default function Footer() {
           {/* Brand + contact */}
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <div className="flex items-center gap-2">
-              <span className="flex h-7 w-7 items-center justify-center rounded bg-[#0d9e8a] text-white text-xs font-black">E</span>
+              <img src="/assets/infographics/logo/logo-black.png" alt="Emithran" className="h-7 w-auto" />
               <span className="text-white text-xl font-bold tracking-wide">EMITHRAN</span>
             </div>
             <p className="text-sm text-white/40 leading-relaxed max-w-[280px]">

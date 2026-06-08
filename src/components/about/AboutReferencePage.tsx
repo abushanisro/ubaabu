@@ -172,52 +172,108 @@ export default function AboutReferencePage() {
         .em-about-drift { animation: em-about-drift 6s ease-in-out infinite; }
       `}</style>
 
-      <section className="relative overflow-hidden border-b border-black/90 bg-white">
-        <div className="em-about-grid absolute inset-0 opacity-60" />
-        <div className="em-about-noise relative" />
-        <div className="pointer-events-none absolute right-6 top-6 hidden md:block">
-          <div className="rotate-[-6deg] border-2 border-[#0fb5a8] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[#0fb5a8]">
-            File &middot; EMI / about-us / v3.4
-          </div>
+      {/* ── Hero ─────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-white min-h-[88vh] flex items-center">
+
+        {/* Right-half SVG background */}
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block overflow-hidden">
+          <img
+            src="/assets/cards/about/about.svg"
+            alt=""
+            aria-hidden="true"
+            className="select-none w-full h-full object-cover object-left"
+          />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 pb-24 pt-20 md:pt-28">
-          <Reveal>
-            <div className="font-mono text-xs uppercase tracking-[0.28em] text-black/60">
-              <span className="em-about-dot inline-block h-2 w-2 -translate-y-[1px] rounded-full bg-[#0fb5a8] align-middle" />{" "}
-              <span className="ml-2">About &middot; Emithran</span>
+        {/* Mobile: SVG as bottom band */}
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 lg:hidden overflow-hidden">
+          <img
+            src="/assets/cards/about/about.svg"
+            alt=""
+            aria-hidden="true"
+            className="select-none w-full h-full object-cover object-bottom"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, white 0%, transparent 100%)' }} />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl w-full px-6 lg:px-10 py-14">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+            {/* Left — pure white, text on white */}
+            <div>
+              <Reveal delay={100}>
+                <h1 className="text-5xl md:text-6xl xl:text-[72px] font-bold leading-[1.04] tracking-tight text-[#0f1b2d]">
+                  Manufacturing<br />intelligence,<br />built on the<br />
+                  <span style={{ color: '#0d9488' }}>shop floor.</span>
+                </h1>
+              </Reveal>
+
+              <Reveal delay={200}>
+                <p className="mt-6 max-w-[440px] text-[17px] leading-relaxed text-black/60">
+                  Built by engineers who lived the problem — for India&rsquo;s precision manufacturers
+                  and the global OEMs they serve.
+                </p>
+              </Reveal>
+
+              <Reveal delay={280}>
+                <div className="mt-10">
+                  <a
+                    href="#demo"
+                    className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
+                    style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)' }}
+                  >
+                    Request a Demo <span aria-hidden>&gt;</span>
+                  </a>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+
+            {/* Right — card floats over the SVG background */}
+            <Reveal delay={180}>
+              <div
+                className="relative rounded-2xl p-6"
+                style={{
+                  background: 'rgba(255,255,255,0.72)',
+                  backdropFilter: 'blur(16px)',
+                  border: '1px solid rgba(255,255,255,0.6)',
+                  boxShadow: '0 24px 64px rgba(0,0,0,0.10), 0 0 0 1px rgba(20,184,166,0.08)',
+                }}
+              >
+                <HandSchematic />
+              </div>
+            </Reveal>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── Story section ────────────────────────────────── */}
+      <section className="relative overflow-hidden border-b border-black/10 bg-white">
+        <div className="em-about-grid absolute inset-0 opacity-50" />
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-10 py-14 md:py-16">
 
           <Reveal delay={120}>
-            <h1 className="mt-6 font-serif text-[42px] leading-[1.02] tracking-tight md:text-[88px]">
+            <h2 className="font-serif text-[36px] leading-[1.05] tracking-tight md:text-[64px]">
               We didn&rsquo;t learn manufacturing
               <br />
               from a <span className="em-about-underline">deck</span>. We learned it
               <br />
               from the <span className="em-about-marker">shop floor</span>.
-            </h1>
+            </h2>
           </Reveal>
 
           <Reveal delay={240}>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-black/75 md:text-xl">
-              Emithran is transforming manufacturing with data, intelligence, and automation - built
-              for India&rsquo;s precision manufacturers and the global OEMs they serve.
-            </p>
-          </Reveal>
-
-          <Reveal delay={360}>
-            <div className="relative mt-14 max-w-3xl">
+            <div className="relative mt-10 max-w-3xl">
               <div className="em-about-tape absolute -top-3 left-10 h-6 w-24 rotate-[-4deg]" />
               <div className="em-about-tape absolute -top-3 right-12 h-6 w-20 rotate-[5deg]" />
-              <blockquote className="em-about-pull bg-white p-7 font-serif text-2xl italic leading-snug text-black md:text-3xl">
+              <blockquote className="em-about-pull bg-white p-7 font-serif text-xl italic leading-snug text-black md:text-2xl">
                 &ldquo;Emithran is rewriting the rules of manufacturing intelligence for the next
                 generation of global OEMs.&rdquo;
               </blockquote>
             </div>
           </Reveal>
 
-          <div className="mt-16 grid gap-10 md:grid-cols-12">
+          <div className="mt-12 grid gap-10 md:grid-cols-12">
             <Reveal className="md:col-span-7">
               <p className="text-[15.5px] leading-[1.85] text-black/85">
                 Emithran wasn&rsquo;t born in a boardroom. It was built on the shop floor. Our
@@ -237,27 +293,76 @@ export default function AboutReferencePage() {
                 need and what manufacturers could communicate.
               </p>
               <p className="mt-5 font-serif text-2xl italic text-[#0d8076]">So we built it.</p>
+              <p className="mt-6 text-[15.5px] leading-[1.85] text-black/85">
+                Emithran is an AI-driven manufacturing intelligence platform that bridges
+                end-to-end operations and the clients they serve. We automate the coordination
+                overhead, surface cost decisions at the design stage, match the right suppliers to
+                the right parts, and give every stakeholder - engineer, procurement lead, client -
+                the same ground truth in real time.
+              </p>
+              <p className="mt-5 text-[15.5px] leading-[1.85] text-black/85">
+                We&rsquo;re building for India first because we are India&rsquo;s manufacturing
+                engineers.{" "}
+                <span className="em-about-marker">But we&rsquo;re building for the world.</span>
+              </p>
             </Reveal>
 
             <Reveal delay={150} className="md:col-span-5">
-              <HandSchematic />
+              <div className="relative pt-12">
+
+                {/* LinkedIn badge — Person 1: Singaravelan */}
+                <a
+                  href="https://www.linkedin.com/in/singaravelan-srinivasan-emuski/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute z-20 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-white shadow-md hover:opacity-90 transition-opacity whitespace-nowrap"
+                  style={{ left: '3%', top: -10, background: '#0077b5' }}
+                >
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  Singaravelan
+                </a>
+
+                {/* LinkedIn badge — Person 2: Abushan */}
+                <a
+                  href="https://www.linkedin.com/in/abushan/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute z-20 flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-white shadow-md hover:opacity-90 transition-opacity whitespace-nowrap"
+                  style={{ left: '24%', top: 24, background: '#0077b5' }}
+                >
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  Abushan
+                </a>
+
+                {/* Straight vertical dotted arrows */}
+                <svg
+                  className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ overflow: 'visible' }}
+                >
+                  <defs>
+                    <marker id="li-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                      <path d="M0,1 L6,4 L0,7" fill="none" stroke="#0077b5" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                    </marker>
+                  </defs>
+                  <line x1="13%" y1="16" x2="13%" y2="38%"
+                    stroke="#0077b5" strokeWidth="1.3" strokeDasharray="4 3"
+                    markerEnd="url(#li-arrow)" />
+                  <line x1="29%" y1="46" x2="29%" y2="28%"
+                    stroke="#0077b5" strokeWidth="1.3" strokeDasharray="4 3"
+                    markerEnd="url(#li-arrow)" />
+                </svg>
+
+                <img
+                  src="/assets/cards/about/about-us.png"
+                  alt="About Emithran"
+                  className="w-full h-auto rounded-xl"
+                  style={{ boxShadow: '0 16px 48px rgba(0,0,0,0.08)' }}
+                />
+              </div>
             </Reveal>
           </div>
 
-          <Reveal delay={200}>
-            <p className="mt-12 max-w-3xl text-[15.5px] leading-[1.85] text-black/85">
-              Emithran is an AI-driven manufacturing intelligence platform that bridges end-to-end
-              operations and the clients they serve. We automate the coordination overhead, surface
-              cost decisions at the design stage, match the right suppliers to the right parts, and
-              give every stakeholder - engineer, procurement lead, client - the same ground truth in
-              real time.
-            </p>
-            <p className="mt-5 max-w-3xl text-[15.5px] leading-[1.85] text-black/85">
-              We&rsquo;re building for India first because we are India&rsquo;s manufacturing
-              engineers.{" "}
-              <span className="em-about-marker">But we&rsquo;re building for the world.</span>
-            </p>
-          </Reveal>
         </div>
       </section>
 
@@ -270,7 +375,7 @@ export default function AboutReferencePage() {
             backgroundSize: "56px 56px",
           }}
         />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="relative mx-auto max-w-7xl px-6 py-14 md:py-16">
           <Reveal>
             <div className="font-mono text-xs uppercase tracking-[0.28em] text-[#0fb5a8]">
               &sect; 02 &middot; what you get
@@ -325,7 +430,7 @@ export default function AboutReferencePage() {
 
       <section className="relative overflow-hidden bg-white">
         <div className="em-about-grid absolute inset-0 opacity-40" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="relative mx-auto max-w-7xl px-6 py-14 md:py-16">
           <div className="grid items-end gap-8 md:grid-cols-12">
             <Reveal className="md:col-span-7">
               <div className="font-mono text-xs uppercase tracking-[0.28em] text-black/60">
@@ -380,7 +485,7 @@ export default function AboutReferencePage() {
 
       <section className="relative overflow-hidden border-y border-black bg-[#f6f5f1]">
         <div className="em-about-noise absolute inset-0" />
-        <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="relative mx-auto max-w-7xl px-6 py-14 md:py-16">
           <div className="grid gap-12 md:grid-cols-12">
             <Reveal className="md:col-span-6">
               <div className="font-mono text-xs uppercase tracking-[0.28em] text-black/60">
@@ -456,7 +561,7 @@ export default function AboutReferencePage() {
         <div className="em-about-drift absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-[#0fb5a8]/20 blur-3xl" />
         <div className="em-about-drift absolute -bottom-40 -left-32 h-[420px] w-[420px] rounded-full bg-[#0fb5a8]/10 blur-3xl" />
 
-        <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-40">
+        <div className="relative mx-auto max-w-6xl px-6 py-14 md:py-40">
           <Reveal>
             <div className="font-mono text-xs uppercase tracking-[0.28em] text-[#5fe3d4]">
               &sect; 05 &middot; let&rsquo;s build
@@ -501,10 +606,6 @@ export default function AboutReferencePage() {
             </div>
           </Reveal>
 
-          <div className="mt-20 flex items-center gap-4 font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
-            <span className="h-px w-12 bg-white/30" />
-            Emithran &middot; Chennai &rarr; the world
-          </div>
         </div>
       </section>
     </main>
@@ -542,16 +643,16 @@ function HandSchematic() {
         Sketch &middot; 0042 - &ldquo;the loop&rdquo;
       </div>
       <svg
-        viewBox="0 0 420 320"
+        viewBox="0 0 480 320"
         className="h-auto w-full"
-        style={{ filter: "drop-shadow(4px 4px 0 rgba(0,0,0,0.08))" }}
+        style={{ filter: "drop-shadow(4px 4px 0 rgba(0,0,0,0.08))", overflow: 'visible' }}
       >
         <defs>
           <pattern id="about-dotgrid" width="14" height="14" patternUnits="userSpaceOnUse">
             <circle cx="1" cy="1" r="1" fill="rgba(0,0,0,0.18)" />
           </pattern>
         </defs>
-        <rect x="0" y="0" width="420" height="320" fill="url(#about-dotgrid)" />
+        <rect x="0" y="0" width="480" height="320" fill="url(#about-dotgrid)" />
 
         {[
           { x: 70, y: 90, label: "DESIGN" },
