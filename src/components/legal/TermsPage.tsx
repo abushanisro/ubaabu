@@ -418,7 +418,7 @@ export default function TermsPage() {
 
           <H3 id="s2-3">2.3 Third-Party Software</H3>
           <Para>
-            Certain components of the Services incorporate open-source or third-party software licensed under their own terms. A list of material third-party components and their licences is available at <TealLink href="/legal/oss">emithran.in/legal/oss</TealLink>. Nothing in this Agreement limits rights that cannot be restricted under applicable open-source licences.
+            Certain components of the Services incorporate open-source or third-party software licensed under their own terms. A list of material third-party components and their licences is available on request via <TealLink href="mailto:contact@emithran.in">contact@emithran.in</TealLink>. Nothing in this Agreement limits rights that cannot be restricted under applicable open-source licences.
           </Para>
           <Divider />
 

@@ -35,7 +35,7 @@ const items: NavItem[] = [
     href: '/about',
     children: [
       { label: 'About Us', href: '/about' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Contact', href: '/contact?source=navbar&cta=contact' },
     ],
   },
   {
@@ -126,7 +126,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="/contact"
+            href="/contact?source=navbar&cta=contact-us"
             className="rounded-md border border-black/15 px-4 py-2 text-sm font-semibold text-[#0d1117] hover:bg-black/[0.04] transition-colors whitespace-nowrap"
           >
             Contact Us
@@ -193,14 +193,14 @@ export default function Navbar() {
             )
           )}
           <a
-            href="/contact"
+            href="/contact?source=navbar&cta=contact-us"
             className="mt-2 block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-[#0d1117] border border-black/15 hover:bg-black/[0.04] transition-colors"
             onClick={() => setMobileOpen(false)}
           >
             Contact Us
           </a>
           <a
-            href="/contact"
+            href="/request-demo"
             className="mt-2 block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-white hover:opacity-85 transition-opacity"
             style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
             onClick={() => setMobileOpen(false)}

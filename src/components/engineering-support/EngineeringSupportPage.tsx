@@ -68,14 +68,14 @@ const cards = [
     title: 'On-site engineering support',
     body: 'We deploy our engineers directly to your facility — working alongside your team on the floor, resolving issues hands-on, and continuing remote support through the Emithran platform.',
     cta: 'Talk to our team',
-    href: '/contact',
+    href: '/contact?source=engineering-support&cta=talk-to-our-team',
   },
   {
     Icon: IconPriority,
     title: 'Priority support',
     body: 'Access a dedicated support channel with SLA-backed response times and direct escalation paths for critical production issues.',
     cta: 'View support plans',
-    href: '/contact',
+    href: '/contact?source=engineering-support&cta=view-support-plans',
   },
   {
     Icon: IconPartner,
@@ -89,14 +89,14 @@ const cards = [
     title: 'Technology integration',
     body: 'Connect Emithran to your existing ERP, MES, or SCM systems through our verified technology partner ecosystem.',
     cta: 'Browse integrations',
-    href: '/contact',
+    href: '/contact?source=engineering-support&cta=browse-integrations',
   },
   {
     Icon: IconManaged,
     title: 'Managed services',
     body: 'Accelerate deployment and adoption with our in-house professional services team for custom configurations and go-live support.',
     cta: 'Learn more',
-    href: '/contact',
+    href: '/contact?source=engineering-support&cta=learn-more',
   },
 ]
 
@@ -149,7 +149,7 @@ export default function EngineeringSupportPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="/contact"
+                href="/contact?source=engineering-support&cta=talk-to-an-expert"
                 className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
                 style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
               >
@@ -209,7 +209,7 @@ export default function EngineeringSupportPage() {
                   ))}
                 </ul>
                 <a
-                  href="/contact"
+                  href="/contact?source=engineering-support&cta=get-started"
                   className={
                     'inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-[13.5px] font-semibold transition-all ' +
                     (tier.highlight
@@ -281,7 +281,7 @@ export default function EngineeringSupportPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="/contact"
+                  href="/contact?source=engineering-support&cta=talk-to-an-expert-cta"
                   className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
                   style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
                 >

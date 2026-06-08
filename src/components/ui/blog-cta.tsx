@@ -11,7 +11,7 @@ export default function BlogCTA({
   headline = 'See Emithran in action with your own part data.',
   body = 'Get a live demo with a real component from your supply chain — should-cost, supplier intelligence, and BOM validation in 30 minutes.',
   ctaLabel = 'Book a demo',
-  ctaHref = '/contact',
+  ctaHref = '/contact?source=blog-cta&cta=book-a-demo',
 }: BlogCTAProps) {
   return (
     <div

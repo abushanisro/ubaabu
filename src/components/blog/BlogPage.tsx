@@ -494,7 +494,7 @@ export default function BlogPage() {
 
       {/* CTA banner */}
       <div className="py-10">
-        <BlogCTA />
+        <BlogCTA ctaHref="/contact?source=blog-listing&cta=book-a-demo" />
       </div>
 
       {/* Category filters + post grid */}

@@ -482,7 +482,7 @@ export default function RearViewMirrorCaseStudy() {
         <div className="text-center pt-4">
           <p className="text-[15px] text-[#64748b] mb-5">Want this level of should cost intelligence for your assembly?</p>
           <Link
-            href="/contact"
+            href="/contact?source=case-study-rear-view-mirror&cta=request-should-cost"
             className="inline-block rounded-full bg-[#0d1117] px-8 py-3.5 text-[14px] font-semibold text-white hover:bg-black transition-colors"
           >
             Request a Should Cost Analysis

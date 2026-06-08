@@ -403,7 +403,7 @@ export default function CaseStudyPage() {
 
       {/* CTA banner */}
       <div className="py-10">
-        <BlogCTA />
+        <BlogCTA ctaHref="/contact?source=case-studies&cta=book-a-demo" />
       </div>
 
       {/* Industry filters + grid */}

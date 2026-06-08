@@ -169,7 +169,7 @@ export default function PricingROI() {
           <p className="max-w-xl text-xs text-[#0f1b2d]/40">
             Based on typical Emithran customer profile. Actual savings vary by company size, supply chain complexity, and current baseline.
           </p>
-          <a href="#" className="inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] hover:underline">
+          <a href="/contact?source=pricing&cta=download-roi-model" className="inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] hover:underline">
             Download detailed ROI model <ArrowRight className="size-3.5" aria-hidden />
           </a>
         </div>

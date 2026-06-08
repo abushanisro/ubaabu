@@ -43,7 +43,7 @@ function DocumentsIcon() {
 
 export default function PricingCTA() {
   return (
-    <section className="pricing-section bg-white">
+    <section id="final-cta" className="pricing-section bg-white">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-6 py-14 md:grid-cols-3 md:gap-10 md:py-20">
 
         {/* Col 1 — headline + CTAs */}
@@ -56,14 +56,14 @@ export default function PricingCTA() {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <a
-              href="#"
+              href="/request-demo"
               className="cta-pill group inline-flex items-center gap-2 rounded-full bg-[#2dd4bf] px-5 py-2.5 text-sm font-medium text-[#0f1b2d] shadow-[0_10px_30px_-12px_color-mix(in_oklab,#2dd4bf_60%,transparent)] transition-all hover:-translate-y-px hover:shadow-[0_14px_34px_-12px_color-mix(in_oklab,#2dd4bf_70%,transparent)]"
             >
               Book a demo
               <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden />
             </a>
             <a
-              href="#"
+              href="/contact?source=pricing&cta=contact-sales"
               className="cta-link group inline-flex items-center gap-1.5 text-sm font-medium text-[#0d9488] transition-colors hover:text-[#0f1b2d]"
             >
               Contact sales

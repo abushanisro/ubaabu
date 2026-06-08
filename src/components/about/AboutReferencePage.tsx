@@ -218,7 +218,7 @@ export default function AboutReferencePage() {
               <Reveal delay={280}>
                 <div className="mt-10">
                   <a
-                    href="#demo"
+                    href="/request-demo"
                     className="inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
                     style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)' }}
                   >
@@ -588,7 +588,7 @@ export default function AboutReferencePage() {
           <Reveal delay={360}>
             <div className="mt-12 flex flex-wrap items-center gap-5">
               <a
-                href="#demo"
+                href="/request-demo"
                 className="group relative inline-flex items-center gap-3 bg-[#0fb5a8] px-8 py-4 font-mono text-xs uppercase tracking-[0.22em] text-black transition-transform hover:-translate-y-0.5"
                 style={{ boxShadow: "6px 6px 0 0 #fff" }}
               >
@@ -598,7 +598,7 @@ export default function AboutReferencePage() {
                 </span>
               </a>
               <a
-                href="#engineer"
+                href="/contact?source=about&cta=talk-to-an-engineer"
                 className="inline-flex items-center gap-3 border border-white/40 px-8 py-4 font-mono text-xs uppercase tracking-[0.22em] text-white hover:border-[#5fe3d4] hover:text-[#5fe3d4]"
               >
                 Talk to an engineer

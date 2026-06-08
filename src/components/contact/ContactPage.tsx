@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, ChevronDown, Mail, Building2, CalendarCheck } from "lucide-react";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
@@ -170,6 +171,18 @@ function SelectField({
 }
 
 export default function ContactPage() {
+  return (
+    <Suspense fallback={null}>
+      <ContactPageContent />
+    </Suspense>
+  );
+}
+
+function ContactPageContent() {
+  const searchParams = useSearchParams();
+  const source = searchParams.get("source") ?? "";
+  const cta = searchParams.get("cta") ?? "";
+
   const [step, setStep] = useState(1);
   const [dir, setDir] = useState(1);
   const [submitting, setSubmitting] = useState(false);
@@ -196,7 +209,7 @@ export default function ContactPage() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, cfToken }),
+        body: JSON.stringify({ ...data, cfToken, source, cta }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "Failed to send");

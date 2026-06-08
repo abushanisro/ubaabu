@@ -93,7 +93,7 @@ export default function FinalCTA() {
           >
             {/* Primary CTA */}
             <a
-              href="#demo"
+              href="/request-demo"
               className="inline-flex items-center justify-center gap-2 rounded-md px-8 py-3.5 text-base font-semibold text-white transition-opacity hover:opacity-85"
               style={{
                 background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))',
@@ -109,7 +109,7 @@ export default function FinalCTA() {
 
             {/* Secondary CTA */}
             <a
-              href="#case-study"
+              href="/case-studies"
               className="inline-flex items-center justify-center rounded-md border border-white/20 px-8 py-3.5 text-base font-semibold text-white hover:bg-white/[0.06] transition-colors"
               style={{ textDecoration: 'none' }}
             >

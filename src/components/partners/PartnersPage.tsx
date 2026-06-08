@@ -823,7 +823,7 @@ function BottomCTA() {
                   <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-              <ArrowLink href="/contact">Contact our team</ArrowLink>
+              <ArrowLink href="/contact?source=partners&cta=contact-our-team">Contact our team</ArrowLink>
             </div>
           </div>
 
@@ -879,7 +879,7 @@ function BottomCTA() {
               <p className="text-[13px] leading-relaxed mb-4 flex-1" style={{ color: 'rgba(15,27,45,0.55)' }}>
                 Interested in joining the Emithran partner network?
               </p>
-              <ArrowLink href="/contact">Learn more</ArrowLink>
+              <ArrowLink href="/contact?source=partners&cta=become-a-partner">Learn more</ArrowLink>
             </div>
 
           </div>

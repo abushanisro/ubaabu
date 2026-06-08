@@ -11,20 +11,20 @@ type FooterLink = {
 };
 
 const platformLinks: FooterLink[] = [
-  { title: "CAD to Cost", href: "/blogs/cad-to-cost" },
-  { title: "Should Cost Analysis", href: "/blogs/should-cost-analysis" },
-  { title: "Supplier Intelligence", href: "/blogs/supplier-intelligence" },
-  { title: "Production Tracking", href: "/blogs/production-tracking" },
-  { title: "Quality & PPAP", href: "/blogs/quality-and-ppap" },
-  { title: "Manufacturing Analytics", href: "/blogs/analytics" },
+  { title: "CAD to Cost", href: "/platform" },
+  { title: "Should Cost Analysis", href: "/blog/should-cost-analysis-supplier-negotiation" },
+  { title: "Supplier Intelligence", href: "/blog/supplier-radar-defence-manufacturing" },
+  { title: "Production Tracking", href: "/blog/otif-logistics-intelligence" },
+  { title: "Quality & PPAP", href: "/blog/bom-accuracy-tier1-suppliers" },
+  { title: "Manufacturing Analytics", href: "/platform" },
 ];
 
 const industryLinks: FooterLink[] = [
-  { title: "Space Manufacturing", href: "/blogs/space-manufacturing" },
-  { title: "Defence Manufacturing", href: "/blogs/defence-manufacturing" },
-  { title: "Aerospace Manufacturing", href: "/blogs/aerospace-manufacturing" },
-  { title: "Automotive Manufacturing", href: "/blogs/automotive-manufacturing" },
-  { title: "Precision Manufacturing", href: "/blogs/precision-manufacturing-intelligence" },
+  { title: "Space Manufacturing", href: "/industries" },
+  { title: "Defence Manufacturing", href: "/industries" },
+  { title: "Aerospace Manufacturing", href: "/blog/vave-cost-reduction-aerospace" },
+  { title: "Automotive Manufacturing", href: "/industries" },
+  { title: "Precision Manufacturing", href: "/blog/precision-manufacturing-india-global" },
 ];
 
 const footerLinks = [
@@ -41,10 +41,10 @@ const footerLinks = [
   {
     title: "Company",
     links: [
-      { title: "About", href: "#" },
-      { title: "Careers", href: "#", pulse: true },
-      { title: "Contact", href: "/contact" },
-      { title: "Blog", href: "#" },
+      { title: "About", href: "/about" },
+      { title: "Careers", href: "/about", pulse: true },
+      { title: "Contact", href: "/contact?source=footer&cta=contact" },
+      { title: "Blog", href: "/blog" },
     ],
   },
 ];

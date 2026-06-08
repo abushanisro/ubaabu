@@ -121,7 +121,7 @@ export default function PricingCompare() {
                 ))}
               </ul>
               <a
-                href="#"
+                href="/contact?source=pricing&cta=download-comparison"
                 className="mt-6 hidden text-xs font-medium text-[#0d9488] hover:underline md:inline-flex"
               >
                 Download comparison PDF →

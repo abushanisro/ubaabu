@@ -160,7 +160,7 @@ function TalkToExpertsCard() {
             <strong style={{ color: '#0d9488' }}>Get a live demo</strong> of Emithran's Should-Cost Engine with a real component from your supply chain — should-cost, supplier intelligence, and BOM validation in 30 minutes.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/contact"
+            <Link href="/contact?source=blog&cta=request-a-demo"
               className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-lg text-sm sm:text-base font-semibold transition-all duration-200 w-full sm:w-auto"
               style={{ background: '#0d9488', color: '#fff' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#0f766e' }}
@@ -169,7 +169,7 @@ function TalkToExpertsCard() {
               Request a Demo
               <ArrowUpRight className="w-4 h-4" />
             </Link>
-            <Link href="/contact"
+            <Link href="/contact?source=blog&cta=talk-to-our-team"
               className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-lg text-sm sm:text-base font-semibold transition-colors duration-200 w-full sm:w-auto"
               style={{ border: '1px solid #0d9488', color: '#0d9488', background: 'transparent' }}
             >
@@ -278,7 +278,7 @@ function Sidebar({ post, popular }: { post: BlogPost; popular: BlogPost[] }) {
           <p className="text-sm mb-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
             Talk to our team about should-cost analysis, supplier intelligence, or BOM automation for your parts.
           </p>
-          <Link href="/contact"
+          <Link href="/contact?source=blog&cta=talk-to-our-team-sidebar"
             className="flex items-center justify-center gap-2 w-full rounded-lg text-sm font-semibold py-3 px-4 transition-all duration-200"
             style={{ background: '#2dd4bf', color: '#0f1b2d' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#5eead4' }}
@@ -319,7 +319,7 @@ function Sidebar({ post, popular }: { post: BlogPost; popular: BlogPost[] }) {
           <h3 className="font-bold text-base mb-3" style={{ color: '#0f1b2d' }}>Quick Links</h3>
           <div className="space-y-1.5">
             {[
-              { label: 'Request a Demo', href: '/contact' },
+              { label: 'Request a Demo', href: '/contact?source=blog&cta=request-a-demo-sidebar' },
               { label: 'Explore the Platform', href: '/platform' },
               { label: 'Read Case Studies', href: '/case-studies' },
             ].map(link => (

@@ -19,7 +19,7 @@ export default function FAQ() {
 
           {/* Right: CTA */}
           <a
-            href="/faqs"
+            href="/faq"
             className="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-2.5 text-sm font-semibold text-[#0d1117] transition-colors hover:bg-black/[0.04] shrink-0 w-fit whitespace-nowrap"
           >
             Explore FAQs

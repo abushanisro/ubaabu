@@ -470,7 +470,7 @@ function ExploreSection() {
               See what it takes to become an Emithran partner.
             </p>
             <Link
-              href="/docs/partners"
+              href="/about/partners/become-a-partner"
               className="inline-flex items-center gap-1.5 text-[13px] font-semibold transition-colors"
               style={{ color: '#0d9488' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#0a7c72' }}

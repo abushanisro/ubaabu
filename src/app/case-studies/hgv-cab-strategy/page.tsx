@@ -350,10 +350,10 @@ export default function HGVCabStrategyCaseStudy() {
             Emithran builds decision-ready should-cost models across steel, aluminium, and composite structures — from prototype quotation through to series production investment planning.
           </p>
           <div className="mt-2 flex flex-wrap justify-center gap-3">
-            <a href="#demo" className="rounded-lg px-5 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-85" style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}>
+            <a href="/request-demo" className="rounded-lg px-5 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-85" style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}>
               Request a Demo
             </a>
-            <a href="/contact" className="rounded-lg border border-black/15 px-5 py-2.5 text-[13px] font-semibold text-[#0d1117] hover:bg-black/[0.04] transition-colors">
+            <a href="/contact?source=case-study-hgv-cab-strategy&cta=contact-sales" className="rounded-lg border border-black/15 px-5 py-2.5 text-[13px] font-semibold text-[#0d1117] hover:bg-black/[0.04] transition-colors">
               Contact Sales
             </a>
           </div>

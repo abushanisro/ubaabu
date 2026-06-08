@@ -231,7 +231,7 @@ export default function FAQPage() {
                 </a>
                 <div className="mt-4 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                   <Link
-                    href="/contact"
+                    href="/contact?source=faq&cta=open-support-ticket"
                     className="block text-center text-[13px] font-semibold py-2 rounded-lg transition-colors"
                     style={{ background: 'rgba(45,212,191,0.12)', color: '#2dd4bf' }}
                     onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(45,212,191,0.2)' }}
@@ -252,7 +252,7 @@ export default function FAQPage() {
                     { label: 'Blog',         href: '/blog'          },
                     { label: 'Case Studies', href: '/case-studies'  },
                     { label: 'Pricing',      href: '/pricing'       },
-                    { label: 'Contact Us',   href: '/contact'       },
+                    { label: 'Contact Us',   href: '/contact?source=faq&cta=contact-us' },
                   ].map(l => (
                     <li key={l.label}>
                       <Link
@@ -307,7 +307,7 @@ export default function FAQPage() {
                   Email us
                 </a>
                 <Link
-                  href="/contact"
+                  href="/contact?source=faq&cta=open-support-ticket-cta"
                   className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors"
                   style={{ background: 'rgba(45,212,191,0.1)', color: '#2dd4bf', border: '1px solid rgba(45,212,191,0.25)' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(45,212,191,0.18)' }}
@@ -331,7 +331,7 @@ export default function FAQPage() {
                   { label: 'Blog',          sub: 'Insights & deep dives',   href: '/blog'         },
                   { label: 'Case Studies',  sub: 'Real outcomes',           href: '/case-studies' },
                   { label: 'Pricing',       sub: 'Plans & add-ons',         href: '/pricing'      },
-                  { label: 'Contact',       sub: 'Get in touch',            href: '/contact'      },
+                  { label: 'Contact',       sub: 'Get in touch',            href: '/contact?source=faq&cta=contact-link' },
                   { label: 'Products',      sub: 'Platform overview',       href: '/products'     },
                   { label: 'Why Emithran?', sub: 'Our approach',            href: '/why-emithran' },
                 ].map(l => (

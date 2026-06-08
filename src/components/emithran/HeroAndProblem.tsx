@@ -98,7 +98,7 @@ export default function HeroAndProblem() {
                 className="mt-8 flex flex-wrap items-center gap-3"
               >
                 <a
-                  href="#demo"
+                  href="/request-demo"
                   className="inline-flex items-center gap-2 rounded-full bg-[#2dd4bf] px-6 py-2.5 text-sm font-semibold text-[#0f1b2d] transition-all hover:-translate-y-px hover:bg-[#2dd4bf]/90"
                 >
                   Request a Demo

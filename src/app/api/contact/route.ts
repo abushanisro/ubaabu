@@ -41,7 +41,7 @@ async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { email, country, firstName, lastName, phone, company, role, industry, message, cfToken } = body
+    const { email, country, firstName, lastName, phone, company, role, industry, message, cfToken, source, cta } = body
 
     const ip = req.headers.get('x-forwarded-for') ?? req.headers.get('x-real-ip') ?? ''
     const humanVerified = await verifyTurnstile(cfToken ?? '', ip)
@@ -84,6 +84,11 @@ export async function POST(req: NextRequest) {
 
         ${message ? section('Message', `
           ${row('Message', message)}
+        `) : ''}
+
+        ${(source || cta) ? section('Source', `
+          ${row('Page', source)}
+          ${row('CTA Button', cta)}
         `) : ''}
 
         <p style="font-size:11px;color:#9ca3af;border-top:1px solid #f3f4f6;padding-top:16px;margin-top:32px;">

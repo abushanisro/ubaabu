@@ -22,14 +22,14 @@ export default function FinalCTA() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a
-                  href="#demo"
+                  href="/request-demo"
                   className="inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-85"
                   style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
                 >
                   Request a Demo
                 </a>
                 <a
-                  href="#demo"
+                  href="/contact?source=homepage-cta&cta=contact-us"
                   className="inline-flex items-center gap-1.5 rounded-full border border-white/30 px-5 py-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/[0.10]"
                 >
                   Contact Us
@@ -57,14 +57,14 @@ export default function FinalCTA() {
             </p>
             <div className="mt-6 flex flex-col w-full gap-3">
               <a
-                href="#demo"
+                href="/request-demo"
                 className="inline-flex items-center justify-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
                 style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
               >
                 Request a Demo
               </a>
               <a
-                href="#demo"
+                href="/contact?source=homepage-cta&cta=get-a-demo"
                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/30 px-5 py-2.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/[0.10]"
               >
                 Get a demo

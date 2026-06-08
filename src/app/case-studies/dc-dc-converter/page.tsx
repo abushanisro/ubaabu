@@ -290,10 +290,10 @@ export default function DCDCConverterCaseStudy() {
             Emithran disassembles, costs, and engineers value out of your components — giving you the data to negotiate, redesign, and source smarter.
           </p>
           <div className="mt-2 flex flex-wrap justify-center gap-3">
-            <a href="#demo" className="rounded-lg px-5 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-85" style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}>
+            <a href="/request-demo" className="rounded-lg px-5 py-2.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-85" style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}>
               Request a Demo
             </a>
-            <a href="/contact" className="rounded-lg border border-black/15 px-5 py-2.5 text-[13px] font-semibold text-[#0d1117] hover:bg-black/[0.04] transition-colors">
+            <a href="/contact?source=case-study-dc-dc-converter&cta=contact-sales" className="rounded-lg border border-black/15 px-5 py-2.5 text-[13px] font-semibold text-[#0d1117] hover:bg-black/[0.04] transition-colors">
               Contact Sales
             </a>
           </div>

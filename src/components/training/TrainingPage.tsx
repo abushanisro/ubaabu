@@ -144,7 +144,7 @@ export default function TrainingPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="/contact"
+                href="/contact?source=training&cta=enroll-your-team"
                 className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
                 style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
               >
@@ -191,7 +191,7 @@ export default function TrainingPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="/contact" className="group/link inline-flex items-center gap-0 text-[13px] font-medium text-[#0d9e8a] hover:opacity-75 transition-opacity">
+                <a href="/contact?source=training&cta=enrol-now" className="group/link inline-flex items-center gap-0 text-[13px] font-medium text-[#0d9e8a] hover:opacity-75 transition-opacity">
                   Enrol now&nbsp;<HoverArrow />
                 </a>
               </div>
@@ -246,7 +246,7 @@ export default function TrainingPage() {
                   title: 'On-site engineering support',
                   body: 'We deploy our engineers directly to your facility — working alongside your team on the floor, resolving issues hands-on, and continuing remote support through the Emithran platform.',
                   cta: 'Talk to our team',
-                  href: '/contact',
+                  href: '/contact?source=training&cta=talk-to-our-team',
                 },
                 {
                   title: 'Priority support',
@@ -264,13 +264,13 @@ export default function TrainingPage() {
                   title: 'Technology integration',
                   body: 'Connect Emithran to your existing ERP, MES, or SCM systems through our verified technology partner ecosystem.',
                   cta: 'Browse integrations',
-                  href: '/contact',
+                  href: '/contact?source=training&cta=browse-integrations',
                 },
                 {
                   title: 'Managed services',
                   body: 'Accelerate deployment and adoption with our in-house professional services team for custom configurations and go-live support.',
                   cta: 'Learn more',
-                  href: '/contact',
+                  href: '/contact?source=training&cta=learn-more',
                 },
               ].map(({ title, body, cta, href }) => (
                 <div key={title} className="flex flex-col">
@@ -306,7 +306,7 @@ export default function TrainingPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="/contact"
+                  href="/contact?source=training&cta=enroll-your-team-cta"
                   className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-85"
                   style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
                 >
