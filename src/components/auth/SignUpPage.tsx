@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Eye, EyeOff, ChevronDown } from "lucide-react";
+import { Eye, EyeOff, ChevronDown, Info } from "lucide-react";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { motion } from "framer-motion";
 import { AuthHeader } from "./AuthLayout";
@@ -10,36 +10,32 @@ import { createClient } from "@/lib/supabase/client";
 const COUNTRIES = [
   "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina","Armenia","Australia","Austria","Azerbaijan",
   "Bahrain","Bangladesh","Belarus","Belgium","Belize","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","Brunei",
-  "Bulgaria","Cambodia","Cameroon","Canada","Chile","China","Colombia","Costa Rica","Croatia","Cyprus",
-  "Czech Republic","Denmark","Ecuador","Egypt","Estonia","Ethiopia","Finland","France","Georgia","Germany",
-  "Ghana","Greece","Guatemala","Honduras","Hungary","Iceland","India","Indonesia","Iraq","Ireland",
-  "Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kuwait","Latvia","Lebanon",
-  "Lithuania","Luxembourg","Malaysia","Malta","Mexico","Moldova","Monaco","Mongolia","Morocco","Myanmar",
-  "Nepal","Netherlands","New Zealand","Nigeria","Norway","Oman","Pakistan","Panama","Peru","Philippines",
-  "Poland","Portugal","Qatar","Romania","Russia","Saudi Arabia","Serbia","Singapore","Slovakia","Slovenia",
-  "South Africa","South Korea","Spain","Sri Lanka","Sweden","Switzerland","Taiwan","Thailand","Turkey",
-  "Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Venezuela",
-  "Vietnam","Yemen","Zambia","Zimbabwe",
+  "Bulgaria","Burkina Faso","Cambodia","Cameroon","Canada","Chile","China","Colombia","Costa Rica","Croatia",
+  "Cyprus","Czech Republic","Denmark","Ecuador","Egypt","El Salvador","Estonia","Ethiopia","Finland","France",
+  "Georgia","Germany","Ghana","Greece","Guatemala","Honduras","Hungary","Iceland","India","Indonesia","Iraq",
+  "Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyzstan","Laos",
+  "Latvia","Lebanon","Libya","Liechtenstein","Lithuania","Luxembourg","Malaysia","Maldives","Malta","Mexico",
+  "Moldova","Monaco","Mongolia","Morocco","Mozambique","Myanmar","Namibia","Nepal","Netherlands","New Zealand",
+  "Nicaragua","Nigeria","North Macedonia","Norway","Oman","Pakistan","Panama","Paraguay","Peru","Philippines",
+  "Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saudi Arabia","Senegal","Serbia","Singapore",
+  "Slovakia","Slovenia","Somalia","South Africa","South Korea","Spain","Sri Lanka","Sudan","Sweden","Switzerland",
+  "Taiwan","Tanzania","Thailand","Tunisia","Turkey","Uganda","Ukraine","United Arab Emirates","United Kingdom",
+  "United States","Uruguay","Uzbekistan","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe",
 ];
 
 function getPasswordStrength(pw: string): "weak" | "medium" | "strong" {
   if (pw.length === 0) return "weak";
-  const score = [
-    pw.length >= 8,
-    /[A-Z]/.test(pw),
-    /[a-z]/.test(pw),
-    /\d/.test(pw),
-    /[^A-Za-z0-9]/.test(pw),
-  ].filter(Boolean).length;
+  const score = [pw.length >= 8, /[A-Z]/.test(pw), /[a-z]/.test(pw), /\d/.test(pw), /[^A-Za-z0-9]/.test(pw)].filter(Boolean).length;
   if (score <= 2) return "weak";
   if (score <= 3) return "medium";
   return "strong";
 }
 
 const inputCls =
-  "h-10 w-full rounded-lg bg-white border border-black/[0.12] px-3 text-[14px] text-[#0f1b2d] " +
-  "placeholder:text-black/25 focus:outline-none focus:border-[#0d9e8a]/70 " +
-  "focus:ring-2 focus:ring-[#0d9e8a]/15 transition-all";
+  "h-10 w-full rounded-md bg-white px-3 text-[14px] text-[#0f1b2d] " +
+  "placeholder:text-black/20 focus:outline-none transition-all " +
+  "[box-shadow:0_0_0_1px_rgba(60,66,87,0.16)] " +
+  "focus:[box-shadow:0_0_0_1px_rgba(13,158,138,0.6),0_0_0_3px_rgba(13,158,138,0.12)]";
 
 export default function SignUpPage() {
   const [email, setEmail] = useState("");
@@ -53,14 +49,10 @@ export default function SignUpPage() {
   const turnstileRef = useRef<TurnstileInstance>(null);
 
   const strength = getPasswordStrength(password);
-
   const canSubmit =
-    email.includes("@") &&
-    fullName.trim().length > 1 &&
-    password.length >= 8 &&
-    country.length > 0 &&
-    cfToken.length > 0 &&
-    !submitting;
+    email.includes("@") && fullName.trim().length > 1 &&
+    password.length >= 8 && country.length > 0 &&
+    cfToken.length > 0 && !submitting;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -72,9 +64,7 @@ export default function SignUpPage() {
       const { error: authError } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-          data: { full_name: fullName.trim(), country },
-        },
+        options: { data: { full_name: fullName.trim(), country } },
       });
       if (authError) {
         setError(authError.message ?? "Unable to create account. Please try again.");
@@ -94,55 +84,51 @@ export default function SignUpPage() {
     const supabase = createClient();
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
-      },
+      options: { redirectTo: `${window.location.origin}/auth/callback` },
     });
   }
 
   return (
-    <div className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Blurred dashboard background */}
-      <div aria-hidden className="absolute inset-0 z-0 overflow-hidden">
+    <div className="relative min-h-screen flex flex-col overflow-hidden bg-white">
+      {/* Background SVG — full page, no blur, no overlay */}
+      <div aria-hidden className="absolute inset-0 z-0">
         <img
-          src="/assets/auth/sign-up.png"
+          src="/assets/auth/sign-up.svg"
           alt=""
-          className="absolute inset-0 h-full w-full object-cover scale-105"
-          style={{ filter: "blur(8px)" }}
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
 
       <AuthHeader rightLink={{ href: "/sign-in", label: "Sign in" }} />
 
-      {/* Centered modal card */}
-      <div className="flex-1 flex flex-col items-center justify-center">
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.35, ease: "easeOut" }}
-        className="relative z-10 w-full max-w-[560px] mx-auto px-4 py-6 sm:py-0"
-      >
-        <div className="rounded-2xl bg-white border border-black/[0.07] shadow-xl shadow-black/[0.10] p-6 sm:p-8">
-
-          <h1 className="font-display text-[22px] font-bold text-[#0f1b2d] mb-1 tracking-tight">
-            Create your account
-          </h1>
-          <p className="text-[14px] text-[#0f1b2d]/45 mb-5">
-            Start your Emithran journey today.
-          </p>
-
-          {error && (
-            <div role="alert" className="mb-4 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-[13px] text-red-600">
-              {error}
+      <main className="relative z-10 flex flex-1 items-center justify-center px-4 py-8 sm:py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="w-full max-w-[460px]"
+        >
+          <div className="rounded-2xl border border-black/[0.07] bg-white overflow-hidden"
+            style={{ boxShadow: "0 0 0 1px rgba(60,66,87,0.06), 0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)" }}
+          >
+            {/* Title */}
+            <div className="px-5 pt-6 pb-2">
+              <h1 className="font-display text-[21px] font-bold text-[#0f1b2d] tracking-tight leading-snug">
+                Create your Emithran account
+              </h1>
             </div>
-          )}
 
-          <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-3">
-            {/* Email + Full name side by side on sm+ */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="su-email" className="text-[12px] font-semibold text-[#0f1b2d]/60 uppercase tracking-wider">
-                  Email <span className="text-[#0d9e8a]">*</span>
+            {error && (
+              <div role="alert" className="mx-5 mt-3 rounded-lg bg-red-50 border border-red-200 px-4 py-3 text-[13px] text-red-600">
+                {error}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} noValidate>
+              {/* Email */}
+              <div className="px-5 pt-4 pb-3">
+                <label htmlFor="su-email" className="block mb-2 text-[14px] font-medium text-[#0f1b2d]">
+                  Email
                 </label>
                 <input
                   id="su-email"
@@ -150,14 +136,15 @@ export default function SignUpPage() {
                   autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@company.com"
                   required
                   className={inputCls}
                 />
               </div>
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="su-name" className="text-[12px] font-semibold text-[#0f1b2d]/60 uppercase tracking-wider">
-                  Full name <span className="text-[#0d9e8a]">*</span>
+
+              {/* Full name */}
+              <div className="px-5 pt-3 pb-3 border-t border-black/[0.06]">
+                <label htmlFor="su-name" className="block mb-2 text-[14px] font-medium text-[#0f1b2d]">
+                  Full name
                 </label>
                 <input
                   id="su-name"
@@ -165,18 +152,15 @@ export default function SignUpPage() {
                   autoComplete="name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  placeholder="Alex Chen"
                   required
                   className={inputCls}
                 />
               </div>
-            </div>
 
-            {/* Password + Country side by side on sm+ */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="su-password" className="text-[12px] font-semibold text-[#0f1b2d]/60 uppercase tracking-wider">
-                  Password <span className="text-[#0d9e8a]">*</span>
+              {/* Password */}
+              <div className="px-5 pt-3 pb-3 border-t border-black/[0.06]">
+                <label htmlFor="su-password" className="block mb-2 text-[14px] font-medium text-[#0f1b2d]">
+                  Password
                 </label>
                 <div className="relative">
                   <input
@@ -185,7 +169,6 @@ export default function SignUpPage() {
                     autoComplete="new-password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Min. 8 chars"
                     required
                     className={inputCls + " pr-10"}
                   />
@@ -199,12 +182,14 @@ export default function SignUpPage() {
                   </button>
                 </div>
                 {password.length > 0 && (
-                  <div className="flex items-center gap-2 mt-0.5">
+                  <div className="flex items-center gap-2 mt-2">
                     <div className="flex gap-1 flex-1">
                       {(["weak", "medium", "strong"] as const).map((level, i) => {
                         const active = { weak: 0, medium: 1, strong: 2 }[strength] >= i;
                         const color = strength === "weak" ? "bg-red-400" : strength === "medium" ? "bg-amber-400" : "bg-[#0d9e8a]";
-                        return <div key={level} className={`h-1 flex-1 rounded-full transition-colors duration-300 ${active ? color : "bg-black/10"}`} />;
+                        return (
+                          <div key={level} className={`h-1 flex-1 rounded-full transition-colors duration-300 ${active ? color : "bg-black/10"}`} />
+                        );
                       })}
                     </div>
                     <span className={`text-[11px] font-medium capitalize ${strength === "weak" ? "text-red-500" : strength === "medium" ? "text-amber-500" : "text-[#0d9e8a]"}`}>
@@ -214,10 +199,14 @@ export default function SignUpPage() {
                 )}
               </div>
 
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="su-country" className="text-[12px] font-semibold text-[#0f1b2d]/60 uppercase tracking-wider">
-                  Country <span className="text-[#0d9e8a]">*</span>
-                </label>
+              {/* Country */}
+              <div className="px-5 pt-3 pb-3 border-t border-black/[0.06]">
+                <div className="flex items-center gap-1.5 mb-2">
+                  <label htmlFor="su-country" className="text-[14px] font-medium text-[#0f1b2d]">
+                    Country
+                  </label>
+                  <Info size={12} className="text-[#6b7280]" />
+                </div>
                 <div className="relative">
                   <select
                     id="su-country"
@@ -230,74 +219,72 @@ export default function SignUpPage() {
                   <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-black/35 pointer-events-none" />
                 </div>
               </div>
+
+              {/* Turnstile + Submit */}
+              <div className="px-5 pt-3 pb-5 border-t border-black/[0.06]">
+                <Turnstile
+                  ref={turnstileRef}
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                  onSuccess={setCfToken}
+                  onExpire={() => setCfToken("")}
+                  onError={() => setCfToken("")}
+                  options={{ theme: "light", size: "normal" }}
+                  className="mb-4"
+                />
+
+                <button
+                  type="submit"
+                  disabled={!canSubmit}
+                  className="w-full h-11 rounded-lg text-[15px] font-semibold text-white transition-all
+                    disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-90 active:scale-[0.99]"
+                  style={{
+                    background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))",
+                    boxShadow: "0 0 0 1px rgba(13,158,138,0.6), 0 1px 1px rgba(0,0,0,0.1), 0 2px 5px rgba(60,66,87,0.08)",
+                  }}
+                >
+                  {submitting ? "Creating account…" : "Create account"}
+                </button>
+
+                {/* Divider */}
+                <div className="relative flex items-center gap-3 my-3">
+                  <div className="flex-1 h-px bg-black/[0.08]" />
+                  <span className="text-[12px] text-black/35 font-medium">Or</span>
+                  <div className="flex-1 h-px bg-black/[0.08]" />
+                </div>
+
+                {/* Google */}
+                <button
+                  type="button"
+                  onClick={handleGoogleSignIn}
+                  className="flex w-full items-center justify-center gap-2 h-10 rounded-lg bg-white
+                    text-[14px] font-medium text-[#3c4257] transition-all"
+                  style={{ boxShadow: "0 0 0 1px rgba(60,66,87,0.16), 0 1px 1px rgba(0,0,0,0.04), 0 2px 5px rgba(60,66,87,0.06)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 0 0 1px rgba(60,66,87,0.28), 0 1px 1px rgba(0,0,0,0.06), 0 2px 5px rgba(60,66,87,0.1)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 0 0 1px rgba(60,66,87,0.16), 0 1px 1px rgba(0,0,0,0.04), 0 2px 5px rgba(60,66,87,0.06)")}
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M13.8824 7.41113H8.11768V9.72516H11.4231C11.3564 10.0945 11.2134 10.4465 11.0029 10.7595C10.7925 11.0726 10.5191 11.34 10.1995 11.5454V13.051H12.1665C12.7703 12.4802 13.2452 11.7912 13.5605 11.0286C14.0327 9.88636 14.0878 8.62111 13.8824 7.41113Z" fill="#4285F4"/>
+                    <path d="M8.11765 14.4996C9.76488 14.4996 11.1599 13.9718 12.1665 13.0506L10.1995 11.545C9.58012 11.9375 8.85452 12.1373 8.11765 12.1181C7.35471 12.1088 6.61379 11.8656 5.99848 11.4224C5.38317 10.9793 4.92424 10.3584 4.68585 9.64648H2.65015V11.1856C3.15915 12.1814 3.94 13.0187 4.9055 13.604C5.87099 14.1892 6.98311 14.4992 8.11765 14.4996Z" fill="#34A853"/>
+                    <path d="M4.68589 9.64706C4.42873 8.90009 4.42873 8.09081 4.68589 7.34384V5.79395H2.65019C2.22264 6.63065 2 7.55387 2 8.49004C2 9.42621 2.22264 10.3494 2.65019 11.1861L4.68589 9.64706Z" fill="#FBBC04"/>
+                    <path d="M8.11765 4.87211C8.98898 4.85751 9.83116 5.18027 10.4621 5.77064L12.2126 4.05185C11.5147 3.43218 10.6808 2.9789 9.77551 2.72723C8.87026 2.47556 7.91812 2.43227 6.99307 2.60073C6.06803 2.76919 5.19498 3.14487 4.44177 3.69857C3.68856 4.25226 3.07548 4.96907 2.65015 5.7933L4.68585 7.34371C4.92424 6.63182 5.38317 6.0109 5.99848 5.56776C6.61379 5.12461 7.35471 4.8814 8.11765 4.87211Z" fill="#EA4335"/>
+                  </svg>
+                  Sign up with Google
+                </button>
+              </div>
+            </form>
+
+            {/* Sign in link */}
+            <div className="px-5 py-4 border-t border-black/[0.06] text-center">
+              <span className="text-[13px] text-[#3c4257]/70">
+                Already have an account?{" "}
+                <a href="/sign-in" className="text-[#0d9e8a] font-medium hover:opacity-75 transition-opacity">
+                  Sign in
+                </a>
+              </span>
             </div>
-
-            {/* Turnstile */}
-            <Turnstile
-              ref={turnstileRef}
-              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-              onSuccess={setCfToken}
-              onExpire={() => setCfToken("")}
-              onError={() => setCfToken("")}
-              options={{ theme: "light", size: "normal" }}
-            />
-
-            {/* Submit */}
-            <button
-              type="submit"
-              disabled={!canSubmit}
-              className="w-full h-10 rounded-lg text-[14px] font-semibold text-white transition-opacity
-                disabled:opacity-40 disabled:cursor-not-allowed hover:opacity-85 active:scale-[0.99]"
-              style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
-            >
-              {submitting ? "Creating account…" : "Create account"}
-            </button>
-          </form>
-
-          {/* Divider */}
-          <div className="relative my-4 flex items-center gap-3">
-            <div className="flex-1 h-px bg-black/[0.08]" />
-            <span className="text-[11px] font-medium text-black/30 uppercase tracking-wider">or</span>
-            <div className="flex-1 h-px bg-black/[0.08]" />
           </div>
-
-          {/* Google */}
-          <button
-            type="button"
-            onClick={handleGoogleSignIn}
-            className="flex w-full items-center justify-center gap-2.5 h-10 rounded-lg border border-black/15
-              text-[14px] font-medium text-[#0f1b2d]/70 hover:bg-black/[0.03] hover:border-black/25 transition-all"
-          >
-            <svg width="16" height="16" viewBox="0 0 18 18" aria-hidden="true" fill="none">
-              <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908C16.658 14.233 17.64 11.925 17.64 9.2z"/>
-              <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
-              <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
-              <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/>
-            </svg>
-            Sign up with Google
-          </button>
-
-          {/* Footer link */}
-          <p className="text-center text-[13px] text-black/40 mt-4">
-            Already have an account?{" "}
-            <a href="/sign-in" className="group inline-flex items-center gap-0 text-[#0d9e8a] font-medium hover:opacity-75 transition-opacity">
-              Sign in&nbsp;
-              <svg className="overflow-visible" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path className="origin-left transition-transform duration-200 ease-out translate-x-[-4px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100" d="M0 5h7" />
-                <path className="transition-transform duration-200 ease-out group-hover:translate-x-[3px]" d="M1 1l4 4-4 4" />
-              </svg>
-            </a>
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Bottom copyright */}
-      <div className="relative z-10 pb-5 pt-3 flex items-center gap-3 text-[11px]">
-        <a href="/privacy" className="text-black/40 hover:text-black/65 transition-colors">Privacy &amp; terms</a>
-        <span className="text-black/20">·</span>
-        <span className="text-black/30">© {new Date().getFullYear()} Emithran Technologies Pvt. Ltd.</span>
-      </div>
-      </div>
+        </motion.div>
+      </main>
     </div>
   );
 }
