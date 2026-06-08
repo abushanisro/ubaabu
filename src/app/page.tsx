@@ -1,3 +1,12 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Emithran — End-to-End Manufacturing Intelligence',
+  description:
+    'Emithran helps space, defence, aerospace, and precision manufacturing companies in India cut costs, manage BOMs, and accelerate sourcing with AI-powered intelligence.',
+  alternates: { canonical: '/' },
+}
+
 import Hero from '@/components/sections/Hero'
 import PlatformShowcase from '@/components/sections/PlatformShowcase'
 import ProductIntelligence from '@/components/sections/ProductIntelligence'
