@@ -43,7 +43,7 @@ const footerLinks = [
     links: [
       { title: "About", href: "#" },
       { title: "Careers", href: "#", pulse: true },
-      { title: "Contact", href: "#" },
+      { title: "Contact", href: "/contact" },
       { title: "Blog", href: "#" },
     ],
   },
@@ -61,7 +61,12 @@ const socialLinks = [
   { icon: <Github   size={18} />, label: "GitHub",   href: "#" },
 ];
 
-const legalLinks = ["Terms of Service", "Privacy Notice", "Acceptable Use", "Legal", "Cookie Settings"];
+const legalLinks: { title: string; href: string }[] = [
+  { title: "Terms of Service",  href: "/terms"   },
+  { title: "Privacy Policy",    href: "/privacy"  },
+  { title: "Cookie Policy",     href: "/cookies"  },
+  { title: "DPA",               href: "/dpa"      },
+];
 
 export default function Footer() {
   return (
@@ -149,9 +154,9 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-end gap-1.5">
             <div className="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-1">
               {legalLinks.map(l => (
-                <a key={l} href="#" className="text-[11px] text-white/30 hover:text-white/70 transition-colors whitespace-nowrap">
-                  {l}
-                </a>
+                <Link key={l.title} href={l.href} className="text-[11px] text-white/30 hover:text-white/70 transition-colors whitespace-nowrap">
+                  {l.title}
+                </Link>
               ))}
             </div>
             <p className="text-[11px] text-white/20">
