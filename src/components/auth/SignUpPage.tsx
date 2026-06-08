@@ -46,6 +46,7 @@ export default function SignUpPage() {
   const [cfToken, setCfToken] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
   const turnstileRef = useRef<TurnstileInstance>(null);
 
   const strength = getPasswordStrength(password);
@@ -61,7 +62,7 @@ export default function SignUpPage() {
     setSubmitting(true);
     try {
       const supabase = createClient();
-      const { error: authError } = await supabase.auth.signUp({
+      const { data, error: authError } = await supabase.auth.signUp({
         email,
         password,
         options: { data: { full_name: fullName.trim(), country } },
@@ -72,7 +73,12 @@ export default function SignUpPage() {
         setCfToken("");
         return;
       }
-      window.location.href = "/sign-in?registered=1";
+      if (!data.session) {
+        // Email confirmation required — session won't exist until confirmed
+        setEmailSent(true);
+      } else {
+        window.location.href = "/sign-in?registered=1";
+      }
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
@@ -102,6 +108,36 @@ export default function SignUpPage() {
       <AuthHeader rightLink={{ href: "/sign-in", label: "Sign in" }} />
 
       <main className="relative z-10 flex flex-1 items-center justify-center px-4 py-8 sm:py-12">
+        {emailSent ? (
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="w-full max-w-[460px]"
+          >
+            <div className="rounded-2xl border border-black/[0.07] bg-white overflow-hidden text-center px-8 py-12"
+              style={{ boxShadow: "0 0 0 1px rgba(60,66,87,0.06), 0 8px 32px rgba(0,0,0,0.12)" }}
+            >
+              <div className="w-14 h-14 rounded-full bg-[#f0fdf9] border border-[#0d9e8a]/25 flex items-center justify-center mx-auto mb-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0d9e8a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+              </div>
+              <h2 className="font-display text-[20px] font-bold text-[#0f1b2d] mb-2 tracking-tight">Check your email</h2>
+              <p className="text-[14px] text-[#0f1b2d]/50 leading-relaxed mb-6">
+                We sent a confirmation link to <span className="font-medium text-[#0f1b2d]/70">{email}</span>.
+                Click it to activate your account, then sign in.
+              </p>
+              <a
+                href="/sign-in"
+                className="inline-flex items-center justify-center w-full h-10 rounded-lg text-[14px] font-semibold text-white transition-all hover:opacity-90"
+                style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
+              >
+                Go to sign in
+              </a>
+            </div>
+          </motion.div>
+        ) : (
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -284,6 +320,7 @@ export default function SignUpPage() {
             </div>
           </div>
         </motion.div>
+        )}
       </main>
     </div>
   );

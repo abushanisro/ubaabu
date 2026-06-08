@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, CheckCircle } from "lucide-react";
 import { AuthHeader, AuthFooter } from "./AuthLayout";
 import { createClient } from "@/lib/supabase/client";
 
@@ -18,6 +18,7 @@ export default function SignInPage() {
   const [rememberMe, setRememberMe] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -30,11 +31,17 @@ export default function SignInPage() {
         password,
       });
       if (authError) {
-        // Generic message — prevents user enumeration (OWASP A07)
-        setError("Invalid email or password. Please try again.");
+        const msg = authError.message?.toLowerCase() ?? "";
+        if (msg.includes("email not confirmed")) {
+          setError("Please confirm your email before signing in. Check your inbox for a confirmation link.");
+        } else {
+          // Generic — prevents user enumeration (OWASP A07)
+          setError("Invalid email or password. Please try again.");
+        }
         return;
       }
-      window.location.href = "/";
+      setSuccess(true);
+      setTimeout(() => { window.location.href = "/"; }, 1200);
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
@@ -81,6 +88,18 @@ export default function SignInPage() {
             <p className="text-[14px] text-[#0f1b2d]/45 mb-6">
               Welcome back to Emithran.
             </p>
+
+            {success && (
+              <motion.div
+                role="status"
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-4 rounded-lg bg-[#f0fdf9] border border-[#0d9e8a]/30 px-4 py-3 text-[13px] text-[#0d9e8a] flex items-center gap-2"
+              >
+                <CheckCircle size={15} className="flex-shrink-0" />
+                Signed in to Emithran successfully! Taking you in…
+              </motion.div>
+            )}
 
             {error && (
               <div
