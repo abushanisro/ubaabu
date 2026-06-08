@@ -16,7 +16,7 @@ const CATEGORY_STYLES: Record<Exclude<BlogCategory, 'All'>, { bg: string; text: 
   Product:     { bg: 'rgba(45,212,191,0.16)',  text: '#0d9488' },
 }
 
-const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+const ICONS: Record<string, React.ComponentType<{ className?: string; style?: React.CSSProperties }>> = {
   'bom-accuracy-tier1-suppliers': Gauge,
   'supplier-radar-defence-manufacturing': Network,
   'emithran-series-a-announcement': Sparkles,
