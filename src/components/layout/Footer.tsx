@@ -11,12 +11,12 @@ type FooterLink = {
 };
 
 const platformLinks: FooterLink[] = [
-  { title: "CAD to Cost", href: "/platform" },
+  { title: "CAD to Cost", href: "/products" },
   { title: "Should Cost Analysis", href: "/blog/should-cost-analysis-supplier-negotiation" },
   { title: "Supplier Intelligence", href: "/blog/supplier-radar-defence-manufacturing" },
   { title: "Production Tracking", href: "/blog/otif-logistics-intelligence" },
   { title: "Quality & PPAP", href: "/blog/bom-accuracy-tier1-suppliers" },
-  { title: "Manufacturing Analytics", href: "/platform" },
+  { title: "Manufacturing Analytics", href: "/products" },
 ];
 
 const industryLinks: FooterLink[] = [

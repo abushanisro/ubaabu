@@ -320,7 +320,7 @@ function Sidebar({ post, popular }: { post: BlogPost; popular: BlogPost[] }) {
           <div className="space-y-1.5">
             {[
               { label: 'Request a Demo', href: '/contact?source=blog&cta=request-a-demo-sidebar' },
-              { label: 'Explore the Platform', href: '/platform' },
+              { label: 'Explore the Platform', href: '/products' },
               { label: 'Read Case Studies', href: '/case-studies' },
             ].map(link => (
               <Link key={link.href} href={link.href}

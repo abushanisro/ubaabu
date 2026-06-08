@@ -24,18 +24,6 @@ function HoverArrow() {
 
 // ── Blend-style icons ──────────────────────────────────────────────────────
 
-function IconPlatform() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-      <rect x="1" y="3" width="34" height="28" rx="3" fill="#0d9e8a" fillOpacity=".12" stroke="#0d9e8a" strokeOpacity=".2" strokeWidth="1.5"/>
-      <circle cx="5.5" cy="7.5" r="2" fill="#0d9e8a" fillOpacity=".4"/>
-      <circle cx="10.5" cy="7.5" r="2" fill="#0d9e8a" fillOpacity=".4"/>
-      <circle cx="15.5" cy="7.5" r="2" fill="#0d9e8a" fillOpacity=".4"/>
-      <path d="M14 18l-5 5 5 5M22 18l5 5-5 5M17 13l4 14" stroke="#0d9e8a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  )
-}
-
 function IconPricing() {
   return (
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -86,12 +74,6 @@ function IconContact() {
 
 // ── Recovery cards data ────────────────────────────────────────────────────
 const cards = [
-  {
-    Icon: IconPlatform,
-    title: 'Platform',
-    body: 'Explore the modules behind Emithran — design intelligence, sourcing, and supply chain visibility.',
-    href: '/platform',
-  },
   {
     Icon: IconPricing,
     title: 'Pricing',

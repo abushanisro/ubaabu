@@ -11,7 +11,14 @@ type NavItem = {
 }
 
 const items: NavItem[] = [
-  { label: 'Why Emithran?', href: '/why-emithran' },
+  {
+    label: 'Why Emithran?',
+    href: '/why-emithran',
+    children: [
+      { label: 'Why Emithran?', href: '/why-emithran' },
+      { label: 'Industries', href: '/industries' },
+    ],
+  },
   {
     label: 'Solutions',
     href: '/solutions',

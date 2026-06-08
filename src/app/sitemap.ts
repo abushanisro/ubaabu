@@ -20,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const core: MetadataRoute.Sitemap = [
     { url: BASE_URL,                                     priority: 1.0, changeFrequency: 'weekly',  lastModified: now },
-    { url: `${BASE_URL}/platform`,                       priority: 0.9, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/products`,                       priority: 0.9, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/solutions`,                      priority: 0.8, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/industries`,                     priority: 0.8, changeFrequency: 'monthly', lastModified: now },
