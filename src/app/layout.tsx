@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Sora, Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
+import ConditionalNavbar from '@/components/layout/ConditionalNavbar'
+import ConditionalFooter from '@/components/layout/ConditionalFooter'
 
 const sora = Sora({
   weight: ['400', '500', '600', '700'],
@@ -46,9 +46,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Column lines — fixed to screen edges, outside content area */}
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ left: 64 }} />
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ right: 64 }} />
-        <Navbar />
+        <ConditionalNavbar />
         <main className="relative z-10">{children}</main>
-        <Footer />
+        <ConditionalFooter />
       </body>
     </html>
   )
