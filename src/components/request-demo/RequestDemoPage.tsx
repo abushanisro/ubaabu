@@ -190,7 +190,7 @@ export default function RequestDemoPage() {
   return (
     <div className="relative min-h-screen flex flex-col overflow-hidden bg-[#f4f6f8]">
       <div aria-hidden className="absolute inset-0 z-0">
-        <img src="/assets/auth/authbg.png" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src="/assets/auth/requestdemo.png" alt="" className="absolute inset-0 h-full w-full object-cover" />
       </div>
 
       {/* Header */}
