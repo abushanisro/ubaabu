@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Eye, EyeOff, ChevronDown, Info } from "lucide-react";
-import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { motion } from "framer-motion";
 import { AuthHeader } from "./AuthLayout";
 import { createClient } from "@/lib/supabase/client";
@@ -43,17 +42,14 @@ export default function SignUpPage() {
   const [password, setPassword] = useState("");
   const [country, setCountry] = useState("India");
   const [showPassword, setShowPassword] = useState(false);
-  const [cfToken, setCfToken] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [emailSent, setEmailSent] = useState(false);
-  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const strength = getPasswordStrength(password);
   const canSubmit =
     email.includes("@") && fullName.trim().length > 1 &&
-    password.length >= 8 && country.length > 0 &&
-    cfToken.length > 0 && !submitting;
+    password.length >= 8 && country.length > 0 && !submitting;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -69,8 +65,6 @@ export default function SignUpPage() {
       });
       if (authError) {
         setError(authError.message ?? "Unable to create account. Please try again.");
-        turnstileRef.current?.reset();
-        setCfToken("");
         return;
       }
       if (!data.session) {
@@ -256,18 +250,8 @@ export default function SignUpPage() {
                 </div>
               </div>
 
-              {/* Turnstile + Submit */}
+              {/* Submit */}
               <div className="px-5 pt-3 pb-5 border-t border-black/[0.06]">
-                <Turnstile
-                  ref={turnstileRef}
-                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
-                  onSuccess={setCfToken}
-                  onExpire={() => setCfToken("")}
-                  onError={() => setCfToken("")}
-                  options={{ theme: "light", size: "normal" }}
-                  className="mb-4"
-                />
-
                 <button
                   type="submit"
                   disabled={!canSubmit}
