@@ -2,21 +2,111 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
-import { ALL_LOGOS } from './partnerData'
 
-/* ── Hero floating logo cards ─────────────────────────────────────── */
+/* ── Partner Ecosystem Nav ────────────────────────────────────────── */
 
-const HERO_LOGOS = ALL_LOGOS.slice(0, 8)
+const NAV_LINKS = [
+  { label: 'Work with a partner', href: '/about/partners',                     active: true  },
+  { label: 'Become a partner',    href: '/about/partners/become-a-partner',    active: false },
+  { label: 'Vendor onboarding',   href: '/about/partners/vendor-onboarding',   active: false },
+] as const
 
-const CARD_POSITIONS: { top: string; left: string; rotate: string }[] = [
-  { top: '4%',  left: '5%',  rotate: '-4deg' },
-  { top: '4%',  left: '38%', rotate: '3deg'  },
-  { top: '4%',  left: '68%', rotate: '-2deg' },
-  { top: '38%', left: '18%', rotate: '2deg'  },
-  { top: '38%', left: '52%', rotate: '-3deg' },
-  { top: '68%', left: '5%',  rotate: '4deg'  },
-  { top: '68%', left: '38%', rotate: '-1deg' },
-  { top: '68%', left: '68%', rotate: '3deg'  },
+function PartnerEcosystemNav() {
+  return (
+    <div className="sticky top-[64px] z-40 border-b bg-white/95 backdrop-blur-md" style={{ borderColor: 'rgba(0,0,0,0.07)' }}>
+      <div className="mx-auto flex max-w-[1280px] items-center gap-6 px-6 md:px-12 py-0">
+
+        {/* Title */}
+        <span className="hidden sm:block shrink-0 text-[13px] font-semibold tracking-tight py-3 border-r pr-6" style={{ color: '#0f1b2d', borderColor: 'rgba(0,0,0,0.08)' }}>
+          Partner Ecosystem
+        </span>
+
+        {/* Links */}
+        <nav className="flex items-center gap-1 overflow-x-auto scrollbar-hide ml-auto">
+          {NAV_LINKS.map(({ label, href, active, ...rest }) => (
+            <Link
+              key={label}
+              href={href}
+              {...('external' in rest && rest.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              className="relative whitespace-nowrap px-3 py-3.5 text-[13px] font-medium transition-colors"
+              style={{ color: active ? '#0d9488' : 'rgba(15,27,45,0.5)' }}
+              onMouseEnter={e => { if (!active) (e.currentTarget as HTMLElement).style.color = '#0f1b2d' }}
+              onMouseLeave={e => { if (!active) (e.currentTarget as HTMLElement).style.color = 'rgba(15,27,45,0.5)' }}
+            >
+              {label}
+              {active && (
+                <span
+                  className="absolute bottom-0 left-0 right-0 h-[2px] rounded-t-full"
+                  style={{ background: '#0d9488' }}
+                />
+              )}
+            </Link>
+          ))}
+        </nav>
+
+      </div>
+    </div>
+  )
+}
+
+/* ── Hero partner type cards ──────────────────────────────────────── */
+
+const HERO_PARTNER_CARDS = [
+  {
+    title: 'System Integrators',
+    tagline: 'ERP & MES implementation',
+    delay: '0s',
+    icon: (
+      <svg viewBox="0 0 42 36" width="26" height="22" fill="none">
+        <rect x="6" y="2" width="30" height="8" rx="2" fill="#0d9488"/>
+        <rect x="6" y="13" width="30" height="8" rx="2" fill="#0d9488"/>
+        <rect x="6" y="24" width="30" height="8" rx="2" fill="#0d9488"/>
+        <rect x="29" y="5" width="4" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+        <rect x="29" y="16" width="4" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+        <rect x="29" y="27" width="4" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Technology Partners',
+    tagline: 'API & platform connectors',
+    delay: '0.7s',
+    icon: (
+      <svg viewBox="0 0 40 32" width="26" height="22" fill="none">
+        <rect x="4" y="1" width="32" height="26" rx="3" fill="#0d9488"/>
+        <rect x="4" y="9" width="32" height="1.5" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="10" cy="5" r="2" fill="rgba(255,255,255,0.45)"/>
+        <circle cx="16" cy="5" r="2" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="22" cy="5" r="2" fill="rgba(255,255,255,0.2)"/>
+        <rect x="9" y="13" width="12" height="2" rx="1" fill="rgba(255,255,255,0.55)"/>
+        <rect x="9" y="18" width="18" height="2" rx="1" fill="rgba(255,255,255,0.35)"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Industry Consultants',
+    tagline: 'Domain cost advisory',
+    delay: '1.4s',
+    icon: (
+      <svg viewBox="0 0 40 42" width="26" height="28" fill="none">
+        <rect x="5" y="14" width="6" height="24" rx="2" fill="#0d9488"/>
+        <rect x="14" y="6" width="6" height="32" rx="2" fill="#0d9488"/>
+        <rect x="23" y="1" width="6" height="37" rx="2" fill="#0d9488"/>
+        <rect x="32" y="9" width="6" height="29" rx="2" fill="#0d9488"/>
+        <rect x="4" y="39" width="34" height="2" rx="1" fill="#0d9488"/>
+      </svg>
+    ),
+  },
+  {
+    title: 'Resellers & Distributors',
+    tagline: 'Regional GTM expertise',
+    delay: '2.1s',
+    icon: (
+      <svg viewBox="0 0 40 40" width="26" height="26" fill="none">
+        <path d="M20 2a18 18 0 1 1 0 36A18 18 0 0 1 20 2zm0 2c-1.9 0-4.5 4-5.6 10h11.2c-1.1-6-3.7-10-5.6-10zm-8.7 10H5.6a16 16 0 0 0 0 12H11.3a38 38 0 0 1 0-12zm17.4 0H23a38 38 0 0 1 0 12h5.7a16 16 0 0 0 0-12zM14.7 28c1.2 5.4 3.6 9 5.3 9 1.7 0 4.1-3.6 5.3-9H14.7z" fill="#0d9488"/>
+      </svg>
+    ),
+  },
 ]
 
 function HeroSection() {
@@ -24,6 +114,7 @@ function HeroSection() {
     <section className="relative bg-white overflow-hidden">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12 pt-24 pb-0">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-0">
+
           {/* Left — text */}
           <div className="flex-1 md:pr-16 z-10">
             <span
@@ -40,7 +131,7 @@ function HeroSection() {
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/contact"
+                href="/about/partners/become-a-partner"
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-semibold text-white transition-opacity hover:opacity-85"
                 style={{ background: 'linear-gradient(135deg, #0d9488, #2dd4bf)' }}
               >
@@ -58,35 +149,55 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Right — floating logo cards (hidden on mobile) */}
-          <div className="hidden md:block relative flex-1" style={{ height: 420 }}>
-            {HERO_LOGOS.map((logo, i) => {
-              const pos = CARD_POSITIONS[i] ?? CARD_POSITIONS[0]
-              return (
-                <div
-                  key={logo.name}
-                  className="absolute rounded-2xl bg-white flex items-center justify-center"
-                  style={{
-                    top: pos.top,
-                    left: pos.left,
-                    width: 130,
-                    height: 72,
-                    transform: `rotate(${pos.rotate})`,
-                    boxShadow: '0 4px 24px rgba(13,148,136,0.13), 0 1px 4px rgba(0,0,0,0.07)',
-                    border: '1px solid rgba(13,148,136,0.10)',
-                    padding: '10px 18px',
-                  }}
-                >
-                  <img
-                    src={logo.logoSrc}
-                    alt={logo.name}
-                    className="max-w-full max-h-full object-contain"
-                    style={{ filter: 'grayscale(20%)' }}
-                  />
-                </div>
-              )
-            })}
+          {/* Right — floating partner category cards (hidden on mobile) */}
+          <div className="hidden md:flex flex-1 items-center justify-end">
+            <div className="flex gap-4" style={{ width: 380 }}>
+
+              {/* Left column */}
+              <div className="flex flex-col gap-4 flex-1">
+                {([HERO_PARTNER_CARDS[0], HERO_PARTNER_CARDS[2]] as typeof HERO_PARTNER_CARDS).map(card => (
+                  <div
+                    key={card.title}
+                    className="rounded-2xl p-4 bg-white flex flex-col gap-2"
+                    style={{
+                      border: '1px solid rgba(13,148,136,0.13)',
+                      boxShadow: '0 6px 28px rgba(13,148,136,0.10), 0 1px 4px rgba(0,0,0,0.05)',
+                      animation: `drift 3.8s ease-in-out ${card.delay} infinite`,
+                    }}
+                  >
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'rgba(13,148,136,0.07)' }}>
+                      {card.icon}
+                    </div>
+                    <p className="text-[12px] font-bold leading-snug" style={{ color: '#0f1b2d' }}>{card.title}</p>
+                    <p className="text-[11px]" style={{ color: 'rgba(15,27,45,0.5)' }}>{card.tagline}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right column — offset down */}
+              <div className="flex flex-col gap-4 flex-1 mt-10">
+                {([HERO_PARTNER_CARDS[1], HERO_PARTNER_CARDS[3]] as typeof HERO_PARTNER_CARDS).map(card => (
+                  <div
+                    key={card.title}
+                    className="rounded-2xl p-4 bg-white flex flex-col gap-2"
+                    style={{
+                      border: '1px solid rgba(13,148,136,0.13)',
+                      boxShadow: '0 6px 28px rgba(13,148,136,0.10), 0 1px 4px rgba(0,0,0,0.05)',
+                      animation: `drift 3.8s ease-in-out ${card.delay} infinite`,
+                    }}
+                  >
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'rgba(13,148,136,0.07)' }}>
+                      {card.icon}
+                    </div>
+                    <p className="text-[12px] font-bold leading-snug" style={{ color: '#0f1b2d' }}>{card.title}</p>
+                    <p className="text-[11px]" style={{ color: 'rgba(15,27,45,0.5)' }}>{card.tagline}</p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
+
         </div>
       </div>
 
@@ -100,7 +211,6 @@ function HeroSection() {
             opacity: 0.92,
           }}
         />
-        {/* subtle inner highlight */}
         <div
           className="absolute inset-x-0 top-0 h-px"
           style={{ background: 'rgba(255,255,255,0.3)' }}
@@ -236,6 +346,7 @@ const SPECIALISATIONS = [
   {
     title: 'System Integrators',
     body: "ERP & MES implementation experts — SAP, Oracle, and custom stacks — embedding Emithran's cost intelligence into existing workflows.",
+    trackSlug: 'system-integrator',
     icon: (
       <svg viewBox="0 0 42 36" width="42" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs><clipPath id="specClip0"><rect x="2" y="20" width="20" height="14" rx="2"/></clipPath></defs>
@@ -257,6 +368,7 @@ const SPECIALISATIONS = [
   {
     title: 'Technology Partners',
     body: 'API integrations, data connectors, and platform extensions — linking supplier databases, CAD tools, and procurement systems.',
+    trackSlug: 'technology-partner',
     icon: (
       <svg viewBox="0 0 40 38" width="40" height="38" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs><clipPath id="specClip1"><rect x="2" y="22" width="18" height="14" rx="3"/></clipPath></defs>
@@ -278,6 +390,7 @@ const SPECIALISATIONS = [
   {
     title: 'Industry Consultants',
     body: 'Automotive, Aerospace & Defence domain advisors delivering Emithran-powered should-cost studies and supplier benchmarking.',
+    trackSlug: 'industry-consultant',
     icon: (
       <svg viewBox="0 0 40 40" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs><clipPath id="specClip2"><rect x="2" y="22" width="20" height="16" rx="2"/></clipPath></defs>
@@ -300,6 +413,7 @@ const SPECIALISATIONS = [
   {
     title: 'Resellers & Distributors',
     body: 'Regional GTM partners across South Asia and Southeast Asia managing licensing, onboarding, and local customer success.',
+    trackSlug: 'reseller-distributor',
     icon: (
       <svg viewBox="0 0 40 42" width="40" height="42" fill="none" xmlns="http://www.w3.org/2000/svg">
         <defs><clipPath id="specClip3"><circle cx="13" cy="28" r="13"/></clipPath></defs>
@@ -323,11 +437,12 @@ function SpecialisationsSection() {
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12" style={{ color: '#0f1b2d' }}>
           Access partners with proven expertise
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="flex gap-5 overflow-x-auto no-scrollbar pb-2 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-4">
           {SPECIALISATIONS.map(s => (
-            <div
+            <Link
               key={s.title}
-              className="rounded-2xl p-6 bg-white group cursor-pointer"
+              href={`/about/partners/become-a-partner?track=${s.trackSlug}`}
+              className="shrink-0 w-[80vw] max-w-[320px] sm:w-auto sm:max-w-none rounded-2xl p-6 bg-white flex flex-col group"
               style={{ border: '1px solid rgba(13,148,136,0.12)', transition: 'box-shadow 0.2s' }}
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(13,148,136,0.12)' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = 'none' }}
@@ -339,18 +454,18 @@ function SpecialisationsSection() {
                 {s.icon}
               </div>
               <h3 className="text-[15px] font-bold mb-2" style={{ color: '#0f1b2d' }}>{s.title}</h3>
-              <p className="text-[13px] leading-relaxed mb-4" style={{ color: 'rgba(15,27,45,0.58)' }}>{s.body}</p>
+              <p className="text-[13px] leading-relaxed mb-4 flex-1" style={{ color: 'rgba(15,27,45,0.58)' }}>{s.body}</p>
               <span
                 className="inline-flex items-center gap-1 text-[13px] font-semibold"
                 style={{ color: '#0d9488' }}
               >
-                View partners
+                Apply now
                 <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
                   <path d="M0 5h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
                   <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -527,6 +642,7 @@ function CaseStudyCarousel() {
 
   return (
     <section
+      id="case-studies"
       className="py-16 px-6 md:px-12 bg-white"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -697,11 +813,11 @@ function BottomCTA() {
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/about/partners#browse"
+                href="/about/partners/become-a-partner"
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-semibold text-white transition-opacity hover:opacity-85"
                 style={{ background: 'linear-gradient(135deg, #0d9488, #2dd4bf)' }}
               >
-                Find a partner
+                Become a partner
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                   <path d="M0 5h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeOpacity="0.7" />
                   <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
@@ -778,6 +894,7 @@ function BottomCTA() {
 export default function PartnersPage() {
   return (
     <main>
+      <PartnerEcosystemNav />
       <HeroSection />
       <WhyPartnersSection />
       <SpecialisationsSection />
