@@ -445,12 +445,12 @@ function ContactHeader({ step }: { step: number }) {
           <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">EMITHRAN</span>
         </a>
 
-        {/* Sign up */}
+        {/* Back to home */}
         <a
-          href="/sign-up"
+          href="/"
           className="group inline-flex items-center gap-0 text-[13px] text-[#0d9e8a] hover:opacity-75 transition-opacity"
         >
-          Sign up&nbsp;
+          Home&nbsp;
           <svg className="overflow-visible" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path
               className="origin-left transition-transform duration-200 ease-out translate-x-[-4px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100"

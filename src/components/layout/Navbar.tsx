@@ -132,11 +132,11 @@ export default function Navbar() {
             Contact Us
           </a>
           <a
-            href="/sign-in"
+            href="/request-demo"
             className="rounded-md px-4 py-2 text-sm font-semibold text-white hover:opacity-85 transition-opacity whitespace-nowrap"
             style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
           >
-            Sign in
+            Request Demo
           </a>
         </div>
 
@@ -200,12 +200,12 @@ export default function Navbar() {
             Contact Us
           </a>
           <a
-            href="/sign-in"
+            href="/contact"
             className="mt-2 block w-full rounded-md px-4 py-2.5 text-center text-sm font-semibold text-white hover:opacity-85 transition-opacity"
             style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}
             onClick={() => setMobileOpen(false)}
           >
-            Sign in
+            Request Demo
           </a>
         </div>
       )}

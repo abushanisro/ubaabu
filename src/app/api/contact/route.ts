@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { contactConfirmationEmail } from '@/lib/emails'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -91,13 +92,23 @@ export async function POST(req: NextRequest) {
       </body>
       </html>`
 
-    await resend.emails.send({
-      from:    `Emithran Contact <${FROM}>`,
-      to:      TO,
-      replyTo: email,
-      subject: `Contact request — ${firstName} ${lastName} (${company})`,
-      html,
-    })
+    const [adminResult] = await Promise.allSettled([
+      resend.emails.send({
+        from:    `Emithran <${FROM}>`,
+        to:      TO,
+        replyTo: email,
+        subject: `Contact request — ${firstName} ${lastName} (${company})`,
+        html,
+      }),
+      resend.emails.send({
+        from:    `Emithran <${FROM}>`,
+        to:      email,
+        subject: `We've received your message, ${firstName}`,
+        html:    contactConfirmationEmail(firstName, company),
+      }),
+    ])
+
+    if (adminResult.status === 'rejected') throw adminResult.reason
 
     return NextResponse.json({ ok: true })
   } catch (err) {
