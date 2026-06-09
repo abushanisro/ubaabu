@@ -1,3 +1,5 @@
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
+
 export default function FAQ() {
   return (
     <section className="bg-white border-t border-black/[0.06] py-16 md:py-20">
@@ -20,12 +22,10 @@ export default function FAQ() {
           {/* Right: CTA */}
           <a
             href="/faq"
-            className="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-2.5 text-sm font-semibold text-[#0d1117] transition-colors hover:bg-black/[0.04] shrink-0 w-fit whitespace-nowrap"
+            className="inline-flex items-center gap-2 rounded-md border border-black/15 px-5 py-2.5 text-sm font-semibold text-[#0d1117] transition-colors hover:bg-black/[0.04] shrink-0 w-fit whitespace-nowrap group"
           >
             Explore FAQs
-            <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M0.5 5.5h7" /><path d="M1.5 1.5l4 4-4 4" />
-            </svg>
+            <AnimatedArrow />
           </a>
 
         </div>

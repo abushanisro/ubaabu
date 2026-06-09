@@ -4,6 +4,7 @@ import FlowCards from '@/components/sections/FlowCards'
 import { BudgetCard } from '@/components/ui/analytics-bento'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
 import { Sparkles, TrendingUp, Zap, CheckCircle, Users, Clock, X } from 'lucide-react'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 export default function WatchDemo() {
   const [videoOpen, setVideoOpen] = useState(false)
@@ -19,24 +20,24 @@ export default function WatchDemo() {
   return (
     <section className="relative w-full bg-white overflow-hidden">
 
-      {/* ── Mobile background SVG (9:16) — sets section height on mobile ── */}
+      {/* ── Mobile background SVG (9:16) — only on xs/sm ── */}
       <img
         src="/assets/cards/watchdemomobiile.svg"
         alt="" aria-hidden
-        className="w-full h-auto block lg:hidden"
+        className="w-full h-auto block md:hidden"
       />
 
-      {/* ── Desktop background SVG — sets section height on desktop ── */}
+      {/* ── Desktop background SVG — md and above ── */}
       <img
         src="/assets/cards/watchdemo.svg"
         alt="" aria-hidden
-        className="w-full h-auto hidden lg:block"
+        className="w-full h-auto hidden md:block"
       />
 
       {/* ══════════════════════════════════════════════
           MOBILE OVERLAY  (hidden on lg+)
       ══════════════════════════════════════════════ */}
-      <div className="lg:hidden absolute inset-0 flex flex-col px-3 pt-6 pb-4" style={{ gap: 0 }}>
+      <div className="md:hidden absolute inset-0 flex flex-col px-3 pt-6 pb-4" style={{ gap: 0 }}>
 
         {/* ── Headline + CTAs ── */}
         <div className="flex flex-col items-center text-center shrink-0 mb-2">
@@ -47,19 +48,17 @@ export default function WatchDemo() {
           <p className="mt-1 text-[10px] text-[#4b5563] leading-snug">
             Sourcing, costing, BOM intelligence, and supplier evaluation — all in one platform.
           </p>
-          <div className="mt-2 flex items-center gap-2">
+          <div className="mt-5 flex items-center gap-2">
             <a
               href="#demo"
-              className="inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-[11px] font-semibold text-white"
+              className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-[13px] font-semibold text-white group"
               style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
             >
               Request Demo
-              <svg width="8" height="8" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M0.5 4h6" /><path d="M1 1l3 3-3 3" />
-              </svg>
+              <AnimatedArrow />
             </a>
             <button
-              className="inline-flex items-center gap-1.5 rounded-full border border-black/20 bg-white px-3 py-1.5 text-[11px] font-semibold text-[#0d1117]"
+              className="inline-flex items-center gap-1.5 rounded-full border border-black/20 bg-white px-5 py-2.5 text-[13px] font-semibold text-[#0d1117]"
               onClick={() => setVideoOpen(true)}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3">
@@ -142,7 +141,7 @@ export default function WatchDemo() {
       {/* ══════════════════════════════════════════════
           DESKTOP OVERLAY  (hidden below lg)
       ══════════════════════════════════════════════ */}
-      <div className="hidden lg:flex absolute inset-0 flex-col justify-between">
+      <div className="hidden md:flex absolute inset-0 flex-col justify-between">
 
         {/* Top: flanking cards + headline + CTAs */}
         <div className="w-full px-8 pt-10">
@@ -160,16 +159,14 @@ export default function WatchDemo() {
               <p className="mt-3 text-[14px] text-[#4b5563]">
                 Sourcing, costing, BOM intelligence, and supplier evaluation — all in one platform.
               </p>
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <a
                   href="#demo"
-                  className="inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-85"
+                  className="inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-85 group"
                   style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
                 >
                   Request Demo
-                  <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M0.5 5.5h7" /><path d="M1.5 1.5l4 4-4 4" />
-                  </svg>
+                  <AnimatedArrow />
                 </a>
                 <button
                   onClick={() => setVideoOpen(true)}

@@ -137,7 +137,54 @@ export default function TrainingPage() {
         <div className="relative mx-auto max-w-[1280px] px-6 md:px-12 pt-28 pb-16 md:pt-32 md:pb-24">
           <div className="max-w-[660px]">
             <h1 className="font-display text-[2.6rem] md:text-[3.4rem] font-bold text-[#0f1b2d] leading-[1.1] tracking-tight">
-              Master the Emithran platform — from first login to full deployment
+              Master the Emithran platform
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+               from first login to full deployment
             </h1>
             <p className="mt-5 text-[16px] text-[#0f1b2d]/55 leading-relaxed max-w-[500px]">
               Structured training tracks for operators, engineers, and leaders. Get certified and unlock the full potential of your manufacturing intelligence stack.

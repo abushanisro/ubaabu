@@ -113,9 +113,8 @@ function CarouselCard({
 
   return (
     <div
-      className="shrink-0 rounded-2xl overflow-hidden select-none"
+      className="shrink-0 rounded-2xl overflow-hidden select-none w-[calc(100%-1.5rem)] sm:w-[calc(50%-10px)] lg:w-[calc((100%-40px)/3)]"
       style={{
-        width: 'calc((100% - 40px) / 3)',
         background: 'white',
         border: isActive ? `1px solid rgba(13,158,138,0.28)` : '1px solid rgba(0,0,0,0.07)',
         boxShadow: isActive
@@ -253,7 +252,11 @@ export default function OutcomeAndWhy() {
 
   return (
     <>
-    <style>{`@keyframes scaleXIn { from { transform: scaleX(0) } to { transform: scaleX(1) } }`}</style>
+    <style>{`
+      @keyframes scaleXIn { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    `}</style>
     <section
       className="bg-white overflow-hidden"
       style={{
@@ -290,15 +293,16 @@ export default function OutcomeAndWhy() {
               initial={{ opacity: 0, y: 12 }}
               animate={headInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.12, ease: EASE }}
-              className="flex items-center gap-6"
+              className="flex items-center justify-between sm:justify-start gap-4 sm:gap-6 w-full md:w-auto"
             >
               {/* Category tabs */}
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-0.5 sm:gap-1 overflow-x-auto no-scrollbar">
                 {OUTCOMES.map((item, i) => (
                   <button
                     key={item.category}
+                    ref={(el) => { if (el && activeIdx === i) el.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' }) }}
                     onClick={() => scrollTo(i)}
-                    className="relative flex flex-col items-start px-4 py-2.5 rounded-xl transition-all duration-200"
+                    className="relative flex flex-col items-start px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-200 shrink-0"
                     style={{
                       background: activeIdx === i ? 'rgba(13,158,138,0.07)' : 'transparent',
                     }}
@@ -334,8 +338,8 @@ export default function OutcomeAndWhy() {
                 ))}
               </div>
 
-              {/* Arrows */}
-              <div className="flex gap-2">
+              {/* Arrows — mobile only */}
+              <div className="flex gap-2 md:hidden">
                 <button
                   onClick={onPrev}
                   disabled={!canPrev}

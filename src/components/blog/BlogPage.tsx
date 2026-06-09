@@ -6,6 +6,7 @@ import { POSTS, type BlogCategory, type BlogPost } from './blogData'
 import { GlobeCdn } from '@/components/ui/cobe-globe-cdn'
 import BlogCTA from '@/components/ui/blog-cta'
 import RequestCTA from '@/components/ui/request-cta'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 const CATEGORIES: BlogCategory[] = ['All', 'Corporate', 'Engineering', 'Industry', 'Product']
 
@@ -26,14 +27,24 @@ function CategoryPill({ category }: { category: Exclude<BlogCategory, 'All'> }) 
   )
 }
 
+const AUTHOR_PHOTOS: Record<string, string> = {
+  'Abushan': '/assets/infographics/logo/abushan.png',
+  'Singaravelan S.': '/assets/infographics/logo/sinigi.png',
+}
+
 function AuthorRow({ author, date, readTime }: { author: BlogPost['author']; date: string; readTime: string }) {
+  const photo = AUTHOR_PHOTOS[author.name]
   const initials = author.name.split(' ').map(w => w[0]).join('').slice(0, 2)
   return (
     <div className="flex items-center gap-2.5">
-      <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0"
-        style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)' }}>
-        {initials}
-      </div>
+      {photo ? (
+        <img src={photo} alt={author.name} className="w-7 h-7 rounded-full object-cover shrink-0" />
+      ) : (
+        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0"
+          style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)' }}>
+          {initials}
+        </div>
+      )}
       <div className="flex items-center gap-1.5 text-[12px] text-black/50">
         <span className="font-semibold text-[#0f1b2d]">{author.name}</span>
         <span className="text-[#2dd4bf]">·</span>
@@ -290,10 +301,7 @@ function CaseStudyCarousel() {
                 style={{ color: cs.dark ? '#2dd4bf' : '#0d9488' }}
               >
                 Learn more
-                <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" className="transition-transform duration-150 group-hover:translate-x-0.5">
-                  <path d="M0 5h7" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-                  <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <AnimatedArrow />
               </Link>
             </footer>
           </article>
@@ -392,6 +400,7 @@ const POST_ILLUSTRATIONS: Record<string, React.ReactNode> = {
 }
 
 function LatestPostItem({ post }: { post: BlogPost }) {
+  const photo = AUTHOR_PHOTOS[post.author.name]
   const initials = post.author.name.split(' ').map((w: string) => w[0]).join('').slice(0, 2)
   const illustration = POST_ILLUSTRATIONS[post.slug]
 
@@ -405,10 +414,14 @@ function LatestPostItem({ post }: { post: BlogPost }) {
         <div className="flex items-center gap-3 shrink-0">
           <span className="text-[12px]" style={{ color: 'rgba(15,27,45,0.45)' }}>{post.date}</span>
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[9px] font-bold shrink-0"
-              style={{ background: 'linear-gradient(135deg,#0d9488,#2dd4bf)' }}>
-              {initials}
-            </div>
+            {photo ? (
+              <img src={photo} alt={post.author.name} className="w-7 h-7 rounded-full object-cover shrink-0" />
+            ) : (
+              <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[9px] font-bold shrink-0"
+                style={{ background: 'linear-gradient(135deg,#0d9488,#2dd4bf)' }}>
+                {initials}
+              </div>
+            )}
             <div className="text-[12px] font-semibold" style={{ color: '#0f1b2d' }}>{post.author.name}</div>
           </div>
         </div>
@@ -430,10 +443,7 @@ function LatestPostItem({ post }: { post: BlogPost }) {
             className="inline-flex items-center gap-1.5 text-sm font-semibold group transition-colors"
             style={{ color: '#0d9488' }}>
             Read more
-            <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
-              <path d="M0 5h7" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-              <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <AnimatedArrow />
           </Link>
         </div>
 

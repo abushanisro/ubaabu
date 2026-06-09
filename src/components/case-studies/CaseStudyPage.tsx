@@ -8,6 +8,7 @@ import { POSTS } from '@/components/blog/blogData'
 import type { MapMarker } from '@/components/ui/maplibre-hero-map'
 import BlogCTA from '@/components/ui/blog-cta'
 import RequestCTA from '@/components/ui/request-cta'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 const MaplibreHeroMap = dynamic(
   () => import('@/components/ui/maplibre-hero-map'),
@@ -206,10 +207,7 @@ function LatestCaseStudyItem({ post }: { post: CaseStudy }) {
             className="inline-flex items-center gap-1.5 text-sm font-semibold group transition-colors"
             style={{ color: '#0d9488' }}>
             Read case study
-            <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
-              <path d="M0 5h7" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-              <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <AnimatedArrow />
           </Link>
         </div>
 
@@ -344,10 +342,7 @@ function CaseStudyCarousel() {
                   style={{ color: colors.dark ? '#2dd4bf' : '#0d9488' }}
                 >
                   Read more
-                  <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" className="transition-transform duration-150 group-hover:translate-x-0.5">
-                    <path d="M0 5h7" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-                    <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <AnimatedArrow />
                 </Link>
               </footer>
             </article>

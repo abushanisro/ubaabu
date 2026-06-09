@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { POSTS, type BlogPost, type BlogCategory } from './blogData'
 import type { BlogPostContent } from './blogContent'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 const CATEGORY_STYLES: Record<Exclude<BlogCategory, 'All'>, { bg: string; text: string }> = {
   Corporate:   { bg: 'rgba(45,212,191,0.16)',  text: '#0d9488' },
@@ -44,12 +45,22 @@ function Thumbnail({ slug, className = '' }: { slug: string; className?: string 
   )
 }
 
+const AUTHOR_PHOTOS: Record<string, string> = {
+  'Abushan': '/assets/infographics/logo/abushan.png',
+  'Singaravelan S.': '/assets/infographics/logo/sinigi.png',
+}
+
 function AuthorAvatar({ name, size = 9 }: { name: string; size?: number }) {
+  const photo = AUTHOR_PHOTOS[name]
   const initials = name.split(' ').map(w => w[0]).join('').slice(0, 2)
+  const px = size * 4
+  if (photo) {
+    return <img src={photo} alt={name} className="rounded-full object-cover shrink-0" style={{ width: px, height: px }} />
+  }
   return (
     <div
-      className={`w-${size} h-${size} rounded-full flex items-center justify-center text-white text-[11px] font-bold shrink-0`}
-      style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)', width: size * 4, height: size * 4 }}
+      className="rounded-full flex items-center justify-center text-white text-[11px] font-bold shrink-0"
+      style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)', width: px, height: px }}
     >
       {initials}
     </div>
@@ -222,12 +233,9 @@ function RelatedArticles({ posts }: { posts: BlogPost[] }) {
                   <span className="text-xs flex items-center gap-1" style={{ color: 'rgba(15,27,45,0.4)' }}>
                     <Clock className="w-3 h-3" />{post.readTime}
                   </span>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold transition-transform duration-200 group-hover:translate-x-0.5" style={{ color: '#0d9488' }}>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold" style={{ color: '#0d9488' }}>
                     Read more
-                    <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
-                      <path d="M0 5h7" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-                      <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                    <AnimatedArrow />
                   </span>
                 </div>
               </div>
@@ -242,13 +250,18 @@ function RelatedArticles({ posts }: { posts: BlogPost[] }) {
 /* -------------------------------- Author bio -------------------------------- */
 
 function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
+  const photo = AUTHOR_PHOTOS[post.author.name]
   return (
     <div className="mt-10 sm:mt-12 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl"
       style={{ background: 'linear-gradient(135deg, rgba(15,27,45,0.03) 0%, rgba(15,27,45,0.0) 100%)', border: '1px solid rgba(13,148,136,0.12)' }}>
       <div className="flex flex-col sm:flex-row items-start gap-4">
-        <div className="p-3 rounded-full flex-shrink-0" style={{ background: 'rgba(13,148,136,0.1)' }}>
-          <User className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#0d9488' }} />
-        </div>
+        {photo ? (
+          <img src={photo} alt={post.author.name} className="w-16 h-16 rounded-full object-cover flex-shrink-0 ring-2 ring-[#0d9488]/20" />
+        ) : (
+          <div className="p-3 rounded-full flex-shrink-0" style={{ background: 'rgba(13,148,136,0.1)' }}>
+            <User className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#0d9488' }} />
+          </div>
+        )}
         <div className="flex-1">
           <h3 className="font-bold text-base sm:text-lg mb-2" style={{ color: '#0f1b2d' }}>About the Author</h3>
           <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}

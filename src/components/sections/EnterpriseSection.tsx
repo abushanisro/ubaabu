@@ -386,7 +386,7 @@ export default function EnterpriseSection() {
     function rings(cx: number, cy: number, r: number, phase: number) {
       ;[{ rm: 0.52, a: 0.48, solid: true }, { rm: 0.70, a: 0.28, solid: true }, { rm: 0.88, a: 0.16, solid: false }]
         .forEach(({ rm, a, solid }, i) => {
-          ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r * rm + Math.sin(phase / 28 + i) * 1.2, 0, Math.PI * 2)
+          ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, Math.max(0, r * rm + Math.sin(phase / 28 + i) * 1.2), 0, Math.PI * 2)
           ctx.lineWidth = 1; ctx.strokeStyle = `rgba(45,212,191,${a})`
           if (!solid) { ctx.setLineDash([5, 8]); ctx.lineDashOffset = -phase * 0.3 }
           ctx.stroke(); ctx.restore()

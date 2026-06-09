@@ -71,8 +71,7 @@ export default function Navbar() {
     <header
       className="fixed inset-x-0 top-0 z-50 transition-all duration-300"
       style={{
-        background:     scrolled ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,1)',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
+        background:     '#ffffff',
         borderBottom:   '1px solid rgba(0,0,0,0.08)',
       }}
     >

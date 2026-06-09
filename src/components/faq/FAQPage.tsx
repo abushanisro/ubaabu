@@ -3,6 +3,7 @@
 import { useState, useMemo, useRef } from 'react'
 import Link from 'next/link'
 import { FAQ_CATEGORIES, type FAQItem, type FAQCategory } from './faqData'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 function SearchIcon() {
   return (
@@ -220,14 +221,11 @@ export default function FAQPage() {
                 </p>
                 <a
                   href="mailto:emithran@emuski.com"
-                  className="inline-flex items-center gap-1.5 text-[13px] font-semibold transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[13px] font-semibold transition-colors group"
                   style={{ color: '#2dd4bf' }}
                 >
                   emithran@emuski.com
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                    <path d="M0 5h7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-                    <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <AnimatedArrow />
                 </a>
                 <div className="mt-4 pt-4" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
                   <Link

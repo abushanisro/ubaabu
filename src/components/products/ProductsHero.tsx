@@ -50,7 +50,7 @@ export default function ProductsHero() {
             className="font-bold leading-[1.15] tracking-tight text-gray-900 mb-5"
             style={{ fontSize: 'clamp(1.75rem, 5vw, 3.2rem)' }}
           >
-            The One-Stop Procurement Platform for OEMs.
+            The One-Stop Solution for OEMs.
           </motion.h1>
 
           <motion.p

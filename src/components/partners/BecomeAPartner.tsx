@@ -4,6 +4,7 @@ import React, { Suspense, useState, useRef } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 /* ── Nav (Become a partner active) ───────────────────────────────── */
 
@@ -354,16 +355,13 @@ function BecomeAPartnerForm() {
             <button
               type="submit"
               disabled={loading || !cfToken}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-semibold text-white transition-opacity hover:opacity-85 disabled:opacity-60"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-semibold text-white transition-opacity hover:opacity-85 disabled:opacity-60 group"
               style={{ background: 'linear-gradient(135deg, #0d9488, #2dd4bf)' }}
             >
               {loading ? 'Submitting…' : (
                 <>
                   Submit
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden>
-                    <path d="M0 5h7" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeOpacity="0.7" />
-                    <path d="M1 1l4 4-4 4" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <AnimatedArrow />
                 </>
               )}
             </button>

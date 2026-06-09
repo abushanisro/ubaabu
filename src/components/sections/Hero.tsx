@@ -2,42 +2,42 @@
 import { useEffect, useState } from 'react'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
 import { Typewriter } from '@/components/ui/typewriter'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 const CAPABILITIES = ['BOM Intelligence', 'Should-Cost', 'Supplier Radar', 'Quality & PPAP']
 
-function Digit({ cur, prev }: { cur: string; prev: string }) {
-  const changed = cur !== prev
-  return (
-    <span style={{ position: 'relative', display: 'inline-block', overflow: 'hidden', verticalAlign: 'middle', lineHeight: '1.4', height: '1.4em' }}>
-      <span style={{ display: 'block', visibility: 'hidden', lineHeight: '1.4', whiteSpace: 'pre' }}>{cur}</span>
-      <span style={{ display: 'block', position: 'absolute', top: 0, left: 0, right: 0, lineHeight: '1.4', textAlign: 'center', transform: changed ? 'translateY(-100%)' : 'translateY(0)', transition: changed ? 'transform 0.32s cubic-bezier(0.4,0,0.2,1)' : 'none' }}>{prev}</span>
-      <span style={{ display: 'block', position: 'absolute', top: 0, left: 0, right: 0, lineHeight: '1.4', textAlign: 'center', transform: changed ? 'translateY(0)' : 'translateY(100%)', transition: changed ? 'transform 0.32s cubic-bezier(0.4,0,0.2,1)' : 'none' }}>{cur}</span>
-    </span>
-  )
+// S(t) = S₀ · e^(r·t) — continuous compound growth
+// S₀ = $25,000 · r = 0.0025 day⁻¹ · Epoch: 2024-06-01
+// CC_R is a modelling parameter, not a customer-derived metric
+const CC_S0    = 25_000
+const CC_R     = 0.0025 / 86_400_000
+const CC_EPOCH = new Date('2024-06-01T00:00:00Z').getTime()
+
+function calcSavings() {
+  return CC_S0 * Math.exp(CC_R * (Date.now() - CC_EPOCH))
 }
 
 function LiveSavings() {
-  const BASE = 1.0
-  const RATE = 0.1
-  const [value, setValue] = useState(0)
-  const [prevValue, setPrevValue] = useState(0)
+  const [value, setValue] = useState(calcSavings)
+
   useEffect(() => {
-    setValue(BASE)
-    setPrevValue(BASE)
-    const id = setInterval(() => {
-      setValue((v) => { setPrevValue(v); return +(v + RATE).toFixed(1) })
-    }, 1000)
+    const id = setInterval(() => setValue(calcSavings()), 1000)
     return () => clearInterval(id)
   }, [])
-  const fmt = (n: number) => n.toFixed(1)
-  const cur = fmt(value); const prev = fmt(prevValue)
-  const maxLen = Math.max(cur.length, prev.length)
-  const c = cur.padStart(maxLen, ' '); const p = prev.padStart(maxLen, ' ')
+
+  const intPart = Math.floor(value).toLocaleString('en-US')
+  const decPart = (value % 1).toFixed(8).slice(2)
+
   return (
-    <div className="mb-6 flex items-center gap-1.5 text-sm text-black/40">
-      <span>Live cost savings identified:</span>
-      <span className="font-medium text-black/65" style={{ display: 'inline-flex', alignItems: 'center', whiteSpace: 'nowrap', fontVariantNumeric: 'tabular-nums' }} aria-live="polite" aria-atomic="true">
-        <span>$</span>{c.split('').map((ch, i) => <Digit key={i} cur={ch} prev={p[i] ?? ch} />)}
+    <div className="mb-6 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm text-black/40">
+      <span>Manufacturing Intelligence Index:</span>
+      <span
+        aria-live="polite"
+        aria-atomic="true"
+        style={{ fontVariantNumeric: 'tabular-nums', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', whiteSpace: 'nowrap' }}
+      >
+        <span className="font-semibold text-black/65">${intPart}</span>
+        <span className="text-black/40">.{decPart}</span>
       </span>
     </div>
   )
@@ -91,12 +91,9 @@ export default function Hero() {
             at the speed of AI — using connected manufacturing and supplier data.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a href="#demo" className="hds-btn-primary">
-              Get started
-              <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2">
-                <path className="arrow-line" d="M0.5 5.5h7" />
-                <path className="arrow-line" d="M1.5 1.5l4 4-4 4" />
-              </svg>
+            <a href="/request-demo" className="hds-btn-primary group">
+              Request Demo
+              <AnimatedArrow />
             </a>
             <button onClick={() => setVideoOpen(true)} className="hds-btn-secondary">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.14 182)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

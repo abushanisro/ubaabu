@@ -3,6 +3,7 @@ import { Sora, Inter } from 'next/font/google'
 import './globals.css'
 import ConditionalNavbar from '@/components/layout/ConditionalNavbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
+import WhatsAppButton from '@/components/ui/whatsapp-button'
 
 const sora = Sora({
   weight: ['400', '500', '600', '700'],
@@ -141,6 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConditionalNavbar />
         <main className="relative z-10">{children}</main>
         <ConditionalFooter />
+        <WhatsAppButton />
       </body>
     </html>
   )

@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { X } from "lucide-react";
 import { ManufacturingCard } from "@/components/ui/ManufacturingCard";
@@ -14,6 +15,7 @@ import { DeliveryCard } from "@/components/cards/DeliveryCard";
 import { BenchmarkCard } from "@/components/cards/BenchmarkCard";
 import { VaveCard } from "@/components/cards/VaveCard";
 import { DashboardPreview } from "@/components/sections/DashboardPreview";
+import { AnimatedArrow } from "@/components/ui/animated-arrow";
 
 interface ActivityMetric { label: string; pct: number }
 
@@ -307,13 +309,11 @@ function MetricsCard() {
         ))}
       </div>
       <button
-        className="mt-4 w-full py-2 rounded-lg text-white text-[11px] font-semibold flex items-center justify-center gap-1.5 hover:opacity-90 transition"
+        className="mt-4 w-full py-2 rounded-lg text-white text-[11px] font-semibold flex items-center justify-center gap-1.5 hover:opacity-90 transition group"
         style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.52 0.16 185))" }}
       >
         View Dashboard
-        <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
-        </svg>
+        <AnimatedArrow />
       </button>
     </div>
   );
@@ -541,11 +541,9 @@ function BentoSystemCard() {
                   Connect every manufacturing module into one unified platform — BOM, process planning, supplier evaluation, production, quality, delivery, benchmarking, and VAVE — all sharing live data and working together to accelerate decisions.
                 </p>
                 <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-6 md:mb-8">
-                  <button className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+                  <button className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition group" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                     Explore Platform
-                    <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
-                      <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
-                    </svg>
+                    <AnimatedArrow />
                   </button>
                   <button className="px-4 md:px-5 py-2.5 rounded-lg text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
                     See pricing
@@ -629,11 +627,9 @@ function BentoSystemCard() {
                 <span className="font-semibold text-gray-800">Vikram Nair,</span>{" "}
                 CTO, Aerospace OEM
               </p>
-              <button className="mt-4 text-sm font-medium hover:opacity-70 transition flex items-center gap-1 mx-auto text-gray-900">
+              <button className="mt-4 text-sm font-medium hover:opacity-70 transition flex items-center gap-1 mx-auto text-gray-900 group">
                 Read the story
-                <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
-                  <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
-                </svg>
+                <AnimatedArrow />
               </button>
             </div>
 
@@ -643,11 +639,9 @@ function BentoSystemCard() {
             <div className="px-4 sm:px-8 md:px-16 py-10 md:py-12 text-center bg-white">
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-5 md:mb-6">Get started with the full platform</h3>
               <div className="flex items-center justify-center gap-3 flex-wrap">
-                <button className="flex items-center gap-2 px-6 md:px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+                <button className="flex items-center gap-2 px-6 md:px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm group" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                   Start now
-                  <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
-                    <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
-                  </svg>
+                  <AnimatedArrow />
                 </button>
                 <button className="px-6 md:px-8 py-3 rounded-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
                   Contact sales
@@ -765,15 +759,13 @@ export default function PlatformShowcase() {
                   </h2>
                   <p className="text-sm text-gray-500 leading-relaxed mb-4 md:mb-6">{active.longDesc}</p>
                   <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-6 md:mb-8">
-                    <button className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
-                      Explore {active.title}
-                      <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
-                        <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
-                      </svg>
-                    </button>
-                    <button className="px-4 md:px-5 py-2.5 rounded-lg text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
+                    <Link href="/products" className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition group" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+                      Explore
+                      <AnimatedArrow />
+                    </Link>
+                    <Link href="/pricing" className="px-4 md:px-5 py-2.5 rounded-lg text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
                       See pricing
-                    </button>
+                    </Link>
                   </div>
                   {/* visualization */}
                   <div className="platform-showcase">
@@ -831,12 +823,10 @@ export default function PlatformShowcase() {
                   <span className="font-semibold text-gray-800">{active.testimonial.author},</span>{" "}
                   {active.testimonial.role}
                 </p>
-                <button className="mt-4 text-sm font-medium hover:opacity-70 transition flex items-center gap-1 mx-auto text-gray-900">
+                <Link href="/case-studies" className="mt-4 text-sm font-medium hover:opacity-70 transition flex items-center gap-1 mx-auto text-gray-900 group">
                   Read the story
-                  <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
-                    <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
-                  </svg>
-                </button>
+                  <AnimatedArrow />
+                </Link>
               </div>
 
               {/* divider */}
@@ -846,15 +836,13 @@ export default function PlatformShowcase() {
               <div className="px-4 sm:px-8 md:px-16 py-10 md:py-12 text-center bg-white">
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-5 md:mb-6">Get started with {active.title}</h3>
                 <div className="flex items-center justify-center gap-3 flex-wrap">
-                  <button className="flex items-center gap-2 px-6 md:px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
+                  <Link href="/request-demo" className="flex items-center gap-2 px-6 md:px-8 py-3 rounded-xl text-sm font-semibold text-white hover:opacity-85 transition shadow-sm group" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
                     Start now
-                    <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2.2">
-                      <path d="M1 5h7" /><path d="M5 1l4 4-4 4" />
-                    </svg>
-                  </button>
-                  <button className="px-6 md:px-8 py-3 rounded-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
+                    <AnimatedArrow />
+                  </Link>
+                  <Link href="/contact?source=platform-showcase&cta=contact-sales" className="px-6 md:px-8 py-3 rounded-xl text-sm font-medium text-gray-900 bg-transparent border border-gray-900 hover:bg-gray-50 transition">
                     Contact sales
-                  </button>
+                  </Link>
                 </div>
               </div>
 

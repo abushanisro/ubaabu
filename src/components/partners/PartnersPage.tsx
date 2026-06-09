@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 /* ── Partner Ecosystem Nav ────────────────────────────────────────── */
 
@@ -460,10 +461,7 @@ function SpecialisationsSection() {
                 style={{ color: '#0d9488' }}
               >
                 Apply now
-                <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
-                  <path d="M0 5h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-                  <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <AnimatedArrow />
               </span>
             </Link>
           ))}
@@ -683,14 +681,11 @@ function CaseStudyCarousel() {
 
             <Link
               href={`/case-studies/${item.slug}`}
-              className="inline-flex items-center gap-1.5 text-[13px] font-semibold mt-auto transition-opacity hover:opacity-70"
+              className="inline-flex items-center gap-1.5 text-[13px] font-semibold mt-auto transition-opacity hover:opacity-70 group"
               style={{ color: item.accentColor }}
             >
               Read full case study
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                <path d="M0 5h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeOpacity="0.6" />
-                <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <AnimatedArrow />
             </Link>
           </div>
 
@@ -783,16 +778,13 @@ function ArrowLink({ href, children }: { href: string; children: React.ReactNode
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-1.5 text-[13px] font-semibold transition-colors"
+      className="inline-flex items-center gap-1.5 text-[13px] font-semibold transition-colors group"
       style={{ color: '#0d9488' }}
       onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#0a7c72' }}
       onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = '#0d9488' }}
     >
       {children}
-      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-        <path d="M0 5h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeOpacity="0.6" />
-        <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      <AnimatedArrow />
     </Link>
   )
 }
@@ -814,14 +806,11 @@ function BottomCTA() {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/about/partners/become-a-partner"
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-semibold text-white transition-opacity hover:opacity-85"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-semibold text-white transition-opacity hover:opacity-85 group"
                 style={{ background: 'linear-gradient(135deg, #0d9488, #2dd4bf)' }}
               >
                 Become a partner
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                  <path d="M0 5h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeOpacity="0.7" />
-                  <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <AnimatedArrow />
               </Link>
               <ArrowLink href="/contact?source=partners&cta=contact-our-team">Contact our team</ArrowLink>
             </div>

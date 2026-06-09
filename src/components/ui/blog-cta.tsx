@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 interface BlogCTAProps {
   headline?: string
@@ -34,16 +35,13 @@ export default function BlogCTA({
         <div className="flex flex-wrap gap-3">
           <Link
             href={ctaHref}
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-150 group"
             style={{ background: '#2dd4bf', color: '#0f1b2d' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#0d9e8a'; (e.currentTarget as HTMLElement).style.color = '#fff' }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#2dd4bf'; (e.currentTarget as HTMLElement).style.color = '#0f1b2d' }}
           >
             {ctaLabel}
-            <svg width="12" height="12" viewBox="0 0 10 10" fill="none">
-              <path d="M0 5h7" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-              <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <AnimatedArrow />
           </Link>
           <Link
             href="/blog"
