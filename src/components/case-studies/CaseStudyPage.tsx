@@ -37,10 +37,16 @@ function AuthorRow({ author, date, readTime }: { author: CaseStudy['author']; da
   const initials = author.name.split(' ').map(w => w[0]).join('').slice(0, 2)
   return (
     <div className="flex items-center gap-2.5">
-      <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0"
-        style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)' }}>
-        {initials}
-      </div>
+      {author.avatar ? (
+        <img src={author.avatar} alt={author.name}
+          className="w-7 h-7 rounded-full object-cover shrink-0"
+          style={{ border: '1.5px solid rgba(13,148,136,0.25)' }} />
+      ) : (
+        <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0"
+          style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)' }}>
+          {initials}
+        </div>
+      )}
       <div className="flex items-center gap-1.5 text-[12px] text-black/50">
         <span className="font-semibold text-[#0f1b2d]">{author.name}</span>
         <span className="text-[#2dd4bf]">·</span>
@@ -177,10 +183,16 @@ function LatestCaseStudyItem({ post }: { post: CaseStudy }) {
         <div className="flex items-center gap-3 shrink-0">
           <span className="text-[12px]" style={{ color: 'rgba(15,27,45,0.45)' }}>{post.date}</span>
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[9px] font-bold shrink-0"
-              style={{ background: 'linear-gradient(135deg,#0d9488,#2dd4bf)' }}>
-              {initials}
-            </div>
+            {post.author.avatar ? (
+              <img src={post.author.avatar} alt={post.author.name}
+                className="w-7 h-7 rounded-full object-cover shrink-0"
+                style={{ border: '1.5px solid rgba(13,148,136,0.25)' }} />
+            ) : (
+              <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[9px] font-bold shrink-0"
+                style={{ background: 'linear-gradient(135deg,#0d9488,#2dd4bf)' }}>
+                {initials}
+              </div>
+            )}
             <div className="text-[12px] font-semibold" style={{ color: '#0f1b2d' }}>{post.author.name}</div>
           </div>
         </div>

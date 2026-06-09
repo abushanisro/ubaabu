@@ -18,27 +18,38 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = seo?.metaDescription ?? post.excerpt
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.com'
 
+  // Use per-post hero image for OG if it's an absolute URL, else fallback
+  const heroImage = content?.heroImage
+  const ogImage = heroImage?.startsWith('http')
+    ? heroImage
+    : heroImage
+      ? `${siteUrl}${heroImage}`
+      : `${siteUrl}/opengraph-image`
+
   return {
     title,
     description,
     keywords: seo?.tags,
     authors: [{ name: post.author.name, url: `${siteUrl}/about` }],
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical: `${siteUrl}/blog/${slug}` },
     openGraph: {
       title: seo?.ogTitle ?? post.title,
       description: seo?.ogDescription ?? post.excerpt,
-      url: `/blog/${slug}`,
+      url: `${siteUrl}/blog/${slug}`,
+      siteName: 'Emithran',
       type: 'article',
       publishedTime: post.date,
+      modifiedTime: post.date,
       authors: [post.author.name],
       tags: seo?.tags,
-      images: [{ url: `${siteUrl}/opengraph-image`, width: 1200, height: 630, alt: post.title }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: 'summary_large_image' as const,
+      site: '@EmithranHQ',
       title: seo?.ogTitle ?? post.title,
       description: seo?.ogDescription ?? post.excerpt,
-      images: [`${siteUrl}/opengraph-image`],
+      images: [ogImage],
     },
   }
 }

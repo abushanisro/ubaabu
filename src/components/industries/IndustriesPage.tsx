@@ -227,19 +227,6 @@ export default function IndustriesPage() {
             </div>
           </AnimateIn>
 
-          {/* Industry pills */}
-          <AnimateIn delay={0.15}>
-            <div className="mt-10 flex flex-wrap gap-2">
-              {['Space & Satellite', 'Defence', 'Aerospace', 'Precision Manufacturing'].map((label) => (
-                <span
-                  key={label}
-                  className="rounded-full border border-black/[0.07] bg-[#f8fffe] px-4 py-1.5 text-[12px] font-medium text-[#0f1b2d]/70"
-                >
-                  {label}
-                </span>
-              ))}
-            </div>
-          </AnimateIn>
         </div>
       </section>
 

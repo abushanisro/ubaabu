@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 import dynamic from 'next/dynamic'
 
@@ -98,27 +98,37 @@ const GROUPS: { id: Group; label: string; tags: string[]; headline: string }[] =
   { id: 'SHIP',   label: 'SHIP',   tags: [], headline: 'Full visibility from factory to delivery.' },
 ]
 
+const BLEND = { '--blendBackground': '#2dd4bf', '--blendForeground': '#0f1b2d', '--blendIntersection': '#0d9488' } as React.CSSProperties
+
 const GROUP_ICONS = [
-  <svg key="g0" xmlns="http://www.w3.org/2000/svg" width="33" height="36" viewBox="0 0 33 36" fill="none" className="mb-5">
-    <path d="M10.1449 17.3154L1.75122 21.2284V21.2099L10.1449 25.1229L13.7229 34.3241H13.6977L17.2673 25.1229L25.661 21.2099V21.2284L17.2673 17.3154L13.6977 8.11426H13.7229L10.1449 17.3154Z" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M24.0174 6.31266L20.1438 8.11849V8.10998L24.0174 9.91581L25.6687 14.1621H25.657L27.3044 9.91581L31.178 8.10998V8.11849L27.3044 6.31266L25.657 2.06641H25.6687L24.0174 6.31266Z" stroke="#0d9e8a" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round"/>
+  <svg key="g0" className="mb-5" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" style={BLEND}>
+    <path style={{ fill: 'var(--blendForeground)' }} d="M36 11a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V15a4 4 0 0 1 4-4zm-7.9 18h-1.2a1 1 0 0 0-.54.09.59.59 0 0 0-.27.27 1 1 0 0 0-.09.54v5.2a1 1 0 0 0 .09.54.59.59 0 0 0 .27.27 1 1 0 0 0 .54.09h1.2a1 1 0 0 0 .54-.09.59.59 0 0 0 .27-.27 1 1 0 0 0 .09-.54v-5.2a1 1 0 0 0-.09-.54.59.59 0 0 0-.27-.27 1 1 0 0 0-.54-.09zm7-3h-1.2a1 1 0 0 0-.54.09.59.59 0 0 0-.27.27 1 1 0 0 0-.09.54v8.2a1 1 0 0 0 .09.54.59.59 0 0 0 .27.27 1 1 0 0 0 .54.09h1.2a1 1 0 0 0 .54-.09.59.59 0 0 0 .27-.27 1 1 0 0 0 .09-.54v-8.2a1 1 0 0 0-.09-.54.59.59 0 0 0-.27-.27 1 1 0 0 0-.54-.09zm-21 0h-1.2a1 1 0 0 0-.54.09.59.59 0 0 0-.27.27 1 1 0 0 0-.09.54v8.2a1 1 0 0 0 .09.54.59.59 0 0 0 .27.27 1 1 0 0 0 .54.09h1.2a1 1 0 0 0 .54-.09.59.59 0 0 0 .27-.27 1 1 0 0 0 .09-.54v-8.2a1 1 0 0 0-.09-.54.59.59 0 0 0-.27-.27 1 1 0 0 0-.54-.09zm7-7h-1.2a1 1 0 0 0-.54.09.59.59 0 0 0-.27.27 1 1 0 0 0-.09.54v15.2a1 1 0 0 0 .09.54.59.59 0 0 0 .27.27 1 1 0 0 0 .54.09h1.2a1 1 0 0 0 .54-.09.59.59 0 0 0 .27-.27 1 1 0 0 0 .09-.54V19.9a1 1 0 0 0-.09-.54.59.59 0 0 0-.27-.27 1 1 0 0 0-.54-.09z"/>
+    <path style={{ fill: 'var(--blendBackground)' }} d="M28 0a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4zM16 6a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"/>
+    <path style={{ fill: 'var(--blendIntersection)' }} d="M32 11v7a4 4 0 0 1-4 4h-6v-2.1a1 1 0 0 0-.09-.54.59.59 0 0 0-.27-.27 1 1 0 0 0-.54-.09h-1.2a1 1 0 0 0-.54.09.59.59 0 0 0-.27.27.9.9 0 0 0-.09.42V22H8v-7a4 4 0 0 1 3-3.87V11a5 5 0 0 0 10 0z"/>
   </svg>,
-  <svg key="g1" xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none" className="mb-5">
-    <path d="M13.4529 6.47559L13.4529 13.3161L6.92644 13.3158" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M13.4527 13.3141L4.01514 3.87646" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round"/>
-    <path d="M20.2935 6.47559L20.2934 13.3161L26.8199 13.3158" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M20.2936 13.3141L29.7312 3.87646" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round"/>
-    <path d="M20.2935 25.915L20.2934 19.0745L26.8199 19.0748" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M20.2936 19.0766L29.7312 28.5142" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round"/>
-    <path d="M13.4529 25.915L13.4529 19.0745L6.92645 19.0748" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M13.4527 19.0766L4.01514 28.5142" stroke="#0d9e8a" strokeWidth="2.50122" strokeLinecap="round"/>
+  <svg key="g1" className="mb-5" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={BLEND}>
+    <defs>
+      <clipPath id="CardWithMagnifyingGlassIconClipPath-">
+        <path fillRule="evenodd" clipRule="evenodd" d="M4 5C1.79086 5 0 6.79086 0 9V23C0 25.2091 1.79086 27 4 27H28C30.2091 27 32 25.2091 32 23V9C32 6.79086 30.2091 5 28 5H4ZM3.75 9C3.33579 9 3 9.33579 3 9.75V11.25C3 11.6642 3.33579 12 3.75 12H28.25C28.6642 12 29 11.6642 29 11.25V9.75C29 9.33579 28.6642 9 28.25 9H3.75Z" style={{ fill: 'var(--blendBackground)' }}/>
+      </clipPath>
+    </defs>
+    <path fillRule="evenodd" clipRule="evenodd" d="M4 5C1.79086 5 0 6.79086 0 9V23C0 25.2091 1.79086 27 4 27H28C30.2091 27 32 25.2091 32 23V9C32 6.79086 30.2091 5 28 5H4ZM3.75 9C3.33579 9 3 9.33579 3 9.75V11.25C3 11.6642 3.33579 12 3.75 12H28.25C28.6642 12 29 11.6642 29 11.25V9.75C29 9.33579 28.6642 9 28.25 9H3.75Z" style={{ fill: 'var(--blendBackground)' }}/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M24 33C26.1677 33 28.1564 32.2336 29.71 30.9571L31.043 32.29C30.653 32.6806 30.6531 33.3134 31.0435 33.7038L36.8438 39.5041C37.2343 39.8946 37.8675 39.8946 38.258 39.5041L39.6739 38.0882C40.0645 37.6977 40.0645 37.0645 39.6739 36.674L33.8736 30.8736C33.4833 30.4833 32.8505 30.4831 32.4599 30.8731L31.108 29.5212C32.2938 27.9968 33 26.0809 33 24C33 19.0294 28.9706 15 24 15C19.0294 15 15 19.0294 15 24C15 28.9706 19.0294 33 24 33ZM24 30C27.3137 30 30 27.3137 30 24C30 20.6863 27.3137 18 24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30Z" style={{ fill: 'var(--blendForeground)' }}/>
+    <g clipPath="url(#CardWithMagnifyingGlassIconClipPath-)">
+      <path fillRule="evenodd" clipRule="evenodd" d="M24 33C26.1677 33 28.1564 32.2336 29.71 30.9571L31.043 32.29C30.653 32.6806 30.6531 33.3134 31.0435 33.7038L36.8438 39.5041C37.2343 39.8946 37.8675 39.8946 38.258 39.5041L39.6739 38.0882C40.0645 37.6977 40.0645 37.0645 39.6739 36.674L33.8736 30.8736C33.4833 30.4833 32.8505 30.4831 32.4599 30.8731L31.108 29.5212C32.2938 27.9968 33 26.0809 33 24C33 19.0294 28.9706 15 24 15C19.0294 15 15 19.0294 15 24C15 28.9706 19.0294 33 24 33ZM24 30C27.3137 30 30 27.3137 30 24C30 20.6863 27.3137 18 24 18C20.6863 18 18 20.6863 18 24C18 27.3137 20.6863 30 24 30Z" style={{ fill: 'var(--blendIntersection)' }}/>
+    </g>
   </svg>,
-  <svg key="g2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none" className="mb-5">
-    <path d="M2 1.25146H10.1533" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
-    <path d="M2 8.52344H23.7422" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
-    <path d="M2 23.1396H23.7422" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
-    <path d="M2 15.708H12.8711" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
-    <path d="M18.3066 15.708H23.7422" stroke="#0d9e8a" strokeWidth="2.5" strokeLinecap="round"/>
+  <svg key="g2" className="mb-5" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={BLEND}>
+    <defs>
+      <clipPath id="BrowserWithCartIconClipPath-">
+        <path fillRule="evenodd" clipRule="evenodd" d="M4 2C1.79086 2 0 3.79086 0 6V26C0 28.2091 1.79086 30 4 30H32C34.2091 30 36 28.2091 36 26V6C36 3.79086 34.2091 2 32 2H4ZM4.5 8C5.32843 8 6 7.32843 6 6.5C6 5.67157 5.32843 5 4.5 5C3.67157 5 3 5.67157 3 6.5C3 7.32843 3.67157 8 4.5 8ZM11 6.5C11 7.32843 10.3284 8 9.5 8C8.67157 8 8 7.32843 8 6.5C8 5.67157 8.67157 5 9.5 5C10.3284 5 11 5.67157 11 6.5ZM14.5 8C15.3284 8 16 7.32843 16 6.5C16 5.67157 15.3284 5 14.5 5C13.6716 5 13 5.67157 13 6.5C13 7.32843 13.6716 8 14.5 8Z" style={{ fill: 'var(--blendBackground)' }}/>
+      </clipPath>
+    </defs>
+    <path fillRule="evenodd" clipRule="evenodd" d="M4 2C1.79086 2 0 3.79086 0 6V26C0 28.2091 1.79086 30 4 30H32C34.2091 30 36 28.2091 36 26V6C36 3.79086 34.2091 2 32 2H4ZM4.5 8C5.32843 8 6 7.32843 6 6.5C6 5.67157 5.32843 5 4.5 5C3.67157 5 3 5.67157 3 6.5C3 7.32843 3.67157 8 4.5 8ZM11 6.5C11 7.32843 10.3284 8 9.5 8C8.67157 8 8 7.32843 8 6.5C8 5.67157 8.67157 5 9.5 5C10.3284 5 11 5.67157 11 6.5ZM14.5 8C15.3284 8 16 7.32843 16 6.5C16 5.67157 15.3284 5 14.5 5C13.6716 5 13 5.67157 13 6.5C13 7.32843 13.6716 8 14.5 8Z" style={{ fill: 'var(--blendBackground)' }}/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M5.75 11C5.33579 11 5 11.3358 5 11.75V13.25C5 13.6642 5.33579 14 5.75 14H9.68733C10.3687 14 10.9645 14.4593 11.1379 15.1183L14.5685 28.1542C15.3199 31.0097 17.9017 33 20.8544 33H33C31.3431 33 30 34.3431 30 36C30 37.6569 31.3431 39 33 39C34.6569 39 36 37.6569 36 36C36 34.3431 34.6569 33 33 33H36.25C36.6642 33 37 32.6642 37 32.25V30.75C37 30.3358 36.6642 30 36.25 30H20.8544C19.4843 30 18.2624 29.2041 17.6919 28H35.409C36.3403 28 37.1483 27.3572 37.3578 26.4497L39.7173 16.2249C39.8619 15.5982 39.386 15 38.7429 15H14.209L14.0392 14.3548C13.5189 12.3779 11.7315 11 9.68733 11H5.75ZM20 39C21.6569 39 23 37.6569 23 36C23 34.3431 21.6569 33 20 33C18.3431 33 17 34.3431 17 36C17 37.6569 18.3431 39 20 39Z" style={{ fill: 'var(--blendForeground)' }}/>
+    <g clipPath="url(#BrowserWithCartIconClipPath-)">
+      <path fillRule="evenodd" clipRule="evenodd" d="M5.75 11C5.33579 11 5 11.3358 5 11.75V13.25C5 13.6642 5.33579 14 5.75 14H9.68733C10.3687 14 10.9645 14.4593 11.1379 15.1183L14.5685 28.1542C15.3199 31.0097 17.9017 33 20.8544 33H33C31.3431 33 30 34.3431 30 36C30 37.6569 31.3431 39 33 39C34.6569 39 36 37.6569 36 36C36 34.3431 34.6569 33 33 33H36.25C36.6642 33 37 32.6642 37 32.25V30.75C37 30.3358 36.6642 30 36.25 30H20.8544C19.4843 30 18.2624 29.2041 17.6919 28H35.409C36.3403 28 37.1483 27.3572 37.3578 26.4497L39.7173 16.2249C39.8619 15.5982 39.386 15 38.7429 15H14.209L14.0392 14.3548C13.5189 12.3779 11.7315 11 9.68733 11H5.75ZM20 39C21.6569 39 23 37.6569 23 36C23 34.3431 21.6569 33 20 33C18.3431 33 17 34.3431 17 36C17 37.6569 18.3431 39 20 39Z" style={{ fill: 'var(--blendIntersection)' }}/>
+    </g>
   </svg>,
 ]
 
@@ -171,7 +181,7 @@ export default function ProductIntelligence() {
                 ))}
 
                 <a
-                  href="#demo"
+                  href="/products"
                   className="mt-3 inline-flex items-center px-6 lg:px-7 py-2.5 lg:py-3 rounded-full text-[13px] lg:text-[14px] font-semibold text-white transition-opacity hover:opacity-80"
                   style={{ background: '#0d0d0d' }}
                 >
@@ -210,7 +220,7 @@ export default function ProductIntelligence() {
                     </div>
                   )}
                   <div className="absolute top-4 left-4 z-20">
-                    <span className="rounded-full px-2.5 py-0.5 text-[10px] font-semibold tracking-widest uppercase" style={{ background: 'rgba(72,210,190,0.12)', color: '#48d2be', border: '1px solid rgba(72,210,190,0.2)' }}>
+                    <span className="text-[10px] font-semibold tracking-widest uppercase" style={{ color: '#48d2be' }}>
                       {g.label}
                     </span>
                   </div>

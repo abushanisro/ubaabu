@@ -40,7 +40,8 @@
 
 
 
-# Emithran — Manufacturing Intelligence Platform
+
+b# Emithran — Manufacturing Intelligence Platform
 # https://emithran.com
 # Updated: 2026-06-09
 

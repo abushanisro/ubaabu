@@ -3,10 +3,11 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import {
-  MessageCircle, Facebook, Twitter, Linkedin,
+  MessageCircle, Facebook, Twitter, Linkedin, Link2, Check,
   ArrowUpRight, BookOpen, User, TrendingUp, ExternalLink, Clock,
   Gauge, Network, Truck, Sparkles,
 } from 'lucide-react'
+import { track } from '@/lib/analytics'
 import { POSTS, type BlogPost, type BlogCategory } from './blogData'
 import type { BlogPostContent } from './blogContent'
 import { AnimatedArrow } from '@/components/ui/animated-arrow'
@@ -118,34 +119,103 @@ function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
 
 /* -------------------------------- Share bar -------------------------------- */
 
-const SHARE_BUTTONS = [
-  { label: 'WhatsApp', icon: MessageCircle, hover: '#25D366' },
-  { label: 'Facebook', icon: Facebook,      hover: '#1877F2' },
-  { label: 'Twitter',  icon: Twitter,       hover: '#0EA5E9' },
-  { label: 'LinkedIn', icon: Linkedin,      hover: '#0A66C2' },
+const SITEURL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.com'
+
+function buildShareUrl(platform: string, pageUrl: string, title: string) {
+  const u = encodeURIComponent(pageUrl)
+  const t = encodeURIComponent(title)
+  switch (platform) {
+    case 'WhatsApp': return `https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' — ' + pageUrl)}`
+    case 'Facebook': return `https://www.facebook.com/sharer/sharer.php?u=${u}`
+    case 'Twitter':  return `https://twitter.com/intent/tweet?text=${t}&url=${u}&via=EmithranHQ`
+    case 'LinkedIn': return `https://www.linkedin.com/sharing/share-offsite/?url=${u}`
+    default: return pageUrl
+  }
+}
+
+const SHARE_PLATFORMS = [
+  { label: 'WhatsApp', icon: MessageCircle, hoverBg: '#25D366' },
+  { label: 'Facebook', icon: Facebook,      hoverBg: '#1877F2' },
+  { label: 'Twitter',  icon: Twitter,       hoverBg: '#000000' },
+  { label: 'LinkedIn', icon: Linkedin,      hoverBg: '#0A66C2' },
 ]
 
-function ShareBar() {
+function ShareBar({ post }: { post: BlogPost }) {
+  const [copied, setCopied] = useState(false)
+  const pageUrl = `${SITEURL}/blog/${post.slug}`
+
+  function handleShare(platform: string) {
+    const url = buildShareUrl(platform, pageUrl, post.title)
+    window.open(url, '_blank', 'noopener,noreferrer,width=640,height=500')
+    track.shareArticle(platform, post.slug, post.title)
+  }
+
+  function handleCopy() {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      setCopied(true)
+      track.shareArticle('copy_link', post.slug, post.title)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-8 pb-6"
-      style={{ borderBottom: '1px solid rgba(13,148,136,0.12)' }}>
-      <span className="text-xs sm:text-sm font-medium whitespace-nowrap" style={{ color: 'rgba(15,27,45,0.5)' }}>
-        Share this article:
-      </span>
-      <div className="flex items-center flex-wrap gap-2">
-        {SHARE_BUTTONS.map(({ label, icon: Icon, hover }) => (
+    <div className="mb-8 pb-6" style={{ borderBottom: '1px solid rgba(13,148,136,0.12)' }}>
+      {/* Title card preview strip */}
+      <div className="flex items-center gap-3 mb-4 p-3 rounded-xl"
+        style={{ background: 'rgba(13,148,136,0.05)', border: '1px solid rgba(13,148,136,0.12)' }}>
+        <div className="w-1 self-stretch rounded-full shrink-0" style={{ background: '#0d9488' }} />
+        <p className="text-[13px] font-semibold leading-snug line-clamp-2" style={{ color: '#0f1b2d' }}>
+          {post.title}
+        </p>
+      </div>
+
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        <span className="text-xs font-semibold uppercase tracking-wider whitespace-nowrap" style={{ color: 'rgba(15,27,45,0.4)' }}>
+          Share this article:
+        </span>
+        <div className="flex items-center flex-wrap gap-2">
+          {SHARE_PLATFORMS.map(({ label, icon: Icon, hoverBg }) => (
+            <button
+              key={label}
+              type="button"
+              onClick={() => handleShare(label)}
+              aria-label={`Share on ${label}`}
+              className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg text-[13px] font-semibold transition-all duration-200"
+              style={{ border: '1px solid rgba(13,148,136,0.2)', color: '#0d9488', background: 'rgba(13,148,136,0.05)' }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLElement
+                el.style.background = hoverBg
+                el.style.color = '#fff'
+                el.style.borderColor = hoverBg
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLElement
+                el.style.background = 'rgba(13,148,136,0.05)'
+                el.style.color = '#0d9488'
+                el.style.borderColor = 'rgba(13,148,136,0.2)'
+              }}
+            >
+              <Icon className="w-3.5 h-3.5" />
+              {label}
+            </button>
+          ))}
+
+          {/* Copy link */}
           <button
-            key={label}
             type="button"
-            className="inline-flex items-center justify-center gap-1.5 h-9 px-3 rounded-md text-xs sm:text-sm font-medium transition-colors duration-200"
-            style={{ border: '1px solid rgba(15,27,45,0.12)', color: '#0f1b2d', background: '#fff' }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = hover; (e.currentTarget as HTMLElement).style.color = '#fff'; (e.currentTarget as HTMLElement).style.borderColor = hover }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#fff'; (e.currentTarget as HTMLElement).style.color = '#0f1b2d'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(15,27,45,0.12)' }}
+            onClick={handleCopy}
+            aria-label="Copy link"
+            className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg text-[13px] font-semibold transition-all duration-200"
+            style={{
+              border: copied ? '1px solid #0d9488' : '1px solid rgba(15,27,45,0.14)',
+              color: copied ? '#0d9488' : 'rgba(15,27,45,0.55)',
+              background: copied ? 'rgba(13,148,136,0.08)' : '#fff',
+            }}
           >
-            <Icon className="w-3.5 h-3.5" />
-            {label}
+            {copied ? <Check className="w-3.5 h-3.5" /> : <Link2 className="w-3.5 h-3.5" />}
+            {copied ? 'Copied!' : 'Copy link'}
           </button>
-        ))}
+        </div>
       </div>
     </div>
   )
@@ -472,7 +542,7 @@ export default function BlogPostPage({ post, content }: { post: BlogPost; conten
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
 
           <article className="lg:col-span-9 max-w-full overflow-hidden">
-            <ShareBar />
+            <ShareBar post={post} />
 
             <div ref={contentRef} className="blog-content mb-12" dangerouslySetInnerHTML={{ __html: content.content }} />
           </article>

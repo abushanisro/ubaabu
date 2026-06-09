@@ -7,7 +7,7 @@ export interface CaseStudy {
   industry: Exclude<CaseStudyIndustry, 'All'>
   location: string
   coordinates: [number, number]  // [lng, lat]
-  author: { name: string; role: string }
+  author: { name: string; role: string; avatar?: string }
   date: string
   readTime: string
   featured?: boolean
@@ -23,7 +23,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Automotive',
     location: 'Chennai, India',
     coordinates: [80.27, 13.08],
-    author: { name: 'Singaravelan S.', role: 'Co-founder & CEO' },
+    author: { name: 'Singaravelan S.', role: 'Co-founder & CEO', avatar: '/assets/infographics/logo/sinigi.png' },
     date: 'June 2, 2026',
     readTime: '7 min read',
     featured: true,
@@ -37,7 +37,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Automotive',
     location: 'Stuttgart, Germany',
     coordinates: [9.18, 48.78],
-    author: { name: 'Abushan', role: 'Co-founder & CTO' },
+    author: { name: 'Abushan', role: 'Co-founder & CTO', avatar: '/assets/infographics/logo/abushan.png' },
     date: 'May 28, 2026',
     readTime: '6 min read',
     metric: '19% leakage found',
@@ -50,7 +50,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Automotive',
     location: 'Detroit, USA',
     coordinates: [-83.04, 42.33],
-    author: { name: 'Singaravelan S.', role: 'Co-founder & CEO' },
+    author: { name: 'Singaravelan S.', role: 'Co-founder & CEO', avatar: '/assets/infographics/logo/sinigi.png' },
     date: 'May 20, 2026',
     readTime: '8 min read',
     metric: '3-geography benchmark',
@@ -63,7 +63,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Aerospace',
     location: 'Tokyo, Japan',
     coordinates: [139.69, 35.68],
-    author: { name: 'Abushan', role: 'Co-founder & CTO' },
+    author: { name: 'Abushan', role: 'Co-founder & CTO', avatar: '/assets/infographics/logo/abushan.png' },
     date: 'May 12, 2026',
     readTime: '6 min read',
     metric: '22% unit cost down',
@@ -76,7 +76,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Defence',
     location: 'Singapore',
     coordinates: [103.99, 1.36],
-    author: { name: 'Singaravelan S.', role: 'Co-founder & CEO' },
+    author: { name: 'Singaravelan S.', role: 'Co-founder & CEO', avatar: '/assets/infographics/logo/sinigi.png' },
     date: 'April 30, 2026',
     readTime: '5 min read',
     metric: 'Full reverse BOM',
@@ -89,7 +89,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Automotive',
     location: 'São Paulo, Brazil',
     coordinates: [-46.47, -23.43],
-    author: { name: 'Abushan', role: 'Co-founder & CTO' },
+    author: { name: 'Abushan', role: 'Co-founder & CTO', avatar: '/assets/infographics/logo/abushan.png' },
     date: 'April 18, 2026',
     readTime: '7 min read',
     metric: '£2M decision guided',
@@ -102,7 +102,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Automotive',
     location: 'Mumbai, India',
     coordinates: [72.87, 19.09],
-    author: { name: 'Singaravelan S.', role: 'Co-founder & CEO' },
+    author: { name: 'Singaravelan S.', role: 'Co-founder & CEO', avatar: '/assets/infographics/logo/sinigi.png' },
     date: 'April 5, 2026',
     readTime: '5 min read',
     metric: '94% BOM accuracy',
@@ -115,7 +115,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     industry: 'Automotive',
     location: 'London, UK',
     coordinates: [-0.13, 51.51],
-    author: { name: 'Abushan', role: 'Co-founder & CTO' },
+    author: { name: 'Abushan', role: 'Co-founder & CTO', avatar: '/assets/infographics/logo/abushan.png' },
     date: 'March 22, 2026',
     readTime: '6 min read',
     metric: '£68/unit overcharge',

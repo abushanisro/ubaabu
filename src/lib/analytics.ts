@@ -57,6 +57,9 @@ export const track = {
   blogRead: (slug: string, title: string) =>
     event({ action: 'blog_read', category: 'content', label: title, slug }),
 
+  shareArticle: (platform: string, slug: string, title: string) =>
+    event({ action: 'share', category: 'engagement', label: platform, content_type: 'article', item_id: slug, title }),
+
   caseStudyView: (slug: string) =>
     event({ action: 'case_study_view', category: 'content', label: slug }),
 
