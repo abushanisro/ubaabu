@@ -219,11 +219,48 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ left: 64 }} />
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ right: 64 }} />
-        <GoogleAnalytics />
-        <ConditionalNavbar />
-        <main className="relative z-10">{children}</main>
-        <ConditionalFooter />
-        <WhatsAppButton />
+
+        {/* Outro: fixed behind all page content, revealed as user scrolls past the footer */}
+        <div
+          className="fixed bottom-0 inset-x-0 h-screen overflow-hidden"
+          style={{
+            zIndex: 1,
+            // Fine vertical stripe pattern over gradient — matches Semrush visual
+            backgroundImage: [
+              'repeating-linear-gradient(90deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 5px)',
+              'linear-gradient(to bottom, #fff 0%, #b2f5ea 40%, #2dd4bf 100%)',
+            ].join(', '),
+          }}
+        >
+          {/* EMITHRAN anchored at the very bottom, full-width — Semrush style */}
+          <div
+            className="absolute bottom-0 left-0 right-0 text-center font-black select-none whitespace-nowrap"
+            style={{
+              fontSize: 'clamp(40px, 14vw, 240px)',
+              color: '#0f1b2d',
+              letterSpacing: '-0.02em',
+              lineHeight: 1,
+              marginBottom: '-0.05em',
+            }}
+          >
+            EMITHRAN
+          </div>
+        </div>
+
+        {/* Content wrapper: sits above the fixed outro */}
+        <div className="relative" style={{ zIndex: 2 }}>
+          <GoogleAnalytics />
+          <ConditionalNavbar />
+          <main className="relative z-10">{children}</main>
+          <ConditionalFooter />
+          <WhatsAppButton />
+          {/*
+            Transparent spacer — gives the extra scroll distance needed so the
+            footer can scroll fully off-screen and reveal the fixed outro below.
+            No background means the outro shows through it.
+          */}
+          <div className="h-[28vh]" aria-hidden="true" />
+        </div>
       </body>
     </html>
   )

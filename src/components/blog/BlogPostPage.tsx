@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import {
   MessageCircle, Facebook, Twitter, Linkedin,
@@ -90,8 +91,8 @@ function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
         </div>
 
         <span
-          className="self-start inline-block text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
-          style={{ background: 'rgba(45,212,191,0.16)', color: '#2dd4bf', border: '1px solid rgba(45,212,191,0.3)' }}
+          className="self-start inline-block text-[10px] font-bold uppercase tracking-widest mb-4"
+          style={{ color: '#2dd4bf' }}
         >
           {post.category}
         </span>
@@ -154,41 +155,23 @@ function ShareBar() {
 
 function TalkToExpertsCard() {
   return (
-    <div className="p-5 sm:p-6 md:p-8 mb-10 sm:mb-12 rounded-xl sm:rounded-2xl"
-      style={{
-        background: 'linear-gradient(135deg, rgba(45,212,191,0.1) 0%, rgba(13,148,136,0.06) 100%)',
-        border: '2px solid rgba(45,212,191,0.25)',
-      }}>
-      <div className="flex flex-col sm:flex-row items-start gap-4">
-        <div className="p-3 rounded-full flex-shrink-0" style={{ background: 'rgba(13,148,136,0.12)' }}>
-          <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#0d9488' }} />
-        </div>
-        <div className="flex-1 w-full">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2" style={{ color: '#0f1b2d' }}>
-            Want to See This on Your Own Parts?
-          </h3>
-          <p className="text-sm sm:text-base mb-5 leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>
-            <strong style={{ color: '#0d9488' }}>Get a live demo</strong> of Emithran's Should-Cost Engine with a real component from your supply chain — should-cost, supplier intelligence, and BOM validation in 30 minutes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/contact?source=blog&cta=request-a-demo"
-              className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-lg text-sm sm:text-base font-semibold transition-all duration-200 w-full sm:w-auto"
-              style={{ background: '#0d9488', color: '#fff' }}
-              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#0f766e' }}
-              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#0d9488' }}
-            >
-              Request a Demo
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-            <Link href="/contact?source=blog&cta=talk-to-our-team"
-              className="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-lg text-sm sm:text-base font-semibold transition-colors duration-200 w-full sm:w-auto"
-              style={{ border: '1px solid #0d9488', color: '#0d9488', background: 'transparent' }}
-            >
-              Talk to Our Team
-            </Link>
-          </div>
-        </div>
-      </div>
+    <div
+      className="w-full flex flex-col items-center justify-center text-center gap-6 py-14 px-6"
+      style={{ background: '#000' }}
+    >
+      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white max-w-2xl leading-tight">
+        Want to See This on Your Own Parts?
+      </h3>
+      <Link
+        href="/contact"
+        className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-sm sm:text-base font-semibold transition-all duration-200"
+        style={{ background: '#2dd4bf', color: '#0f1b2d' }}
+        onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#5eead4' }}
+        onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#2dd4bf' }}
+      >
+        Request a Demo
+        <ArrowUpRight className="w-4 h-4" />
+      </Link>
     </div>
   )
 }
@@ -277,17 +260,164 @@ function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
   )
 }
 
+/* ----------------------------- Newsletter signup ---------------------------- */
+
+function NewsletterSignup() {
+  return (
+    <div
+      className="mt-10 sm:mt-12 flex flex-col sm:flex-row items-start gap-6 sm:gap-10 p-6 sm:p-8 rounded-xl"
+      style={{ background: 'rgba(13,148,136,0.05)', border: '1px solid rgba(13,148,136,0.15)' }}
+    >
+      <div className="w-full sm:w-56 shrink-0">
+        <h5 className="text-lg sm:text-xl font-bold leading-snug" style={{ color: '#0f1b2d' }}>
+          Subscribe to learn more about Manufacturing Intelligence
+        </h5>
+      </div>
+      <div className="flex-1 w-full">
+        <form className="flex flex-col sm:flex-row gap-2.5" onSubmit={e => e.preventDefault()}>
+          <input
+            type="email"
+            placeholder="Your email"
+            className="flex-1 h-12 px-5 rounded-full text-sm focus:outline-none"
+            style={{
+              border: '1px solid rgba(13,148,136,0.25)',
+              background: '#fff',
+              color: '#0f1b2d',
+              boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
+            }}
+          />
+          <button
+            type="submit"
+            className="h-12 px-7 rounded-full text-sm font-semibold whitespace-nowrap transition-colors duration-200"
+            style={{ background: '#0f1b2d', color: '#fff' }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#0d9488' }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = '#0f1b2d' }}
+          >
+            Subscribe
+          </button>
+        </form>
+        <p className="mt-3 text-xs leading-relaxed" style={{ color: 'rgba(15,27,45,0.45)' }}>
+          By clicking "Subscribe" you agree to Emithran's{' '}
+          <Link href="/privacy" className="underline hover:opacity-70">Privacy Policy</Link>
+          {' '}and consent to Emithran using your contact data for newsletter purposes.
+        </p>
+      </div>
+    </div>
+  )
+}
+
+/* ------------------------------ Table of contents --------------------------- */
+
+function TableOfContents({ contentRef }: { contentRef: React.RefObject<HTMLDivElement | null> }) {
+  const [items, setItems] = useState<{ id: string; text: string; level: number }[]>([])
+  const [activeId, setActiveId] = useState<string>('')
+  const navRef = useRef<HTMLElement>(null)
+
+  // Extract headings, assign IDs, track active via scroll
+  useEffect(() => {
+    const root = contentRef.current
+    if (!root) return
+    const headings = Array.from(root.querySelectorAll('h2, h3')) as HTMLElement[]
+    const seen = new Set<string>()
+    const list = headings.map(heading => {
+      const base = (heading.textContent ?? '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+      let id = base
+      let suffix = 1
+      while (seen.has(id)) id = `${base}-${suffix++}`
+      seen.add(id)
+      heading.id = id
+      return { id, text: heading.textContent ?? '', level: heading.tagName === 'H3' ? 3 : 2 }
+    })
+    setItems(list)
+    if (list.length > 0) setActiveId(list[0].id)
+
+    const onScroll = () => {
+      // The last heading whose top edge has crossed the 108px mark
+      // (just below the sticky navbar) is the currently-active section.
+      let current = list[0]?.id ?? ''
+      for (const h of headings) {
+        if (h.getBoundingClientRect().top <= 108) current = h.id
+      }
+      setActiveId(current)
+    }
+
+    // Use capture so this fires regardless of which element is scrolling
+    document.addEventListener('scroll', onScroll, { passive: true, capture: true })
+    onScroll()
+    return () => document.removeEventListener('scroll', onScroll, { capture: true })
+  }, [contentRef])
+
+  // Scroll the TOC nav so the active link stays visible inside the scrollable box.
+  // We use getBoundingClientRect so the position is always relative to the nav
+  // viewport, regardless of offsetParent ancestry.
+  useEffect(() => {
+    const nav = navRef.current
+    if (!nav || !activeId) return
+    const activeEl = nav.querySelector(`[data-toc="${activeId}"]`) as HTMLElement | null
+    if (!activeEl) return
+    const navRect = nav.getBoundingClientRect()
+    const elRect  = activeEl.getBoundingClientRect()
+    // Position of the element relative to the nav's inner scroll area
+    const elTop    = elRect.top  - navRect.top  + nav.scrollTop
+    const elBottom = elRect.bottom - navRect.top + nav.scrollTop
+    if (elTop < nav.scrollTop) {
+      nav.scrollTo({ top: elTop, behavior: 'smooth' })
+    } else if (elBottom > nav.scrollTop + nav.clientHeight) {
+      nav.scrollTo({ top: elBottom - nav.clientHeight, behavior: 'smooth' })
+    }
+  }, [activeId])
+
+  if (items.length === 0) return null
+
+  return (
+    <div className="rounded-xl bg-white overflow-hidden" style={{ border: '1px solid rgba(13,148,136,0.15)' }}>
+      <div className="px-5 py-4" style={{ borderBottom: '1px solid rgba(13,148,136,0.1)' }}>
+        <h3 className="text-[11px] font-bold uppercase tracking-widest" style={{ color: '#0f1b2d' }}>
+          Table of Contents
+        </h3>
+      </div>
+      <nav ref={navRef} className="overflow-y-auto relative" style={{ maxHeight: '210px' }}>
+        {items.map((item, i) => {
+          const isActive = activeId === item.id
+          return (
+            <a
+              key={item.id}
+              data-toc={item.id}
+              href={`#${item.id}`}
+              className="flex items-start text-[12px] py-2.5 leading-snug transition-all duration-150 line-clamp-2"
+              style={{
+                paddingLeft: item.level === 3 ? '24px' : '16px',
+                paddingRight: '12px',
+                borderLeft: isActive ? '3px solid #2dd4bf' : '3px solid transparent',
+                borderBottom: i < items.length - 1 ? '1px solid rgba(13,148,136,0.07)' : 'none',
+                color: isActive ? '#0d9488' : 'rgba(15,27,45,0.58)',
+                fontWeight: isActive ? 600 : 400,
+                background: isActive ? 'rgba(45,212,191,0.05)' : 'transparent',
+              }}
+            >
+              {item.text}
+            </a>
+          )
+        })}
+      </nav>
+    </div>
+  )
+}
+
 /* ----------------------------------- Aside ---------------------------------- */
 
-function Sidebar({ post, popular }: { post: BlogPost; popular: BlogPost[] }) {
+function Sidebar({ contentRef }: { contentRef: React.RefObject<HTMLDivElement | null> }) {
   return (
-    <aside className="hidden lg:block lg:col-span-4">
+    <aside className="hidden lg:block lg:col-span-3">
       <div className="sticky top-24 space-y-6">
+
+        {/* Table of contents */}
+        <TableOfContents contentRef={contentRef} />
 
         {/* Talk to us */}
         <div className="p-5 rounded-xl"
-          style={{ background: 'linear-gradient(135deg, #0f1b2d 0%, #0a2a26 100%)', border: '1px solid rgba(45,212,191,0.2)' }}>
-          <h3 className="font-bold text-base mb-2 text-white">Have a part in mind? 💬</h3>
+          style={{ background: '#000', border: '1px solid rgba(45,212,191,0.2)' }}>
+          <h3 className="font-bold text-base mb-2 text-white">Have a part in mind?</h3>
           <p className="text-sm mb-4 leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
             Talk to our team about should-cost analysis, supplier intelligence, or BOM automation for your parts.
           </p>
@@ -300,31 +430,6 @@ function Sidebar({ post, popular }: { post: BlogPost; popular: BlogPost[] }) {
             <MessageCircle className="w-4 h-4" />
             Talk to Our Team
           </Link>
-        </div>
-
-        {/* Popular articles */}
-        <div className="p-5 rounded-xl bg-white" style={{ border: '1px solid rgba(13,148,136,0.12)' }}>
-          <div className="flex items-center gap-2 mb-4">
-            <TrendingUp className="w-4 h-4" style={{ color: '#0d9488' }} />
-            <h3 className="font-bold text-base" style={{ color: '#0f1b2d' }}>Popular Articles</h3>
-          </div>
-          <div className="space-y-3">
-            {popular.map((p, i) => (
-              <Link key={p.slug} href={`/blog/${p.slug}`}
-                className={`group flex gap-3 ${i !== popular.length - 1 ? 'pb-3' : ''}`}
-                style={i !== popular.length - 1 ? { borderBottom: '1px solid rgba(13,148,136,0.1)' } : undefined}
-              >
-                <Thumbnail slug={p.slug} className="w-14 h-14 rounded-lg flex-shrink-0 group-hover:scale-105 transition-transform duration-300" />
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-xs line-clamp-2 mb-1 leading-tight transition-colors"
-                    style={{ color: '#0f1b2d' }}>
-                    {p.title}
-                  </h4>
-                  <span className="text-xs" style={{ color: 'rgba(15,27,45,0.4)' }}>{p.readTime}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
         </div>
 
         {/* Quick links */}
@@ -357,7 +462,7 @@ function Sidebar({ post, popular }: { post: BlogPost; popular: BlogPost[] }) {
 
 export default function BlogPostPage({ post, content }: { post: BlogPost; content: BlogPostContent }) {
   const related = POSTS.filter(p => p.slug !== post.slug).slice(0, 3)
-  const popular = POSTS.filter(p => p.slug !== post.slug).slice(3, 6)
+  const contentRef = useRef<HTMLDivElement>(null)
 
   return (
     <main style={{ background: '#fff' }}>
@@ -366,20 +471,24 @@ export default function BlogPostPage({ post, content }: { post: BlogPost; conten
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-10 md:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
 
-          <article className="lg:col-span-8 max-w-full overflow-hidden">
+          <article className="lg:col-span-9 max-w-full overflow-hidden">
             <ShareBar />
 
-            <div className="blog-content mb-12" dangerouslySetInnerHTML={{ __html: content.content }} />
-
-            <TalkToExpertsCard />
-
-            <RelatedArticles posts={related} />
-
-            <AuthorBio post={post} bio={content.authorBio} />
+            <div ref={contentRef} className="blog-content mb-12" dangerouslySetInnerHTML={{ __html: content.content }} />
           </article>
 
-          <Sidebar post={post} popular={popular} />
+          <Sidebar contentRef={contentRef} />
         </div>
+      </div>
+
+      <TalkToExpertsCard />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-12">
+        <RelatedArticles posts={related} />
+
+        <AuthorBio post={post} bio={content.authorBio} />
+
+        <NewsletterSignup />
       </div>
     </main>
   )

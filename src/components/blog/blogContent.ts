@@ -442,10 +442,6 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <p>The discipline isn't complicated in principle. What makes it hard at scale is the data work: keeping material prices current, modelling process routes accurately, and doing this across hundreds of part numbers without burning out your cost engineering team. That's the problem modern tooling is built to solve.</p>
 
-      <div class="cta-box">
-        <h3>See Should-Cost Analysis on Your Own Parts</h3>
-        <p>If you want to see how Emithran's Should-Cost Analysis module helps cost engineering and procurement teams build bottom-up cost models directly from CAD data and turn those models into negotiation-ready breakdowns, <a href="/contact">book a demo</a> and we'll walk you through it with a part from your own programme.</p>
-      </div>
     `,
   },
 }

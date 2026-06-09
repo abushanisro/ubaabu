@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
-import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer";
+import { FooterBackgroundGradient } from "@/components/ui/hover-footer";
 
 type FooterLink = {
   title: string;
@@ -57,16 +57,12 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-black relative overflow-hidden rounded-t-3xl m-0">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 pt-16 z-40 relative">
-
-        {/* ── Main grid: brand(2) + 3 nav columns ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 pb-12 border-b border-white/[0.07]">
-
-          {/* ── Brand + Locations (takes 2 of 5 columns) ── */}
-          <div className="lg:col-span-2 flex flex-col gap-5">
-
-            {/* Logo */}
+    <footer className="bg-[#080808] relative overflow-hidden m-0">
+      <div className="max-w-[1280px] mx-auto px-8 pt-16 z-40 relative">
+        {/* ── Main columns ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.07]">
+          {/* Brand + contact */}
+          <div className="lg:col-span-2 flex flex-col space-y-4">
             <div className="flex items-center gap-2">
               <img src="/assets/infographics/logo/logo-black.png" alt="Emithran" className="h-7 w-auto" />
               <span className="text-white text-xl font-bold tracking-wide">EMITHRAN</span>
@@ -198,11 +194,6 @@ export default function Footer() {
             </p>
           </div>
         </div>
-      </div>
-
-      {/* ── Text hover effect — EMITHRAN at bottom ── */}
-      <div className="w-full relative z-10" style={{ aspectRatio: '500 / 72' }}>
-        <TextHoverEffect text="EMITHRAN" duration={0} className="w-full h-full" />
       </div>
 
       <FooterBackgroundGradient />
