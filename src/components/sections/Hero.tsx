@@ -88,7 +88,7 @@ export default function Hero() {
           </p>
           <p className="mt-4 text-[15px] leading-relaxed text-[#555]">
             Manage sourcing, costing, planning, quality, benchmarking, and delivery
-            at the speed of AI — using connected manufacturing and supplier data.
+            at the speed of AI using connected manufacturing and supplier data.
           </p>
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <a href="/request-demo" className="hds-btn-primary group">
