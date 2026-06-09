@@ -29,9 +29,9 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on. He also occasionally goes down mathematical rabbit holes at 2am and writes about what he finds.',
     seo: {
-      metaTitle: 'The Mathematics Behind Emithran\'s Live Cost Savings Counter | Emithran Blog',
+      metaTitle: 'Manufacturing Intelligence Compounds: A Homepage Counter, Growth Models, and Emithran | Emithran Blog',
       metaDescription:
-        'Why the Emithran homepage counter uses continuous compound growth (S(t) = S₀·eʳᵗ), the same class of growth model used in finance and economic growth theory. An honest account of where the model applies to manufacturing intelligence and where it does not.',
+        'Why Emithran uses a live Manufacturing Intelligence Index instead of a static metric, and what it reveals about how BOM intelligence, supplier data, and should-cost models compound over time.',
       ogTitle: 'The Number That Never Stops Moving',
       ogDescription:
         'I needed a number for our hero page. What I found instead was S(t) = S₀·eʳᵗ, a rabbit hole of continuous compounding, and an honest reckoning with where the model applies to manufacturing and where I was overreaching.',
@@ -78,7 +78,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <p style="font-size:1.1rem;color:#374151;line-height:1.8;font-style:italic;border-left:3px solid #0d9e8a;padding-left:1.25rem;margin-bottom:2rem;">This post started as a 10-minute design decision. It ended three hours later with me reading a Nobel Prize lecture at 2am. But the part that actually matters for manufacturing isn't the formula. It is what the formula revealed about how a platform like Emithran gets smarter over time.</p>
 
 <div style="background:linear-gradient(135deg,#f0fdf8,#e6faf5);border:1px solid #0d9e8a33;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem;">
-  <p style="color:#0d1117;font-size:1rem;line-height:1.7;margin:0;"><strong>The short version:</strong> The Manufacturing Intelligence Index on the Emithran homepage is computed, not fabricated. It belongs to the same class of growth model used to describe systems where existing knowledge helps generate new knowledge. The rate is a modelling parameter, not audited customer data. The index represents accumulated manufacturing intelligence, not savings from a ledger. This post explains the formula, why it applies here, and — more importantly — why manufacturing knowledge compounds in the first place.</p>
+  <p style="color:#0d1117;font-size:1rem;line-height:1.7;margin:0;"><strong>The short version:</strong> The Manufacturing Intelligence Index on the Emithran homepage is computed, not fabricated. It belongs to the same class of growth model used to describe systems where existing knowledge helps generate new knowledge. The rate is a modelling parameter, not audited customer data. The index represents accumulated manufacturing intelligence, not savings from a ledger. This post explains the formula, why it applies here, and more importantly, why manufacturing knowledge compounds in the first place.</p>
 </div>
 
 <h2>The Problem: I Needed a Number That Was Actually True</h2>
@@ -331,7 +331,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <h4>Example: Qualifying a New Domestic Supplier for a Defence Sub-Assembly</h4>
 
-      <p>An OEM qualifying a new MSME for a hydraulic manifold block used in an armoured vehicle programme has no historical pricing to reference. Should-cost analysis using the supplier's proposed process route, local material sourcing, and labour rates gives the OEM a fair cost target — ensuring the supplier earns a viable margin without embedding excess cost into the programme baseline.</p>
+      <p>An OEM qualifying a new MSME for a hydraulic manifold block used in an armoured vehicle programme has no historical pricing to reference. Should-cost analysis using the supplier's proposed process route, local material sourcing, and labour rates gives the OEM a fair cost target, ensuring the supplier earns a viable margin without embedding excess cost into the programme baseline.</p>
 
       <p>This isn't just about saving money. It's about building a supplier relationship on a shared understanding of economics.</p>
 
@@ -346,7 +346,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
         <li>Material specification and grade</li>
         <li>Part weight and buy-to-fly ratio</li>
       </ul>
-      <p>Modern <a href="/products">CAD to Cost</a> tooling can pull most of these inputs directly from the 3D model — turning a multi-day modelling exercise into a same-day estimate.</p>
+      <p>Modern <a href="/products">CAD to Cost</a> tooling can pull most of these inputs directly from the 3D model, turning a multi-day modelling exercise into a same-day estimate.</p>
 
       <h4>2. Process Cost Modelling</h4>
       <ul>
@@ -360,7 +360,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
       <ul>
         <li>Machine absorption rate (depreciation, maintenance, utilities)</li>
         <li>Factory overhead (floor space, supervision, quality systems)</li>
-        <li>Volume-adjusted burden — costs that shift as quantities change</li>
+        <li>Volume-adjusted burden: costs that shift as quantities change</li>
       </ul>
 
       <h4>4. Supplier-Side Variables</h4>
@@ -380,10 +380,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
         <li>Apply current material prices (LME, domestic market indices)</li>
         <li>Run process simulations to estimate machining time</li>
         <li>Generate a cost breakdown automatically, ready for review and refinement</li>
-        <li>Track cost variance across revision cycles — so you know when a design change shifts should-cost materially</li>
+        <li>Track cost variance across revision cycles, so you know when a design change shifts should-cost materially</li>
       </ul>
 
-      <p>For cost engineering teams at OEMs managing multiple simultaneous programmes — space, defence, and commercial — this shift from manual modelling to <a href="/products">AI cost estimation</a> is the difference between should-cost as a project and should-cost as a standard practice.</p>
+      <p>For cost engineering teams at OEMs managing multiple simultaneous programmes across space, defence, and commercial work, this shift from manual modelling to <a href="/products">AI cost estimation</a> is the difference between should-cost as a project and should-cost as a standard practice.</p>
 
       <h3>Common Mistakes in Should-Cost Analysis</h3>
 
@@ -391,7 +391,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <p><strong>1. Using catalogue or index prices for everything.</strong> Material prices vary by supplier, form, certification level, and lot size. A should-cost model that uses LME spot price for aerospace-grade aluminium without accounting for certified billet premium is going to be off.</p>
 
-      <p><strong>2. Ignoring supplier overhead realities.</strong> An MSME with NADCAP certification for special processes carries real overhead that a non-certified shop doesn't. Your model needs to reflect the right overhead tier — not just the cheapest option available.</p>
+      <p><strong>2. Ignoring supplier overhead realities.</strong> An MSME with NADCAP certification for special processes carries real overhead that a non-certified shop doesn't. Your model needs to reflect the right overhead tier for that supplier, not the cheapest option available.</p>
 
       <p><strong>3. Treating should-cost as a one-time exercise.</strong> Parts evolve. Designs change. Material prices move. A should-cost model that isn't updated through the product lifecycle becomes stale and unreliable fast.</p>
 
@@ -403,14 +403,14 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <p>Here's a practical approach for OEM procurement and cost engineering teams:</p>
       <ol>
-        <li><strong>Select target parts</strong> — prioritise high-spend, single-source, or high-complexity components</li>
-        <li><strong>Build the should-cost model</strong> — bottom-up, using design data and current market inputs</li>
-        <li><strong>Run a sanity check</strong> — compare against historical actuals and similar part families</li>
-        <li><strong>Identify the gap</strong> — quantify the difference between should-cost and current or quoted price</li>
-        <li><strong>Prepare the negotiation brief</strong> — document your assumptions, sources, and reasoning; be ready to show your work</li>
-        <li><strong>Engage the supplier</strong> — share your model, invite challenge, focus on cost drivers not just final numbers</li>
-        <li><strong>Close with a documented agreement</strong> — price adjustments should trace back to specific cost elements, not just a percentage move</li>
-        <li><strong>Revisit at design freeze and <a href="/products">production transitions</a></strong> — should-cost should update when design or volume assumptions change</li>
+        <li><strong>Select target parts:</strong> prioritise high-spend, single-source, or high-complexity components</li>
+        <li><strong>Build the should-cost model</strong> bottom-up, using design data and current market inputs</li>
+        <li><strong>Run a sanity check:</strong> compare against historical actuals and similar part families</li>
+        <li><strong>Identify the gap:</strong> quantify the difference between should-cost and current or quoted price</li>
+        <li><strong>Prepare the negotiation brief:</strong> document your assumptions, sources, and reasoning, and be ready to show your work</li>
+        <li><strong>Engage the supplier:</strong> share your model, invite challenge, and focus on cost drivers rather than just final numbers</li>
+        <li><strong>Close with a documented agreement:</strong> price adjustments should trace back to specific cost elements, not just a percentage move</li>
+        <li><strong>Revisit at design freeze and <a href="/products">production transitions</a>:</strong> update should-cost whenever design or volume assumptions change</li>
       </ol>
 
       <h3>Frequently Asked Questions</h3>
@@ -425,7 +425,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
       <p>At minimum: part drawing or 3D model, material specification, process route (or an assumed process route based on features), machine hourly rates for the relevant processes, current material prices, and a reasonable overhead and margin assumption. More accurate models also incorporate supplier-specific data like location, certifications, and capacity.</p>
 
       <h4>Can should-cost analysis be applied to defence and space manufacturing components?</h4>
-      <p>Yes — and it's particularly valuable there. Defence and space components often have small supplier pools and long contract durations, which limits competitive pressure. A bottom-up should-cost model gives procurement teams an objective cost floor that holds up under audit and supports fair-pricing discussions even in single-source situations.</p>
+      <p>Yes, and it is particularly valuable there. Defence and space components often have small supplier pools and long contract durations, which limits competitive pressure. A bottom-up should-cost model gives procurement teams an objective cost floor that holds up under audit and supports fair-pricing discussions even in single-source situations.</p>
 
       <h4>How does should-cost analysis support supplier negotiation strategy?</h4>
       <p>It gives buyers a data-backed target price and a detailed cost breakdown they can table in negotiations. Instead of bargaining by percentage, both parties can discuss specific cost drivers: material grade, cycle time, and overhead assumptions. This tends to surface real savings opportunities and produce more durable pricing agreements.</p>
@@ -438,13 +438,13 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <h3>Conclusion</h3>
 
-      <p>Should-cost analysis closes the knowledge gap that makes supplier negotiations feel like guesswork. When you know what a part should cost — not just what a supplier is asking — you negotiate from facts, not from hope. For India's defence, aerospace, and space OEMs, where supplier pools are limited and contract durations are long, that difference directly affects programme economics and long-term competitiveness.</p>
+      <p>Should-cost analysis closes the knowledge gap that makes supplier negotiations feel like guesswork. When you know what a part should cost, not just what a supplier is asking, you negotiate from facts, not from hope. For India's defence, aerospace, and space OEMs, where supplier pools are limited and contract durations are long, that difference directly affects programme economics and long-term competitiveness.</p>
 
       <p>The discipline isn't complicated in principle. What makes it hard at scale is the data work: keeping material prices current, modelling process routes accurately, and doing this across hundreds of part numbers without burning out your cost engineering team. That's the problem modern tooling is built to solve.</p>
 
       <div class="cta-box">
         <h3>See Should-Cost Analysis on Your Own Parts</h3>
-        <p>If you want to see how Emithran's Should-Cost Analysis module helps cost engineering and procurement teams build bottom-up cost models directly from CAD data — and turn those models into negotiation-ready breakdowns — <a href="/contact">book a demo</a> and we'll walk you through it with a part from your own programme.</p>
+        <p>If you want to see how Emithran's Should-Cost Analysis module helps cost engineering and procurement teams build bottom-up cost models directly from CAD data and turn those models into negotiation-ready breakdowns, <a href="/contact">book a demo</a> and we'll walk you through it with a part from your own programme.</p>
       </div>
     `,
   },

@@ -173,7 +173,7 @@ export default function AboutReferencePage() {
       `}</style>
 
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-white min-h-[88vh] flex items-center">
+      <section className="relative overflow-hidden bg-white min-h-[88vh] flex items-center" style={{ paddingTop: '64px' }}>
 
         {/* Right-half SVG background */}
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block overflow-hidden">
