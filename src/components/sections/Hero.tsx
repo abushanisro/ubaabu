@@ -29,7 +29,7 @@ function LiveSavings() {
   const decPart = (value % 1).toFixed(8).slice(2)
 
   return (
-    <div className="mb-6 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm text-black/40">
+    <div className="mb-6 flex items-center gap-x-1 text-[11px] sm:text-sm text-black/40 whitespace-nowrap">
       <span>Manufacturing Intelligence Index:</span>
       <span
         aria-live="polite"
