@@ -205,7 +205,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
+    <html lang="en" className={`${sora.variable} ${inter.variable}`} data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://prod.spline.design" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://prod.spline.design" />
@@ -225,7 +225,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           className="fixed bottom-0 inset-x-0 h-screen overflow-hidden"
           style={{
             zIndex: 1,
-            // Fine vertical stripe pattern over gradient — matches Semrush visual
+            willChange: 'transform',
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
             backgroundImage: [
               'repeating-linear-gradient(90deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 5px)',
               'linear-gradient(to bottom, #fff 0%, #b2f5ea 40%, #2dd4bf 100%)',
@@ -247,20 +249,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
         </div>
 
-        {/* Content wrapper: sits above the fixed outro */}
-        <div className="relative" style={{ zIndex: 2 }}>
+        {/* Content wrapper: solid white so it fully occludes the fixed outro while in view */}
+        <div className="relative bg-white" style={{ zIndex: 2 }}>
           <GoogleAnalytics />
           <ConditionalNavbar />
           <main className="relative z-10">{children}</main>
           <ConditionalFooter />
           <WhatsAppButton />
-          {/*
-            Transparent spacer — gives the extra scroll distance needed so the
-            footer can scroll fully off-screen and reveal the fixed outro below.
-            No background means the outro shows through it.
-          */}
-          <div className="h-[28vh]" aria-hidden="true" />
         </div>
+
+        {/*
+          Spacer lives OUTSIDE the white wrapper so it stays transparent.
+          Gives scroll distance for the footer to clear the viewport and
+          reveal the fixed outro (z:1) underneath.
+        */}
+        <div className="h-[28vh] relative" style={{ zIndex: 2 }} aria-hidden="true" />
       </body>
     </html>
   )
