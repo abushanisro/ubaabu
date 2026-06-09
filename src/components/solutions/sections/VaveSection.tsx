@@ -11,17 +11,17 @@ const EASE = [0.16, 1, 0.3, 1] as const
 const AFTER_CELLS = [true, true, true, false, false, false, false, false, false]
 
 const OPPORTUNITIES = [
-  { label: 'Consolidate 3 brackets → 1 stamped', feasibility: 'High', savings: '₹4.2L' },
-  { label: 'AL-6061 → AL-5052 (same fatigue)',   feasibility: 'Med',  savings: '₹1.8L' },
-  { label: 'Replace milling with cold-forming',  feasibility: 'High', savings: '₹6.5L' },
-  { label: 'Outsource heat-treat to T2',          feasibility: 'Low',  savings: '₹2.1L' },
+  { label: 'Consolidate 3 brackets → 1 stamped', feasibility: 'High', savings: '$5K'   },
+  { label: 'AL-6061 → AL-5052 (same fatigue)',   feasibility: 'Med',  savings: '$2.2K' },
+  { label: 'Replace milling with cold-forming',  feasibility: 'High', savings: '$7.8K' },
+  { label: 'Outsource heat-treat to T2',          feasibility: 'Low',  savings: '$2.5K' },
 ]
 
 const STATS = [
   { value: '5.0x',  label: 'More VAVE ideas' },
   { value: '−70%',  label: 'Eval time'       },
   { value: '+40%',  label: 'Realization'     },
-  { value: '₹5.0L', label: 'Avg savings'     },
+  { value: '$6K',   label: 'Avg savings'     },
 ]
 
 const tealGrid = {
@@ -143,7 +143,7 @@ export default function VaveSection() {
                   The AI does the boring work."
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
-                  — ₹1000Cr+ manufacturing conglomerate
+                  — $1.2B+ manufacturing conglomerate
                 </figcaption>
               </motion.figure>
             </div>

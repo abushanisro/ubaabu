@@ -17,17 +17,17 @@ const CAPABILITIES = [
 
 const STATS = [
   { label: 'Strategic visibility', value: 'Complete',      suffix: ''    },
-  { label: 'Savings identified',   value: '₹100L',         suffix: '+'   },
+  { label: 'Savings identified',   value: '$120K',         suffix: '+'   },
   { label: 'Procurement strategy', value: 'Data',          suffix: '-backed' },
   { label: 'Margin protection',    value: 'Transparent',   suffix: ''    },
 ]
 
 // Scenario comparison data
 const SCENARIOS = [
-  { label: 'Base Case',      saving: '₹0',     delta: '0%',   active: false },
-  { label: 'Consolidation',  saving: '₹28L',   delta: '+14%', active: false },
-  { label: 'Dual Source',    saving: '₹41L',   delta: '+22%', active: true  },
-  { label: 'Nearshoring',    saving: '₹18L',   delta: '+9%',  active: false },
+  { label: 'Base Case',      saving: '$0',      delta: '0%',   active: false },
+  { label: 'Consolidation',  saving: '$34K',    delta: '+14%', active: false },
+  { label: 'Dual Source',    saving: '$50K',    delta: '+22%', active: true  },
+  { label: 'Nearshoring',    saving: '$22K',    delta: '+9%',  active: false },
 ]
 
 // ── 3D Sphere + Cost Intelligence Viz ────────────────────────────────────────
@@ -102,7 +102,7 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
           {/* Floating metric chips around sphere */}
           {[
             { label: '72K+',  sub: 'benchmarks',  pos: 'left-0 top-1/2 -translate-y-1/2' },
-            { label: '₹100L+',sub: 'savings pool', pos: 'right-0 top-1/2 -translate-y-1/2' },
+            { label: '$120K+', sub: 'savings pool', pos: 'right-0 top-1/2 -translate-y-1/2' },
             { label: '12',    sub: 'industries',   pos: 'top-0 left-1/2 -translate-x-1/2' },
           ].map(({ label, sub, pos }, i) => (
             <motion.div
@@ -147,7 +147,7 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
 
       {/* Footer */}
       <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
-        {[['₹41L', 'best scenario'], ['22%', 'uplift'], ['4', 'scenarios']].map(([val, lbl]) => (
+        {[['$50K', 'best scenario'], ['22%', 'uplift'], ['4', 'scenarios']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
             <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
             <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>

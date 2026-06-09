@@ -593,7 +593,7 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
     description: 'Automated BOM extraction and validation for a 180-part rear view mirror assembly delivered 94% accuracy in 48 hours, replacing a 3-week manual costing exercise.',
     challenge: 'A Tier-1 supplier needed a validated BOM for a 180-part assembly to support a customer quote. Their manual costing process took 3 weeks and often contained errors.',
     solution: "Emithran's platform extracted and validated the full BOM from engineering drawings and ERP data, cross-referencing against live supplier pricing.",
-    impact: '94% BOM accuracy achieved in 48 hours. The supplier submitted the quote on time and won a programme worth ₹18Cr annually.',
+    impact: '94% BOM accuracy achieved in 48 hours. The supplier submitted the quote on time and won a programme worth $2.2M annually.',
     accentColor: '#b45309',
     bgImage: '/assets/casestudy/case8.png',
     quote: 'We went from a 3-week process to 48 hours. The accuracy was better than anything we had produced manually.',

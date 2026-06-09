@@ -24,10 +24,10 @@ const STATS = [
 
 // Benchmark bars: label, height %, teal (= you = lowest/best)
 const BARS = [
-  { label: 'MKT',  pct: 70, teal: false, value: '₹4,200' },
-  { label: 'AVG',  pct: 100, teal: false, value: '₹5,100' },
-  { label: 'YOU',  pct: 47, teal: true,  value: '₹2,840' },
-  { label: 'COMP', pct: 82, teal: false, value: '₹4,900' },
+  { label: 'MKT',  pct: 70, teal: false, value: '$51' },
+  { label: 'AVG',  pct: 100, teal: false, value: '$61' },
+  { label: 'YOU',  pct: 47, teal: true,  value: '$34' },
+  { label: 'COMP', pct: 82, teal: false, value: '$59' },
 ]
 
 // Dimension comparison rows
@@ -67,7 +67,7 @@ function BenchmarkViz({ inView }: { inView: boolean }) {
         {/* Main bar chart */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[9px] font-mono uppercase tracking-widest" style={{ color: '#94a3b8' }}>Unit cost comparison (₹/pc)</span>
+            <span className="text-[9px] font-mono uppercase tracking-widest" style={{ color: '#94a3b8' }}>Unit cost comparison ($/pc)</span>
             <span className="text-[9px] font-mono" style={{ color: '#0d9488' }}>You are −44% below avg</span>
           </div>
 
@@ -161,7 +161,7 @@ function BenchmarkViz({ inView }: { inView: boolean }) {
 
       {/* Footer */}
       <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
-        {[['−44%', 'vs market avg'], ['₹8.4L', 'annual saving'], ['3', 'outliers flagged']].map(([val, lbl]) => (
+        {[['−44%', 'vs market avg'], ['$10K', 'annual saving'], ['3', 'outliers flagged']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
             <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
             <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>

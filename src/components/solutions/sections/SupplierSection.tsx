@@ -164,7 +164,7 @@ export default function SupplierSection() {
                   one intelligent system with standardized pricing and better supplier scores."
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
-                  — ₹500Cr+ engineering firm · 5 procurement officers
+                  — $600M+ engineering firm · 5 procurement officers
                 </figcaption>
               </motion.figure>
             </div>

@@ -42,7 +42,7 @@ const ANNOTATIONS = [
     border:  'rgba(13,158,138,0.4)',
     color:   '#0d7a6a',
     label:   'Should-cost',
-    body:    '₹4,820 / unit · benchmark across 72K data points',
+    body:    '$58 / unit · benchmark across 72K data points',
     delay:   0.88,
     floatY:  -7,
     floatDur: 4.9,

@@ -21,7 +21,7 @@ const TIMELINE: { num: number; label: string; state: StepState }[] = [
 const METRICS = [
   { label: 'Parts on track',  value: '184/192',       pct: '96%' },
   { label: 'Quality yield',   value: '99.2%',          pct: '99%' },
-  { label: 'Budget consumed', value: '₹3.1Cr / ₹4Cr', pct: '78%' },
+  { label: 'Budget consumed', value: '$373K / $481K',  pct: '78%' },
 ]
 
 const ALERTS = [

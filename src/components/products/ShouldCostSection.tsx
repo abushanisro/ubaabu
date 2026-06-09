@@ -131,7 +131,7 @@ function CostBarViz({ inView }: { inView: boolean }) {
 
       {/* Footer */}
       <div className="flex items-center gap-5 px-4 py-2.5 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
-        {[['−23%', 'vs market avg'], ['₹2.4L', 'savings found'], ['6', 'scenarios']].map(([val, lbl]) => (
+        {[['−23%', 'vs market avg'], ['$2.9K', 'savings found'], ['6', 'scenarios']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
             <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
             <span className="text-[10px]" style={{ color: '#94a3b8' }}>{lbl}</span>

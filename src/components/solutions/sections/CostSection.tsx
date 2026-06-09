@@ -8,8 +8,8 @@ const T    = '#0d9e8a'
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const COMPARISON = [
-  { label: 'Supplier quote',       value: '₹13,200', width: '88%',     bg: '#0d1117', delay: 0.35 },
-  { label: 'Emithran should-cost', value: '₹11,200', width: '74.67%',  bg: T,         delay: 0.5  },
+  { label: 'Supplier quote',       value: '$159',    width: '88%',     bg: '#0d1117', delay: 0.35 },
+  { label: 'Emithran should-cost', value: '$135',    width: '74.67%',  bg: T,         delay: 0.5  },
 ]
 
 const DRIVERS = [
@@ -22,7 +22,7 @@ const DRIVERS = [
 const STATS = [
   { value: '−80%',  label: 'RFQ eval time'         },
   { value: '99%',   label: 'Validation confidence' },
-  { value: '₹5.0L', label: 'Savings / RFQ'         },
+  { value: '$6K',   label: 'Savings / RFQ'         },
   { value: '0.0',   label: 'Vendor bias'            },
 ]
 
