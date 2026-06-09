@@ -153,7 +153,6 @@ export default function Hero() {
               { src: '/assets/trustedby/ForusHealth.png',  alt: 'Forus Health' },
               { src: '/assets/trustedby/Aadya.png',        alt: 'Aadya' },
               { src: '/assets/trustedby/Tanbo.png',        alt: 'Tanbo' },
-              { src: '/assets/trustedby/emuski.png',       alt: 'Emuski' },
             ]
             const row = [...logos, ...logos]
             return (
