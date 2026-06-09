@@ -2,7 +2,6 @@ const logos = [
   { src: '/assets/trustedby/Aadya.png',        alt: 'Aadya' },
   { src: '/assets/trustedby/ashokleyland.png',  alt: 'Ashok Leyland' },
   { src: '/assets/trustedby/digantara.png',     alt: 'Digantara' },
-  { src: '/assets/trustedby/emuski.png',        alt: 'Emuski' },
   { src: '/assets/trustedby/ForusHealth.png',   alt: 'Forus Health' },
   { src: '/assets/trustedby/Pixxel.png',        alt: 'Pixxel' },
   { src: '/assets/trustedby/rainmaker.png',     alt: 'Rainmaker' },
@@ -12,12 +11,12 @@ const logos = [
 ]
 
 export default function LogoMarquee() {
-  const row = [...logos, ...logos, ...logos, ...logos]
+  const row = [...logos, ...logos]
   return (
     <section className="relative z-0 border-y border-black/[0.06] bg-white -mt-16 pt-20 pb-6">
       <style>{`
-        @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-25%) } }
-        .marquee-logos { animation: marquee 32s linear infinite; will-change: transform; }
+        @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+        .marquee-logos { animation: marquee 28s linear infinite; will-change: transform; }
       `}</style>
       <div
         className="overflow-hidden"
