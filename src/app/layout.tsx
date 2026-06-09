@@ -4,6 +4,7 @@ import './globals.css'
 import ConditionalNavbar from '@/components/layout/ConditionalNavbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import WhatsAppButton from '@/components/ui/whatsapp-button'
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 
 const sora = Sora({
   weight: ['400', '500', '600', '700'],
@@ -139,6 +140,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ left: 64 }} />
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ right: 64 }} />
+        <GoogleAnalytics />
         <ConditionalNavbar />
         <main className="relative z-10">{children}</main>
         <ConditionalFooter />
