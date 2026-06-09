@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { POSTS } from '@/components/blog/blogData'
 
 const BASE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -41,10 +42,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const caseStudies: MetadataRoute.Sitemap = CASE_STUDIES.map((slug) => ({
     url: `${BASE_URL}/case-studies/${slug}`,
-    priority: 0.6,
-    changeFrequency: 'monthly',
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
     lastModified: now,
   }))
 
-  return [...core, ...caseStudies]
+  const blogPosts: MetadataRoute.Sitemap = POSTS.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    priority: 0.8,
+    changeFrequency: 'monthly' as const,
+    lastModified: now,
+  }))
+
+  return [...core, ...caseStudies, ...blogPosts]
 }

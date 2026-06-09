@@ -6,10 +6,22 @@ import RiskSection     from '@/components/solutions/sections/RiskSection'
 import VaveSection      from '@/components/solutions/sections/VaveSection'
 import TrackingSection from '@/components/solutions/sections/TrackingSection'
 
-export const metadata = {
-  title: 'Solutions | Emithran Manufacturing Intelligence',
+import type { Metadata } from 'next'
+export const metadata: Metadata = {
+  title: 'Solutions — Manufacturing Intelligence Across Your Entire Value Chain',
   description:
-    'Manufacturing intelligence across your entire value chain — from design conception to supplier delivery, powered by AI and 72,000+ supplier data points.',
+    'End-to-end manufacturing solutions: design cost modelling, supplier evaluation, cost engineering, risk intelligence, VAVE analysis, and delivery tracking — powered by AI and 72,000+ supplier data points.',
+  keywords: [
+    'manufacturing solutions India', 'supply chain intelligence', 'cost modelling software',
+    'supplier evaluation platform', 'design for manufacturing', 'VAVE cost reduction',
+    'NPI tracking software', 'OEM supply chain analytics',
+  ],
+  alternates: { canonical: '/solutions' },
+  openGraph: {
+    title: 'Emithran Solutions — End-to-End Manufacturing Intelligence',
+    description: 'From design to delivery: AI-powered solutions for cost, quality, supplier, and risk management.',
+    url: '/solutions', type: 'website',
+  },
 }
 
 export default function SolutionsPage() {

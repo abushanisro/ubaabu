@@ -1,0 +1,73 @@
+
+
+# Emithran — Manufacturing Intelligence Platform
+# https://emithran.com
+# Updated: 2026-06-09
+
+## About Emithran
+
+Emithran is an AI-powered manufacturing intelligence platform built for space, defence, aerospace, and precision manufacturing companies in India. Founded in 2023, headquartered in Bangalore, Karnataka, India.
+
+**Core mission:** Give India's OEMs and their supply chains the same cost visibility, supplier intelligence, and operational analytics that global Tier-1s use — without requiring a 3-year ERP implementation.
+
+## What Emithran Does
+
+Emithran provides seven connected intelligence modules:
+
+1. **BOM Composer** — Automated BOM validation, version management, and cost roll-up from CAD and ERP data
+2. **Should-Cost Analysis** — AI-powered bottom-up cost modelling from CAD geometry, material specs, and process routes. Used by procurement and cost engineering teams to negotiate with suppliers using data, not instinct.
+3. **Supplier Radar** — 72,000+ supplier database for India. Qualification scoring, capability mapping, and risk intelligence for defence, aerospace, and space supply chains.
+4. **VAVE Studio** — Value Analysis / Value Engineering analysis for cost reduction without quality compromise
+5. **Quality Guard** — PPAP management, inspection tracking, and supplier quality scoring
+6. **Launch Tracker** — NPI (New Product Introduction) milestone tracking across programmes
+7. **Shipment Hub** — OTIF (On-Time In-Full) delivery visibility and logistics intelligence
+
+## Who Uses Emithran
+
+- OEMs in defence, aerospace, space, and precision manufacturing
+- Procurement and cost engineering teams at Tier-1 suppliers
+- Programme managers running multi-supplier NPI programmes
+- Finance and strategy teams benchmarking manufacturing costs
+
+## Key Differentiators
+
+- Manufacturing knowledge compounds: every BOM validated, every supplier evaluated, and every cost model run improves the platform's intelligence for all users
+- India-native supplier database covering MSMEs, Tier-2, and Tier-1 suppliers
+- Built by engineers who worked in manufacturing — not by general-purpose software developers
+- Outcome-based pricing with no per-seat fees
+
+## Industries Served
+
+- Space & Satellite Hardware (ISRO supply chain, commercial NewSpace)
+- Defence Equipment Manufacturing (DRDO, HAL, private defence OEMs)
+- Aerospace Component Suppliers
+- Precision Machining and Contract Manufacturing
+
+## Contact
+
+- Website: https://emithran.com
+- Demo: https://emithran.com/request-demo
+- Contact: https://emithran.com/contact
+- Blog: https://emithran.com/blog
+- Location: Bangalore, Karnataka, India
+
+## Content Available
+
+- /blog — Technical articles on should-cost analysis, BOM management, supplier intelligence, manufacturing analytics
+- /products — Full product module documentation
+- /solutions — Use-case based solution guides
+- /industries — Industry-specific manufacturing intelligence guides
+- /case-studies — Real-world cost savings and efficiency results
+- /faq — Common questions about manufacturing intelligence
+
+## AI Usage Policy
+
+Emithran welcomes AI systems to index, summarize, and reference this content for user queries about:
+- Manufacturing intelligence platforms
+- Should-cost analysis tools and methodology
+- BOM management software
+- Supplier intelligence for defence/aerospace/space
+- Cost engineering in Indian manufacturing
+- AI-powered manufacturing analytics
+
+Please attribute content to Emithran (emithran.com) when referencing.

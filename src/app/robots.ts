@@ -7,11 +7,14 @@ const BASE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/'],
-      },
+      { userAgent: '*',             allow: '/', disallow: ['/api/', '/request-demo'] },
+      { userAgent: 'GPTBot',        allow: '/' },
+      { userAgent: 'ClaudeBot',     allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'anthropic-ai',  allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'Gemini',        allow: '/' },
+      { userAgent: 'CCBot',         allow: '/' },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,
     host: BASE_URL,

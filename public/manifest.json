@@ -1,0 +1,26 @@
+{
+  "name": "Emithran — Manufacturing Intelligence",
+  "short_name": "Emithran",
+  "description": "AI-powered manufacturing intelligence for space, defence, aerospace, and precision manufacturing.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d9e8a",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/assets/infographics/logo/logo-black.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/infographics/logo/logo-black.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
