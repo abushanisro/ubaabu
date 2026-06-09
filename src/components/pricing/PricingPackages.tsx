@@ -232,86 +232,200 @@ const CASES = [
 
 /* ─────────────────────────── modal ─────────────────────────── */
 
+const INDUSTRIES = [
+  'Aerospace & Defence',
+  'Space & Satellite',
+  'Precision Engineering',
+  'Automotive',
+  'Electronics & PCB',
+  'Medical Devices',
+  'Industrial Equipment',
+  'Oil & Gas',
+  'Other',
+]
+
+const inputCls = 'w-full rounded-lg border border-black/[0.12] bg-white px-3.5 py-2.5 text-sm text-[#0f1b2d] placeholder:text-[#0f1b2d]/30 focus:border-[#0d9488] focus:outline-none focus:ring-2 focus:ring-[#0d9488]/10 transition-colors'
+const labelCls = 'mb-1.5 block text-[11px] font-semibold uppercase tracking-wide text-[#0f1b2d]/50'
+
+function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+  return (
+    <div>
+      <label className={labelCls}>{label}{required && <span className="ml-0.5 text-[#ef4444]">*</span>}</label>
+      {children}
+    </div>
+  )
+}
+
 function ContactModal({ intent, onClose }: { intent: string; onClose: () => void }) {
-  const [submitted, setSubmitted] = useState(false)
+  const [state, setState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
   const [form, setForm] = useState({
-    firstName: '', lastName: '', company: '', email: '', country: '', optIn: false,
+    firstName: '', lastName: '', email: '', phone: '',
+    company: '', role: '', industry: '', country: '',
+    message: '', optIn: false,
   })
   const set = (k: string, v: string | boolean) => setForm((p) => ({ ...p, [k]: v }))
 
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setState('loading')
+    setErrorMsg('')
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          source: 'pricing',
+          cta: intent,
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error || 'Something went wrong')
+      setState('success')
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : 'Failed to send. Please try again.')
+      setState('error')
+    }
+  }
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4" onClick={onClose}>
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" aria-hidden />
       <div
         role="dialog"
         aria-modal="true"
-        className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl"
+        className="relative w-full sm:max-w-[540px] overflow-hidden rounded-t-2xl sm:rounded-2xl bg-white shadow-2xl max-h-[92dvh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-start justify-between border-b border-black/[0.08] px-7 py-5">
-          <h3 className="max-w-[360px] text-[16px] font-semibold leading-snug text-[#0f1b2d]">
-            Learn More About {intent} Pricing &amp; Packages
-          </h3>
-          <button onClick={onClose} aria-label="Close" className="mt-0.5 shrink-0 rounded-lg p-1.5 text-[#0f1b2d]/35 hover:bg-black/[0.05] hover:text-[#0f1b2d]">
+        {/* Header */}
+        <div className="flex items-start justify-between px-6 py-5 border-b border-black/[0.07] shrink-0">
+          <div>
+            <span className="inline-block mb-1.5 rounded-full bg-[#0d9488]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest text-[#0d9488]">
+              {intent} Pricing
+            </span>
+            <h3 className="text-[15px] font-semibold leading-snug text-[#0f1b2d]">
+              Get pricing &amp; package details
+            </h3>
+          </div>
+          <button onClick={onClose} aria-label="Close" className="shrink-0 rounded-lg p-1.5 text-[#0f1b2d]/35 hover:bg-black/[0.05] hover:text-[#0f1b2d] transition-colors">
             <X className="size-5" aria-hidden />
           </button>
         </div>
 
-        {submitted ? (
-          <div className="flex flex-col items-center gap-3 px-7 py-12 text-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#0d9488]/10">
-              <ShieldCheck className="size-6 text-[#0d9488]" aria-hidden />
+        {state === 'success' ? (
+          <div className="flex flex-col items-center gap-4 px-7 py-14 text-center">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#0d9488]/10">
+              <ShieldCheck className="size-7 text-[#0d9488]" aria-hidden />
             </div>
-            <h4 className="text-lg font-semibold text-[#0f1b2d]">We&apos;ll be in touch!</h4>
-            <p className="max-w-xs text-sm leading-relaxed text-[#0f1b2d]/55">
-              Our team will reach out within 1 business day with pricing and package details.
-            </p>
-            <button onClick={onClose} className="mt-4 rounded-full bg-[#0f1b2d] px-6 py-2.5 text-sm font-medium text-white hover:opacity-90">
-              Close
+            <div>
+              <h4 className="text-lg font-bold text-[#0f1b2d]">Message sent!</h4>
+              <p className="mt-1.5 max-w-[280px] text-sm leading-relaxed text-[#0f1b2d]/55">
+                Check your inbox — we've sent a confirmation. Our team will reach out within 1 business day.
+              </p>
+            </div>
+            <button onClick={onClose} className="mt-2 rounded-full bg-[#0f1b2d] px-7 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity">
+              Done
             </button>
           </div>
         ) : (
-          <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }} className="space-y-4 px-7 py-6">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="mb-1.5 block text-[11px] font-medium text-[#0f1b2d]">First Name <span className="text-red-500">*</span></label>
-                <input type="text" required placeholder="First Name" value={form.firstName} onChange={(e) => set('firstName', e.target.value)}
-                  className="w-full rounded-lg border border-black/[0.12] px-3.5 py-2.5 text-sm text-[#0f1b2d] placeholder:text-[#0f1b2d]/30 focus:border-[#0d9488] focus:outline-none" />
+          <form onSubmit={handleSubmit} className="overflow-y-auto flex-1">
+            <div className="space-y-4 px-6 py-5">
+
+              {/* Name row */}
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="First Name" required>
+                  <input type="text" required placeholder="First" value={form.firstName} onChange={(e) => set('firstName', e.target.value)} className={inputCls} />
+                </Field>
+                <Field label="Last Name" required>
+                  <input type="text" required placeholder="Last" value={form.lastName} onChange={(e) => set('lastName', e.target.value)} className={inputCls} />
+                </Field>
               </div>
-              <div>
-                <label className="mb-1.5 block text-[11px] font-medium text-[#0f1b2d]">Last Name <span className="text-red-500">*</span></label>
-                <input type="text" required placeholder="Last Name" value={form.lastName} onChange={(e) => set('lastName', e.target.value)}
-                  className="w-full rounded-lg border border-black/[0.12] px-3.5 py-2.5 text-sm text-[#0f1b2d] placeholder:text-[#0f1b2d]/30 focus:border-[#0d9488] focus:outline-none" />
+
+              {/* Email + Phone */}
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="Business Email" required>
+                  <input type="email" required placeholder="you@company.com" value={form.email} onChange={(e) => set('email', e.target.value)} className={inputCls} />
+                </Field>
+                <Field label="Phone">
+                  <input type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={(e) => set('phone', e.target.value)} className={inputCls} />
+                </Field>
               </div>
+
+              {/* Company + Role */}
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="Company" required>
+                  <input type="text" required placeholder="Company name" value={form.company} onChange={(e) => set('company', e.target.value)} className={inputCls} />
+                </Field>
+                <Field label="Your Role" required>
+                  <input type="text" required placeholder="e.g. Procurement Head" value={form.role} onChange={(e) => set('role', e.target.value)} className={inputCls} />
+                </Field>
+              </div>
+
+              {/* Industry + Country */}
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="Industry" required>
+                  <select required value={form.industry} onChange={(e) => set('industry', e.target.value)} className={inputCls}>
+                    <option value="">Select industry</option>
+                    {INDUSTRIES.map((i) => <option key={i} value={i}>{i}</option>)}
+                  </select>
+                </Field>
+                <Field label="Country" required>
+                  <select required value={form.country} onChange={(e) => set('country', e.target.value)} className={inputCls}>
+                    <option value="">Select country</option>
+                    {COUNTRIES.map((c) => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                </Field>
+              </div>
+
+              {/* Message */}
+              <Field label="What are you looking to solve?">
+                <textarea
+                  rows={3}
+                  placeholder="Tell us about your manufacturing challenge or the specific packages you're interested in..."
+                  value={form.message}
+                  onChange={(e) => set('message', e.target.value)}
+                  className={`${inputCls} resize-none`}
+                />
+              </Field>
+
+              {/* Opt-in */}
+              <div className="flex items-start gap-3">
+                <input type="checkbox" id="pricingOptIn" checked={form.optIn} onChange={(e) => set('optIn', e.target.checked)}
+                  className="mt-0.5 h-4 w-4 cursor-pointer rounded border-black/20 accent-[#0d9488]" />
+                <label htmlFor="pricingOptIn" className="cursor-pointer text-[11px] leading-relaxed text-[#0f1b2d]/40">
+                  Keep me updated about Emithran products, pricing changes, and manufacturing intelligence resources.
+                </label>
+              </div>
+
+              {/* Error */}
+              {state === 'error' && (
+                <p className="rounded-lg bg-red-50 border border-red-200 px-4 py-2.5 text-[12px] text-red-600">{errorMsg}</p>
+              )}
+
             </div>
-            <div>
-              <label className="mb-1.5 block text-[11px] font-medium text-[#0f1b2d]">Company Name <span className="text-red-500">*</span></label>
-              <input type="text" required placeholder="Company Name" value={form.company} onChange={(e) => set('company', e.target.value)}
-                className="w-full rounded-lg border border-black/[0.12] px-3.5 py-2.5 text-sm text-[#0f1b2d] placeholder:text-[#0f1b2d]/30 focus:border-[#0d9488] focus:outline-none" />
+
+            {/* Sticky footer with CTA */}
+            <div className="sticky bottom-0 bg-white border-t border-black/[0.07] px-6 py-4 shrink-0">
+              <button
+                type="submit"
+                disabled={state === 'loading'}
+                className="w-full rounded-full bg-[#0f1b2d] py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60 flex items-center justify-center gap-2"
+              >
+                {state === 'loading' ? (
+                  <>
+                    <svg className="size-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+                    </svg>
+                    Sending…
+                  </>
+                ) : 'Get Pricing Details'}
+              </button>
+              <p className="mt-2 text-center text-[10px] text-[#0f1b2d]/30">
+                No spam. We'll reply within 1 business day.
+              </p>
             </div>
-            <div>
-              <label className="mb-1.5 block text-[11px] font-medium text-[#0f1b2d]">Business Email <span className="text-red-500">*</span></label>
-              <input type="email" required placeholder="Business Email" value={form.email} onChange={(e) => set('email', e.target.value)}
-                className="w-full rounded-lg border border-black/[0.12] px-3.5 py-2.5 text-sm text-[#0f1b2d] placeholder:text-[#0f1b2d]/30 focus:border-[#0d9488] focus:outline-none" />
-            </div>
-            <div>
-              <label className="mb-1.5 block text-[11px] font-medium text-[#0f1b2d]">Country <span className="text-red-500">*</span></label>
-              <select required value={form.country} onChange={(e) => set('country', e.target.value)}
-                className="w-full rounded-lg border border-black/[0.12] px-3.5 py-2.5 text-sm text-[#0f1b2d] focus:border-[#0d9488] focus:outline-none">
-                <option value="">Select Country</option>
-                {COUNTRIES.map((c) => <option key={c} value={c}>{c}</option>)}
-              </select>
-            </div>
-            <div className="flex items-start gap-3 pt-1">
-              <input type="checkbox" id="optIn" checked={form.optIn} onChange={(e) => set('optIn', e.target.checked)}
-                className="mt-0.5 h-4 w-4 cursor-pointer rounded border-black/20 accent-[#0d9488]" />
-              <label htmlFor="optIn" className="cursor-pointer text-[11px] leading-relaxed text-[#0f1b2d]/45">
-                Please check the box if you would like Emithran to keep you updated about our latest products, services and promotions via email or phone.
-              </label>
-            </div>
-            <button type="submit" className="w-full rounded-full bg-[#0f1b2d] py-3 text-sm font-medium text-white hover:opacity-90">
-              Contact Us
-            </button>
           </form>
         )}
       </div>
