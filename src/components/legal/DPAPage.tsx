@@ -542,7 +542,7 @@ export default function DPAPage() {
           <SubClause letter="d"><Bold>Survival.</Bold> Sections 7 (Return and Deletion), 8 (Liability), and 9 (General) shall survive termination or expiry of this DPA and the Agreement.</SubClause>
           <SubClause letter="e"><Bold>Amendments.</Bold> This DPA may only be amended by a written instrument signed by authorised representatives of both parties. Emithran may update this DPA from time to time to reflect changes in applicable Data Protection Law by providing the Controller with at least 30 days&rsquo; prior written notice, provided that such updates do not materially reduce the Controller&rsquo;s rights or increase its obligations without its consent.</SubClause>
           <SubClause letter="f"><Bold>Entire agreement.</Bold> This DPA, together with its Schedules and the Agreement, constitutes the entire agreement between the parties with respect to the processing of Personal Data by Emithran on behalf of the Controller, and supersedes all prior agreements, representations, and understandings relating to that subject matter.</SubClause>
-          <SubClause letter="g"><Bold>Contact.</Bold> Questions or requests relating to this DPA should be directed to <TealLink href="mailto:privacy@emithran.in">privacy@emithran.in</TealLink>.</SubClause>
+          <SubClause letter="g"><Bold>Contact.</Bold> Questions or requests relating to this DPA should be directed to <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>.</SubClause>
           <Divider />
 
           {/* ── Schedule A ── */}
@@ -728,9 +728,9 @@ export default function DPAPage() {
             </div>
             <div className="p-5 flex flex-col gap-3" style={{ background: '#fff' }}>
               {[
-                { label: 'DPA enquiries',   email: 'privacy@emithran.in'  },
-                { label: 'Legal enquiries', email: 'legal@emithran.in'    },
-                { label: 'Security reports', email: 'security@emithran.in'},
+                { label: 'DPA enquiries',   email: 'emithran@emuski.com'  },
+                { label: 'Legal enquiries', email: 'emithran@emuski.com'    },
+                { label: 'Security reports', email: 'emithran@emuski.com'},
               ].map(row => (
                 <div key={row.label} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                   <span className="text-[12.5px] font-medium w-40 shrink-0" style={{ color: 'rgba(15,27,45,0.55)' }}>

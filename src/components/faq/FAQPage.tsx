@@ -219,11 +219,11 @@ export default function FAQPage() {
                   Can't find what you need? Our team replies within one business day.
                 </p>
                 <a
-                  href="mailto:contact@emithran.in"
+                  href="mailto:emithran@emuski.com"
                   className="inline-flex items-center gap-1.5 text-[13px] font-semibold transition-colors"
                   style={{ color: '#2dd4bf' }}
                 >
-                  contact@emithran.in
+                  emithran@emuski.com
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                     <path d="M0 5h7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
                     <path d="M1 1l4 4-4 4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -294,7 +294,7 @@ export default function FAQPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="mailto:contact@emithran.in"
+                  href="mailto:emithran@emuski.com"
                   className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg text-[13px] font-semibold transition-colors"
                   style={{ background: '#0d9488', color: '#fff' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#0b8076' }}
@@ -317,7 +317,7 @@ export default function FAQPage() {
                 </Link>
               </div>
               <p className="mt-5 text-[12px]" style={{ color: 'rgba(255,255,255,0.3)' }}>
-                contact@emithran.in · +91 98765 43210 · Bangalore, India
+                emithran@emuski.com · +91 98765 43210 · Bangalore, India
               </p>
             </div>
 

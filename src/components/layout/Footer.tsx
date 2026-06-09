@@ -50,7 +50,7 @@ const footerLinks = [
 ];
 
 const contactInfo = [
-  { icon: <Mail   size={16} className="text-[#0d9e8a]" />, text: "contact@emithran.in",      href: "mailto:contact@emithran.in" },
+  { icon: <Mail   size={16} className="text-[#0d9e8a]" />, text: "emithran@emuski.com",      href: "mailto:emithran@emuski.com" },
   { icon: <Phone  size={16} className="text-[#0d9e8a]" />, text: "+91 98765 43210",           href: "tel:+919876543210" },
   { icon: <MapPin size={16} className="text-[#0d9e8a]" />, text: "Bangalore, Karnataka, India" },
 ];

@@ -571,7 +571,7 @@ export default function CookiesPage() {
           <SubClause letter="b">display an in-app or website notification drawing your attention to the changes for at least 14 days after the update is published; and</SubClause>
           <SubClause letter="c">where required by law (for example, where we intend to use cookies in a materially different way or add a new consent-requiring category), re-request your consent via the cookie banner before the new cookies are set.</SubClause>
           <Para>
-            We recommend reviewing this page periodically. The current version is always available at <TealLink href="/cookies">emithran.in/cookies</TealLink>. Archived versions of this policy can be requested by emailing <TealLink href="mailto:privacy@emithran.in">privacy@emithran.in</TealLink>.
+            We recommend reviewing this page periodically. The current version is always available at <TealLink href="/cookies">emithran.in/cookies</TealLink>. Archived versions of this policy can be requested by emailing <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>.
           </Para>
           <Para>
             Minor changes — such as correcting typographical errors, updating cookie names that have not changed in function, or refreshing hyperlinks — may be made without separate notification. The &ldquo;Last updated&rdquo; date will still reflect any change, however small.
@@ -595,9 +595,9 @@ export default function CookiesPage() {
             </div>
             <div className="p-5 flex flex-col gap-3" style={{ background: '#fff' }}>
               {[
-                { label: 'Privacy enquiries', email: 'privacy@emithran.in'  },
-                { label: 'Legal enquiries',   email: 'legal@emithran.in'    },
-                { label: 'Security reports',  email: 'security@emithran.in' },
+                { label: 'Privacy enquiries', email: 'emithran@emuski.com'  },
+                { label: 'Legal enquiries',   email: 'emithran@emuski.com'    },
+                { label: 'Security reports',  email: 'emithran@emuski.com' },
               ].map(row => (
                 <div key={row.label} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                   <span className="text-[12.5px] font-medium w-40 shrink-0" style={{ color: 'rgba(15,27,45,0.55)' }}>
