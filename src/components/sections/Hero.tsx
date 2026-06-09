@@ -18,12 +18,15 @@ function calcSavings() {
 }
 
 function LiveSavings() {
-  const [value, setValue] = useState(calcSavings)
+  const [value, setValue] = useState<number | null>(null)
 
   useEffect(() => {
+    setValue(calcSavings())
     const id = setInterval(() => setValue(calcSavings()), 1000)
     return () => clearInterval(id)
   }, [])
+
+  if (value === null) return <div className="mb-6 h-5" />
 
   const intPart = Math.floor(value).toLocaleString('en-US')
   const decPart = (value % 1).toFixed(8).slice(2)
@@ -130,7 +133,7 @@ export default function Hero() {
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
       {/* ── Partner logos — fills the bottom gap ── */}
-      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-b border-black/[0.06] bg-white/80 backdrop-blur-sm py-5">
+      <div className="absolute inset-x-0 bottom-0 z-20 border-t border-b border-black/[0.06] bg-white/80 backdrop-blur-sm py-2">
         <style>{`
           @keyframes marquee-p { from { transform: translateX(0) } to { transform: translateX(-25%) } }
           .marquee-p { animation: marquee-p 32s linear infinite; will-change: transform; }
@@ -144,21 +147,21 @@ export default function Hero() {
         >
           {(() => {
             const logos = [
-              { src: '/assets/trustedby/ashokleyland.png', alt: 'Ashok Leyland' },
-              { src: '/assets/trustedby/TATAPower.png',    alt: 'TATA Power' },
-              { src: '/assets/trustedby/digantara.png',    alt: 'Digantara' },
-              { src: '/assets/trustedby/Pixxel.png',       alt: 'Pixxel' },
-              { src: '/assets/trustedby/RolandBerger.png', alt: 'Roland Berger' },
-              { src: '/assets/trustedby/rainmaker.png',    alt: 'Rainmaker' },
-              { src: '/assets/trustedby/ForusHealth.png',  alt: 'Forus Health' },
-              { src: '/assets/trustedby/Aadya.png',        alt: 'Aadya' },
-              { src: '/assets/trustedby/Tanbo.png',        alt: 'Tanbo' },
+              { src: '/assets/trustedby/ashokleyland.svg', alt: 'Ashok Leyland' },
+              { src: '/assets/trustedby/TATAPower.svg',    alt: 'TATA Power' },
+              { src: '/assets/trustedby/digantara.svg',    alt: 'Digantara' },
+              { src: '/assets/trustedby/Pixxel.svg',       alt: 'Pixxel' },
+              { src: '/assets/trustedby/RolandBerger.svg', alt: 'Roland Berger' },
+              { src: '/assets/trustedby/rainmaker.svg',    alt: 'Rainmaker' },
+              { src: '/assets/trustedby/ForusHealth.svg',  alt: 'Forus Health' },
+              { src: '/assets/trustedby/Aadya.svg',        alt: 'Aadya' },
+              { src: '/assets/trustedby/Tanbo.svg',        alt: 'Tanbo' },
             ]
             const row = [...logos, ...logos, ...logos, ...logos]
             return (
               <div className="marquee-p flex w-max items-center gap-10 md:gap-14">
                 {row.map((logo, i) => (
-                  <img key={i} src={logo.src} alt={logo.alt} className="h-6 w-auto object-contain opacity-70" />
+                  <img key={i} src={logo.src} alt={logo.alt} className="h-10 w-auto object-contain opacity-80" />
                 ))}
               </div>
             )

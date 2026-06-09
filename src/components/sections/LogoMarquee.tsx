@@ -1,13 +1,13 @@
 const logos = [
-  { src: '/assets/trustedby/Aadya.png',        alt: 'Aadya' },
-  { src: '/assets/trustedby/ashokleyland.png',  alt: 'Ashok Leyland' },
-  { src: '/assets/trustedby/digantara.png',     alt: 'Digantara' },
-  { src: '/assets/trustedby/ForusHealth.png',   alt: 'Forus Health' },
-  { src: '/assets/trustedby/Pixxel.png',        alt: 'Pixxel' },
-  { src: '/assets/trustedby/rainmaker.png',     alt: 'Rainmaker' },
-  { src: '/assets/trustedby/RolandBerger.png',  alt: 'Roland Berger' },
-  { src: '/assets/trustedby/Tanbo.png',         alt: 'Tanbo' },
-  { src: '/assets/trustedby/TATAPower.png',     alt: 'TATA Power' },
+  { src: '/assets/trustedby/Aadya.svg',        alt: 'Aadya' },
+  { src: '/assets/trustedby/ashokleyland.svg',  alt: 'Ashok Leyland' },
+  { src: '/assets/trustedby/digantara.svg',     alt: 'Digantara' },
+  { src: '/assets/trustedby/ForusHealth.svg',   alt: 'Forus Health' },
+  { src: '/assets/trustedby/Pixxel.svg',        alt: 'Pixxel' },
+  { src: '/assets/trustedby/rainmaker.svg',     alt: 'Rainmaker' },
+  { src: '/assets/trustedby/RolandBerger.svg',  alt: 'Roland Berger' },
+  { src: '/assets/trustedby/Tanbo.svg',         alt: 'Tanbo' },
+  { src: '/assets/trustedby/TATAPower.svg',     alt: 'TATA Power' },
 ]
 
 export default function LogoMarquee() {
