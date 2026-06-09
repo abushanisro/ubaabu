@@ -132,7 +132,7 @@ export default function Hero() {
       {/* ── Partner logos — fills the bottom gap ── */}
       <div className="absolute inset-x-0 bottom-0 z-20 border-t border-b border-black/[0.06] bg-white/80 backdrop-blur-sm py-5">
         <style>{`
-          @keyframes marquee-p { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+          @keyframes marquee-p { from { transform: translateX(0) } to { transform: translateX(-25%) } }
           .marquee-p { animation: marquee-p 32s linear infinite; will-change: transform; }
         `}</style>
         <div
@@ -154,7 +154,7 @@ export default function Hero() {
               { src: '/assets/trustedby/Aadya.png',        alt: 'Aadya' },
               { src: '/assets/trustedby/Tanbo.png',        alt: 'Tanbo' },
             ]
-            const row = [...logos, ...logos]
+            const row = [...logos, ...logos, ...logos, ...logos]
             return (
               <div className="marquee-p flex w-max items-center gap-10 md:gap-14">
                 {row.map((logo, i) => (
