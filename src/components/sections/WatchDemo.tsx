@@ -11,7 +11,7 @@ export default function WatchDemo() {
 
   const stats = [
     { value: '40%',    label: 'Faster RFQ',      icon: Zap },
-    { value: '₹1.2Cr', label: 'Savings',         icon: TrendingUp },
+    { value: '$145K', label: 'Savings',         icon: TrendingUp },
     { value: '99.4%',  label: 'BOM accuracy',    icon: CheckCircle },
     { value: '80+',    label: 'Suppliers',        icon: Users },
     { value: '5K+',    label: 'Hours saved',      icon: Clock },
@@ -113,7 +113,7 @@ export default function WatchDemo() {
             <div className="mt-0.5 text-[9px] text-[#64748b]">Potential annual savings</div>
             <div className="mt-1 flex items-end justify-between">
               <div className="text-lg font-bold tracking-tight text-[#0d1117] tabular-nums" style={{ fontVariantNumeric: 'tabular-nums' }}>
-                ₹1.2Cr
+                $145K
               </div>
               <TrendingUp className="h-4 w-5 text-[#0d9e8a]" />
             </div>
@@ -190,7 +190,7 @@ export default function WatchDemo() {
                 <div className="mt-1 text-[10px] text-[#64748b]">Potential annual savings</div>
                 <div className="mt-1.5 flex items-end justify-between">
                   <div className="text-2xl font-bold tracking-tight text-[#0d1117] tabular-nums" style={{ fontVariantNumeric: 'tabular-nums' }}>
-                    ₹1.2Cr
+                    $145K
                   </div>
                   <TrendingUp className="h-6 w-8 text-[#0d9e8a]" />
                 </div>

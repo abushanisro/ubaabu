@@ -151,7 +151,7 @@ export const metadata: Metadata = {
       'AI-powered BOM management, should-cost analysis, and supplier intelligence for space, defence, aerospace, and precision manufacturing in India.',
     url: siteUrl,
     siteName: 'Emithran',
-    locale: 'en_IN',
+    locale: 'en_US',
     type: 'website',
     images: [
       {

@@ -145,19 +145,19 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
       <tr style="border-bottom:1px solid #f1f5f9;">
         <td style="padding:0.75rem 1rem;font-weight:600;">Year 1</td>
         <td style="padding:0.75rem 1rem;font-family:monospace;">100</td>
-        <td style="padding:0.75rem 1rem;color:#0d1117;font-weight:600;">Rs. 50 Lakh</td>
+        <td style="padding:0.75rem 1rem;color:#0d1117;font-weight:600;">~$60,000</td>
         <td style="padding:0.75rem 1rem;color:#64748b;font-size:0.85rem;">First should-cost models, baseline BOM validation</td>
       </tr>
       <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
         <td style="padding:0.75rem 1rem;font-weight:600;">Year 2</td>
         <td style="padding:0.75rem 1rem;font-family:monospace;">115</td>
-        <td style="padding:0.75rem 1rem;color:#0d1117;font-weight:600;">Rs. 60 Lakh</td>
+        <td style="padding:0.75rem 1rem;color:#0d1117;font-weight:600;">~$72,000</td>
         <td style="padding:0.75rem 1rem;color:#64748b;font-size:0.85rem;">Supplier benchmarks, PPAP history, part-family patterns</td>
       </tr>
       <tr style="border-bottom:1px solid #f1f5f9;">
         <td style="padding:0.75rem 1rem;font-weight:600;">Year 3</td>
         <td style="padding:0.75rem 1rem;font-family:monospace;">132</td>
-        <td style="padding:0.75rem 1rem;color:#0d1117;font-weight:600;">Rs. 72 Lakh</td>
+        <td style="padding:0.75rem 1rem;color:#0d1117;font-weight:600;">~$87,000</td>
         <td style="padding:0.75rem 1rem;color:#64748b;font-size:0.85rem;">Cross-programme cost models, predictive flags, richer benchmarks</td>
       </tr>
     </tbody>
@@ -253,7 +253,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <p>It usually isn't.</p>
 
-      <p>Without <strong>should-cost analysis</strong>, you have no way to know whether that final price reflects actual manufacturing economics or just how far the supplier was willing to move on the day. In defence, aerospace, and precision manufacturing, where a single machined component can carry ₹2–20 lakh of hidden margin, that gap matters enormously.</p>
+      <p>Without <strong>should-cost analysis</strong>, you have no way to know whether that final price reflects actual manufacturing economics or just how far the supplier was willing to move on the day. In defence, aerospace, and precision manufacturing, where a single machined component can carry $2,500–$25,000 of hidden margin, that gap matters enormously.</p>
 
       <p>This article explains what should-cost analysis is, how it works in practice, and why forward-thinking OEMs and Tier-1 suppliers in India are treating it as a core procurement discipline rather than an optional finance exercise.</p>
 
@@ -295,7 +295,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <p>When you arrive at a negotiation with a well-built should-cost model, the conversation changes completely.</p>
 
-      <p>Instead of "your quote is too high, can you do better?", you're saying: "Based on our analysis, the material cost for this Inconel 718 forging is approximately ₹X, 5-axis machining at your setup time should run ₹Y, and your overhead at this volume is likely ₹Z. Our target price is ₹[Total]. Walk us through where our assumptions differ."</p>
+      <p>Instead of "your quote is too high, can you do better?", you're saying: "Based on our analysis, the material cost for this Inconel 718 forging is approximately $X, 5-axis machining at your setup time should run $Y, and your overhead at this volume is likely $Z. Our target price is $[Total]. Walk us through where our assumptions differ."</p>
 
       <p>That's a different meeting. The supplier can't simply say "that's our price." They have to engage with your numbers.</p>
 
@@ -308,16 +308,16 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <h4>Real-World Example: Titanium Structural Bracket for a Space Programme</h4>
 
-      <p>Consider a supplier quoting ₹4.2 lakh per unit for a titanium bracket used in a satellite structural assembly. A should-cost model built from the drawing and process route might reveal:</p>
+      <p>Consider a supplier quoting ~$5,000 per unit for a titanium bracket used in a satellite structural assembly. A should-cost model built from the drawing and process route might reveal:</p>
       <ul>
-        <li>Material: Ti-6Al-4V billet at current LME-linked prices: ₹85,000</li>
-        <li>Machining (5-axis, 3 setups, 14-hour cycle): ₹1,10,000</li>
-        <li>Inspection and certification (AS9100 compliance, CMM, FAI): ₹40,000</li>
-        <li>Overhead at standard absorption rate: ₹55,000</li>
-        <li>Reasonable margin (15%): ₹43,500</li>
+        <li>Material: Ti-6Al-4V billet at current LME-linked prices: $1,000</li>
+        <li>Machining (5-axis, 3 setups, 14-hour cycle): $1,300</li>
+        <li>Inspection and certification (AS9100 compliance, CMM, FAI): $500</li>
+        <li>Overhead at standard absorption rate: $650</li>
+        <li>Reasonable margin (15%): $525</li>
       </ul>
-      <p>Should-cost total: ~₹3.3 lakh.</p>
-      <p>That's a ₹90,000 gap per unit. At a programme quantity of 200 units, you have just found ₹1.8 crore in recoverable savings, with data to back every rupee of it.</p>
+      <p>Should-cost total: ~$4,000.</p>
+      <p>That's a ~$1,100 gap per unit. At a programme quantity of 200 units, you have just found ~$220,000 in recoverable savings, with data to back every dollar of it.</p>
 
       <h3>Should-Cost Analysis in Defence and Aerospace: Why It's Different</h3>
 

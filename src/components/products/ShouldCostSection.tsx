@@ -18,7 +18,7 @@ const CAPABILITIES = [
 const STATS = [
   { label: 'RFQ evaluation time',   value: '−80',    suffix: '%'    },
   { label: 'Cost accuracy',         value: '±8',     suffix: '%'    },
-  { label: 'Savings / project',     value: '₹10L',   suffix: '+'    },
+  { label: 'Savings / project',     value: '$12K',   suffix: '+'    },
   { label: 'Negotiation confidence',value: '100',    suffix: '%'    },
 ]
 

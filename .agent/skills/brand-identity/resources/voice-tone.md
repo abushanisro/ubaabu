@@ -16,7 +16,7 @@ Emithran serves engineering, procurement, and operations leaders at aerospace, d
 * **Punctuation:** Avoid exclamation points (!) in standard interface copy. Use periods for complete sentences.
 * **Clarity:** Prefer active voice. Keep sentences concise and scannable.
 * **Numbers:** Always use numerals for metrics (e.g. "80% time saved", "72,000+ data points").
-* **Indian context:** Use ₹ for currency. Reference Indian regions, suppliers, and manufacturing clusters where relevant.
+* **Global context:** Use $ (USD) for currency. Reference global regions, suppliers, and manufacturing clusters where relevant.
 
 ## Terminology Guide
 

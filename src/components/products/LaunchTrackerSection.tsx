@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Activity, LayoutDashboard, BellRing, IndianRupee, GitMerge } from 'lucide-react'
+import { Activity, LayoutDashboard, BellRing, DollarSign, GitMerge } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 import { SectionDivider } from '@/components/products/SectionDivider'
 
@@ -11,7 +11,7 @@ const EASE = [0.16, 1, 0.3, 1] as const
 const CAPABILITIES = [
   { icon: LayoutDashboard, text: 'Unifies project status (supplier, quality, delivery)'  },
   { icon: BellRing,        text: 'Automates alerts for risks and constraints'            },
-  { icon: IndianRupee,     text: 'Tracks project-level costs'                            },
+  { icon: DollarSign,     text: 'Tracks project-level costs'                            },
   { icon: GitMerge,        text: 'Manages milestones & critical path'                    },
 ]
 

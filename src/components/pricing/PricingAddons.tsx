@@ -3,25 +3,25 @@ import { AnimateIn } from '@/components/ui/AnimateIn'
 
 const ADDONS = [
   {
-    price: '+₹5L',
+    price: '+$6K',
     title: 'Aerospace / Defense Compliance',
     features: ['AS9100D automation', 'Supplier certification tracking', 'Compliance reporting'],
     bestFor: 'Defense OEMs, aerospace contractors',
   },
   {
-    price: '+₹4L',
+    price: '+$5K',
     title: 'Automotive Compliance',
     features: ['IATF compliance', 'APQP integration', 'Design FMEA linking'],
     bestFor: 'Auto Tier-1, OEMs',
   },
   {
-    price: '+₹5–10L',
+    price: '+$6K–$12K',
     title: 'ERP Integration',
     features: ['Real-time sync (SAP, Oracle, NetSuite)', 'Bi-directional updates', 'Custom field mapping'],
     bestFor: 'Enterprises with complex systems',
   },
   {
-    price: '+₹4L',
+    price: '+$5K',
     title: 'Supplier Portal',
     features: ['Self-service supplier updates', 'Capacity & capability visibility', 'Two-way communication'],
     bestFor: 'Companies with 50+ active suppliers',

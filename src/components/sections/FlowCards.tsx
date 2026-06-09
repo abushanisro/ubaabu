@@ -90,7 +90,7 @@ export default function FlowCards() {
                   <Sparkles className="h-3 w-3 text-[#0d9e8a]" />
                   <div className="text-xs font-semibold text-[#0d1117]">AI Negotiation</div>
                 </div>
-                <div className="text-lg font-bold text-[#0d1117]">₹1.2Cr</div>
+                <div className="text-lg font-bold text-[#0d1117]">$145K</div>
                 <div className="text-[10px] text-[#64748b]">Potential savings</div>
               </div>
               <div className="rounded-xl border border-black/10 bg-white p-3 shadow-sm">

@@ -38,7 +38,7 @@ const studies: Study[] = [
     metric: '−39% body cost negotiated',
     image: '/assets/casestudy/case3.png',
     headline: 'DC-DC Converter Teardown & VAVE',
-    sub: '13 VAVE ideas · ₹831 should cost · India sourcing',
+    sub: '13 VAVE ideas · $10 should cost · India sourcing',
     href: '/case-studies/dc-dc-converter',
   },
   {
@@ -71,7 +71,7 @@ const studies: Study[] = [
   {
     id: 'rear-view-mirror',
     label: 'Automotive OEM',
-    metric: '₹80.25 full BOM should cost',
+    metric: '$0.97 full BOM should cost',
     image: '/assets/casestudy/case7.png',
     headline: 'Rear View Mirror Assembly — Full BOM Should Cost',
     sub: '5 parts · 5 processes · 1,50,000 units/yr · India',
@@ -80,7 +80,7 @@ const studies: Study[] = [
   {
     id: 'rear-axle-should-cost',
     label: 'LCV Drivetrain OEM',
-    metric: '₹20,526 per axle · 46% in Drive Head',
+    metric: '$247 per axle · 46% in Drive Head',
     image: '/assets/casestudy/case8.png',
     headline: '2T LCV Rear Drive Axle — Should Cost Analysis',
     sub: '51.2 kg assembly · 40,000 units/yr · India manufacturing',

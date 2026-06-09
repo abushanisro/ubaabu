@@ -20,42 +20,42 @@ function Card({ children, className = '' }: { children: React.ReactNode; classNa
 }
 
 const subAssemblies = [
-  { name: 'Drive Head / Carrier Assy.',  cost: 9407.10, pct: 46, color: '#0f766e', lightColor: '#f0fdfa' },
-  { name: 'Axle Housing',                cost: 4066.00, pct: 20, color: '#2dd4bf', lightColor: '#f0fdfa' },
-  { name: 'Half Shaft RH',               cost: 2545.90, pct: 12, color: '#5eead4', lightColor: '#f0fdfa' },
-  { name: 'Half Shaft LH',               cost: 2545.90, pct: 12, color: '#99f6e4', lightColor: '#f0fdfa' },
-  { name: 'Top-level Assembly & HW',     cost:  961.30, pct:  5, color: '#ccfbf1', lightColor: '#f8fafb' },
+  { name: 'Drive Head / Carrier Assy.',  cost: 111.99, pct: 46, color: '#0f766e', lightColor: '#f0fdfa' },
+  { name: 'Axle Housing',                cost:  48.40, pct: 20, color: '#2dd4bf', lightColor: '#f0fdfa' },
+  { name: 'Half Shaft RH',               cost:  30.31, pct: 12, color: '#5eead4', lightColor: '#f0fdfa' },
+  { name: 'Half Shaft LH',               cost:  30.31, pct: 12, color: '#99f6e4', lightColor: '#f0fdfa' },
+  { name: 'Top-level Assembly & HW',     cost:  11.44, pct:  5, color: '#ccfbf1', lightColor: '#f8fafb' },
 ]
 
 const driveHeadItems = [
-  { name: 'Carrier Housing',         cost: 1547.61, pct: 16, type: 'Casting & M/C' },
-  { name: 'Bearing LM603049 (×2)',   cost: 1526.00, pct: 16, type: 'BOI' },
-  { name: 'Ring Gear',               cost:  961.06, pct: 10, type: 'Forged & M/C' },
-  { name: 'Drive Head Assy.',        cost:  910.00, pct: 10, type: 'Assembly' },
-  { name: 'Bearing — Pinion Head',   cost:  774.00, pct:  8, type: 'BOI' },
-  { name: 'Pinion Shaft Main Drive', cost:  629.55, pct:  7, type: 'Forged & M/C' },
-  { name: 'Bearing — Pinion Tail',   cost:  470.00, pct:  5, type: 'BOI' },
-  { name: 'Diff Cage Assy.',         cost:  392.93, pct:  4, type: 'Assembly' },
-  { name: 'Cage — Diff Gears',       cost:  454.69, pct:  5, type: 'Casting & M/C' },
-  { name: 'Side Gear 24T (×2)',      cost:  379.66, pct:  4, type: 'Forged & M/C' },
-  { name: 'Other (caps, HW, seals)', cost:  381.60, pct:  4, type: 'Various' },
+  { name: 'Carrier Housing',         cost: 18.42, pct: 16, type: 'Casting & M/C' },
+  { name: 'Bearing LM603049 (×2)',   cost: 18.17, pct: 16, type: 'BOI' },
+  { name: 'Ring Gear',               cost: 11.44, pct: 10, type: 'Forged & M/C' },
+  { name: 'Drive Head Assy.',        cost: 10.83, pct: 10, type: 'Assembly' },
+  { name: 'Bearing — Pinion Head',   cost:  9.21, pct:  8, type: 'BOI' },
+  { name: 'Pinion Shaft Main Drive', cost:  7.49, pct:  7, type: 'Forged & M/C' },
+  { name: 'Bearing — Pinion Tail',   cost:  5.60, pct:  5, type: 'BOI' },
+  { name: 'Diff Cage Assy.',         cost:  4.68, pct:  4, type: 'Assembly' },
+  { name: 'Cage — Diff Gears',       cost:  5.41, pct:  5, type: 'Casting & M/C' },
+  { name: 'Side Gear 24T (×2)',      cost:  4.52, pct:  4, type: 'Forged & M/C' },
+  { name: 'Other (caps, HW, seals)', cost:  4.54, pct:  4, type: 'Various' },
 ]
 
 const housingItems = [
-  { name: 'Housing Formed Half (×2)', cost: 1862.28, pct: 47, type: 'Formed' },
-  { name: 'End Flange (×2)',          cost:  989.08, pct: 25, type: 'Casting & M/C' },
-  { name: 'Axle Housing Assembly',    cost:  537.56, pct: 14, type: 'Assembly' },
-  { name: 'Rear Cover',               cost:  210.52, pct:  5, type: 'Formed' },
-  { name: 'Other (brackets, HW)',     cost:  287.06, pct:  7, type: 'Various' },
+  { name: 'Housing Formed Half (×2)', cost: 22.17, pct: 47, type: 'Formed' },
+  { name: 'End Flange (×2)',          cost: 11.77, pct: 25, type: 'Casting & M/C' },
+  { name: 'Axle Housing Assembly',    cost:  6.40, pct: 14, type: 'Assembly' },
+  { name: 'Rear Cover',               cost:  2.51, pct:  5, type: 'Formed' },
+  { name: 'Other (brackets, HW)',     cost:  3.42, pct:  7, type: 'Various' },
 ]
 
 const halfShaftItems = [
-  { name: 'Axle Half Shaft',          cost: 1225.02, pct: 48, type: 'Forged & M/C' },
-  { name: 'Taper Roller Bearing Set', cost:  621.00, pct: 24, type: 'BOI' },
-  { name: 'Half Shaft Assembly',      cost:  273.43, pct: 11, type: 'Assembly' },
-  { name: 'Bearing Housing',          cost:  162.74, pct:  6, type: 'Casting & M/C' },
-  { name: 'Axle Shaft Assy.',         cost:  146.34, pct:  6, type: 'Assembly' },
-  { name: 'Hardware & Seals',         cost:   96.59, pct:  4, type: 'Hardware / BOI' },
+  { name: 'Axle Half Shaft',          cost: 14.58, pct: 48, type: 'Forged & M/C' },
+  { name: 'Taper Roller Bearing Set', cost:  7.39, pct: 24, type: 'BOI' },
+  { name: 'Half Shaft Assembly',      cost:  3.25, pct: 11, type: 'Assembly' },
+  { name: 'Bearing Housing',          cost:  1.94, pct:  6, type: 'Casting & M/C' },
+  { name: 'Axle Shaft Assy.',         cost:  1.74, pct:  6, type: 'Assembly' },
+  { name: 'Hardware & Seals',         cost:  1.15, pct:  4, type: 'Hardware / BOI' },
 ]
 
 export default function RearAxleCaseStudy() {
@@ -88,7 +88,7 @@ export default function RearAxleCaseStudy() {
       <div className="border-b border-black/[0.07] bg-white">
         <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-px px-6 md:grid-cols-5 md:px-12">
           {[
-            { label: 'Assembly Cost',   value: '₹20,526 / unit' },
+            { label: 'Assembly Cost',   value: '$244 / unit' },
             { label: 'Annual Volume',   value: '40,000 units' },
             { label: 'Finish Weight',   value: '51.2 kg' },
             { label: 'Sub-Assemblies',  value: '4 major' },
@@ -120,7 +120,7 @@ export default function RearAxleCaseStudy() {
                   <div key={s.name}>
                     <div className="mb-1 flex items-center justify-between text-[13px]">
                       <span className="font-medium text-[#334155]">{s.name}</span>
-                      <span className="font-bold text-[#0d1117]">₹{s.cost.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+                      <span className="font-bold text-[#0d1117]">${s.cost.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="flex-1 h-2.5 rounded-full bg-black/[0.05] overflow-hidden">
@@ -136,7 +136,7 @@ export default function RearAxleCaseStudy() {
               </div>
               <div className="mt-5 flex items-center justify-between border-t border-black/[0.06] pt-4">
                 <span className="font-bold text-[#0d1117]">Total Assembly</span>
-                <span className="text-[18px] font-bold text-[#0d9488]">₹20,526.20</span>
+                <span className="text-[18px] font-bold text-[#0d9488]">$244.36</span>
               </div>
             </Card>
 
@@ -145,21 +145,21 @@ export default function RearAxleCaseStudy() {
               <p className="text-[13px] font-semibold text-[#0d1117] mb-5">Assembly hierarchy</p>
               <div className="font-mono text-[12px] text-[#334155] space-y-1.5">
                 {[
-                  { indent: 0, label: 'LCV Rear Drive Axle', cost: '₹20,526', bold: true },
-                  { indent: 1, label: 'Axle Housing (weldment)', cost: '₹4,066', bold: false },
-                  { indent: 2, label: 'Housing Formed Half ×2', cost: '₹1,862', bold: false },
-                  { indent: 2, label: 'End Flange ×2 (cast+M/C)', cost: '₹989', bold: false },
-                  { indent: 1, label: 'Drive Head / Carrier Assy.', cost: '₹9,407', bold: true },
-                  { indent: 2, label: 'Differential Cage Assy.', cost: '₹3,911', bold: false },
-                  { indent: 3, label: 'Ring Gear (forged)', cost: '₹961', bold: false },
-                  { indent: 3, label: 'Side Gear 24T ×2', cost: '₹380', bold: false },
-                  { indent: 2, label: 'Carrier Housing & Pinion Assy.', cost: '₹4,066', bold: false },
-                  { indent: 3, label: 'Carrier Housing (cast+M/C)', cost: '₹1,548', bold: false },
-                  { indent: 3, label: 'Bearings LM603049 ×2', cost: '₹1,526', bold: false },
-                  { indent: 1, label: 'Half Shaft RH Assy.', cost: '₹2,546', bold: false },
-                  { indent: 2, label: 'Axle Half Shaft (forged)', cost: '₹1,225', bold: false },
-                  { indent: 2, label: 'Taper Roller Bearing', cost: '₹621', bold: false },
-                  { indent: 1, label: 'Half Shaft LH Assy.', cost: '₹2,546', bold: false },
+                  { indent: 0, label: 'LCV Rear Drive Axle', cost: '$244', bold: true },
+                  { indent: 1, label: 'Axle Housing (weldment)', cost: '$48', bold: false },
+                  { indent: 2, label: 'Housing Formed Half ×2', cost: '$22', bold: false },
+                  { indent: 2, label: 'End Flange ×2 (cast+M/C)', cost: '$12', bold: false },
+                  { indent: 1, label: 'Drive Head / Carrier Assy.', cost: '$112', bold: true },
+                  { indent: 2, label: 'Differential Cage Assy.', cost: '$47', bold: false },
+                  { indent: 3, label: 'Ring Gear (forged)', cost: '$11', bold: false },
+                  { indent: 3, label: 'Side Gear 24T ×2', cost: '$5', bold: false },
+                  { indent: 2, label: 'Carrier Housing & Pinion Assy.', cost: '$48', bold: false },
+                  { indent: 3, label: 'Carrier Housing (cast+M/C)', cost: '$18', bold: false },
+                  { indent: 3, label: 'Bearings LM603049 ×2', cost: '$18', bold: false },
+                  { indent: 1, label: 'Half Shaft RH Assy.', cost: '$30', bold: false },
+                  { indent: 2, label: 'Axle Half Shaft (forged)', cost: '$15', bold: false },
+                  { indent: 2, label: 'Taper Roller Bearing', cost: '$7', bold: false },
+                  { indent: 1, label: 'Half Shaft LH Assy.', cost: '$30', bold: false },
                 ].map(({ indent, label, cost, bold }, i) => (
                   <div key={i} className="flex items-start justify-between" style={{ paddingLeft: indent * 14 }}>
                     <span className={`flex items-center gap-1 ${bold ? 'font-bold text-[#0d1117]' : ''}`}>
@@ -177,7 +177,7 @@ export default function RearAxleCaseStudy() {
         {/* ── Drive Head deep-dive ── */}
         <section>
           <SectionLabel>Primary Cost Driver — 46% of Axle</SectionLabel>
-          <h2 className="text-2xl font-bold text-[#0d1117] mb-8">Drive Head / Carrier Assembly — ₹9,407.10</h2>
+          <h2 className="text-2xl font-bold text-[#0d1117] mb-8">Drive Head / Carrier Assembly — $112.00</h2>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
             <div className="lg:col-span-2 overflow-x-auto rounded-2xl border border-black/[0.07] bg-white shadow-sm">
@@ -186,7 +186,7 @@ export default function RearAxleCaseStudy() {
                   <tr className="border-b border-black/[0.06] bg-[#f8fafb]">
                     <th className="px-5 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Component</th>
                     <th className="px-5 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Type</th>
-                    <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Cost (₹)</th>
+                    <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Cost ($)</th>
                     <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Share</th>
                   </tr>
                 </thead>
@@ -202,7 +202,7 @@ export default function RearAxleCaseStudy() {
                           'bg-[#f1f5f9] text-[#475569]'
                         }`}>{item.type}</span>
                       </td>
-                      <td className="px-5 py-3 text-right font-mono font-semibold text-[#0d1117]">{item.cost.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
+                      <td className="px-5 py-3 text-right font-mono font-semibold text-[#0d1117]">${item.cost.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
                       <td className="px-5 py-3 text-right">
                         <div className="flex items-center justify-end gap-2">
                           <div className="w-16 h-1.5 rounded-full bg-black/[0.06] overflow-hidden">
@@ -217,7 +217,7 @@ export default function RearAxleCaseStudy() {
                 <tfoot>
                   <tr className="bg-[#f0fdfa]">
                     <td colSpan={2} className="px-5 py-3.5 font-bold text-[#0d1117]">Total Drive Head / Carrier</td>
-                    <td className="px-5 py-3.5 text-right font-mono font-bold text-[#0d9488]">9,407.10</td>
+                    <td className="px-5 py-3.5 text-right font-mono font-bold text-[#0d9488]">$112.00</td>
                     <td className="px-5 py-3.5 text-right font-bold text-[#0d9488]">100%</td>
                   </tr>
                 </tfoot>
@@ -229,15 +229,15 @@ export default function RearAxleCaseStudy() {
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[#2dd4bf] mb-2">Dual Cost Leaders — 16% Each</p>
                 <p className="font-bold text-[#0d1117] mb-1">Carrier Housing vs Bearings</p>
                 <p className="text-[13px] text-[#64748b] leading-relaxed mb-4">
-                  Carrier Housing (cast + machined, 9.5 kg) and Bearing LM603049 pair are tied at ₹1,547 and ₹1,526 respectively — together they drive 32% of drive head cost.
+                  Carrier Housing (cast + machined, 9.5 kg) and Bearing LM603049 pair are tied at $18.42 and $18.17 respectively — together they drive 32% of drive head cost.
                 </p>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="rounded-xl bg-[#f0fdfa] p-3 text-center">
-                    <p className="text-[16px] font-bold text-[#0d9488]">₹1,548</p>
+                    <p className="text-[16px] font-bold text-[#0d9488]">$18.42</p>
                     <p className="text-[11px] text-[#0d9488]">Carrier Housing</p>
                   </div>
                   <div className="rounded-xl bg-amber-50 p-3 text-center">
-                    <p className="text-[16px] font-bold text-amber-700">₹1,526</p>
+                    <p className="text-[16px] font-bold text-amber-700">$18.17</p>
                     <p className="text-[11px] text-amber-600">Bearings (BOI)</p>
                   </div>
                 </div>
@@ -251,7 +251,7 @@ export default function RearAxleCaseStudy() {
               <Card>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[#2dd4bf] mb-2">Forged Components</p>
                 <p className="text-[13px] text-[#64748b] leading-relaxed">
-                  Ring Gear + Side Gears + Pinion Shaft = <span className="font-bold text-[#0d1117]">₹1,970 (21%)</span>. All forged and CNC machined — gear hobbing and deburring are the process cost drivers.
+                  Ring Gear + Side Gears + Pinion Shaft = <span className="font-bold text-[#0d1117]">$23.45 (21%)</span>. All forged and CNC machined — gear hobbing and deburring are the process cost drivers.
                 </p>
               </Card>
             </div>
@@ -269,7 +269,7 @@ export default function RearAxleCaseStudy() {
               <div className="mb-4 flex items-start justify-between">
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[#2dd4bf] mb-1">20% of Axle Cost</p>
-                  <h3 className="text-[16px] font-bold text-[#0d1117]">Axle Housing — ₹4,066</h3>
+                  <h3 className="text-[16px] font-bold text-[#0d1117]">Axle Housing — $48</h3>
                   <p className="text-[12px] text-[#64748b]">Weldment · 17.37 kg · 16 line items</p>
                 </div>
               </div>
@@ -278,7 +278,7 @@ export default function RearAxleCaseStudy() {
                   <div key={item.name}>
                     <div className="flex items-center justify-between text-[12px] mb-1">
                       <span className="text-[#334155]">{item.name}</span>
-                      <span className="font-semibold text-[#0d1117]">₹{item.cost.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+                      <span className="font-semibold text-[#0d1117]">${item.cost.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="flex-1 h-1.5 rounded-full bg-black/[0.05] overflow-hidden">
@@ -299,7 +299,7 @@ export default function RearAxleCaseStudy() {
               <div className="mb-4 flex items-start justify-between">
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[#2dd4bf] mb-1">12% Each · 24% Combined</p>
-                  <h3 className="text-[16px] font-bold text-[#0d1117]">Half Shaft RH + LH — ₹5,091.80</h3>
+                  <h3 className="text-[16px] font-bold text-[#0d1117]">Half Shaft RH + LH — $60.62</h3>
                   <p className="text-[12px] text-[#64748b]">Mirror configuration · 9.52 kg each · Brake Plate = Customer Scope</p>
                 </div>
               </div>
@@ -308,7 +308,7 @@ export default function RearAxleCaseStudy() {
                   <div key={item.name}>
                     <div className="flex items-center justify-between text-[12px] mb-1">
                       <span className="text-[#334155]">{item.name}</span>
-                      <span className="font-semibold text-[#0d1117]">₹{item.cost.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+                      <span className="font-semibold text-[#0d1117]">${item.cost.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="flex-1 h-1.5 rounded-full bg-black/[0.05] overflow-hidden">
@@ -320,7 +320,7 @@ export default function RearAxleCaseStudy() {
                 ))}
               </div>
               <div className="rounded-xl bg-[#f0fdfa] p-3 text-[12px] text-[#0f766e]">
-                <span className="font-bold">Axle Half Shaft (forged + CNC)</span> at ₹1,225 = 48% of shaft assembly — forging die + multi-axis turning are the dominant cost steps.
+                <span className="font-bold">Axle Half Shaft (forged + CNC)</span> at $14.58 = 48% of shaft assembly — forging die + multi-axis turning are the dominant cost steps.
               </div>
             </Card>
           </div>
@@ -336,13 +336,13 @@ export default function RearAxleCaseStudy() {
               <p className="text-[12px] font-bold text-[#0d1117] mb-4">Key Material Grades</p>
               <div className="space-y-2 text-[12px]">
                 {[
-                  { grade: '18CrNiMo7-6',   use: 'Gear steels',         rate: '₹74.2/kg' },
-                  { grade: 'ASTM A247-10',   use: 'Castings (ingot)',    rate: '₹89.5/kg' },
-                  { grade: 'EN24',           use: 'Alloy steel rod',     rate: '₹66/kg' },
-                  { grade: 'En353',          use: 'Alloy steel sheet',   rate: '₹75/kg' },
-                  { grade: 'IS2062',         use: 'Structural sheet',    rate: '₹64/kg' },
-                  { grade: 'C60E',           use: 'High carbon rod',     rate: '₹56/kg' },
-                  { grade: 'Cast Steel',     use: 'Sand casting',        rate: '₹60/kg' },
+                  { grade: '18CrNiMo7-6',   use: 'Gear steels',         rate: '$0.88/kg' },
+                  { grade: 'ASTM A247-10',   use: 'Castings (ingot)',    rate: '$1.07/kg' },
+                  { grade: 'EN24',           use: 'Alloy steel rod',     rate: '$0.79/kg' },
+                  { grade: 'En353',          use: 'Alloy steel sheet',   rate: '$0.89/kg' },
+                  { grade: 'IS2062',         use: 'Structural sheet',    rate: '$0.76/kg' },
+                  { grade: 'C60E',           use: 'High carbon rod',     rate: '$0.67/kg' },
+                  { grade: 'Cast Steel',     use: 'Sand casting',        rate: '$0.71/kg' },
                 ].map(({ grade, use, rate }) => (
                   <div key={grade} className="flex items-start justify-between gap-2 border-b border-black/[0.04] pb-1.5">
                     <div>
@@ -359,14 +359,14 @@ export default function RearAxleCaseStudy() {
               <p className="text-[12px] font-bold text-[#0d1117] mb-4">Machine Hour Rates</p>
               <div className="space-y-2 text-[12px]">
                 {[
-                  { machine: 'Roll Forging 7000T', mhr: '₹2,450/hr' },
-                  { machine: 'Melting / Heating Furnace', mhr: '₹2,242/hr' },
-                  { machine: 'Forging — 1800T', mhr: '₹836/hr' },
-                  { machine: 'CNC Milling', mhr: '₹250/hr' },
-                  { machine: 'Gear Hobbing', mhr: '₹350/hr' },
-                  { machine: 'CNC Turning', mhr: '₹157/hr' },
-                  { machine: 'Forging — 800T', mhr: '₹417/hr' },
-                  { machine: 'Pipe/Rod Cutting', mhr: '₹86/hr' },
+                  { machine: 'Roll Forging 7000T', mhr: '$29/hr' },
+                  { machine: 'Melting / Heating Furnace', mhr: '$27/hr' },
+                  { machine: 'Forging — 1800T', mhr: '$10/hr' },
+                  { machine: 'CNC Milling', mhr: '$3/hr' },
+                  { machine: 'Gear Hobbing', mhr: '$4/hr' },
+                  { machine: 'CNC Turning', mhr: '$2/hr' },
+                  { machine: 'Forging — 800T', mhr: '$5/hr' },
+                  { machine: 'Pipe/Rod Cutting', mhr: '$1/hr' },
                 ].map(({ machine, mhr }) => (
                   <div key={machine} className="flex items-center justify-between border-b border-black/[0.04] pb-1.5">
                     <span className="text-[#334155]">{machine}</span>
@@ -439,7 +439,7 @@ export default function RearAxleCaseStudy() {
               },
               {
                 title: 'Forging is the Process Cost Engine',
-                body: 'Ring gear, half shaft, pinion, and side gears are all forged + CNC machined. Roll forging at ₹2,450/hr and gear hobbing at ₹350/hr are the dominant process cost contributors.',
+                body: 'Ring gear, half shaft, pinion, and side gears are all forged + CNC machined. Roll forging at $29/hr and gear hobbing at $4/hr are the dominant process cost contributors.',
               },
             ].map(({ title, body }) => (
               <div key={title} className="rounded-xl border border-white/10 p-5">

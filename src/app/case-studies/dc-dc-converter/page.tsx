@@ -45,7 +45,7 @@ export default function DCDCConverterCaseStudy() {
         <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-px px-6 md:grid-cols-5 md:px-12">
           {[
             { label: 'Annual Demand',   value: '6,000 units' },
-            { label: 'Should Cost',     value: '₹831.49' },
+            { label: 'Should Cost',     value: '$9.90' },
             { label: 'PCBA Share',      value: '74% of cost' },
             { label: 'VAVE Ideas',      value: '13 generated' },
             { label: 'Body Negotiation',value: '−39% saving' },
@@ -102,7 +102,7 @@ export default function DCDCConverterCaseStudy() {
 
         {/* Row 2 — Cost Breakdown Pareto */}
         <div>
-          <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#2dd4bf]">Should Cost Analysis — Total: ₹831.49</p>
+          <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#2dd4bf]">Should Cost Analysis — Total: $9.90</p>
           <h2 className="mb-6 text-[20px] font-bold text-[#0d1117]">Pareto: 80% of cost is PCBA</h2>
           <div className="grid gap-6 md:grid-cols-2">
 
@@ -110,11 +110,11 @@ export default function DCDCConverterCaseStudy() {
               <p className="mb-5 text-[13px] font-semibold text-[#0d1117]">Component Cost Breakdown</p>
               <div className="space-y-4">
                 {[
-                  { label: 'PCBA',          cost: '₹615.51', pct: 74, color: '#2dd4bf' },
-                  { label: 'Wiring Harness',cost: '₹107.88', pct: 13, color: '#60a5fa' },
-                  { label: 'Body (HPDC)',   cost: '₹78.18',  pct: 9,  color: '#a78bfa' },
-                  { label: 'Potting',        cost: '₹10.06',  pct: 1,  color: '#94a3b8' },
-                  { label: 'Assembly + OH', cost: '₹19.86',  pct: 2,  color: '#cbd5e1' },
+                  { label: 'PCBA',          cost: '$7.33', pct: 74, color: '#2dd4bf' },
+                  { label: 'Wiring Harness',cost: '$1.28', pct: 13, color: '#60a5fa' },
+                  { label: 'Body (HPDC)',   cost: '$0.93', pct: 9,  color: '#a78bfa' },
+                  { label: 'Potting',        cost: '$0.12', pct: 1,  color: '#94a3b8' },
+                  { label: 'Assembly + OH', cost: '$0.24', pct: 2,  color: '#cbd5e1' },
                 ].map((item) => (
                   <div key={item.label}>
                     <div className="mb-1.5 flex items-center justify-between">
@@ -181,9 +181,9 @@ export default function DCDCConverterCaseStudy() {
           <h2 className="mb-6 text-[20px] font-bold text-[#0d1117]">Should Cost as Negotiation Lever</h2>
           <div className="grid gap-4 md:grid-cols-3">
             {[
-              { part: 'PCBA + Final Assy', initial: '₹1,450', negotiated: '₹1,040', pct: 28, note: 'Batch qty raised 500 → 6,000 to unlock BOM savings' },
-              { part: 'Body (HPDC)',        initial: '₹115',   negotiated: '₹70',    pct: 39, note: 'Input weight & machine tonnage corrected via should cost' },
-              { part: 'Wire Harness',       initial: '₹98',    negotiated: '₹77',    pct: 22, note: 'Dual-sourced from Bangalore suppliers' },
+              { part: 'PCBA + Final Assy', initial: '$17.26', negotiated: '$12.38', pct: 28, note: 'Batch qty raised 500 → 6,000 to unlock BOM savings' },
+              { part: 'Body (HPDC)',        initial: '$1.37',  negotiated: '$0.83',  pct: 39, note: 'Input weight & machine tonnage corrected via should cost' },
+              { part: 'Wire Harness',       initial: '$1.17',  negotiated: '$0.92',  pct: 22, note: 'Dual-sourced from Bangalore suppliers' },
             ].map((n) => (
               <div key={n.part} className="rounded-2xl border border-black/[0.07] bg-white p-5 shadow-sm">
                 <p className="mb-3 text-[12px] font-semibold uppercase tracking-wider text-black/35">{n.part}</p>
@@ -217,7 +217,7 @@ export default function DCDCConverterCaseStudy() {
               { type: 'Design',   idea: 'Remove 3 slots in PCB profile — make rectangular (saves routing cost)' },
               { type: 'Design',   idea: 'Change soldering to press fit / eliminate THT components' },
               { type: 'Design',   idea: 'Change WH soldering to connector assembly' },
-              { type: 'Supplier', idea: 'Identify local Indian supplier for ICs (LM5116 switching controller: ₹89 target)' },
+              { type: 'Supplier', idea: 'Identify local supplier for ICs (LM5116 switching controller: $1.06 target)' },
               { type: 'Supplier', idea: 'Dual-source A-grade components for price leverage' },
               { type: 'Material', idea: 'Body material change: Aluminium casting → Plastic' },
               { type: 'Process',  idea: 'Body process change: HPDC → Aluminium extrusion' },
@@ -268,7 +268,7 @@ export default function DCDCConverterCaseStudy() {
             {[
               { num: '−39%', title: 'Body Cost Reduction',     desc: 'Should cost identified inflated input weight assumption in supplier quote; 150T machine and 90g input weight validated.' },
               { num: '−28%', title: 'PCBA Cost Reduction',     desc: 'Batch quantity optimised from 500 to 6,000 units; alternative components explored to compress BOM cost.' },
-              { num: '−22%', title: 'Harness Cost Reduction',  desc: 'Dual-sourced from Bangalore WH suppliers; competitive bidding drove price to ₹77 from ₹98.' },
+              { num: '−22%', title: 'Harness Cost Reduction',  desc: 'Dual-sourced from Bangalore WH suppliers; competitive bidding drove price to $0.92 from $1.17.' },
               { num:  '13',  title: 'VAVE Ideas Generated',    desc: 'Design, process, material, and supplier change ideas identified — all marked YTC (Yet to Confirm) for client review.' },
             ].map((v) => (
               <div key={v.num} className="flex gap-4 rounded-xl bg-white/[0.05] p-5">

@@ -17,7 +17,7 @@ type Time = 'pre-dawn' | 'sunrise' | 'daytime' | 'dusk' | 'sunset' | 'night'
 const TIMES: Time[] = ['pre-dawn', 'sunrise', 'daytime', 'dusk', 'sunset', 'night']
 
 const stats = [
-  { value: '₹4.2L Cr+', label: 'in Indian defence and aerospace manufacturing procurement still running on spreadsheets and legacy systems' },
+  { value: '$50B+', label: 'in global defence and aerospace manufacturing procurement still running on spreadsheets and legacy systems' },
   { value: '99.4%',  label: 'BOM accuracy rate across active defence and aerospace programmes on the platform' },
   { value: '40%',    label: 'faster RFQ turnaround time for engineering teams using Emithran should-cost models' },
 ]

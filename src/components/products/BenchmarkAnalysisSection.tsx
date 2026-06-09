@@ -17,7 +17,7 @@ const CAPABILITIES = [
 
 const STATS = [
   { label: 'Cost transparency',     value: '100',        suffix: '%'   },
-  { label: 'Savings identified',    value: '₹10L',       suffix: '+'   },
+  { label: 'Savings identified',    value: '$12K',       suffix: '+'   },
   { label: 'Negotiation prep',      value: 'Data',       suffix: '-backed' },
   { label: 'Portfolio optimization',value: 'Continuous', suffix: ''    },
 ]

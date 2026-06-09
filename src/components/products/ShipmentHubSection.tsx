@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Truck, MapPin, AlertTriangle, IndianRupee, FileText } from 'lucide-react'
+import { Truck, MapPin, AlertTriangle, DollarSign, FileText } from 'lucide-react'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 import { SectionDivider } from '@/components/products/SectionDivider'
 
@@ -11,7 +11,7 @@ const EASE = [0.16, 1, 0.3, 1] as const
 const CAPABILITIES = [
   { icon: Truck,         text: 'Tracks real-time shipments'                  },
   { icon: AlertTriangle, text: 'Predicts delivery risks'                     },
-  { icon: IndianRupee,   text: 'Analyzes logistics costs'                    },
+  { icon: DollarSign,   text: 'Analyzes logistics costs'                    },
   { icon: FileText,      text: 'Automates customs & documentation'           },
 ]
 

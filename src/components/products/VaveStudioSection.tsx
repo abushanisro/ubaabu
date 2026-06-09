@@ -19,7 +19,7 @@ const STATS = [
   { label: 'Ideas generated',  value: '3–5',   suffix: 'x'         },
   { label: 'Idea quality',     value: '+40',   suffix: '%'         },
   { label: 'Realization rate', value: '+55',   suffix: '%'         },
-  { label: 'Cost reduction',   value: '₹5L',  suffix: '/yr'       },
+  { label: 'Cost reduction',   value: '$6K',  suffix: '/yr'       },
 ]
 
 // Orbit chips — VAVE idea categories

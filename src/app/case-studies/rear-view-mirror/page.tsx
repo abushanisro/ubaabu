@@ -25,10 +25,10 @@ const parts = [
     name: 'Mirror Cover',
     partNo: 'RVMSA2CP1',
     process: 'Injection Moulding',
-    material: 9.19,
-    process_cost: 1.30,
-    overhead: 1.32,
-    total: 11.81,
+    material: 0.1094,
+    process_cost: 0.0155,
+    overhead: 0.0157,
+    total: 0.1406,
     matGrade: 'PP + 20% GF',
     weight: '75 g',
     tonnage: '95 Ton',
@@ -42,10 +42,10 @@ const parts = [
     name: 'Mirror Arm',
     partNo: 'RVMSA1CP1',
     process: 'Hot Forging + CNC + Bending',
-    material: 8.04,
-    process_cost: 19.25,
-    overhead: 3.03,
-    total: 30.32,
+    material: 0.0957,
+    process_cost: 0.2292,
+    overhead: 0.0361,
+    total: 0.3610,
     matGrade: 'Steel Grade 1080',
     weight: '112 g',
     tonnage: '10 Ton Press',
@@ -59,10 +59,10 @@ const parts = [
     name: 'M10 Mirror Adapter',
     partNo: 'RVMSA1CP4',
     process: 'Cold Forming + CNC Turning',
-    material: 5.35,
-    process_cost: 15.45,
-    overhead: 2.29,
-    total: 23.09,
+    material: 0.0637,
+    process_cost: 0.1839,
+    overhead: 0.0273,
+    total: 0.2749,
     matGrade: 'Steel Grade 1080',
     weight: '56 g',
     tonnage: '—',
@@ -76,10 +76,10 @@ const parts = [
     name: 'Rubber Boot',
     partNo: 'RVMSA1CP2',
     process: 'Compression Moulding',
-    material: 3.67,
-    process_cost: 0.57,
-    overhead: 0.53,
-    total: 4.78,
+    material: 0.0437,
+    process_cost: 0.0068,
+    overhead: 0.0063,
+    total: 0.0569,
     matGrade: 'EPDM Shore 40D',
     weight: '16 g',
     tonnage: '30 Ton',
@@ -93,10 +93,10 @@ const parts = [
     name: 'Mirror Glass',
     partNo: 'RVMSA2CP3',
     process: 'CNC Laser Cutting',
-    material: 5.62,
-    process_cost: 3.54,
-    overhead: 1.09,
-    total: 10.25,
+    material: 0.0669,
+    process_cost: 0.0421,
+    overhead: 0.0130,
+    total: 0.1220,
     matGrade: 'Silver Mirror Glass',
     weight: '54 g',
     tonnage: '—',
@@ -107,7 +107,7 @@ const parts = [
   },
 ]
 
-const totalAssembly = 80.25
+const totalAssembly = 0.96
 
 export default function RearViewMirrorCaseStudy() {
   return (
@@ -140,7 +140,7 @@ export default function RearViewMirrorCaseStudy() {
         <div className="mx-auto grid max-w-[1280px] grid-cols-2 gap-px px-6 md:grid-cols-5 md:px-12">
           {[
             { label: 'Product',         value: 'Rear View Mirror Assy' },
-            { label: 'Total Cost',      value: '₹80.25 / unit' },
+            { label: 'Total Cost',      value: '$0.96 / unit' },
             { label: 'Annual Volume',   value: '1,50,000 units' },
             { label: 'Parts Analysed',  value: '5 components' },
             { label: 'Region',          value: 'India (Ex Works)' },
@@ -158,7 +158,7 @@ export default function RearViewMirrorCaseStudy() {
         {/* ── Assembly Summary ── */}
         <section>
           <SectionLabel>Assembly Cost Breakdown</SectionLabel>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#0d1117] mb-8">5 parts · 5 processes · ₹80.25 total</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#0d1117] mb-8">5 parts · 5 processes · $0.96 total</h2>
 
           <div className="overflow-x-auto rounded-2xl border border-black/[0.07] bg-white shadow-sm">
             <table className="w-full text-sm">
@@ -166,10 +166,10 @@ export default function RearViewMirrorCaseStudy() {
                 <tr className="border-b border-black/[0.06] bg-[#f8fafb]">
                   <th className="px-5 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Part</th>
                   <th className="px-5 py-3.5 text-left text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Process</th>
-                  <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Material (₹)</th>
-                  <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Process (₹)</th>
-                  <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">OH (₹)</th>
-                  <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Total (₹)</th>
+                  <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Material ($)</th>
+                  <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Process ($)</th>
+                  <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">OH ($)</th>
+                  <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Total ($)</th>
                   <th className="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-widest text-[#94a3b8]">Share</th>
                 </tr>
               </thead>
@@ -186,7 +186,7 @@ export default function RearViewMirrorCaseStudy() {
                       <td className="px-5 py-4 text-right font-mono text-[13px] text-[#334155]">{p.material.toFixed(2)}</td>
                       <td className="px-5 py-4 text-right font-mono text-[13px] text-[#334155]">{p.process_cost.toFixed(2)}</td>
                       <td className="px-5 py-4 text-right font-mono text-[13px] text-[#334155]">{p.overhead.toFixed(2)}</td>
-                      <td className="px-5 py-4 text-right font-mono font-bold text-[14px] text-[#0d1117]">₹{p.total.toFixed(2)}</td>
+                      <td className="px-5 py-4 text-right font-mono font-bold text-[14px] text-[#0d1117]">${p.total.toFixed(2)}</td>
                       <td className="px-5 py-4 text-right">
                         <span className="inline-block rounded-full bg-[#f0fdfa] px-2.5 py-0.5 text-[11px] font-semibold text-[#0d9488]">{share}%</span>
                       </td>
@@ -197,7 +197,7 @@ export default function RearViewMirrorCaseStudy() {
               <tfoot>
                 <tr className="bg-[#f0fdfa]">
                   <td colSpan={5} className="px-5 py-4 font-bold text-[#0d1117]">Total Assembly Cost</td>
-                  <td className="px-5 py-4 text-right font-mono font-bold text-[15px] text-[#0d9488]">₹{totalAssembly.toFixed(2)}</td>
+                  <td className="px-5 py-4 text-right font-mono font-bold text-[15px] text-[#0d9488]">${totalAssembly.toFixed(2)}</td>
                   <td className="px-5 py-4 text-right font-bold text-[#0d9488]">100%</td>
                 </tr>
               </tfoot>
@@ -222,7 +222,7 @@ export default function RearViewMirrorCaseStudy() {
                       <p className="font-bold text-[#0d1117]">{p.name}</p>
                       <p className="text-[12px] text-[#94a3b8]">{p.process}</p>
                     </div>
-                    <p className="shrink-0 text-[18px] font-bold text-[#0d9488]">₹{p.total.toFixed(2)}</p>
+                    <p className="shrink-0 text-[18px] font-bold text-[#0d9488]">${p.total.toFixed(2)}</p>
                   </div>
 
                   {/* Stacked bar */}
@@ -254,7 +254,7 @@ export default function RearViewMirrorCaseStudy() {
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[#2dd4bf] mb-3">Key Insight</p>
                 <p className="text-[15px] font-bold text-[#0d1117] mb-2">Process cost dominates metal parts; material dominates moulded parts</p>
                 <p className="text-[13px] text-[#64748b] leading-relaxed">
-                  The Mirror Arm and Adapter together account for ₹53.41 — 67% of total assembly cost — driven by multi-step machining, induction heating, and heat treatment. Plastic and rubber components are material-cost-led at 77–78%.
+                  The Mirror Arm and Adapter together account for $0.64 — 67% of total assembly cost — driven by multi-step machining, induction heating, and heat treatment. Plastic and rubber components are material-cost-led at 77–78%.
                 </p>
               </div>
               <div className="mt-5 grid grid-cols-2 gap-3">
@@ -263,7 +263,7 @@ export default function RearViewMirrorCaseStudy() {
                   <p className="text-[11px] text-[#0d9488]">Metal parts share</p>
                 </div>
                 <div className="rounded-xl bg-[#f8fafc] p-3 text-center">
-                  <p className="text-[20px] font-bold text-[#334155]">₹80.25</p>
+                  <p className="text-[20px] font-bold text-[#334155]">$0.96</p>
                   <p className="text-[11px] text-[#64748b]">Assembly total</p>
                 </div>
               </div>
@@ -286,20 +286,20 @@ export default function RearViewMirrorCaseStudy() {
                   <h3 className="text-[18px] font-bold text-[#0d1117]">Mirror Arm — 9 Manufacturing Operations</h3>
                   <p className="text-[13px] text-[#64748b] mt-1">Hot forging · CNC turning · Thread rolling · Bending · Age hardening · Phosphating · Powder coating</p>
                 </div>
-                <p className="text-[22px] font-bold text-[#0d9488]">₹30.32</p>
+                <p className="text-[22px] font-bold text-[#0d9488]">$0.36</p>
               </div>
 
               <div className="grid grid-cols-2 gap-3 md:grid-cols-4 lg:grid-cols-5 mb-5">
                 {[
-                  { op: 'XRF Analysis',    cost: '₹0.005', type: 'QC' },
-                  { op: 'Bandsaw Cutting', cost: '₹0.32',  type: 'Cutting' },
-                  { op: 'Induction Heating', cost: '₹5.43', type: 'Heating' },
-                  { op: 'Hot Forging',     cost: '₹3.48',  type: 'Forming' },
-                  { op: 'CNC Turning',     cost: '₹5.45',  type: 'Machining' },
-                  { op: 'Bending',         cost: '₹0.65',  type: 'Forming' },
-                  { op: 'Age Hardening',   cost: '₹2.61',  type: 'HT' },
-                  { op: 'Phosphating',     cost: '₹0.52',  type: 'Finish' },
-                  { op: 'Powder Coating',  cost: '₹0.79',  type: 'Finish' },
+                  { op: 'XRF Analysis',    cost: '$0.005', type: 'QC' },
+                  { op: 'Bandsaw Cutting', cost: '$0.004',  type: 'Cutting' },
+                  { op: 'Induction Heating', cost: '$0.065', type: 'Heating' },
+                  { op: 'Hot Forging',     cost: '$0.042',  type: 'Forming' },
+                  { op: 'CNC Turning',     cost: '$0.066',  type: 'Machining' },
+                  { op: 'Bending',         cost: '$0.008',  type: 'Forming' },
+                  { op: 'Age Hardening',   cost: '$0.031',  type: 'HT' },
+                  { op: 'Phosphating',     cost: '$0.006',  type: 'Finish' },
+                  { op: 'Powder Coating',  cost: '$0.010',  type: 'Finish' },
                 ].map(({ op, cost, type }) => (
                   <div key={op} className="rounded-xl bg-[#f8fafb] border border-black/[0.05] p-3">
                     <p className="text-[10px] font-semibold uppercase tracking-wide text-[#94a3b8] mb-1">{type}</p>
@@ -310,7 +310,7 @@ export default function RearViewMirrorCaseStudy() {
               </div>
 
               <div className="rounded-xl bg-[#f0fdfa] p-4 text-[13px] text-[#0f766e]">
-                <span className="font-bold">Key insight:</span> Induction heating (₹5.43) and CNC machining (₹5.45) together account for 57% of the Mirror Arm&apos;s process cost. Forging die tooling across 5-year programme: ₹22.5L.
+                <span className="font-bold">Key insight:</span> Induction heating ($0.065) and CNC machining ($0.065) together account for 57% of the Mirror Arm&apos;s process cost. Forging die tooling across 5-year programme: ~$26,800.
               </div>
             </Card>
 
@@ -322,7 +322,7 @@ export default function RearViewMirrorCaseStudy() {
                   <h3 className="text-[18px] font-bold text-[#0d1117]">M10 Mirror Adapter — Cold Forming + 5-Operation CNC</h3>
                   <p className="text-[13px] text-[#64748b] mt-1">Wire cold heading · Zone annealing · Turning · Grooving · Threading · Drilling · Tapping · Black oxide</p>
                 </div>
-                <p className="text-[22px] font-bold text-[#0d9488]">₹23.09</p>
+                <p className="text-[22px] font-bold text-[#0d9488]">$0.27</p>
               </div>
 
               <div className="overflow-x-auto mb-4">
@@ -356,7 +356,7 @@ export default function RearViewMirrorCaseStudy() {
                 </table>
               </div>
               <div className="rounded-xl bg-[#f0fdfa] p-4 text-[13px] text-[#0f766e]">
-                <span className="font-bold">Key insight:</span> 68% material utilisation from wire coil — 32% becomes scrap. Black oxide finish adds ₹1.56 per part on 12,114 mm² surface area.
+                <span className="font-bold">Key insight:</span> 68% material utilisation from wire coil — 32% becomes scrap. Black oxide finish adds $0.019 per part on 12,114 mm² surface area.
               </div>
             </Card>
 
@@ -371,9 +371,9 @@ export default function RearViewMirrorCaseStudy() {
                     { label: 'Shot weight',        val: '150 g (75 g/part)' },
                     { label: 'Runner weight',       val: '4 g (cold runner)' },
                     { label: 'Cooling time',        val: '1.64 s' },
-                    { label: 'Machine cost',        val: '₹0.42/part' },
-                    { label: 'Yield cost (5% rej)', val: '₹0.39/part' },
-                    { label: 'Mould cost',          val: '₹12.71L (H13 cavity)' },
+                    { label: 'Machine cost',        val: '$0.005/part' },
+                    { label: 'Yield cost (5% rej)', val: '$0.005/part' },
+                    { label: 'Mould cost',          val: '~$15,100 (H13 cavity)' },
                   ].map(({ label, val }) => (
                     <div key={label} className="flex items-center justify-between border-b border-black/[0.04] pb-2">
                       <span className="text-[#64748b]">{label}</span>
@@ -392,13 +392,13 @@ export default function RearViewMirrorCaseStudy() {
                 <p className="text-[13px] text-[#64748b] mb-4">EPDM Shore 40D · Silver mirror glass · India</p>
                 <div className="space-y-3">
                   <div className="rounded-xl border border-black/[0.06] p-3">
-                    <p className="text-[12px] font-bold text-[#0d1117] mb-2">Rubber Boot — ₹4.78</p>
+                    <p className="text-[12px] font-bold text-[#0d1117] mb-2">Rubber Boot — $0.058</p>
                     <div className="space-y-1 text-[12px]">
                       {[
                         { label: '8 cavities / shot', val: '30 Ton press' },
                         { label: 'Cycle time', val: '41 s' },
                         { label: 'Yield', val: '95%' },
-                        { label: 'RM cost', val: '₹3.67 (77%)' },
+                        { label: 'RM cost', val: '$0.044 (77%)' },
                       ].map(({ label, val }) => (
                         <div key={label} className="flex justify-between">
                           <span className="text-[#94a3b8]">{label}</span>
@@ -408,7 +408,7 @@ export default function RearViewMirrorCaseStudy() {
                     </div>
                   </div>
                   <div className="rounded-xl border border-black/[0.06] p-3">
-                    <p className="text-[12px] font-bold text-[#0d1117] mb-2">Mirror Glass — ₹10.25</p>
+                    <p className="text-[12px] font-bold text-[#0d1117] mb-2">Mirror Glass — $0.12</p>
                     <div className="space-y-1 text-[12px]">
                       {[
                         { label: '196 parts/sheet', val: '72% utilisation' },
@@ -459,7 +459,7 @@ export default function RearViewMirrorCaseStudy() {
             {[
               {
                 title: 'Process-Level Cost Visibility',
-                body: 'Every operation — heating, forging, machining, plating — broken down to ₹/part. No supplier black-box pricing.',
+                body: 'Every operation — heating, forging, machining, plating — broken down to $/part. No supplier black-box pricing.',
               },
               {
                 title: 'Material Grade Validation',
@@ -467,7 +467,7 @@ export default function RearViewMirrorCaseStudy() {
               },
               {
                 title: 'Tooling ROI Clarity',
-                body: '₹12.71L injection mould, ₹29.87L forging tooling programme — amortised against 5-year volume and shot life for accurate piece-price impact.',
+                body: '~$15,100 injection mould, ~$35,600 forging tooling programme — amortised against 5-year volume and shot life for accurate piece-price impact.',
               },
             ].map(({ title, body }) => (
               <div key={title} className="rounded-xl border border-white/10 p-5">

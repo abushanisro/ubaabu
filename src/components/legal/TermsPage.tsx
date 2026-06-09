@@ -500,7 +500,7 @@ export default function TermsPage() {
 
           <H3 id="s7-1">7.1 Subscription Fees</H3>
           <Para>
-            You agree to pay all Fees specified in your Order Form. Unless otherwise stated, Fees are quoted in Indian Rupees (INR) and exclusive of applicable taxes. Fees for the initial Subscription Term are due in advance. Renewal Fees are due on the first day of each renewal term.
+            You agree to pay all Fees specified in your Order Form. Unless otherwise stated, Fees are quoted in US Dollars (USD) and exclusive of applicable taxes. Fees for the initial Subscription Term are due in advance. Renewal Fees are due on the first day of each renewal term.
           </Para>
           <Para>
             Emithran may modify its pricing with at least 60 days&rsquo; written notice prior to the start of your next renewal term. Your continued use of the Services following the notice period constitutes acceptance of the updated Fees.
@@ -535,7 +535,7 @@ export default function TermsPage() {
 
           <H3 id="s8-3">8.3 Liability Cap</H3>
           <Para>
-            SUBJECT TO SECTION 8.2, EACH PARTY&rsquo;S TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE GREATER OF: (A) THE TOTAL FEES PAID OR PAYABLE BY YOU TO EMITHRAN IN THE 12 MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM; OR (B) INR 5,00,000 (FIVE LAKH RUPEES).
+            SUBJECT TO SECTION 8.2, EACH PARTY&rsquo;S TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE GREATER OF: (A) THE TOTAL FEES PAID OR PAYABLE BY YOU TO EMITHRAN IN THE 12 MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM; OR (B) USD 6,000 (SIX THOUSAND US DOLLARS).
           </Para>
           <Para>
             The limitations in this Section 8 do not apply to: (i) either party&rsquo;s indemnification obligations under Section 9; (ii) either party&rsquo;s breach of its confidentiality obligations; (iii) Emithran&rsquo;s infringement of your IP rights; or (iv) liability that cannot be limited by applicable law.

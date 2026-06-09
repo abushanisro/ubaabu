@@ -119,7 +119,7 @@ const STATS = [
   },
   {
     value: 1.2,
-    prefix: "Rs ",
+    prefix: "$",
     suffix: "Cr+",
     decimals: 1,
     label: "Cost Savings Identified Across Active Projects",

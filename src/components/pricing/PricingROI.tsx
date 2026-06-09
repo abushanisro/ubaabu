@@ -23,7 +23,7 @@ const SURPRISE_LABELS = ['Rare', 'Occasional', 'Frequent', 'Very Frequent']
 const SURPRISE_FACTORS = [0.003, 0.006, 0.0108, 0.018]
 
 function fmt(l: number) {
-  return `₹${l % 1 === 0 ? l : l.toFixed(1)}L`
+  return `$${Math.round(l * 1.2)}K`
 }
 
 function compute(projects: number, avgCost: number, rfqWeeks: number, surprises: number) {
@@ -87,7 +87,7 @@ export default function PricingROI() {
               <div>
                 <div className="mb-3 flex items-baseline justify-between">
                   <label className="text-sm font-medium text-[#0f1b2d]">Average project cost</label>
-                  <span className="text-sm font-semibold tabular-nums text-[#0d9488]">₹{avgCost}L</span>
+                  <span className="text-sm font-semibold tabular-nums text-[#0d9488]">${Math.round(avgCost * 1.2)}K</span>
                 </div>
                 <RoiSlider min={50} max={1000} step={10} value={[avgCost]} onValueChange={([v]) => setAvgCost(v)} />
               </div>
@@ -147,7 +147,7 @@ export default function PricingROI() {
               </div>
               <div className="mt-2 flex justify-between text-sm">
                 <span className="text-white/60">Package cost (annual)</span>
-                <span className="font-medium">₹{r.pkg.cost}L</span>
+                <span className="font-medium">${Math.round(r.pkg.cost * 1.2)}K</span>
               </div>
               <div className="mt-5 flex items-end justify-between gap-6 border-t border-white/10 pt-5">
                 <div>
