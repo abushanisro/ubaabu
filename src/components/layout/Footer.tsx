@@ -58,10 +58,10 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
 export default function Footer() {
   return (
     <footer className="bg-black relative overflow-hidden rounded-t-3xl m-0">
-      <div className="max-w-[1280px] mx-auto px-8 pt-16 z-40 relative">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-8 pt-16 z-40 relative">
 
         {/* ── Main grid: brand(2) + 3 nav columns ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.07]">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10 pb-12 border-b border-white/[0.07]">
 
           {/* ── Brand + Locations (takes 2 of 5 columns) ── */}
           <div className="lg:col-span-2 flex flex-col gap-5">
@@ -82,7 +82,7 @@ export default function Footer() {
               <h4 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-4">
                 Our Locations
               </h4>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
 
                 {/* Headquarters */}
                 <div className="space-y-2">
@@ -129,41 +129,43 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Platform · Resources · Company (1 col each) ── */}
-          {footerLinks.map((section) => (
-            <div key={section.title}>
-              <h4 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-5">
-                {section.title}
-              </h4>
-              <ul className="space-y-3">
-                {section.links.map((link) => (
-                  <li key={link.title} className="relative">
-                    {section.useNextLink ? (
-                      <Link
-                        href={link.href}
-                        className="text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors"
-                      >
-                        {link.title}
-                      </Link>
-                    ) : (
-                      <a
-                        href={link.href}
-                        className="text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors"
-                      >
-                        {link.title}
-                      </a>
-                    )}
-                    {link.pulse && (
-                      <span className="absolute top-0.5 -right-3 flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0d9e8a] opacity-75" />
-                        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0d9e8a]" />
-                      </span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* ── Platform · Resources · Company (3-col grid on all sizes) ── */}
+          <div className="lg:col-span-3 grid grid-cols-3 gap-4 sm:gap-8 lg:gap-10">
+            {footerLinks.map((section) => (
+              <div key={section.title}>
+                <h4 className="text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest mb-4 sm:mb-5">
+                  {section.title}
+                </h4>
+                <ul className="space-y-2 sm:space-y-3">
+                  {section.links.map((link) => (
+                    <li key={link.title} className="relative">
+                      {section.useNextLink ? (
+                        <Link
+                          href={link.href}
+                          className="text-[11px] sm:text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors leading-snug block"
+                        >
+                          {link.title}
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="text-[11px] sm:text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors leading-snug block"
+                        >
+                          {link.title}
+                        </a>
+                      )}
+                      {link.pulse && (
+                        <span className="absolute top-0.5 -right-3 flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0d9e8a] opacity-75" />
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0d9e8a]" />
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* ── Bottom bar ── */}
