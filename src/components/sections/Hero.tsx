@@ -147,7 +147,7 @@ export default function Hero() {
         >
           {(() => {
             const logos = [
-              { src: '/assets/trustedby/ashokleyland.svg', alt: 'Ashok Leyland' },
+              { src: '/assets/trustedby/ashokleyland.svg', alt: 'Ashok Leyland', cls: 'h-14' },
               { src: '/assets/trustedby/TATAPower.svg',    alt: 'TATA Power' },
               { src: '/assets/trustedby/digantara.svg',    alt: 'Digantara' },
               { src: '/assets/trustedby/Pixxel.svg',       alt: 'Pixxel' },
@@ -161,7 +161,7 @@ export default function Hero() {
             return (
               <div className="marquee-p flex w-max items-center gap-10 md:gap-14">
                 {row.map((logo, i) => (
-                  <img key={i} src={logo.src} alt={logo.alt} className="h-10 w-auto object-contain opacity-80" />
+                  <img key={i} src={logo.src} alt={logo.alt} className={`${logo.cls ?? 'h-10'} w-auto object-contain opacity-80`} />
                 ))}
               </div>
             )

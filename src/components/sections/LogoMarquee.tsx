@@ -1,6 +1,6 @@
 const logos = [
   { src: '/assets/trustedby/Aadya.svg',        alt: 'Aadya' },
-  { src: '/assets/trustedby/ashokleyland.svg',  alt: 'Ashok Leyland' },
+  { src: '/assets/trustedby/ashokleyland.svg',  alt: 'Ashok Leyland', imgH: 46 },
   { src: '/assets/trustedby/digantara.svg',     alt: 'Digantara' },
   { src: '/assets/trustedby/ForusHealth.svg',   alt: 'Forus Health' },
   { src: '/assets/trustedby/Pixxel.svg',        alt: 'Pixxel' },
@@ -41,7 +41,7 @@ export default function LogoMarquee() {
               <div
                 className="flex items-center justify-center rounded-lg shrink-0"
                 style={{
-                  width: 34, height: 34,
+                  width: 56, height: 56,
                   background: 'rgba(255,255,255,0.85)',
                   backdropFilter: 'blur(12px)',
                   WebkitBackdropFilter: 'blur(12px)',
@@ -52,7 +52,7 @@ export default function LogoMarquee() {
                 <img
                   src={logo.src}
                   alt={logo.alt}
-                  style={{ height: 20, width: 'auto', objectFit: 'contain', display: 'block' }}
+                  style={{ height: logo.imgH ?? 38, width: 'auto', objectFit: 'contain', display: 'block' }}
                 />
               </div>
               <span className="font-semibold whitespace-nowrap leading-tight" style={{ fontSize: 12, color: 'rgba(15,23,42,0.85)' }}>
