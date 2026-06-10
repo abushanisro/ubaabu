@@ -94,7 +94,7 @@ function FeaturedCard({ post }: { post: BlogPost }) {
 function PostCard({ post }: { post: BlogPost }) {
   return (
     <Link href={`/blog/${post.slug}`}
-      className="group flex flex-col rounded-xl bg-white p-6 transition-all duration-200"
+      className="group flex flex-col rounded-xl bg-white overflow-hidden transition-all duration-200"
       style={{
         border: '1px solid rgba(13,148,136,0.12)',
         boxShadow: '0 1px 4px rgba(13,148,136,0.06)',
@@ -108,22 +108,32 @@ function PostCard({ post }: { post: BlogPost }) {
         ;(e.currentTarget as HTMLElement).style.borderColor = 'rgba(13,148,136,0.12)'
       }}
     >
-      {/* Teal top accent bar */}
-      <div className="w-8 h-0.5 rounded-full mb-4" style={{ background: 'linear-gradient(90deg, #0d9488, #2dd4bf)' }} />
+      {/* Cover image */}
+      <div className="relative w-full overflow-hidden" style={{ height: 180 }}>
+        <img
+          src={post.image}
+          alt={post.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(15,27,45,0.18) 100%)' }} />
+        <div className="absolute top-3 left-3">
+          <CategoryPill category={post.category} />
+        </div>
+      </div>
 
-      <CategoryPill category={post.category} />
+      <div className="p-5 flex flex-col flex-1">
+        <h3 className="text-[16px] font-bold leading-snug tracking-tight text-[#0f1b2d] group-hover:text-[#0d9488] transition-colors duration-200">
+          {post.title}
+        </h3>
+        <p className="mt-2 text-[13px] leading-relaxed text-black/50 flex-1 line-clamp-3">
+          {post.excerpt}
+        </p>
 
-      <h3 className="mt-3 text-[17px] font-bold leading-snug tracking-tight text-[#0f1b2d] group-hover:text-[#0d9488] transition-colors duration-200">
-        {post.title}
-      </h3>
-      <p className="mt-2 text-[13px] leading-relaxed text-black/50 flex-1 line-clamp-3">
-        {post.excerpt}
-      </p>
-
-      <div className="mt-5 pt-4 flex items-center justify-between"
-        style={{ borderTop: '1px solid rgba(13,148,136,0.1)' }}>
-        <AuthorRow author={post.author} date={post.date} readTime={post.readTime} />
-        <span className="text-[#0d9488] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span>
+        <div className="mt-4 pt-4 flex items-center justify-between"
+          style={{ borderTop: '1px solid rgba(13,148,136,0.1)' }}>
+          <AuthorRow author={post.author} date={post.date} readTime={post.readTime} />
+          <span className="text-[#0d9488] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-200">→</span>
+        </div>
       </div>
     </Link>
   )
@@ -402,7 +412,6 @@ const POST_ILLUSTRATIONS: Record<string, React.ReactNode> = {
 function LatestPostItem({ post }: { post: BlogPost }) {
   const photo = AUTHOR_PHOTOS[post.author.name]
   const initials = post.author.name.split(' ').map((w: string) => w[0]).join('').slice(0, 2)
-  const illustration = POST_ILLUSTRATIONS[post.slug]
 
   return (
     <article className="flex flex-col gap-0" style={{ borderLeft: '3px solid #0d9488', paddingLeft: 24 }}>
@@ -447,12 +456,14 @@ function LatestPostItem({ post }: { post: BlogPost }) {
           </Link>
         </div>
 
-        {/* Illustration */}
-        {illustration && (
-          <div className="rounded-xl overflow-hidden" style={{ height: 200 }}>
-            {illustration}
-          </div>
-        )}
+        {/* Cover image */}
+        <div className="rounded-xl overflow-hidden" style={{ height: 220 }}>
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
     </article>
   )

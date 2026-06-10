@@ -42,9 +42,7 @@ export default function LogoMarquee() {
                 className="flex items-center justify-center rounded-lg shrink-0"
                 style={{
                   width: 56, height: 56,
-                  background: 'rgba(255,255,255,0.85)',
-                  backdropFilter: 'blur(12px)',
-                  WebkitBackdropFilter: 'blur(12px)',
+                  background: '#ffffff',
                   border: '1px solid rgba(0,0,0,0.07)',
                   boxShadow: '0 2px 6px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.9)',
                 }}

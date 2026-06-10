@@ -369,7 +369,13 @@ function RelatedArticles({ posts }: { posts: BlogPost[] }) {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 28px rgba(13,148,136,0.14)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(45,212,191,0.4)' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 1px 4px rgba(13,148,136,0.06)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(13,148,136,0.12)' }}
             >
-              <Thumbnail slug={post.slug} className="aspect-video w-full group-hover:scale-105 transition-transform duration-500" />
+              <div className="aspect-video w-full overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
               <div className="p-4 sm:p-5 flex flex-col flex-1">
                 <span className="self-start inline-block text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full mb-2.5"
                   style={{ background: cat.bg, color: cat.text }}>

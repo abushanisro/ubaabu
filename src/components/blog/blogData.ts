@@ -8,6 +8,7 @@ export interface BlogPost {
   author: { name: string; role: string }
   date: string
   readTime: string
+  image: string
   featured?: boolean
 }
 
@@ -21,6 +22,7 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Abushan', role: 'CTO' },
     date: 'June 9, 2026',
     readTime: '14 min read',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
     featured: true,
   },
   {
@@ -32,7 +34,7 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Singaravelan S.', role: 'CEO' },
     date: 'June 2, 2026',
     readTime: '6 min read',
-    featured: false,
+    image: 'https://images.unsplash.com/photo-1581094488379-6a10d04c0f04?q=80&w=870&auto=format&fit=crop',
   },
   {
     slug: 'bom-accuracy-tier1-suppliers',
@@ -43,6 +45,7 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Abushan', role: 'CTO' },
     date: 'May 28, 2026',
     readTime: '5 min read',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
   },
   {
     slug: 'supplier-radar-defence-manufacturing',
@@ -53,6 +56,7 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Singaravelan S.', role: 'CEO' },
     date: 'May 20, 2026',
     readTime: '7 min read',
+    image: 'https://images.unsplash.com/photo-1581094488379-6a10d04c0f04?q=80&w=870&auto=format&fit=crop',
   },
   {
     slug: 'emithran-series-a-announcement',
@@ -63,6 +67,7 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Singaravelan S.', role: 'CEO' },
     date: 'May 12, 2026',
     readTime: '4 min read',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
   },
   {
     slug: 'vave-cost-reduction-aerospace',
@@ -73,6 +78,7 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Abushan', role: 'CTO' },
     date: 'April 30, 2026',
     readTime: '8 min read',
+    image: 'https://images.unsplash.com/photo-1581094488379-6a10d04c0f04?q=80&w=870&auto=format&fit=crop',
   },
   {
     slug: 'otif-logistics-intelligence',
@@ -83,6 +89,7 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Abushan', role: 'CTO' },
     date: 'April 18, 2026',
     readTime: '5 min read',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
   },
   {
     slug: 'precision-manufacturing-india-global',
@@ -93,6 +100,7 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Singaravelan S.', role: 'CEO' },
     date: 'April 5, 2026',
     readTime: '6 min read',
+    image: 'https://images.unsplash.com/photo-1581094488379-6a10d04c0f04?q=80&w=870&auto=format&fit=crop',
   },
   {
     slug: 'launch-tracker-rfq-cycle',
@@ -103,5 +111,6 @@ export const POSTS: BlogPost[] = [
     author: { name: 'Abushan', role: 'CTO' },
     date: 'March 22, 2026',
     readTime: '5 min read',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
   },
 ]
