@@ -259,7 +259,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         {/* Transparent spacer — outside white wrapper, gives scroll distance to reveal the fixed outro beneath */}
-        <div className="h-[45vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
+        <div className="h-[22vh] md:h-[45vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
 
         <script dangerouslySetInnerHTML={{ __html: 'window.chtlConfig = { chatbotId: "7877335611" }' }} />
         <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="afterInteractive" />
