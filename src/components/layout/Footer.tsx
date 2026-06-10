@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
-import { FooterBackgroundGradient } from "@/components/ui/hover-footer";
+import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer";
 
 type FooterLink = {
   title: string;
@@ -253,6 +253,11 @@ export default function Footer() {
             </p>
           </div>
         </div>
+      </div>
+
+      {/* ── Text hover effect — EMITHRAN at bottom ── */}
+      <div className="w-full relative z-10" style={{ aspectRatio: '500 / 72' }}>
+        <TextHoverEffect text="EMITHRAN" duration={0} className="w-full h-full" />
       </div>
 
       <FooterBackgroundGradient />
