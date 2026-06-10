@@ -252,7 +252,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ChatlingController />
 
         {/* White content on top; isolation:isolate creates stacking context without transform so modals/dialogs still work */}
-        <div className="relative bg-white" style={{ zIndex: 2, isolation: 'isolate' }}>
+        <div className="relative bg-white" style={{ zIndex: 2, isolation: 'isolate', backgroundColor: 'white' }}>
           <GoogleAnalytics />
           <main className="relative z-10">{children}</main>
           <ConditionalFooter />
