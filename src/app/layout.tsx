@@ -241,7 +241,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               color: '#0f1b2d',
               letterSpacing: '-0.02em',
               lineHeight: 1,
-              marginBottom: '-0.05em',
+              marginBottom: '0.18em',
             }}
           >
             EMITHRAN
