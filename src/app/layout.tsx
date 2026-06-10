@@ -156,7 +156,8 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${siteUrl}/opengraph-image`,
+        url: `https://emithran.emuski.com/opengraph-image`,
+        secureUrl: `https://emithran.emuski.com/opengraph-image`,
         width: 1200,
         height: 630,
         alt: 'Emithran - Manufacturing Intelligence Platform',
@@ -171,7 +172,7 @@ export const metadata: Metadata = {
     title: 'Emithran - Manufacturing Intelligence Platform',
     description:
       'AI-powered BOM management, should-cost analysis, and supplier intelligence for space, defence, and aerospace manufacturing in India.',
-    images: [`${siteUrl}/opengraph-image`],
+    images: [`https://emithran.emuski.com/opengraph-image`],
   },
   other: {
     // Theme

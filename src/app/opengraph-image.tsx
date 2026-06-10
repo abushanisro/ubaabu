@@ -5,35 +5,8 @@ export const alt = 'Emithran - End-to-End Manufacturing Intelligence'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-export default async function Image() {
-  const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
-  const domain = siteUrl.replace(/^https?:\/\//, '')
-
-  // Load the black logo from the deployment's static assets
-  let logoSrc: string | null = null
-  const deploymentUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : process.env.NEXT_PUBLIC_SITE_URL ?? null
-
-  if (deploymentUrl) {
-    try {
-      const res = await fetch(
-        `${deploymentUrl}/assets/infographics/logo/logo-black.png`,
-        { cache: 'no-store' }
-      )
-      if (res.ok) {
-        const buf = await res.arrayBuffer()
-        const arr = new Uint8Array(buf)
-        let binary = ''
-        for (let i = 0; i < arr.length; i++) binary += String.fromCharCode(arr[i])
-        logoSrc = `data:image/png;base64,${btoa(binary)}`
-      }
-    } catch {
-      // fall through to text branding
-    }
-  }
+export default function Image() {
+  const domain = 'emithran.emuski.com'
 
   return new ImageResponse(
     (
@@ -50,27 +23,18 @@ export default async function Image() {
           position: 'relative',
         }}
       >
-        {/* Logo or text fallback */}
-        {logoSrc ? (
-          <img
-            src={logoSrc}
-            width={180}
-            height={45}
-            style={{ objectFit: 'contain', objectPosition: 'left center', marginBottom: 44 }}
-          />
-        ) : (
-          <div
-            style={{
-              fontSize: 26,
-              fontWeight: 900,
-              color: '#0f1b2d',
-              letterSpacing: 8,
-              marginBottom: 44,
-            }}
-          >
-            EMITHRAN
-          </div>
-        )}
+        {/* Brand name */}
+        <div
+          style={{
+            fontSize: 28,
+            fontWeight: 900,
+            color: '#0f1b2d',
+            letterSpacing: 8,
+            marginBottom: 44,
+          }}
+        >
+          EMITHRAN
+        </div>
 
         {/* Teal accent bar */}
         <div
