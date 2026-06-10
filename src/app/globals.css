@@ -613,6 +613,21 @@ body::before {
 .subtitle-part-3 { display: inline-block; animation: animLet     7s ease var(--animation-iteration); }
 .subtitle-part-4 { display: inline-block; animation: animGo      7s ease var(--animation-iteration); }
 
+/* ---------- Chatling widget — bottom-sheet on mobile instead of full-screen ---------- */
+@media (max-width: 639px) {
+  #chtl-chat-iframe {
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 68dvh !important;
+    max-height: 68dvh !important;
+    border-radius: 20px 20px 0 0 !important;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.14) !important;
+  }
+}
+
 /* ---------- Blog article body (.blog-content) ---------- */
 .blog-content {
   color: rgba(15, 27, 45, 0.7);
