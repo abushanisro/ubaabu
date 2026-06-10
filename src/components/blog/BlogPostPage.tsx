@@ -5,7 +5,7 @@ import Link from 'next/link'
 import {
   MessageCircle, Facebook, Twitter, Linkedin, Link2, Check,
   ArrowUpRight, BookOpen, User, TrendingUp, ExternalLink, Clock,
-  Gauge, Network, Truck, Sparkles,
+  Gauge, Network, Truck, Sparkles, Share2,
 } from 'lucide-react'
 import { track } from '@/lib/analytics'
 import { POSTS, type BlogPost, type BlogCategory } from './blogData'
@@ -72,9 +72,31 @@ function AuthorAvatar({ name, size = 9 }: { name: string; size?: number }) {
 /* ---------------------------------- Hero ---------------------------------- */
 
 function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
-  const cat = CATEGORY_STYLES[post.category]
+  const [hovered, setHovered] = useState(false)
+  const [shareOpen, setShareOpen] = useState(false)
+  const [heroCopied, setHeroCopied] = useState(false)
+  const pageUrl = `${SITEURL}/blog/${post.slug}`
+
+  function handleHeroShare(platform: string) {
+    window.open(buildShareUrl(platform, pageUrl, post.title), '_blank', 'noopener,noreferrer,width=640,height=500')
+    track.shareArticle(platform, post.slug, post.title)
+    setShareOpen(false)
+  }
+
+  function handleHeroCopy() {
+    navigator.clipboard.writeText(pageUrl).then(() => {
+      setHeroCopied(true)
+      track.shareArticle('copy_link', post.slug, post.title)
+      setTimeout(() => { setHeroCopied(false); setShareOpen(false) }, 1800)
+    })
+  }
+
   return (
-    <div className="relative w-full h-[420px] sm:h-[440px] md:h-[480px] overflow-hidden">
+    <div
+      className="relative w-full h-[420px] sm:h-[440px] md:h-[480px] overflow-hidden"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => { setHovered(false); setShareOpen(false) }}
+    >
       <img
         src={heroImage}
         alt={post.title}
@@ -83,6 +105,84 @@ function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
       <div className="absolute inset-0"
         style={{ background: 'linear-gradient(100deg, rgba(15,27,45,0.94) 0%, rgba(15,27,45,0.72) 42%, rgba(15,27,45,0.32) 100%)' }} />
       <div className="absolute inset-0" style={{ background: 'linear-gradient(0deg, rgba(15,27,45,0.5) 0%, transparent 45%)' }} />
+
+      {/* Hero share button — fades in on hover */}
+      <div
+        className="absolute top-5 right-5 sm:top-6 sm:right-8 z-20 transition-all duration-300"
+        style={{
+          opacity: hovered ? 1 : 0,
+          transform: hovered ? 'translateY(0)' : 'translateY(-6px)',
+          pointerEvents: hovered ? 'auto' : 'none',
+        }}
+      >
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => setShareOpen(prev => !prev)}
+            aria-label="Share this article"
+            className="inline-flex items-center gap-2 h-9 px-4 rounded-full text-[13px] font-semibold transition-all duration-200"
+            style={{
+              background: 'rgba(255,255,255,0.14)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255,255,255,0.22)',
+              color: '#fff',
+            }}
+          >
+            <Share2 className="w-3.5 h-3.5" />
+            Share
+          </button>
+
+          {/* Dropdown */}
+          {shareOpen && (
+            <div
+              className="absolute top-11 right-0 z-30 flex flex-col gap-0.5 p-1.5 rounded-xl"
+              style={{
+                background: 'rgba(255,255,255,0.97)',
+                backdropFilter: 'blur(14px)',
+                WebkitBackdropFilter: 'blur(14px)',
+                boxShadow: '0 12px 40px rgba(0,0,0,0.22)',
+                minWidth: 160,
+                border: '1px solid rgba(13,148,136,0.12)',
+              }}
+            >
+              {SHARE_PLATFORMS.map(({ label, icon: Icon, hoverBg }) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => handleHeroShare(label)}
+                  className="flex items-center gap-2.5 h-9 px-3 rounded-lg text-[13px] font-medium w-full text-left transition-colors"
+                  style={{ color: '#0f1b2d' }}
+                  onMouseEnter={e => {
+                    const el = e.currentTarget as HTMLElement
+                    el.style.background = hoverBg
+                    el.style.color = '#fff'
+                  }}
+                  onMouseLeave={e => {
+                    const el = e.currentTarget as HTMLElement
+                    el.style.background = 'transparent'
+                    el.style.color = '#0f1b2d'
+                  }}
+                >
+                  <Icon className="w-4 h-4 shrink-0" />
+                  {label}
+                </button>
+              ))}
+              <button
+                type="button"
+                onClick={handleHeroCopy}
+                className="flex items-center gap-2.5 h-9 px-3 rounded-lg text-[13px] font-medium w-full text-left transition-colors"
+                style={{ color: heroCopied ? '#0d9488' : '#0f1b2d' }}
+                onMouseEnter={e => { if (!heroCopied) (e.currentTarget as HTMLElement).style.background = 'rgba(13,148,136,0.08)' }}
+                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
+              >
+                {heroCopied ? <Check className="w-4 h-4 shrink-0" /> : <Link2 className="w-4 h-4 shrink-0" />}
+                {heroCopied ? 'Copied!' : 'Copy link'}
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
 
       <div className="relative z-10 h-full max-w-7xl mx-auto px-6 lg:px-10 flex flex-col justify-end pb-10 sm:pb-12">
         <div className="flex items-center gap-2 text-[13px] text-white/45 mb-5">
@@ -119,7 +219,7 @@ function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
 
 /* -------------------------------- Share bar -------------------------------- */
 
-const SITEURL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.com'
+const SITEURL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
 
 function buildShareUrl(platform: string, pageUrl: string, title: string) {
   const u = encodeURIComponent(pageUrl)

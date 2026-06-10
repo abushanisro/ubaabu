@@ -3,7 +3,7 @@ import { POSTS } from '@/components/blog/blogData'
 
 const BASE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.com'
+  : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
 
 const CASE_STUDIES = [
   'chassis-india-belgium',

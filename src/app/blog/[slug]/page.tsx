@@ -16,15 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const seo = content?.seo
   const title = seo?.metaTitle ?? `${post.title} | Emithran Blog`
   const description = seo?.metaDescription ?? post.excerpt
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.com'
+  const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
 
-  // Use per-post hero image for OG if it's an absolute URL, else fallback
-  const heroImage = content?.heroImage
-  const ogImage = heroImage?.startsWith('http')
-    ? heroImage
-    : heroImage
-      ? `${siteUrl}${heroImage}`
-      : `${siteUrl}/opengraph-image`
+  // Use the generated branded OG image (see opengraph-image.tsx in this directory)
+  const ogImage = `${siteUrl}/blog/${slug}/opengraph-image`
 
   return {
     title,
@@ -61,7 +58,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   if (!post || !content) notFound()
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.com'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
 
   const articleSchema = {
     '@context': 'https://schema.org',

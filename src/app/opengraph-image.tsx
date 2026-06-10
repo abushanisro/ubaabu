@@ -6,6 +6,11 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 export default async function Image() {
+  const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
+  const domain = siteUrl.replace(/^https?:\/\//, '')
+
   // Load the black logo from the deployment's static assets
   let logoSrc: string | null = null
   const deploymentUrl = process.env.VERCEL_URL
@@ -128,7 +133,7 @@ export default async function Image() {
             }}
           />
           <div style={{ fontSize: 18, color: '#0d9e8a', fontWeight: 600 }}>
-            emithran.com
+            {domain}
           </div>
         </div>
       </div>
