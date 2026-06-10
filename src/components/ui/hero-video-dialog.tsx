@@ -140,10 +140,11 @@ export function HeroVideoDialog({
             <motion.div
               {...selectedAnimation}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="relative w-full max-w-4xl aspect-video mx-4 md:mx-0"
+              className="relative w-full max-w-4xl mx-3 sm:mx-6 md:mx-0"
+              style={{ aspectRatio: '16/9' }}
             >
               <motion.button
-                className="absolute top-3 right-3 z-10 text-white bg-black/50 hover:bg-black/70 ring-1 ring-white/20 backdrop-blur-md rounded-full p-1.5 transition-colors"
+                className="absolute -top-10 right-0 z-10 text-white bg-black/50 hover:bg-black/70 ring-1 ring-white/20 backdrop-blur-md rounded-full p-1.5 transition-colors"
                 onClick={close}
               >
                 <XIcon className="size-5" />
@@ -154,7 +155,9 @@ export function HeroVideoDialog({
                     src={videoSrc}
                     controls
                     autoPlay
+                    playsInline
                     className="size-full rounded-2xl object-cover"
+                    style={{ WebkitPlaysinline: true } as React.CSSProperties}
                   />
                 ) : (
                   <iframe

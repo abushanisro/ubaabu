@@ -72,8 +72,8 @@ export default function WatchDemo() {
           </div>
         </div>
 
-        {/* ── Main video - fixed aspect ratio so features get space ── */}
-        <div className="shrink-0 overflow-hidden rounded-2xl mb-2" style={{ aspectRatio: '16/9' }}>
+        {/* ── Main video ── */}
+        <div className="w-full rounded-2xl mb-2 overflow-hidden" style={{ aspectRatio: '16/9' }}>
           <HeroVideoDialog
             animationStyle="from-center"
             videoSrc="/videos/emuski.mp4"

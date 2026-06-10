@@ -198,10 +198,10 @@ function LatestCaseStudyItem({ post }: { post: CaseStudy }) {
         </div>
       </div>
 
-      <div className="flex gap-8 items-start">
+      <div className="flex gap-4 md:gap-8 items-start">
         <div className="flex-1 min-w-0">
           <Link href={`/case-studies/${post.slug}`}>
-            <h2 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight mb-2 hover:text-[#0d9488] transition-colors"
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight tracking-tight mb-2 hover:text-[#0d9488] transition-colors"
               style={{ color: '#0f1b2d' }}>
               {post.title}
             </h2>
@@ -212,7 +212,7 @@ function LatestCaseStudyItem({ post }: { post: CaseStudy }) {
               {post.metric}
             </span>
           )}
-          <p className="text-[14px] leading-relaxed mb-5" style={{ color: 'rgba(15,27,45,0.55)' }}>
+          <p className="text-[13px] md:text-[14px] leading-relaxed mb-5" style={{ color: 'rgba(15,27,45,0.55)' }}>
             {post.excerpt}
           </p>
           <Link href={`/case-studies/${post.slug}`}
@@ -224,7 +224,7 @@ function LatestCaseStudyItem({ post }: { post: CaseStudy }) {
         </div>
 
         {illustration && (
-          <div className="rounded-xl overflow-hidden aspect-square w-full max-w-[220px]">
+          <div className="rounded-xl overflow-hidden aspect-square w-[88px] sm:w-[140px] md:w-[200px] shrink-0">
             {illustration}
           </div>
         )}

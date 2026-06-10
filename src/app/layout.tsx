@@ -263,7 +263,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Gives scroll distance for the footer to clear the viewport and
           reveal the fixed outro (z:1) underneath.
         */}
-        <div className="h-[16vh] md:h-[28vh] relative bg-white" style={{ zIndex: 1 }} aria-hidden="true" />
+        <div className="h-[16vh] md:h-[28vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
 
         <script dangerouslySetInnerHTML={{ __html: 'window.chtlConfig = { chatbotId: "7877335611" }' }} />
         <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="afterInteractive" />
