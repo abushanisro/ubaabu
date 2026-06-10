@@ -55,6 +55,30 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+function ChatGPTIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zm-9.022 12.608a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.865.865 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zm-9.66-4.125a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.864.864 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zm-1.26-10.712a4.485 4.485 0 0 1 2.366-1.973V11.6a.862.862 0 0 0 .388.677l5.815 3.354-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.872zm16.597 3.855-5.774-3.33 2.015-1.164a.076.076 0 0 1 .072 0l4.83 2.786a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.467-.719zm2.01-3.023-.141-.085-4.774-2.759a.864.864 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08L8.704 5.46a.865.865 0 0 0-.393.681zm1.097-2.365 2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5Z"/>
+    </svg>
+  );
+}
+
+function GrokIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0h11v11H0zm13 13h11v11H13z"/>
+    </svg>
+  );
+}
+
+function AnthropicIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.33 7.978l4.027 9.3H15.03l-1.08-2.548H9.04L7.96 17.278H5.63l4.04-9.3h3.66zm-1.83 2.101-1.67 3.98h3.33l-1.66-3.98zM12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0z"/>
+    </svg>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="bg-[#080808] relative overflow-hidden m-0 isolate">
@@ -174,6 +198,45 @@ export default function Footer() {
             </a>
             <a href="https://x.com/emithran_ai" aria-label="X" target="_blank" rel="noopener noreferrer" className="hover:text-[#0d9e8a] transition-colors">
               <Twitter size={18} />
+            </a>
+            <a href="https://wa.me/919360216324" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+              <WhatsAppIcon size={18} />
+            </a>
+
+            {/* Divider */}
+            <span className="w-px h-4 bg-white/10" />
+
+            {/* AI summary icons */}
+            <span className="text-[10px] text-white/20 uppercase tracking-widest select-none">Ask AI</span>
+            <a
+              href={`https://chatgpt.com/?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a manufacturing intelligence platform for India's space, defence, and aerospace industry. Website: https://emithran.com")}`}
+              aria-label="Ask ChatGPT for a summary"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Summarize with ChatGPT"
+              className="hover:text-[#10a37f] transition-colors"
+            >
+              <ChatGPTIcon size={18} />
+            </a>
+            <a
+              href={`https://grok.com/?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a manufacturing intelligence platform for India's space, defence, and aerospace industry. Website: https://emithran.com")}`}
+              aria-label="Ask Grok for a summary"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Summarize with Grok"
+              className="hover:text-white/80 transition-colors"
+            >
+              <GrokIcon size={18} />
+            </a>
+            <a
+              href={`https://claude.ai/new?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a manufacturing intelligence platform for India's space, defence, and aerospace industry. Website: https://emithran.com")}`}
+              aria-label="Ask Claude for a summary"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Summarize with Claude"
+              className="hover:text-[#d97757] transition-colors"
+            >
+              <AnthropicIcon size={18} />
             </a>
           </div>
 

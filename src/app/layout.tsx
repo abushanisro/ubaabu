@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { Sora, Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import ConditionalNavbar from '@/components/layout/ConditionalNavbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import WhatsAppButton from '@/components/ui/whatsapp-button'
+import ChatlingController from '@/components/ui/chatling-controller'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 
 const sora = Sora({
@@ -252,6 +254,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Fixed elements outside the transformed wrapper so they stay viewport-relative */}
         <ConditionalNavbar />
         <WhatsAppButton />
+        <ChatlingController />
 
         {/* Content wrapper: solid white so it fully occludes the fixed outro while in view.
             translateZ(0) forces a GPU compositing layer, preventing the fixed outro from
@@ -268,6 +271,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           reveal the fixed outro (z:1) underneath.
         */}
         <div className="h-[16vh] md:h-[28vh] relative" style={{ zIndex: 2 }} aria-hidden="true" />
+
+        <script dangerouslySetInnerHTML={{ __html: 'window.chtlConfig = { chatbotId: "7877335611" }' }} />
+        <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="afterInteractive" />
       </body>
     </html>
   )

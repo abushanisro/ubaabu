@@ -1,4 +1,11 @@
+'use client'
+
 export default function FinalCTA() {
+  function openChat() {
+    if (typeof window !== 'undefined' && (window as any).chatlingSDK) {
+      (window as any).chatlingSDK.open()
+    }
+  }
   return (
     <section id="demo" className="bg-white py-4 md:py-14">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
@@ -34,6 +41,15 @@ export default function FinalCTA() {
                 >
                   Contact Us
                 </a>
+                <button
+                  onClick={openChat}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#2dd4bf]/40 px-5 py-2 text-sm font-semibold text-[#2dd4bf] transition-colors hover:bg-[#2dd4bf]/10"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                  Ask AI
+                </button>
               </div>
             </div>
           </div>
@@ -69,6 +85,15 @@ export default function FinalCTA() {
               >
                 Get a demo
               </a>
+              <button
+                onClick={openChat}
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-[#2dd4bf]/40 px-5 py-2.5 text-sm font-semibold text-[#2dd4bf] transition-colors hover:bg-[#2dd4bf]/10"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                Ask AI
+              </button>
             </div>
           </div>
         </div>
