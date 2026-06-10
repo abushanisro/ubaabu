@@ -222,9 +222,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ left: 64 }} />
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ right: 64 }} />
 
-        {/* Outro: fixed behind content, will-change:transform puts it on its own GPU layer so iOS compositor handles it without main-thread repaints during fast scroll */}
+        {/* Outro: desktop only — iOS Safari has compositor bugs with large fixed background text; hidden on mobile to prevent scroll-bleed glitch */}
         <div
-          className="fixed bottom-0 inset-x-0 h-screen overflow-hidden pointer-events-none"
+          className="hidden md:flex fixed bottom-0 inset-x-0 h-screen overflow-hidden pointer-events-none"
           style={{
             zIndex: 0,
             willChange: 'transform',
@@ -251,15 +251,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConditionalNavbar />
         <ChatlingController />
 
-        {/* White content on top; backface-visibility:hidden forces a GPU compositor layer on iOS so the fixed outro cannot bleed through during momentum scroll */}
-        <div className="relative bg-white" style={{ zIndex: 2, isolation: 'isolate', backgroundColor: 'white', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
+        {/* White content on top — full compositor layer prevents fixed outro from bleeding through during iOS momentum scroll */}
+        <div className="relative bg-white" style={{ zIndex: 2, isolation: 'isolate', backgroundColor: 'white', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)', willChange: 'transform' }}>
           <GoogleAnalytics />
           <main className="relative z-10">{children}</main>
           <ConditionalFooter />
         </div>
 
-        {/* Transparent spacer — outside white wrapper, gives scroll distance to reveal the fixed outro beneath */}
-        <div className="h-[35vh] md:h-[45vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
+        {/* Spacer — desktop only (mobile has no outro to reveal) */}
+        <div className="h-0 md:h-[45vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
 
         <script dangerouslySetInnerHTML={{ __html: 'window.chtlConfig = { chatbotId: "7877335611" }' }} />
         <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="afterInteractive" />

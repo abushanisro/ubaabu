@@ -81,7 +81,7 @@ function AnthropicIcon({ size = 18 }: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#080808] relative overflow-hidden m-0 isolate" style={{ WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', willChange: 'transform' }}>
+    <footer className="bg-[#080808] relative overflow-hidden m-0 isolate">
       <div className="max-w-[1280px] mx-auto px-8 pt-16 z-40 relative">
         {/* ── Main columns ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.07]">
