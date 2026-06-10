@@ -22,6 +22,12 @@
   100% { offset-distance: 100%; }
 }
 
+html,
+body {
+  background-color: #ffffff;
+  -webkit-overflow-scrolling: touch;
+}
+
 :root {
   --perspective-red-bg: #e89c9c;
   --perspective-red-ring: 220, 130, 130;

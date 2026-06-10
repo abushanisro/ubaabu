@@ -218,7 +218,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <meta name="google" content="nositelinkssearchbox" />
       </head>
-      <body>
+      <body style={{ backgroundColor: 'white' }}>
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ left: 64 }} />
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ right: 64 }} />
 
@@ -255,10 +255,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConditionalNavbar />
         <ChatlingController />
 
-        {/* Content wrapper: solid white so it fully occludes the fixed outro while in view.
-            translateZ(0) forces a GPU compositing layer, preventing the fixed outro from
-            bleeding through during fast mobile scroll. */}
-        <div className="relative bg-white" style={{ zIndex: 2 }}>
+        <div className="relative bg-white" style={{ zIndex: 2, transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)' }}>
           <GoogleAnalytics />
           <main className="relative z-10">{children}</main>
           <ConditionalFooter />
