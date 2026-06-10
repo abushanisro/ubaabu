@@ -4,7 +4,6 @@ import Script from 'next/script'
 import './globals.css'
 import ConditionalNavbar from '@/components/layout/ConditionalNavbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
-import WhatsAppButton from '@/components/ui/whatsapp-button'
 import ChatlingController from '@/components/ui/chatling-controller'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 
@@ -253,7 +252,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Fixed elements outside the transformed wrapper so they stay viewport-relative */}
         <ConditionalNavbar />
-        <WhatsAppButton />
         <ChatlingController />
 
         {/* Content wrapper: solid white so it fully occludes the fixed outro while in view.
