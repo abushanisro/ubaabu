@@ -238,7 +238,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div
             className="absolute bottom-0 left-0 right-0 text-center font-black select-none whitespace-nowrap"
             style={{
-              fontSize: 'clamp(88px, 26vw, 240px)',
+              fontSize: 'clamp(40px, 19vw, 240px)',
               color: '#0f1b2d',
               letterSpacing: '-0.02em',
               lineHeight: 1,
@@ -256,7 +256,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Content wrapper: solid white so it fully occludes the fixed outro while in view.
             translateZ(0) forces a GPU compositing layer, preventing the fixed outro from
             bleeding through during fast mobile scroll. */}
-        <div className="relative bg-white" style={{ zIndex: 2, transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)' }}>
+        <div className="relative bg-white" style={{ zIndex: 2 }}>
           <GoogleAnalytics />
           <main className="relative z-10">{children}</main>
           <ConditionalFooter />
@@ -267,7 +267,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Gives scroll distance for the footer to clear the viewport and
           reveal the fixed outro (z:1) underneath.
         */}
-        <div className="h-[28vh] relative" style={{ zIndex: 2 }} aria-hidden="true" />
+        <div className="h-[16vh] md:h-[28vh] relative" style={{ zIndex: 2 }} aria-hidden="true" />
       </body>
     </html>
   )

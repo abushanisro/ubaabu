@@ -57,7 +57,7 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#080808] relative overflow-hidden m-0">
+    <footer className="bg-[#080808] relative overflow-hidden m-0 isolate">
       <div className="max-w-[1280px] mx-auto px-8 pt-16 z-40 relative">
         {/* ── Main columns ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.07]">
@@ -174,9 +174,6 @@ export default function Footer() {
             </a>
             <a href="https://x.com/emithran_ai" aria-label="X" target="_blank" rel="noopener noreferrer" className="hover:text-[#0d9e8a] transition-colors">
               <Twitter size={18} />
-            </a>
-            <a href="https://wa.me/919360216324" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
-              <WhatsAppIcon size={18} />
             </a>
           </div>
 
