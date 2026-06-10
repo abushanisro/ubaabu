@@ -20,12 +20,14 @@ export default function WatchDemo() {
   return (
     <section className="relative w-full bg-white overflow-hidden">
 
-      {/* ── Mobile background SVG (9:16) - only on xs/sm ── */}
-      <img
-        src="/assets/cards/watchdemomobiile.svg"
-        alt="" aria-hidden
-        className="w-full h-auto block md:hidden"
-      />
+      {/* ── Mobile background SVG — absolutely behind content so height is content-driven ── */}
+      <div className="md:hidden absolute inset-0 -z-0 pointer-events-none">
+        <img
+          src="/assets/cards/watchdemomobiile.svg"
+          alt="" aria-hidden
+          className="w-full h-full object-cover object-top"
+        />
+      </div>
 
       {/* ── Desktop background SVG - md and above ── */}
       <img
@@ -35,9 +37,9 @@ export default function WatchDemo() {
       />
 
       {/* ══════════════════════════════════════════════
-          MOBILE OVERLAY  (hidden on lg+)
+          MOBILE LAYOUT  — normal flow, height = content
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden absolute inset-0 flex flex-col px-3 pt-6 pb-4" style={{ gap: 0 }}>
+      <div className="md:hidden relative z-10 flex flex-col px-3 pt-6 pb-6" style={{ gap: 0 }}>
 
         {/* ── Headline + CTAs ── */}
         <div className="flex flex-col items-center text-center shrink-0 mb-2">
@@ -48,20 +50,20 @@ export default function WatchDemo() {
           <p className="mt-1 text-[10px] text-[#4b5563] leading-snug">
             Sourcing, costing, BOM intelligence, and supplier evaluation - all in one platform.
           </p>
-          <div className="mt-5 flex items-center gap-2">
+          <div className="mt-5 flex items-center gap-2 w-full">
             <a
               href="#demo"
-              className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-[13px] font-semibold text-white group"
+              className="flex-1 flex items-center justify-center gap-1.5 rounded-full px-4 py-2.5 text-[13px] font-semibold text-white group"
               style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
             >
               Request Demo
               <AnimatedArrow />
             </a>
             <button
-              className="inline-flex items-center gap-1.5 rounded-full border border-black/20 bg-white px-5 py-2.5 text-[13px] font-semibold text-[#0d1117]"
+              className="flex-1 flex items-center justify-center gap-1.5 rounded-full border border-black/20 bg-white px-4 py-2.5 text-[13px] font-semibold text-[#0d1117]"
               onClick={() => setVideoOpen(true)}
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-3 h-3 shrink-0">
                 <circle cx="12" cy="12" r="10" />
                 <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
               </svg>

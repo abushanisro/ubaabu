@@ -67,10 +67,10 @@ export default function ProductsHero() {
             initial={{ opacity: 0, y: 14 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.38, ease: EASE }}
-            className="flex flex-nowrap gap-3 justify-center lg:justify-start"
+            className="flex gap-3 justify-center lg:justify-start w-full sm:w-auto"
           >
             <button
-              className="h-11 px-6 rounded-full text-white font-semibold text-sm transition-all duration-300 flex items-center gap-2 group shrink-0"
+              className="h-11 px-4 sm:px-6 rounded-full text-white font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 group flex-1 sm:flex-none"
               style={{
                 background: 'linear-gradient(135deg, #2dd4bf, #0d9e8a)',
                 boxShadow: '0 4px 24px rgba(45,212,191,0.35)',
@@ -81,7 +81,7 @@ export default function ProductsHero() {
             </button>
             <button
               onClick={() => setVideoOpen(true)}
-              className="h-11 px-6 rounded-full font-semibold text-sm transition-all duration-300 flex items-center gap-2 shrink-0"
+              className="h-11 px-4 sm:px-6 rounded-full font-semibold text-sm transition-all duration-300 flex items-center justify-center gap-2 flex-1 sm:flex-none"
               style={{ background: 'white', border: '1px solid rgba(0,0,0,0.12)', color: '#0d1117' }}
             >
               <Play className="w-3.5 h-3.5" />
