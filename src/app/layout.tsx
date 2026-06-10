@@ -222,48 +222,44 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ left: 64 }} />
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ right: 64 }} />
 
-        {/* Outro: fixed behind all page content, revealed as user scrolls past the footer */}
+        {/* Outro: fixed behind content, will-change:transform puts it on its own GPU layer so iOS compositor handles it without main-thread repaints during fast scroll */}
         <div
           className="fixed bottom-0 inset-x-0 h-screen overflow-hidden pointer-events-none"
           style={{
             zIndex: 0,
+            willChange: 'transform',
             backgroundImage: [
               'repeating-linear-gradient(90deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 5px)',
               'linear-gradient(to bottom, #fff 0%, #b2f5ea 40%, #2dd4bf 100%)',
             ].join(', '),
           }}
         >
-          {/* EMITHRAN anchored at the very bottom, full-width - Semrush style */}
           <div
             className="absolute bottom-0 left-0 right-0 text-center font-black select-none whitespace-nowrap"
             style={{
-              fontSize: 'clamp(40px, 19vw, 240px)',
+              fontSize: 'clamp(40px, 19.5vw, 260px)',
               color: '#0f1b2d',
               letterSpacing: '-0.02em',
               lineHeight: 1,
-              marginBottom: '0.18em',
+              marginBottom: '0.06em',
             }}
           >
             EMITHRAN
           </div>
         </div>
 
-        {/* Fixed elements outside the transformed wrapper so they stay viewport-relative */}
         <ConditionalNavbar />
         <ChatlingController />
 
+        {/* White content on top; isolation:isolate creates stacking context without transform so modals/dialogs still work */}
         <div className="relative bg-white" style={{ zIndex: 2, isolation: 'isolate' }}>
           <GoogleAnalytics />
           <main className="relative z-10">{children}</main>
           <ConditionalFooter />
         </div>
 
-        {/*
-          Spacer lives OUTSIDE the white wrapper so it stays transparent.
-          Gives scroll distance for the footer to clear the viewport and
-          reveal the fixed outro (z:1) underneath.
-        */}
-        <div className="h-[16vh] md:h-[28vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
+        {/* Transparent spacer — outside white wrapper, gives scroll distance to reveal the fixed outro beneath */}
+        <div className="h-[45vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
 
         <script dangerouslySetInnerHTML={{ __html: 'window.chtlConfig = { chatbotId: "7877335611" }' }} />
         <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="afterInteractive" />
