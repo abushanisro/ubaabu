@@ -38,7 +38,7 @@ export default function ExhaustCaseStudy() {
       readTime="6 min read"
       metric="£1.3m / yr saving"
       title={<>Should Costing for<br className="hidden md:block" /> Exhaust System</>}
-      subtitle="Foremost high-performance car maker in the automotive sector — Titanium vs Stainless Steel material decision"
+      subtitle="Foremost high-performance car maker in the automotive sector - Titanium vs Stainless Steel material decision"
       image="/assets/casestudy/f1card.png"
       imageAlt="High-performance exhaust system"
       stats={[
@@ -53,7 +53,7 @@ export default function ExhaustCaseStudy() {
       ctaSource="case-study-exhaust-system"
     >
 
-      {/* Row 1 — Problem + Scope */}
+      {/* Row 1 - Problem + Scope */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card accent>
           <SectionLabel>Problem Statement · Business Challenges</SectionLabel>
@@ -61,7 +61,7 @@ export default function ExhaustCaseStudy() {
           {BULLETS([
             'Creating an achievable budget for this sub-assembly which meets the target cost for the vehicle.',
             'Negotiating a purchase price which meets the budget.',
-            'Selecting the optimal material type — Titanium or Stainless Steel — based on the cost of manufacture.',
+            'Selecting the optimal material type - Titanium or Stainless Steel - based on the cost of manufacture.',
             'Setting a defensible supplier target cost ahead of commercial negotiations.',
           ])}
         </Card>
@@ -78,7 +78,7 @@ export default function ExhaustCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 2 — Technical Description */}
+      {/* Row 2 - Technical Description */}
       <Card accent>
         <SectionLabel>Technical Information · Product Description</SectionLabel>
         <h2 className="mb-5 text-[17px] font-bold text-[#0f1b2d]">Exhaust Manifold Assembly</h2>
@@ -96,7 +96,7 @@ export default function ExhaustCaseStudy() {
         </div>
       </Card>
 
-      {/* Row 3 — Key Aspects + Deliverables */}
+      {/* Row 3 - Key Aspects + Deliverables */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <SectionLabel>Key Aspects</SectionLabel>
@@ -118,7 +118,7 @@ export default function ExhaustCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 4 — Cost Comparison */}
+      {/* Row 4 - Cost Comparison */}
       <div>
         <SectionLabel>Cost Drivers for Exhaust Assembly</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Case Comparison: Titanium vs Stainless Steel</h2>
@@ -156,7 +156,7 @@ export default function ExhaustCaseStudy() {
             </div>
           </div>
 
-          {/* SS — Recommended */}
+          {/* SS - Recommended */}
           <div className="rounded-2xl border border-[#0d9488]/20 bg-gradient-to-b from-[#f0fdfb] to-white p-6 shadow-sm ring-1 ring-[#0d9488]/15">
             <div className="mb-5 flex items-start justify-between gap-3">
               <div>
@@ -194,7 +194,7 @@ export default function ExhaustCaseStudy() {
         </div>
       </div>
 
-      {/* Row 5 — Impact */}
+      {/* Row 5 - Impact */}
       <DarkCard>
         <SectionLabel>Value Additions</SectionLabel>
         <h2 className="mb-8 text-[22px] font-bold text-white">What Emithran delivered</h2>
@@ -202,7 +202,7 @@ export default function ExhaustCaseStudy() {
           { num: '£1.3m', title: 'Annual Cost Saving',   desc: 'Identified by switching from Titanium to Stainless Steel across 300 units per year.' },
           { num: '100%',  title: 'Target Cost Coverage', desc: 'Supplier target cost established against every component in the exhaust assembly.' },
           { num: 'VBN',   title: 'Negotiation Ready',    desc: 'Emithran cost breakdown enabled value-based price negotiation with suppliers.' },
-          { num: 'DFM',   title: 'Design Optimised',     desc: 'Main cost drivers identified via value engineering — design optimised for cost.' },
+          { num: 'DFM',   title: 'Design Optimised',     desc: 'Main cost drivers identified via value engineering - design optimised for cost.' },
         ]} />
       </DarkCard>
 

@@ -28,7 +28,7 @@ const studies: Study[] = [
     label: 'Electric HGV OEM',
     metric: '38% rail cost reduction',
     image: '/assets/casestudy/truck.png',
-    headline: 'Assy Chassis Ladder Frame — HGV 4×2 4M',
+    headline: 'Assy Chassis Ladder Frame - HGV 4×2 4M',
     sub: 'India vs Northern Europe · €5,248 assembly cost',
     href: '/case-studies/hgv-chassis',
   },
@@ -61,10 +61,10 @@ const studies: Study[] = [
   },
   {
     id: 'chassis-india-belgium',
-    label: 'Hydrogen HGV — Rail Sourcing',
+    label: 'Hydrogen HGV - Rail Sourcing',
     metric: '38% India vs Belgium saving',
     image: '/assets/casestudy/case6.png',
-    headline: 'Chassis Rail Should Cost — India vs Belgium',
+    headline: 'Chassis Rail Should Cost - India vs Belgium',
     sub: 'DDP Chennai → Scotland · €538 vs €872 landed',
     href: '/case-studies/chassis-india-belgium',
   },
@@ -73,7 +73,7 @@ const studies: Study[] = [
     label: 'Automotive OEM',
     metric: '$0.97 full BOM should cost',
     image: '/assets/casestudy/case7.png',
-    headline: 'Rear View Mirror Assembly — Full BOM Should Cost',
+    headline: 'Rear View Mirror Assembly - Full BOM Should Cost',
     sub: '5 parts · 5 processes · 1,50,000 units/yr · India',
     href: '/case-studies/rear-view-mirror',
   },
@@ -82,7 +82,7 @@ const studies: Study[] = [
     label: 'LCV Drivetrain OEM',
     metric: '$247 per axle · 46% in Drive Head',
     image: '/assets/casestudy/case8.png',
-    headline: '2T LCV Rear Drive Axle — Should Cost Analysis',
+    headline: '2T LCV Rear Drive Axle - Should Cost Analysis',
     sub: '51.2 kg assembly · 40,000 units/yr · India manufacturing',
     href: '/case-studies/rear-axle-should-cost',
   },
@@ -132,7 +132,7 @@ export default function CaseStudies() {
             </p>
           </div>
 
-          {/* Arrow nav — mobile only */}
+          {/* Arrow nav - mobile only */}
           <div className="flex items-center gap-2 shrink-0 ml-4 md:hidden" role="group" aria-label="Carousel navigation">
             <button
               onClick={() => scrollTo(slideIdx - 1)}
@@ -258,7 +258,7 @@ export default function CaseStudies() {
           ))}
         </ul>
 
-        {/* Slide indicator dots — mobile */}
+        {/* Slide indicator dots - mobile */}
         <div className="md:hidden flex justify-center gap-1.5 mt-5">
           {studies.map((_, i) => (
             <button

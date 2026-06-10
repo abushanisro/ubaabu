@@ -3,7 +3,7 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: 'Should Costing — HGV Chassis Ladder Frame | Emithran Case Study',
+  title: 'Should Costing - HGV Chassis Ladder Frame | Emithran Case Study',
   description: 'How Emithran identified a 38% manufacturing cost reduction for chassis rails by comparing India vs Northern Europe production for an electric HGV OEM.',
 }
 
@@ -16,7 +16,7 @@ export default function HGVChassisCaseStudy() {
       readTime="6 min read"
       metric="−38% India rail cost"
       title={<>Assy Chassis Ladder Frame<br className="hidden md:block" /> HGV · 4×2 · 4M</>}
-      subtitle="Specialist developer of an Electric Heavy Goods Vehicle — Northern Europe vs India cost comparison across 74 BOM line items"
+      subtitle="Specialist developer of an Electric Heavy Goods Vehicle - Northern Europe vs India cost comparison across 74 BOM line items"
       image="/assets/casestudy/truck.png"
       imageAlt="HGV Chassis Ladder Frame"
       stats={[
@@ -27,11 +27,11 @@ export default function HGVChassisCaseStudy() {
         { label: 'Rail Saving',    value: '−38% India' },
       ]}
       ctaTitle="Need a should-cost analysis for your chassis or structural assembly?"
-      ctaBody="Our engineering team models your assembly from first principles — giving you a cost breakdown you can use to negotiate, source, and design smarter."
+      ctaBody="Our engineering team models your assembly from first principles - giving you a cost breakdown you can use to negotiate, source, and design smarter."
       ctaSource="case-study-hgv-chassis"
     >
 
-      {/* Row 1 — Problem + Scope */}
+      {/* Row 1 - Problem + Scope */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card accent>
           <SectionLabel>Problem Statement · Business Challenges</SectionLabel>
@@ -43,7 +43,7 @@ export default function HGVChassisCaseStudy() {
             {[
               'Nominating the European main supplier for the chassis ladder assembly',
               'Negotiating the supply price with shortlisted manufacturers',
-              'Determining the manufacturing location for chassis rails — India vs Europe — based on cost, quality, and delivery',
+              'Determining the manufacturing location for chassis rails - India vs Europe - based on cost, quality, and delivery',
             ].map((c, i) => (
               <li key={i} className="flex gap-2.5 text-[14px] leading-relaxed text-[#475569]">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#0d9488]" />{c}
@@ -83,7 +83,7 @@ export default function HGVChassisCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 2 — Technical Data + BOM */}
+      {/* Row 2 - Technical Data + BOM */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <SectionLabel>Technical Data</SectionLabel>
@@ -117,10 +117,10 @@ export default function HGVChassisCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 3 — Material Grade Usage */}
+      {/* Row 3 - Material Grade Usage */}
       <Card accent>
         <SectionLabel>Material Grade Usage</SectionLabel>
-        <h2 className="mb-5 text-[17px] font-bold text-[#0f1b2d]">Input Materials — Total 935 kg</h2>
+        <h2 className="mb-5 text-[17px] font-bold text-[#0f1b2d]">Input Materials - Total 935 kg</h2>
         <div className="space-y-3">
           {[
             { mat: 'HR Steel 600MC',      kg: 495,  pct: Math.round(495/935*100) },
@@ -142,9 +142,9 @@ export default function HGVChassisCaseStudy() {
         </div>
       </Card>
 
-      {/* Row 4 — Cost Distribution + Top Drivers */}
+      {/* Row 4 - Cost Distribution + Top Drivers */}
       <div>
-        <SectionLabel>Cost Analysis — Chassis Ladder Frame</SectionLabel>
+        <SectionLabel>Cost Analysis - Chassis Ladder Frame</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Total Assembly Cost: €5,248.81 · Northern Europe</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
@@ -173,7 +173,7 @@ export default function HGVChassisCaseStudy() {
           </Card>
 
           <Card>
-            <p className="mb-5 text-[13px] font-semibold text-[#0f1b2d]">Top 3 Cost Drivers — Child Parts</p>
+            <p className="mb-5 text-[13px] font-semibold text-[#0f1b2d]">Top 3 Cost Drivers - Child Parts</p>
             <div className="space-y-4">
               {[
                 { rank: '01', part: 'Chassis Side LH & RH',             pct: 38, color: '#0d9488' },
@@ -198,9 +198,9 @@ export default function HGVChassisCaseStudy() {
         </div>
       </div>
 
-      {/* Row 5 — Region Comparison */}
+      {/* Row 5 - Region Comparison */}
       <Card accent>
-        <SectionLabel>Chassis Side Rail — Region Cost Comparison</SectionLabel>
+        <SectionLabel>Chassis Side Rail - Region Cost Comparison</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">India vs Northern Europe</h2>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-xl border border-black/[0.06] bg-[#f8fafb] p-5">
@@ -211,12 +211,12 @@ export default function HGVChassisCaseStudy() {
           <div className="rounded-xl border border-[#0d9488]/30 bg-[#f0fdfb] p-5 ring-1 ring-[#0d9488]/15">
             <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-[#0d9488]/70">India · Recommended</p>
             <p className="text-[28px] font-bold text-[#0d9488]">−38%</p>
-            <p className="mt-1 text-[13px] text-[#475569]">DDP + SG&A + Profit — cost reduction vs Northern Europe for rails</p>
+            <p className="mt-1 text-[13px] text-[#475569]">DDP + SG&A + Profit - cost reduction vs Northern Europe for rails</p>
           </div>
         </div>
       </Card>
 
-      {/* Row 6 — Deliverables */}
+      {/* Row 6 - Deliverables */}
       <Card>
         <SectionLabel>Deliverables</SectionLabel>
         <ul className="grid gap-4 sm:grid-cols-3">
@@ -232,7 +232,7 @@ export default function HGVChassisCaseStudy() {
         </ul>
       </Card>
 
-      {/* Row 7 — Impact */}
+      {/* Row 7 - Impact */}
       <DarkCard>
         <SectionLabel>Value Additions</SectionLabel>
         <h2 className="mb-8 text-[22px] font-bold text-white">What Emithran delivered</h2>

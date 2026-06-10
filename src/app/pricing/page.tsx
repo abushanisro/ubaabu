@@ -5,7 +5,7 @@ import PricingCTA from '@/components/pricing/PricingCTA'
 
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
-  title: 'Pricing — Transparent, Outcome-Based Manufacturing Intelligence Plans',
+  title: 'Pricing - Transparent, Outcome-Based Manufacturing Intelligence Plans',
   description:
     'Outcome-based pricing for manufacturing intelligence. No per-seat fees, no hidden costs. Plans for startups, growing OEMs, and enterprise manufacturers in defence, aerospace, and space.',
   keywords: [
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/pricing' },
   openGraph: {
-    title: 'Emithran Pricing — No Per-Seat Fees, No Hidden Costs',
+    title: 'Emithran Pricing - No Per-Seat Fees, No Hidden Costs',
     description: 'Transparent, outcome-based plans for manufacturers of every scale.',
     url: '/pricing', type: 'website',
   },

@@ -18,7 +18,7 @@ const rows = [
 export function DashboardPreview() {
   return (
     <div className="rounded-2xl bg-card border border-border/40 card-shadow overflow-hidden flex">
-      {/* Sidebar — hidden below lg */}
+      {/* Sidebar - hidden below lg */}
       <div className="hidden lg:flex w-14 bg-slate-900 flex-col items-center py-4 gap-3">
         {[Home, Folder, Box, Building2, ClipboardList, Truck, Users, Settings].map((Icon, i) => (
           <button key={i} className={`w-9 h-9 rounded-lg flex items-center justify-center transition ${
@@ -45,7 +45,7 @@ export function DashboardPreview() {
           </div>
         </div>
 
-        {/* Stats — 2 cols on mobile, 4 on md+ */}
+        {/* Stats - 2 cols on mobile, 4 on md+ */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">
           {stats.map((s) => (
             <div key={s.label} className="p-2.5 rounded-xl bg-primary/5 border border-primary/10 flex items-center gap-2">
@@ -64,7 +64,7 @@ export function DashboardPreview() {
 
         {/* Table */}
         <div className="rounded-xl border border-border/50 overflow-hidden">
-          {/* Header — 3 cols on mobile, 5 on md+ */}
+          {/* Header - 3 cols on mobile, 5 on md+ */}
           <div className="grid grid-cols-3 md:grid-cols-5 gap-2 px-3 py-2 bg-muted/40 text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
             <div>Project</div>
             <div className="hidden md:block">Stage</div>

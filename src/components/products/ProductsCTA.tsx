@@ -141,7 +141,7 @@ export default function ProductsCTA() {
           transition={{ duration: 0.75, delay: 0.36, ease: EASE }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
         >
-          {/* Primary — white fill */}
+          {/* Primary - white fill */}
           <button className="group relative w-full sm:w-auto px-8 py-3.5 rounded-xl bg-white text-black font-semibold
                              hover:bg-white/92 transition-all duration-300 flex items-center justify-center gap-2 overflow-hidden
                              shadow-[0_0_40px_rgba(255,255,255,0.07)] hover:shadow-[0_0_60px_rgba(255,255,255,0.18)]">
@@ -151,7 +151,7 @@ export default function ProductsCTA() {
             <ChevronRight className="relative z-10 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
           </button>
 
-          {/* Secondary — ghost */}
+          {/* Secondary - ghost */}
           <button className="group w-full sm:w-auto px-8 py-3.5 rounded-xl border border-white/15 bg-white/[0.04]
                              text-white font-medium hover:bg-white/[0.09] hover:border-white/30
                              transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm

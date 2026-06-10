@@ -45,9 +45,9 @@ const NAV: NavItem[] = [
   { id: 'deletion',               label: 'Return & Deletion of Data' },
   { id: 'liability',              label: 'Liability' },
   { id: 'general-dpa',            label: 'General' },
-  { id: 'schedule-a',             label: 'Schedule A — Processing Details' },
-  { id: 'schedule-b',             label: 'Schedule B — Security Measures' },
-  { id: 'schedule-c',             label: 'Schedule C — Sub-processors' },
+  { id: 'schedule-a',             label: 'Schedule A - Processing Details' },
+  { id: 'schedule-b',             label: 'Schedule B - Security Measures' },
+  { id: 'schedule-c',             label: 'Schedule C - Sub-processors' },
 ]
 
 const ALL_IDS = NAV.flatMap(n => [n.id, ...(n.sub?.map(s => s.id) ?? [])])
@@ -546,7 +546,7 @@ export default function DPAPage() {
           <Divider />
 
           {/* ── Schedule A ── */}
-          <H2 id="schedule-a">Schedule A — Processing Details</H2>
+          <H2 id="schedule-a">Schedule A - Processing Details</H2>
           <Para>
             This Schedule A forms part of the DPA and sets out the details of the processing activities carried out by Emithran on behalf of the Controller.
           </Para>
@@ -599,7 +599,7 @@ export default function DPAPage() {
           <Divider />
 
           {/* ── Schedule B ── */}
-          <H2 id="schedule-b">Schedule B — Technical and Organisational Security Measures</H2>
+          <H2 id="schedule-b">Schedule B - Technical and Organisational Security Measures</H2>
           <Para>
             This Schedule B describes the technical and organisational measures (&ldquo;TOMs&rdquo;) implemented by Emithran to ensure a level of security appropriate to the risk of processing Personal Data on behalf of the Controller. These measures are reviewed and updated regularly.
           </Para>
@@ -656,7 +656,7 @@ export default function DPAPage() {
           <Divider />
 
           {/* ── Schedule C ── */}
-          <H2 id="schedule-c">Schedule C — Approved Sub-processors</H2>
+          <H2 id="schedule-c">Schedule C - Approved Sub-processors</H2>
           <Para>
             This Schedule C lists the Sub-processors that Emithran is authorised to use in connection with the Services as of the date set out above. Emithran will update this Schedule in accordance with Section 4.4 of the DPA and provide notice to the Controller prior to any addition or replacement.
           </Para>

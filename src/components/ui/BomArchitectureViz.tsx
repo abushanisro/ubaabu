@@ -65,7 +65,7 @@ export default function BomArchitectureViz() {
             </stop>
           </linearGradient>
 
-          {/* Masks — clip each glow to its own path */}
+          {/* Masks - clip each glow to its own path */}
           {PATHS.map((p, i) => (
             <mask key={i} id={`bom-mask-${i}`}>
               <path d={p.d} stroke="white" strokeWidth="0.7" fill="none" />
@@ -122,16 +122,16 @@ export default function BomArchitectureViz() {
         </text>
 
         {/* ── Floating stat labels ── */}
-        {/* 99.4% — left side */}
+        {/* 99.4% - left side */}
         <g>
           <text x="28" y="14.5" fontSize="5.5" fill="#2dd4bf" fontWeight="700" textAnchor="middle">99.4%</text>
         </g>
-        {/* 14.5K nodes — upper right */}
+        {/* 14.5K nodes - upper right */}
         <g>
           <text x="455" y="11.5" fontSize="5" fill="#2dd4bf" fontWeight="700" textAnchor="middle">14.5K</text>
           <text x="455" y="14.5" fontSize="3.5" fill="rgba(255,255,255,0.35)" textAnchor="middle">BOM Nodes</text>
         </g>
-        {/* 47 programmes — bottom right */}
+        {/* 47 programmes - bottom right */}
         <g>
           <text x="447" y="71" fontSize="5" fill="#f59e0b" fontWeight="700" textAnchor="middle">47 Progs</text>
           <text x="447" y="74" fontSize="3.5" fill="rgba(255,255,255,0.35)" textAnchor="middle">Active</text>

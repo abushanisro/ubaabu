@@ -159,7 +159,7 @@ export default function ShouldCostSection() {
       aria-label="Should-Cost Engine module"
       className="relative bg-white overflow-hidden"
     >
-      {/* Ambient — right-side this time for visual variety */}
+      {/* Ambient - right-side this time for visual variety */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 50% 50% at 85% 40%, rgba(20,184,166,0.04) 0%, transparent 70%)' }} />
 

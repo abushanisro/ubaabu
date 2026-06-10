@@ -164,7 +164,7 @@ export default function TrackingSection() {
                   thirty minutes."
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
-                  — Automotive Tier-1 supplier · 50+ concurrent projects
+                  - Automotive Tier-1 supplier · 50+ concurrent projects
                 </figcaption>
               </motion.figure>
             </div>

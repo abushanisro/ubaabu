@@ -15,7 +15,7 @@ const BLEND = { '--blendBackground': '#2dd4bf', '--blendForeground': '#0f1b2d', 
 
 const CASE_ICONS: Record<string, React.ReactNode> = {
   Design: (
-    // Layered cards — represents design iterations and CAD layers
+    // Layered cards - represents design iterations and CAD layers
     <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden>
       <defs>
         <clipPath id="designIconClip">
@@ -30,7 +30,7 @@ const CASE_ICONS: Record<string, React.ReactNode> = {
     </svg>
   ),
   Source: (
-    // Magnifying glass — represents supplier search and radar
+    // Magnifying glass - represents supplier search and radar
     <svg width="28" height="28" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden>
       <defs>
         <clipPath id="sourceIconClip">
@@ -321,7 +321,7 @@ function ContactModal({ intent, onClose }: { intent: string; onClose: () => void
             <div>
               <h4 className="text-lg font-bold text-[#0f1b2d]">Message sent!</h4>
               <p className="mt-1.5 max-w-[280px] text-sm leading-relaxed text-[#0f1b2d]/55">
-                Check your inbox — we've sent a confirmation. Our team will reach out within 1 business day.
+                Check your inbox - we've sent a confirmation. Our team will reach out within 1 business day.
               </p>
             </div>
             <button onClick={onClose} className="mt-2 rounded-full bg-[#0f1b2d] px-7 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity">
@@ -582,7 +582,7 @@ export default function PricingPackages() {
                               </span>
                               {f.included
                                 ? <span className="shrink-0 text-[#0d9488]">✓</span>
-                                : <span className={`shrink-0 ${tier.featured ? 'text-white/20' : 'text-[#0f1b2d]/20'}`}>—</span>
+                                : <span className={`shrink-0 ${tier.featured ? 'text-white/20' : 'text-[#0f1b2d]/20'}`}>-</span>
                               }
                             </>
                           )}

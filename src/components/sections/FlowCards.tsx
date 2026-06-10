@@ -43,7 +43,7 @@ export default function FlowCards() {
               desc="Interact with CAD assemblies and manufacturing views." />
           </div>
 
-          {/* Team Collaboration — below feature cards, same style as 3D Model Comments */}
+          {/* Team Collaboration - below feature cards, same style as 3D Model Comments */}
           <div className="w-fit rounded-xl border border-black/10 bg-white p-3 shadow-lg">
             <div className="flex items-center gap-2">
               <Users2 className="h-3.5 w-3.5 shrink-0 text-[#0d9e8a]" />
@@ -172,7 +172,7 @@ export default function FlowCards() {
             </div>
           </div>
 
-          {/* 3D Model Comments — below AI panel */}
+          {/* 3D Model Comments - below AI panel */}
           <div className="w-fit rounded-xl border border-black/10 bg-white p-3 shadow-lg">
             <div className="flex items-center gap-2">
               <MessageSquare className="h-3.5 w-3.5 shrink-0 text-[#0d9e8a]" />

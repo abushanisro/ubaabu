@@ -46,7 +46,7 @@ export default function PricingCTA() {
     <section id="final-cta" className="pricing-section bg-white">
       <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-6 py-14 md:grid-cols-3 md:gap-10 md:py-20">
 
-        {/* Col 1 — headline + CTAs */}
+        {/* Col 1 - headline + CTAs */}
         <div className="cta-fade-up">
           <h2 className="text-3xl font-semibold tracking-tight text-[#0f1b2d] md:text-[40px] md:leading-[1.1]">
             Ready to get started? Book a demo or request a custom quote.
@@ -72,7 +72,7 @@ export default function PricingCTA() {
           </div>
         </div>
 
-        {/* Col 2 — See our customers */}
+        {/* Col 2 - See our customers */}
         <div className="cta-fade-up group relative" style={{ animationDelay: '0.1s' }}>
           <span aria-hidden className="absolute left-0 top-[2.35rem] h-4 w-[3px] rounded-full bg-[#2dd4bf] transition-all duration-300 group-hover:h-6 group-hover:bg-[#0d9488]" />
           <div className="pl-5">
@@ -86,7 +86,7 @@ export default function PricingCTA() {
           </div>
         </div>
 
-        {/* Col 3 — Explore the platform */}
+        {/* Col 3 - Explore the platform */}
         <div className="cta-fade-up group relative" style={{ animationDelay: '0.2s' }}>
           <span aria-hidden className="absolute left-0 top-[2.35rem] h-4 w-[3px] rounded-full bg-[#2dd4bf] transition-all duration-300 group-hover:h-6 group-hover:bg-[#0d9488]" />
           <div className="pl-5">
@@ -95,7 +95,7 @@ export default function PricingCTA() {
             </div>
             <h3 className="text-[15px] font-semibold tracking-tight text-[#0f1b2d]">Explore the platform</h3>
             <p className="mt-2 text-[14px] leading-relaxed text-[#0f1b2d]/60">
-              See the modules behind Emithran — design intelligence, supplier sourcing, and end-to-end supply chain visibility in one workspace.
+              See the modules behind Emithran - design intelligence, supplier sourcing, and end-to-end supply chain visibility in one workspace.
             </p>
           </div>
         </div>

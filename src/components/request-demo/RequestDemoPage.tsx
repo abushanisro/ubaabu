@@ -91,7 +91,7 @@ const TIME_SLOTS = [
 
 const COUNTRIES = [
   "India",
-  "——————",
+  "------",
   "Afghanistan", "Albania", "Algeria", "Argentina", "Armenia", "Australia",
   "Austria", "Azerbaijan", "Bahrain", "Bangladesh", "Belgium", "Brazil",
   "Bulgaria", "Cambodia", "Canada", "Chile", "China", "Colombia", "Croatia",
@@ -138,7 +138,7 @@ export default function RequestDemoPage() {
 
   const countryOptions: SelectOption[] = useMemo(() =>
     COUNTRIES.map((c) =>
-      c.startsWith("—")
+      c.startsWith("-")
         ? { label: c, value: "__sep__", disabled: true }
         : { label: c, value: c }
     ), []);
@@ -229,7 +229,7 @@ export default function RequestDemoPage() {
                   See Emithran in action
                 </h1>
                 <p className="text-[12.5px] text-white/50 mt-1 leading-relaxed">
-                  Fill in your details and pick a slot — we'll tailor the demo to your workflow.
+                  Fill in your details and pick a slot - we'll tailor the demo to your workflow.
                 </p>
               </div>
 

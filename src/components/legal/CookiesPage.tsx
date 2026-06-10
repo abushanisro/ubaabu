@@ -320,9 +320,9 @@ export default function CookiesPage() {
           </Para>
           <Ul
             items={[
-              <><Bold>Local storage and session storage</Bold> — browser-based key-value stores that allow us to persist lightweight data (such as your UI theme preference or active workspace) directly in your browser without sending it to our servers on every request.</>,
-              <><Bold>Pixel tags (web beacons)</Bold> — small transparent images embedded in web pages or emails that notify us when a page has been loaded or an email has been opened. Pixel tags do not store information on your device but enable us to record that a particular action has occurred and to associate it with your session or email address.</>,
-              <><Bold>Fingerprinting and canvas hashes</Bold> — Emithran does <Bold>not</Bold> use browser fingerprinting or canvas-based device identification techniques on any part of its platform or marketing website.</>,
+              <><Bold>Local storage and session storage</Bold> - browser-based key-value stores that allow us to persist lightweight data (such as your UI theme preference or active workspace) directly in your browser without sending it to our servers on every request.</>,
+              <><Bold>Pixel tags (web beacons)</Bold> - small transparent images embedded in web pages or emails that notify us when a page has been loaded or an email has been opened. Pixel tags do not store information on your device but enable us to record that a particular action has occurred and to associate it with your session or email address.</>,
+              <><Bold>Fingerprinting and canvas hashes</Bold> - Emithran does <Bold>not</Bold> use browser fingerprinting or canvas-based device identification techniques on any part of its platform or marketing website.</>,
             ]}
           />
           <Para>
@@ -367,7 +367,7 @@ export default function CookiesPage() {
           {/* 2.2 Functional */}
           <H3 id="functional">Functional cookies</H3>
           <Para>
-            Functional cookies enable enhanced functionality and personalisation. They remember choices you make — such as your preferred language, active workspace, or UI theme — and allow us to provide a more personalised experience. These cookies do not track your browsing activity across other websites. Disabling them means that some personalisation features will not be available and you may need to reset your preferences each time you visit.
+            Functional cookies enable enhanced functionality and personalisation. They remember choices you make - such as your preferred language, active workspace, or UI theme - and allow us to provide a more personalised experience. These cookies do not track your browsing activity across other websites. Disabling them means that some personalisation features will not be available and you may need to reset your preferences each time you visit.
           </Para>
           <CookieTable
             rows={[
@@ -465,12 +465,12 @@ export default function CookiesPage() {
           </Para>
           <Ul
             items={[
-              <><Bold>Google Analytics</Bold> (Alphabet Inc.) — website and product analytics. Privacy policy: <TealLink href="https://policies.google.com/privacy">policies.google.com/privacy</TealLink>. Opt out: <TealLink href="https://tools.google.com/dlpage/gaoptout">Google Analytics Opt-out Browser Add-on</TealLink>.</>,
-              <><Bold>PostHog</Bold> (PostHog Inc.) — product analytics and feature flags. Privacy policy: <TealLink href="https://posthog.com/privacy">posthog.com/privacy</TealLink>. Opt out: available through our cookie preference centre.</>,
-              <><Bold>Hotjar</Bold> (Hotjar Ltd.) — session recording and heatmaps. Privacy policy: <TealLink href="https://www.hotjar.com/legal/policies/privacy/">hotjar.com/legal/policies/privacy</TealLink>. Opt out: <TealLink href="https://www.hotjar.com/legal/compliance/opt-out">hotjar.com/legal/compliance/opt-out</TealLink>.</>,
-              <><Bold>Meta (Facebook)</Bold> — advertising attribution and conversion measurement. Privacy policy: <TealLink href="https://www.facebook.com/privacy/policy/">facebook.com/privacy/policy</TealLink>. Opt out: <TealLink href="https://www.facebook.com/help/568137493302217">Facebook Ad Preferences</TealLink>.</>,
-              <><Bold>LinkedIn</Bold> (Microsoft Corporation) — advertising attribution. Privacy policy: <TealLink href="https://www.linkedin.com/legal/privacy-policy">linkedin.com/legal/privacy-policy</TealLink>. Opt out: <TealLink href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out">LinkedIn Ad Settings</TealLink>.</>,
-              <><Bold>Google Ads</Bold> (Alphabet Inc.) — conversion tracking. Privacy policy: <TealLink href="https://policies.google.com/privacy">policies.google.com/privacy</TealLink>. Opt out: <TealLink href="https://adssettings.google.com/">Google Ads Settings</TealLink>.</>,
+              <><Bold>Google Analytics</Bold> (Alphabet Inc.) - website and product analytics. Privacy policy: <TealLink href="https://policies.google.com/privacy">policies.google.com/privacy</TealLink>. Opt out: <TealLink href="https://tools.google.com/dlpage/gaoptout">Google Analytics Opt-out Browser Add-on</TealLink>.</>,
+              <><Bold>PostHog</Bold> (PostHog Inc.) - product analytics and feature flags. Privacy policy: <TealLink href="https://posthog.com/privacy">posthog.com/privacy</TealLink>. Opt out: available through our cookie preference centre.</>,
+              <><Bold>Hotjar</Bold> (Hotjar Ltd.) - session recording and heatmaps. Privacy policy: <TealLink href="https://www.hotjar.com/legal/policies/privacy/">hotjar.com/legal/policies/privacy</TealLink>. Opt out: <TealLink href="https://www.hotjar.com/legal/compliance/opt-out">hotjar.com/legal/compliance/opt-out</TealLink>.</>,
+              <><Bold>Meta (Facebook)</Bold> - advertising attribution and conversion measurement. Privacy policy: <TealLink href="https://www.facebook.com/privacy/policy/">facebook.com/privacy/policy</TealLink>. Opt out: <TealLink href="https://www.facebook.com/help/568137493302217">Facebook Ad Preferences</TealLink>.</>,
+              <><Bold>LinkedIn</Bold> (Microsoft Corporation) - advertising attribution. Privacy policy: <TealLink href="https://www.linkedin.com/legal/privacy-policy">linkedin.com/legal/privacy-policy</TealLink>. Opt out: <TealLink href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out">LinkedIn Ad Settings</TealLink>.</>,
+              <><Bold>Google Ads</Bold> (Alphabet Inc.) - conversion tracking. Privacy policy: <TealLink href="https://policies.google.com/privacy">policies.google.com/privacy</TealLink>. Opt out: <TealLink href="https://adssettings.google.com/">Google Ads Settings</TealLink>.</>,
             ]}
           />
           <Para>
@@ -487,7 +487,7 @@ export default function CookiesPage() {
             <Bold>Session cookies</Bold> exist only for the duration of your browser session. They are automatically deleted when you close your browser tab or window. Session cookies are typically used for security-critical functions such as authentication tokens and CSRF protection, where it would be inappropriate to persist them beyond a single session.
           </SubClause>
           <SubClause letter="b">
-            <Bold>Persistent cookies</Bold> remain on your device for a defined period — ranging from 30 days for short-lived attribution cookies to 2 years for analytics identifiers — or until you manually delete them. The specific retention period for each cookie is listed in the Duration column of the tables in Section 2.
+            <Bold>Persistent cookies</Bold> remain on your device for a defined period - ranging from 30 days for short-lived attribution cookies to 2 years for analytics identifiers - or until you manually delete them. The specific retention period for each cookie is listed in the Duration column of the tables in Section 2.
           </SubClause>
           <Para>
             Retention periods are set to the minimum necessary to fulfil the purpose of each cookie. For example:
@@ -495,7 +495,7 @@ export default function CookiesPage() {
           <Ul
             items={[
               'Workspace and preference cookies (30 days to 1 year) are retained long enough to spare you from resetting your preferences on every visit, without persisting indefinitely.',
-              'Analytics identifiers (up to 2 years) need a longer lifespan to enable longitudinal analysis of product usage trends — for instance, to understand whether a user who signed up six months ago has adopted a new feature.',
+              'Analytics identifiers (up to 2 years) need a longer lifespan to enable longitudinal analysis of product usage trends - for instance, to understand whether a user who signed up six months ago has adopted a new feature.',
               'Marketing attribution cookies (30–90 days) follow industry-standard windows that correspond to typical B2B sales cycles for manufacturing SaaS products.',
             ]}
           />
@@ -522,10 +522,10 @@ export default function CookiesPage() {
           <Ul
             items={[
               <><Bold>Google Chrome:</Bold> <TealLink href="https://support.google.com/chrome/answer/95647">support.google.com/chrome/answer/95647</TealLink></>,
-              <><Bold>Mozilla Firefox:</Bold> <TealLink href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop">support.mozilla.org — Enhanced Tracking Protection</TealLink></>,
-              <><Bold>Apple Safari:</Bold> <TealLink href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac">support.apple.com — Safari privacy settings</TealLink></>,
-              <><Bold>Microsoft Edge:</Bold> <TealLink href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09">support.microsoft.com — Delete cookies in Edge</TealLink></>,
-              <><Bold>Opera:</Bold> <TealLink href="https://help.opera.com/en/latest/web-preferences/#cookies">help.opera.com — Web preferences</TealLink></>,
+              <><Bold>Mozilla Firefox:</Bold> <TealLink href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop">support.mozilla.org - Enhanced Tracking Protection</TealLink></>,
+              <><Bold>Apple Safari:</Bold> <TealLink href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac">support.apple.com - Safari privacy settings</TealLink></>,
+              <><Bold>Microsoft Edge:</Bold> <TealLink href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09">support.microsoft.com - Delete cookies in Edge</TealLink></>,
+              <><Bold>Opera:</Bold> <TealLink href="https://help.opera.com/en/latest/web-preferences/#cookies">help.opera.com - Web preferences</TealLink></>,
             ]}
           />
           <Para>
@@ -565,7 +565,7 @@ export default function CookiesPage() {
           {/* ── Section 7: Updates ── */}
           <H2 id="updates">Policy updates</H2>
           <Para>
-            We may update this Cookies Policy from time to time to reflect changes in the cookies we use, changes in applicable law, or improvements to our practices. When we make material changes — for example, adding a new category of cookies or a new third-party provider — we will:
+            We may update this Cookies Policy from time to time to reflect changes in the cookies we use, changes in applicable law, or improvements to our practices. When we make material changes - for example, adding a new category of cookies or a new third-party provider - we will:
           </Para>
           <SubClause letter="a">update the &ldquo;Last updated&rdquo; date at the top of this page;</SubClause>
           <SubClause letter="b">display an in-app or website notification drawing your attention to the changes for at least 14 days after the update is published; and</SubClause>
@@ -574,7 +574,7 @@ export default function CookiesPage() {
             We recommend reviewing this page periodically. The current version is always available at <TealLink href="/cookies">emithran.in/cookies</TealLink>. Archived versions of this policy can be requested by emailing <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>.
           </Para>
           <Para>
-            Minor changes — such as correcting typographical errors, updating cookie names that have not changed in function, or refreshing hyperlinks — may be made without separate notification. The &ldquo;Last updated&rdquo; date will still reflect any change, however small.
+            Minor changes - such as correcting typographical errors, updating cookie names that have not changed in function, or refreshing hyperlinks - may be made without separate notification. The &ldquo;Last updated&rdquo; date will still reflect any change, however small.
           </Para>
           <Divider />
 

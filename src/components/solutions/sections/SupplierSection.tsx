@@ -92,7 +92,7 @@ export default function SupplierSection() {
                     underlineHoverPath="M 0,10 Q 75,18 150,10 Q 225,2 300,10"
                     underlineDuration={1.8}
                   />
-                  {' '}— not just the familiar one.
+                  {' '}- not just the familiar one.
                 </p>
                 <div className="mt-8 space-y-5">
                   <div>
@@ -101,7 +101,7 @@ export default function SupplierSection() {
                     </div>
                     <p className="mt-1.5 text-sm leading-relaxed text-black/60">
                       You know 200 suppliers. You evaluate 50. You quote 3–5. The process is
-                      manual, biased and slow. Better suppliers exist — you just don't know them.
+                      manual, biased and slow. Better suppliers exist - you just don't know them.
                     </p>
                   </div>
                   <div>
@@ -164,7 +164,7 @@ export default function SupplierSection() {
                   one intelligent system with standardized pricing and better supplier scores."
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
-                  — $600M+ engineering firm · 5 procurement officers
+                  - $600M+ engineering firm · 5 procurement officers
                 </figcaption>
               </motion.figure>
             </div>

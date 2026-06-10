@@ -96,8 +96,8 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <p>S(t) = S0 * e^(r*t). Continuous compound growth. I wrote it as a comment in the code almost instinctively:</p>
 
 <div style="background:#0d1117;border-radius:12px;padding:1.5rem;margin:1.5rem 0;font-family:monospace;font-size:0.85rem;color:#e5e7eb;line-height:1.8;">
-  <p style="color:#6b7280;margin:0 0 0.25rem;">// Global deterministic counter — same value for every visitor</p>
-  <p style="color:#6b7280;margin:0 0 0.25rem;">// S(t) = S0 * e^(r*t) — continuous compound growth</p>
+  <p style="color:#6b7280;margin:0 0 0.25rem;">// Global deterministic counter - same value for every visitor</p>
+  <p style="color:#6b7280;margin:0 0 0.25rem;">// S(t) = S0 * e^(r*t) - continuous compound growth</p>
   <p style="color:#6b7280;margin:0 0 0.25rem;">// Epoch: June 1 2024 · r = 0.0025/day · today index approx 158,675</p>
   <p style="color:#6b7280;margin:0 0 0.75rem;">// CC_R is a modelling parameter, not a customer-derived metric</p>
   <p style="color:#2dd4bf;margin:0;">const CC_S0 = 25_000</p>

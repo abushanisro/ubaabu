@@ -12,7 +12,7 @@ import { AnimateIn } from '@/components/ui/AnimateIn'
 const FAQS = [
   {
     q: 'Can we start with one package and upgrade later?',
-    a: 'Yes. All packages are designed to be modular and stackable. You can start with the Design Optimization package and expand to Intelligent Sourcing or Supply Chain Intelligence as your needs grow — without any data migration or re-implementation.',
+    a: 'Yes. All packages are designed to be modular and stackable. You can start with the Design Optimization package and expand to Intelligent Sourcing or Supply Chain Intelligence as your needs grow - without any data migration or re-implementation.',
   },
   {
     q: 'Do you charge per user?',
@@ -20,15 +20,15 @@ const FAQS = [
   },
   {
     q: 'Do you offer free trials?',
-    a: 'We offer a structured 30-day pilot on your own data instead of a generic sandbox trial. This gives you a real ROI signal — not just a feature tour. Contact sales to schedule your pilot.',
+    a: 'We offer a structured 30-day pilot on your own data instead of a generic sandbox trial. This gives you a real ROI signal - not just a feature tour. Contact sales to schedule your pilot.',
   },
   {
     q: 'Is implementation cost included?',
-    a: 'Yes, for standard deployments. Emithran includes onboarding, data ingestion, and a 4–8 week go-live programme in the package price. Complex ERP integrations or multi-site rollouts may carry a one-time setup fee — this is scoped and quoted transparently before signing.',
+    a: 'Yes, for standard deployments. Emithran includes onboarding, data ingestion, and a 4–8 week go-live programme in the package price. Complex ERP integrations or multi-site rollouts may carry a one-time setup fee - this is scoped and quoted transparently before signing.',
   },
   {
     q: 'Can packages be customized?',
-    a: 'Yes. The Custom tier is purpose-built for manufacturers who need bespoke scoping — high project volumes, multi-site operations, or specialized compliance workflows. Talk to sales and we will design a package around your exact requirements.',
+    a: 'Yes. The Custom tier is purpose-built for manufacturers who need bespoke scoping - high project volumes, multi-site operations, or specialized compliance workflows. Talk to sales and we will design a package around your exact requirements.',
   },
 ]
 

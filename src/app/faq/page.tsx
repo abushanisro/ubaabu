@@ -2,7 +2,7 @@ import FAQPage from '@/components/faq/FAQPage'
 
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
-  title: 'FAQ — Should-Cost Analysis, BOM Management & Supplier Intelligence Answers',
+  title: 'FAQ - Should-Cost Analysis, BOM Management & Supplier Intelligence Answers',
   description:
     'Answers to common questions about Emithran: should-cost analysis, BOM validation, supplier intelligence, OTIF tracking, pricing, data security, and integration with your existing systems.',
   keywords: [
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/faq' },
   openGraph: {
-    title: 'Emithran FAQ — Manufacturing Intelligence Questions Answered',
+    title: 'Emithran FAQ - Manufacturing Intelligence Questions Answered',
     description: 'Everything you need to know about Emithran\'s manufacturing intelligence platform.',
     url: '/faq', type: 'website',
   },

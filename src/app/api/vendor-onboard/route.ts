@@ -130,7 +130,7 @@ export async function POST(req: NextRequest) {
       from:    `Emithran Vendors <${FROM}>`,
       to:      TO,
       replyTo: email,
-      subject: `Vendor application — ${companyName} (${supplierCode})`,
+      subject: `Vendor application - ${companyName} (${supplierCode})`,
       html,
     })
 

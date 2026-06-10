@@ -98,7 +98,7 @@ const cards: CardData[] = [
     stat: { value: "40+", label: "suppliers evaluated across 6 countries in under two weeks" },
     testimonial: {
       company: "Global Sourcing",
-      quote: "We evaluated 40 suppliers across 6 countries in two weeks. The feasibility scoring framework is now our standard globally — it removed all subjectivity from the shortlisting process.",
+      quote: "We evaluated 40 suppliers across 6 countries in two weeks. The feasibility scoring framework is now our standard globally - it removed all subjectivity from the shortlisting process.",
       author: "Lin Wei",
       role: "Global Sourcing Director",
     },
@@ -194,7 +194,7 @@ const cards: CardData[] = [
     stat: { value: "97.4%", label: "on-time-in-full, up from 88% in the first quarter after go-live" },
     testimonial: {
       company: "Logistics Operations",
-      quote: "On-time-in-full jumped from 88% to 97.4% in the first quarter after go-live. Our customer scorecard has never looked better — it was a complete step change.",
+      quote: "On-time-in-full jumped from 88% to 97.4% in the first quarter after go-live. Our customer scorecard has never looked better - it was a complete step change.",
       author: "Marcus Hofer",
       role: "Logistics Operations Manager",
     },
@@ -225,7 +225,7 @@ const cards: CardData[] = [
   },
   {
     title: "VAVE",
-    desc: "Value Analysis & Value Engineering — AI-accelerated cost reduction using SCAMPER, TRIZ, and should-cost analysis.",
+    desc: "Value Analysis & Value Engineering - AI-accelerated cost reduction using SCAMPER, TRIZ, and should-cost analysis.",
     body: <VaveCard />,
     longDesc: "Let AI generate value improvement ideas using SCAMPER and TRIZ frameworks, grounded in should-cost benchmarks. Score, prioritise, and track every idea through to approved savings.",
     features: [
@@ -353,7 +353,7 @@ function AnalyticsCard() {
         ))}
       </div>
 
-      {/* Bar chart — monthly cost savings */}
+      {/* Bar chart - monthly cost savings */}
       <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">Monthly Cost Reduction ($K)</p>
       <div className="flex items-end gap-1.5 h-20 mb-1 flex-1">
         {BAR_DATA.map((d) => (
@@ -441,7 +441,7 @@ function BentoSystemCard() {
           style={{ background: `radial-gradient(280px circle at ${mouse.x}px ${mouse.y}px, rgba(255,255,255,0.12), transparent 70%)` }} />
       </div>
 
-      {/* Expand button — sits ABOVE the card at top-right, outside overflow clip */}
+      {/* Expand button - sits ABOVE the card at top-right, outside overflow clip */}
       <button
         onClick={() => setExpanded(true)}
         className="absolute -top-3 right-3 z-30 w-7 h-7 rounded-md flex items-center justify-center border border-white/60 bg-white/70 backdrop-blur-sm shadow-md hover:bg-white/90 transition"
@@ -497,7 +497,7 @@ function BentoSystemCard() {
       </div>
     </div>
 
-    {/* ── Expanded detail modal — same pattern as all other cards ── */}
+    {/* ── Expanded detail modal - same pattern as all other cards ── */}
     {expanded && (
       <div
         className="fixed inset-0 z-50 flex items-end justify-center md:items-stretch md:justify-center md:px-6"
@@ -538,7 +538,7 @@ function BentoSystemCard() {
                   One Intelligent System
                 </h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-4 md:mb-6">
-                  Connect every manufacturing module into one unified platform — BOM, process planning, supplier evaluation, production, quality, delivery, benchmarking, and VAVE — all sharing live data and working together to accelerate decisions.
+                  Connect every manufacturing module into one unified platform - BOM, process planning, supplier evaluation, production, quality, delivery, benchmarking, and VAVE - all sharing live data and working together to accelerate decisions.
                 </p>
                 <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-6 md:mb-8">
                   <button className="flex items-center gap-2 px-4 md:px-5 py-2.5 rounded-lg text-sm font-semibold text-white hover:opacity-85 transition group" style={{ background: "linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))" }}>
@@ -549,7 +549,7 @@ function BentoSystemCard() {
                     See pricing
                   </button>
                 </div>
-                {/* visualization — the cycling card */}
+                {/* visualization - the cycling card */}
                 <div className="platform-showcase">
                   <div className="rounded-2xl overflow-hidden shadow-lg relative"
                     style={{ background: "rgba(248,250,252,1)", border: "1px solid #e5e7eb" }}>
@@ -621,7 +621,7 @@ function BentoSystemCard() {
             <div className="bg-white px-4 sm:px-8 md:px-16 py-10 md:py-12 text-center">
               <p className="text-sm font-bold text-gray-900 mb-4 md:mb-6 tracking-wide uppercase">Aerospace OEM</p>
               <blockquote className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 md:mb-6 max-w-xl mx-auto">
-                &ldquo;For the first time, our engineering, sourcing, and quality teams are looking at the same data in real time. The decisions we make in Emithran flow instantly across every module — it changed how we operate.&rdquo;
+                &ldquo;For the first time, our engineering, sourcing, and quality teams are looking at the same data in real time. The decisions we make in Emithran flow instantly across every module - it changed how we operate.&rdquo;
               </blockquote>
               <p className="text-sm text-gray-500">
                 <span className="font-semibold text-gray-800">Vikram Nair,</span>{" "}

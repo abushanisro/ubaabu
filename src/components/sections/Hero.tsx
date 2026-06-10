@@ -6,7 +6,7 @@ import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 const CAPABILITIES = ['BOM Intelligence', 'Should-Cost', 'Supplier Radar', 'Quality & PPAP']
 
-// S(t) = S₀ · e^(r·t) — continuous compound growth
+// S(t) = S₀ · e^(r·t) - continuous compound growth
 // S₀ = $25,000 · r = 0.0025 day⁻¹ · Epoch: 2024-06-01
 // CC_R is a modelling parameter, not a customer-derived metric
 const CC_S0    = 25_000
@@ -112,7 +112,7 @@ export default function Hero() {
         <div className="relative w-full pb-4 pt-4 lg:pb-20 lg:pt-12">
 
 
-          {/* Main product card — HeroVideoDialog */}
+          {/* Main product card - HeroVideoDialog */}
           <div className="relative overflow-hidden rounded-2xl shadow-[0_32px_80px_rgba(0,0,0,0.22)]">
             <HeroVideoDialog
               animationStyle="from-center"
@@ -132,7 +132,7 @@ export default function Hero() {
 
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 
-      {/* ── Partner logos — fills the bottom gap ── */}
+      {/* ── Partner logos - fills the bottom gap ── */}
       <div className="absolute inset-x-0 bottom-0 z-20 border-t border-b border-black/[0.06] bg-white/80 backdrop-blur-sm py-2">
         <style>{`
           @keyframes marquee-p { from { transform: translateX(0) } to { transform: translateX(-25%) } }

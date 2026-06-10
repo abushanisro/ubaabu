@@ -41,7 +41,7 @@ export default function PricingAddons() {
               Specialized modules.
             </h2>
             <p className="mt-4 text-base text-[#0f1b2d]/55">
-              Optional capabilities you can attach to any package — priced clearly, scoped narrowly.
+              Optional capabilities you can attach to any package - priced clearly, scoped narrowly.
             </p>
           </div>
         </AnimateIn>

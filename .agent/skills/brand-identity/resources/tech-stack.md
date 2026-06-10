@@ -17,8 +17,8 @@ When generating code or UI components for Emithran, you **MUST** strictly adhere
 ### 1. Tailwind Usage
 * Use utility classes directly in JSX.
 * For brand colors not in Tailwind defaults, use inline `style` props with tokens from `design-tokens.json`.
-* Avoid hardcoding hex values directly — reference the token names from `design-tokens.json`.
-* **Dark Mode:** Not currently used — default to light mode only.
+* Avoid hardcoding hex values directly - reference the token names from `design-tokens.json`.
+* **Dark Mode:** Not currently used - default to light mode only.
 
 ### 2. Component Patterns
 * **Buttons (primary):** Teal background `#2dd4bf`, navy text `#0f1b2d`, `border-radius: 999px`, `box-shadow: 0 4px 24px rgba(45,212,191,0.30)`.
@@ -35,15 +35,15 @@ When generating code or UI components for Emithran, you **MUST** strictly adhere
 
 ### 4. Forbidden Patterns
 * Do NOT use jQuery or Bootstrap.
-* Do NOT use `@react-three/fiber` — use plain Three.js.
+* Do NOT use `@react-three/fiber` - use plain Three.js.
 * Do NOT create new global CSS files; keep styles in component files via Tailwind or inline `style` props.
-* Do NOT use `margin` for offset below fixed navbar — use `padding` to prevent margin collapse.
+* Do NOT use `margin` for offset below fixed navbar - use `padding` to prevent margin collapse.
 
 ### 5. Anti-AI-Slop Visual Rules
-* Do NOT use typewriter/cycling text animations — show copy as static text.
-* Do NOT animate numeric metrics — display them as static numbers.
-* Do NOT use `backdrop-blur` on regular cards — use solid `bg-white` with a border.
-* Do NOT use dark backgrounds with teal/neon glow accents in body sections — keep to light `bg-white` or `bg-[#fafafa]`.
+* Do NOT use typewriter/cycling text animations - show copy as static text.
+* Do NOT animate numeric metrics - display them as static numbers.
+* Do NOT use `backdrop-blur` on regular cards - use solid `bg-white` with a border.
+* Do NOT use dark backgrounds with teal/neon glow accents in body sections - keep to light `bg-white` or `bg-[#fafafa]`.
 * Do NOT use pulsing orbs, floating particle animations, or blur-circle decorative div backgrounds.
 * Do NOT use continuous `animation: ... infinite` loops on purely decorative elements.
 * Subtle scroll-triggered fade-in (Framer Motion `useInView`, `once: true`) is acceptable.

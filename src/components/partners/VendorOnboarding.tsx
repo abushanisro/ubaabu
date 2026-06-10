@@ -293,7 +293,7 @@ const INIT: F = {
   notes: '',
 }
 
-/* ── Step 1 — Company ─────────────────────────────────────────────── */
+/* ── Step 1 - Company ─────────────────────────────────────────────── */
 
 function Step1({ d, e, set }: { d: F; e: Errs; set: <K extends keyof F>(k: K, v: F[K]) => void }) {
   return (
@@ -363,7 +363,7 @@ function Step1({ d, e, set }: { d: F; e: Errs; set: <K extends keyof F>(k: K, v:
   )
 }
 
-/* ── Step 2 — Capabilities ───────────────────────────────────────── */
+/* ── Step 2 - Capabilities ───────────────────────────────────────── */
 
 function Step2({ d, e, set }: { d: F; e: Errs; set: <K extends keyof F>(k: K, v: F[K]) => void }) {
   return (
@@ -392,7 +392,7 @@ function Step2({ d, e, set }: { d: F; e: Errs; set: <K extends keyof F>(k: K, v:
   )
 }
 
-/* ── Step 3 — Equipment & Certs ──────────────────────────────────── */
+/* ── Step 3 - Equipment & Certs ──────────────────────────────────── */
 
 function Step3({ d, e, set }: { d: F; e: Errs; set: <K extends keyof F>(k: K, v: F[K]) => void }) {
   const [processMode, setProcessMode]   = useState<'select' | 'custom'>('select')
@@ -546,7 +546,7 @@ function Step3({ d, e, set }: { d: F; e: Errs; set: <K extends keyof F>(k: K, v:
   )
 }
 
-/* ── Step 4 — Review ─────────────────────────────────────────────── */
+/* ── Step 4 - Review ─────────────────────────────────────────────── */
 
 function ReviewRow({ label, value }: { label: string; value?: string }) {
   if (!value) return null
@@ -816,7 +816,7 @@ export default function VendorOnboardingPage() {
         <div className="mx-auto max-w-[1280px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24">
 
-            {/* Left — copy */}
+            {/* Left - copy */}
             <div className="lg:pt-2">
               <span className="inline-block text-[11px] font-bold uppercase tracking-widest mb-5 px-3 py-1 rounded-full"
                 style={{ color: '#0d9488', background: 'rgba(13,148,136,0.08)' }}>
@@ -857,7 +857,7 @@ export default function VendorOnboardingPage() {
               </p>
             </div>
 
-            {/* Right — form */}
+            {/* Right - form */}
             <VendorOnboardingForm />
           </div>
         </div>

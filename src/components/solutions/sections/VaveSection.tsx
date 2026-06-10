@@ -90,7 +90,7 @@ export default function VaveSection() {
                     </div>
                     <p className="mt-1.5 text-sm leading-relaxed text-black/75">
                       AI continuously reviews complexity, materials, processes and
-                      consolidation — surfacing prioritized opportunities.
+                      consolidation - surfacing prioritized opportunities.
                     </p>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ export default function VaveSection() {
                   The AI does the boring work."
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
-                  — $1.2B+ manufacturing conglomerate
+                  - $1.2B+ manufacturing conglomerate
                 </figcaption>
               </motion.figure>
             </div>

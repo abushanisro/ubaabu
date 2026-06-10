@@ -97,7 +97,7 @@ const INDUSTRIES = [
     tag: 'Space & Satellite Hardware',
     tagColor: '#0d9488',
     headline: 'Mission-critical parts. Zero margin for error.',
-    desc: 'Satellite buses, payload structures, propulsion components, ground systems. Tight tolerances, exotic materials, multi-tier supply chains — connected and traceable.',
+    desc: 'Satellite buses, payload structures, propulsion components, ground systems. Tight tolerances, exotic materials, multi-tier supply chains - connected and traceable.',
     bullets: [
       'Programme-level cost & schedule control',
       'Tier-1 / Tier-2 supplier intelligence',
@@ -161,7 +161,7 @@ const CAPABILITIES = [
   {
     Icon: IconCost,
     title: 'Should-Cost Intelligence',
-    desc: 'AI-driven cost models across 72,000+ verified data points — for every part, process, and material in your BOM.',
+    desc: 'AI-driven cost models across 72,000+ verified data points - for every part, process, and material in your BOM.',
   },
   {
     Icon: IconSupplier,
@@ -171,7 +171,7 @@ const CAPABILITIES = [
   {
     Icon: IconProgramme,
     title: 'Programme Visibility',
-    desc: 'Live OTIF tracking, quality checkpoints, and delivery intelligence — from first article to final shipment.',
+    desc: 'Live OTIF tracking, quality checkpoints, and delivery intelligence - from first article to final shipment.',
   },
 ]
 

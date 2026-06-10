@@ -199,7 +199,7 @@ export default function AboutReferencePage() {
         <div className="relative mx-auto max-w-7xl w-full px-6 lg:px-10 py-14">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-            {/* Left — pure white, text on white */}
+            {/* Left - pure white, text on white */}
             <div>
               <Reveal delay={100}>
                 <h1 className="text-5xl md:text-6xl xl:text-[72px] font-bold leading-[1.04] tracking-tight text-[#0f1b2d]">
@@ -210,7 +210,7 @@ export default function AboutReferencePage() {
 
               <Reveal delay={200}>
                 <p className="mt-6 max-w-[440px] text-[17px] leading-relaxed text-black/60">
-                  Built by engineers who lived the problem — for India&rsquo;s precision manufacturers
+                  Built by engineers who lived the problem - for India&rsquo;s precision manufacturers
                   and the global OEMs they serve.
                 </p>
               </Reveal>
@@ -228,7 +228,7 @@ export default function AboutReferencePage() {
               </Reveal>
             </div>
 
-            {/* Right — card floats over the SVG background */}
+            {/* Right - card floats over the SVG background */}
             <Reveal delay={180}>
               <div
                 className="relative rounded-2xl p-6"
@@ -310,7 +310,7 @@ export default function AboutReferencePage() {
             <Reveal delay={150} className="md:col-span-5">
               <div className="relative pt-12">
 
-                {/* LinkedIn badge — Person 1: Singaravelan */}
+                {/* LinkedIn badge - Person 1: Singaravelan */}
                 <a
                   href="https://www.linkedin.com/in/singaravelan-srinivasan-emuski/"
                   target="_blank"
@@ -322,7 +322,7 @@ export default function AboutReferencePage() {
                   Singaravelan
                 </a>
 
-                {/* LinkedIn badge — Person 2: Abushan */}
+                {/* LinkedIn badge - Person 2: Abushan */}
                 <a
                   href="https://www.linkedin.com/in/abushan/"
                   target="_blank"

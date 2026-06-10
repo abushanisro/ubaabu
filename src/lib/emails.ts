@@ -12,7 +12,7 @@ function base(previewText: string, body: string) {
   <!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->
   <style>
     :root { color-scheme: light only; supported-color-schemes: light only; }
-    /* Force light mode — prevent email clients from inverting colors */
+    /* Force light mode - prevent email clients from inverting colors */
     @media (prefers-color-scheme: dark) {
       body, table, td, a { background-color: inherit !important; color: inherit !important; }
       .force-white { background-color: #ffffff !important; }
@@ -99,7 +99,7 @@ function infoRow(icon: string, label: string, value: string) {
 }
 
 // ─────────────────────────────────────────────
-// Contact Us — confirmation to user
+// Contact Us - confirmation to user
 // ─────────────────────────────────────────────
 export function contactConfirmationEmail(firstName: string, company: string) {
   const body = `
@@ -160,7 +160,7 @@ export function contactConfirmationEmail(firstName: string, company: string) {
 }
 
 // ─────────────────────────────────────────────
-// Request Demo — confirmation to user
+// Request Demo - confirmation to user
 // ─────────────────────────────────────────────
 export function demoConfirmationEmail(firstName: string, date: string, time: string) {
   const formattedDate = date

@@ -36,16 +36,16 @@ function Magnet({ children }: { children: ReactNode }) {
 // ── News ticker ───────────────────────────────────────────────────────────────
 const NEWS = [
   { label: 'New',        text: 'Should-cost engine covers 72,000+ verified supplier data points across 80+ Indian regions',   href: '/solutions' },
-  { label: 'Case Study', text: 'Chassis Ladder Frame — India vs Belgium Should Cost Analysis',                                  href: '/case-studies/chassis-india-belgium' },
+  { label: 'Case Study', text: 'Chassis Ladder Frame - India vs Belgium Should Cost Analysis',                                  href: '/case-studies/chassis-india-belgium' },
   { label: 'Update',     text: 'Design-to-Cost integration now live inside CAD workflows for tier-1 manufacturers',            href: '/solutions' },
-  { label: 'Case Study', text: 'DC-DC Converter Teardown & VAVE — cost reduction through design optimisation',                 href: '/case-studies/dc-dc-converter' },
+  { label: 'Case Study', text: 'DC-DC Converter Teardown & VAVE - cost reduction through design optimisation',                 href: '/case-studies/dc-dc-converter' },
   { label: 'Case Study', text: 'Electronics Teardown, PCB Should Costing & VAVE analysis',                                     href: '/case-studies/electronics-teardown' },
-  { label: 'Case Study', text: 'Should Costing for Exhaust System — full BOM breakdown',                                       href: '/case-studies/exhaust-system' },
+  { label: 'Case Study', text: 'Should Costing for Exhaust System - full BOM breakdown',                                       href: '/case-studies/exhaust-system' },
   { label: 'Insight',    text: 'AI-driven VAVE identifies average −18% cost reduction across active BOMs',                     href: '/case-studies/dc-dc-converter' },
-  { label: 'Case Study', text: 'HGV CAB Structure Strategy — Should Cost & Decision Matrix',                                   href: '/case-studies/hgv-cab-strategy' },
-  { label: 'Case Study', text: 'Should Costing — HGV Chassis Ladder Frame deep dive',                                          href: '/case-studies/hgv-chassis' },
-  { label: 'Case Study', text: '2T LCV Rear Drive Axle — Should Cost Analysis',                                                href: '/case-studies/rear-axle-should-cost' },
-  { label: 'Case Study', text: 'Rear View Mirror Assembly — BOM Should Cost breakdown',                                        href: '/case-studies/rear-view-mirror' },
+  { label: 'Case Study', text: 'HGV CAB Structure Strategy - Should Cost & Decision Matrix',                                   href: '/case-studies/hgv-cab-strategy' },
+  { label: 'Case Study', text: 'Should Costing - HGV Chassis Ladder Frame deep dive',                                          href: '/case-studies/hgv-chassis' },
+  { label: 'Case Study', text: '2T LCV Rear Drive Axle - Should Cost Analysis',                                                href: '/case-studies/rear-axle-should-cost' },
+  { label: 'Case Study', text: 'Rear View Mirror Assembly - BOM Should Cost breakdown',                                        href: '/case-studies/rear-view-mirror' },
   { label: 'Feature',    text: 'Live supplier capacity tracking now available across 1,000+ verified suppliers',                href: '/solutions' },
 ]
 
@@ -79,7 +79,7 @@ export default function SolutionsHero() {
           overflow:   'hidden',
         }}
       >
-        {/* ── Stripe-style news ticker — absolutely on top of wave ── */}
+        {/* ── Stripe-style news ticker - absolutely on top of wave ── */}
         <style>{`
           @keyframes tickerScroll {
             0%   { transform: translateX(0) }
@@ -169,7 +169,7 @@ export default function SolutionsHero() {
             ))}
           </div>
         </div>
-        {/* SVG wave — right side animated background */}
+        {/* SVG wave - right side animated background */}
         <style>{`
           @keyframes waveDrift {
             0%, 100% { transform: scale(1.04) translateY(0px) translateX(0px) }
@@ -212,7 +212,7 @@ export default function SolutionsHero() {
           />
         </div>
 
-        {/* Gradient overlay — stronger on mobile to keep text readable */}
+        {/* Gradient overlay - stronger on mobile to keep text readable */}
         <style>{`
           .hero-gradient-overlay {
             background: linear-gradient(to right, #ffffff 35%, rgba(255,255,255,0.60) 58%, rgba(255,255,255,0.05) 82%);
@@ -281,7 +281,7 @@ export default function SolutionsHero() {
                 className="mt-5 max-w-md leading-relaxed"
                 style={{ fontSize: '14.5px', color: 'rgba(0,0,0,0.55)' }}
               >
-                Emithran connects design, sourcing, and supply chain intelligence in one platform — giving engineering, procurement, and operations teams the data they need to move faster and spend less.
+                Emithran connects design, sourcing, and supply chain intelligence in one platform - giving engineering, procurement, and operations teams the data they need to move faster and spend less.
               </motion.p>
 
               {/* CTAs */}

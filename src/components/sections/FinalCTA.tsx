@@ -39,7 +39,7 @@ export default function FinalCTA() {
           </div>
         </div>
 
-        {/* ── Mobile card (< md) — 9:16 aspect ratio ── */}
+        {/* ── Mobile card (< md) - 9:16 aspect ratio ── */}
         <div className="relative overflow-hidden rounded-2xl md:hidden" style={{ aspectRatio: '9 / 16' }}>
           <img
             src="/assets/cards/requestcardmobile.svg"

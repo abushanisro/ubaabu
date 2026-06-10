@@ -372,7 +372,7 @@ function ContactPageContent() {
       {/* White overlay */}
       <div className="absolute inset-0 bg-white/20 pointer-events-none" />
 
-      {/* Column guides — hidden on mobile */}
+      {/* Column guides - hidden on mobile */}
       <div className="hidden sm:flex pointer-events-none absolute inset-0 justify-between px-16 z-0" aria-hidden="true">
         {[...Array(5)].map((_, i) => (
           <div key={i} className="w-px bg-black/[0.06] h-full" />
@@ -382,7 +382,7 @@ function ContactPageContent() {
       {/* Minimal header */}
       <ContactHeader step={step} />
 
-      {/* Page content — grows to push footer down */}
+      {/* Page content - grows to push footer down */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-16 relative z-10">
 
       {/* Card */}

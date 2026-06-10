@@ -68,7 +68,7 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
 
       <div className="px-5 pt-4 pb-3 flex flex-col gap-4" style={{ height: 'calc(100% - 44px)' }}>
 
-        {/* Scan panel + defect trend — top row */}
+        {/* Scan panel + defect trend - top row */}
         <div className="flex gap-4 flex-1">
 
           {/* Scan panel */}
@@ -196,7 +196,7 @@ export default function QualityGuardSection() {
       aria-label="Quality Guard module"
       className="relative bg-white overflow-hidden"
     >
-      {/* Ambient — top-center */}
+      {/* Ambient - top-center */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 55% 35% at 50% 0%, rgba(20,184,166,0.05) 0%, transparent 100%)' }} />
 

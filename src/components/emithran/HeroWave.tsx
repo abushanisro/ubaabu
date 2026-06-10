@@ -95,7 +95,7 @@ export default function HeroWave({ className }: { className?: string }) {
       const W3     = 0.60 + dShift
 
       if (isMobile) {
-        // ── Mobile: clip to safe zone — right ~45% at top, full-width at bottom ─
+        // ── Mobile: clip to safe zone - right ~45% at top, full-width at bottom ─
         // This diagonal clip keeps waves away from the text column entirely.
         ctx.save()
         ctx.beginPath()
@@ -116,7 +116,7 @@ export default function HeroWave({ className }: { className?: string }) {
         ctx.closePath()
         ctx.clip()
 
-        // Draw waves in the clipped safe zone (no shift needed — clip handles it)
+        // Draw waves in the clipped safe zone (no shift needed - clip handles it)
         const M1 = 0.54, M2 = 0.62, M3 = 0.70
 
         // Wave 1
@@ -147,7 +147,7 @@ export default function HeroWave({ className }: { className?: string }) {
             (M2+0.09 + b1 * 0.015+ mx) * w,  h,
             g, 0.60 * breathe)
         }
-        // Wave 3 — radial glow in top-right
+        // Wave 3 - radial glow in top-right
         {
           const cx = (0.86 + a3 * 0.03 + mx) * w
           const cy = (0.08 + b3 * 0.03 + my) * h
@@ -179,7 +179,7 @@ export default function HeroWave({ className }: { className?: string }) {
       } else {
         // ── Desktop / Tablet waves ────────────────────────────────────────────
 
-        // Wave 1 — wide, soft, light aqua
+        // Wave 1 - wide, soft, light aqua
         {
           const g = ctx.createLinearGradient((W1 - 0.04) * w, 0, w, h * 0.55)
           g.addColorStop(0,    '#a7f3d0')
@@ -194,7 +194,7 @@ export default function HeroWave({ className }: { className?: string }) {
             g, 0.40 * breathe)
         }
 
-        // Wave 2 — vivid teal core
+        // Wave 2 - vivid teal core
         {
           const g = ctx.createLinearGradient((W2 - 0.05) * w, 0, w, h * 0.9)
           g.addColorStop(0,    '#67e8f9')
@@ -209,7 +209,7 @@ export default function HeroWave({ className }: { className?: string }) {
             g, 0.58 * breathe)
         }
 
-        // Wave 3 — bright top-right radial glow
+        // Wave 3 - bright top-right radial glow
         {
           const cx = (0.84 + a3 * 0.035 + mx) * w
           const cy = (0.10 + b3 * 0.035 + my) * h
@@ -226,7 +226,7 @@ export default function HeroWave({ className }: { className?: string }) {
             g, 0.68 * breathe)
         }
 
-        // Feather — white gradient that softens the left wave edge
+        // Feather - white gradient that softens the left wave edge
         {
           const FEATHER = 0.44 + dShift
           const ex = (FEATHER + a1 * 0.016 + mx) * w

@@ -42,7 +42,7 @@ function PillarCard({ item, index }: { item: (typeof PILLARS)[number]; index: nu
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
     >
-      {/* Background roman numeral — increased opacity */}
+      {/* Background roman numeral - increased opacity */}
       <div
         className="absolute -top-6 -left-2 font-display font-bold pointer-events-none select-none leading-none transition-colors duration-500"
         style={{
@@ -236,7 +236,7 @@ export default function ApproachAndBenefits() {
           className="relative rounded-2xl overflow-hidden"
           style={{ background: 'linear-gradient(135deg, #0d9488 0%, #0f766e 55%, #0d9488 100%)' }}
         >
-          {/* Teal radial glow — stronger, centred */}
+          {/* Teal radial glow - stronger, centred */}
           <div
             aria-hidden
             className="absolute inset-0 pointer-events-none"

@@ -49,8 +49,8 @@ function adminEmail(data: {
     ${row('Email',     data.email)}
     ${row('Company',   data.company)}
     ${row('Role',      data.role)}
-    ${row('Country',   data.country || '—')}
-    ${row('Team Size', data.teamSize || '—')}
+    ${row('Country',   data.country || '-')}
+    ${row('Team Size', data.teamSize || '-')}
   `)}
 
   ${section('Scheduled Slot', `
@@ -105,13 +105,13 @@ export async function POST(req: NextRequest) {
         from:    `Emithran <${FROM}>`,
         to:      NOTIFY_TO,
         replyTo: email,
-        subject: `Demo request — ${name} @ ${company} · ${date} ${time}`,
+        subject: `Demo request - ${name} @ ${company} · ${date} ${time}`,
         html:    adminEmail({ name, email, company, role, country: country ?? '', teamSize: teamSize ?? '', date: date ?? '', time: time ?? '', message: message ?? '' }),
       }),
       resend.emails.send({
         from:    `Emithran <${FROM}>`,
         to:      email,
-        subject: `Your Emithran demo is confirmed — ${date} at ${time} IST`,
+        subject: `Your Emithran demo is confirmed - ${date} at ${time} IST`,
         html:    demoConfirmationEmail(name.split(' ')[0], date ?? '', time ?? ''),
       }),
     ])

@@ -189,7 +189,7 @@ export default function BenchmarkAnalysisSection() {
       aria-label="Benchmark Analysis module"
       className="relative bg-white overflow-hidden"
     >
-      {/* Ambient — bottom-right */}
+      {/* Ambient - bottom-right */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 50% 45% at 90% 90%, rgba(20,184,166,0.04) 0%, transparent 70%)' }} />
 

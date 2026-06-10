@@ -233,7 +233,7 @@ export default function VendorMatchSection() {
       aria-label="Vendor Match module"
       className="relative bg-white overflow-hidden"
     >
-      {/* Ambient — bottom-left */}
+      {/* Ambient - bottom-left */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 50% 45% at 10% 80%, rgba(20,184,166,0.04) 0%, transparent 70%)' }} />
 

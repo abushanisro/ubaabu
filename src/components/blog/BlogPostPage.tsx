@@ -125,7 +125,7 @@ function buildShareUrl(platform: string, pageUrl: string, title: string) {
   const u = encodeURIComponent(pageUrl)
   const t = encodeURIComponent(title)
   switch (platform) {
-    case 'WhatsApp': return `https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' — ' + pageUrl)}`
+    case 'WhatsApp': return `https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' - ' + pageUrl)}`
     case 'Facebook': return `https://www.facebook.com/sharer/sharer.php?u=${u}`
     case 'Twitter':  return `https://twitter.com/intent/tweet?text=${t}&url=${u}&via=EmithranHQ`
     case 'LinkedIn': return `https://www.linkedin.com/sharing/share-offsite/?url=${u}`

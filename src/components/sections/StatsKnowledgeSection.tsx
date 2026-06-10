@@ -14,10 +14,10 @@ const ManufacturingViz = dynamic(
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const GRAPHS: Record<number, { title: string; sub: string; nodes: KGNode[]; links: KGLink[] }> = {
-  // $72B+ — Indian defence procurement
+  // $72B+ - Indian defence procurement
   0: {
     title: 'Defence Procurement Intelligence Graph',
-    sub: '$72B+ annual spend — currently managed on spreadsheets & legacy ERP',
+    sub: '$72B+ annual spend - currently managed on spreadsheets & legacy ERP',
     nodes: [
       { id: 'procurement', label: 'Defence\nProcurement', group: 'core', radius: 28 },
       { id: '72b',         label: '$72B+\nAnnual',        group: 'metric', radius: 22 },
@@ -53,7 +53,7 @@ const GRAPHS: Record<number, { title: string; sub: string; nodes: KGNode[]; link
     ],
   },
 
-  // 99.4% — BOM Accuracy
+  // 99.4% - BOM Accuracy
   2: {
     title: 'BOM Accuracy Knowledge Graph',
     sub: '99.4% accuracy across 47 active defence & aerospace programmes',
@@ -177,7 +177,7 @@ export default function StatsKnowledgeSection({ active, time, playing }: Props) 
             </div>
           </motion.div>
         ) : (
-          // Stat 1 (40%) — ManufacturingViz
+          // Stat 1 (40%) - ManufacturingViz
           <motion.div
             key={active}
             className="absolute inset-0"

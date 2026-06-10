@@ -279,7 +279,7 @@ export default function PrivacyPage() {
 
           <SubHeading id="platform-users">a. Platform Users</SubHeading>
           <Para>
-            Platform Users are individuals who create an account and use the Emithran platform directly — engineers, procurement managers, cost analysts, and supply chain professionals.
+            Platform Users are individuals who create an account and use the Emithran platform directly - engineers, procurement managers, cost analysts, and supply chain professionals.
           </Para>
           <Para><Bold>Personal Data we collect:</Bold></Para>
           <Ul items={[
@@ -288,7 +288,7 @@ export default function PrivacyPage() {
             'Profile information: profile photo and LinkedIn URL (both optional)',
             'Usage data: features accessed, BOM analyses created, reports generated, and session activity logs',
             'Communications: support requests, in-platform messages, and feedback submissions',
-            'Payment data: billing address and invoice details — card numbers are processed by our payment provider and never stored on Emithran servers',
+            'Payment data: billing address and invoice details - card numbers are processed by our payment provider and never stored on Emithran servers',
           ]} />
           <Para><Bold>How we use this data:</Bold></Para>
           <Ul items={[
@@ -307,7 +307,7 @@ export default function PrivacyPage() {
           <Ul items={[
             'Organisation details: company name, registered address, and company identification number',
             'Contact persons: name, work email, phone number, and role of the primary and billing contacts',
-            'KYB information: where required by applicable law or partner programmes — business registration documents and beneficial ownership information',
+            'KYB information: where required by applicable law or partner programmes - business registration documents and beneficial ownership information',
             'Contractual records: signed agreements, purchase orders, and formal correspondence',
           ]} />
 
@@ -327,14 +327,14 @@ export default function PrivacyPage() {
           {/* ── Section 3 ── */}
           <SectionHeading id="how-we-use" number={3}>How we use Personal Data</SectionHeading>
           <Ul items={[
-            <><Bold>Service delivery</Bold> — to operate the platform, process analyses, and deliver reports you request</>,
-            <><Bold>Account management</Bold> — to create and manage accounts, handle authentication, and administer workspaces</>,
-            <><Bold>Customer support</Bold> — to respond to enquiries, troubleshoot issues, and provide technical assistance</>,
-            <><Bold>Product improvement</Bold> — to analyse usage patterns, identify bugs, and develop features based on aggregated data</>,
-            <><Bold>Marketing communications</Bold> — to send newsletters, product updates, and event invitations where you have opted in or where we have a legitimate interest</>,
-            <><Bold>Security and fraud prevention</Bold> — to detect and prevent unauthorised access, fraud, and illegal activity</>,
-            <><Bold>Legal compliance</Bold> — to meet obligations under applicable law including tax, anti-money-laundering, and data protection requirements</>,
-            <><Bold>Business operations</Bold> — for auditing, financial reporting, and operational planning</>,
+            <><Bold>Service delivery</Bold> - to operate the platform, process analyses, and deliver reports you request</>,
+            <><Bold>Account management</Bold> - to create and manage accounts, handle authentication, and administer workspaces</>,
+            <><Bold>Customer support</Bold> - to respond to enquiries, troubleshoot issues, and provide technical assistance</>,
+            <><Bold>Product improvement</Bold> - to analyse usage patterns, identify bugs, and develop features based on aggregated data</>,
+            <><Bold>Marketing communications</Bold> - to send newsletters, product updates, and event invitations where you have opted in or where we have a legitimate interest</>,
+            <><Bold>Security and fraud prevention</Bold> - to detect and prevent unauthorised access, fraud, and illegal activity</>,
+            <><Bold>Legal compliance</Bold> - to meet obligations under applicable law including tax, anti-money-laundering, and data protection requirements</>,
+            <><Bold>Business operations</Bold> - for auditing, financial reporting, and operational planning</>,
           ]} />
           <Divider />
 
@@ -342,11 +342,11 @@ export default function PrivacyPage() {
           <SectionHeading id="how-we-share" number={4}>How we share Personal Data</SectionHeading>
           <Para>We do not sell your personal data. We share it only as described below.</Para>
           <Ul items={[
-            <><Bold>Service providers</Bold> — we engage third-party providers for cloud hosting (AWS), payment processing (Stripe), email delivery (Resend), analytics, and customer support tools. Each operates under strict data processing agreements with Emithran.</>,
-            <><Bold>Workspace administrators</Bold> — if you use Emithran through a Business User workspace, your activity data within that workspace may be visible to the workspace administrator.</>,
-            <><Bold>Legal obligations</Bold> — we may disclose data to law enforcement, regulatory bodies, or courts when required by law, court order, or to protect our legal rights and those of our users.</>,
-            <><Bold>Business transfers</Bold> — in the event of a merger, acquisition, or asset sale, personal data may be transferred to the successor entity under equivalent privacy protections and with notice to affected users.</>,
-            <><Bold>With your consent</Bold> — for any other sharing not described above, we will seek your explicit consent in advance.</>,
+            <><Bold>Service providers</Bold> - we engage third-party providers for cloud hosting (AWS), payment processing (Stripe), email delivery (Resend), analytics, and customer support tools. Each operates under strict data processing agreements with Emithran.</>,
+            <><Bold>Workspace administrators</Bold> - if you use Emithran through a Business User workspace, your activity data within that workspace may be visible to the workspace administrator.</>,
+            <><Bold>Legal obligations</Bold> - we may disclose data to law enforcement, regulatory bodies, or courts when required by law, court order, or to protect our legal rights and those of our users.</>,
+            <><Bold>Business transfers</Bold> - in the event of a merger, acquisition, or asset sale, personal data may be transferred to the successor entity under equivalent privacy protections and with notice to affected users.</>,
+            <><Bold>With your consent</Bold> - for any other sharing not described above, we will seek your explicit consent in advance.</>,
           ]} />
           <Divider />
 
@@ -356,10 +356,10 @@ export default function PrivacyPage() {
             Where the GDPR, UK GDPR, or equivalent legislation applies, we process personal data on the following legal bases:
           </Para>
           <Ul items={[
-            <><Bold>Contract performance</Bold> — processing necessary to deliver the services you have subscribed to or requested under our Terms of Service</>,
-            <><Bold>Legal obligation</Bold> — processing required to comply with applicable law including tax, financial reporting, and anti-fraud obligations</>,
-            <><Bold>Legitimate interests</Bold> — processing for platform security, fraud prevention, product improvement, and B2B marketing where our interests are not overridden by your rights</>,
-            <><Bold>Consent</Bold> — for marketing emails and optional analytics cookies. You may withdraw consent at any time without affecting the lawfulness of prior processing.</>,
+            <><Bold>Contract performance</Bold> - processing necessary to deliver the services you have subscribed to or requested under our Terms of Service</>,
+            <><Bold>Legal obligation</Bold> - processing required to comply with applicable law including tax, financial reporting, and anti-fraud obligations</>,
+            <><Bold>Legitimate interests</Bold> - processing for platform security, fraud prevention, product improvement, and B2B marketing where our interests are not overridden by your rights</>,
+            <><Bold>Consent</Bold> - for marketing emails and optional analytics cookies. You may withdraw consent at any time without affecting the lawfulness of prior processing.</>,
           ]} />
           <Divider />
 
@@ -367,13 +367,13 @@ export default function PrivacyPage() {
           <SectionHeading id="your-rights" number={6}>Your rights and choices</SectionHeading>
           <Para>Depending on your jurisdiction, you may have the following rights regarding your personal data:</Para>
           <Ul items={[
-            <><Bold>Access</Bold> — request a copy of the personal data we hold about you</>,
-            <><Bold>Rectification</Bold> — correct inaccurate or incomplete personal data</>,
-            <><Bold>Erasure</Bold> — request deletion of your personal data, subject to legal retention obligations</>,
-            <><Bold>Restriction</Bold> — request that we limit how we process your data while a dispute is under review</>,
-            <><Bold>Data portability</Bold> — receive your personal data in a machine-readable format and transfer it to another service</>,
-            <><Bold>Objection</Bold> — object to processing based on legitimate interests, including profiling for direct marketing</>,
-            <><Bold>Opt out of marketing</Bold> — unsubscribe from marketing emails at any time via the unsubscribe link in any email or by contacting us at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink></>,
+            <><Bold>Access</Bold> - request a copy of the personal data we hold about you</>,
+            <><Bold>Rectification</Bold> - correct inaccurate or incomplete personal data</>,
+            <><Bold>Erasure</Bold> - request deletion of your personal data, subject to legal retention obligations</>,
+            <><Bold>Restriction</Bold> - request that we limit how we process your data while a dispute is under review</>,
+            <><Bold>Data portability</Bold> - receive your personal data in a machine-readable format and transfer it to another service</>,
+            <><Bold>Objection</Bold> - object to processing based on legitimate interests, including profiling for direct marketing</>,
+            <><Bold>Opt out of marketing</Bold> - unsubscribe from marketing emails at any time via the unsubscribe link in any email or by contacting us at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink></>,
           ]} />
           <Para>
             To exercise any right, email <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>. We will respond within 30 days, or within the period required by applicable law. We may need to verify your identity before acting on your request.
@@ -384,7 +384,7 @@ export default function PrivacyPage() {
           <SectionHeading id="retention" number={7}>Retention</SectionHeading>
           <Para>We retain personal data for as long as necessary to fulfil the purposes for which it was collected, or as required by law.</Para>
           <Ul items={[
-            'Account data is retained for the duration of your active subscription, plus 90 days after closure to allow for reactivation — after which it is deleted or anonymised',
+            'Account data is retained for the duration of your active subscription, plus 90 days after closure to allow for reactivation - after which it is deleted or anonymised',
             'Financial and invoicing records are retained for 7 years under the Income Tax Act 1961 and applicable foreign tax obligations',
             'Support and communications records are retained for 3 years after the last interaction',
             'Website analytics data is retained for 26 months in aggregated form',
@@ -458,7 +458,7 @@ export default function PrivacyPage() {
 
           <SubHeading id="eea-uk">EEA and United Kingdom</SubHeading>
           <Para>
-            If you are located in the European Economic Area or the United Kingdom, you have rights under the <Bold>GDPR</Bold> or <Bold>UK GDPR</Bold> respectively and may lodge a complaint with your local supervisory authority — the Information Commissioner&rsquo;s Office (ICO) for UK residents, or the relevant national authority for EEA residents.
+            If you are located in the European Economic Area or the United Kingdom, you have rights under the <Bold>GDPR</Bold> or <Bold>UK GDPR</Bold> respectively and may lodge a complaint with your local supervisory authority - the Information Commissioner&rsquo;s Office (ICO) for UK residents, or the relevant national authority for EEA residents.
           </Para>
           <Para>
             Our EU GDPR representative can be reached at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>.

@@ -12,9 +12,9 @@ import CostBenchmarkerSection from '@/components/products/CostBenchmarkerSection
 
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
-  title: 'Products — BOM Intelligence, Should-Cost, Supplier Radar & More',
+  title: 'Products - BOM Intelligence, Should-Cost, Supplier Radar & More',
   description:
-    'Emithran\'s AI modules: BOM Composer, Should-Cost Analysis, Supplier Radar, VAVE Studio, Quality Guard, Launch Tracker, and Shipment Hub — built for defence, aerospace, and space manufacturers.',
+    'Emithran\'s AI modules: BOM Composer, Should-Cost Analysis, Supplier Radar, VAVE Studio, Quality Guard, Launch Tracker, and Shipment Hub - built for defence, aerospace, and space manufacturers.',
   keywords: [
     'BOM management software', 'should cost analysis platform', 'supplier radar tool',
     'VAVE analysis software', 'quality guard manufacturing', 'launch tracker NPI',
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/products' },
   openGraph: {
-    title: 'Emithran Products — Full Manufacturing Intelligence Suite',
-    description: 'BOM Composer, Should-Cost, Supplier Radar, VAVE Studio, Quality Guard — all connected on one platform.',
+    title: 'Emithran Products - Full Manufacturing Intelligence Suite',
+    description: 'BOM Composer, Should-Cost, Supplier Radar, VAVE Studio, Quality Guard - all connected on one platform.',
     url: '/products', type: 'website',
   },
 }

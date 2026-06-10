@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
     }
 
     const sourceLabel = source ? source : 'emithran.com'
-    const ctaLabel   = cta    ? cta    : '—'
+    const ctaLabel   = cta    ? cta    : '-'
 
     const html = `
       <!DOCTYPE html>
@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
         from:    `Emithran <${FROM}>`,
         to:      TO,
         replyTo: email,
-        subject: `Contact request — ${firstName} ${lastName} (${company})${source ? ` [${source}]` : ''}`,
+        subject: `Contact request - ${firstName} ${lastName} (${company})${source ? ` [${source}]` : ''}`,
         html,
       }),
       resend.emails.send({

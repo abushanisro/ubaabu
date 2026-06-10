@@ -16,7 +16,7 @@ export default function ElectronicsTeardownCaseStudy() {
       readTime="8 min read"
       metric="PCB $19.89 → $8.07"
       title={<>Electronics Teardown,<br className="hidden md:block" /> PCB Should Costing & VAVE</>}
-      subtitle="Radar sensor, EV BTMS, and wiring harness — full teardown to should cost across India, China, and European manufacturing locations"
+      subtitle="Radar sensor, EV BTMS, and wiring harness - full teardown to should cost across India, China, and European manufacturing locations"
       image="/assets/casestudy/case4.png"
       imageAlt="Electronics PCB teardown"
       stats={[
@@ -27,11 +27,11 @@ export default function ElectronicsTeardownCaseStudy() {
         { label: 'PCB Saving Found',      value: '$19.89 → $8.07' },
       ]}
       ctaTitle="Need PCB teardown, should costing, or VAVE for your electronics?"
-      ctaBody="Emithran's electronics team covers bare PCB, PCBA, and wire harness — from physical teardown through to supplier negotiation baseline."
+      ctaBody="Emithran's electronics team covers bare PCB, PCBA, and wire harness - from physical teardown through to supplier negotiation baseline."
       ctaSource="case-study-electronics-teardown"
     >
 
-      {/* Row 1 — Scope + Approach */}
+      {/* Row 1 - Scope + Approach */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card accent>
           <SectionLabel>Scope of Work</SectionLabel>
@@ -53,7 +53,7 @@ export default function ElectronicsTeardownCaseStudy() {
         </Card>
 
         <Card accent>
-          <SectionLabel>Execution Approach — 10-Step Should Cost</SectionLabel>
+          <SectionLabel>Execution Approach - 10-Step Should Cost</SectionLabel>
           <div className="space-y-2">
             {[
               { n: '01', t: 'Setup',     d: 'Work environment, project guidelines, procedures & checklist' },
@@ -70,7 +70,7 @@ export default function ElectronicsTeardownCaseStudy() {
               <div key={step.n} className="flex gap-3 rounded-lg px-3 py-2 hover:bg-black/[0.02]">
                 <span className="shrink-0 w-5 text-[11px] font-bold text-[#0d9488]">{step.n}</span>
                 <div>
-                  <span className="text-[12px] font-semibold text-[#0f1b2d]">{step.t} — </span>
+                  <span className="text-[12px] font-semibold text-[#0f1b2d]">{step.t} - </span>
                   <span className="text-[12px] text-[#64748b]">{step.d}</span>
                 </div>
               </div>
@@ -79,9 +79,9 @@ export default function ElectronicsTeardownCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 2 — Radar Sensor Teardown */}
+      {/* Row 2 - Radar Sensor Teardown */}
       <Card>
-        <SectionLabel>Case A — Radar Sensor Assembly Teardown</SectionLabel>
+        <SectionLabel>Case A - Radar Sensor Assembly Teardown</SectionLabel>
         <h2 className="mb-6 text-[17px] font-bold text-[#0f1b2d]">10-Component Exploded View + PCB Layer Stack Analysis</h2>
         <div className="grid gap-6 md:grid-cols-3">
 
@@ -95,7 +95,7 @@ export default function ElectronicsTeardownCaseStudy() {
                 { part: 'Radio Frequency PCB',             mat: 'FR4 – 4 Layers' },
                 { part: 'Radar Sensor Main Casing',        mat: 'PBT GF 30' },
                 { part: 'Connector',                       mat: '7 Pin' },
-                { part: 'Top Cover Bolt, Sealant, Breather', mat: '—' },
+                { part: 'Top Cover Bolt, Sealant, Breather', mat: '-' },
               ].map(({ part, mat }) => (
                 <div key={part} className="flex justify-between py-2 text-[12px]">
                   <span className="text-[#475569]">{part}</span>
@@ -156,14 +156,14 @@ export default function ElectronicsTeardownCaseStudy() {
         </div>
       </Card>
 
-      {/* Row 3 — Bare PCB Should Cost + Comparison */}
+      {/* Row 3 - Bare PCB Should Cost + Comparison */}
       <div>
-        <SectionLabel>Case B — Bare PCB Should Costing & Benchmarking</SectionLabel>
+        <SectionLabel>Case B - Bare PCB Should Costing & Benchmarking</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Main PCB · China · 65,000 units/yr · $3.046 should cost</h2>
 
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
-            <p className="mb-4 text-[13px] font-semibold text-[#0f1b2d]">Should Cost Breakdown — China Manufacturing</p>
+            <p className="mb-4 text-[13px] font-semibold text-[#0f1b2d]">Should Cost Breakdown - China Manufacturing</p>
             <div className="space-y-3">
               {[
                 { label: 'Bill of Material Cost',  usd: 1.357, pct: 45, color: '#0d9488' },
@@ -224,9 +224,9 @@ export default function ElectronicsTeardownCaseStudy() {
         </div>
       </div>
 
-      {/* Row 4 — PCBA Should Cost */}
+      {/* Row 4 - PCBA Should Cost */}
       <Card accent>
-        <SectionLabel>Case C — PCBA Should Costing · EV Battery Management System</SectionLabel>
+        <SectionLabel>Case C - PCBA Should Costing · EV Battery Management System</SectionLabel>
         <h2 className="mb-6 text-[17px] font-bold text-[#0f1b2d]">India Manufacturing · Total: $65.074 / unit</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-2.5">
@@ -283,9 +283,9 @@ export default function ElectronicsTeardownCaseStudy() {
         </div>
       </Card>
 
-      {/* Row 5 — Wire Harness */}
+      {/* Row 5 - Wire Harness */}
       <Card>
-        <SectionLabel>Case D — Wire Harness Should Costing · EV Application</SectionLabel>
+        <SectionLabel>Case D - Wire Harness Should Costing · EV Application</SectionLabel>
         <h2 className="mb-6 text-[17px] font-bold text-[#0f1b2d]">6-Step Methodology · Multi-Connector Harness</h2>
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {[
@@ -294,7 +294,7 @@ export default function ElectronicsTeardownCaseStudy() {
             { step: '03', title: 'Circuit Analysis',    desc: 'From/to connections, terminal/seal identification, GD spec part number search' },
             { step: '04', title: 'Public Sourcing',     desc: 'Connector, terminal & seal costs via Octopart/ciiva; preferred: TE, APTIV, MOLEX' },
             { step: '05', title: 'BOM Creation',        desc: 'Part No, Manufacturer, Class, Qty, Unit Cost, Currency, Source reference link' },
-            { step: '06', title: 'Process Calculation', desc: 'Cavity plug, terminal insertion, crimping, taping, inspection — auto-calculated cycle times' },
+            { step: '06', title: 'Process Calculation', desc: 'Cavity plug, terminal insertion, crimping, taping, inspection - auto-calculated cycle times' },
           ].map((s) => (
             <div key={s.step} className="rounded-xl bg-[#f8fafb] border border-black/[0.06] p-4">
               <div className="mb-2 flex items-center gap-2">
@@ -345,15 +345,15 @@ export default function ElectronicsTeardownCaseStudy() {
         </div>
       </Card>
 
-      {/* Row 6 — Impact */}
+      {/* Row 6 - Impact */}
       <DarkCard>
         <SectionLabel>Emithran Capabilities Demonstrated</SectionLabel>
         <h2 className="mb-8 text-[22px] font-bold text-white">End-to-end electronics cost intelligence</h2>
         <ImpactGrid items={[
-          { num: '4',     title: 'Cases Delivered',         desc: 'Radar sensor teardown, bare PCB benchmarking, PCBA should cost, and wire harness costing — all in one engagement.' },
-          { num: '1500×', title: 'SEM Microscopy Depth',    desc: 'Cu foil thickness, coating layers, and laminate cross-sections validated via SEM/EDAX — not estimated.' },
-          { num: '$8.07', title: 'Lowest-Cost PCB Found',   desc: 'FR4 + PTFE GF technology (11L, Im.TIN) identified at $8.07 vs $19.89 for ceramic hybrid — $11.82 per unit saving.' },
-          { num: '68.78s', title: 'PCBA Cycle Time Mapped', desc: 'Testing, depaneling, manual, TH, and SMD processes individually timed and costed — full EX-Works model delivered.' },
+          { num: '4',     title: 'Cases Delivered',         desc: 'Radar sensor teardown, bare PCB benchmarking, PCBA should cost, and wire harness costing - all in one engagement.' },
+          { num: '1500×', title: 'SEM Microscopy Depth',    desc: 'Cu foil thickness, coating layers, and laminate cross-sections validated via SEM/EDAX - not estimated.' },
+          { num: '$8.07', title: 'Lowest-Cost PCB Found',   desc: 'FR4 + PTFE GF technology (11L, Im.TIN) identified at $8.07 vs $19.89 for ceramic hybrid - $11.82 per unit saving.' },
+          { num: '68.78s', title: 'PCBA Cycle Time Mapped', desc: 'Testing, depaneling, manual, TH, and SMD processes individually timed and costed - full EX-Works model delivered.' },
         ]} />
       </DarkCard>
 

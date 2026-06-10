@@ -7,7 +7,7 @@ const EASE = [0.16, 1, 0.3, 1] as const
 
 const PARA1 = `Emithran wasn't born in a boardroom. It was built on the shop floor. Our founders spent years working as costing and manufacturing engineers across industries where precision, quality, and delivery are non-negotiable. From aerospace components and CNC machining to injection molding and sheet metal fabrication, we experienced firsthand the challenges that manufacturers face every day. We saw talented teams spending countless hours generating quotes, navigating supplier uncertainties, and managing disconnected communication between customers, engineers, and production teams. Critical cost decisions were often made too late, supplier selection relied on incomplete information, and visibility across the manufacturing lifecycle remained fragmented. The deeper we looked, the clearer the problem became. Manufacturers lacked real-time insight into the cost impact of design decisions. OEMs struggled to identify suppliers based on actual performance, capacity, and reliability rather than static capability lists. Customers and production teams operated without a single source of truth connecting design, sourcing, production, and delivery.`
 
-const PARA2 = `We knew there had to be a better way. That's why we built Emithran. Emithran is not just another manufacturing dashboard or reporting tool. It is an intelligent digital layer that connects every stage of the manufacturing ecosystem — from design and cost estimation to supplier matching, production execution, and delivery tracking. Our mission is simple: help manufacturers make faster, smarter decisions, reduce uncertainty, and create complete visibility across the manufacturing value chain. Because great products deserve a manufacturing process that is just as intelligent as the engineering behind them.`
+const PARA2 = `We knew there had to be a better way. That's why we built Emithran. Emithran is not just another manufacturing dashboard or reporting tool. It is an intelligent digital layer that connects every stage of the manufacturing ecosystem - from design and cost estimation to supplier matching, production execution, and delivery tracking. Our mission is simple: help manufacturers make faster, smarter decisions, reduce uncertainty, and create complete visibility across the manufacturing value chain. Because great products deserve a manufacturing process that is just as intelligent as the engineering behind them.`
 
 export default function AboutMission() {
   const ref    = useRef<HTMLDivElement>(null)
@@ -76,7 +76,7 @@ export default function AboutMission() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.75, ease: EASE, delay: 0.1 }}
             >
-              {/* Opening quote mark — negative margin pulls it flush to the paragraph */}
+              {/* Opening quote mark - negative margin pulls it flush to the paragraph */}
               <span
                 aria-hidden
                 className="block font-display text-[5rem] leading-none"
@@ -90,7 +90,7 @@ export default function AboutMission() {
                 <p>{PARA2}</p>
               </div>
 
-              {/* Closing quote mark — negative margin pulls it flush to the paragraph */}
+              {/* Closing quote mark - negative margin pulls it flush to the paragraph */}
               <span
                 aria-hidden
                 className="block text-right font-display text-[5rem] leading-none"
@@ -99,7 +99,7 @@ export default function AboutMission() {
                 &rdquo;
               </span>
 
-              {/* Signature — right-aligned, larger */}
+              {/* Signature - right-aligned, larger */}
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}

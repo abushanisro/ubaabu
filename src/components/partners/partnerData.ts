@@ -39,7 +39,7 @@ export const PARTNERS: Partner[] = [
   {
     name: 'Digantara',
     type: 'Technology Partners',
-    description: 'Satellite manufacturing data connector — bridging space-grade component databases with Emithran\'s should-cost models.',
+    description: 'Satellite manufacturing data connector - bridging space-grade component databases with Emithran\'s should-cost models.',
     logoSrc: '/assets/trustedby/digantara.svg',
   },
   {

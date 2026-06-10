@@ -29,7 +29,7 @@ export default function ProductsHero() {
       />
 
 
-      {/* White overlay — softens bg so text is readable while SVG stays visible */}
+      {/* White overlay - softens bg so text is readable while SVG stays visible */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -124,7 +124,7 @@ export default function ProductsHero() {
         </motion.div>
       </div>
 
-      {/* HeroVideoDialog modal — same as home page */}
+      {/* HeroVideoDialog modal - same as home page */}
       <HeroVideoDialog
         animationStyle="from-center"
         videoSrc="/videos/emuski.mp4"

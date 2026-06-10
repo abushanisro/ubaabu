@@ -6,7 +6,7 @@ const TIERS = [
   {
     name: 'Startup',
     tag: 'Design & Engineering Teams',
-    description: 'Real cost intelligence attached to your design workflow from day one — BOM to first RFQ.',
+    description: 'Real cost intelligence attached to your design workflow from day one - BOM to first RFQ.',
     highlights: [
       'BOM Composer',
       'Should-Cost Engine',
@@ -20,7 +20,7 @@ const TIERS = [
   {
     name: 'Growth',
     tag: 'Procurement & Sourcing Teams',
-    description: 'AI-driven supplier shortlisting, quote benchmarking, and negotiation intelligence — compress sourcing cycles.',
+    description: 'AI-driven supplier shortlisting, quote benchmarking, and negotiation intelligence - compress sourcing cycles.',
     highlights: [
       'Everything in Startup',
       'Supplier Radar',
@@ -35,7 +35,7 @@ const TIERS = [
   {
     name: 'Enterprise',
     tag: 'Supply Chain & Program Leaders',
-    description: 'Full platform visibility — production tracking, quality, delivery, and deep ERP / PLM integrations.',
+    description: 'Full platform visibility - production tracking, quality, delivery, and deep ERP / PLM integrations.',
     highlights: [
       'Everything in Growth',
       'Launch Tracker',
@@ -69,7 +69,7 @@ export default function PricingHero() {
             of every scale
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-[#0f1b2d]/50">
-            Transparent, outcome-based packages — no per-seat fees, no hidden costs, no long procurement cycles.
+            Transparent, outcome-based packages - no per-seat fees, no hidden costs, no long procurement cycles.
           </p>
         </AnimateIn>
 

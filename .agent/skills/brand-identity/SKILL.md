@@ -7,7 +7,7 @@ description: Provides the single source of truth for brand guidelines, design to
 
 **Brand Name:** Emithran
 
-This skill defines the core constraints for visual design and technical implementation for Emithran — an end-to-end manufacturing intelligence platform built for space, defence, aerospace, and precision manufacturing companies in India.
+This skill defines the core constraints for visual design and technical implementation for Emithran - an end-to-end manufacturing intelligence platform built for space, defence, aerospace, and precision manufacturing companies in India.
 
 ## Reference Documentation
 

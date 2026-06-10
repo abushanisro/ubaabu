@@ -273,7 +273,7 @@ export default function BomComposerSection() {
           {/* ── RIGHT: cards ───────────────────────────────────────── */}
           <div className="lg:w-7/12 space-y-5 z-10 lg:self-center">
 
-            {/* Capabilities card — teal left-border accent */}
+            {/* Capabilities card - teal left-border accent */}
             <motion.div
               initial={{ opacity: 0, x: 24 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -310,7 +310,7 @@ export default function BomComposerSection() {
               </div>
             </motion.div>
 
-            {/* Stats — 2×2 grid */}
+            {/* Stats - 2×2 grid */}
             <div className="grid grid-cols-2 gap-4">
               {STATS.map(({ label, value, suffix }, i) => (
                 <motion.div

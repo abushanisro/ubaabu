@@ -62,7 +62,7 @@ function FeaturedCard({ post }: { post: BlogPost }) {
       style={{ background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(16px)', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
       <div className="grid lg:grid-cols-2">
 
-        {/* Left — content */}
+        {/* Left - content */}
         <div className="p-8 md:p-10 flex flex-col justify-center">
           <CategoryPill category={post.category} />
           <h2 className="mt-4 text-3xl md:text-4xl font-bold leading-[1.1] tracking-tight text-[#0f1b2d]">
@@ -82,7 +82,7 @@ function FeaturedCard({ post }: { post: BlogPost }) {
           </Link>
         </div>
 
-        {/* Right — interactive COBE globe */}
+        {/* Right - interactive COBE globe */}
         <div className="relative hidden lg:flex items-center justify-center min-h-[320px] overflow-hidden">
           <GlobeCdn className="w-full h-full absolute inset-0 z-10" speed={0.003} />
         </div>
@@ -152,7 +152,7 @@ const CASE_STUDIES = [
   {
     title: "HGV Chassis Ladder Frame: BOM Costing Across 3 Geographies",
     date: "May 20, 2026",
-    body: "Multi-geography cost benchmarking for a heavy goods vehicle chassis frame — comparing India, Germany, and Turkey fabrication costs with full landed cost visibility.",
+    body: "Multi-geography cost benchmarking for a heavy goods vehicle chassis frame - comparing India, Germany, and Turkey fabrication costs with full landed cost visibility.",
     bg: '#ccfbf1',
     border: 'rgba(13,148,136,0.2)',
     tag: 'Automotive',
@@ -180,7 +180,7 @@ const CASE_STUDIES = [
   {
     title: "Rear Axle Should-Cost: Breaking Down a £480 Casting-Machined Assembly",
     date: "March 22, 2026",
-    body: "A granular should-cost analysis of a rear axle housing — from raw casting price to machining cycle time — identified a £68/unit overcharge from a Tier-1 supplier.",
+    body: "A granular should-cost analysis of a rear axle housing - from raw casting price to machining cycle time - identified a £68/unit overcharge from a Tier-1 supplier.",
     bg: '#f0fdf9',
     border: 'rgba(13,148,136,0.15)',
     tag: 'Automotive',
@@ -467,7 +467,7 @@ export default function BlogPage() {
   return (
     <main className="min-h-screen" style={{ background: '#fff' }}>
 
-      {/* Hero — blog.svg full section background */}
+      {/* Hero - blog.svg full section background */}
       <div className="relative w-full overflow-hidden">
         <img
           src="/assets/blog/blog.svg"
@@ -494,7 +494,7 @@ export default function BlogPage() {
         </div>
       </div>
 
-      {/* Latest posts — Stripe editorial style */}
+      {/* Latest posts - Stripe editorial style */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 flex flex-col gap-14"
         style={{ borderBottom: '1px solid rgba(13,148,136,0.1)' }}>
         {POSTS.filter(p => !p.featured).slice(0, 3).map(post => (
@@ -541,7 +541,7 @@ export default function BlogPage() {
       {/* Case Studies carousel */}
       <CaseStudyCarousel />
 
-      {/* Request CTA — bottom */}
+      {/* Request CTA - bottom */}
       <div className="py-10">
         <RequestCTA />
       </div>

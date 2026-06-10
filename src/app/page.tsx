@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Emithran — AI Manufacturing Intelligence Platform for Space, Defence & Aerospace',
+  title: 'Emithran - AI Manufacturing Intelligence Platform for Space, Defence & Aerospace',
   description:
     'Emithran gives India\'s space, defence, and aerospace OEMs AI-powered BOM management, should-cost analysis, and supplier intelligence. Cut costs, reduce risk, and ship faster.',
   keywords: [
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Emithran — AI Manufacturing Intelligence Platform',
+    title: 'Emithran - AI Manufacturing Intelligence Platform',
     description: 'BOM management, should-cost analysis, and supplier intelligence for space, defence, and aerospace in India.',
     url: '/',
     type: 'website',
   },
   twitter: {
-    title: 'Emithran — Manufacturing Intelligence for Space, Defence & Aerospace',
+    title: 'Emithran - Manufacturing Intelligence for Space, Defence & Aerospace',
     description: 'AI-powered BOM, should-cost, and supplier intelligence. Built for India\'s leading OEMs.',
   },
 }

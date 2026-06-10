@@ -88,7 +88,7 @@ const whyItems = [
       </svg>
     ),
     title: 'Flexible formats',
-    body: 'Choose from on-site instructor-led, virtual live sessions, or self-paced on-demand recordings — whatever fits your team.',
+    body: 'Choose from on-site instructor-led, virtual live sessions, or self-paced on-demand recordings - whatever fits your team.',
   },
   {
     icon: (
@@ -257,7 +257,7 @@ export default function TrainingPage() {
                 Built for real manufacturing teams
               </h2>
               <p className="mt-4 text-[14px] text-[#0f1b2d]/55 leading-relaxed">
-                Our training is built around how manufacturing engineers actually work — not generic software tutorials.
+                Our training is built around how manufacturing engineers actually work - not generic software tutorials.
               </p>
             </div>
             <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-9">
@@ -291,7 +291,7 @@ export default function TrainingPage() {
               {[
                 {
                   title: 'On-site engineering support',
-                  body: 'We deploy our engineers directly to your facility — working alongside your team on the floor, resolving issues hands-on, and continuing remote support through the Emithran platform.',
+                  body: 'We deploy our engineers directly to your facility - working alongside your team on the floor, resolving issues hands-on, and continuing remote support through the Emithran platform.',
                   cta: 'Talk to our team',
                   href: '/contact?source=training&cta=talk-to-our-team',
                 },

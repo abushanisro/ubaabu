@@ -10,7 +10,7 @@ interface BlogCTAProps {
 
 export default function BlogCTA({
   headline = 'See Emithran in action with your own part data.',
-  body = 'Get a live demo with a real component from your supply chain — should-cost, supplier intelligence, and BOM validation in 30 minutes.',
+  body = 'Get a live demo with a real component from your supply chain - should-cost, supplier intelligence, and BOM validation in 30 minutes.',
   ctaLabel = 'Book a demo',
   ctaHref = '/contact?source=blog-cta&cta=book-a-demo',
 }: BlogCTAProps) {
@@ -21,7 +21,7 @@ export default function BlogCTA({
         background: 'linear-gradient(135deg, #0f1b2d 0%, #0a2a26 55%, #0f1b2d 100%)',
       }}
     >
-      {/* Left — text + CTA */}
+      {/* Left - text + CTA */}
       <div className="flex-1 max-w-xl">
         <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: '#2dd4bf' }}>
           Platform demo
@@ -55,7 +55,7 @@ export default function BlogCTA({
         </div>
       </div>
 
-      {/* Right — illustration */}
+      {/* Right - illustration */}
       <div
         className="w-full sm:w-64 md:w-72 shrink-0 rounded-xl overflow-hidden"
         style={{ maxHeight: 200, opacity: 0.88 }}

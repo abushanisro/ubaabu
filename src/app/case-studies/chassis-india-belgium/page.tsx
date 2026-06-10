@@ -3,7 +3,7 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: 'Chassis Ladder Frame — India vs Belgium Should Cost | Emithran Case Study',
+  title: 'Chassis Ladder Frame - India vs Belgium Should Cost | Emithran Case Study',
   description: 'How Emithran identified a 38% total landed cost saving for HGV chassis rails by benchmarking India roll forming against Belgium manufacturing, including full DDP logistics from Chennai to Scotland.',
 }
 
@@ -16,7 +16,7 @@ export default function ChassisIndiaBelgiumCaseStudy() {
       readTime="7 min read"
       metric="38% landed cost saving"
       title={<>India vs Belgium:<br className="hidden md:block" /> 38% Landed Cost Saving on HGV Chassis Rails</>}
-      subtitle="Hydrogen HGV programme — full should-cost comparison of chassis rail manufacturing in India vs Belgium, including DDP logistics Chennai to Scotland"
+      subtitle="Hydrogen HGV programme - full should-cost comparison of chassis rail manufacturing in India vs Belgium, including DDP logistics Chennai to Scotland"
       image="/assets/casestudy/truck.png"
       imageAlt="HGV Chassis Ladder Frame"
       stats={[
@@ -27,11 +27,11 @@ export default function ChassisIndiaBelgiumCaseStudy() {
         { label: 'Total Saving',    value: '38%' },
       ]}
       ctaTitle="Need a region-to-region should-cost comparison for your structural assembly?"
-      ctaBody="Emithran models factory-gate cost in any region plus full DDP logistics — giving you a like-for-like landed cost to negotiate and make sourcing decisions with confidence."
+      ctaBody="Emithran models factory-gate cost in any region plus full DDP logistics - giving you a like-for-like landed cost to negotiate and make sourcing decisions with confidence."
       ctaSource="case-study-chassis-india-belgium"
     >
 
-      {/* Row 1 — Scope & BOM */}
+      {/* Row 1 - Scope & BOM */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card accent>
           <SectionLabel>Scope & Inputs</SectionLabel>
@@ -76,14 +76,14 @@ export default function ChassisIndiaBelgiumCaseStudy() {
           </Card>
 
           <Card>
-            <SectionLabel>Material Grade Usage — 945 kg total</SectionLabel>
+            <SectionLabel>Material Grade Usage - 945 kg total</SectionLabel>
             <div className="space-y-2.5">
               {[
                 { mat: 'HR Steel 600MC',     kg: 495,  spec: '8 mm',                    pct: 52 },
                 { mat: 'HR Steel S460N',     kg: 421,  spec: '4/6/7/8/10 mm',           pct: 45 },
-                { mat: 'Tube E155 (1.0033)', kg: 15,   spec: '—',                       pct: 2  },
-                { mat: 'Casting 90-60',      kg: 12,   spec: '—',                       pct: 1  },
-                { mat: 'Aluminium 5251',     kg: 2.36, spec: '—',                       pct: 1  },
+                { mat: 'Tube E155 (1.0033)', kg: 15,   spec: '-',                       pct: 2  },
+                { mat: 'Casting 90-60',      kg: 12,   spec: '-',                       pct: 1  },
+                { mat: 'Aluminium 5251',     kg: 2.36, spec: '-',                       pct: 1  },
               ].map((m) => (
                 <div key={m.mat}>
                   <div className="mb-1 flex justify-between text-[12px]">
@@ -100,10 +100,10 @@ export default function ChassisIndiaBelgiumCaseStudy() {
         </div>
       </div>
 
-      {/* Row 2 — Assembly Cost + Process Map */}
+      {/* Row 2 - Assembly Cost + Process Map */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card accent>
-          <SectionLabel>Assembly Cost Breakdown — Belgium · €5,248.81</SectionLabel>
+          <SectionLabel>Assembly Cost Breakdown - Belgium · €5,248.81</SectionLabel>
           <div className="space-y-4 mb-5">
             {[
               { label: 'Process Cost',      val: 3327.16, pct: 63, color: '#0d9488' },
@@ -143,7 +143,7 @@ export default function ChassisIndiaBelgiumCaseStudy() {
         </Card>
 
         <Card>
-          <SectionLabel>Process Analysis — Operations Map</SectionLabel>
+          <SectionLabel>Process Analysis - Operations Map</SectionLabel>
           <div className="space-y-4">
             {[
               { stage: 'Cutting',      color: '#60a5fa', ops: [{ name: 'Plasma Cutting', n: 22 }, { name: 'Laser Cutting', n: 13 }, { name: 'Pipe Cutting', n: 1 }] },
@@ -170,17 +170,17 @@ export default function ChassisIndiaBelgiumCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 3 — Component Cost Breakdown */}
+      {/* Row 3 - Component Cost Breakdown */}
       <Card accent>
-        <SectionLabel>Component Cost Breakdown — Top Cost Drivers</SectionLabel>
+        <SectionLabel>Component Cost Breakdown - Top Cost Drivers</SectionLabel>
         <h2 className="mb-5 text-[17px] font-bold text-[#0f1b2d]">Chassis Side Rails account for 38% of total assembly cost</h2>
         <div className="space-y-2">
           {[
             { part: 'Chassis Side Rail LH',                        cost: 737.92, pct: 19 },
             { part: 'Chassis Side Rail RH',                        cost: 735.33, pct: 19 },
             { part: 'Assembly Cross Member Rear Suspension',        cost: 473.49, pct: 12 },
-            { part: 'Assy Bracket Front Chassis Extension — LH',   cost: 392.36, pct: 10 },
-            { part: 'Assy Bracket Front Chassis Extension — RH',   cost: 388.49, pct: 10 },
+            { part: 'Assy Bracket Front Chassis Extension - LH',   cost: 392.36, pct: 10 },
+            { part: 'Assy Bracket Front Chassis Extension - RH',   cost: 388.49, pct: 10 },
             { part: 'Assembly Cross Member Air Bellows',            cost: 304.42, pct: 8  },
             { part: 'Assembly Cross Member H2 Cylinder',           cost: 292.17, pct: 8  },
             { part: 'Assembly Cross Member Bulkhead',              cost: 171.15, pct: 4  },
@@ -202,17 +202,17 @@ export default function ChassisIndiaBelgiumCaseStudy() {
         </div>
       </Card>
 
-      {/* Row 4 — India Rail Cost + DDP */}
+      {/* Row 4 - India Rail Cost + DDP */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card accent>
-          <SectionLabel>Chassis Side Rail — India Should Cost</SectionLabel>
+          <SectionLabel>Chassis Side Rail - India Should Cost</SectionLabel>
           <h2 className="mb-1 text-[17px] font-bold text-[#0f1b2d]">€396.73 Ex Works · Roll Forming Process</h2>
           <p className="mb-4 text-[12px] text-black/40">Part 105002654/55 · 156.5 kg finish · 247.28 kg input</p>
           <div className="space-y-3 mb-5">
             {[
-              { label: 'Raw Material Cost', val: '€222.55', pct: 56, color: '#0d9488',  note: 'Primary driver — 56% of manufacturing' },
+              { label: 'Raw Material Cost', val: '€222.55', pct: 56, color: '#0d9488',  note: 'Primary driver - 56% of manufacturing' },
               { label: 'SG&A + Profit',     val: '€68.85',  pct: 27, color: '#94a3b8', note: 'Higher share due to lower process base' },
-              { label: 'Process Cost',      val: '€105.33', pct: 17, color: '#60a5fa', note: 'Only 6% of mfg cost — roll forming efficiency' },
+              { label: 'Process Cost',      val: '€105.33', pct: 17, color: '#60a5fa', note: 'Only 6% of mfg cost - roll forming efficiency' },
             ].map((item) => (
               <div key={item.label}>
                 <div className="mb-1 flex items-center justify-between">
@@ -248,7 +248,7 @@ export default function ChassisIndiaBelgiumCaseStudy() {
         </Card>
 
         <Card>
-          <SectionLabel>DDP Cost — Chennai → Scotland</SectionLabel>
+          <SectionLabel>DDP Cost - Chennai → Scotland</SectionLabel>
           <h2 className="mb-4 text-[17px] font-bold text-[#0f1b2d]">€141.50 per unit delivered</h2>
           <div className="mb-4 grid grid-cols-2 gap-2 text-[12px]">
             {[
@@ -290,9 +290,9 @@ export default function ChassisIndiaBelgiumCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 5 — Belgium vs India Comparison */}
+      {/* Row 5 - Belgium vs India Comparison */}
       <div>
-        <SectionLabel>Chassis Side Rail — Belgium vs India Head-to-Head</SectionLabel>
+        <SectionLabel>Chassis Side Rail - Belgium vs India Head-to-Head</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">India total landed cost: €538 vs Belgium: €872</h2>
 
         <div className="grid gap-4 md:grid-cols-2 mb-6">
@@ -340,9 +340,9 @@ export default function ChassisIndiaBelgiumCaseStudy() {
           <p className="mb-4 text-[13px] font-semibold text-[#0f1b2d]">Cost advantage breakdown</p>
           <div className="grid gap-4 sm:grid-cols-3">
             {[
-              { label: 'Process cost saving',    pct: '−77%', desc: 'Roll forming in India vs fabrication in Belgium — the single biggest driver of total savings', color: '#0d9488' },
+              { label: 'Process cost saving',    pct: '−77%', desc: 'Roll forming in India vs fabrication in Belgium - the single biggest driver of total savings', color: '#0d9488' },
               { label: 'Material cost saving',   pct: '−17%', desc: 'Lower raw material rates in India despite same grades (HR 600MC, S460N)', color: '#60a5fa' },
-              { label: 'DDP logistics overhead', pct: '+39%', desc: 'Sea freight, import duties, and last-mile delivery from Chennai to Scotland — partially offsets savings', color: '#f87171' },
+              { label: 'DDP logistics overhead', pct: '+39%', desc: 'Sea freight, import duties, and last-mile delivery from Chennai to Scotland - partially offsets savings', color: '#f87171' },
             ].map((k) => (
               <div key={k.label} className="rounded-xl bg-[#f8fafb] border border-black/[0.06] p-4">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-black/35 mb-1">{k.label}</p>
@@ -354,15 +354,15 @@ export default function ChassisIndiaBelgiumCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 6 — Impact */}
+      {/* Row 6 - Impact */}
       <DarkCard>
         <SectionLabel>What Emithran Delivered</SectionLabel>
         <h2 className="mb-8 text-[22px] font-bold text-white">End-to-end should cost from factory gate to customer dock</h2>
         <ImpactGrid items={[
-          { num: '38%',    title: 'Total Landed Cost Saving',   desc: 'India DDP (€538) vs Belgium Ex Works (€872) — despite full sea freight, import duties, and last-mile delivery.' },
+          { num: '38%',    title: 'Total Landed Cost Saving',   desc: 'India DDP (€538) vs Belgium Ex Works (€872) - despite full sea freight, import duties, and last-mile delivery.' },
           { num: '−77%',   title: 'Process Cost Reduction',     desc: 'Roll forming in India is dramatically more efficient than Belgium fabrication for this chassis rail profile.' },
           { num: '€141',   title: 'DDP Fully Modelled',         desc: 'Packing, local freight, sea freight, IHC/THC, insurance, import duty, and door delivery to Scotland all costed.' },
-          { num: '13 pts', title: 'Component-Level Visibility', desc: '13 child components individually costed — chassis side rails (38%), cross members, and brackets all quantified.' },
+          { num: '13 pts', title: 'Component-Level Visibility', desc: '13 child components individually costed - chassis side rails (38%), cross members, and brackets all quantified.' },
         ]} />
       </DarkCard>
 

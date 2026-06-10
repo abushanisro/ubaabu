@@ -45,7 +45,7 @@ function CostBenchmarkerViz({ inView }: { inView: boolean }) {
       {/* Grid background */}
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(13,148,136,0.07) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
 
-      {/* Teal glow — premium feel */}
+      {/* Teal glow - premium feel */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(circle 140px at 50% 52%, rgba(45,212,191,0.12) 0%, transparent 100%)' }} />
 
@@ -173,7 +173,7 @@ export default function CostBenchmarkerSection() {
       aria-label="Cost Benchmarker module"
       className="relative bg-white overflow-hidden"
     >
-      {/* Ambient — slightly stronger for premium feel */}
+      {/* Ambient - slightly stronger for premium feel */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(20,184,166,0.05) 0%, transparent 70%)' }} />
 

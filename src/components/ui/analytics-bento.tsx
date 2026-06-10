@@ -82,7 +82,7 @@ export function BudgetCard() {
 
   return (
     <div className="rounded-xl border border-black/10 bg-white/90 backdrop-blur-sm p-3 shadow-lg">
-      {/* Header — identical to existing Cost Data card */}
+      {/* Header - identical to existing Cost Data card */}
       <div className="flex items-center gap-2">
         <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#0d9e8a]/10 text-[#0d9e8a]">
           <LayoutGrid className="h-3.5 w-3.5" />

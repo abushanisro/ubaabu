@@ -166,7 +166,7 @@ export default function FAQPage() {
               : (
                 <div className="py-20 text-center">
                   <p className="text-[15px]" style={{ color: 'rgba(15,27,45,0.4)' }}>
-                    No results for <strong style={{ color: '#0f1b2d' }}>"{search}"</strong> — try a different term.
+                    No results for <strong style={{ color: '#0f1b2d' }}>"{search}"</strong> - try a different term.
                   </p>
                   <button onClick={() => setSearch('')} className="mt-4 text-sm font-semibold" style={{ color: '#0d9488' }}>
                     Clear search
@@ -176,7 +176,7 @@ export default function FAQPage() {
             }
           </div>
 
-          {/* Sidebar — Topics only, sticky */}
+          {/* Sidebar - Topics only, sticky */}
           <aside className="hidden lg:block w-64 shrink-0">
             <div className="sticky top-28 flex flex-col gap-6">
 

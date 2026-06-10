@@ -3,7 +3,7 @@
 export function SectionDivider() {
   return (
     <div className="relative w-full overflow-hidden pointer-events-none" style={{ height: 64 }}>
-      {/* Back bar — deep teal */}
+      {/* Back bar - deep teal */}
       <div
         className="absolute inset-x-0"
         style={{
@@ -14,7 +14,7 @@ export function SectionDivider() {
           transformOrigin: 'right center',
         }}
       />
-      {/* Front bar — primary teal */}
+      {/* Front bar - primary teal */}
       <div
         className="absolute inset-x-0"
         style={{

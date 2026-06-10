@@ -44,7 +44,7 @@ const fsSource = `
     return random(x * lineFrequency + iTime * lineSpeed) * hFade * lineAmplitude + offset;
   }
 
-  // Rotating radar sweep — defence/aerospace theme
+  // Rotating radar sweep - defence/aerospace theme
   float radarSweep(vec2 pos) {
     float d = length(pos);
     if (d < 0.2 || d > 5.5) return 0.0;
@@ -65,7 +65,7 @@ const fsSource = `
     return r * smoothstep(5.5, 0.3, d) * smoothstep(0.15, 0.5, d);
   }
 
-  // BOM network nodes — pulsing dots with connecting traces
+  // BOM network nodes - pulsing dots with connecting traces
   float bomNodes(vec2 pos) {
     float cellSize = 1.1;
     vec2 cell = floor(pos / cellSize);
@@ -79,7 +79,7 @@ const fsSource = `
     return node + hTrace + vTrace;
   }
 
-  // 99.4% accuracy fill bar — a thin horizontal bar that fills to 99.4%
+  // 99.4% accuracy fill bar - a thin horizontal bar that fills to 99.4%
   float accuracyBar(vec2 uv) {
     float barY = smoothstep(0.012, 0.0, abs(uv.y - 0.88));
     float fill  = step(uv.x, 0.994);

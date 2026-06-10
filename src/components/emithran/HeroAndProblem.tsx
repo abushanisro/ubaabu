@@ -88,7 +88,7 @@ export default function HeroAndProblem() {
                 transition={{ duration: 0.85, delay: 0.25, ease: EASE }}
                 className="mt-5 max-w-md text-[15px] leading-relaxed text-[#0f1b2d]/55"
               >
-                Emithran is the AI platform built for Indian manufacturers — cutting design costs, compressing sourcing cycles, and giving you real-time supply chain visibility in one workspace.
+                Emithran is the AI platform built for Indian manufacturers - cutting design costs, compressing sourcing cycles, and giving you real-time supply chain visibility in one workspace.
               </motion.p>
 
               <motion.div
@@ -135,7 +135,7 @@ export default function HeroAndProblem() {
                   paddingBottom: '30px',
                 }}
               >
-                {/* Image 1 — top */}
+                {/* Image 1 - top */}
                 <div
                   className="relative rounded-2xl overflow-hidden border"
                   style={{
@@ -152,7 +152,7 @@ export default function HeroAndProblem() {
                   />
                 </div>
 
-                {/* Image 2 — below */}
+                {/* Image 2 - below */}
                 <div
                   className="relative rounded-2xl overflow-hidden border"
                   style={{
@@ -344,7 +344,7 @@ function HiddenCosts() {
                 >
                   <img
                     src="/assets/cards/why-emithran/hiddencost.png"
-                    alt="Hidden manufacturing costs — quality vs cost"
+                    alt="Hidden manufacturing costs - quality vs cost"
                     className="object-cover w-full rounded-2xl block"
                     style={{ height: '420px', objectPosition: 'center' }}
                   />

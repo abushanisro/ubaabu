@@ -3,8 +3,8 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: '2T LCV Rear Drive Axle — Should Cost Analysis | Emithran Case Study',
-  description: 'Full assembly should cost for a 2-tonne LCV rear drive axle — 51.2 kg, 40,000 units/year, India manufacturing. Drive Head / Carrier at 46% is the primary cost driver.',
+  title: '2T LCV Rear Drive Axle - Should Cost Analysis | Emithran Case Study',
+  description: 'Full assembly should cost for a 2-tonne LCV rear drive axle - 51.2 kg, 40,000 units/year, India manufacturing. Drive Head / Carrier at 46% is the primary cost driver.',
 }
 
 const subAssemblies = [
@@ -20,11 +20,11 @@ const driveHeadItems = [
   { name: 'Bearing LM603049 (×2)',   cost: 18.17, pct: 16, type: 'BOI' },
   { name: 'Ring Gear',               cost: 11.44, pct: 10, type: 'Forged & M/C' },
   { name: 'Drive Head Assy.',        cost: 10.83, pct: 10, type: 'Assembly' },
-  { name: 'Bearing — Pinion Head',   cost:  9.21, pct:  8, type: 'BOI' },
+  { name: 'Bearing - Pinion Head',   cost:  9.21, pct:  8, type: 'BOI' },
   { name: 'Pinion Shaft Main Drive', cost:  7.49, pct:  7, type: 'Forged & M/C' },
-  { name: 'Bearing — Pinion Tail',   cost:  5.60, pct:  5, type: 'BOI' },
+  { name: 'Bearing - Pinion Tail',   cost:  5.60, pct:  5, type: 'BOI' },
   { name: 'Diff Cage Assy.',         cost:  4.68, pct:  4, type: 'Assembly' },
-  { name: 'Cage — Diff Gears',       cost:  5.41, pct:  5, type: 'Casting & M/C' },
+  { name: 'Cage - Diff Gears',       cost:  5.41, pct:  5, type: 'Casting & M/C' },
   { name: 'Side Gear 24T (×2)',      cost:  4.52, pct:  4, type: 'Forged & M/C' },
   { name: 'Other (caps, HW, seals)', cost:  4.54, pct:  4, type: 'Various' },
 ]
@@ -66,11 +66,11 @@ export default function RearAxleCaseStudy() {
         { label: 'Region',         value: 'India' },
       ]}
       ctaTitle="Need should cost intelligence for your drivetrain or chassis assembly?"
-      ctaBody="Emithran models every manufacturing operation from first principles — giving you component-level cost data to negotiate, design, and source smarter."
+      ctaBody="Emithran models every manufacturing operation from first principles - giving you component-level cost data to negotiate, design, and source smarter."
       ctaSource="case-study-rear-axle-should-cost"
     >
 
-      {/* Row 1 — Assembly cost roll-up */}
+      {/* Row 1 - Assembly cost roll-up */}
       <div>
         <SectionLabel>Assembly Cost Roll-Up</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Drive Head / Carrier drives 46% of total cost</h2>
@@ -132,10 +132,10 @@ export default function RearAxleCaseStudy() {
         </div>
       </div>
 
-      {/* Row 2 — Drive Head deep-dive */}
+      {/* Row 2 - Drive Head deep-dive */}
       <div>
-        <SectionLabel>Primary Cost Driver — 46% of Axle</SectionLabel>
-        <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Drive Head / Carrier Assembly — $112.00</h2>
+        <SectionLabel>Primary Cost Driver - 46% of Axle</SectionLabel>
+        <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Drive Head / Carrier Assembly - $112.00</h2>
         <div className="grid gap-6 lg:grid-cols-3">
           <div className="lg:col-span-2 overflow-x-auto rounded-2xl border border-black/[0.07] bg-white shadow-sm">
             <table className="w-full text-sm">
@@ -183,10 +183,10 @@ export default function RearAxleCaseStudy() {
 
           <div className="space-y-4">
             <Card>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-2">Dual Cost Leaders — 16% Each</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-2">Dual Cost Leaders - 16% Each</p>
               <p className="font-bold text-[#0f1b2d] mb-1">Carrier Housing vs Bearings</p>
               <p className="text-[13px] text-[#64748b] leading-relaxed mb-4">
-                Carrier Housing (cast + machined, 9.5 kg) and Bearing LM603049 pair are tied at $18.42 and $18.17 — together they drive 32% of drive head cost.
+                Carrier Housing (cast + machined, 9.5 kg) and Bearing LM603049 pair are tied at $18.42 and $18.17 - together they drive 32% of drive head cost.
               </p>
               <div className="grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-[#f0fdfa] p-3 text-center">
@@ -208,21 +208,21 @@ export default function RearAxleCaseStudy() {
             <Card>
               <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-2">Forged Components</p>
               <p className="text-[13px] text-[#64748b] leading-relaxed">
-                Ring Gear + Side Gears + Pinion Shaft = <span className="font-bold text-[#0f1b2d]">$23.45 (21%)</span>. All forged and CNC machined — gear hobbing and deburring are the dominant process cost drivers.
+                Ring Gear + Side Gears + Pinion Shaft = <span className="font-bold text-[#0f1b2d]">$23.45 (21%)</span>. All forged and CNC machined - gear hobbing and deburring are the dominant process cost drivers.
               </p>
             </Card>
           </div>
         </div>
       </div>
 
-      {/* Row 3 — Axle Housing + Half Shaft */}
+      {/* Row 3 - Axle Housing + Half Shaft */}
       <div>
         <SectionLabel>Sub-Assembly Breakdown</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Axle Housing & Half Shafts</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">20% of Axle Cost</p>
-            <h3 className="mb-1 text-[16px] font-bold text-[#0f1b2d]">Axle Housing — $48</h3>
+            <h3 className="mb-1 text-[16px] font-bold text-[#0f1b2d]">Axle Housing - $48</h3>
             <p className="mb-4 text-[12px] text-[#64748b]">Weldment · 17.37 kg · 16 line items</p>
             <div className="space-y-2.5 mb-4">
               {housingItems.map((item) => (
@@ -241,13 +241,13 @@ export default function RearAxleCaseStudy() {
               ))}
             </div>
             <div className="rounded-xl bg-[#f0fdfa] p-3 text-[12px] text-[#0d9488]">
-              <span className="font-bold">Housing Formed Half (×2)</span> drives 47% of housing cost — deep drawn formed steel, key candidate for process optimisation.
+              <span className="font-bold">Housing Formed Half (×2)</span> drives 47% of housing cost - deep drawn formed steel, key candidate for process optimisation.
             </div>
           </Card>
 
           <Card>
             <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">12% Each · 24% Combined</p>
-            <h3 className="mb-1 text-[16px] font-bold text-[#0f1b2d]">Half Shaft RH + LH — $60.62</h3>
+            <h3 className="mb-1 text-[16px] font-bold text-[#0f1b2d]">Half Shaft RH + LH - $60.62</h3>
             <p className="mb-4 text-[12px] text-[#64748b]">Mirror configuration · 9.52 kg each · Brake Plate = Customer Scope</p>
             <div className="space-y-2.5 mb-4">
               {halfShaftItems.map((item) => (
@@ -266,13 +266,13 @@ export default function RearAxleCaseStudy() {
               ))}
             </div>
             <div className="rounded-xl bg-[#f0fdfa] p-3 text-[12px] text-[#0d9488]">
-              <span className="font-bold">Axle Half Shaft (forged + CNC)</span> at $14.58 = 48% of shaft assembly — forging die + multi-axis turning are the dominant cost steps.
+              <span className="font-bold">Axle Half Shaft (forged + CNC)</span> at $14.58 = 48% of shaft assembly - forging die + multi-axis turning are the dominant cost steps.
             </div>
           </Card>
         </div>
       </div>
 
-      {/* Row 4 — Material & Process Rates */}
+      {/* Row 4 - Material & Process Rates */}
       <div>
         <SectionLabel>Assumptions & Rates</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Material, machine & overhead basis</h2>
@@ -306,11 +306,11 @@ export default function RearAxleCaseStudy() {
               {[
                 { machine: 'Roll Forging 7000T',     mhr: '$29/hr' },
                 { machine: 'Melting / Heating Furnace', mhr: '$27/hr' },
-                { machine: 'Forging — 1800T',         mhr: '$10/hr' },
+                { machine: 'Forging - 1800T',         mhr: '$10/hr' },
                 { machine: 'CNC Milling',             mhr: '$3/hr' },
                 { machine: 'Gear Hobbing',            mhr: '$4/hr' },
                 { machine: 'CNC Turning',             mhr: '$2/hr' },
-                { machine: 'Forging — 800T',          mhr: '$5/hr' },
+                { machine: 'Forging - 800T',          mhr: '$5/hr' },
                 { machine: 'Pipe/Rod Cutting',        mhr: '$1/hr' },
               ].map(({ machine, mhr }) => (
                 <div key={machine} className="flex items-center justify-between border-b border-black/[0.04] pb-1.5">
@@ -347,7 +347,7 @@ export default function RearAxleCaseStudy() {
         </div>
       </div>
 
-      {/* Row 5 — Commodity split */}
+      {/* Row 5 - Commodity split */}
       <div>
         <SectionLabel>Commodity Intelligence</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Manufacturing processes across the BOM</h2>
@@ -367,7 +367,7 @@ export default function RearAxleCaseStudy() {
         </div>
       </div>
 
-      {/* Row 6 — Key Findings */}
+      {/* Row 6 - Key Findings */}
       <DarkCard>
         <SectionLabel>Emithran Analysis</SectionLabel>
         <h2 className="mb-6 text-[22px] font-bold text-white">Key findings from this should cost</h2>
@@ -379,7 +379,7 @@ export default function RearAxleCaseStudy() {
             },
             {
               title: 'BOI Pricing Controls ~18% of Axle',
-              body: 'Bearings and seals are bought-out items. Their unit pricing is directly passed through — supplier benchmarking and multi-source qualification are the only levers available.',
+              body: 'Bearings and seals are bought-out items. Their unit pricing is directly passed through - supplier benchmarking and multi-source qualification are the only levers available.',
             },
             {
               title: 'Forging is the Process Cost Engine',

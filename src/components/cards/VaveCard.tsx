@@ -25,7 +25,7 @@ export function VaveCard() {
   const rafRef        = useRef<number | null>(null);
   const mouseRef      = useRef({ x: -999, y: -999, active: false });
 
-  // Physics state — kept in a ref so we never re-render from RAF
+  // Physics state - kept in a ref so we never re-render from RAF
   const physRef = useRef(
     NODES.map(n => ({ x: n.cx, y: n.cy, vx: 0, vy: 0, ox: n.cx, oy: n.cy }))
   );
@@ -80,7 +80,7 @@ export function VaveCard() {
         Math.abs(p.x - p.ox) > 0.03 || Math.abs(p.y - p.oy) > 0.03
       ) moving = true;
 
-      // Direct DOM update — no React re-render
+      // Direct DOM update - no React re-render
       const el = nodeRefs.current.get(node.id);
       if (el) el.setAttribute("transform", `translate(${p.x},${p.y})`);
     });
@@ -147,7 +147,7 @@ export function VaveCard() {
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
     >
-      {/* Circuit trace layer — CpuArchitecture paths + traveling light blobs */}
+      {/* Circuit trace layer - CpuArchitecture paths + traveling light blobs */}
       <div className="absolute inset-0" style={{ opacity: 0.38 }}>
         <CpuArchitecture
           text="AI"
@@ -159,7 +159,7 @@ export function VaveCard() {
         />
       </div>
 
-      {/* Knowledge-graph SVG — interactive nodes + elastic edges */}
+      {/* Knowledge-graph SVG - interactive nodes + elastic edges */}
       <svg
         ref={svgRef}
         className="absolute inset-0 w-full h-full"
@@ -167,13 +167,13 @@ export function VaveCard() {
         style={{ overflow: "visible" }}
       >
         <defs>
-          {/* AI center sphere — teal */}
+          {/* AI center sphere - teal */}
           <radialGradient id="vave-ai" cx="35%" cy="30%">
             <stop offset="0%"   stopColor="oklch(0.88 0.10 175)" />
             <stop offset="55%"  stopColor="oklch(0.68 0.13 180)" />
             <stop offset="100%" stopColor="oklch(0.45 0.14 185)" />
           </radialGradient>
-          {/* Satellite nodes — black gradient */}
+          {/* Satellite nodes - black gradient */}
           <radialGradient id="vave-node" cx="35%" cy="30%">
             <stop offset="0%"   stopColor="#4a4a4a" />
             <stop offset="55%"  stopColor="#1c1c1c" />
@@ -191,7 +191,7 @@ export function VaveCard() {
           </filter>
         </defs>
 
-        {/* Elastic edges — initial positions match path starts → AI center */}
+        {/* Elastic edges - initial positions match path starts → AI center */}
         {SATELLITE_IDS.map((sid) => {
           const s = NODES.find(n => n.id === sid)!;
           const a = NODES.find(n => n.id === "ai")!;

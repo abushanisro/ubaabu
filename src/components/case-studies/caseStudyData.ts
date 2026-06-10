@@ -46,7 +46,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'hgv-chassis',
     title: 'HGV Chassis Ladder Frame: BOM Costing Across 3 Geographies',
     excerpt:
-      'Multi-geography cost benchmarking for a heavy goods vehicle chassis frame — comparing India, Germany, and Turkey fabrication costs with full landed cost visibility.',
+      'Multi-geography cost benchmarking for a heavy goods vehicle chassis frame - comparing India, Germany, and Turkey fabrication costs with full landed cost visibility.',
     industry: 'Automotive',
     location: 'Detroit, USA',
     coordinates: [-83.04, 42.33],
@@ -98,7 +98,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'rear-view-mirror',
     title: 'Rear View Mirror Assembly: 94% BOM Accuracy in Under 48 Hours',
     excerpt:
-      'Automated BOM extraction and validation for a 180-part rear view mirror assembly delivered 94% accuracy in 48 hours — replacing a 3-week manual costing exercise.',
+      'Automated BOM extraction and validation for a 180-part rear view mirror assembly delivered 94% accuracy in 48 hours - replacing a 3-week manual costing exercise.',
     industry: 'Automotive',
     location: 'Mumbai, India',
     coordinates: [72.87, 19.09],
@@ -111,7 +111,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     slug: 'rear-axle-should-cost',
     title: 'Rear Axle Should-Cost: Breaking Down a £480 Casting-Machined Assembly',
     excerpt:
-      'A granular should-cost analysis of a rear axle housing — from raw casting price to machining cycle time — identified a £68/unit overcharge from a Tier-1 supplier.',
+      'A granular should-cost analysis of a rear axle housing - from raw casting price to machining cycle time - identified a £68/unit overcharge from a Tier-1 supplier.',
     industry: 'Automotive',
     location: 'London, UK',
     coordinates: [-0.13, 51.51],

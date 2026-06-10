@@ -24,7 +24,7 @@ const OUTCOMES = [
     label:    'Faster Cycles',
     before:   'Designs thrown back after RFQ.',
     after:    'DFM feedback inside CAD.',
-    detail:   'Manufacturability issues caught while designs are still fluid — not after tooling is cut.',
+    detail:   'Manufacturability issues caught while designs are still fluid - not after tooling is cut.',
   },
   {
     category: 'Leadership',
@@ -295,7 +295,7 @@ export default function OutcomeAndWhy() {
               transition={{ duration: 0.6, delay: 0.12, ease: EASE }}
               className="flex items-center justify-between sm:justify-start gap-4 sm:gap-6 w-full md:w-auto"
             >
-              {/* Category tabs — mobile only */}
+              {/* Category tabs - mobile only */}
               <div className="flex items-center gap-0.5 sm:gap-1 overflow-x-auto no-scrollbar md:hidden">
                 {OUTCOMES.map((item, i) => (
                   <button
@@ -338,7 +338,7 @@ export default function OutcomeAndWhy() {
                 ))}
               </div>
 
-              {/* Arrows — mobile only */}
+              {/* Arrows - mobile only */}
               <div className="flex gap-2 md:hidden">
                 <button
                   onClick={onPrev}

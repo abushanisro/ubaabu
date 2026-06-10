@@ -66,7 +66,7 @@ const cards = [
   {
     Icon: IconConsult,
     title: 'On-site engineering support',
-    body: 'We deploy our engineers directly to your facility — working alongside your team on the floor, resolving issues hands-on, and continuing remote support through the Emithran platform.',
+    body: 'We deploy our engineers directly to your facility - working alongside your team on the floor, resolving issues hands-on, and continuing remote support through the Emithran platform.',
     cta: 'Talk to our team',
     href: '/contact?source=engineering-support&cta=talk-to-our-team',
   },
@@ -145,7 +145,7 @@ export default function EngineeringSupportPage() {
               Expert support for every stage of your manufacturing journey
             </h1>
             <p className="mt-5 text-[16px] text-[#0f1b2d]/55 leading-relaxed max-w-[520px]">
-              From initial deployment to full-scale operations — our engineering teams, certified partners, and managed service options keep your platform running at peak performance.
+              From initial deployment to full-scale operations - our engineering teams, certified partners, and managed service options keep your platform running at peak performance.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '404 — Page not found | Emithran',
+  title: '404 - Page not found | Emithran',
 }
 
 // ── Hover arrow ────────────────────────────────────────────────────────────
@@ -101,7 +101,7 @@ const cards = [
   {
     Icon: IconContact,
     title: 'Contact Us',
-    body: 'Talk to our team about your manufacturing use case — we reply within one business day.',
+    body: 'Talk to our team about your manufacturing use case - we reply within one business day.',
     href: '/contact?source=404&cta=contact-us',
   },
 ]
@@ -195,7 +195,7 @@ export default function NotFound() {
 
       {/* Footer bar */}
       <footer className="relative w-full border-t border-black/[0.07] bg-white/80 overflow-hidden">
-        {/* Diagonal bands — bottom-left corner */}
+        {/* Diagonal bands - bottom-left corner */}
         <div className="pointer-events-none absolute bottom-0 left-0 w-[380px] h-[120px]" aria-hidden="true">
           <div
             className="absolute h-[2px] bg-[#0d9e8a]/[0.18]"

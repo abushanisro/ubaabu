@@ -19,7 +19,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         id: 'gs-1',
         question: 'What is Emithran and who is it for?',
         answer:
-          'Emithran is a manufacturing intelligence platform built for precision manufacturers, Tier-1 and Tier-2 suppliers, and OEM procurement teams — primarily in automotive, aerospace, defence, and space. It gives your team real-time should-cost data, supplier visibility, BOM validation, and shipment tracking in one place.',
+          'Emithran is a manufacturing intelligence platform built for precision manufacturers, Tier-1 and Tier-2 suppliers, and OEM procurement teams - primarily in automotive, aerospace, defence, and space. It gives your team real-time should-cost data, supplier visibility, BOM validation, and shipment tracking in one place.',
       },
       {
         id: 'gs-2',
@@ -37,7 +37,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         id: 'gs-4',
         question: 'Can I trial the platform before committing?',
         answer:
-          'Yes. We offer a 14-day guided proof of concept where your team works with real data — typically a live BOM or a supplier network you want to analyse. Contact our team to start your trial.',
+          'Yes. We offer a 14-day guided proof of concept where your team works with real data - typically a live BOM or a supplier network you want to analyse. Contact our team to start your trial.',
       },
     ],
   },
@@ -49,7 +49,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         id: 'sc-1',
         question: 'What is a should-cost model and how does Emithran build one?',
         answer:
-          'A should-cost model is a bottom-up cost estimate of what a part or assembly should cost to manufacture — based on materials, labour, overheads, and profit margin — rather than what a supplier quotes. Emithran\'s Should-Cost Engine pulls live commodity prices, regional labour rates, machine cycle time estimates, and overhead benchmarks to generate a should-cost figure automatically from a part description or CAD file.',
+          'A should-cost model is a bottom-up cost estimate of what a part or assembly should cost to manufacture - based on materials, labour, overheads, and profit margin - rather than what a supplier quotes. Emithran\'s Should-Cost Engine pulls live commodity prices, regional labour rates, machine cycle time estimates, and overhead benchmarks to generate a should-cost figure automatically from a part description or CAD file.',
       },
       {
         id: 'sc-2',
@@ -67,13 +67,13 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         id: 'sc-4',
         question: 'Can I compare costs across multiple geographies?',
         answer:
-          'Yes. You can run a multi-geography cost comparison across India, Germany, UK, USA, China, Mexico, and Turkey in a single report. The output includes landed cost (DDP) with logistics and duty factored in — not just ex-works price.',
+          'Yes. You can run a multi-geography cost comparison across India, Germany, UK, USA, China, Mexico, and Turkey in a single report. The output includes landed cost (DDP) with logistics and duty factored in - not just ex-works price.',
       },
       {
         id: 'sc-5',
         question: 'How do I use should-cost data in supplier negotiations?',
         answer:
-          'The platform generates a negotiation brief that shows your should-cost estimate alongside the supplier\'s quote, the gap, and a suggested target price. Many customers share this directly with suppliers as a basis for structured negotiations — win rates on RFQs typically improve by 20–30% in the first quarter of use.',
+          'The platform generates a negotiation brief that shows your should-cost estimate alongside the supplier\'s quote, the gap, and a suggested target price. Many customers share this directly with suppliers as a basis for structured negotiations - win rates on RFQs typically improve by 20–30% in the first quarter of use.',
       },
     ],
   },
@@ -115,7 +115,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         id: 'bq-1',
         question: 'What file formats does BOM import support?',
         answer:
-          'We support Excel (.xlsx, .xls), CSV, and direct ERP export formats from SAP (IDOC/CSV), Oracle, and Infor. We also accept STEP and IGES files for CAD-driven BOM extraction. If your format is not listed, contact support — we have handled most proprietary ERP formats.',
+          'We support Excel (.xlsx, .xls), CSV, and direct ERP export formats from SAP (IDOC/CSV), Oracle, and Infor. We also accept STEP and IGES files for CAD-driven BOM extraction. If your format is not listed, contact support - we have handled most proprietary ERP formats.',
       },
       {
         id: 'bq-2',
@@ -151,7 +151,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         id: 'so-2',
         question: 'How is OTIF calculated on the platform?',
         answer:
-          'OTIF (On-Time In-Full) is calculated per shipment line: on-time is measured against the confirmed delivery date, and in-full against the ordered quantity. Dashboard metrics aggregate across all open programs, supplier, and time period — you can slice OTIF by supplier, customer, part family, or quarter.',
+          'OTIF (On-Time In-Full) is calculated per shipment line: on-time is measured against the confirmed delivery date, and in-full against the ordered quantity. Dashboard metrics aggregate across all open programs, supplier, and time period - you can slice OTIF by supplier, customer, part family, or quarter.',
       },
       {
         id: 'so-3',
@@ -187,7 +187,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
         id: 'ps-4',
         question: 'Is Emithran compliant with ITAR and defence data requirements?',
         answer:
-          'We support defence customers with enhanced data isolation, access logging, and configurable data residency. For ITAR-controlled technical data, we recommend discussing your specific requirements with our enterprise team before onboarding — we have existing deployments with defence-sector customers and can advise on the right configuration.',
+          'We support defence customers with enhanced data isolation, access logging, and configurable data residency. For ITAR-controlled technical data, we recommend discussing your specific requirements with our enterprise team before onboarding - we have existing deployments with defence-sector customers and can advise on the right configuration.',
       },
     ],
   },

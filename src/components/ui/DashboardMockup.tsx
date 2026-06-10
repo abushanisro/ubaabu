@@ -13,7 +13,7 @@
         <div className="w-2 h-2 rounded-full bg-grey-400" />
         <div className="w-2 h-2 rounded-full bg-grey-400" />
         <div className="w-2 h-2 rounded-full bg-grey-400" />
-        <span className="ml-2 text-grey-300 tracking-widest text-[10px]">EMITHRAN — PROGRAMME DASHBOARD</span>
+        <span className="ml-2 text-grey-300 tracking-widest text-[10px]">EMITHRAN - PROGRAMME DASHBOARD</span>
       </div>
       {/* Table header */}
       <div className="grid grid-cols-5 px-4 py-2 border-b border-border text-grey-300 tracking-wider text-[10px]">

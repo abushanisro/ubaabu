@@ -116,7 +116,7 @@ function HeroSection() {
       <div className="mx-auto max-w-[1280px] px-6 md:px-12 pt-24 pb-0">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-0">
 
-          {/* Left — text */}
+          {/* Left - text */}
           <div className="flex-1 md:pr-16 z-10">
             <span
               className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
@@ -128,7 +128,7 @@ function HeroSection() {
               Move faster with<br />Emithran partners
             </h1>
             <p className="text-[15px] leading-relaxed mb-8 max-w-md" style={{ color: 'rgba(15,27,45,0.6)' }}>
-              Our certified partner network spans system integrators, technology providers, and industry consultants — helping you deploy, scale, and get maximum value from the platform.
+              Our certified partner network spans system integrators, technology providers, and industry consultants - helping you deploy, scale, and get maximum value from the platform.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -150,7 +150,7 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Right — floating partner category cards (hidden on mobile) */}
+          {/* Right - floating partner category cards (hidden on mobile) */}
           <div className="hidden md:flex flex-1 items-center justify-end">
             <div className="flex gap-4" style={{ width: 380 }}>
 
@@ -175,7 +175,7 @@ function HeroSection() {
                 ))}
               </div>
 
-              {/* Right column — offset down */}
+              {/* Right column - offset down */}
               <div className="flex flex-col gap-4 flex-1 mt-10">
                 {([HERO_PARTNER_CARDS[1], HERO_PARTNER_CARDS[3]] as typeof HERO_PARTNER_CARDS).map(card => (
                   <div
@@ -303,7 +303,7 @@ function WhyPartnersSection() {
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
 
-          {/* Left — heading + intro */}
+          {/* Left - heading + intro */}
           <div className="lg:w-[36%] shrink-0">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: '#0d9488' }}>
               Why partner with Emithran
@@ -316,7 +316,7 @@ function WhyPartnersSection() {
             </p>
           </div>
 
-          {/* Right — 2×2 benefit blocks */}
+          {/* Right - 2×2 benefit blocks */}
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-10">
             {BENEFITS.map(b => (
               <div key={b.title}>
@@ -346,7 +346,7 @@ function WhyPartnersSection() {
 const SPECIALISATIONS = [
   {
     title: 'System Integrators',
-    body: "ERP & MES implementation experts — SAP, Oracle, and custom stacks — embedding Emithran's cost intelligence into existing workflows.",
+    body: "ERP & MES implementation experts - SAP, Oracle, and custom stacks - embedding Emithran's cost intelligence into existing workflows.",
     trackSlug: 'system-integrator',
     icon: (
       <svg viewBox="0 0 42 36" width="42" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -368,7 +368,7 @@ const SPECIALISATIONS = [
   },
   {
     title: 'Technology Partners',
-    body: 'API integrations, data connectors, and platform extensions — linking supplier databases, CAD tools, and procurement systems.',
+    body: 'API integrations, data connectors, and platform extensions - linking supplier databases, CAD tools, and procurement systems.',
     trackSlug: 'technology-partner',
     icon: (
       <svg viewBox="0 0 40 38" width="40" height="38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -496,11 +496,11 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
     title: 'India vs Belgium: 38% Landed Cost Saving on HGV Chassis Rails',
     description: 'Emithran benchmarked India roll-forming against Belgium manufacturing for a major European OEM, delivering full DDP landed cost visibility from Chennai to Scotland.',
     challenge: 'The procurement team had no transparent cost data to justify dual sourcing. Belgian supplier pricing was accepted at face value with no independent benchmark.',
-    solution: 'Emithran built granular should-cost models for both geographies — factoring raw material, labour, tooling, and full DDP logistics — enabling a direct comparison.',
+    solution: 'Emithran built granular should-cost models for both geographies - factoring raw material, labour, tooling, and full DDP logistics - enabling a direct comparison.',
     impact: 'A 38% total landed cost advantage for India-sourced rails was validated, directly informing a £1.2M annual sourcing decision.',
     accentColor: '#0d9488',
     bgImage: '/assets/casestudy/case4.png',
-    quote: 'Emithran gave us the data confidence we needed to dual-source. The India saving was real — we could prove it line by line.',
+    quote: 'Emithran gave us the data confidence we needed to dual-source. The India saving was real - we could prove it line by line.',
     quoteAuthor: 'Procurement Director',
     quoteRole: 'European HGV OEM',
     logoSrc: '/assets/trustedby/ashokleyland.svg',
@@ -513,7 +513,7 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
     description: 'A full should-cost model for a complex exhaust assembly revealed 19% procurement leakage and enabled a data-driven renegotiation with Tier-1 stamping suppliers.',
     challenge: 'The OEM had no visibility into the actual cost build-up of a multi-component exhaust system. Supplier quotes were accepted without challenge.',
     solution: 'Emithran decomposed the assembly into 24 sub-parts, modelling material cost, press tooling, welding, and finish for each Stuttgart Tier-1 supplier.',
-    impact: 'The renegotiation recovered 19% of annual spend — approximately €340K per year — without changing a single supplier.',
+    impact: 'The renegotiation recovered 19% of annual spend - approximately €340K per year - without changing a single supplier.',
     accentColor: '#d97706',
     bgImage: '/assets/casestudy/case5.png',
     quote: 'We had suspected overpayment for years. Emithran quantified it in 48 hours and gave us the ammunition to act.',
@@ -526,7 +526,7 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
   {
     slug: 'hgv-chassis',
     title: 'HGV Chassis Ladder Frame: BOM Costing Across 3 Geographies',
-    description: 'Multi-geography cost benchmarking for a heavy goods vehicle chassis frame — comparing India, Germany, and Turkey fabrication costs with full landed cost visibility.',
+    description: 'Multi-geography cost benchmarking for a heavy goods vehicle chassis frame - comparing India, Germany, and Turkey fabrication costs with full landed cost visibility.',
     challenge: 'A global sourcing team needed a reliable cost comparison across three candidate manufacturing regions with no common cost model.',
     solution: 'Emithran built region-specific models for India, Germany, and Turkey, accounting for steel grade availability, labour rates, and port-to-plant logistics.',
     impact: 'India-sourced fabrication came in 31% below Germany on a landed cost basis, saving the team 6 weeks of RFQ cycle time.',
@@ -545,10 +545,10 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
     description: 'Value analysis of an aviation-grade DC-DC converter identified 14 substitution opportunities, delivering 22% unit cost reduction without changing form factor.',
     challenge: 'An aerospace electronics manufacturer was under pressure to reduce unit cost without disrupting DO-160 qualification or the existing PCB layout.',
     solution: "Emithran's VAVE analysis mapped every passive component against qualified alternatives, running DFM checks and pricing for 14 substitution candidates.",
-    impact: '8 substitutions were approved, delivering a 22% unit cost reduction on a $4,200 converter — $924 saving per unit at volume.',
+    impact: '8 substitutions were approved, delivering a 22% unit cost reduction on a $4,200 converter - $924 saving per unit at volume.',
     accentColor: '#7c3aed',
     bgImage: '/assets/casestudy/case3.png',
-    quote: 'The VAVE output was actionable from day one. Our engineers could review the substitution list directly — no translation needed.',
+    quote: 'The VAVE output was actionable from day one. Our engineers could review the substitution list directly - no translation needed.',
     quoteAuthor: 'VP Engineering',
     quoteRole: 'Aerospace Electronics OEM',
     logoSrc: '/assets/trustedby/digantara.svg',
@@ -606,7 +606,7 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
   {
     slug: 'rear-axle-should-cost',
     title: 'Rear Axle Should-Cost: Breaking Down a £480 Casting-Machined Assembly',
-    description: 'A granular should-cost analysis of a rear axle housing — from raw casting to machining cycle time — identified a £68/unit overcharge from a Tier-1 supplier.',
+    description: 'A granular should-cost analysis of a rear axle housing - from raw casting to machining cycle time - identified a £68/unit overcharge from a Tier-1 supplier.',
     challenge: "A UK OEM suspected they were overpaying for a cast-and-machined rear axle housing but had no internal capability to audit the Tier-1 supplier's pricing.",
     solution: 'Emithran built a bottom-up should-cost model including casting yield, machining operations, surface treatment, and logistics from the West Midlands.',
     impact: 'A £68/unit overcharge was confirmed. The renegotiation recovered £272K in the first year.',
@@ -655,7 +655,7 @@ function CaseStudyCarousel() {
         {/* Main content */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12" style={{ minHeight: 400 }}>
 
-          {/* Left — text */}
+          {/* Left - text */}
           <div className="flex-1 flex flex-col gap-6 lg:gap-8">
             <div>
               <h2 className="text-xl md:text-2xl font-bold tracking-tight leading-snug mb-3" style={{ color: '#0f1b2d' }}>
@@ -689,7 +689,7 @@ function CaseStudyCarousel() {
             </Link>
           </div>
 
-          {/* Right — image card with quote */}
+          {/* Right - image card with quote */}
           <div
             className="lg:w-[52%] shrink-0 rounded-2xl overflow-hidden relative flex flex-col justify-end"
             style={{ minHeight: 380, backgroundImage: `url(${item.bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
@@ -715,7 +715,7 @@ function CaseStudyCarousel() {
 
         </div>
 
-        {/* Nav — logo buttons + colored progress bar */}
+        {/* Nav - logo buttons + colored progress bar */}
         <div className="mt-10">
           {/* Progress segments */}
           <div className="flex gap-0 mb-4" style={{ height: 3 }}>
@@ -795,7 +795,7 @@ function BottomCTA() {
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:items-start">
 
-          {/* Left — heading + CTAs (~50%) */}
+          {/* Left - heading + CTAs (~50%) */}
           <div className="lg:w-1/2">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-[1.15] mb-4" style={{ color: '#0f1b2d' }}>
               Ready to get connected?
@@ -816,7 +816,7 @@ function BottomCTA() {
             </div>
           </div>
 
-          {/* Right — two cards side by side (~50%) */}
+          {/* Right - two cards side by side (~50%) */}
           <div className="lg:w-1/2 flex flex-col sm:flex-row gap-5">
 
             {/* Card: Read customer stories */}

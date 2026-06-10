@@ -71,7 +71,7 @@ function FeaturedCard({ post }: { post: CaseStudy }) {
       style={{ background: 'rgba(255,255,255,0.6)', backdropFilter: 'blur(16px)', boxShadow: '0 4px 24px rgba(0,0,0,0.06)' }}>
       <div className="grid lg:grid-cols-2">
 
-        {/* Left — content */}
+        {/* Left - content */}
         <div className="p-8 md:p-10 flex flex-col justify-center">
           <div className="flex items-center gap-2 mb-1">
             <IndustryLabel industry={post.industry} />
@@ -100,7 +100,7 @@ function FeaturedCard({ post }: { post: CaseStudy }) {
           </Link>
         </div>
 
-        {/* Right — interactive MapLibre map */}
+        {/* Right - interactive MapLibre map */}
         <div className="relative hidden lg:block min-h-[320px] overflow-hidden">
           <MaplibreHeroMap
             markers={ALL_MARKERS}
@@ -378,7 +378,7 @@ export default function CaseStudyPage() {
   return (
     <main className="min-h-screen" style={{ background: '#fff' }}>
 
-      {/* Hero — blog.svg full section background */}
+      {/* Hero - blog.svg full section background */}
       <div className="relative w-full overflow-hidden">
         <img
           src="/assets/blog/blog.svg"
@@ -400,7 +400,7 @@ export default function CaseStudyPage() {
         </div>
       </div>
 
-      {/* Latest case studies — editorial style */}
+      {/* Latest case studies - editorial style */}
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 flex flex-col gap-14"
         style={{ borderBottom: '1px solid rgba(13,148,136,0.1)' }}>
         {CASE_STUDIES.filter(cs => !cs.featured).slice(0, 3).map(cs => (
@@ -446,7 +446,7 @@ export default function CaseStudyPage() {
       {/* Case studies carousel */}
       <CaseStudyCarousel />
 
-      {/* Request CTA — bottom */}
+      {/* Request CTA - bottom */}
       <div className="py-10">
         <RequestCTA />
       </div>

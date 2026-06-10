@@ -315,7 +315,7 @@ function BecomeAPartnerForm() {
           <div>
             <label className={labelCls}>Why are you interested in partnering with Emithran?</label>
             <textarea className={inputCls + ' resize-none'} rows={3}
-              placeholder="Describe how you plan to bring Emithran's cost intelligence to manufacturing clients — ERP integration, should-cost consulting, supplier benchmarking, etc."
+              placeholder="Describe how you plan to bring Emithran's cost intelligence to manufacturing clients - ERP integration, should-cost consulting, supplier benchmarking, etc."
               value={fields.reason} onChange={e => set('reason', e.target.value)} />
             {errors.reason && <ErrorMsg msg={errors.reason} />}
           </div>
@@ -396,7 +396,7 @@ function ExploreSection() {
       <div className="mx-auto max-w-[1280px]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-          {/* 1 — Explore ecosystem (spans 2 cols) */}
+          {/* 1 - Explore ecosystem (spans 2 cols) */}
           <div className="md:col-span-2 flex flex-col gap-4">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight leading-snug" style={{ color: '#0f1b2d' }}>
               Explore our ecosystem of partners
@@ -413,7 +413,7 @@ function ExploreSection() {
             </Link>
           </div>
 
-          {/* 2 — Already a partner */}
+          {/* 2 - Already a partner */}
           <div className="flex flex-col gap-3">
             <div className="mb-1">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -446,7 +446,7 @@ function ExploreSection() {
             </a>
           </div>
 
-          {/* 3 — View requirements */}
+          {/* 3 - View requirements */}
           <div className="flex flex-col gap-3">
             <div className="mb-1">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -494,7 +494,7 @@ export default function BecomeAPartnerPage() {
         <div className="mx-auto max-w-[1280px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24">
 
-            {/* Left — copy */}
+            {/* Left - copy */}
             <div className="lg:pt-2">
               <span
                 className="inline-block text-[11px] font-bold uppercase tracking-widest mb-5 px-3 py-1 rounded-full"
@@ -513,7 +513,7 @@ export default function BecomeAPartnerPage() {
               </p>
             </div>
 
-            {/* Right — form */}
+            {/* Right - form */}
             <Suspense fallback={<div className="rounded-2xl border bg-white p-8" style={{ borderColor: 'rgba(13,148,136,0.13)', minHeight: 400 }} />}>
               <BecomeAPartnerForm />
             </Suspense>

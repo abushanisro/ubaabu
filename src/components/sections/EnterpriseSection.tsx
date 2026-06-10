@@ -13,7 +13,7 @@ type Item = { id: string; label: string; sub: string; desc: string; bg: string; 
 
 function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: string; int: string; size: number }) {
   const shapes: Record<string, React.ReactNode> = {
-    /* Should Cost — rising bar chart with trend line */
+    /* Should Cost - rising bar chart with trend line */
     'should-cost': <>
       <rect x="4"  y="28" width="8" height="8"  rx="1.5" fill={bg}/>
       <rect x="16" y="20" width="8" height="16" rx="1.5" fill={ix}/>
@@ -21,7 +21,7 @@ function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: s
       <rect x="4"  y="8"  width="20" height="7" rx="2"   fill={fg}/>
       <circle cx="10" cy="11.5" r="2" fill={ix}/>
     </>,
-    /* BOM Composer — stacked hierarchy layers */
+    /* BOM Composer - stacked hierarchy layers */
     'bom-composer': <>
       <rect x="10" y="6"  width="20" height="7"  rx="2" fill={bg}/>
       <rect x="4"  y="18" width="14" height="7"  rx="2" fill={ix}/>
@@ -33,7 +33,7 @@ function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: s
       <rect x="8"  y="25" width="2"  height="5"  fill={fg} opacity="0.6"/>
       <rect x="30" y="25" width="2"  height="5"  fill={fg} opacity="0.6"/>
     </>,
-    /* Supplier Radar — radar circles with beam */
+    /* Supplier Radar - radar circles with beam */
     'supplier-radar': <>
       <circle cx="20" cy="22" r="14" fill="none" stroke={bg}  strokeWidth="2.5"/>
       <circle cx="20" cy="22" r="9"  fill="none" stroke={ix}  strokeWidth="2"/>
@@ -41,20 +41,20 @@ function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: s
       <path d="M20 22 L32 8" stroke={bg} strokeWidth="2.5" strokeLinecap="round"/>
       <circle cx="32" cy="8" r="3" fill={bg}/>
     </>,
-    /* VAVE Studio — lightbulb with spark */
+    /* VAVE Studio - lightbulb with spark */
     'vave-studio': <>
       <path d="M20 5 C12 5 7 11 7 18 C7 23 10 27 14 29 L14 34 L26 34 L26 29 C30 27 33 23 33 18 C33 11 28 5 20 5Z" fill={bg}/>
       <rect x="14" y="34" width="12" height="3" rx="1.5" fill={fg}/>
       <rect x="16" y="37" width="8"  height="2" rx="1"   fill={fg}/>
       <path d="M17 18 L21 12 L21 19 L25 13" stroke={ix} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
     </>,
-    /* Quality Guard — shield with check */
+    /* Quality Guard - shield with check */
     'quality-guard': <>
       <path d="M20 4 L33 9 L33 21 C33 29 27 35 20 37 C13 35 7 29 7 21 L7 9 Z" fill={bg}/>
       <path d="M20 4 L33 9 L33 21 C33 29 27 35 20 37 C13 35 7 29 7 21 L7 9 Z" fill={fg} opacity="0.25"/>
       <path d="M13 20 L18 25 L27 14" stroke={ix} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
     </>,
-    /* Launch Tracker — rocket with milestone dots */
+    /* Launch Tracker - rocket with milestone dots */
     'launch-tracker': <>
       <path d="M20 4 C20 4 28 10 28 22 L20 28 L12 22 C12 10 20 4 20 4Z" fill={bg}/>
       <ellipse cx="20" cy="22" rx="4" ry="4" fill={ix}/>
@@ -62,7 +62,7 @@ function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: s
       <circle cx="10" cy="14" r="2.5" fill={ix} opacity="0.8"/>
       <circle cx="30" cy="14" r="2.5" fill={ix} opacity="0.8"/>
     </>,
-    /* ERP Systems — database cylinder */
+    /* ERP Systems - database cylinder */
     'erp': <>
       <ellipse cx="20" cy="10" rx="14" ry="5" fill={bg}/>
       <rect    x="6"  y="10"  width="28" height="20" fill={fg}/>
@@ -70,20 +70,20 @@ function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: s
       <ellipse cx="20" cy="10" rx="14" ry="5" fill={ix} opacity="0.7"/>
       <ellipse cx="20" cy="20" rx="14" ry="5" fill="none" stroke={ix} strokeWidth="1.5" opacity="0.5"/>
     </>,
-    /* PLM Software — 3‑D layered boxes */
+    /* PLM Software - 3‑D layered boxes */
     'plm': <>
       <rect x="4"  y="4"  width="18" height="18" rx="2.5" fill={fg}/>
       <rect x="18" y="18" width="18" height="18" rx="2.5" fill={bg}/>
       <rect x="11" y="11" width="18" height="18" rx="2.5" fill={ix} opacity="0.85"/>
     </>,
-    /* Procurement — two circular arrows (exchange) */
+    /* Procurement - two circular arrows (exchange) */
     'proc': <>
       <path d="M10 14 A10 10 0 1 1 30 14" stroke={bg} strokeWidth="3.5" fill="none" strokeLinecap="round"/>
       <path d="M30 26 A10 10 0 1 1 10 26" stroke={ix} strokeWidth="3.5" fill="none" strokeLinecap="round"/>
       <polygon points="10,8 5,14 15,14" fill={bg}/>
       <polygon points="30,32 25,26 35,26" fill={ix}/>
     </>,
-    /* AI & Data Lakes — neural net nodes */
+    /* AI & Data Lakes - neural net nodes */
     'ai-lakes': <>
       <circle cx="20" cy="8"  r="4" fill={bg}/>
       <circle cx="8"  cy="24" r="4" fill={bg}/>
@@ -96,7 +96,7 @@ function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: s
       <line x1="32" y1="24" x2="26" y2="36" stroke={ix} strokeWidth="1.8" opacity="0.7"/>
       <line x1="8"  y1="24" x2="32" y2="24" stroke={fg} strokeWidth="1.5" opacity="0.5"/>
     </>,
-    /* MES / SCADA — gear */
+    /* MES / SCADA - gear */
     'mes': <>
       <circle cx="20" cy="20" r="8" fill={bg}/>
       <circle cx="20" cy="20" r="4" fill={fg}/>
@@ -108,7 +108,7 @@ function ItemIcon({ id, bg, fg, int: ix, size }: { id: string; bg: string; fg: s
           fill={ix} transform={`rotate(${a},${x},${y})`}/>
       })}
     </>,
-    /* Finance & Cost — trend line with area fill */
+    /* Finance & Cost - trend line with area fill */
     'finance': <>
       <path d="M4 32 L12 24 L20 28 L28 14 L36 10 L36 36 L4 36Z" fill={bg} opacity="0.4"/>
       <path d="M4 32 L12 24 L20 28 L28 14 L36 10" stroke={bg} strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
@@ -294,7 +294,7 @@ export default function EnterpriseSection() {
         const y = cy + r * Math.sin(angle)
         el.style.transform = `translate(${x - el.offsetWidth / 2}px,${y - el.offsetHeight / 2}px)`
       }
-      // Near-full circle: ~30° gap top, ~20° gap bottom — uniform 31° spacing
+      // Near-full circle: ~30° gap top, ~20° gap bottom - uniform 31° spacing
       const leftStep  = (155 * DEG) / (LEFT.length  - 1)
       const rightStep = (155 * DEG) / (RIGHT.length - 1)
       LEFT.forEach( (it, i) => placeArc(it.id, 100 * DEG + leftStep  * i))
@@ -302,7 +302,7 @@ export default function EnterpriseSection() {
       return
     }
 
-    // Desktop — two vertical columns
+    // Desktop - two vertical columns
     const N      = LEFT.length
     const topY   = H * 0.08
     const botY   = H * 0.92
@@ -348,7 +348,7 @@ export default function EnterpriseSection() {
       const er   = el.getBoundingClientRect()
       const side = LEFT.some(l => l.id === id) ? 'left' : 'right'
       if (stage!.clientWidth < 640) {
-        // Circular layout — connect from item centre
+        // Circular layout - connect from item centre
         return { x: er.left - sr.left + er.width / 2, y: er.top - sr.top + er.height / 2, side }
       }
       return { x: side === 'left' ? er.right - sr.left + 4 : er.left - sr.left - 4, y: er.top - sr.top + er.height / 2, side }
@@ -438,10 +438,10 @@ export default function EnterpriseSection() {
   return (
     <section ref={sectionRef} className="relative bg-[#080808] overflow-hidden">
 
-      {/* Dotted wave surface — sits above bg image, below content */}
+      {/* Dotted wave surface - sits above bg image, below content */}
       <DottedSurface style={{ zIndex: 1 }} />
 
-      {/* Background image — mobile SVG */}
+      {/* Background image - mobile SVG */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/assets/cards/entrise-mobile.svg"
@@ -456,7 +456,7 @@ export default function EnterpriseSection() {
           zIndex: 0,
         }}
       />
-      {/* Background image — desktop PNG */}
+      {/* Background image - desktop PNG */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/assets/cards/entrpisebg.svg"
@@ -723,7 +723,7 @@ export default function EnterpriseSection() {
                   style={{ background: 'radial-gradient(circle at 50% 40%, rgba(45,212,191,0.10) 0%, transparent 68%)', mixBlendMode: 'screen' }} />
               </div>
 
-              {/* Floating manufacturing data chips — desktop only */}
+              {/* Floating manufacturing data chips - desktop only */}
               {!isMob && (
                 <>
                   <div className="absolute pointer-events-none flex items-center gap-1 px-2 py-1 rounded-md"
@@ -760,12 +760,12 @@ export default function EnterpriseSection() {
               )}
             </>
           ) : (
-            /* SSR / first-paint placeholder — no dynamic imports in this branch */
+            /* SSR / first-paint placeholder - no dynamic imports in this branch */
             <RobotSkeleton size={robotSize} />
           )}
         </div>
 
-        {/* Tap hint — shown only when nothing is selected */}
+        {/* Tap hint - shown only when nothing is selected */}
         {isMob && (
           <div
             className="absolute z-20 pointer-events-none"
@@ -796,7 +796,7 @@ export default function EnterpriseSection() {
           </div>
         )}
 
-        {/* Desktop idle hint — shown when nothing is hovered */}
+        {/* Desktop idle hint - shown when nothing is hovered */}
         {!isMob && (
           <div
             className="absolute z-20 pointer-events-none"

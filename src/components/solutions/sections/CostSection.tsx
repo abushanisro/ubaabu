@@ -89,7 +89,7 @@ export default function CostSection() {
                       Emithran approach
                     </div>
                     <p className="mt-1.5 text-sm leading-relaxed text-black/75">
-                      Live should-cost models trained on your supply chain — instant variance,
+                      Live should-cost models trained on your supply chain - instant variance,
                       transparent drivers, supplier-neutral evidence.
                     </p>
                   </div>
@@ -144,7 +144,7 @@ export default function CostSection() {
                   in the first quarter alone."
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
-                  — Defense contractor · 5,000+ part types annually
+                  - Defense contractor · 5,000+ part types annually
                 </figcaption>
               </motion.figure>
             </div>

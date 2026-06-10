@@ -20,14 +20,14 @@ export default function WatchDemo() {
   return (
     <section className="relative w-full bg-white overflow-hidden">
 
-      {/* ── Mobile background SVG (9:16) — only on xs/sm ── */}
+      {/* ── Mobile background SVG (9:16) - only on xs/sm ── */}
       <img
         src="/assets/cards/watchdemomobiile.svg"
         alt="" aria-hidden
         className="w-full h-auto block md:hidden"
       />
 
-      {/* ── Desktop background SVG — md and above ── */}
+      {/* ── Desktop background SVG - md and above ── */}
       <img
         src="/assets/cards/watchdemo.svg"
         alt="" aria-hidden
@@ -46,7 +46,7 @@ export default function WatchDemo() {
             <span className="text-[#0d9e8a]">at the speed of AI</span>
           </h2>
           <p className="mt-1 text-[10px] text-[#4b5563] leading-snug">
-            Sourcing, costing, BOM intelligence, and supplier evaluation — all in one platform.
+            Sourcing, costing, BOM intelligence, and supplier evaluation - all in one platform.
           </p>
           <div className="mt-5 flex items-center gap-2">
             <a
@@ -70,7 +70,7 @@ export default function WatchDemo() {
           </div>
         </div>
 
-        {/* ── Main video — fixed aspect ratio so features get space ── */}
+        {/* ── Main video - fixed aspect ratio so features get space ── */}
         <div className="shrink-0 overflow-hidden rounded-2xl mb-2" style={{ aspectRatio: '16/9' }}>
           <HeroVideoDialog
             animationStyle="from-center"
@@ -81,7 +81,7 @@ export default function WatchDemo() {
           />
         </div>
 
-        {/* ── 4 feature highlights — 2×2 grid ── */}
+        {/* ── 4 feature highlights - 2×2 grid ── */}
         <div className="grid grid-cols-2 gap-1.5 shrink-0 mb-2">
           {[
             { icon: Sparkles, title: 'Chat with Emithran AI',       desc: 'Get instant answers about sourcing, costing, and suppliers.' },
@@ -102,7 +102,7 @@ export default function WatchDemo() {
           ))}
         </div>
 
-        {/* ── BudgetCard + AI Negotiation — compact 2-col ── */}
+        {/* ── BudgetCard + AI Negotiation - compact 2-col ── */}
         <div className="grid grid-cols-2 gap-2 shrink-0 mb-2">
           <BudgetCard />
           <div className="rounded-xl border border-black/10 bg-white p-2.5 shadow-lg">
@@ -157,7 +157,7 @@ export default function WatchDemo() {
                 <span className="text-[#0d9e8a]">at the speed of AI</span>
               </h2>
               <p className="mt-3 text-[14px] text-[#4b5563]">
-                Sourcing, costing, BOM intelligence, and supplier evaluation — all in one platform.
+                Sourcing, costing, BOM intelligence, and supplier evaluation - all in one platform.
               </p>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <a

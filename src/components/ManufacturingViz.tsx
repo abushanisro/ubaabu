@@ -281,7 +281,7 @@ const NODES: [number, number][] = [
 ];
 
 function drawWorldMap(ctx: CanvasRenderingContext2D, w: number, h: number, t: number, pal: { fg: string; accent: string; soft: string }) {
-  // dotted "continents" — fine grid masked by pseudo land function
+  // dotted "continents" - fine grid masked by pseudo land function
   const step = 14;
   ctx.fillStyle = pal.soft;
   for (let y = 0; y < h; y += step) {

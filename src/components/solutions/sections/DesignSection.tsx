@@ -20,7 +20,7 @@ const ANNOTATIONS = [
     border:  'rgba(252,211,77,0.5)',
     color:   'rgb(202,158,30)',
     label:   'Tolerance H7',
-    body:    '40% costlier with Indian suppliers — optimize?',
+    body:    '40% costlier with Indian suppliers - optimize?',
     delay:   0.55,
     floatY:  -8,
     floatDur: 4.2,
@@ -107,7 +107,7 @@ export default function DesignSection() {
                     </div>
                     <p className="mt-1.5 text-sm leading-relaxed text-black/75">
                       Embed manufacturing and supplier intelligence directly into the design
-                      process — real-time, in the CAD.
+                      process - real-time, in the CAD.
                     </p>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ export default function DesignSection() {
                   emails. Now they design with them built in. Saves us 15 days per product cycle."
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
-                  — Aerospace component manufacturer
+                  - Aerospace component manufacturer
                 </figcaption>
               </motion.figure>
             </div>

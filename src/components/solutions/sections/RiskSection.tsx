@@ -123,7 +123,7 @@ export default function RiskSection() {
                       Emithran approach
                     </div>
                     <p className="mt-1.5 text-sm leading-relaxed text-black/75">
-                      Predictive supply chain monitoring that flags risk weeks early —
+                      Predictive supply chain monitoring that flags risk weeks early -
                       utilization, geopolitics, finance, quality, weather.
                     </p>
                   </div>
@@ -178,7 +178,7 @@ export default function RiskSection() {
                   That's the entire value of predictive risk."
                 </blockquote>
                 <figcaption className="mt-3 font-mono text-[11px] uppercase tracking-[0.18em] text-black/40">
-                  — Multi-product aerospace company
+                  - Multi-product aerospace company
                 </figcaption>
               </motion.figure>
             </div>

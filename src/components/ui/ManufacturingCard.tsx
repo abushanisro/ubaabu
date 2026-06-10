@@ -35,7 +35,7 @@ export function ManufacturingCard({ title, description, children, className = ""
       className={`card-3d card-shadow hover:card-shadow-hover rounded-2xl bg-card p-6 border border-gray-200/60 hover:border-black relative overflow-hidden group cursor-pointer transition-colors duration-300 ${className}`}
     >
       <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-primary/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-      {/* teal corner accent — top-left, extends to 50% of each edge */}
+      {/* teal corner accent - top-left, extends to 50% of each edge */}
       <span className="absolute top-0 left-0 w-1/2 h-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none">
         <span className="absolute top-0 left-0 w-full h-[2px]" style={{ background: "linear-gradient(to right, oklch(0.68 0.13 180), transparent)" }} />
         <span className="absolute top-0 left-0 h-full w-[2px]" style={{ background: "linear-gradient(to bottom, oklch(0.68 0.13 180), transparent)" }} />

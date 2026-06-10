@@ -16,7 +16,7 @@ export const POSTS: BlogPost[] = [
     slug: 'compound-growth-manufacturing-cost-intelligence',
     title: "The Number That Never Stops Moving: What a Homepage Counter Taught Me About Manufacturing Intelligence",
     excerpt:
-      "I was building Emithran's homepage and couldn't decide what number to put on the hero. Static felt dishonest. Random felt cheap. Then I remembered a formula from university — a simple model for how things compound over time: S(t) = S₀ · eʳᵗ. That decision sent me down an unexpected rabbit hole. A personal, honest, and occasionally humbling exploration of continuous compound growth, where it actually applies to manufacturing, and where I was overreaching.",
+      "I was building Emithran's homepage and couldn't decide what number to put on the hero. Static felt dishonest. Random felt cheap. Then I remembered a formula from university - a simple model for how things compound over time: S(t) = S₀ · eʳᵗ. That decision sent me down an unexpected rabbit hole. A personal, honest, and occasionally humbling exploration of continuous compound growth, where it actually applies to manufacturing, and where I was overreaching.",
     category: 'Engineering',
     author: { name: 'Abushan', role: 'CTO' },
     date: 'June 9, 2026',

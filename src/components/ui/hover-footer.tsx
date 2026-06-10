@@ -78,7 +78,7 @@ export const TextHoverEffect = ({
         </mask>
       </defs>
 
-      {/* Stroke outline — visible on hover */}
+      {/* Stroke outline - visible on hover */}
       <text
         x="50%" y="50%"
         textAnchor="middle"

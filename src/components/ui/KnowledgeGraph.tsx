@@ -57,7 +57,7 @@ export default function KnowledgeGraph({ nodes, links, active, className = '' }:
     const cx = width / 2
     const cy = height / 2
 
-    // Clone data — seed ALL nodes at centre so they burst outward
+    // Clone data - seed ALL nodes at centre so they burst outward
     const nodeData: KGNode[] = nodes.map(n => ({
       ...n,
       radius: n.radius ?? GROUP_RADIUS[n.group],
@@ -84,7 +84,7 @@ export default function KnowledgeGraph({ nodes, links, active, className = '' }:
         .on('zoom', e => g.attr('transform', e.transform.toString()))
     )
 
-    // ── Force simulation — strong spread from centre ───────────────
+    // ── Force simulation - strong spread from centre ───────────────
     const sim = d3.forceSimulation<KGNode>(nodeData)
       .force('link',      d3.forceLink<KGNode, KGLink>(linkData).id(d => d.id).distance(d => {
         const s = d.source as KGNode

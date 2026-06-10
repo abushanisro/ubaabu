@@ -9,7 +9,7 @@ export const metadata = {
 
 const VAVE_IDEAS = [
   { type: 'Process',  idea: 'Surface finish change: HASL → OSP on bare PCB' },
-  { type: 'Design',   idea: 'Remove 3 slots in PCB profile — make rectangular (saves routing cost)' },
+  { type: 'Design',   idea: 'Remove 3 slots in PCB profile - make rectangular (saves routing cost)' },
   { type: 'Design',   idea: 'Change soldering to press fit / eliminate THT components' },
   { type: 'Design',   idea: 'Change WH soldering to connector assembly' },
   { type: 'Supplier', idea: 'Identify local supplier for ICs (LM5116 switching controller: $1.06 target)' },
@@ -32,7 +32,7 @@ export default function DCDCConverterCaseStudy() {
       readTime="6 min read"
       metric="22% unit cost down"
       title={<>DC-DC Converter<br className="hidden md:block" /> Teardown, Should Cost & VAVE</>}
-      subtitle="Leading electric two-wheeler OEM — full teardown, component-level should costing, and 13 VAVE ideas to compress procurement cost"
+      subtitle="Leading electric two-wheeler OEM - full teardown, component-level should costing, and 13 VAVE ideas to compress procurement cost"
       image="/assets/casestudy/case3.png"
       imageAlt="DC-DC Converter electronics"
       stats={[
@@ -43,11 +43,11 @@ export default function DCDCConverterCaseStudy() {
         { label: 'Body Negotiation', value: '−39% saving' },
       ]}
       ctaTitle="Need teardown, should costing, or VAVE for your EV component?"
-      ctaBody="Emithran disassembles, costs, and engineers value out of your components — giving you the data to negotiate, redesign, and source smarter."
+      ctaBody="Emithran disassembles, costs, and engineers value out of your components - giving you the data to negotiate, redesign, and source smarter."
       ctaSource="case-study-dc-dc-converter"
     >
 
-      {/* Row 1 — Scope + Spec */}
+      {/* Row 1 - Scope + Spec */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card accent>
           <SectionLabel>Scope of Work</SectionLabel>
@@ -83,9 +83,9 @@ export default function DCDCConverterCaseStudy() {
         </Card>
       </div>
 
-      {/* Row 2 — Cost Breakdown */}
+      {/* Row 2 - Cost Breakdown */}
       <div>
-        <SectionLabel>Should Cost Analysis — Total: $9.90</SectionLabel>
+        <SectionLabel>Should Cost Analysis - Total: $9.90</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Pareto: 80% of cost is PCBA</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
@@ -134,7 +134,7 @@ export default function DCDCConverterCaseStudy() {
         </div>
       </div>
 
-      {/* Row 3 — Negotiation */}
+      {/* Row 3 - Negotiation */}
       <div>
         <SectionLabel>Supplier Negotiation Results</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Should Cost as Negotiation Lever</h2>
@@ -164,9 +164,9 @@ export default function DCDCConverterCaseStudy() {
         </div>
       </div>
 
-      {/* Row 4 — VAVE Ideas */}
+      {/* Row 4 - VAVE Ideas */}
       <Card accent>
-        <SectionLabel>VAVE Analysis — 13 Ideas Generated</SectionLabel>
+        <SectionLabel>VAVE Analysis - 13 Ideas Generated</SectionLabel>
         <h2 className="mb-5 text-[17px] font-bold text-[#0f1b2d]">Cost Reduction Opportunities Identified</h2>
         <div className="grid gap-2 md:grid-cols-2">
           {VAVE_IDEAS.map((v, i) => (
@@ -178,7 +178,7 @@ export default function DCDCConverterCaseStudy() {
         </div>
       </Card>
 
-      {/* Row 5 — Sourcing */}
+      {/* Row 5 - Sourcing */}
       <Card>
         <SectionLabel>Final Sourcing Recommendations</SectionLabel>
         <div className="divide-y divide-black/[0.05]">
@@ -198,7 +198,7 @@ export default function DCDCConverterCaseStudy() {
         </div>
       </Card>
 
-      {/* Row 6 — Impact */}
+      {/* Row 6 - Impact */}
       <DarkCard>
         <SectionLabel>Key Takeaways</SectionLabel>
         <h2 className="mb-8 text-[22px] font-bold text-white">What Emithran delivered</h2>
@@ -206,7 +206,7 @@ export default function DCDCConverterCaseStudy() {
           { num: '−39%', title: 'Body Cost Reduction',    desc: 'Should cost identified inflated input weight assumption in supplier quote; 150T machine and 90g input weight validated.' },
           { num: '−28%', title: 'PCBA Cost Reduction',    desc: 'Batch quantity optimised from 500 to 6,000 units; alternative components explored to compress BOM cost.' },
           { num: '−22%', title: 'Harness Cost Reduction', desc: 'Dual-sourced from Bangalore WH suppliers; competitive bidding drove price to $0.92 from $1.17.' },
-          { num: '13',   title: 'VAVE Ideas Generated',   desc: 'Design, process, material, and supplier change ideas identified — all marked YTC for client review.' },
+          { num: '13',   title: 'VAVE Ideas Generated',   desc: 'Design, process, material, and supplier change ideas identified - all marked YTC for client review.' },
         ]} />
       </DarkCard>
 

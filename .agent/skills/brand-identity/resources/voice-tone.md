@@ -1,13 +1,13 @@
 # Copywriting: Voice & Tone Guidelines
 
-Emithran serves engineering, procurement, and operations leaders at aerospace, defence, and precision manufacturing companies in India. Write as a trusted technical expert — not a salesperson.
+Emithran serves engineering, procurement, and operations leaders at aerospace, defence, and precision manufacturing companies in India. Write as a trusted technical expert - not a salesperson.
 
 ## Brand Personality Keywords
 
 * Precise and data-driven
 * Direct and efficient
 * Expert but accessible (technical depth without jargon overload)
-* Confident — not boastful
+* Confident - not boastful
 * Empathetic to real operational pain points
 
 ## Grammar & Mechanics Rules
@@ -32,10 +32,10 @@ Emithran serves engineering, procurement, and operations leaders at aerospace, d
 
 ## Key Messaging Pillars
 
-1. **Speed** — Compress RFQ cycles from 40 hours to 8. Design decisions in real time.
-2. **Accuracy** — 72,000+ verified supplier data points. 99.4% forecast accuracy.
-3. **Integration** — Design, sourcing, and supply chain in one platform.
-4. **India-first** — Built for Indian manufacturing realities, regions, and supplier networks.
+1. **Speed** - Compress RFQ cycles from 40 hours to 8. Design decisions in real time.
+2. **Accuracy** - 72,000+ verified supplier data points. 99.4% forecast accuracy.
+3. **Integration** - Design, sourcing, and supply chain in one platform.
+4. **India-first** - Built for Indian manufacturing realities, regions, and supplier networks.
 
 ## Hero Copy Pattern
 ```
@@ -45,5 +45,5 @@ Emithran serves engineering, procurement, and operations leaders at aerospace, d
 Example: "Build Smarter. Source Faster. Deliver Reliably."
 
 ## CTA Copy
-* Primary: "Request a Demo" — never "Sign Up" or "Get Started"
+* Primary: "Request a Demo" - never "Sign Up" or "Get Started"
 * Secondary: "Explore Solutions" or module-specific CTAs

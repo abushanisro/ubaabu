@@ -22,7 +22,7 @@ interface HeroVideoProps {
   thumbnailSrc: string
   thumbnailAlt?: string
   className?: string
-  /** Controlled open state — if provided, the component defers to the parent */
+  /** Controlled open state - if provided, the component defers to the parent */
   isOpen?: boolean
   onOpenChange?: (open: boolean) => void
 }
