@@ -224,12 +224,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Outro: fixed behind all page content, revealed as user scrolls past the footer */}
         <div
-          className="fixed bottom-0 inset-x-0 h-screen overflow-hidden"
+          className="fixed bottom-0 inset-x-0 h-screen overflow-hidden pointer-events-none"
           style={{
-            zIndex: 1,
-            willChange: 'transform',
-            transform: 'translateZ(0)',
-            backfaceVisibility: 'hidden',
+            zIndex: 0,
             backgroundImage: [
               'repeating-linear-gradient(90deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 5px)',
               'linear-gradient(to bottom, #fff 0%, #b2f5ea 40%, #2dd4bf 100%)',
@@ -255,7 +252,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConditionalNavbar />
         <ChatlingController />
 
-        <div className="relative bg-white" style={{ zIndex: 2, transform: 'translateZ(0)', WebkitTransform: 'translateZ(0)' }}>
+        <div className="relative bg-white" style={{ zIndex: 2, isolation: 'isolate' }}>
           <GoogleAnalytics />
           <main className="relative z-10">{children}</main>
           <ConditionalFooter />
@@ -266,7 +263,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Gives scroll distance for the footer to clear the viewport and
           reveal the fixed outro (z:1) underneath.
         */}
-        <div className="h-[16vh] md:h-[28vh] relative" style={{ zIndex: 2 }} aria-hidden="true" />
+        <div className="h-[16vh] md:h-[28vh] relative bg-white" style={{ zIndex: 1 }} aria-hidden="true" />
 
         <script dangerouslySetInnerHTML={{ __html: 'window.chtlConfig = { chatbotId: "7877335611" }' }} />
         <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="afterInteractive" />
