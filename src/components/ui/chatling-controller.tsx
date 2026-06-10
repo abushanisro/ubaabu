@@ -1,32 +1,34 @@
 "use client";
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
 
 export default function ChatlingController() {
-  const pathname = usePathname();
-
   useEffect(() => {
-    const el = () => document.getElementById("chtl-chat-icon-container") as HTMLElement | null;
+    const getWidget = () =>
+      document.getElementById("chtl-chat-icon-container") as HTMLElement | null;
 
     function update() {
-      const widget = el();
+      const widget = getWidget();
       if (!widget) return;
 
-      const isHomepage = pathname === "/";
+      // Hide when hero (first viewport) is visible
+      const heroVisible = window.scrollY < window.innerHeight * 0.9;
 
-      // Check if footer is near/in the viewport
+      // Hide when footer is visible
       const footer = document.querySelector("footer");
-      let footerVisible = false;
-      if (footer) {
-        const rect = footer.getBoundingClientRect();
-        footerVisible = rect.top < window.innerHeight;
-      }
+      const footerVisible = footer
+        ? footer.getBoundingClientRect().top < window.innerHeight
+        : false;
 
-      widget.style.display = isHomepage || footerVisible ? "none" : "";
+      widget.style.display = heroVisible || footerVisible ? "none" : "";
     }
 
-    // Poll briefly for the widget to appear (third-party script loads async)
-    const interval = setInterval(() => { if (el()) { update(); clearInterval(interval); } }, 200);
+    // Poll until the widget appears (async third-party script)
+    const interval = setInterval(() => {
+      if (getWidget()) {
+        update();
+        clearInterval(interval);
+      }
+    }, 200);
     const timeout = setTimeout(() => clearInterval(interval), 8000);
 
     window.addEventListener("scroll", update, { passive: true });
@@ -36,11 +38,10 @@ export default function ChatlingController() {
       clearInterval(interval);
       clearTimeout(timeout);
       window.removeEventListener("scroll", update);
-      // Restore when unmounting
-      const widget = el();
+      const widget = getWidget();
       if (widget) widget.style.display = "";
     };
-  }, [pathname]);
+  }, []);
 
   return null;
 }
