@@ -255,8 +255,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Text hover effect — EMITHRAN at bottom ── */}
-      <div className="w-full relative z-10" style={{ aspectRatio: '500 / 72' }}>
+      {/* ── Text hover effect — mobile only (desktop uses the fixed outro) ── */}
+      <div className="md:hidden w-full relative z-10" style={{ aspectRatio: '500 / 72' }}>
         <TextHoverEffect text="EMITHRAN" duration={0} className="w-full h-full" />
       </div>
 
