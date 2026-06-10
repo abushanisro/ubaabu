@@ -93,12 +93,12 @@ export default function Hero() {
             Manage sourcing, costing, planning, quality, benchmarking, and delivery
             at the speed of AI using connected manufacturing and supplier data.
           </p>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a href="/request-demo" className="hds-btn-primary group">
+          <div className="mt-7 flex flex-nowrap items-center gap-3">
+            <a href="/request-demo" className="hds-btn-primary group shrink-0">
               Request Demo
               <AnimatedArrow />
             </a>
-            <button onClick={() => setVideoOpen(true)} className="hds-btn-secondary">
+            <button onClick={() => setVideoOpen(true)} className="hds-btn-secondary shrink-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.14 182)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
                 <polygon points="10 8 16 12 10 16 10 8" fill="oklch(0.55 0.14 182)" stroke="none" />
