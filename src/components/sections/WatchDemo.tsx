@@ -39,7 +39,7 @@ export default function WatchDemo() {
       {/* ══════════════════════════════════════════════
           MOBILE LAYOUT  — normal flow, height = content
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative z-10 flex flex-col px-3 pt-6 pb-6" style={{ gap: 0 }}>
+      <div className="md:hidden relative flex flex-col px-3 pt-6 pb-6" style={{ gap: 0 }}>
 
         {/* ── Headline + CTAs ── */}
         <div className="flex flex-col items-center text-center shrink-0 mb-2">

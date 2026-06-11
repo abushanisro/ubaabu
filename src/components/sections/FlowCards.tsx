@@ -65,7 +65,7 @@ export default function FlowCards() {
           <div className="relative">
 
             {/* ── Dashboard video ── */}
-            <div className="relative z-10 overflow-hidden rounded-2xl border border-black/10 bg-[#0b1220] shadow-xl">
+            <div className="relative overflow-hidden rounded-2xl border border-black/10 bg-[#0b1220] shadow-xl">
               <HeroVideoDialog
                 animationStyle="from-center"
                 videoSrc="/videos/emuski.mp4"

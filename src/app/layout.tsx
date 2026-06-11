@@ -251,10 +251,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConditionalNavbar />
         <ChatlingController />
 
-        {/* White content on top — full compositor layer prevents fixed outro from bleeding through during iOS momentum scroll */}
-        <div className="relative bg-white" style={{ zIndex: 2, isolation: 'isolate', backgroundColor: 'white', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden', transform: 'translateZ(0)', willChange: 'transform' }}>
+        {/* White content on top */}
+        <div className="relative bg-white" style={{ backgroundColor: 'white', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
           <GoogleAnalytics />
-          <main className="relative z-10">{children}</main>
+          <main className="relative">{children}</main>
           <ConditionalFooter />
         </div>
 
