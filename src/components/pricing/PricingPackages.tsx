@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import {
   FileCode2, BarChart3, Cpu,
   Search, Users2, TrendingDown,
@@ -8,6 +8,7 @@ import {
   ArrowRight, X,
 } from 'lucide-react'
 import { AnimateIn } from '@/components/ui/AnimateIn'
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile'
 
 /* ─────────────────────────── icons ─────────────────────────── */
 
@@ -259,6 +260,8 @@ function Field({ label, required, children }: { label: string; required?: boolea
 function ContactModal({ intent, onClose }: { intent: string; onClose: () => void }) {
   const [state, setState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const [cfToken, setCfToken] = useState('')
+  const turnstileRef = useRef<TurnstileInstance>(null)
   const [form, setForm] = useState({
     firstName: '', lastName: '', email: '', phone: '',
     company: '', role: '', industry: '', country: '',
@@ -276,6 +279,7 @@ function ContactModal({ intent, onClose }: { intent: string; onClose: () => void
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...form,
+          cfToken,
           source: 'pricing',
           cta: intent,
         }),
@@ -286,6 +290,8 @@ function ContactModal({ intent, onClose }: { intent: string; onClose: () => void
     } catch (err: unknown) {
       setErrorMsg(err instanceof Error ? err.message : 'Failed to send. Please try again.')
       setState('error')
+      turnstileRef.current?.reset()
+      setCfToken('')
     }
   }
 
@@ -398,6 +404,16 @@ function ContactModal({ intent, onClose }: { intent: string; onClose: () => void
                 </label>
               </div>
 
+              {/* Turnstile */}
+              <Turnstile
+                ref={turnstileRef}
+                siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                onSuccess={setCfToken}
+                onExpire={() => setCfToken('')}
+                onError={() => setCfToken('')}
+                options={{ theme: 'light', size: 'normal' }}
+              />
+
               {/* Error */}
               {state === 'error' && (
                 <p className="rounded-lg bg-red-50 border border-red-200 px-4 py-2.5 text-[12px] text-red-600">{errorMsg}</p>
@@ -409,7 +425,7 @@ function ContactModal({ intent, onClose }: { intent: string; onClose: () => void
             <div className="sticky bottom-0 bg-white border-t border-black/[0.07] px-6 py-4 shrink-0">
               <button
                 type="submit"
-                disabled={state === 'loading'}
+                disabled={state === 'loading' || !cfToken}
                 className="w-full rounded-full bg-[#0f1b2d] py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60 flex items-center justify-center gap-2"
               >
                 {state === 'loading' ? (
