@@ -204,7 +204,7 @@ export default function Footer() {
             <a href="https://x.com/emithran_ai" aria-label="X" target="_blank" rel="noopener noreferrer" className="hover:text-[#0d9e8a] transition-colors">
               <Twitter size={18} />
             </a>
-            <a href="https://wa.me/919360216324" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+            <a href="https://wa.me/message/TAG2CE2KT3R4F1" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
               <WhatsAppIcon size={18} />
             </a>
 
