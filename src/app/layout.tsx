@@ -154,16 +154,6 @@ export const metadata: Metadata = {
     siteName: 'Emithran',
     locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: `https://www.emithran.com/opengraph-image?v=2`,
-        secureUrl: `https://www.emithran.com/opengraph-image?v=2`,
-        width: 1200,
-        height: 630,
-        alt: 'Emithran - Manufacturing Intelligence Platform',
-        type: 'image/png',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -172,7 +162,6 @@ export const metadata: Metadata = {
     title: 'Emithran - Manufacturing Intelligence Platform',
     description:
       'AI-powered BOM management, should-cost analysis, and supplier intelligence for space, defence, and aerospace manufacturing in India.',
-    images: [`https://www.emithran.com/opengraph-image?v=2`],
   },
   other: {
     // Theme
@@ -215,9 +204,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <meta name="google" content="nositelinkssearchbox" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:image:type" content="image/png" />
       </head>
       <body style={{ backgroundColor: 'white' }}>
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ left: 64 }} />
