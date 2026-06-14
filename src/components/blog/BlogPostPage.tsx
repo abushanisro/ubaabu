@@ -219,7 +219,7 @@ function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
 
 /* -------------------------------- Share bar -------------------------------- */
 
-const SITEURL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
+const SITEURL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 function buildShareUrl(platform: string, pageUrl: string, title: string) {
   const u = encodeURIComponent(pageUrl)

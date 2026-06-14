@@ -17,7 +17,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
 
   const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
+    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
   const domain = siteUrl.replace(/^https?:\/\//, '')
 
   const titleSize = title.length > 70 ? 40 : title.length > 50 ? 48 : 54

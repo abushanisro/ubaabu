@@ -23,7 +23,7 @@ const inter = Inter({
 
 const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
+  : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 const jsonLd = [
   {
@@ -156,8 +156,8 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `https://emithran.emuski.com/opengraph-image`,
-        secureUrl: `https://emithran.emuski.com/opengraph-image`,
+        url: `https://www.emithran.com/opengraph-image`,
+        secureUrl: `https://www.emithran.com/opengraph-image`,
         width: 1200,
         height: 630,
         alt: 'Emithran - Manufacturing Intelligence Platform',
@@ -172,7 +172,7 @@ export const metadata: Metadata = {
     title: 'Emithran - Manufacturing Intelligence Platform',
     description:
       'AI-powered BOM management, should-cost analysis, and supplier intelligence for space, defence, and aerospace manufacturing in India.',
-    images: [`https://emithran.emuski.com/opengraph-image`],
+    images: [`https://www.emithran.com/opengraph-image`],
   },
   other: {
     // Theme

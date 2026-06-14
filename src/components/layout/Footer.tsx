@@ -136,10 +136,16 @@ export default function Footer() {
                     <MapPin size={14} className="text-[#0d9e8a] mt-0.5 shrink-0" />
                     <span className="text-[13px] text-white/40 leading-snug">Hosur, Tamil Nadu</span>
                   </div>
-                  <a href="mailto:emithran@emuski.com" className="flex items-center gap-2">
+                  <a href="mailto:contact@emithran.com" className="flex items-center gap-2">
                     <Mail size={14} className="text-[#0d9e8a] shrink-0" />
                     <span className="text-[13px] text-white/40 hover:text-[#0d9e8a] transition-colors">
-                      emithran@emuski.com
+                      contact@emithran.com
+                    </span>
+                  </a>
+                  <a href="mailto:partner@emithran.com" className="flex items-center gap-2">
+                    <Mail size={14} className="text-[#0d9e8a] shrink-0" />
+                    <span className="text-[13px] text-white/40 hover:text-[#0d9e8a] transition-colors">
+                      partner@emithran.com
                     </span>
                   </a>
                 </div>

@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = seo?.metaDescription ?? post.excerpt
   const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
+    : process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
   // Use the generated branded OG image (see opengraph-image.tsx in this directory)
   const ogImage = `${siteUrl}/blog/${slug}/opengraph-image`
@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
 
   if (!post || !content) notFound()
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://emithran.emuski.com'
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
   const articleSchema = {
     '@context': 'https://schema.org',

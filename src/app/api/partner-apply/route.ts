@@ -4,7 +4,7 @@ import { Resend } from 'resend'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const FROM  = process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev'
-const TO    = process.env.RESEND_TO_EMAIL   ?? 'emithran@emuski.com'
+const TO    = process.env.RESEND_TO_EMAIL   ?? 'partner@emithran.com'
 
 async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
   const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
@@ -92,7 +92,7 @@ export async function POST(req: NextRequest) {
         `)}
 
         <p style="font-size:11px;color:#9ca3af;border-top:1px solid #f3f4f6;padding-top:16px;margin-top:32px;">
-          Emithran Partner Ecosystem · emithran@emuski.com
+          Emithran Partner Ecosystem · partner@emithran.com
         </p>
       </body>
       </html>`

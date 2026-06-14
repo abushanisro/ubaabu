@@ -647,6 +647,18 @@ function ContactFooter() {
             </a>
           </div>
 
+          {/* Centre: email contacts */}
+          <div className="flex flex-col gap-1 text-[12px]">
+            <a href="mailto:contact@emithran.com" className="flex items-center gap-1.5 text-black/40 hover:text-[#0d9e8a] transition-colors">
+              <Mail size={11} />
+              contact@emithran.com
+            </a>
+            <a href="mailto:partner@emithran.com" className="flex items-center gap-1.5 text-black/40 hover:text-[#0d9e8a] transition-colors">
+              <Mail size={11} />
+              partner@emithran.com
+            </a>
+          </div>
+
           {/* Right: privacy + copyright */}
           <div className="flex items-center gap-3 text-[11px]">
             <a href="/privacy" className="text-black/40 hover:text-black/65 transition-colors whitespace-nowrap">

@@ -204,7 +204,7 @@ function BecomeAPartnerForm() {
     } catch {
       turnstileRef.current?.reset()
       setCfToken('')
-      setErrors({ reason: 'Something went wrong. Please try again or email emithran@emuski.com.' })
+      setErrors({ reason: 'Something went wrong. Please try again or email partner@emithran.com.' })
     } finally {
       setLoading(false)
     }
@@ -507,8 +507,8 @@ export default function BecomeAPartnerPage() {
               </h1>
               <p className="text-[15px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>
                 Tell us about yourself to start your journey to become an Emithran partner. Questions? Reach out to us at{' '}
-                <a href="mailto:emithran@emuski.com" className="text-[#0d9488] hover:underline">
-                  emithran@emuski.com
+                <a href="mailto:partner@emithran.com" className="text-[#0d9488] hover:underline">
+                  partner@emithran.com
                 </a>.
               </p>
             </div>

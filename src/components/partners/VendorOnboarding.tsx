@@ -700,7 +700,7 @@ function VendorOnboardingForm() {
     } catch {
       turnstileRef.current?.reset()
       setCfToken('')
-      setErrors(e => ({ ...e, notes: 'Something went wrong. Please try again or email emithran@emuski.com.' }))
+      setErrors(e => ({ ...e, notes: 'Something went wrong. Please try again or email partner@emithran.com.' }))
     } finally {
       setLoading(false)
     }
@@ -853,7 +853,7 @@ export default function VendorOnboardingPage() {
 
               <p className="mt-8 text-[12px]" style={{ color: 'rgba(15,27,45,0.4)' }}>
                 Questions? Contact us at{' '}
-                <a href="mailto:emithran@emuski.com" className="text-[#0d9488] hover:underline">emithran@emuski.com</a>
+                <a href="mailto:partner@emithran.com" className="text-[#0d9488] hover:underline">partner@emithran.com</a>
               </p>
             </div>
 

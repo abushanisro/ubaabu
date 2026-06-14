@@ -373,10 +373,10 @@ export default function PrivacyPage() {
             <><Bold>Restriction</Bold> - request that we limit how we process your data while a dispute is under review</>,
             <><Bold>Data portability</Bold> - receive your personal data in a machine-readable format and transfer it to another service</>,
             <><Bold>Objection</Bold> - object to processing based on legitimate interests, including profiling for direct marketing</>,
-            <><Bold>Opt out of marketing</Bold> - unsubscribe from marketing emails at any time via the unsubscribe link in any email or by contacting us at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink></>,
+            <><Bold>Opt out of marketing</Bold> - unsubscribe from marketing emails at any time via the unsubscribe link in any email or by contacting us at <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink></>,
           ]} />
           <Para>
-            To exercise any right, email <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>. We will respond within 30 days, or within the period required by applicable law. We may need to verify your identity before acting on your request.
+            To exercise any right, email <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink>. We will respond within 30 days, or within the period required by applicable law. We may need to verify your identity before acting on your request.
           </Para>
           <Divider />
 
@@ -408,7 +408,7 @@ export default function PrivacyPage() {
             'Incident response procedures with notification protocols compliant with GDPR and DPDPA obligations',
           ]} />
           <Para>
-            While we take reasonable precautions, no system is completely secure. If you believe your account has been compromised, contact us immediately at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>.
+            While we take reasonable precautions, no system is completely secure. If you believe your account has been compromised, contact us immediately at <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink>.
           </Para>
           <Divider />
 
@@ -424,7 +424,7 @@ export default function PrivacyPage() {
             'Adequacy decisions where applicable',
           ]} />
           <Para>
-            You may request a copy of the applicable transfer mechanism by emailing <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>.
+            You may request a copy of the applicable transfer mechanism by emailing <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink>.
           </Para>
           <Divider />
 
@@ -453,7 +453,7 @@ export default function PrivacyPage() {
             Emithran processes personal data in accordance with the <Bold>Digital Personal Data Protection Act 2023 (DPDPA)</Bold> and associated rules. As a Data Fiduciary, we maintain a record of processing activities and appoint a Consent Manager where required by the rules. You have the right to nominate a representative for the exercise of your rights in the event of your death or incapacity.
           </Para>
           <Para>
-            To raise a grievance under the DPDPA, contact our Grievance Officer at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>. Grievances will be acknowledged within 48 hours and resolved within 30 days. If you remain dissatisfied, you may approach the Data Protection Board of India.
+            To raise a grievance under the DPDPA, contact our Grievance Officer at <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink>. Grievances will be acknowledged within 48 hours and resolved within 30 days. If you remain dissatisfied, you may approach the Data Protection Board of India.
           </Para>
 
           <SubHeading id="eea-uk">EEA and United Kingdom</SubHeading>
@@ -461,20 +461,20 @@ export default function PrivacyPage() {
             If you are located in the European Economic Area or the United Kingdom, you have rights under the <Bold>GDPR</Bold> or <Bold>UK GDPR</Bold> respectively and may lodge a complaint with your local supervisory authority - the Information Commissioner&rsquo;s Office (ICO) for UK residents, or the relevant national authority for EEA residents.
           </Para>
           <Para>
-            Our EU GDPR representative can be reached at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>.
+            Our EU GDPR representative can be reached at <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink>.
           </Para>
 
           <SubHeading id="usa">United States</SubHeading>
           <Para>
-            For <Bold>California residents</Bold>, under the California Consumer Privacy Act (CCPA) as amended by the CPRA, you have the right to know, delete, and opt out of the sale or sharing of personal information. We do not sell personal information as defined under the CCPA. To submit a CCPA request, email <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink> with &ldquo;CCPA Request&rdquo; in the subject line.
+            For <Bold>California residents</Bold>, under the California Consumer Privacy Act (CCPA) as amended by the CPRA, you have the right to know, delete, and opt out of the sale or sharing of personal information. We do not sell personal information as defined under the CCPA. To submit a CCPA request, email <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink> with &ldquo;CCPA Request&rdquo; in the subject line.
           </Para>
           <Para>
-            For <Bold>Virginia, Colorado, and Connecticut residents</Bold>, we comply with the respective state consumer data protection laws. You have the right to access, correct, delete, and opt out of targeted advertising. Submit requests to <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>.
+            For <Bold>Virginia, Colorado, and Connecticut residents</Bold>, we comply with the respective state consumer data protection laws. You have the right to access, correct, delete, and opt out of targeted advertising. Submit requests to <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink>.
           </Para>
 
           <SubHeading id="australia">Australia</SubHeading>
           <Para>
-            For Australian residents, we comply with the <Bold>Privacy Act 1988 (Cth)</Bold> and the Australian Privacy Principles (APPs). You have the right to access and correct personal information we hold about you. To make a complaint or access request, email <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>. If your complaint is not resolved to your satisfaction, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at oaic.gov.au.
+            For Australian residents, we comply with the <Bold>Privacy Act 1988 (Cth)</Bold> and the Australian Privacy Principles (APPs). You have the right to access and correct personal information we hold about you. To make a complaint or access request, email <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink>. If your complaint is not resolved to your satisfaction, you may lodge a complaint with the Office of the Australian Information Commissioner (OAIC) at oaic.gov.au.
           </Para>
           <Divider />
 
@@ -495,10 +495,10 @@ export default function PrivacyPage() {
             </div>
             <div className="p-5 flex flex-col gap-3" style={{ background: '#fff' }}>
               {[
-                { label: 'Privacy enquiries',       email: 'emithran@emuski.com'  },
-                { label: 'Security reports',         email: 'emithran@emuski.com' },
-                { label: 'Grievance Officer (India)',email: 'emithran@emuski.com'},
-                { label: 'EU Representative',        email: 'emithran@emuski.com'   },
+                { label: 'Privacy enquiries',       email: 'contact@emithran.com'  },
+                { label: 'Security reports',         email: 'contact@emithran.com' },
+                { label: 'Grievance Officer (India)',email: 'contact@emithran.com'},
+                { label: 'EU Representative',        email: 'contact@emithran.com'   },
               ].map(row => (
                 <div key={row.label} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                   <span className="text-[12.5px] font-medium w-52 shrink-0" style={{ color: 'rgba(15,27,45,0.55)' }}>

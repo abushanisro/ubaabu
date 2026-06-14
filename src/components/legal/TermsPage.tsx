@@ -418,7 +418,7 @@ export default function TermsPage() {
 
           <H3 id="s2-3">2.3 Third-Party Software</H3>
           <Para>
-            Certain components of the Services incorporate open-source or third-party software licensed under their own terms. A list of material third-party components and their licences is available on request via <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink>. Nothing in this Agreement limits rights that cannot be restricted under applicable open-source licences.
+            Certain components of the Services incorporate open-source or third-party software licensed under their own terms. A list of material third-party components and their licences is available on request via <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink>. Nothing in this Agreement limits rights that cannot be restricted under applicable open-source licences.
           </Para>
           <Divider />
 
@@ -429,7 +429,7 @@ export default function TermsPage() {
           </Para>
           <SubClause letter="a">keep your login credentials confidential and not share them with any unauthorised person;</SubClause>
           <SubClause letter="b">use strong, unique passwords and enable multi-factor authentication where available;</SubClause>
-          <SubClause letter="c">notify Emithran immediately at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink> if you suspect any unauthorised access to your account;</SubClause>
+          <SubClause letter="c">notify Emithran immediately at <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink> if you suspect any unauthorised access to your account;</SubClause>
           <SubClause letter="d">ensure that all Users authorised to access your workspace comply with this Agreement.</SubClause>
           <Para>
             Emithran will not be liable for any loss or damage arising from your failure to maintain the security of your account credentials.
@@ -590,7 +590,7 @@ export default function TermsPage() {
 
           <H3 id="s11-2">11.2 Notices</H3>
           <Para>
-            Notices under this Agreement must be in writing. Emithran will send notices to your registered email address. You must send legal notices to Emithran at <TealLink href="mailto:emithran@emuski.com">emithran@emuski.com</TealLink> with a copy to the postal address in Section 12. Notices are deemed received on the date of delivery or, for email, on the next Business Day after sending.
+            Notices under this Agreement must be in writing. Emithran will send notices to your registered email address. You must send legal notices to Emithran at <TealLink href="mailto:contact@emithran.com">contact@emithran.com</TealLink> with a copy to the postal address in Section 12. Notices are deemed received on the date of delivery or, for email, on the next Business Day after sending.
           </Para>
 
           <H3 id="s11-3">11.3 Governing Law</H3>
@@ -740,9 +740,9 @@ export default function TermsPage() {
             </div>
             <div className="p-5 flex flex-col gap-3" style={{ background: '#fff' }}>
               {[
-                { label: 'Legal enquiries',  email: 'emithran@emuski.com'   },
-                { label: 'Privacy matters',  email: 'emithran@emuski.com' },
-                { label: 'Security reports', email: 'emithran@emuski.com'},
+                { label: 'Legal enquiries',  email: 'contact@emithran.com'   },
+                { label: 'Privacy matters',  email: 'contact@emithran.com' },
+                { label: 'Security reports', email: 'contact@emithran.com'},
               ].map(row => (
                 <div key={row.label} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                   <span className="text-[12.5px] font-medium w-40 shrink-0" style={{ color: 'rgba(15,27,45,0.55)' }}>

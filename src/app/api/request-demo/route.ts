@@ -5,7 +5,7 @@ import { demoConfirmationEmail } from '@/lib/emails'
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const FROM      = process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev'
-const NOTIFY_TO = process.env.RESEND_TO_EMAIL   ?? 'emithran@emuski.com'
+const NOTIFY_TO = process.env.RESEND_TO_EMAIL   ?? 'contact@emithran.com'
 
 function row(label: string, value?: string) {
   if (!value) return ''

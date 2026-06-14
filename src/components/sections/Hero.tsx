@@ -89,6 +89,27 @@ export default function Hero() {
               className="text-black/70"
             />
           </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
           <p className="mt-4 text-[15px] leading-relaxed text-[#555]">
             Manage sourcing, costing, planning, quality, benchmarking, and delivery
             at the speed of AI using connected manufacturing and supplier data.
