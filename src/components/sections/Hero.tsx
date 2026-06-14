@@ -54,8 +54,8 @@ export default function Hero() {
     <section className="relative bg-white" style={{ minHeight: '100svh' }}>
       {/* hero background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <img src="/assets/cards/projectcardmobile.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center translate-y-20 lg:hidden" />
-        <img src="/assets/cards/projectcard.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center hidden lg:block lg:translate-y-20" />
+        <img src="/assets/cards/projectcardmobile.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center translate-y-20 lg:hidden" fetchPriority="high" />
+        <img src="/assets/cards/projectcard.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center hidden lg:block lg:translate-y-20" fetchPriority="high" />
       </div>
 
       <style>{`
@@ -89,27 +89,7 @@ export default function Hero() {
               className="text-black/70"
             />
           </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
+     
           <p className="mt-4 text-[15px] leading-relaxed text-[#555]">
             Manage sourcing, costing, planning, quality, benchmarking, and delivery
             at the speed of AI using connected manufacturing and supplier data.
@@ -182,7 +162,7 @@ export default function Hero() {
             return (
               <div className="marquee-p flex w-max items-center gap-10 md:gap-14">
                 {row.map((logo, i) => (
-                  <img key={i} src={logo.src} alt={logo.alt} className={`${logo.cls ?? 'h-10'} w-auto object-contain opacity-80`} />
+                  <img key={i} src={logo.src} alt={logo.alt} className={`${logo.cls ?? 'h-10'} w-auto object-contain opacity-80`} loading="lazy" decoding="async" />
                 ))}
               </div>
             )

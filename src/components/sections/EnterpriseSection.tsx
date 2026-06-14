@@ -448,6 +448,8 @@ export default function EnterpriseSection() {
         alt=""
         aria-hidden="true"
         className="sm:hidden"
+        loading="lazy"
+        decoding="async"
         style={{
           position: 'absolute', inset: 0,
           width: '100%', height: '100%',
@@ -463,6 +465,8 @@ export default function EnterpriseSection() {
         alt=""
         aria-hidden="true"
         className="hidden sm:block"
+        loading="lazy"
+        decoding="async"
         style={{
           position: 'absolute', inset: 0,
           width: '100%', height: '100%',

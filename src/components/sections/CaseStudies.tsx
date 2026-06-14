@@ -171,7 +171,7 @@ export default function CaseStudies() {
             const handlers = { onMouseEnter: () => bringToFront(i), onClick: () => bringToFront(i) }
             const inner = (
               <>
-                <img src={s.image} alt={s.label} className="absolute inset-0 h-full w-full object-cover"
+                <img src={s.image} alt={s.label} className="absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async"
                   style={{ transition: 'transform 0.55s cubic-bezier(0.4,0,0.2,1)', transform: isExpanded ? 'scale(1.04)' : 'scale(1)' }} />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%)' }} />
                 <div className="absolute inset-0 flex flex-col justify-between p-6"
@@ -229,7 +229,7 @@ export default function CaseStudies() {
               <Link href={s.href} className="block group">
                 {/* Image */}
                 <div className="relative w-full rounded-2xl overflow-hidden mb-3" style={{ height: 200 }}>
-                  <img src={s.image} alt={s.label} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-active:scale-105" />
+                  <img src={s.image} alt={s.label} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-active:scale-105" loading="lazy" decoding="async" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.38) 100%)' }} />
                   <div className="absolute top-3 left-3">
                     <span className="text-[9px] font-bold uppercase tracking-widest"

@@ -209,8 +209,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${sora.variable} ${inter.variable}`} data-scroll-behavior="smooth">
       <head>
-        <link rel="preconnect" href="https://prod.spline.design" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://prod.spline.design" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
