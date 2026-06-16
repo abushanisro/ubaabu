@@ -2,7 +2,9 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
+import { Network, Cpu, Factory, Layers, Truck, Users, Cloud } from 'lucide-react'
 import { AnimatedArrow } from '@/components/ui/animated-arrow'
+import RadialOrbitalTimeline, { type TimelineItem } from '@/components/ui/radial-orbital-timeline'
 
 /* ── Partner Ecosystem Nav ────────────────────────────────────────── */
 
@@ -50,74 +52,115 @@ function PartnerEcosystemNav() {
   )
 }
 
-/* ── Hero partner type cards ──────────────────────────────────────── */
+/* ── Partner Ecosystem Network (radial orbital timeline) ───────────── */
 
-const HERO_PARTNER_CARDS = [
+const PARTNER_NETWORK: TimelineItem[] = [
   {
+    id: 1,
     title: 'System Integrators',
-    tagline: 'ERP & MES implementation',
-    delay: '0s',
-    icon: (
-      <svg viewBox="0 0 42 36" width="26" height="22" fill="none">
-        <rect x="6" y="2" width="30" height="8" rx="2" fill="#0d9488"/>
-        <rect x="6" y="13" width="30" height="8" rx="2" fill="#0d9488"/>
-        <rect x="6" y="24" width="30" height="8" rx="2" fill="#0d9488"/>
-        <rect x="29" y="5" width="4" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
-        <rect x="29" y="16" width="4" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
-        <rect x="29" y="27" width="4" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
-      </svg>
-    ),
+    date: '50+ Partners',
+    content: "ERP & MES implementation experts - SAP, Oracle, and custom stacks - embedding Emithran's cost intelligence into existing workflows.",
+    category: 'Integration',
+    icon: Network,
+    relatedIds: [2, 4],
+    status: 'completed',
+    energy: 95,
   },
   {
+    id: 2,
     title: 'Technology Partners',
-    tagline: 'API & platform connectors',
-    delay: '0.7s',
-    icon: (
-      <svg viewBox="0 0 40 32" width="26" height="22" fill="none">
-        <rect x="4" y="1" width="32" height="26" rx="3" fill="#0d9488"/>
-        <rect x="4" y="9" width="32" height="1.5" fill="rgba(255,255,255,0.12)"/>
-        <circle cx="10" cy="5" r="2" fill="rgba(255,255,255,0.45)"/>
-        <circle cx="16" cy="5" r="2" fill="rgba(255,255,255,0.3)"/>
-        <circle cx="22" cy="5" r="2" fill="rgba(255,255,255,0.2)"/>
-        <rect x="9" y="13" width="12" height="2" rx="1" fill="rgba(255,255,255,0.55)"/>
-        <rect x="9" y="18" width="18" height="2" rx="1" fill="rgba(255,255,255,0.35)"/>
-      </svg>
-    ),
+    date: '35+ Partners',
+    content: 'API integrations, data connectors, and platform extensions - linking supplier databases, CAD tools, and procurement systems.',
+    category: 'Technology',
+    icon: Cpu,
+    relatedIds: [1, 3, 7],
+    status: 'completed',
+    energy: 90,
   },
   {
-    title: 'Industry Consultants',
-    tagline: 'Domain cost advisory',
-    delay: '1.4s',
-    icon: (
-      <svg viewBox="0 0 40 42" width="26" height="28" fill="none">
-        <rect x="5" y="14" width="6" height="24" rx="2" fill="#0d9488"/>
-        <rect x="14" y="6" width="6" height="32" rx="2" fill="#0d9488"/>
-        <rect x="23" y="1" width="6" height="37" rx="2" fill="#0d9488"/>
-        <rect x="32" y="9" width="6" height="29" rx="2" fill="#0d9488"/>
-        <rect x="4" y="39" width="34" height="2" rx="1" fill="#0d9488"/>
-      </svg>
-    ),
+    id: 3,
+    title: 'OEM Partners',
+    date: '15+ Partners',
+    content: "Manufacturers embedding Emithran's cost intelligence engine directly into their equipment and digital tooling.",
+    category: 'Manufacturing',
+    icon: Factory,
+    relatedIds: [2, 5],
+    status: 'in-progress',
+    energy: 70,
   },
   {
+    id: 4,
+    title: 'ISV Partners',
+    date: '40+ Partners',
+    content: 'Independent software vendors building vertical applications and extensions on top of the Emithran platform.',
+    category: 'Software',
+    icon: Layers,
+    relatedIds: [1, 6],
+    status: 'completed',
+    energy: 85,
+  },
+  {
+    id: 5,
     title: 'Resellers & Distributors',
-    tagline: 'Regional GTM expertise',
-    delay: '2.1s',
-    icon: (
-      <svg viewBox="0 0 40 40" width="26" height="26" fill="none">
-        <path d="M20 2a18 18 0 1 1 0 36A18 18 0 0 1 20 2zm0 2c-1.9 0-4.5 4-5.6 10h11.2c-1.1-6-3.7-10-5.6-10zm-8.7 10H5.6a16 16 0 0 0 0 12H11.3a38 38 0 0 1 0-12zm17.4 0H23a38 38 0 0 1 0 12h5.7a16 16 0 0 0 0-12zM14.7 28c1.2 5.4 3.6 9 5.3 9 1.7 0 4.1-3.6 5.3-9H14.7z" fill="#0d9488"/>
-      </svg>
-    ),
+    date: '60+ Partners',
+    content: 'Regional GTM partners across South Asia and Southeast Asia managing licensing, onboarding, and local customer success.',
+    category: 'Channel',
+    icon: Truck,
+    relatedIds: [3, 6],
+    status: 'completed',
+    energy: 80,
+  },
+  {
+    id: 6,
+    title: 'Industry Consultants',
+    date: '25+ Partners',
+    content: 'Automotive, Aerospace & Defence domain advisors delivering Emithran-powered should-cost studies and supplier benchmarking.',
+    category: 'Advisory',
+    icon: Users,
+    relatedIds: [4, 5],
+    status: 'in-progress',
+    energy: 65,
+  },
+  {
+    id: 7,
+    title: 'Cloud Partners',
+    date: '10+ Partners',
+    content: 'Cloud infrastructure providers enabling scalable, secure hosting and deployment for Emithran customers worldwide.',
+    category: 'Infrastructure',
+    icon: Cloud,
+    relatedIds: [2],
+    status: 'pending',
+    energy: 55,
   },
 ]
+
+function PartnerEcosystemOrbital() {
+  return (
+    <section className="relative bg-black">
+      <div className="mx-auto max-w-[1280px] px-6 md:px-12 pt-16 pb-4 text-center">
+        <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: '#2dd4bf' }}>
+          Partner ecosystem network
+        </p>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3 text-white">
+          One connected partner network
+        </h2>
+        <p className="text-[15px] leading-relaxed mb-2 max-w-xl mx-auto text-white/60">
+          Tap a category to explore how Emithran&apos;s partner types connect, support each other, and grow the ecosystem together.
+        </p>
+      </div>
+      <RadialOrbitalTimeline timelineData={PARTNER_NETWORK} />
+    </section>
+  )
+}
 
 function HeroSection() {
   return (
     <section className="relative bg-white overflow-hidden">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12 pt-24 pb-0">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-0">
+        <div className="flex flex-col md:flex-row items-center gap-14 md:gap-10">
 
           {/* Left - text */}
-          <div className="flex-1 md:pr-16 z-10">
+          <div className="flex-1 z-10 w-full">
             <span
               className="inline-block text-[11px] font-bold uppercase tracking-widest mb-4 px-3 py-1 rounded-full"
               style={{ color: '#0d9488', background: 'rgba(13,148,136,0.08)' }}
@@ -150,52 +193,10 @@ function HeroSection() {
             </div>
           </div>
 
-          {/* Right - floating partner category cards (hidden on mobile) */}
-          <div className="hidden md:flex flex-1 items-center justify-end">
-            <div className="flex gap-4" style={{ width: 380 }}>
-
-              {/* Left column */}
-              <div className="flex flex-col gap-4 flex-1">
-                {([HERO_PARTNER_CARDS[0], HERO_PARTNER_CARDS[2]] as typeof HERO_PARTNER_CARDS).map(card => (
-                  <div
-                    key={card.title}
-                    className="rounded-2xl p-4 bg-white flex flex-col gap-2"
-                    style={{
-                      border: '1px solid rgba(13,148,136,0.13)',
-                      boxShadow: '0 6px 28px rgba(13,148,136,0.10), 0 1px 4px rgba(0,0,0,0.05)',
-                      animation: `drift 3.8s ease-in-out ${card.delay} infinite`,
-                    }}
-                  >
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'rgba(13,148,136,0.07)' }}>
-                      {card.icon}
-                    </div>
-                    <p className="text-[12px] font-bold leading-snug" style={{ color: '#0f1b2d' }}>{card.title}</p>
-                    <p className="text-[11px]" style={{ color: 'rgba(15,27,45,0.5)' }}>{card.tagline}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Right column - offset down */}
-              <div className="flex flex-col gap-4 flex-1 mt-10">
-                {([HERO_PARTNER_CARDS[1], HERO_PARTNER_CARDS[3]] as typeof HERO_PARTNER_CARDS).map(card => (
-                  <div
-                    key={card.title}
-                    className="rounded-2xl p-4 bg-white flex flex-col gap-2"
-                    style={{
-                      border: '1px solid rgba(13,148,136,0.13)',
-                      boxShadow: '0 6px 28px rgba(13,148,136,0.10), 0 1px 4px rgba(0,0,0,0.05)',
-                      animation: `drift 3.8s ease-in-out ${card.delay} infinite`,
-                    }}
-                  >
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: 'rgba(13,148,136,0.07)' }}>
-                      {card.icon}
-                    </div>
-                    <p className="text-[12px] font-bold leading-snug" style={{ color: '#0f1b2d' }}>{card.title}</p>
-                    <p className="text-[11px]" style={{ color: 'rgba(15,27,45,0.5)' }}>{card.tagline}</p>
-                  </div>
-                ))}
-              </div>
-
+          {/* Right - rotating partner orbital timeline */}
+          <div className="flex-1 w-full flex items-center justify-center md:justify-end">
+            <div className="relative w-full max-w-[440px] md:max-w-[520px] aspect-square">
+              <RadialOrbitalTimeline timelineData={PARTNER_NETWORK} />
             </div>
           </div>
 
