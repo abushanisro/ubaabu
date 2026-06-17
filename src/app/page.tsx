@@ -1,11 +1,7 @@
 ﻿import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-<<<<<<< HEAD
-  title: 'Emithran | Manufacturing Intelligence for India\'s OEMs',
-=======
   title: 'Manufacturing Intelligence Platform India | Emithran',
->>>>>>> 67f0da601264d9aa1479ca1f7dc9be49ad1dae4d
   description:
     "India's leading manufacturing intelligence platform for space, defence, and aerospace OEMs. Trusted by Ashok Leyland, TATA Power, Pixxel & Digantara. 99.4% BOM accuracy. Request a demo.",
   keywords: [

@@ -7,7 +7,6 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-<<<<<<< HEAD
       { source: '/blog/bom-accuracy-tier1-suppliers',        destination: '/bom-management-software', permanent: true },
       { source: '/blog/emithran-series-a-announcement',      destination: '/about',                   permanent: true },
       { source: '/blog/launch-tracker-rfq-cycle',            destination: '/products',                permanent: true },
@@ -15,9 +14,9 @@ const nextConfig: NextConfig = {
       { source: '/blog/precision-manufacturing-india-global', destination: '/industries',             permanent: true },
       { source: '/blog/supplier-radar-defence-manufacturing', destination: '/products',               permanent: true },
       { source: '/blog/vave-cost-reduction-aerospace',       destination: '/solutions',               permanent: true },
-=======
       { source: '/favicon.ico', destination: '/assets/favicon/favicon.ico', permanent: false },
->>>>>>> 67f0da601264d9aa1479ca1f7dc9be49ad1dae4d
+      { source: '/should-cost-analysis', destination: '/should-cost-analysis-software', permanent: true },
+      { source: '/bom-management', destination: '/bom-management-software', permanent: true },
     ]
   },
   async headers() {

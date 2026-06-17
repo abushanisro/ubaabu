@@ -3,12 +3,7 @@
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-<<<<<<< HEAD
   title: 'HGV Cab Should-Cost & Decision Matrix | Emithran',
-=======
-  alternates: { canonical: '/case-studies/hgv-cab-strategy' },
-  title: 'HGV CAB Structure Strategy - Should Cost & Decision Matrix | Emithran Case Study',
->>>>>>> 67f0da601264d9aa1479ca1f7dc9be49ad1dae4d
   description: 'How Emithran supported a hydrogen HGV manufacturer in evaluating six CAB structure solutions across tooling investment, piece cost, mass, and safety status - from proto to 4,000 units/yr.',
   alternates: { canonical: '/case-studies/hgv-cab-strategy' },
 }
@@ -17,40 +12,40 @@ const solutions = [
   {
     name: 'AP Solution',
     desc: 'Box section tubes + hammer-formed panels (interim material)',
-    investment: 'Â£0.85m', investNum: 0.85,
-    pieceK: 'Â£70K', mass: 322, safety: 'known', status: 'Quoted',
+    investment: '£0.85m', investNum: 0.85,
+    pieceK: '£70K', mass: 322, safety: 'known', status: 'Quoted',
     note: 'Only fully quoted option - lowest tooling investment',
     recommended: false,
   },
   {
     name: 'Current SOP Solution',
     desc: 'Box section tubes + pressed panels in correct material',
-    investment: 'Â£4.04m', investNum: 4.04,
-    pieceK: 'Â£8K', mass: 322, safety: 'known', status: 'Estimate',
+    investment: '£4.04m', investNum: 4.04,
+    pieceK: '£8K', mass: 322, safety: 'known', status: 'Estimate',
     note: 'Only SOP-ready solution with fully known safety status',
     recommended: false,
   },
   {
     name: 'Hybrid Solution',
     desc: 'Mixed material CAB - box section with carbon in place of pressings',
-    investment: 'Â£2.8m', investNum: 2.8,
-    pieceK: 'Â£7K', mass: 250, safety: 'unknown', status: 'Estimate',
+    investment: '£2.8m', investNum: 2.8,
+    pieceK: '£7K', mass: 250, safety: 'unknown', status: 'Estimate',
     note: 'Good mass reduction at mid-range investment; safety TBD',
     recommended: false,
   },
   {
     name: 'Recycled Carbon Solution',
     desc: 'Carbon tooling, hand layup & vacuum; tooling walk available for volume',
-    investment: 'Â£3.2m', investNum: 3.2,
-    pieceK: 'Â£5K', mass: 191, safety: 'unknown', status: 'Estimate',
+    investment: '£3.2m', investNum: 3.2,
+    pieceK: '£5K', mass: 191, safety: 'unknown', status: 'Estimate',
     note: 'Best piece cost at scale; same mass as SMC at 40% lower tooling',
     recommended: true,
   },
   {
     name: 'SMC Solution',
     desc: 'Matched pair tooling, pressed carbon fibre SMC panels',
-    investment: 'Â£10.6m', investNum: 10.6,
-    pieceK: 'Â£6K', mass: 191, safety: 'partial', status: 'Initial Costing',
+    investment: '£10.6m', investNum: 10.6,
+    pieceK: '£6K', mass: 191, safety: 'partial', status: 'Initial Costing',
     note: 'Maximum mass reduction; highest investment risk',
     recommended: false,
   },
@@ -74,14 +69,14 @@ export default function HGVCabStrategyCaseStudy() {
       date="April 10, 2026"
       readTime="5 min read"
       metric="6 solutions benchmarked"
-      title={<>HGV CAB Structure Strategy<br className="hidden md:block" /> Hydrogen Vehicle Â· 6-Solution Decision Matrix</>}
+      title={<>HGV CAB Structure Strategy<br className="hidden md:block" /> Hydrogen Vehicle · 6-Solution Decision Matrix</>}
       subtitle="Leading hydrogen HGV manufacturer - tooling investment, piece cost, mass, and safety benchmarked across six manufacturing approaches from prototype to 4,000 units per year"
       image="/assets/casestudy/case5.png"
       imageAlt="HGV CAB structure"
       stats={[
         { label: 'Solutions Evaluated', value: '6 options' },
-        { label: 'Investment Range',    value: 'Â£0.85mâ€“Â£10.6m' },
-        { label: 'Piece Cost Range',    value: 'Â£5Kâ€“Â£70K' },
+        { label: 'Investment Range',    value: '£0.85m–£10.6m' },
+        { label: 'Piece Cost Range',    value: '£5K–£70K' },
         { label: 'Best Mass',           value: '191 kg' },
         { label: 'Ramp Target (2029)',  value: '4,034 units' },
       ]}
@@ -134,7 +129,7 @@ export default function HGVCabStrategyCaseStudy() {
           </div>
           <div className="mt-4 rounded-xl bg-[#f0fdfb] border border-[#0d9488]/20 px-4 py-3 text-[13px]">
             <span className="font-semibold text-[#0f1b2d]">Investment basis: </span>
-            <span className="text-[#475569]">Â£1.2m tooling target + Â£0.5m additional - evaluated against each solution</span>
+            <span className="text-[#475569]">£1.2m tooling target + £0.5m additional - evaluated against each solution</span>
           </div>
         </Card>
       </div>
@@ -142,7 +137,7 @@ export default function HGVCabStrategyCaseStudy() {
       {/* Row 2 - Decision Matrix Cards */}
       <div>
         <SectionLabel>Decision Matrix - 5 Solutions Compared</SectionLabel>
-        <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Investment Â· Piece Cost Â· Mass Â· Safety Status</h2>
+        <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Investment · Piece Cost · Mass · Safety Status</h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {solutions.map((s) => (
             <div
@@ -222,8 +217,8 @@ export default function HGVCabStrategyCaseStudy() {
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-3">
           {[
-            { label: 'Lowest tooling risk',      value: 'AP Solution - Â£0.85m quoted',         color: '#60a5fa' },
-            { label: 'Best mass at lowest cost',  value: 'Recycled Carbon - 191 kg / Â£3.2m',   color: '#0d9488' },
+            { label: 'Lowest tooling risk',      value: 'AP Solution - £0.85m quoted',         color: '#60a5fa' },
+            { label: 'Best mass at lowest cost',  value: 'Recycled Carbon - 191 kg / £3.2m',   color: '#0d9488' },
             { label: 'Only full-safety + SOP',   value: 'Current SOP Solution',                color: '#a78bfa' },
           ].map((k) => (
             <div key={k.label} className="rounded-xl border border-black/[0.06] bg-[#f8fafb] px-4 py-3">
@@ -276,7 +271,7 @@ export default function HGVCabStrategyCaseStudy() {
         <h2 className="mb-8 text-[22px] font-bold text-white">Strategic should-cost and sourcing intelligence</h2>
         <ImpactGrid items={[
           { num: '6',     title: 'Solutions Benchmarked',   desc: 'Full decision matrix covering tooling investment, piece cost, CAB mass, and safety certification status for every candidate.' },
-          { num: 'Â£9.8m', title: 'Investment Range Mapped', desc: 'From Â£0.85m quoted (AP) to Â£10.6m initial costing (SMC) - enabling the client to set a realistic budget envelope.' },
+          { num: '£9.8m', title: 'Investment Range Mapped', desc: 'From £0.85m quoted (AP) to £10.6m initial costing (SMC) - enabling the client to set a realistic budget envelope.' },
           { num: '131kg', title: 'Mass Saving Quantified',  desc: 'Steel-to-composite reduction from 322 kg to 191 kg - directly translating to hydrogen range improvement per vehicle.' },
           { num: '2029',  title: 'Volume Ramp Modelled',    desc: 'Proto (11 units) through to 4,034 units - each solution mapped to the year it becomes commercially viable.' },
         ]} />
