@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import { Sora, Inter } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
@@ -43,6 +43,7 @@ const jsonLd = [
       'End-to-end manufacturing intelligence platform for space, defence, aerospace, and precision manufacturing companies in India. AI-powered BOM management, should-cost analysis, and supplier intelligence.',
     foundingDate: '2023',
     numberOfEmployees: { '@type': 'QuantitativeValue', value: '11-50' },
+    priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Bangalore',
@@ -104,7 +105,7 @@ export const metadata: Metadata = {
     template: '%s | Emithran',
   },
   description:
-    'AI-powered manufacturing intelligence for space, defence, aerospace & precision manufacturing in India. BOM management, should-cost analysis, supplier intelligence.',
+    'AI-powered manufacturing intelligence for space, defence, and aerospace OEMs in India. Trusted by Ashok Leyland, TATA Power, Pixxel & Digantara. 99.4% BOM accuracy, 40% faster RFQ turnaround.',
   keywords: [
     'manufacturing intelligence platform',
     'should cost analysis software',
@@ -140,10 +141,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/assets/infographics/logo/logo-black.png', type: 'image/png', sizes: 'any' },
+      { url: '/assets/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/assets/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/assets/favicon/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/assets/favicon/favicon.ico',        type: 'image/x-icon' },
     ],
-    apple: [{ url: '/assets/infographics/logo/logo-black.png', sizes: '180x180' }],
-    shortcut: '/assets/infographics/logo/logo-black.png',
+    apple: [{ url: '/assets/favicon/apple-touch-icon-180x180.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/assets/favicon/favicon.ico',
   },
   manifest: '/manifest.json',
   openGraph: {
@@ -212,7 +216,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Critical inline CSS — prevents FOUC and CLS before Tailwind loads */}
+        <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#fff;margin:0;padding:0}*,*::before,*::after{box-sizing:border-box}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}' }} />
+        {/* LCP image preload — tells browser to fetch hero images before render */}
+        <link rel="preload" as="image" href="/assets/cards/projectcardmobile.svg" fetchPriority="high" media="(max-width: 1023px)" />
+        <link rel="preload" as="image" href="/assets/cards/projectcard.svg" fetchPriority="high" media="(min-width: 1024px)" />
+        {/* Sitemap link — explicitly declared for crawlers */}
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://chatling.ai" />
         <meta name="google" content="nositelinkssearchbox" />
       </head>
       <body style={{ backgroundColor: 'white' }}>

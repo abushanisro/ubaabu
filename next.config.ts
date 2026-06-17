@@ -1,9 +1,14 @@
-import type { NextConfig } from 'next'
+﻿import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   turbopack: {
     root: __dirname,
+  },
+  async redirects() {
+    return [
+      { source: '/favicon.ico', destination: '/assets/favicon/favicon.ico', permanent: false },
+    ]
   },
   async headers() {
     return [

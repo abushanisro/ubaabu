@@ -1,8 +1,9 @@
-import CaseStudyShell, {
+﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard,
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
+  alternates: { canonical: '/case-studies/rear-view-mirror' },
   title: 'Rear View Mirror Assembly - BOM Should Cost | Emithran Case Study',
   description: 'Full BOM should cost analysis for a rear view mirror assembly across 5 manufacturing processes - injection moulding, hot forging, cold forming, compression moulding and laser cutting.',
 }
@@ -54,9 +55,9 @@ export default function RearViewMirrorCaseStudy() {
       industry="Automotive"
       date="February 15, 2026"
       readTime="6 min read"
-      metric="5 processes · $0.96 total"
+      metric="5 processes Â· $0.96 total"
       title={<>Rear View Mirror Assembly<br className="hidden md:block" /> Full BOM Should Cost</>}
-      subtitle="Automotive OEM · 5-part assembly · 1,50,000 units/year · India manufacturing"
+      subtitle="Automotive OEM Â· 5-part assembly Â· 1,50,000 units/year Â· India manufacturing"
       image="/assets/casestudy/case3.png"
       imageAlt="Rear View Mirror Assembly"
       stats={[
@@ -74,7 +75,7 @@ export default function RearViewMirrorCaseStudy() {
       {/* Row 1 - Assembly Summary Table */}
       <div>
         <SectionLabel>Assembly Cost Breakdown</SectionLabel>
-        <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">5 parts · 5 processes · $0.96 total</h2>
+        <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">5 parts Â· 5 processes Â· $0.96 total</h2>
         <div className="overflow-x-auto rounded-2xl border border-black/[0.07] bg-white shadow-sm">
           <table className="w-full text-sm">
             <thead>
@@ -163,7 +164,7 @@ export default function RearViewMirrorCaseStudy() {
               <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-3">Key Insight</p>
               <p className="text-[15px] font-bold text-[#0f1b2d] mb-2">Process cost dominates metal parts; material dominates moulded parts</p>
               <p className="text-[13px] text-[#64748b] leading-relaxed">
-                The Mirror Arm and Adapter together account for $0.64 - 67% of total assembly cost - driven by multi-step machining, induction heating, and heat treatment. Plastic and rubber components are material-cost-led at 77–78%.
+                The Mirror Arm and Adapter together account for $0.64 - 67% of total assembly cost - driven by multi-step machining, induction heating, and heat treatment. Plastic and rubber components are material-cost-led at 77â€“78%.
               </p>
             </div>
             <div className="mt-5 grid grid-cols-2 gap-3">
@@ -192,7 +193,7 @@ export default function RearViewMirrorCaseStudy() {
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">Most Complex Component</p>
                 <h3 className="text-[18px] font-bold text-[#0f1b2d]">Mirror Arm - 9 Manufacturing Operations</h3>
-                <p className="text-[13px] text-[#64748b] mt-1">Hot forging · CNC turning · Thread rolling · Bending · Age hardening · Phosphating · Powder coating</p>
+                <p className="text-[13px] text-[#64748b] mt-1">Hot forging Â· CNC turning Â· Thread rolling Â· Bending Â· Age hardening Â· Phosphating Â· Powder coating</p>
               </div>
               <p className="text-[22px] font-bold text-[#0d9488]">$0.36</p>
             </div>
@@ -226,7 +227,7 @@ export default function RearViewMirrorCaseStudy() {
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">Precision Turned Component</p>
                 <h3 className="text-[18px] font-bold text-[#0f1b2d]">M10 Mirror Adapter - Cold Forming + 5-Operation CNC</h3>
-                <p className="text-[13px] text-[#64748b] mt-1">Wire cold heading · Zone annealing · Turning · Grooving · Threading · Drilling · Tapping · Black oxide</p>
+                <p className="text-[13px] text-[#64748b] mt-1">Wire cold heading Â· Zone annealing Â· Turning Â· Grooving Â· Threading Â· Drilling Â· Tapping Â· Black oxide</p>
               </div>
               <p className="text-[22px] font-bold text-[#0d9488]">$0.27</p>
             </div>
@@ -241,10 +242,10 @@ export default function RearViewMirrorCaseStudy() {
                 </thead>
                 <tbody className="text-[13px]">
                   {[
-                    ['Turning',   'Ø13.65 → 10.00, L=14 mm, 35 m/min', '17.86'],
-                    ['Grooving',  'Ø13.65 → 13.15, L=1 mm',            '0.81'],
-                    ['Threading', 'Ø10.00 → 8.50, L=13.7 mm, 20 m/min','19.05'],
-                    ['Drilling',  'Ø8.50, Depth 30 mm, 35 m/min',       '14.13'],
+                    ['Turning',   'Ã˜13.65 â†’ 10.00, L=14 mm, 35 m/min', '17.86'],
+                    ['Grooving',  'Ã˜13.65 â†’ 13.15, L=1 mm',            '0.81'],
+                    ['Threading', 'Ã˜10.00 â†’ 8.50, L=13.7 mm, 20 m/min','19.05'],
+                    ['Drilling',  'Ã˜8.50, Depth 30 mm, 35 m/min',       '14.13'],
                     ['Tapping',   'M10, Depth 30 mm, 25 m/min',         '18.99'],
                   ].map(([op, details, time]) => (
                     <tr key={op} className="border-b border-black/[0.04]">
@@ -261,7 +262,7 @@ export default function RearViewMirrorCaseStudy() {
               </table>
             </div>
             <div className="rounded-xl bg-[#f0fdfa] p-4 text-[13px] text-[#0d9488]">
-              <span className="font-bold">Key insight:</span> 68% material utilisation from wire coil - 32% becomes scrap. Black oxide finish adds $0.019 per part on 12,114 mm² surface area.
+              <span className="font-bold">Key insight:</span> 68% material utilisation from wire coil - 32% becomes scrap. Black oxide finish adds $0.019 per part on 12,114 mmÂ² surface area.
             </div>
           </Card>
 
@@ -270,7 +271,7 @@ export default function RearViewMirrorCaseStudy() {
             <Card>
               <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">Injection Moulded</p>
               <h3 className="text-[16px] font-bold text-[#0f1b2d] mb-1">Mirror Cover</h3>
-              <p className="text-[13px] text-[#64748b] mb-4">PP+20% GF · 95 Ton · 2 cavities · 25.3 s cycle</p>
+              <p className="text-[13px] text-[#64748b] mb-4">PP+20% GF Â· 95 Ton Â· 2 cavities Â· 25.3 s cycle</p>
               <div className="space-y-2 text-[13px]">
                 {[
                   { label: 'Shot weight',        val: '150 g (75 g/part)' },
@@ -294,7 +295,7 @@ export default function RearViewMirrorCaseStudy() {
             <Card>
               <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">Compression Moulded + Laser Cut</p>
               <h3 className="text-[16px] font-bold text-[#0f1b2d] mb-1">Rubber Boot + Mirror Glass</h3>
-              <p className="text-[13px] text-[#64748b] mb-4">EPDM Shore 40D · Silver mirror glass · India</p>
+              <p className="text-[13px] text-[#64748b] mb-4">EPDM Shore 40D Â· Silver mirror glass Â· India</p>
               <div className="space-y-3">
                 <div className="rounded-xl border border-black/[0.06] p-3">
                   <p className="text-[12px] font-bold text-[#0f1b2d] mb-2">Rubber Boot - $0.058</p>

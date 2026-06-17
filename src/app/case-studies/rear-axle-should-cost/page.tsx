@@ -1,8 +1,9 @@
-import CaseStudyShell, {
+﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard,
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
+  alternates: { canonical: '/case-studies/rear-axle-should-cost' },
   title: '2T LCV Rear Drive Axle - Should Cost Analysis | Emithran Case Study',
   description: 'Full assembly should cost for a 2-tonne LCV rear drive axle - 51.2 kg, 40,000 units/year, India manufacturing. Drive Head / Carrier at 46% is the primary cost driver.',
 }
@@ -17,7 +18,7 @@ const subAssemblies = [
 
 const driveHeadItems = [
   { name: 'Carrier Housing',         cost: 18.42, pct: 16, type: 'Casting & M/C' },
-  { name: 'Bearing LM603049 (×2)',   cost: 18.17, pct: 16, type: 'BOI' },
+  { name: 'Bearing LM603049 (Ã—2)',   cost: 18.17, pct: 16, type: 'BOI' },
   { name: 'Ring Gear',               cost: 11.44, pct: 10, type: 'Forged & M/C' },
   { name: 'Drive Head Assy.',        cost: 10.83, pct: 10, type: 'Assembly' },
   { name: 'Bearing - Pinion Head',   cost:  9.21, pct:  8, type: 'BOI' },
@@ -25,13 +26,13 @@ const driveHeadItems = [
   { name: 'Bearing - Pinion Tail',   cost:  5.60, pct:  5, type: 'BOI' },
   { name: 'Diff Cage Assy.',         cost:  4.68, pct:  4, type: 'Assembly' },
   { name: 'Cage - Diff Gears',       cost:  5.41, pct:  5, type: 'Casting & M/C' },
-  { name: 'Side Gear 24T (×2)',      cost:  4.52, pct:  4, type: 'Forged & M/C' },
+  { name: 'Side Gear 24T (Ã—2)',      cost:  4.52, pct:  4, type: 'Forged & M/C' },
   { name: 'Other (caps, HW, seals)', cost:  4.54, pct:  4, type: 'Various' },
 ]
 
 const housingItems = [
-  { name: 'Housing Formed Half (×2)', cost: 22.17, pct: 47, type: 'Formed' },
-  { name: 'End Flange (×2)',          cost: 11.77, pct: 25, type: 'Casting & M/C' },
+  { name: 'Housing Formed Half (Ã—2)', cost: 22.17, pct: 47, type: 'Formed' },
+  { name: 'End Flange (Ã—2)',          cost: 11.77, pct: 25, type: 'Casting & M/C' },
   { name: 'Axle Housing Assembly',    cost:  6.40, pct: 14, type: 'Assembly' },
   { name: 'Rear Cover',               cost:  2.51, pct:  5, type: 'Formed' },
   { name: 'Other (brackets, HW)',     cost:  3.42, pct:  7, type: 'Various' },
@@ -55,7 +56,7 @@ export default function RearAxleCaseStudy() {
       readTime="7 min read"
       metric="$244 / unit LCV axle"
       title={<>2T LCV Rear Drive Axle<br className="hidden md:block" /> Should Cost Analysis</>}
-      subtitle="Light commercial vehicle OEM · 51.2 kg assembly · 40,000 units/year · India manufacturing"
+      subtitle="Light commercial vehicle OEM Â· 51.2 kg assembly Â· 40,000 units/year Â· India manufacturing"
       image="/assets/casestudy/truck.png"
       imageAlt="LCV Rear Drive Axle"
       stats={[
@@ -105,15 +106,15 @@ export default function RearAxleCaseStudy() {
               {[
                 { indent: 0, label: 'LCV Rear Drive Axle',              cost: '$244', bold: true  },
                 { indent: 1, label: 'Axle Housing (weldment)',           cost: '$48',  bold: false },
-                { indent: 2, label: 'Housing Formed Half ×2',            cost: '$22',  bold: false },
-                { indent: 2, label: 'End Flange ×2 (cast+M/C)',         cost: '$12',  bold: false },
+                { indent: 2, label: 'Housing Formed Half Ã—2',            cost: '$22',  bold: false },
+                { indent: 2, label: 'End Flange Ã—2 (cast+M/C)',         cost: '$12',  bold: false },
                 { indent: 1, label: 'Drive Head / Carrier Assy.',        cost: '$112', bold: true  },
                 { indent: 2, label: 'Differential Cage Assy.',           cost: '$47',  bold: false },
                 { indent: 3, label: 'Ring Gear (forged)',                cost: '$11',  bold: false },
-                { indent: 3, label: 'Side Gear 24T ×2',                 cost: '$5',   bold: false },
+                { indent: 3, label: 'Side Gear 24T Ã—2',                 cost: '$5',   bold: false },
                 { indent: 2, label: 'Carrier Housing & Pinion Assy.',    cost: '$48',  bold: false },
                 { indent: 3, label: 'Carrier Housing (cast+M/C)',        cost: '$18',  bold: false },
-                { indent: 3, label: 'Bearings LM603049 ×2',             cost: '$18',  bold: false },
+                { indent: 3, label: 'Bearings LM603049 Ã—2',             cost: '$18',  bold: false },
                 { indent: 1, label: 'Half Shaft RH Assy.',               cost: '$30',  bold: false },
                 { indent: 2, label: 'Axle Half Shaft (forged)',          cost: '$15',  bold: false },
                 { indent: 2, label: 'Taper Roller Bearing',             cost: '$7',   bold: false },
@@ -121,7 +122,7 @@ export default function RearAxleCaseStudy() {
               ].map(({ indent, label, cost, bold }, i) => (
                 <div key={i} className="flex items-start justify-between" style={{ paddingLeft: indent * 14 }}>
                   <span className={`flex items-center gap-1 ${bold ? 'font-bold text-[#0f1b2d]' : ''}`}>
-                    {indent > 0 && <span className="text-[#cbd5e1]">{'└─'}</span>}
+                    {indent > 0 && <span className="text-[#cbd5e1]">{'â””â”€'}</span>}
                     {label}
                   </span>
                   <span className={`ml-2 shrink-0 ${bold ? 'font-bold text-[#0d9488]' : 'text-[#94a3b8]'}`}>{cost}</span>
@@ -223,7 +224,7 @@ export default function RearAxleCaseStudy() {
           <Card>
             <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">20% of Axle Cost</p>
             <h3 className="mb-1 text-[16px] font-bold text-[#0f1b2d]">Axle Housing - $48</h3>
-            <p className="mb-4 text-[12px] text-[#64748b]">Weldment · 17.37 kg · 16 line items</p>
+            <p className="mb-4 text-[12px] text-[#64748b]">Weldment Â· 17.37 kg Â· 16 line items</p>
             <div className="space-y-2.5 mb-4">
               {housingItems.map((item) => (
                 <div key={item.name}>
@@ -241,14 +242,14 @@ export default function RearAxleCaseStudy() {
               ))}
             </div>
             <div className="rounded-xl bg-[#f0fdfa] p-3 text-[12px] text-[#0d9488]">
-              <span className="font-bold">Housing Formed Half (×2)</span> drives 47% of housing cost - deep drawn formed steel, key candidate for process optimisation.
+              <span className="font-bold">Housing Formed Half (Ã—2)</span> drives 47% of housing cost - deep drawn formed steel, key candidate for process optimisation.
             </div>
           </Card>
 
           <Card>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">12% Each · 24% Combined</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-[#0d9488] mb-1">12% Each Â· 24% Combined</p>
             <h3 className="mb-1 text-[16px] font-bold text-[#0f1b2d]">Half Shaft RH + LH - $60.62</h3>
-            <p className="mb-4 text-[12px] text-[#64748b]">Mirror configuration · 9.52 kg each · Brake Plate = Customer Scope</p>
+            <p className="mb-4 text-[12px] text-[#64748b]">Mirror configuration Â· 9.52 kg each Â· Brake Plate = Customer Scope</p>
             <div className="space-y-2.5 mb-4">
               {halfShaftItems.map((item) => (
                 <div key={item.name}>
