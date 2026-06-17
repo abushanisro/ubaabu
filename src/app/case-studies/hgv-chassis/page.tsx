@@ -1,9 +1,14 @@
-import CaseStudyShell, {
+﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard, ImpactGrid, StatRow,
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
+<<<<<<< HEAD
   title: 'HGV Chassis Ladder Frame Should-Cost | Emithran',
+=======
+  alternates: { canonical: '/case-studies/hgv-chassis' },
+  title: 'Should Costing - HGV Chassis Ladder Frame | Emithran Case Study',
+>>>>>>> 67f0da601264d9aa1479ca1f7dc9be49ad1dae4d
   description: 'How Emithran identified a 38% manufacturing cost reduction for chassis rails by comparing India vs Northern Europe production for an electric HGV OEM.',
   alternates: { canonical: '/case-studies/hgv-chassis' },
 }
@@ -15,8 +20,8 @@ export default function HGVChassisCaseStudy() {
       industry="Heavy Vehicles"
       date="May 20, 2026"
       readTime="6 min read"
-      metric="−38% India rail cost"
-      title={<>Assy Chassis Ladder Frame<br className="hidden md:block" /> HGV · 4×2 · 4M</>}
+      metric="âˆ’38% India rail cost"
+      title={<>Assy Chassis Ladder Frame<br className="hidden md:block" /> HGV Â· 4Ã—2 Â· 4M</>}
       subtitle="Specialist developer of an Electric Heavy Goods Vehicle - Northern Europe vs India cost comparison across 74 BOM line items"
       image="/assets/casestudy/truck.png"
       imageAlt="HGV Chassis Ladder Frame"
@@ -25,7 +30,7 @@ export default function HGVChassisCaseStudy() {
         { label: 'Finish Weight',  value: '591.8 kg' },
         { label: 'BOM Line Items', value: '74 items' },
         { label: 'Shifts',         value: 'Double' },
-        { label: 'Rail Saving',    value: '−38% India' },
+        { label: 'Rail Saving',    value: 'âˆ’38% India' },
       ]}
       ctaTitle="Need a should-cost analysis for your chassis or structural assembly?"
       ctaBody="Our engineering team models your assembly from first principles - giving you a cost breakdown you can use to negotiate, source, and design smarter."
@@ -35,7 +40,7 @@ export default function HGVChassisCaseStudy() {
       {/* Row 1 - Problem + Scope */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card accent>
-          <SectionLabel>Problem Statement · Business Challenges</SectionLabel>
+          <SectionLabel>Problem Statement Â· Business Challenges</SectionLabel>
           <h2 className="mb-4 text-[17px] font-bold text-[#0f1b2d]">What needed to be solved</h2>
           <p className="mb-4 text-[14px] leading-relaxed text-[#475569]">
             Assessing the optimal supplier for chassis ladder production in Northern Europe and determining the overall cost effect of producing side rails in India.
@@ -146,7 +151,7 @@ export default function HGVChassisCaseStudy() {
       {/* Row 4 - Cost Distribution + Top Drivers */}
       <div>
         <SectionLabel>Cost Analysis - Chassis Ladder Frame</SectionLabel>
-        <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Total Assembly Cost: €5,248.81 · Northern Europe</h2>
+        <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Total Assembly Cost: â‚¬5,248.81 Â· Northern Europe</h2>
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <p className="mb-5 text-[13px] font-semibold text-[#0f1b2d]">Cost Distribution</p>
@@ -210,8 +215,8 @@ export default function HGVChassisCaseStudy() {
             <p className="mt-1 text-[13px] text-[#64748b]">SG&A + Profit included</p>
           </div>
           <div className="rounded-xl border border-[#0d9488]/30 bg-[#f0fdfb] p-5 ring-1 ring-[#0d9488]/15">
-            <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-[#0d9488]/70">India · Recommended</p>
-            <p className="text-[28px] font-bold text-[#0d9488]">−38%</p>
+            <p className="mb-1 text-[11px] font-semibold uppercase tracking-wider text-[#0d9488]/70">India Â· Recommended</p>
+            <p className="text-[28px] font-bold text-[#0d9488]">âˆ’38%</p>
             <p className="mt-1 text-[13px] text-[#475569]">DDP + SG&A + Profit - cost reduction vs Northern Europe for rails</p>
           </div>
         </div>

@@ -1,23 +1,24 @@
-import CaseStudyShell, {
+﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard, ImpactGrid, BarRow, StatRow, TagBadge,
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
+  alternates: { canonical: '/case-studies/dc-dc-converter' },
   title: 'DC-DC Converter Teardown & VAVE | Emithran Case Study',
   description: 'How Emithran delivered 39% body cost reduction, 28% PCBA savings, and 13 VAVE ideas through teardown and should-cost analysis of a DC-DC converter for an electric two-wheeler OEM.',
   alternates: { canonical: '/case-studies/dc-dc-converter' },
 }
 
 const VAVE_IDEAS = [
-  { type: 'Process',  idea: 'Surface finish change: HASL → OSP on bare PCB' },
+  { type: 'Process',  idea: 'Surface finish change: HASL â†’ OSP on bare PCB' },
   { type: 'Design',   idea: 'Remove 3 slots in PCB profile - make rectangular (saves routing cost)' },
   { type: 'Design',   idea: 'Change soldering to press fit / eliminate THT components' },
   { type: 'Design',   idea: 'Change WH soldering to connector assembly' },
   { type: 'Supplier', idea: 'Identify local supplier for ICs (LM5116 switching controller: $1.06 target)' },
   { type: 'Supplier', idea: 'Dual-source A-grade components for price leverage' },
-  { type: 'Material', idea: 'Body material change: Aluminium casting → Plastic' },
-  { type: 'Process',  idea: 'Body process change: HPDC → Aluminium extrusion' },
-  { type: 'Process',  idea: 'Body process change: HPDC → Sheet metal' },
+  { type: 'Material', idea: 'Body material change: Aluminium casting â†’ Plastic' },
+  { type: 'Process',  idea: 'Body process change: HPDC â†’ Aluminium extrusion' },
+  { type: 'Process',  idea: 'Body process change: HPDC â†’ Sheet metal' },
   { type: 'Supplier', idea: 'Casting supplier change to Coimbatore cluster' },
   { type: 'Supplier', idea: 'PCBA assembly: switch to local Bangalore supplier' },
   { type: 'Supplier', idea: 'Wire harness: switch to local Bangalore supplier' },
@@ -41,7 +42,7 @@ export default function DCDCConverterCaseStudy() {
         { label: 'Should Cost',      value: '$9.90' },
         { label: 'PCBA Share',       value: '74% of cost' },
         { label: 'VAVE Ideas',       value: '13 generated' },
-        { label: 'Body Negotiation', value: '−39% saving' },
+        { label: 'Body Negotiation', value: 'âˆ’39% saving' },
       ]}
       ctaTitle="Need teardown, should costing, or VAVE for your EV component?"
       ctaBody="Emithran disassembles, costs, and engineers value out of your components - giving you the data to negotiate, redesign, and source smarter."
@@ -72,13 +73,13 @@ export default function DCDCConverterCaseStudy() {
           <h2 className="mb-4 text-[17px] font-bold text-[#0f1b2d]">DC-DC Converter</h2>
           <div className="divide-y divide-black/[0.05]">
             {[
-              { k: 'Input Voltage',  v: '36V – 72V DC' },
-              { k: 'Output Voltage', v: '12V ± 0.5V' },
-              { k: 'Output Current', v: '10A – 15A' },
+              { k: 'Input Voltage',  v: '36V â€“ 72V DC' },
+              { k: 'Output Voltage', v: '12V Â± 0.5V' },
+              { k: 'Output Current', v: '10A â€“ 15A' },
               { k: 'Product Weight', v: '252 grams' },
-              { k: 'Dimensions',     v: '310 × 52 mm' },
+              { k: 'Dimensions',     v: '310 Ã— 52 mm' },
               { k: 'Body Material',  v: 'ADC12 Aluminium (HPDC)' },
-              { k: 'Annual Volume',  v: '6,000 units · Batch 500' },
+              { k: 'Annual Volume',  v: '6,000 units Â· Batch 500' },
             ].map(({ k, v }) => <StatRow key={k} label={k} value={v} />)}
           </div>
         </Card>
@@ -141,7 +142,7 @@ export default function DCDCConverterCaseStudy() {
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">Should Cost as Negotiation Lever</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { part: 'PCBA + Final Assy', initial: '$17.26', negotiated: '$12.38', pct: 28, note: 'Batch qty raised 500 → 6,000 to unlock BOM savings' },
+            { part: 'PCBA + Final Assy', initial: '$17.26', negotiated: '$12.38', pct: 28, note: 'Batch qty raised 500 â†’ 6,000 to unlock BOM savings' },
             { part: 'Body (HPDC)',       initial: '$1.37',  negotiated: '$0.83',  pct: 39, note: 'Input weight & machine tonnage corrected via should cost' },
             { part: 'Wire Harness',      initial: '$1.17',  negotiated: '$0.92',  pct: 22, note: 'Dual-sourced from Bangalore suppliers' },
           ].map((n) => (
@@ -158,7 +159,7 @@ export default function DCDCConverterCaseStudy() {
                   <p className="text-[22px] font-bold text-[#0d9488]">{n.negotiated}</p>
                 </div>
               </div>
-              <span className="inline-block rounded-full bg-[#0d9488]/10 px-3 py-1 text-[12px] font-bold text-[#0d9488]">−{n.pct}% reduction</span>
+              <span className="inline-block rounded-full bg-[#0d9488]/10 px-3 py-1 text-[12px] font-bold text-[#0d9488]">âˆ’{n.pct}% reduction</span>
               <p className="mt-3 text-[12px] leading-relaxed text-black/40">{n.note}</p>
             </div>
           ))}
@@ -204,9 +205,9 @@ export default function DCDCConverterCaseStudy() {
         <SectionLabel>Key Takeaways</SectionLabel>
         <h2 className="mb-8 text-[22px] font-bold text-white">What Emithran delivered</h2>
         <ImpactGrid items={[
-          { num: '−39%', title: 'Body Cost Reduction',    desc: 'Should cost identified inflated input weight assumption in supplier quote; 150T machine and 90g input weight validated.' },
-          { num: '−28%', title: 'PCBA Cost Reduction',    desc: 'Batch quantity optimised from 500 to 6,000 units; alternative components explored to compress BOM cost.' },
-          { num: '−22%', title: 'Harness Cost Reduction', desc: 'Dual-sourced from Bangalore WH suppliers; competitive bidding drove price to $0.92 from $1.17.' },
+          { num: 'âˆ’39%', title: 'Body Cost Reduction',    desc: 'Should cost identified inflated input weight assumption in supplier quote; 150T machine and 90g input weight validated.' },
+          { num: 'âˆ’28%', title: 'PCBA Cost Reduction',    desc: 'Batch quantity optimised from 500 to 6,000 units; alternative components explored to compress BOM cost.' },
+          { num: 'âˆ’22%', title: 'Harness Cost Reduction', desc: 'Dual-sourced from Bangalore WH suppliers; competitive bidding drove price to $0.92 from $1.17.' },
           { num: '13',   title: 'VAVE Ideas Generated',   desc: 'Design, process, material, and supplier change ideas identified - all marked YTC for client review.' },
         ]} />
       </DarkCard>

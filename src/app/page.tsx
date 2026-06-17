@@ -1,9 +1,13 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+<<<<<<< HEAD
   title: 'Emithran | Manufacturing Intelligence for India\'s OEMs',
+=======
+  title: 'Manufacturing Intelligence Platform India | Emithran',
+>>>>>>> 67f0da601264d9aa1479ca1f7dc9be49ad1dae4d
   description:
-    'Emithran gives India\'s space, defence, and aerospace OEMs end-to-end BOM management, should-cost analysis, and supplier intelligence. Cut costs, reduce risk, and ship faster.',
+    "India's leading manufacturing intelligence platform for space, defence, and aerospace OEMs. Trusted by Ashok Leyland, TATA Power, Pixxel & Digantara. 99.4% BOM accuracy. Request a demo.",
   keywords: [
     'manufacturing intelligence platform India', 'AI manufacturing software India',
     'should cost analysis tool', 'BOM management software',
@@ -12,14 +16,14 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Emithran - End-to-End Manufacturing Intelligence Platform',
-    description: 'BOM management, should-cost analysis, and supplier intelligence for space, defence, and aerospace in India.',
+    title: 'Manufacturing Intelligence Platform India | Emithran',
+    description: 'BOM management, should-cost analysis, and supplier intelligence for space, defence, and aerospace in India. Trusted by Ashok Leyland, TATA Power, Pixxel & Digantara.',
     url: '/',
     type: 'website',
   },
   twitter: {
-    title: 'Emithran - Manufacturing Intelligence for Space, Defence & Aerospace',
-    description: 'AI-powered BOM, should-cost, and supplier intelligence. Built for India\'s leading OEMs.',
+    title: 'Manufacturing Intelligence Platform India | Emithran',
+    description: "India's leading AI-powered BOM, should-cost, and supplier intelligence platform. Trusted by India's top OEMs.",
   },
 }
 
