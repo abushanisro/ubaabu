@@ -385,6 +385,20 @@ function ContactPageContent() {
       {/* Page content - grows to push footer down */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-16 relative z-10">
 
+      {/* Static intro — provides H1 and body copy for SEO */}
+      <div className="w-full max-w-[480px] mb-6 z-10">
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#0f1b2d] mb-3 font-[Sora] leading-tight">
+          Talk to Our Manufacturing Intelligence Team
+        </h1>
+        <p className="text-[13px] text-[#0f1b2d]/55 leading-relaxed">
+          Emithran works with space, defence, aerospace, and precision manufacturing teams across India and globally.
+          Whether you&rsquo;re evaluating should-cost analysis software, looking to validate your BOM, or building
+          supplier intelligence for a new programme, our team will walk you through exactly how Emithran fits your
+          workflow. Fill in the form — a manufacturing engineer or solution consultant will respond personally
+          within one business day. No automated follow-ups.
+        </p>
+      </div>
+
       {/* Card */}
       <div className="w-full max-w-[480px] z-10">
         <div className="rounded-2xl border border-black/[0.07] bg-white shadow-xl shadow-black/[0.07] p-5 sm:p-8">
@@ -400,9 +414,9 @@ function ContactPageContent() {
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                 >
                   <div className="mb-6">
-                    <h1 className="text-2xl font-bold text-[#0f1b2d] mb-1.5 font-[Sora]">
-                      Let's get you to the right place
-                    </h1>
+                    <h2 className="text-2xl font-bold text-[#0f1b2d] mb-1.5 font-[Sora]">
+                      Let&rsquo;s get you to the right place
+                    </h2>
                     <p className="text-[14px] text-[#0f1b2d]/50">We just need a few quick details.</p>
                   </div>
                   <div className="flex flex-col gap-4">
@@ -422,9 +436,9 @@ function ContactPageContent() {
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                 >
                   <div className="mb-6">
-                    <h1 className="text-2xl font-bold text-[#0f1b2d] mb-1.5 font-[Sora]">
+                    <h2 className="text-2xl font-bold text-[#0f1b2d] mb-1.5 font-[Sora]">
                       Tell us about yourself
-                    </h1>
+                    </h2>
                     <p className="text-[14px] text-[#0f1b2d]/50">Help us route you to the right team.</p>
                   </div>
                   <div className="flex flex-col gap-4">
@@ -453,10 +467,10 @@ function ContactPageContent() {
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                 >
                   <div className="mb-6">
-                    <h1 className="text-2xl font-bold text-[#0f1b2d] mb-1.5 font-[Sora]">
+                    <h2 className="text-2xl font-bold text-[#0f1b2d] mb-1.5 font-[Sora]">
                       Anything else?
-                    </h1>
-                    <p className="text-[14px] text-[#0f1b2d]/50">Optional: share what you're working on.</p>
+                    </h2>
+                    <p className="text-[14px] text-[#0f1b2d]/50">Optional: share what you&rsquo;re working on.</p>
                   </div>
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-col gap-1.5">

@@ -3,8 +3,9 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: 'HGV CAB Structure Strategy - Should Cost & Decision Matrix | Emithran Case Study',
+  title: 'HGV Cab Should-Cost & Decision Matrix | Emithran',
   description: 'How Emithran supported a hydrogen HGV manufacturer in evaluating six CAB structure solutions across tooling investment, piece cost, mass, and safety status - from proto to 4,000 units/yr.',
+  alternates: { canonical: '/case-studies/hgv-cab-strategy' },
 }
 
 const solutions = [

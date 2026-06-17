@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Emithran | End-to-End Manufacturing Intelligence Platform for Space, Defence & Aerospace',
+  title: 'Emithran | Manufacturing Intelligence for India\'s OEMs',
   description:
     'Emithran gives India\'s space, defence, and aerospace OEMs end-to-end BOM management, should-cost analysis, and supplier intelligence. Cut costs, reduce risk, and ship faster.',
   keywords: [

@@ -4,6 +4,7 @@ export const metadata = {
   title: 'Case Studies | Emithran Manufacturing Intelligence',
   description:
     'Real-world manufacturing cost engineering and supply chain intelligence outcomes - from should-cost analysis to BOM validation and VAVE studies.',
+  alternates: { canonical: '/case-studies' },
 }
 
 export default function Page() {

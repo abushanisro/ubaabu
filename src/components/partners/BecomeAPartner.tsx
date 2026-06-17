@@ -505,11 +505,36 @@ export default function BecomeAPartnerPage() {
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-[1.15] mb-5" style={{ color: '#0f1b2d' }}>
                 Interested in becoming an Emithran&nbsp;partner?
               </h1>
-              <p className="text-[15px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>
-                Tell us about yourself to start your journey to become an Emithran partner. Questions? Reach out to us at{' '}
+              <p className="text-[15px] leading-relaxed mb-5" style={{ color: 'rgba(15,27,45,0.6)' }}>
+                Emithran partners help space, defence, aerospace, and automotive manufacturers get more value from
+                manufacturing intelligence. Whether you integrate systems, deliver consulting, or resell software,
+                there is a track built for your business model.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div>
+                  <p className="text-[13px] font-semibold mb-1" style={{ color: '#0f1b2d' }}>Who should apply</p>
+                  <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.55)' }}>
+                    System integrators connecting Emithran to ERP or MES platforms. Technology providers building
+                    complementary manufacturing tools. Industry consultants who advise OEMs and Tier-1 suppliers on
+                    cost engineering or supply chain. Resellers with established manufacturing customer bases in
+                    India, the UK, Germany, or the United States.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[13px] font-semibold mb-1" style={{ color: '#0f1b2d' }}>What partners get</p>
+                  <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.55)' }}>
+                    Co-marketing and co-selling support, access to deal registration, platform sandbox access for
+                    demonstration, dedicated partner success support, and revenue share on referred and influenced
+                    deals. Certified partners are listed in the Emithran partner directory.
+                  </p>
+                </div>
+              </div>
+              <p className="text-[13px]" style={{ color: 'rgba(15,27,45,0.5)' }}>
+                Questions? Reach out to{' '}
                 <a href="mailto:partner@emithran.com" className="text-[#0d9488] hover:underline">
                   partner@emithran.com
-                </a>.
+                </a>{' '}
+                before applying.
               </p>
             </div>
 

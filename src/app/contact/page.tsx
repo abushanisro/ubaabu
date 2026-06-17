@@ -2,7 +2,7 @@ import ContactPage from '@/components/contact/ContactPage'
 
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
-  title: 'Contact Emithran - Talk to a Manufacturing Intelligence Expert',
+  title: 'Contact Emithran - Talk to a Manufacturing Expert',
   description:
     'Get in touch with the Emithran team. Talk to a manufacturing intelligence expert about BOM management, should-cost analysis, or supplier intelligence for your space, defence, or aerospace programme.',
   keywords: [

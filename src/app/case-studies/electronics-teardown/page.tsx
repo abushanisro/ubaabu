@@ -3,8 +3,9 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: 'Electronics Teardown, PCB Should Costing & VAVE | Emithran Case Study',
+  title: 'Electronics & PCB Should-Cost Teardown | Emithran',
   description: 'How Emithran delivered component-level teardown, bare PCB benchmarking, PCBA should costing, and wire harness costing across radar sensors and EV battery management systems.',
+  alternates: { canonical: '/case-studies/electronics-teardown' },
 }
 
 export default function ElectronicsTeardownCaseStudy() {

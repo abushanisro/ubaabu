@@ -3,8 +3,9 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: 'Chassis Ladder Frame - India vs Belgium Should Cost | Emithran Case Study',
+  title: 'Chassis Should-Cost: India vs Belgium | Emithran',
   description: 'How Emithran identified a 38% total landed cost saving for HGV chassis rails by benchmarking India roll forming against Belgium manufacturing, including full DDP logistics from Chennai to Scotland.',
+  alternates: { canonical: '/case-studies/chassis-india-belgium' },
 }
 
 export default function ChassisIndiaBelgiumCaseStudy() {

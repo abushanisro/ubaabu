@@ -29,7 +29,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on. He also occasionally goes down mathematical rabbit holes at 2am and writes about what he finds.',
     seo: {
-      metaTitle: 'Manufacturing Intelligence Compounds: A Homepage Counter, Growth Models, and Emithran | Emithran Blog',
+      metaTitle: 'Compound Growth in Manufacturing Intelligence | Emithran Blog',
       metaDescription:
         'Why Emithran uses a live Manufacturing Intelligence Index instead of a static metric, and what it reveals about how BOM intelligence, supplier data, and should-cost models compound over time.',
       ogTitle: 'The Number That Never Stops Moving',
@@ -442,6 +442,350 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
       <p>The discipline isn't complicated in principle. What makes it hard at scale is the data work: keeping material prices current, modelling process routes accurately, and doing this across hundreds of part numbers without burning out your cost engineering team. That's the problem modern tooling is built to solve.</p>
 
+    `,
+  },
+
+  'what-is-should-cost-analysis': {
+    heroImage:
+      'https://images.unsplash.com/photo-1581094488379-6a10d04c0f04?q=80&w=870&auto=format&fit=crop',
+    authorBio:
+      '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs. He founded Emithran to bring rigorous should-cost discipline to India\'s most critical manufacturing programmes.',
+    seo: {
+      metaTitle: 'What Is Should-Cost Analysis? A Complete Guide | Emithran Blog',
+      metaDescription:
+        'Should-cost analysis tells you what a part should cost to make — not what a supplier quotes. Learn how it works, when to use it, and how India\'s leading OEMs apply it in defence, aerospace, and space manufacturing.',
+      ogTitle: 'What Is Should-Cost Analysis? A Complete Guide for Manufacturers',
+      ogDescription:
+        'The definitive guide to should-cost analysis for procurement and engineering teams in defence, aerospace, and precision manufacturing.',
+      tags: [
+        'should cost analysis', 'should cost modelling', 'cost engineering',
+        'supplier negotiation', 'manufacturing cost analysis', 'BOM cost',
+        'procurement strategy India', 'defence manufacturing cost', 'aerospace cost engineering',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is the difference between should-cost analysis and cost benchmarking?',
+        answer:
+          'Benchmarking compares a supplier\'s price against market data for similar parts. Should-cost analysis builds a cost estimate from the bottom up — material, process, labour, overhead, margin — for your specific part. Benchmarking tells you if a price looks unusual. Should-cost tells you exactly where it is unusual and by how much.',
+      },
+      {
+        question: 'How accurate is a should-cost model?',
+        answer:
+          'For standard machined, stamped, and cast components, well-built should-cost models are typically accurate to within ±8–12% of actual manufacturing cost. Accuracy improves significantly when you have a detailed CAD file or engineering drawing. Complex multi-process assemblies may have wider variance, and these cases should be flagged explicitly.',
+      },
+      {
+        question: 'When should you use should-cost analysis?',
+        answer:
+          'Should-cost analysis is most valuable at three moments: before issuing an RFQ (to set a defensible target price), during supplier negotiation (to challenge quotes with specific cost driver data), and at contract renewal (to assess whether pricing has drifted from actual manufacturing cost). It is also useful when qualifying a new supplier or evaluating a sourcing shift between geographies.',
+      },
+      {
+        question: 'Can should-cost analysis be applied to defence and space components?',
+        answer:
+          'Yes, and it is particularly valuable there. Defence and space components often have limited supplier pools and long contract durations, which reduces competitive pressure on pricing. A bottom-up should-cost model gives procurement teams an objective cost floor that holds up under audit and supports fair-pricing discussions even in single-source situations.',
+      },
+      {
+        question: 'What data do you need to build a should-cost model?',
+        answer:
+          'At minimum: a part drawing or 3D model, material specification, assumed process route, machine hourly rates for the relevant processes, current material prices, and overhead and margin assumptions. More accurate models also incorporate supplier-specific data such as location, certifications, batch volume, and capacity utilisation.',
+      },
+    ],
+    content: `
+<p style="font-size:1.1rem;color:#374151;line-height:1.8;font-style:italic;border-left:3px solid #0d9e8a;padding-left:1.25rem;margin-bottom:2rem;">Should-cost analysis is not a negotiation tactic. It is a discipline. It tells you what a part should cost to manufacture — based on how it is actually made — rather than what a supplier has decided to charge. For procurement and engineering teams in defence, aerospace, and precision manufacturing, it is the most important analytical tool available.</p>
+
+<h2>What Is Should-Cost Analysis?</h2>
+
+<p>Should-cost analysis is a structured method for estimating the true manufacturing cost of a component or assembly from first principles. Instead of treating a supplier's quoted price as the starting point for negotiation, should-cost analysis builds a cost model from the bottom up:</p>
+
+<ul>
+  <li><strong>Raw material cost</strong> — driven by material grade, part weight, input weight, and scrap rate</li>
+  <li><strong>Process cost</strong> — driven by the manufacturing operations required (turning, milling, stamping, welding), machine hourly rates, and cycle times</li>
+  <li><strong>Labour cost</strong> — driven by the number of operators, labour rates at the manufacturing location, and direct labour hours</li>
+  <li><strong>Overhead and SG&amp;A</strong> — the factory overhead burden and selling, general &amp; administrative costs, typically expressed as a percentage of direct manufacturing cost</li>
+  <li><strong>Profit margin</strong> — the supplier's target margin, which varies by industry, geography, and relationship</li>
+</ul>
+
+<p>The result is a cost model that tells you what a competent manufacturer, working at a reasonable volume and using appropriate equipment, should charge for the part — with no padding, no legacy pricing, and no inherited inefficiency baked in.</p>
+
+<h2>Why Should-Cost Analysis Matters for Indian OEMs</h2>
+
+<p>India's defence, aerospace, and space manufacturing ecosystem has a structural challenge that makes should-cost analysis especially critical: limited supplier pools and long contract durations.</p>
+
+<p>When you have three qualified suppliers for a precision casting and a five-year defence programme contract, competitive tension is low. Without an independent cost model, procurement teams are negotiating from a position of significant information asymmetry — the supplier knows exactly what the part costs to make; you are working from market intuition and prior quotes.</p>
+
+<p>Should-cost analysis closes that gap. It gives you a fact-based cost floor — one you can articulate, defend, and use as the basis for structured commercial discussion. Emithran's case studies consistently show that procurement teams using should-cost data in supplier negotiations achieve cost reductions of 20–39% compared to teams negotiating from quote alone.</p>
+
+<h2>How Should-Cost Analysis Works: The Core Method</h2>
+
+<h3>Step 1: Understand the Part</h3>
+
+<p>The starting point is always the engineering drawing or CAD file. From it, you extract:</p>
+
+<ul>
+  <li>Part family (machined component, sheet metal fabrication, casting, moulded part)</li>
+  <li>Material specification and grade</li>
+  <li>Key dimensions and weight</li>
+  <li>Tolerances and surface finish requirements</li>
+  <li>Critical features that drive process selection (deep holes, tight-tolerance bores, complex profiles)</li>
+</ul>
+
+<p>This review also helps identify where a supplier might be using a sub-optimal process — which is often where the biggest cost saving lies.</p>
+
+<h3>Step 2: Map the Manufacturing Process Route</h3>
+
+<p>The process route is the sequence of manufacturing operations required to make the part. For a CNC-machined shaft, this might be: bar stock cutting → rough turning → semi-finish turning → grinding → heat treatment → inspection.</p>
+
+<p>For each operation, you need to determine:</p>
+<ul>
+  <li>Which machine or process type is appropriate</li>
+  <li>The cycle time for the operation at the relevant part size and material</li>
+  <li>The machine hourly rate at the manufacturing location</li>
+  <li>Setup time amortised over the batch volume</li>
+</ul>
+
+<h3>Step 3: Cost Material</h3>
+
+<p>Material cost is the input weight multiplied by the material price per kilogram, adjusted for scrap and rejection rate. Input weight is always higher than finish weight — the difference is machining swarf, trimmed flash, or sprues from casting. A thorough should-cost model accounts for material yield, not just the weight of the finished part.</p>
+
+<p>For bought-out items (bearings, fasteners, seals), the cost is sourced from commodity databases or direct quotation from distributors.</p>
+
+<h3>Step 4: Apply Overheads and Margin</h3>
+
+<p>Overhead rates vary significantly by geography and factory type. Indian precision machining facilities typically run at 80–120% overhead on direct labour. German facilities run higher. Chinese facilities may run lower on paper but carry quality risk and logistics cost.</p>
+
+<p>Supplier margin varies too — 7–15% is typical for standard precision parts in India's defence supply chain. MSME suppliers may run lower margins to win volume; single-source specialists may justify higher margins through technology uniqueness.</p>
+
+<h3>Step 5: Build the Target Price</h3>
+
+<p>Adding material, process, labour, overhead, and margin gives you the should-cost estimate. This becomes your target price — the number you bring to the supplier negotiation table with evidence, not hope.</p>
+
+<h2>What Should-Cost Analysis Is Not</h2>
+
+<p>It is worth being clear about what should-cost analysis does not do:</p>
+
+<p><strong>It does not guarantee a supplier can hit the target.</strong> A should-cost model assumes a competent manufacturer with appropriate equipment. If your supplier is running equipment that is genuinely less efficient, they may legitimately cost more. The should-cost model helps you identify whether this is true — and whether you should be finding a more capable supplier.</p>
+
+<p><strong>It is not a substitute for competitive tendering.</strong> Should-cost analysis is most powerful alongside market competition, not instead of it. When you have competitive quotes and a should-cost model, you can push the best supplier to their cost floor. When you have only a should-cost model, it gives you direction, not certainty.</p>
+
+<p><strong>It does not capture every cost.</strong> First-article inspection, tooling amortisation, quality assurance costs, and programme-specific requirements are sometimes outside the standard should-cost model. A thorough model accounts for them; a quick estimate may not.</p>
+
+<h2>Should-Cost Analysis in Practice: Real Numbers</h2>
+
+<p>To make this concrete: Emithran recently completed a should-cost analysis for a 2T LCV rear drive axle — a $244 assembly manufactured in India at 40,000 units per year. The analysis found:</p>
+
+<ul>
+  <li>The Drive Head / Carrier assembly drives 46% of total axle cost ($112 of $244)</li>
+  <li>Within the Drive Head, bearings (bought-out) and the Carrier Housing (cast + CNC machined) each account for 16% — the two largest single components</li>
+  <li>Forged components (Ring Gear, Half Shaft, Pinion Shaft, Side Gears) together account for 21% of Drive Head cost</li>
+</ul>
+
+<p>This level of component-level visibility tells the procurement team exactly where to direct negotiation effort: multi-source the bearings, challenge the Carrier Housing casting yield assumption, and benchmark the forge suppliers against alternatives in the Coimbatore cluster. Without the should-cost model, negotiation would be a flat percentage discussion. With it, it is a targeted, data-backed commercial conversation.</p>
+
+<h2>Should-Cost Analysis and Modern Software</h2>
+
+<p>Manual should-cost modelling is precise but slow. Building a thorough model for a 50-part BOM can take a cost engineering team several weeks. At the scale that modern procurement teams operate — managing hundreds of active part numbers across multiple programmes — this creates a bottleneck.</p>
+
+<p>Modern should-cost software addresses this by automating the most time-consuming parts of the analysis: extracting geometry and material from CAD files, applying live commodity prices, and generating process route cost models based on part family and feature recognition. Emithran's Should-Cost Engine does this for machined, stamped, cast, and sheet metal parts — reducing model build time from days to minutes while maintaining the rigour of first-principles costing.</p>
+
+<h2>Key Takeaways</h2>
+
+<ul>
+  <li>Should-cost analysis builds a bottom-up manufacturing cost estimate from material, process, labour, overhead, and margin — independent of supplier quotes</li>
+  <li>It is most valuable before RFQ, during negotiation, and at contract renewal</li>
+  <li>For Indian OEMs in defence, aerospace, and space, where supplier pools are limited, it closes the information asymmetry that benefits suppliers at procurement's expense</li>
+  <li>Typical cost reductions achieved using should-cost data in negotiations range from 20–39%</li>
+  <li>Modern should-cost software makes the analysis scalable across large part catalogues without sacrificing analytical rigour</li>
+</ul>
+    `,
+  },
+
+  'how-to-do-should-cost-analysis': {
+    heroImage:
+      'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He built the Should-Cost Engine that powers cost modelling for Emithran\'s defence, aerospace, and space OEM customers. He has personally run should-cost analyses on everything from injection-moulded plastic covers to 74-line chassis ladder frame assemblies.',
+    seo: {
+      metaTitle: 'How to Do Should-Cost Analysis: Step-by-Step Guide | Emithran Blog',
+      metaDescription:
+        'A practical step-by-step guide to building a should-cost model for any manufactured part. Learn how to cost material, process, labour, and overhead — with real examples from precision manufacturing.',
+      ogTitle: 'How to Do Should-Cost Analysis: A Step-by-Step Guide',
+      ogDescription:
+        'From part drawing to negotiation brief: a practical guide to building should-cost models for machined, cast, stamped, and sheet metal parts.',
+      tags: [
+        'how to do should cost analysis', 'should cost methodology', 'cost engineering steps',
+        'manufacturing cost model', 'should cost template', 'process costing',
+        'supplier negotiation', 'procurement engineering India',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is the first step in a should-cost analysis?',
+        answer:
+          'The first step is always understanding the part: read the engineering drawing or CAD file to identify the part family, material specification, key dimensions, weight, tolerances, and critical features. This review determines which manufacturing processes are required and flags any features that will drive cost disproportionately.',
+      },
+      {
+        question: 'How do you determine the right process route for a should-cost model?',
+        answer:
+          'Process route selection follows the part\'s features. A turned shaft with tight-tolerance bores requires CNC turning and possibly cylindrical grinding. A sheet metal bracket requires laser cutting and press braking. If you are unsure, review similar parts in your database, consult a manufacturing engineer, or use a should-cost platform that auto-suggests the process route from CAD geometry.',
+      },
+      {
+        question: 'Where do you get machine hourly rates and material prices?',
+        answer:
+          'Machine hourly rates (MHR) vary significantly by geography and equipment type. Industry benchmarks are available from cost engineering associations and regional manufacturing databases. Material prices should come from live commodity feeds — LME for metals, resin price indices for plastics. Using outdated material prices is one of the most common errors in should-cost modelling.',
+      },
+      {
+        question: 'How do you handle bought-out items in a should-cost model?',
+        answer:
+          'Bought-out items (bearings, fasteners, seals, electronic components) are costed from distributor catalogues (Octopart, RS, element14) or direct quotes from multiple suppliers. For high-volume programmes, request distributor pricing at your target annual volume — unit prices at 10,000 pieces can be 30–60% lower than list price.',
+      },
+      {
+        question: 'How do you know if your should-cost model is accurate?',
+        answer:
+          'Validate your model against actual quotes for similar parts, against known manufacturing costs where available, and by sense-checking individual cost lines against industry benchmarks. Material cost as a percentage of total is a useful sanity check: for machined steel parts, material typically drives 25–45% of total cost; for injection-moulded plastic parts, it often drives 60–80%.',
+      },
+    ],
+    content: `
+<p style="font-size:1.1rem;color:#374151;line-height:1.8;font-style:italic;border-left:3px solid #0d9e8a;padding-left:1.25rem;margin-bottom:2rem;">Should-cost analysis has a reputation for being the domain of specialist cost engineers with proprietary databases and years of process knowledge. That is partly true — rigour matters. But the methodology itself is structured and learnable. This guide walks through the complete process, step by step, with real manufacturing examples.</p>
+
+<h2>Step 1: Read the Drawing (or CAD File) Like an Engineer</h2>
+
+<p>Before you open a spreadsheet, you need to understand what you are costing. Pull up the engineering drawing or CAD file and extract:</p>
+
+<ul>
+  <li><strong>Part family</strong> — Is this a machined component? A sheet metal fabrication? A casting? A moulded part? A welded assembly? The process family determines everything downstream.</li>
+  <li><strong>Material specification</strong> — Note the exact grade: EN24 alloy steel, ADC12 aluminium die cast, SS304, PP+20% GF. Grade determines material price per kilogram, density (for weight calculation), and machinability factor (which affects cycle time).</li>
+  <li><strong>Finish weight and envelope dimensions</strong> — These determine material cost and machine time. Note both.</li>
+  <li><strong>Critical features</strong> — Deep holes, tight-tolerance bores, thin walls, complex profiles, and tight surface finish requirements (Ra 0.8 or better) all increase process cost. Flag them.</li>
+  <li><strong>Tolerance class</strong> — General tolerance (IT7–IT9) vs. precision tolerance (IT5–IT6) changes both process selection and inspection cost.</li>
+</ul>
+
+<p>This step takes 15–30 minutes for a single part but pays back many times over in model accuracy.</p>
+
+<h2>Step 2: Map the Manufacturing Process Route</h2>
+
+<p>The process route is the sequence of operations needed to take raw material to finished part. For most part families, there is a standard route with variations:</p>
+
+<p><strong>CNC machined shaft:</strong> Bar stock cutting → Rough turning → Semi-finish turning → Heat treatment → Finish grinding → Inspection</p>
+
+<p><strong>Sheet metal bracket:</strong> Laser cutting → Deburring → Press braking → Spot welding → Powder coating → Inspection</p>
+
+<p><strong>HPDC aluminium casting:</strong> Die casting → Trimming / deflashing → Shot blasting → CNC machining → Anodising → Inspection</p>
+
+<p>For each operation, you need to specify:</p>
+
+<ul>
+  <li>Machine or process type (CNC lathe, press brake, HPDC machine, laser cutter)</li>
+  <li>Machine tonnage or size class (affects machine hourly rate)</li>
+  <li>Estimated cycle time at the part's dimensions and material</li>
+  <li>Number of operators required</li>
+  <li>Setup time, amortised over the batch size</li>
+</ul>
+
+<h2>Step 3: Calculate Material Cost</h2>
+
+<p>Material cost has two components: bought material and wastage.</p>
+
+<p><strong>Formula:</strong> Material cost = Input weight × Material price per kg</p>
+
+<p>Input weight is always higher than finish weight. The difference is:</p>
+<ul>
+  <li>Machining swarf (turned and milled away)</li>
+  <li>Casting sprue and runner (trimmed off)</li>
+  <li>Sheet metal skeleton waste (remaining after laser cutting)</li>
+  <li>Rejection allowance (typically 1–5% of units)</li>
+</ul>
+
+<p>A typical machined part has a material utilisation of 50–70%. A casting might be 80–90%. A laser-cut sheet metal part might be 70–80%, depending on nesting efficiency.</p>
+
+<p><strong>Example:</strong> A steel forged ring gear with finish weight 2.5 kg and input weight 3.8 kg at 0.89 USD/kg gives: 3.8 × 0.89 = $3.38 material cost per part.</p>
+
+<h2>Step 4: Calculate Process Cost for Each Operation</h2>
+
+<p>Process cost is cycle time × machine hourly rate, divided by the number of parts produced per hour.</p>
+
+<p><strong>Formula:</strong> Process cost (per part) = (Cycle time in minutes / 60) × Machine hourly rate ($/hr)</p>
+
+<p>For a CNC turning operation with 8-minute cycle time on a machine running at $3/hr: (8/60) × 3 = $0.40 per part.</p>
+
+<p>Machine hourly rates vary significantly by geography:</p>
+
+<ul>
+  <li>CNC turning, India: $2–4/hr</li>
+  <li>CNC turning, Germany: $60–90/hr</li>
+  <li>Laser cutting (3kW), India: $8–15/hr</li>
+  <li>HPDC (250T), India: $12–20/hr</li>
+  <li>Gear hobbing, India: $4–6/hr</li>
+</ul>
+
+<p>Sum the process cost across all operations to get the total process cost per part.</p>
+
+<h2>Step 5: Add Labour Cost</h2>
+
+<p>In many should-cost models, direct labour is already embedded in the machine hourly rate (particularly for highly automated processes). For labour-intensive operations — manual assembly, wire harness assembly, inspection — add direct labour separately.</p>
+
+<p><strong>Formula:</strong> Labour cost = (Cycle time in hours) × Labour rate ($/hr) × Number of operators</p>
+
+<p>Indian direct labour rates for precision manufacturing: ₹150–300/hr ($1.80–3.60/hr) depending on skill level and region. Wire harness assembly in Bangalore: approximately $2.50/hr fully loaded.</p>
+
+<h2>Step 6: Apply Overhead and SG&A</h2>
+
+<p>Factory overhead covers indirect costs: facility rent, utilities, maintenance, indirect labour, depreciation. It is typically expressed as a percentage of direct manufacturing cost.</p>
+
+<p>Common overhead structures for Indian precision manufacturing:</p>
+<ul>
+  <li>Inbound logistics: 2% of raw material cost</li>
+  <li>Inventory carrying cost: 5% of raw material cost</li>
+  <li>Machine overhead: 8% of machine cost</li>
+  <li>Labour overhead: 5% of direct labour</li>
+  <li>Rejection and rework: 2% of total direct manufacturing cost</li>
+  <li>R&amp;D: 2% of direct manufacturing cost (for technology-intensive suppliers)</li>
+  <li>SG&amp;A: 1% of (R&amp;D + direct manufacturing cost)</li>
+</ul>
+
+<h2>Step 7: Add Supplier Margin</h2>
+
+<p>Supplier margin varies by sector, relationship, and technology complexity:</p>
+
+<ul>
+  <li>Standard precision machining, India: 7–10%</li>
+  <li>Die casting or moulding (capital-intensive): 10–15%</li>
+  <li>Single-source specialist (proprietary process): 15–25%</li>
+  <li>MSME sub-tier (high volume, commodity part): 5–7%</li>
+</ul>
+
+<p>Apply margin on the total cost (direct + overhead + SG&amp;A), not just on direct manufacturing cost — this is a common modelling error.</p>
+
+<h2>Step 8: Build the Negotiation Brief</h2>
+
+<p>Your should-cost model is now a negotiation tool. Structure the brief to show:</p>
+
+<ol>
+  <li><strong>Should-cost estimate</strong> — your bottom-up model result</li>
+  <li><strong>Supplier quote</strong> — what they are charging</li>
+  <li><strong>Gap analysis</strong> — where the difference is, broken down by cost category</li>
+  <li><strong>Target price</strong> — your ask, supported by the model</li>
+  <li><strong>Key assumptions</strong> — material price basis, volume, manufacturing location</li>
+</ol>
+
+<p>When you share this with a supplier, the conversation changes. Instead of "we need a 15% reduction," you are saying: "our model shows material at $4.20, process at $2.80, and overhead at $1.40 — your quote at $12.50 implies $4.10 of unaccounted cost. Can you walk us through where that sits?" That is a productive, fact-based discussion. It respects the supplier's expertise while challenging assumptions that can't be justified.</p>
+
+<h2>Common Errors to Avoid</h2>
+
+<ul>
+  <li><strong>Using finish weight instead of input weight for material cost</strong> — this understates material cost by 20–50% for machined parts</li>
+  <li><strong>Using outdated material prices</strong> — commodity prices move significantly; always use current market data</li>
+  <li><strong>Ignoring scrap and rejection rate</strong> — a 3% rejection rate adds 3% to effective unit cost</li>
+  <li><strong>Applying margin to direct cost only</strong> — margin should be on total cost including overhead</li>
+  <li><strong>Assuming a single process route</strong> — suppliers may use different equipment than your model assumes; validate against actual process capability</li>
+</ul>
+
+<h2>When to Use Software vs. Manual Modelling</h2>
+
+<p>Manual should-cost modelling in Excel is practical for one-off analyses or for engineers building their cost intuition. At scale — across hundreds of active parts, multiple programmes, and changing commodity prices — it becomes unmanageable.</p>
+
+<p>Should-cost software automates the repeatable parts: CAD parameter extraction, live material pricing, machine hourly rate databases, and cycle time estimation. This lets your cost engineering team focus on the high-value work: process route judgment, supplier challenge, and negotiation strategy. The model runs in minutes; the strategic thinking still requires human expertise.</p>
+
+<p>Emithran's Should-Cost Engine handles the end-to-end workflow — from drawing upload to negotiation brief — for machined, stamped, cast, and sheet metal parts across India, UK, Germany, USA, and China.</p>
     `,
   },
 }

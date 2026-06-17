@@ -5,6 +5,17 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  async redirects() {
+    return [
+      { source: '/blog/bom-accuracy-tier1-suppliers',        destination: '/bom-management-software', permanent: true },
+      { source: '/blog/emithran-series-a-announcement',      destination: '/about',                   permanent: true },
+      { source: '/blog/launch-tracker-rfq-cycle',            destination: '/products',                permanent: true },
+      { source: '/blog/otif-logistics-intelligence',         destination: '/products',                permanent: true },
+      { source: '/blog/precision-manufacturing-india-global', destination: '/industries',             permanent: true },
+      { source: '/blog/supplier-radar-defence-manufacturing', destination: '/products',               permanent: true },
+      { source: '/blog/vave-cost-reduction-aerospace',       destination: '/solutions',               permanent: true },
+    ]
+  },
   async headers() {
     return [
       {

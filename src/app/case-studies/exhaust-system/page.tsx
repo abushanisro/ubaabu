@@ -5,6 +5,7 @@ import CaseStudyShell, {
 export const metadata = {
   title: 'Should Costing for Exhaust System | Emithran Case Study',
   description: 'How Emithran identified a £1.3m annual cost saving for a high-performance automotive OEM through should-cost analysis of an exhaust assembly.',
+  alternates: { canonical: '/case-studies/exhaust-system' },
 }
 
 const BULLETS = (items: string[]) => (

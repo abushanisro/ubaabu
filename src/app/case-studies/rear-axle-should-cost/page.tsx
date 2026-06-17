@@ -3,8 +3,9 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: '2T LCV Rear Drive Axle - Should Cost Analysis | Emithran Case Study',
+  title: 'LCV Rear Axle Should-Cost Analysis | Emithran',
   description: 'Full assembly should cost for a 2-tonne LCV rear drive axle - 51.2 kg, 40,000 units/year, India manufacturing. Drive Head / Carrier at 46% is the primary cost driver.',
+  alternates: { canonical: '/case-studies/rear-axle-should-cost' },
 }
 
 const subAssemblies = [

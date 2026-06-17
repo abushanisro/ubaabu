@@ -79,7 +79,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       url: siteUrl,
       logo: { '@type': 'ImageObject', url: `${siteUrl}/assets/infographics/logo/logo-black.png` },
     },
-    image: { '@type': 'ImageObject', url: `${siteUrl}/opengraph-image`, width: 1200, height: 630 },
+    image: { '@type': 'ImageObject', url: `${siteUrl}/blog/${slug}/opengraph-image`, width: 1200, height: 630 },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/blog/${slug}` },
     keywords: (BLOG_CONTENT[slug]?.seo?.tags ?? []).join(', '),
   }

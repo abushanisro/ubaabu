@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import IndustriesPage from '@/components/industries/IndustriesPage'
 
 export const metadata: Metadata = {
-  title: 'Industries - Space, Defence, Aerospace & Precision Manufacturing Intelligence',
+  title: 'Industries - Space, Defence & Aerospace Manufacturing Software',
   description:
     'Emithran serves space & satellite hardware, defence OEMs, aerospace component suppliers, and precision manufacturers - mission-critical sectors where cost accuracy, supplier quality, and delivery visibility determine programme success.',
   keywords: [

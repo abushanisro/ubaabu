@@ -33,6 +33,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/blog`,                           priority: 0.7, changeFrequency: 'weekly',  lastModified: now },
     { url: `${BASE_URL}/case-studies`,                   priority: 0.8, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/contact`,                        priority: 0.8, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE_URL}/should-cost-analysis-software`,   priority: 0.9, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE_URL}/bom-management-software`,         priority: 0.9, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/faq`,                            priority: 0.5, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/privacy`,                        priority: 0.3, changeFrequency: 'yearly',  lastModified: now },
     { url: `${BASE_URL}/terms`,                          priority: 0.3, changeFrequency: 'yearly',  lastModified: now },

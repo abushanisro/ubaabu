@@ -5,6 +5,7 @@ import CaseStudyShell, {
 export const metadata = {
   title: 'DC-DC Converter Teardown & VAVE | Emithran Case Study',
   description: 'How Emithran delivered 39% body cost reduction, 28% PCBA savings, and 13 VAVE ideas through teardown and should-cost analysis of a DC-DC converter for an electric two-wheeler OEM.',
+  alternates: { canonical: '/case-studies/dc-dc-converter' },
 }
 
 const VAVE_IDEAS = [

@@ -3,8 +3,9 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: 'Rear View Mirror Assembly - BOM Should Cost | Emithran Case Study',
+  title: 'Rear View Mirror BOM Should-Cost | Emithran',
   description: 'Full BOM should cost analysis for a rear view mirror assembly across 5 manufacturing processes - injection moulding, hot forging, cold forming, compression moulding and laser cutting.',
+  alternates: { canonical: '/case-studies/rear-view-mirror' },
 }
 
 const parts = [

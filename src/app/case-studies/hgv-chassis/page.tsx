@@ -3,8 +3,9 @@ import CaseStudyShell, {
 } from '@/components/case-studies/CaseStudyShell'
 
 export const metadata = {
-  title: 'Should Costing - HGV Chassis Ladder Frame | Emithran Case Study',
+  title: 'HGV Chassis Ladder Frame Should-Cost | Emithran',
   description: 'How Emithran identified a 38% manufacturing cost reduction for chassis rails by comparing India vs Northern Europe production for an electric HGV OEM.',
+  alternates: { canonical: '/case-studies/hgv-chassis' },
 }
 
 export default function HGVChassisCaseStudy() {
