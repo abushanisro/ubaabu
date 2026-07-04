@@ -508,7 +508,9 @@ export default function BecomeAPartnerPage() {
               <p className="text-[15px] leading-relaxed mb-5" style={{ color: 'rgba(15,27,45,0.6)' }}>
                 Emithran partners help space, defence, aerospace, and automotive manufacturers get more value from
                 manufacturing intelligence. Whether you integrate systems, deliver consulting, or resell software,
-                there is a track built for your business model.
+                there is a track built for your business model. Partners typically work alongside our own team on
+                joint accounts rather than operating at arm's length, since most deployments involve real BOM,
+                supplier, and cost data that benefits from a partner who understands both the customer and the platform.
               </p>
               <div className="space-y-4 mb-6">
                 <div>
@@ -526,6 +528,16 @@ export default function BecomeAPartnerPage() {
                     Co-marketing and co-selling support, access to deal registration, platform sandbox access for
                     demonstration, dedicated partner success support, and revenue share on referred and influenced
                     deals. Certified partners are listed in the Emithran partner directory.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[13px] font-semibold mb-1" style={{ color: '#0f1b2d' }}>How the process works</p>
+                  <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.55)' }}>
+                    Submit the form with your company details and the partner track that fits your business model.
+                    Our partner team reviews every application within five business days and follows up to discuss
+                    your target customers, existing manufacturing or aerospace relationships, and how a partnership
+                    would work in practice. Approved partners complete a short onboarding covering product training,
+                    deal registration, and access to co-marketing materials before working a joint opportunity.
                   </p>
                 </div>
               </div>

@@ -6,6 +6,7 @@ import ConditionalNavbar from '@/components/layout/ConditionalNavbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import ChatlingController from '@/components/ui/chatling-controller'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
+import SiteJsonLd from '@/components/seo/SiteJsonLd'
 
 const sora = Sora({
   weight: ['400', '500', '600', '700'],
@@ -95,6 +96,26 @@ const jsonLd = [
       'VAVE Studio', 'Quality Guard', 'Launch Tracker', 'Shipment Hub',
     ],
     provider: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Singaravelan S.',
+    jobTitle: 'CEO',
+    worksFor: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+    url: `${siteUrl}/about`,
+    sameAs: ['https://www.linkedin.com/in/singaravelan-srinivasan-emuski/'],
+    knowsAbout: ['Manufacturing Intelligence', 'Should Cost Analysis', 'Supplier Intelligence', 'Strategic Sourcing'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Abushan',
+    jobTitle: 'CTO',
+    worksFor: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+    url: `${siteUrl}/about`,
+    sameAs: ['https://www.linkedin.com/in/abushan/'],
+    knowsAbout: ['Cost Engineering Software', 'BOM Management', 'AI Manufacturing', 'Manufacturing Analytics'],
   },
 ]
 
@@ -263,6 +284,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* White content on top */}
         <div className="relative bg-white" style={{ backgroundColor: 'white', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
           <GoogleAnalytics />
+          <SiteJsonLd />
           <main className="relative">{children}</main>
           <ConditionalFooter />
         </div>

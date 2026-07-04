@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
+
 export const metadata: Metadata = {
   title: 'Should-Cost Analysis Software - Emithran',
   description:
@@ -108,6 +110,19 @@ const features = [
   },
 ]
 
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Emithran Should-Cost Analysis',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: `${siteUrl}/should-cost-analysis-software`,
+  description: 'Should-cost analysis software that builds bottom-up manufacturing cost models from CAD files, drawings, or part descriptions for defence, aerospace, and precision manufacturing OEMs.',
+  provider: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free pilot available' },
+  featureList: features.map((f) => f.title),
+}
+
 const comparisonRows = [
   { criterion: 'Setup time',         emithran: 'Live in 5 days',       spreadsheets: 'Weeks of manual work', apriori: '3–6 month rollout' },
   { criterion: 'India pricing data', emithran: 'Native',               spreadsheets: 'Manual research',      apriori: 'Add-on / limited' },
@@ -121,6 +136,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
 
       <main style={{ background: '#fff', color: '#0f1b2d' }}>
 
@@ -138,7 +154,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
               <span style={{ color: '#0d9488' }}> for Defence & Aerospace OEMs</span>
             </h1>
             <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>
-              Build bottom-up cost models for any manufactured part or assembly. Identify supplier overcharges, close the gap between quote and should-cost, and negotiate with data — not gut feel.
+              Emithran is should-cost analysis software that builds bottom-up cost models for any manufactured part or assembly. Identify supplier overcharges, close the gap between quote and should-cost, and negotiate with data — not gut feel.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

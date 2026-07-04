@@ -3,6 +3,8 @@ import PageHero from '@/components/ui/PageHero'
 import PageCTA from '@/components/ui/PageCTA'
 import SectionLabel from '@/components/ui/SectionLabel'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
+
 export const metadata: Metadata = {
   title: 'Supplier Intelligence Platform India | Emithran',
   description:
@@ -60,13 +62,61 @@ const stats = [
   { value: '22%', label: 'harness cost reduction achieved by dual-sourcing from Bangalore wire harness suppliers' },
 ]
 
+const faqs = [
+  {
+    q: 'What is supplier intelligence software?',
+    a: 'Supplier intelligence software is a platform that centralizes supplier capability, certification, capacity, risk, and performance data so procurement and engineering teams can qualify and compare suppliers before committing to a sourcing decision. Emithran connects this data to 72,000+ verified Indian manufacturers, scored across capability, capacity, quality certifications, and delivery history.',
+  },
+  {
+    q: 'How does Emithran verify its supplier database?',
+    a: 'Suppliers are verified through a combination of certification checks (AS9100, IATF 16949, NADCAP), documented capability and capacity data, quality and PPAP submission history, and ongoing performance signals from active programmes. Verification status is visible on every supplier profile.',
+  },
+  {
+    q: 'Can I find suppliers for a specific process or certification?',
+    a: 'Yes. You can search by manufacturing process (forging, casting, machining, PCBA, and more), material, certification (AS9100, IATF 16949, NADCAP), or geography, and get a ranked shortlist of qualified suppliers in minutes.',
+  },
+  {
+    q: 'Does Emithran identify dual-source or backup suppliers automatically?',
+    a: 'Yes. For every critical component in your BOM, Emithran can surface qualified alternative suppliers, helping you de-risk single-source exposure without running a separate sourcing exercise.',
+  },
+  {
+    q: 'Which industries does the supplier database cover?',
+    a: 'Defence, aerospace, space, automotive, precision engineering, and electronics manufacturing, with particular depth in DRDO, HAL, ISRO, and private OEM supply chains across India.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Emithran Supplier Radar',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: `${siteUrl}/supplier-intelligence`,
+  description: "India's manufacturing supplier intelligence platform with 72,000+ verified suppliers, qualification scoring, risk assessment, and capability mapping for defence, aerospace, and space supply chains.",
+  provider: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free pilot available' },
+  featureList: features.map((f) => f.title),
+}
+
 export default function SupplierIntelligencePage() {
   return (
     <div className="bg-[#0a0a0a] text-white min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       <PageHero
         eyebrow="Supplier Intelligence - India"
         title="Find the right supplier before the deadline, not after."
-        subtitle="Emithran Supplier Radar gives procurement and programme teams access to 72,000+ verified Indian manufacturers - with qualification scores, risk flags, and capability data to make confident sourcing decisions fast."
+        subtitle="Emithran is supplier intelligence software that gives procurement and programme teams access to 72,000+ verified Indian manufacturers - with qualification scores, risk flags, and capability data to make confident sourcing decisions fast."
       />
 
       <section className="py-20 lg:py-28 border-b border-white/10">
@@ -118,6 +168,23 @@ export default function SupplierIntelligencePage() {
               <div key={u} className="flex gap-3 items-start">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2dd4bf]" />
                 {u}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28 border-b border-white/10">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10">
+          <SectionLabel>FAQ</SectionLabel>
+          <h2 className="font-display text-white text-[32px] lg:text-[40px] leading-[0.95] mb-10">
+            Common questions about supplier intelligence
+          </h2>
+          <div className="divide-y divide-white/10">
+            {faqs.map((f) => (
+              <div key={f.q} className="py-6">
+                <h3 className="font-display text-[16px] mb-2" style={{ color: '#2dd4bf' }}>{f.q}</h3>
+                <p className="font-mono text-[13px] text-white/60 leading-relaxed">{f.a}</p>
               </div>
             ))}
           </div>

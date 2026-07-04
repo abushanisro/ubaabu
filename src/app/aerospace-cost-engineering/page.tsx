@@ -3,6 +3,8 @@ import PageHero from '@/components/ui/PageHero'
 import PageCTA from '@/components/ui/PageCTA'
 import SectionLabel from '@/components/ui/SectionLabel'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
+
 export const metadata: Metadata = {
   title: 'Aerospace Cost Engineering Software India | Emithran',
   description:
@@ -60,9 +62,57 @@ const stats = [
   { value: '99.4%', label: 'BOM accuracy rate on active aerospace and space programmes managed on the platform' },
 ]
 
+const faqs = [
+  {
+    q: 'What is aerospace cost engineering software?',
+    a: "Aerospace cost engineering software builds bottom-up should-cost models for aircraft, satellite, and aviation components, and connects those models to AS9100- and NADCAP-qualified supplier intelligence and multi-level BOM management. Emithran is built specifically for India's aerospace and space manufacturing context.",
+  },
+  {
+    q: 'Can Emithran cost aerospace components against India vs Europe or US manufacturing?',
+    a: 'Yes. Should-cost models can compare the same aerospace component manufactured in India against European or US manufacturing, using region-specific labour, material, and overhead rates.',
+  },
+  {
+    q: 'Does Emithran support MRO cost analysis, not just new manufacturing?',
+    a: 'Yes. Should-cost models extend to MRO activities, covering labour, consumables, tooling, and overhaul scopes, which can be used to benchmark MRO providers and set fair work-order targets.',
+  },
+  {
+    q: 'How does supplier qualification work for aerospace-specific certifications?',
+    a: 'The supplier database can be filtered by AS9100, NADCAP, and other aerospace-specific certifications, with qualification status and audit history visible before you shortlist a supplier.',
+  },
+  {
+    q: 'Is Emithran suitable for NewSpace and satellite manufacturers, not just aviation?',
+    a: 'Yes. The platform manages satellite sub-assembly BOMs and should-cost models alongside ground segment and launch programme costs, and is used by commercial NewSpace manufacturers as well as traditional aviation OEMs.',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Emithran Aerospace Cost Engineering',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: `${siteUrl}/aerospace-cost-engineering`,
+  description: "Aerospace cost engineering software for India's aviation OEMs, MRO providers, and space manufacturers, covering should-cost modelling, BOM management, and supplier intelligence for AS9100-certified supply chains.",
+  provider: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free pilot available' },
+  featureList: features.map((f) => f.title),
+}
+
 export default function AerospaceCostEngineeringPage() {
   return (
     <div className="bg-[#0a0a0a] text-white min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       <PageHero
         eyebrow="Aerospace Cost Engineering - India"
         title="Cost intelligence for India's aerospace and space manufacturers."
@@ -118,6 +168,23 @@ export default function AerospaceCostEngineeringPage() {
               <div key={u} className="flex gap-3 items-start">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2dd4bf]" />
                 {u}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-28 border-b border-white/10">
+        <div className="max-w-3xl mx-auto px-6 lg:px-10">
+          <SectionLabel>FAQ</SectionLabel>
+          <h2 className="font-display text-white text-[32px] lg:text-[40px] leading-[0.95] mb-10">
+            Common questions about aerospace cost engineering
+          </h2>
+          <div className="divide-y divide-white/10">
+            {faqs.map((f) => (
+              <div key={f.q} className="py-6">
+                <h3 className="font-display text-[16px] mb-2" style={{ color: '#2dd4bf' }}>{f.q}</h3>
+                <p className="font-mono text-[13px] text-white/60 leading-relaxed">{f.a}</p>
               </div>
             ))}
           </div>

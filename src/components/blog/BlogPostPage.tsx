@@ -9,7 +9,7 @@ import {
 } from 'lucide-react'
 import { track } from '@/lib/analytics'
 import { POSTS, type BlogPost, type BlogCategory } from './blogData'
-import type { BlogPostContent } from './blogContent'
+import type { BlogPostContent, BlogPostFAQ } from './blogContent'
 import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 const CATEGORY_STYLES: Record<Exclude<BlogCategory, 'All'>, { bg: string; text: string }> = {
@@ -406,6 +406,24 @@ function RelatedArticles({ posts }: { posts: BlogPost[] }) {
   )
 }
 
+/* ---------------------------------- FAQ ------------------------------------- */
+
+function FAQSection({ faqs }: { faqs: BlogPostFAQ[] }) {
+  return (
+    <div className="mt-12 sm:mt-14">
+      <h2 className="text-xl sm:text-2xl font-bold mb-6" style={{ color: '#0f1b2d' }}>Frequently asked questions</h2>
+      <div className="divide-y" style={{ borderColor: 'rgba(15,27,45,0.08)' }}>
+        {faqs.map((faq) => (
+          <div key={faq.question} className="py-5">
+            <h3 className="text-base sm:text-lg font-bold mb-2" style={{ color: '#0f1b2d' }}>{faq.question}</h3>
+            <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 /* -------------------------------- Author bio -------------------------------- */
 
 function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
@@ -425,10 +443,16 @@ function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
           <h3 className="font-bold text-base sm:text-lg mb-2" style={{ color: '#0f1b2d' }}>About the Author</h3>
           <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}
             dangerouslySetInnerHTML={{ __html: bio }} />
-          <div className="mt-3 flex items-center gap-2 text-[12.5px]" style={{ color: 'rgba(15,27,45,0.45)' }}>
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-[12.5px]" style={{ color: 'rgba(15,27,45,0.45)' }}>
             <span>{post.author.role}</span>
             <span style={{ color: '#2dd4bf' }}>·</span>
             <span>Emithran</span>
+            <span style={{ color: '#2dd4bf' }}>·</span>
+            <a href={post.author.linkedin} target="_blank" rel="noopener noreferrer me" className="hover:underline" style={{ color: '#0d9488' }}>
+              LinkedIn
+            </a>
+            <span style={{ color: '#2dd4bf' }}>·</span>
+            <span>Last updated: {post.date}</span>
           </div>
         </div>
       </div>
@@ -651,6 +675,8 @@ export default function BlogPostPage({ post, content }: { post: BlogPost; conten
             <ShareBar post={post} />
 
             <div ref={contentRef} className="blog-content mb-12" dangerouslySetInnerHTML={{ __html: content.content }} />
+
+            {content.faqs && content.faqs.length > 0 && <FAQSection faqs={content.faqs} />}
           </article>
 
           <Sidebar contentRef={contentRef} />

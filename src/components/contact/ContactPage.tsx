@@ -397,6 +397,24 @@ function ContactPageContent() {
           workflow. Fill in the form — a manufacturing engineer or solution consultant will respond personally
           within one business day. No automated follow-ups.
         </p>
+        <p className="mt-3 text-[13px] text-[#0f1b2d]/55 leading-relaxed">
+          Most conversations start with a specific problem: a BOM that doesn&rsquo;t reconcile with supplier quotes,
+          a should-cost model that needs validating before a negotiation, or a supplier base that hasn&rsquo;t been
+          re-qualified in years. Tell us where you are and we&rsquo;ll tailor the call accordingly, rather than
+          running you through a generic product demo.
+        </p>
+        <p className="mt-3 text-[12px] font-semibold text-[#0f1b2d]/70">Useful to have ready, though not required:</p>
+        <ul className="mt-1.5 space-y-1 text-[13px] text-[#0f1b2d]/55 leading-relaxed list-disc pl-4">
+          <li>A representative BOM or drawing set, even a rough one.</li>
+          <li>A short list of current or prospective suppliers for the part family in question.</li>
+          <li>The sourcing or cost decision you&rsquo;re trying to make, and the timeline behind it.</li>
+        </ul>
+        <p className="mt-3 text-[13px] text-[#0f1b2d]/55 leading-relaxed">
+          We work with procurement, engineering, programme, and supplier quality teams across defence, aerospace,
+          space, and automotive supply chains, as well as broader precision manufacturing. If you&rsquo;re early in
+          evaluating should-cost software, BOM management tools, or supplier intelligence platforms, we&rsquo;re
+          happy to talk through fit before any commercial conversation starts.
+        </p>
       </div>
 
       {/* Card */}

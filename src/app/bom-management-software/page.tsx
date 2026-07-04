@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
+
 export const metadata: Metadata = {
   title: 'BOM Management Software - Emithran',
   description:
@@ -108,6 +110,19 @@ const features = [
   },
 ]
 
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Emithran BOM Management',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  url: `${siteUrl}/bom-management-software`,
+  description: 'BOM management software with AI-powered validation, should-cost integration, and real-time collaboration for defence, aerospace, and precision manufacturing OEMs.',
+  provider: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free pilot available' },
+  featureList: features.map((f) => f.title),
+}
+
 const comparisonRows = [
   { criterion: 'BOM validation',        emithran: 'AI-powered, < 2 min',  spreadsheets: 'Manual, error-prone',  erp: 'Rule-based only' },
   { criterion: 'Should-cost linking',   emithran: 'Native integration',    spreadsheets: 'Separate tool/manual', erp: 'Not available' },
@@ -121,6 +136,7 @@ export default function BomManagementSoftwarePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
 
       <main style={{ background: '#fff', color: '#0f1b2d' }}>
 

@@ -8,7 +8,7 @@ import TrackingSection from '@/components/solutions/sections/TrackingSection'
 
 import type { Metadata } from 'next'
 export const metadata: Metadata = {
-  title: 'Solutions - Manufacturing Intelligence Across Your Value Chain',
+  title: 'Solutions | Manufacturing Intelligence Value Chain',
   description:
     'End-to-end manufacturing solutions: design cost modelling, supplier evaluation, cost engineering, risk intelligence, VAVE analysis, and delivery tracking - powered by AI and 72,000+ supplier data points.',
   keywords: [
