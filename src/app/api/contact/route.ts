@@ -44,11 +44,9 @@ export async function POST(req: NextRequest) {
     const { email, country, firstName, lastName, phone, company, role, industry, message, cfToken, source, cta } = body
 
     const ip = req.headers.get('x-forwarded-for') ?? req.headers.get('x-real-ip') ?? ''
-    if (process.env.TURNSTILE_SECRET_KEY) {
-      const humanVerified = await verifyTurnstile(cfToken ?? '', ip)
-      if (!humanVerified) {
-        return NextResponse.json({ error: 'Human verification failed. Please try again.' }, { status: 403 })
-      }
+    const humanVerified = await verifyTurnstile(cfToken ?? '', ip)
+    if (!humanVerified) {
+      return NextResponse.json({ error: 'Human verification failed. Please try again.' }, { status: 403 })
     }
 
     if (!firstName || !lastName || !email || !company || !role || !industry) {
