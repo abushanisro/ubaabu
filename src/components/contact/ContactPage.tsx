@@ -385,36 +385,11 @@ function ContactPageContent() {
       {/* Page content - grows to push footer down */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-16 relative z-10">
 
-      {/* Static intro — provides H1 and body copy for SEO */}
+      {/* Static intro — provides H1 for SEO */}
       <div className="w-full max-w-[480px] mb-6 z-10">
         <h1 className="text-2xl sm:text-3xl font-bold text-[#0f1b2d] mb-3 font-[Sora] leading-tight">
           Talk to Our Manufacturing Intelligence Team
         </h1>
-        <p className="text-[13px] text-[#0f1b2d]/55 leading-relaxed">
-          Emithran works with space, defence, aerospace, and precision manufacturing teams across India and globally.
-          Whether you&rsquo;re evaluating should-cost analysis software, looking to validate your BOM, or building
-          supplier intelligence for a new programme, our team will walk you through exactly how Emithran fits your
-          workflow. Fill in the form — a manufacturing engineer or solution consultant will respond personally
-          within one business day. No automated follow-ups.
-        </p>
-        <p className="mt-3 text-[13px] text-[#0f1b2d]/55 leading-relaxed">
-          Most conversations start with a specific problem: a BOM that doesn&rsquo;t reconcile with supplier quotes,
-          a should-cost model that needs validating before a negotiation, or a supplier base that hasn&rsquo;t been
-          re-qualified in years. Tell us where you are and we&rsquo;ll tailor the call accordingly, rather than
-          running you through a generic product demo.
-        </p>
-        <p className="mt-3 text-[12px] font-semibold text-[#0f1b2d]/70">Useful to have ready, though not required:</p>
-        <ul className="mt-1.5 space-y-1 text-[13px] text-[#0f1b2d]/55 leading-relaxed list-disc pl-4">
-          <li>A representative BOM or drawing set, even a rough one.</li>
-          <li>A short list of current or prospective suppliers for the part family in question.</li>
-          <li>The sourcing or cost decision you&rsquo;re trying to make, and the timeline behind it.</li>
-        </ul>
-        <p className="mt-3 text-[13px] text-[#0f1b2d]/55 leading-relaxed">
-          We work with procurement, engineering, programme, and supplier quality teams across defence, aerospace,
-          space, and automotive supply chains, as well as broader precision manufacturing. If you&rsquo;re early in
-          evaluating should-cost software, BOM management tools, or supplier intelligence platforms, we&rsquo;re
-          happy to talk through fit before any commercial conversation starts.
-        </p>
       </div>
 
       {/* Card */}
