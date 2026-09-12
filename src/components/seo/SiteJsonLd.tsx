@@ -1,7 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { SEO_LANDING_PAGES } from './seoRoadmapData'
+import { COMPARISON_PAGE_SLUGS, SEO_LANDING_PAGES } from './seoRoadmapData'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -9,8 +9,7 @@ const LANDING_PAGE_SLUGS = new Set(SEO_LANDING_PAGES.map((page) => page.slug))
 
 // Standalone root-level pages that declare their own BreadcrumbList schema.
 const STANDALONE_BREADCRUMB_SLUGS = new Set([
-  'emithran-vs-apriori',
-  'emithran-vs-costimator',
+  ...COMPARISON_PAGE_SLUGS,
   'state-of-manufacturing-cost-intelligence-2026',
 ])
 

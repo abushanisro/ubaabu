@@ -29,7 +29,7 @@ function section(title: string, rows: string) {
 }
 
 function adminEmail(data: {
-  name: string; email: string; company: string; role: string;
+  name: string; email: string; phone: string; company: string; role: string;
   country: string; teamSize: string; date: string; time: string; message: string;
 }) {
   return `<!DOCTYPE html>
@@ -47,6 +47,7 @@ function adminEmail(data: {
   ${section('Contact', `
     ${row('Name',      data.name)}
     ${row('Email',     data.email)}
+    ${row('Phone',     data.phone)}
     ${row('Company',   data.company)}
     ${row('Role',      data.role)}
     ${row('Country',   data.country || '-')}
@@ -82,8 +83,8 @@ async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json()
-    const { name, email, company, role, country, teamSize, date, time, message, cfToken } = body as {
-      name: string; email: string; company: string; role: string;
+    const { name, email, phone, company, role, country, teamSize, date, time, message, cfToken } = body as {
+      name: string; email: string; phone: string; company: string; role: string;
       country?: string; teamSize?: string; date?: string; time?: string; message?: string; cfToken?: string;
     }
 
@@ -93,7 +94,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Human verification failed. Please try again.' }, { status: 403 })
     }
 
-    if (!name || !email || !company || !role || !date || !time) {
+    if (!name || !email || !phone || !company || !role || !date || !time) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -106,7 +107,7 @@ export async function POST(req: NextRequest) {
         to:      NOTIFY_TO,
         replyTo: email,
         subject: `Demo request - ${name} @ ${company} · ${date} ${time}`,
-        html:    adminEmail({ name, email, company, role, country: country ?? '', teamSize: teamSize ?? '', date: date ?? '', time: time ?? '', message: message ?? '' }),
+        html:    adminEmail({ name, email, phone, company, role, country: country ?? '', teamSize: teamSize ?? '', date: date ?? '', time: time ?? '', message: message ?? '' }),
       }),
       resend.emails.send({
         from:    `Emithran <${FROM}>`,

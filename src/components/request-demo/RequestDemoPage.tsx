@@ -146,7 +146,7 @@ export default function RequestDemoPage() {
   const teamOptions: SelectOption[] = TEAM_SIZES.map((s) => ({ label: s, value: s }));
   const timeOptions: SelectOption[] = TIME_SLOTS.map((t) => ({ label: t, value: t }));
   const [form, setForm] = useState({
-    name: "", email: "", company: "", role: "",
+    name: "", email: "", phone: "", company: "", role: "",
     country: "", teamSize: "", date: "", time: "", message: "",
   });
   const [submitting, setSubmitting] = useState(false);
@@ -162,6 +162,7 @@ export default function RequestDemoPage() {
 
   const canSubmit =
     form.name.trim().length > 1 && form.email.includes("@") &&
+    form.phone.replace(/[^0-9]/g, "").length >= 7 &&
     form.company.trim().length > 1 && form.role.trim().length > 1 &&
     form.date.length > 0 && form.time.length > 0 &&
     !!cfToken && !submitting;
@@ -287,6 +288,12 @@ export default function RequestDemoPage() {
                           <label htmlFor="rd-email" className={labelCls}>Work email</label>
                           <input id="rd-email" type="email" autoComplete="email" value={form.email} onChange={set("email")} placeholder="sarah@company.com" required className={inputCls} />
                         </div>
+                      </div>
+
+                      {/* Row 1b: Phone */}
+                      <div>
+                        <label htmlFor="rd-phone" className={labelCls}>Phone number</label>
+                        <input id="rd-phone" type="tel" autoComplete="tel" value={form.phone} onChange={set("phone")} placeholder="+91 98765 43210" required className={inputCls} />
                       </div>
 
                       {/* Row 2: Company + Role */}

@@ -1,6 +1,8 @@
 ﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard, ImpactGrid, StatRow,
 } from '@/components/case-studies/CaseStudyShell'
+import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
+import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
   title: 'HGV Chassis Ladder Frame Should-Cost | Emithran',
@@ -8,8 +10,13 @@ export const metadata = {
   alternates: { canonical: '/case-studies/hgv-chassis' },
 }
 
+const study = CASE_STUDIES.find((s) => s.slug === 'hgv-chassis')!
+const articleSchema = buildCaseStudyArticleJsonLd(study, { image: '/assets/casestudy/truck.png' })
+
 export default function HGVChassisCaseStudy() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <CaseStudyShell
       slug="hgv-chassis"
       industry="Heavy Vehicles"
@@ -246,5 +253,6 @@ export default function HGVChassisCaseStudy() {
       </DarkCard>
 
     </CaseStudyShell>
+    </>
   )
 }

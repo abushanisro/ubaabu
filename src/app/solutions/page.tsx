@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Emithran Solutions - End-to-End Manufacturing Intelligence',
     description: 'From design to delivery: AI-powered solutions for cost, quality, supplier, and risk management.',
-    url: '/solutions', type: 'website',
+    url: '/solutions', type: 'website', siteName: 'Emithran',
   },
 }
 

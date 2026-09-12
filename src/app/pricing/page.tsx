@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Emithran Pricing - No Per-Seat Fees, No Hidden Costs',
     description: 'Transparent, outcome-based plans for manufacturers of every scale.',
-    url: '/pricing', type: 'website',
+    url: '/pricing', type: 'website', siteName: 'Emithran',
   },
 }
 

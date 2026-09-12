@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { POSTS } from '@/components/blog/blogData'
 import { BLOG_CONTENT } from '@/components/blog/blogContent'
-import { DE_PAGES, GLOSSARY_TERMS, SEO_LANDING_PAGES } from '@/components/seo/seoRoadmapData'
+import { COMPARISON_PAGE_SLUGS, DE_PAGES, GLOSSARY_TERMS, SEO_LANDING_PAGES } from '@/components/seo/seoRoadmapData'
 
 const BASE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -41,8 +41,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/supplier-intelligence`, priority: 0.8, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/defence-manufacturing`, priority: 0.8, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/aerospace-cost-engineering`, priority: 0.8, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE_URL}/emithran-vs-apriori`, priority: 0.7, changeFrequency: 'monthly', lastModified: now },
-    { url: `${BASE_URL}/emithran-vs-costimator`, priority: 0.7, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/state-of-manufacturing-cost-intelligence-2026`, priority: 0.8, changeFrequency: 'yearly', lastModified: now },
     { url: `${BASE_URL}/faq`, priority: 0.5, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/glossary`, priority: 0.7, changeFrequency: 'monthly', lastModified: now },
@@ -52,6 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/cookies`, priority: 0.2, changeFrequency: 'yearly', lastModified: now },
     { url: `${BASE_URL}/dpa`, priority: 0.2, changeFrequency: 'yearly', lastModified: now },
   ]
+
+  const comparisonPages: MetadataRoute.Sitemap = COMPARISON_PAGE_SLUGS.map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
+    lastModified: now,
+  }))
 
   const caseStudies: MetadataRoute.Sitemap = CASE_STUDIES.map((slug) => ({
     url: `${BASE_URL}/case-studies/${slug}`,
@@ -90,6 +95,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...core,
+    ...comparisonPages,
     ...caseStudies,
     ...blogPosts,
     ...seoLandingPages,

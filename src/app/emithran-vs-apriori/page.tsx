@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description: 'Should-cost analysis, BOM intelligence, and supplier data compared side by side for India-focused and global manufacturing teams.',
     url: '/emithran-vs-apriori',
     type: 'website',
+    siteName: 'Emithran',
   },
 }
 

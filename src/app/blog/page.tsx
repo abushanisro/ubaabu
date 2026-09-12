@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Emithran Blog - Manufacturing Intelligence Insights',
     description: 'Deep-dive articles on should-cost, BOM, supplier intelligence, and AI in manufacturing.',
-    url: '/blog', type: 'website',
+    url: '/blog', type: 'website', siteName: 'Emithran',
   },
 }
 

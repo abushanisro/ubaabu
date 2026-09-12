@@ -23,6 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ term: str
       description: item.description,
       url: `/glossary/${item.slug}`,
       type: 'article',
+      siteName: 'Emithran',
+      locale: 'en_US',
     },
   }
 }
@@ -60,12 +62,20 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ t
           <Link href="/glossary" className="text-sm font-semibold text-[#0d9488]">Glossary</Link>
           <h1 className="mt-5 text-4xl md:text-5xl font-bold tracking-tight capitalize">{item.term}</h1>
           <p className="mt-6 text-lg leading-relaxed text-black/60">{item.description}</p>
-          <h2 className="mt-10 text-2xl font-bold tracking-tight">Related Emithran workflows</h2>
-          <ul className="mt-4 grid gap-3 text-black/65">
-            <li>BOM validation and line-item enrichment.</li>
-            <li>Should-cost modelling and cost breakdown analysis.</li>
-            <li>Supplier intelligence, risk scoring, and RFQ preparation.</li>
-          </ul>
+          {item.relatedLinks.length > 0 && (
+            <>
+              <h2 className="mt-10 text-2xl font-bold tracking-tight">See also</h2>
+              <ul className="mt-4 grid gap-3">
+                {item.relatedLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-black/65 underline decoration-black/20 underline-offset-4 hover:text-[#0d9488] hover:decoration-[#0d9488]/40">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
           <Link href="/request-demo" className="mt-10 inline-flex rounded-xl bg-[#0d9488] px-6 py-3 text-sm font-semibold text-white">
             Request a Demo
           </Link>

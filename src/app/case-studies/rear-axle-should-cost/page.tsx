@@ -1,6 +1,8 @@
 ﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard,
 } from '@/components/case-studies/CaseStudyShell'
+import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
+import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
   title: 'LCV Rear Axle Should-Cost Analysis | Emithran',
@@ -47,8 +49,13 @@ const halfShaftItems = [
   { name: 'Hardware & Seals',         cost:  1.15, pct:  4, type: 'Hardware / BOI' },
 ]
 
+const study = CASE_STUDIES.find((s) => s.slug === 'rear-axle-should-cost')!
+const articleSchema = buildCaseStudyArticleJsonLd(study, { image: '/assets/casestudy/truck.png' })
+
 export default function RearAxleCaseStudy() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <CaseStudyShell
       slug="rear-axle-should-cost"
       industry="Automotive"
@@ -396,5 +403,6 @@ export default function RearAxleCaseStudy() {
       </DarkCard>
 
     </CaseStudyShell>
+    </>
   )
 }

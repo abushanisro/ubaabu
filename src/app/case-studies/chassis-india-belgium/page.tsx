@@ -1,6 +1,8 @@
 ﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard, ImpactGrid, StatRow,
 } from '@/components/case-studies/CaseStudyShell'
+import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
+import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
   title: 'Chassis Should-Cost: India vs Belgium | Emithran',
@@ -8,8 +10,13 @@ export const metadata = {
   alternates: { canonical: '/case-studies/chassis-india-belgium' },
 }
 
+const study = CASE_STUDIES.find((s) => s.slug === 'chassis-india-belgium')!
+const articleSchema = buildCaseStudyArticleJsonLd(study, { image: '/assets/casestudy/truck.png' })
+
 export default function ChassisIndiaBelgiumCaseStudy() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <CaseStudyShell
       slug="chassis-india-belgium"
       industry="Heavy Vehicles"
@@ -368,5 +375,6 @@ export default function ChassisIndiaBelgiumCaseStudy() {
       </DarkCard>
 
     </CaseStudyShell>
+    </>
   )
 }

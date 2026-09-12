@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description: 'Book a 30-minute walkthrough of Emithran\'s manufacturing intelligence platform.',
     url: '/request-demo',
     type: 'website',
+    siteName: 'Emithran',
   },
 }
 

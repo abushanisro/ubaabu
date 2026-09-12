@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   keywords: [
     'Costimator alternative', 'Emithran vs Costimator', 'Costimator vs Emithran',
     'manufacturing cost estimating software comparison', 'MTI Costimator alternative India',
+    'MTI Systems alternative', 'Emithran vs MTI Systems',
   ],
   alternates: { canonical: '/emithran-vs-costimator' },
   openGraph: {
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
     description: 'Manufacturing cost estimating, supplier intelligence, and BOM management compared side by side.',
     url: '/emithran-vs-costimator',
     type: 'website',
+    siteName: 'Emithran',
   },
 }
 
@@ -86,9 +88,10 @@ export default function EmithranVsCostimatorPage() {
               Emithran vs Costimator
             </h1>
             <p className="text-lg md:text-xl leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>
-              Costimator is a long-standing parametric estimating and quoting tool used by machine shops and
-              contract manufacturers. Emithran is a should-cost, BOM, and supplier intelligence platform built for
-              India-linked defence, aerospace, space, and precision manufacturing programmes. Here is how they compare.
+              Costimator, made by MTI Systems, is a long-standing parametric estimating and quoting tool used by
+              machine shops and contract manufacturers. Emithran is a should-cost, BOM, and supplier intelligence
+              platform built for India-linked defence, aerospace, space, and precision manufacturing programmes.
+              Here is how they compare.
             </p>
           </div>
         </section>

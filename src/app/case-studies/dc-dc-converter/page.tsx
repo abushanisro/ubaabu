@@ -1,6 +1,8 @@
 ﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard, ImpactGrid, BarRow, StatRow, TagBadge,
 } from '@/components/case-studies/CaseStudyShell'
+import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
+import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
   alternates: { canonical: '/case-studies/dc-dc-converter' },
@@ -24,8 +26,13 @@ const VAVE_IDEAS = [
   { type: 'Design',   idea: 'Replace potting compound with mechanical screw fixation' },
 ] as const
 
+const study = CASE_STUDIES.find((s) => s.slug === 'dc-dc-converter')!
+const articleSchema = buildCaseStudyArticleJsonLd(study, { image: '/assets/casestudy/case3.png' })
+
 export default function DCDCConverterCaseStudy() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <CaseStudyShell
       slug="dc-dc-converter"
       industry="Aerospace"
@@ -212,5 +219,6 @@ export default function DCDCConverterCaseStudy() {
       </DarkCard>
 
     </CaseStudyShell>
+    </>
   )
 }
