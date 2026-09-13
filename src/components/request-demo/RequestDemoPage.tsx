@@ -4,6 +4,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, Calendar, Clock } from "lucide-react";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
+import { PhoneField, DIAL_CODES } from "@/components/ui/phone-field";
 
 interface SelectOption { label: string; value: string; disabled?: boolean }
 
@@ -89,26 +90,6 @@ const TIME_SLOTS = [
   "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM",
 ];
 
-const COUNTRIES = [
-  "India",
-  "------",
-  "Afghanistan", "Albania", "Algeria", "Argentina", "Armenia", "Australia",
-  "Austria", "Azerbaijan", "Bahrain", "Bangladesh", "Belgium", "Brazil",
-  "Bulgaria", "Cambodia", "Canada", "Chile", "China", "Colombia", "Croatia",
-  "Cyprus", "Czech Republic", "Denmark", "Egypt", "Estonia", "Ethiopia",
-  "Finland", "France", "Georgia", "Germany", "Ghana", "Greece", "Hungary",
-  "Iceland", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
-  "Japan", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Latvia", "Lebanon",
-  "Lithuania", "Luxembourg", "Malaysia", "Mexico", "Morocco", "Myanmar",
-  "Nepal", "Netherlands", "New Zealand", "Nigeria", "Norway", "Oman",
-  "Pakistan", "Peru", "Philippines", "Poland", "Portugal", "Qatar",
-  "Romania", "Russia", "Saudi Arabia", "Serbia", "Singapore", "Slovakia",
-  "Slovenia", "South Africa", "South Korea", "Spain", "Sri Lanka", "Sweden",
-  "Switzerland", "Taiwan", "Thailand", "Tunisia", "Turkey", "Ukraine",
-  "United Arab Emirates", "United Kingdom", "United States", "Uzbekistan",
-  "Venezuela", "Vietnam", "Yemen",
-];
-
 const base =
   "w-full rounded-lg bg-white border border-black/10 px-3 text-[13.5px] text-[#0f1b2d] " +
   "placeholder:text-black/25 focus:outline-none focus:border-[#0d9e8a]/60 " +
@@ -136,18 +117,11 @@ function formatDate(iso: string) {
 export default function RequestDemoPage() {
   const minDate = useMemo(() => getMinDate(), []);
 
-  const countryOptions: SelectOption[] = useMemo(() =>
-    COUNTRIES.map((c) =>
-      c.startsWith("-")
-        ? { label: c, value: "__sep__", disabled: true }
-        : { label: c, value: c }
-    ), []);
-
   const teamOptions: SelectOption[] = TEAM_SIZES.map((s) => ({ label: s, value: s }));
   const timeOptions: SelectOption[] = TIME_SLOTS.map((t) => ({ label: t, value: t }));
   const [form, setForm] = useState({
-    name: "", email: "", phone: "", company: "", role: "",
-    country: "", teamSize: "", date: "", time: "", message: "",
+    name: "", email: "", phone: "", phoneCode: "IN", company: "", role: "",
+    teamSize: "", date: "", time: "", message: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -173,10 +147,11 @@ export default function RequestDemoPage() {
     setError("");
     setSubmitting(true);
     try {
+      const dialCode = DIAL_CODES.find((d) => d.iso === form.phoneCode)?.code ?? "+91";
       const res = await fetch("/api/request-demo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, cfToken }),
+        body: JSON.stringify({ ...form, phone: `${dialCode} ${form.phone}`, cfToken }),
       });
       const data = await res.json();
       if (!res.ok) { setError(data.error ?? "Something went wrong."); return; }
@@ -281,55 +256,48 @@ export default function RequestDemoPage() {
                       {/* Row 1: Name + Email */}
                       <div className="grid grid-cols-2 gap-2.5">
                         <div>
-                          <label htmlFor="rd-name" className={labelCls}>Full name</label>
+                          <label htmlFor="rd-name" className={labelCls}>Full name <span className="text-red-500">*</span></label>
                           <input id="rd-name" type="text" autoComplete="name" value={form.name} onChange={set("name")} placeholder="Sarah Chen" required className={inputCls} />
                         </div>
                         <div>
-                          <label htmlFor="rd-email" className={labelCls}>Work email</label>
+                          <label htmlFor="rd-email" className={labelCls}>Work email <span className="text-red-500">*</span></label>
                           <input id="rd-email" type="email" autoComplete="email" value={form.email} onChange={set("email")} placeholder="sarah@company.com" required className={inputCls} />
                         </div>
                       </div>
 
                       {/* Row 1b: Phone */}
-                      <div>
-                        <label htmlFor="rd-phone" className={labelCls}>Phone number</label>
-                        <input id="rd-phone" type="tel" autoComplete="tel" value={form.phone} onChange={set("phone")} placeholder="+91 98765 43210" required className={inputCls} />
-                      </div>
+                      <PhoneField
+                        inputId="rd-phone"
+                        label="Phone number"
+                        required
+                        codeValue={form.phoneCode}
+                        phoneValue={form.phone}
+                        onCodeChange={(iso) => setForm((p) => ({ ...p, phoneCode: iso }))}
+                        onPhoneChange={(value) => setForm((p) => ({ ...p, phone: value }))}
+                      />
 
                       {/* Row 2: Company + Role */}
                       <div className="grid grid-cols-2 gap-2.5">
                         <div>
-                          <label htmlFor="rd-company" className={labelCls}>Company</label>
+                          <label htmlFor="rd-company" className={labelCls}>Company <span className="text-red-500">*</span></label>
                           <input id="rd-company" type="text" autoComplete="organization" value={form.company} onChange={set("company")} placeholder="Acme Mfg." required className={inputCls} />
                         </div>
                         <div>
-                          <label htmlFor="rd-role" className={labelCls}>Job title</label>
+                          <label htmlFor="rd-role" className={labelCls}>Job title <span className="text-red-500">*</span></label>
                           <input id="rd-role" type="text" autoComplete="organization-title" value={form.role} onChange={set("role")} placeholder="Head of Ops" required className={inputCls} />
                         </div>
                       </div>
 
-                      {/* Row 3: Country + Team Size */}
-                      <div className="grid grid-cols-2 gap-2.5">
-                        <div>
-                          <label htmlFor="rd-country" className={labelCls}>Country</label>
-                          <CustomSelect
-                            id="rd-country"
-                            value={form.country}
-                            onChange={(v) => setForm((p) => ({ ...p, country: v }))}
-                            options={countryOptions}
-                            placeholder="Select…"
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor="rd-team" className={labelCls}>Team size</label>
-                          <CustomSelect
-                            id="rd-team"
-                            value={form.teamSize}
-                            onChange={(v) => setForm((p) => ({ ...p, teamSize: v }))}
-                            options={teamOptions}
-                            placeholder="Select…"
-                          />
-                        </div>
+                      {/* Row 3: Team Size */}
+                      <div>
+                        <label htmlFor="rd-team" className={labelCls}>Team size</label>
+                        <CustomSelect
+                          id="rd-team"
+                          value={form.teamSize}
+                          onChange={(v) => setForm((p) => ({ ...p, teamSize: v }))}
+                          options={teamOptions}
+                          placeholder="Select…"
+                        />
                       </div>
 
                       {/* Divider */}
@@ -342,11 +310,11 @@ export default function RequestDemoPage() {
                       {/* Row 4: Date + Time */}
                       <div className="grid grid-cols-2 gap-2.5">
                         <div>
-                          <label htmlFor="rd-date" className={labelCls}>Date</label>
+                          <label htmlFor="rd-date" className={labelCls}>Date <span className="text-red-500">*</span></label>
                           <input id="rd-date" type="date" min={minDate} value={form.date} onChange={set("date")} required className={inputCls + " cursor-pointer"} />
                         </div>
                         <div>
-                          <label htmlFor="rd-time" className={labelCls}>Time (IST)</label>
+                          <label htmlFor="rd-time" className={labelCls}>Time (IST) <span className="text-red-500">*</span></label>
                           <CustomSelect
                             id="rd-time"
                             value={form.time}

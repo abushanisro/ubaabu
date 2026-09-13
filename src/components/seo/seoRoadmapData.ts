@@ -741,6 +741,7 @@ export const COMPARISON_PAGE_SLUGS = [
   'emithran-vs-costimator',
   'emithran-vs-dfma',
   'emithran-vs-tset',
+  'emithran-vs-teamcenter',
 ]
 
 export const SEO_LANDING_PAGES: SeoLandingPage[] = [
@@ -772,7 +773,7 @@ const glossarySeed = [
   'manufacturing benchmarking', 'total cost of ownership', 'process routing', 'machine hourly rate',
   'PPAP', 'APQP', 'landed cost', 'dual sourcing', 'single source risk', 'supplier qualification',
   'cost breakdown analysis', 'MRO spend', 'vendor negotiation', 'AI sourcing', 'global strategic sourcing',
-  'aPriori alternative', 'Costimator alternative', 'DFMA alternative', 'Tset alternative', 'procurement intelligence', 'supplier radar',
+  'aPriori alternative', 'Costimator alternative', 'DFMA alternative', 'Tset alternative', 'Teamcenter alternative', 'procurement intelligence', 'supplier radar',
   'BOM validation', 'cost driver', 'manufacturing intelligence', 'digital twin manufacturing',
   'precision manufacturing', 'space manufacturing', 'CMMC manufacturing', 'defence procurement',
   'spend opportunity assessment', 'procurement consulting', 'international procurement',
@@ -822,6 +823,7 @@ const glossaryDefinitions: Record<string, string> = {
   'Costimator alternative': 'A should-cost and quoting platform option evaluated by teams comparing tools against Costimator’s estimating software for machining and fabrication cost analysis.',
   'DFMA alternative': 'A should-cost and design-for-assembly option evaluated by teams comparing platforms against Boothroyd Dewhurst’s DFMA software for product simplification and manufacturing cost analysis.',
   'Tset alternative': 'A product costing option evaluated by teams comparing platforms against Tset’s enterprise cost and carbon calculation software for automotive and industrial manufacturing.',
+  'Teamcenter alternative': 'A should-cost and BOM option evaluated by teams comparing platforms against Siemens Teamcenter Product Cost Management, an enterprise PLM costing module used by large global manufacturers.',
   'procurement intelligence': 'Data-driven visibility into spend, supplier performance, and sourcing opportunity at the BOM or part level, used to inform procurement strategy and decisions.',
   'supplier radar': 'A capability for continuously scanning and surfacing qualified or potential suppliers based on process, certification, and capacity criteria relevant to a specific sourcing need.',
   'BOM validation': 'Checking a bill of materials for completeness, accuracy, and consistency, such as correct part numbers, quantities, and specifications, before it is used for sourcing or production.',
@@ -921,6 +923,7 @@ const glossaryRelatedLinks: Record<string, { href: string; label: string }[]> = 
   'Costimator alternative': [{ href: '/emithran-vs-costimator', label: 'Emithran vs Costimator' }],
   'DFMA alternative': [{ href: '/emithran-vs-dfma', label: 'Emithran vs DFMA' }],
   'Tset alternative': [{ href: '/emithran-vs-tset', label: 'Emithran vs Tset' }],
+  'Teamcenter alternative': [{ href: '/emithran-vs-teamcenter', label: 'Emithran vs Siemens Teamcenter' }],
   'procurement intelligence': [{ href: '/procurement-intelligence', label: 'Procurement Intelligence' }],
   'supplier radar': [{ href: '/supplier-intelligence', label: 'Supplier Intelligence' }],
   'BOM validation': [{ href: '/bom-management-software', label: 'BOM Management Software' }],
