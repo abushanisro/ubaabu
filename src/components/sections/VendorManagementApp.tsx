@@ -51,11 +51,11 @@ export default function VendorManagementApp() {
               Pre-book the Vendor Management app
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
-              <Link href={PRE_BOOK_HREF} aria-label="Pre-book on the App Store" className="relative h-11 w-[135px] shrink-0">
-                <Image src="/assets/home/apple.png" alt="Download on the App Store" fill className="object-contain" sizes="135px" />
+              <Link href={PRE_BOOK_HREF} aria-label="Pre-book on the App Store" className="relative h-11 w-[147px] shrink-0">
+                <Image src="/assets/home/apple.png" alt="Download on the App Store" fill className="object-contain" sizes="147px" />
               </Link>
-              <Link href={PRE_BOOK_HREF} aria-label="Pre-book on Google Play" className="relative h-11 w-[150px] shrink-0">
-                <Image src="/assets/home/playstore.png" alt="Get it on Google Play" fill className="object-contain" sizes="150px" />
+              <Link href={PRE_BOOK_HREF} aria-label="Pre-book on Google Play" className="relative h-11 w-[147px] shrink-0">
+                <Image src="/assets/home/playstore.png" alt="Get it on Google Play" fill className="object-contain" sizes="147px" />
               </Link>
             </div>
           </div>
