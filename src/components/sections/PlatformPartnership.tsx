@@ -19,7 +19,7 @@ const CARDS = [
     href: '/why-emithran',
   },
   {
-    image: '/assets/home/npd.png',
+    image: '/assets/home/npdhuman1.png',
     title: 'In-house NPD Centre - EMUSKI',
     body: 'Backed by EMUSKI, our in-house NPD innovation centre and live manufacturing plant, Emithran is built from real engineering and manufacturing experience across precision programmes.',
     href: '/emuski',
