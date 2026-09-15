@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import React from "react";
-import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import React, { useState } from "react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, ArrowRight, Check } from "lucide-react";
 import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer";
 
 type FooterLink = {
@@ -79,6 +79,70 @@ function AnthropicIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (status === "loading" || status === "done") return;
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "footer" }),
+      });
+      if (!res.ok) throw new Error("failed");
+      setStatus("done");
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "done") {
+    return (
+      <div className="flex items-center gap-2 text-[13px] text-[#0d9e8a]">
+        <Check size={16} />
+        <span>Subscribed — check your inbox to confirm.</span>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="max-w-[320px]">
+      <h4 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-3">
+        Subscribe
+      </h4>
+      <p className="text-[13px] text-white/40 leading-relaxed mb-3">
+        Manufacturing intelligence insights, in your inbox.
+      </p>
+      <div className="flex items-center gap-2 rounded-full bg-white/[0.06] border border-white/10 focus-within:border-[#0d9e8a]/60 pl-4 pr-1.5 py-1.5 transition-colors">
+        <input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your email"
+          aria-label="Email address"
+          className="flex-1 min-w-0 bg-transparent text-[13px] text-white placeholder:text-white/30 focus:outline-none"
+        />
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          aria-label="Subscribe"
+          className="shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-[#0d9e8a] text-white hover:bg-[#0d9e8a]/85 transition-colors disabled:opacity-50"
+        >
+          <ArrowRight size={15} />
+        </button>
+      </div>
+      {status === "error" && (
+        <p className="mt-2 text-[12px] text-red-400">Something went wrong. Please try again.</p>
+      )}
+    </form>
+  );
+}
+
 export default function Footer() {
   return (
     <footer className="bg-[#080808] relative overflow-hidden m-0 isolate">
@@ -95,6 +159,9 @@ export default function Footer() {
             <p className="text-sm text-white/40 leading-relaxed max-w-[320px]">
               End-to-end manufacturing intelligence for India's space, defence, and aerospace industry.
             </p>
+
+            {/* Newsletter subscribe */}
+            <NewsletterForm />
 
             {/* Our Locations */}
             <div>
