@@ -48,6 +48,7 @@ import EnterpriseSection from '@/components/sections/EnterpriseSection'
 import FinalCTA from '@/components/sections/FinalCTA'
 import FAQ from '@/components/sections/FAQ'
 import VendorManagementApp from '@/components/sections/VendorManagementApp'
+import PlatformPartnership from '@/components/sections/PlatformPartnership'
 export default function App() {
   return (
     <>
@@ -59,8 +60,9 @@ export default function App() {
       <WatchDemo />
       <CaseStudies />
       <EnterpriseSection />
-      <FinalCTA />
       <VendorManagementApp />
+      <PlatformPartnership />
+      <FinalCTA />
       <FAQ />
     </>
   )

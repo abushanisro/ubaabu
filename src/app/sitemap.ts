@@ -28,6 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/industries`, priority: 0.8, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/pricing`, priority: 0.8, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/why-emithran`, priority: 0.7, changeFrequency: 'monthly', lastModified: now },
+    { url: `${BASE_URL}/emuski`, priority: 0.6, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/about`, priority: 0.7, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/about/partners`, priority: 0.6, changeFrequency: 'monthly', lastModified: now },
     { url: `${BASE_URL}/about/partners/become-a-partner`, priority: 0.6, changeFrequency: 'monthly', lastModified: now },

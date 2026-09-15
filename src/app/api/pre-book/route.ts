@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { newsletterConfirmationEmail } from '@/lib/emails'
+import { preBookConfirmationEmail } from '@/lib/emails'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 're_build_placeholder')
 
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     const {
       email, firstName, lastName, jobTitle, organization, country,
-      newsletters, topics, cfToken, source, honeypot,
+      interests, cfToken, source, honeypot,
     } = body
 
     // Honeypot: real users never fill this hidden field.
@@ -35,15 +35,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: true })
     }
 
-    // The footer's quick-capture form only stashes the email and hands off to
-    // the full /subscribe page, which is the only place that collects cfToken -
-    // require it whenever it's present so that flow stays bot-protected.
-    if (cfToken !== undefined) {
-      const ip = req.headers.get('x-forwarded-for') ?? req.headers.get('x-real-ip') ?? ''
-      const humanVerified = await verifyTurnstile(cfToken ?? '', ip)
-      if (!humanVerified) {
-        return NextResponse.json({ error: 'Human verification failed. Please try again.' }, { status: 403 })
-      }
+    const ip = req.headers.get('x-forwarded-for') ?? req.headers.get('x-real-ip') ?? ''
+    const humanVerified = await verifyTurnstile(cfToken ?? '', ip)
+    if (!humanVerified) {
+      return NextResponse.json({ error: 'Human verification failed. Please try again.' }, { status: 403 })
     }
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -51,32 +46,30 @@ export async function POST(req: NextRequest) {
     }
 
     const name = [firstName, lastName].filter(Boolean).join(' ')
-    const newsletterList: string[] = Array.isArray(newsletters) ? newsletters : []
-    const topicList: string[] = Array.isArray(topics) ? topics : []
+    const interestList: string[] = Array.isArray(interests) ? interests : []
 
     const [adminResult] = await Promise.allSettled([
       resend.emails.send({
         from:    `Emithran <${FROM}>`,
         to:      TO,
         replyTo: email,
-        subject: `Newsletter signup - ${name || email}`,
+        subject: `Vendor Management app pre-book - ${name || email}`,
         html: `
-          <p style="font-family:-apple-system,sans-serif;font-size:14px;color:#111827;">New newsletter subscriber</p>
+          <p style="font-family:-apple-system,sans-serif;font-size:14px;color:#111827;">New Vendor Management app pre-book</p>
           ${row('Email', email)}
           ${row('Name', name)}
           ${row('Job title', jobTitle)}
           ${row('Organization', organization)}
           ${row('Country', country)}
-          ${row('Updates', newsletterList.join(', '))}
-          ${row('Topics', topicList.join(', '))}
-          <p style="margin-top:8px;font-family:-apple-system,sans-serif;font-size:12px;color:#6b7280;">Source: ${source ?? 'footer'}</p>
+          ${row('Interests', interestList.join(', '))}
+          <p style="margin-top:8px;font-family:-apple-system,sans-serif;font-size:12px;color:#6b7280;">Source: ${source ?? 'vendor-management-app'}</p>
         `,
       }),
       resend.emails.send({
         from:    `Emithran <${FROM}>`,
         to:      email,
-        subject: `Thank you for subscribing to Emithran`,
-        html:    newsletterConfirmationEmail(email, firstName),
+        subject: `You're pre-booked for the Emithran Vendor Management app`,
+        html:    preBookConfirmationEmail(email, firstName),
       }),
     ])
 
@@ -84,7 +77,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ ok: true })
   } catch (err) {
-    console.error('[newsletter]', err)
-    return NextResponse.json({ error: 'Failed to subscribe' }, { status: 500 })
+    console.error('[pre-book]', err)
+    return NextResponse.json({ error: 'Failed to pre-book' }, { status: 500 })
   }
 }

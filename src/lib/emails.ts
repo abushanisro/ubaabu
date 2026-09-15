@@ -235,14 +235,15 @@ export function demoConfirmationEmail(firstName: string, date: string, time: str
 // ─────────────────────────────────────────────
 // Newsletter - confirmation to subscriber
 // ─────────────────────────────────────────────
-export function newsletterConfirmationEmail(email: string) {
+export function newsletterConfirmationEmail(email: string, firstName?: string) {
+  const greeting = firstName ? `Thank you for subscribing, ${firstName}.` : 'Thank you for subscribing.'
   const body = `
     <!-- header -->
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#0f1b2d;padding:36px 36px 32px;" class="force-dark">
       <tr><td>
         <p style="margin:0 0 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#2dd4bf;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Subscribed ✓</p>
         <h1 style="margin:0 0 10px;font-size:26px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;line-height:1.25;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-          You're on the list.
+          ${greeting}
         </h1>
         <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
           You'll get our latest manufacturing intelligence articles and product updates at ${email}.
@@ -274,5 +275,51 @@ export function newsletterConfirmationEmail(email: string) {
       </td></tr>
     </table>`
 
-  return base(`You're subscribed to Emithran updates.`, body)
+  return base(`Thank you for subscribing to Emithran updates.`, body)
+}
+
+// ─────────────────────────────────────────────
+// Vendor Management App - pre-book confirmation
+// ─────────────────────────────────────────────
+export function preBookConfirmationEmail(email: string, firstName?: string) {
+  const greeting = firstName ? `You're pre-booked, ${firstName}.` : `You're pre-booked.`
+  const body = `
+    <!-- header -->
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#0f1b2d;padding:36px 36px 32px;" class="force-dark">
+      <tr><td>
+        <p style="margin:0 0 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#2dd4bf;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Pre-booked ✓</p>
+        <h1 style="margin:0 0 10px;font-size:26px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;line-height:1.25;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+          ${greeting}
+        </h1>
+        <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+          You've reserved early access to the Emithran Vendor Management app at ${email}.
+        </p>
+      </td></tr>
+    </table>
+
+    <!-- body -->
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="padding:32px 36px;" class="force-white">
+      <tr><td>
+
+        <p style="margin:0 0 26px;font-size:14.5px;color:#374151;line-height:1.75;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+          We'll email you as soon as the app is ready - supplier discovery, evaluation, RFQs, and nomination, built for the field.
+        </p>
+
+        <p style="margin:0;font-size:13.5px;color:#4b5563;line-height:1.65;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+          In the meantime, explore the platform at
+          <a href="${SITE}" style="color:#0d9488;text-decoration:none;font-weight:600;">${SITE.replace('https://', '')}</a>.
+        </p>
+
+      </td></tr>
+    </table>
+
+    <!-- sign-off -->
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f8fafc;border-top:1px solid #eef2f7;padding:20px 36px;">
+      <tr><td>
+        <p style="margin:0 0 2px;font-size:13px;font-weight:700;color:#0f1b2d;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">The Emithran Team</p>
+        <p style="margin:0;font-size:12px;color:#8a96a8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Manufacturing Intelligence · Bangalore, India</p>
+      </td></tr>
+    </table>`
+
+  return base(`You're pre-booked for the Emithran Vendor Management app.`, body)
 }

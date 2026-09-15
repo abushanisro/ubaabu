@@ -1,13 +1,12 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Twitter, ArrowRight, Check } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer";
 
 type FooterLink = {
   title: string;
   href: string;
-  pulse?: boolean;
 };
 
 const platformLinks: FooterLink[] = [
@@ -34,7 +33,7 @@ const footerLinks = [
     links: [
       { title: "About",    href: "/about" },
       { title: "Partners", href: "/about/partners" },
-      { title: "Careers",  href: "/about", pulse: true },
+      { title: "Careers",  href: "/about" },
       { title: "Contact",  href: "/contact?source=footer&cta=contact" },
     ],
   },
@@ -81,64 +80,46 @@ function AnthropicIcon({ size = 18 }: { size?: number }) {
 
 function NewsletterForm() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (status === "loading" || status === "done") return;
-    setStatus("loading");
     try {
-      const res = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "footer" }),
-      });
-      if (!res.ok) throw new Error("failed");
-      setStatus("done");
+      sessionStorage.setItem("emithran_subscribe_email", email);
     } catch {
-      setStatus("error");
+      // sessionStorage unavailable - subscribe page just starts with an empty email field
     }
-  }
-
-  if (status === "done") {
-    return (
-      <div className="flex items-center gap-2 text-[13px] text-[#0d9e8a]">
-        <Check size={16} />
-        <span>Subscribed — check your inbox to confirm.</span>
-      </div>
-    );
+    // Full navigation (not router.push) so this always lands at the top of
+    // /subscribe with the latest email pre-filled, even when submitted again
+    // from the footer while already on that page (a same-route client-side
+    // push wouldn't remount the page or reset scroll position).
+    window.location.href = "/subscribe";
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-[320px]">
-      <h4 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-3">
+    <form onSubmit={handleSubmit} className="w-full max-w-[340px]">
+      <h4 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-4">
         Subscribe
       </h4>
       <p className="text-[13px] text-white/40 leading-relaxed mb-3">
         Manufacturing intelligence insights, in your inbox.
       </p>
-      <div className="flex items-center gap-2 rounded-full bg-white/[0.06] border border-white/10 focus-within:border-[#0d9e8a]/60 pl-4 pr-1.5 py-1.5 transition-colors">
+      <div className="flex items-stretch">
         <input
           type="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
+          placeholder="Email address"
           aria-label="Email address"
-          className="flex-1 min-w-0 bg-transparent text-[13px] text-white placeholder:text-white/30 focus:outline-none"
+          className="flex-1 min-w-0 h-11 bg-transparent border border-white/25 focus:border-[#0d9e8a]/70 px-3.5 text-[13px] text-white placeholder:text-white/35 focus:outline-none transition-colors"
         />
         <button
           type="submit"
-          disabled={status === "loading"}
-          aria-label="Subscribe"
-          className="shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-[#0d9e8a] text-white hover:bg-[#0d9e8a]/85 transition-colors disabled:opacity-50"
+          className="shrink-0 h-11 px-5 bg-[#0d9e8a] text-white text-[13px] font-semibold hover:bg-[#0d9e8a]/85 transition-colors"
         >
-          <ArrowRight size={15} />
+          Submit
         </button>
       </div>
-      {status === "error" && (
-        <p className="mt-2 text-[12px] text-red-400">Something went wrong. Please try again.</p>
-      )}
     </form>
   );
 }
@@ -148,7 +129,7 @@ export default function Footer() {
     <footer className="bg-[#080808] relative overflow-hidden m-0 isolate">
       <div className="max-w-[1280px] mx-auto px-8 pt-16 z-40 relative">
         {/* ── Main columns ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/[0.07]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-10 pb-12 border-b border-white/[0.07]">
           {/* Brand + contact */}
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <div className="flex items-center gap-2">
@@ -159,9 +140,6 @@ export default function Footer() {
             <p className="text-sm text-white/40 leading-relaxed max-w-[320px]">
               End-to-end manufacturing intelligence for India's space, defence, and aerospace industry.
             </p>
-
-            {/* Newsletter subscribe */}
-            <NewsletterForm />
 
             {/* Our Locations */}
             <div>
@@ -246,17 +224,16 @@ export default function Footer() {
                           {link.title}
                         </a>
                       )}
-                      {link.pulse && (
-                        <span className="absolute top-0.5 -right-3 flex h-2 w-2">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0d9e8a] opacity-75" />
-                          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#0d9e8a]" />
-                        </span>
-                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* ── Subscribe (right side) ── */}
+          <div className="lg:col-span-2">
+            <NewsletterForm />
           </div>
         </div>
 
