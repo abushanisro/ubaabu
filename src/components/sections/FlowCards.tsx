@@ -68,7 +68,7 @@ export default function FlowCards() {
             <div className="relative overflow-hidden rounded-2xl border border-black/10 bg-[#0b1220] shadow-xl">
               <HeroVideoDialog
                 animationStyle="from-center"
-                videoSrc="/videos/emuski.mp4"
+                videoSrc="/videos/emithran.mp4"
                 thumbnailSrc="/assets/cards/videocard.svg"
                 thumbnailAlt="Watch Emithran in action"
               />

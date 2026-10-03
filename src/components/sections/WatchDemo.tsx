@@ -76,7 +76,7 @@ export default function WatchDemo() {
         <div className="w-full rounded-2xl mb-2 overflow-hidden" style={{ aspectRatio: '16/9' }}>
           <HeroVideoDialog
             animationStyle="from-center"
-            videoSrc="/videos/emuski.mp4"
+            videoSrc="/videos/emithran.mp4"
             thumbnailSrc="/assets/cards/videocard.svg"
             thumbnailAlt="Watch Emithran in action"
             className="h-full [&_img]:rounded-none [&_img]:border-0 [&_img]:shadow-none [&_img]:block [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
@@ -245,7 +245,7 @@ export default function WatchDemo() {
             </button>
             <div className="w-full h-full border-2 border-white rounded-2xl overflow-hidden">
               <video
-                src="/videos/emuski.mp4"
+                src="/videos/emithran.mp4"
                 controls
                 autoPlay
                 className="w-full h-full object-cover"

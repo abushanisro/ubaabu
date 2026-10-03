@@ -117,7 +117,7 @@ export default function Hero() {
           <div className="relative overflow-hidden rounded-2xl shadow-[0_32px_80px_rgba(0,0,0,0.22)]">
             <HeroVideoDialog
               animationStyle="from-center"
-              videoSrc="/videos/emithran.mp4"
+              videoSrc="/videos/emithran-overview.mp4"
               thumbnailSrc="/assets/hero-page/3d-drawing.png"
               thumbnailAlt="Emithran platform preview"
               isOpen={videoOpen}
