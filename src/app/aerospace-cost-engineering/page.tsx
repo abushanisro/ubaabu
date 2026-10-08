@@ -22,8 +22,12 @@ export const metadata: Metadata = {
     description: "Should-cost modelling, BOM management, and supplier intelligence for India's aerospace and aviation supply chains.",
     url: '/aerospace-cost-engineering',
     type: 'website',
+    siteName: 'Emithran',
   },
   twitter: {
+    card: 'summary_large_image',
+    site: '@emithran',
+    creator: '@emithran',
     title: 'Aerospace Cost Engineering Software India | Emithran',
     description: "Should-cost modelling and supplier intelligence for India's aerospace OEMs. Trusted by Pixxel, Digantara, and leading aviation manufacturers.",
   },

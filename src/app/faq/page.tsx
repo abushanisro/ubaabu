@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Emithran FAQ - Manufacturing Intelligence Questions Answered',
     description: 'Everything you need to know about Emithran\'s manufacturing intelligence platform.',
-    url: '/faq', type: 'website',
+    url: '/faq', type: 'website', siteName: 'Emithran',
   },
 }
 

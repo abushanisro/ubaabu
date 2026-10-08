@@ -22,8 +22,12 @@ export const metadata: Metadata = {
     description: 'BOM management, should-cost analysis, and supplier qualification built for India\'s defence OEMs and DRDO supply chains.',
     url: '/defence-manufacturing',
     type: 'website',
+    siteName: 'Emithran',
   },
   twitter: {
+    card: 'summary_large_image',
+    site: '@emithran',
+    creator: '@emithran',
     title: 'Defence Manufacturing Software India | Emithran',
     description: 'Manufacturing intelligence built for DRDO, HAL, and private defence OEMs in India.',
   },

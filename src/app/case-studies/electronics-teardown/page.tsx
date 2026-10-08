@@ -1,6 +1,8 @@
 ﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard, ImpactGrid,
 } from '@/components/case-studies/CaseStudyShell'
+import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
+import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
   title: 'Electronics & PCB Should-Cost Teardown | Emithran',
@@ -8,8 +10,13 @@ export const metadata = {
   alternates: { canonical: '/case-studies/electronics-teardown' },
 }
 
+const study = CASE_STUDIES.find((s) => s.slug === 'electronics-teardown')!
+const articleSchema = buildCaseStudyArticleJsonLd(study, { image: '/assets/casestudy/case4.png' })
+
 export default function ElectronicsTeardownCaseStudy() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <CaseStudyShell
       slug="electronics-teardown"
       industry="Electronics"
@@ -359,5 +366,6 @@ export default function ElectronicsTeardownCaseStudy() {
       </DarkCard>
 
     </CaseStudyShell>
+    </>
   )
 }

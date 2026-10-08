@@ -231,7 +231,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable}`} data-scroll-behavior="smooth">
+    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"

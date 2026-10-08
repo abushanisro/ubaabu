@@ -9,6 +9,7 @@ export interface CaseStudy {
   coordinates: [number, number]  // [lng, lat]
   author: { name: string; role: string; avatar?: string }
   date: string
+  dateISO: string
   readTime: string
   featured?: boolean
   metric?: string
@@ -25,6 +26,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     coordinates: [80.27, 13.08],
     author: { name: 'Singaravelan S.', role: 'Co-founder & CEO', avatar: '/assets/infographics/logo/sinigi.png' },
     date: 'June 2, 2026',
+    dateISO: '2026-06-02',
     readTime: '7 min read',
     featured: true,
     metric: '38% cost saving',
@@ -39,6 +41,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     coordinates: [9.18, 48.78],
     author: { name: 'Abushan', role: 'Co-founder & CTO', avatar: '/assets/infographics/logo/abushan.png' },
     date: 'May 28, 2026',
+    dateISO: '2026-05-28',
     readTime: '6 min read',
     metric: '19% leakage found',
   },
@@ -52,6 +55,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     coordinates: [-83.04, 42.33],
     author: { name: 'Singaravelan S.', role: 'Co-founder & CEO', avatar: '/assets/infographics/logo/sinigi.png' },
     date: 'May 20, 2026',
+    dateISO: '2026-05-20',
     readTime: '8 min read',
     metric: '3-geography benchmark',
   },
@@ -65,6 +69,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     coordinates: [139.69, 35.68],
     author: { name: 'Abushan', role: 'Co-founder & CTO', avatar: '/assets/infographics/logo/abushan.png' },
     date: 'May 12, 2026',
+    dateISO: '2026-05-12',
     readTime: '6 min read',
     metric: '22% unit cost down',
   },
@@ -78,6 +83,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     coordinates: [103.99, 1.36],
     author: { name: 'Singaravelan S.', role: 'Co-founder & CEO', avatar: '/assets/infographics/logo/sinigi.png' },
     date: 'April 30, 2026',
+    dateISO: '2026-04-30',
     readTime: '5 min read',
     metric: 'Full reverse BOM',
   },
@@ -91,6 +97,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     coordinates: [-46.47, -23.43],
     author: { name: 'Abushan', role: 'Co-founder & CTO', avatar: '/assets/infographics/logo/abushan.png' },
     date: 'April 18, 2026',
+    dateISO: '2026-04-18',
     readTime: '7 min read',
     metric: '£2M decision guided',
   },
@@ -104,6 +111,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     coordinates: [72.87, 19.09],
     author: { name: 'Singaravelan S.', role: 'Co-founder & CEO', avatar: '/assets/infographics/logo/sinigi.png' },
     date: 'April 5, 2026',
+    dateISO: '2026-04-05',
     readTime: '5 min read',
     metric: '94% BOM accuracy',
   },
@@ -117,6 +125,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     coordinates: [-0.13, 51.51],
     author: { name: 'Abushan', role: 'Co-founder & CTO', avatar: '/assets/infographics/logo/abushan.png' },
     date: 'March 22, 2026',
+    dateISO: '2026-03-22',
     readTime: '6 min read',
     metric: '£68/unit overcharge',
   },

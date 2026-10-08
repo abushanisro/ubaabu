@@ -13,14 +13,21 @@ export const metadata: Metadata = {
     'defence BOM software', 'aerospace BOM management', 'BOM collaboration tool',
     'ERP BOM integration', 'BOM cost analysis',
   ],
-  alternates: { canonical: '/bom-management-software' },
+  alternates: {
+    canonical: '/bom-management-software',
+    languages: { en: '/bom-management-software', de: '/de/bom-management-software', 'x-default': '/bom-management-software' },
+  },
   openGraph: {
     title: 'BOM Management Software — Emithran',
     description: 'Validate, collaborate, and cost your bills of materials with AI-powered intelligence. Built for defence, aerospace, and precision manufacturing OEMs in India.',
     url: '/bom-management-software',
     type: 'website',
+    siteName: 'Emithran',
   },
   twitter: {
+    card: 'summary_large_image',
+    site: '@emithran',
+    creator: '@emithran',
     title: 'BOM Management Software — Emithran',
     description: 'BOM management for defence, aerospace, and precision manufacturing OEMs in India.',
   },

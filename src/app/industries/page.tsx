@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Emithran for Space, Defence, Aerospace & Precision Manufacturing',
     description: 'Manufacturing intelligence built for India\'s mission-critical industries.',
-    url: '/industries', type: 'website',
+    url: '/industries', type: 'website', siteName: 'Emithran',
   },
 }
 

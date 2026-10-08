@@ -16,14 +16,21 @@ export const metadata: Metadata = {
     'supplier risk assessment india', 'vendor qualification platform',
     'MSME supplier database india', 'supplier capability mapping',
   ],
-  alternates: { canonical: '/supplier-intelligence' },
+  alternates: {
+    canonical: '/supplier-intelligence',
+    languages: { en: '/supplier-intelligence', de: '/de/supplier-intelligence', 'x-default': '/supplier-intelligence' },
+  },
   openGraph: {
     title: 'Supplier Intelligence Platform India | Emithran',
     description: '72,000+ verified suppliers. Qualification scoring, risk assessment, and capability mapping for defence, aerospace, and space supply chains.',
     url: '/supplier-intelligence',
     type: 'website',
+    siteName: 'Emithran',
   },
   twitter: {
+    card: 'summary_large_image',
+    site: '@emithran',
+    creator: '@emithran',
     title: 'Supplier Intelligence Platform India | Emithran',
     description: '72,000+ verified Indian suppliers. Qualification scoring and risk assessment for mission-critical supply chains.',
   },

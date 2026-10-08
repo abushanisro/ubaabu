@@ -13,14 +13,21 @@ export const metadata: Metadata = {
     'BOM cost analysis', 'aPriori alternative India', 'manufacturing intelligence platform',
     'defence aerospace cost software', 'should cost tool',
   ],
-  alternates: { canonical: '/should-cost-analysis-software' },
+  alternates: {
+    canonical: '/should-cost-analysis-software',
+    languages: { en: '/should-cost-analysis-software', de: '/de/should-cost-analysis-software', 'x-default': '/should-cost-analysis-software' },
+  },
   openGraph: {
     title: 'Should-Cost Analysis Software — Emithran',
     description: 'Build bottom-up should-cost models for any manufacturing process. Used by defence, aerospace, and precision manufacturing OEMs in India.',
     url: '/should-cost-analysis-software',
     type: 'website',
+    siteName: 'Emithran',
   },
   twitter: {
+    card: 'summary_large_image',
+    site: '@emithran',
+    creator: '@emithran',
     title: 'Should-Cost Analysis Software — Emithran',
     description: 'Should-cost modelling for defence, aerospace, and precision manufacturing OEMs in India.',
   },

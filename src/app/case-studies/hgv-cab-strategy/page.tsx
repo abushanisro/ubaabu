@@ -1,6 +1,8 @@
 ﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard, ImpactGrid,
 } from '@/components/case-studies/CaseStudyShell'
+import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
+import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
   title: 'HGV Cab Should-Cost & Decision Matrix | Emithran',
@@ -61,12 +63,17 @@ const volumeRamp = [
 ]
 const maxVol = 4034
 
+const study = CASE_STUDIES.find((s) => s.slug === 'hgv-cab-strategy')!
+const articleSchema = buildCaseStudyArticleJsonLd(study, { image: '/assets/casestudy/case5.png' })
+
 export default function HGVCabStrategyCaseStudy() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <CaseStudyShell
       slug="hgv-cab-strategy"
       industry="Heavy Vehicles"
-      date="April 10, 2026"
+      date="April 18, 2026"
       readTime="5 min read"
       metric="6 solutions benchmarked"
       title={<>HGV CAB Structure Strategy<br className="hidden md:block" /> Hydrogen Vehicle · 6-Solution Decision Matrix</>}
@@ -278,5 +285,6 @@ export default function HGVCabStrategyCaseStudy() {
       </DarkCard>
 
     </CaseStudyShell>
+    </>
   )
 }

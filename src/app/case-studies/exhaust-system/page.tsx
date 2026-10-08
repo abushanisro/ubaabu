@@ -1,6 +1,8 @@
 ﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard, ImpactGrid,
 } from '@/components/case-studies/CaseStudyShell'
+import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
+import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
   alternates: { canonical: '/case-studies/exhaust-system' },
@@ -30,8 +32,13 @@ const NUMBERED = (items: string[]) => (
   </ol>
 )
 
+const study = CASE_STUDIES.find((s) => s.slug === 'exhaust-system')!
+const articleSchema = buildCaseStudyArticleJsonLd(study, { image: '/assets/casestudy/f1card.png' })
+
 export default function ExhaustCaseStudy() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <CaseStudyShell
       slug="exhaust-system"
       industry="Automotive"
@@ -208,5 +215,6 @@ export default function ExhaustCaseStudy() {
       </DarkCard>
 
     </CaseStudyShell>
+    </>
   )
 }

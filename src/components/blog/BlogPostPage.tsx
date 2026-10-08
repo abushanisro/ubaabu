@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   MessageCircle, Facebook, Twitter, Linkedin, Link2, Check,
   ArrowUpRight, BookOpen, User, TrendingUp, ExternalLink, Clock,
@@ -57,7 +58,7 @@ function AuthorAvatar({ name, size = 9 }: { name: string; size?: number }) {
   const initials = name.split(' ').map(w => w[0]).join('').slice(0, 2)
   const px = size * 4
   if (photo) {
-    return <img src={photo} alt={name} className="rounded-full object-cover shrink-0" style={{ width: px, height: px }} />
+    return <Image src={photo} alt={name} width={px} height={px} className="rounded-full object-cover shrink-0" />
   }
   return (
     <div
@@ -97,10 +98,13 @@ function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => { setHovered(false); setShareOpen(false) }}
     >
-      <img
+      <Image
         src={heroImage}
         alt={post.title}
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
       />
       <div className="absolute inset-0"
         style={{ background: 'linear-gradient(100deg, rgba(15,27,45,0.94) 0%, rgba(15,27,45,0.72) 42%, rgba(15,27,45,0.32) 100%)' }} />
@@ -369,11 +373,13 @@ function RelatedArticles({ posts }: { posts: BlogPost[] }) {
               onMouseEnter={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 28px rgba(13,148,136,0.14)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(45,212,191,0.4)' }}
               onMouseLeave={e => { (e.currentTarget as HTMLElement).style.boxShadow = '0 1px 4px rgba(13,148,136,0.06)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(13,148,136,0.12)' }}
             >
-              <div className="aspect-video w-full overflow-hidden">
-                <img
+              <div className="relative aspect-video w-full overflow-hidden">
+                <Image
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-4 sm:p-5 flex flex-col flex-1">
@@ -433,7 +439,7 @@ function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
       style={{ background: 'linear-gradient(135deg, rgba(15,27,45,0.03) 0%, rgba(15,27,45,0.0) 100%)', border: '1px solid rgba(13,148,136,0.12)' }}>
       <div className="flex flex-col sm:flex-row items-start gap-4">
         {photo ? (
-          <img src={photo} alt={post.author.name} className="w-16 h-16 rounded-full object-cover flex-shrink-0 ring-2 ring-[#0d9488]/20" />
+          <Image src={photo} alt={post.author.name} width={64} height={64} className="w-16 h-16 rounded-full object-cover flex-shrink-0 ring-2 ring-[#0d9488]/20" />
         ) : (
           <div className="p-3 rounded-full flex-shrink-0" style={{ background: 'rgba(13,148,136,0.1)' }}>
             <User className="w-5 h-5 sm:w-6 sm:h-6" style={{ color: '#0d9488' }} />

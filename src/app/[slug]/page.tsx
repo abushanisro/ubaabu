@@ -18,12 +18,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: page.title,
     description: page.description,
     keywords: page.keywords,
-    alternates: { canonical: `/${page.slug}` },
+    alternates: {
+      canonical: `/${page.slug}`,
+      // Only 'manufacturing-intelligence' has a German counterpart today (see DE_PAGES).
+      ...(page.slug === 'manufacturing-intelligence' && {
+        languages: { en: `/${page.slug}`, de: `/de/${page.slug}`, 'x-default': `/${page.slug}` },
+      }),
+    },
     openGraph: {
       title: page.title,
       description: page.description,
       url: `/${page.slug}`,
       type: 'website',
+      siteName: 'Emithran',
     },
   }
 }

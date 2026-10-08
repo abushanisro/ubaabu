@@ -104,30 +104,6 @@ const cards: CardData[] = [
     },
   },
   {
-    title: "Supplier Nomination",
-    desc: "Cost analysis, weighted scoring, and final supplier recommendation for nomination decisions.",
-    body: <NominationCard />,
-    longDesc: "Make defensible nomination decisions with weighted scoring across cost, quality, delivery, and technology. AI surfaces the recommended supplier with a full audit trail.",
-    features: [
-      "Configurable weighted scoring across criteria",
-      "Side-by-side cost and capability analysis",
-      "AI-powered nomination recommendation",
-      "Decision audit trail for compliance",
-    ],
-    activity: [
-      { label: "Criteria Weighted", pct: 100 },
-      { label: "AI Recommendations", pct: 94 },
-      { label: "Audit Trail Complete", pct: 97 },
-    ],
-    stat: { value: "100%", label: "of nomination packs accepted by customer gateway teams first time" },
-    testimonial: {
-      company: "Tier-2 Supplier",
-      quote: "Our customer gateway teams now accept our nomination packs without pushback. The audit trail and AI rationale is exactly what they need to sign off quickly.",
-      author: "Sarah O'Brien",
-      role: "Commodity Manager, Tier-2 Supplier",
-    },
-  },
-  {
     title: "Production Planning",
     desc: "Manage ISIR/FIA sample submission, PPAP lot, and batch lot production planning.",
     body: <ProductionCard />,
@@ -149,6 +125,30 @@ const cards: CardData[] = [
       quote: "PPAP preparation used to take our team 3 weeks of chasing documents across email chains. Now it is centralised and we close in under 5 days, every time.",
       author: "Kenji Tanaka",
       role: "Program Manager, Tier-1 Japan",
+    },
+  },
+  {
+    title: "Supplier Nomination",
+    desc: "Cost analysis, weighted scoring, and final supplier recommendation for nomination decisions.",
+    body: <NominationCard />,
+    longDesc: "Make defensible nomination decisions with weighted scoring across cost, quality, delivery, and technology. AI surfaces the recommended supplier with a full audit trail.",
+    features: [
+      "Configurable weighted scoring across criteria",
+      "Side-by-side cost and capability analysis",
+      "AI-powered nomination recommendation",
+      "Decision audit trail for compliance",
+    ],
+    activity: [
+      { label: "Criteria Weighted", pct: 100 },
+      { label: "AI Recommendations", pct: 94 },
+      { label: "Audit Trail Complete", pct: 97 },
+    ],
+    stat: { value: "100%", label: "of nomination packs accepted by customer gateway teams first time" },
+    testimonial: {
+      company: "Tier-2 Supplier",
+      quote: "Our customer gateway teams now accept our nomination packs without pushback. The audit trail and AI rationale is exactly what they need to sign off quickly.",
+      author: "Sarah O'Brien",
+      role: "Commodity Manager, Tier-2 Supplier",
     },
   },
   {
@@ -176,30 +176,6 @@ const cards: CardData[] = [
     },
   },
   {
-    title: "Delivery",
-    desc: "Coordinate packing and logistics for efficient end-to-end delivery management.",
-    body: <DeliveryCard />,
-    longDesc: "Plan packing, book logistics, and track shipments in real time. Manage customs documentation and delivery confirmations from a single operations view.",
-    features: [
-      "Packing instruction and label generation",
-      "Freight booking and carrier integration",
-      "Real-time shipment visibility and alerts",
-      "Customs documentation and compliance",
-    ],
-    activity: [
-      { label: "Shipments Tracked", pct: 98 },
-      { label: "Packing Compliance", pct: 96 },
-      { label: "Customs Cleared", pct: 93 },
-    ],
-    stat: { value: "97.4%", label: "on-time-in-full, up from 88% in the first quarter after go-live" },
-    testimonial: {
-      company: "Logistics Operations",
-      quote: "On-time-in-full jumped from 88% to 97.4% in the first quarter after go-live. Our customer scorecard has never looked better - it was a complete step change.",
-      author: "Marcus Hofer",
-      role: "Logistics Operations Manager",
-    },
-  },
-  {
     title: "Benchmark Analysis",
     desc: "Compare BOMs across projects, identify cost drivers, and discover VAVE opportunities.",
     body: <BenchmarkCard />,
@@ -221,6 +197,30 @@ const cards: CardData[] = [
       quote: "The benchmark module showed us we were paying 34% above market on a single bracket. That one finding funded the entire platform investment in the first month.",
       author: "David Okafor",
       role: "VP Purchasing, Mobility OEM",
+    },
+  },
+  {
+    title: "Delivery",
+    desc: "Coordinate packing and logistics for efficient end-to-end delivery management.",
+    body: <DeliveryCard />,
+    longDesc: "Plan packing, book logistics, and track shipments in real time. Manage customs documentation and delivery confirmations from a single operations view.",
+    features: [
+      "Packing instruction and label generation",
+      "Freight booking and carrier integration",
+      "Real-time shipment visibility and alerts",
+      "Customs documentation and compliance",
+    ],
+    activity: [
+      { label: "Shipments Tracked", pct: 98 },
+      { label: "Packing Compliance", pct: 96 },
+      { label: "Customs Cleared", pct: 93 },
+    ],
+    stat: { value: "97.4%", label: "on-time-in-full, up from 88% in the first quarter after go-live" },
+    testimonial: {
+      company: "Logistics Operations",
+      quote: "On-time-in-full jumped from 88% to 97.4% in the first quarter after go-live. Our customer scorecard has never looked better - it was a complete step change.",
+      author: "Marcus Hofer",
+      role: "Logistics Operations Manager",
     },
   },
   {

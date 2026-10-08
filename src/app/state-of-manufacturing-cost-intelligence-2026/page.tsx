@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     description: 'Original research from completed should-cost and teardown engagements across automotive, electronics, and commercial vehicle programmes.',
     url: '/state-of-manufacturing-cost-intelligence-2026',
     type: 'article',
+    siteName: 'Emithran',
   },
 }
 

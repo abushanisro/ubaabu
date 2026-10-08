@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { POSTS, type BlogCategory, type BlogPost } from './blogData'
 import { GlobeCdn } from '@/components/ui/cobe-globe-cdn'
 import BlogCTA from '@/components/ui/blog-cta'
@@ -38,7 +39,7 @@ function AuthorRow({ author, date, readTime }: { author: BlogPost['author']; dat
   return (
     <div className="flex items-center gap-2.5">
       {photo ? (
-        <img src={photo} alt={author.name} className="w-7 h-7 rounded-full object-cover shrink-0" />
+        <Image src={photo} alt={author.name} width={28} height={28} className="w-7 h-7 rounded-full object-cover shrink-0" />
       ) : (
         <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0"
           style={{ background: 'linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%)' }}>
@@ -110,10 +111,12 @@ function PostCard({ post }: { post: BlogPost }) {
     >
       {/* Cover image */}
       <div className="relative w-full overflow-hidden" style={{ height: 180 }}>
-        <img
+        <Image
           src={post.image}
           alt={post.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(15,27,45,0.18) 100%)' }} />
         <div className="absolute top-3 left-3">
@@ -424,7 +427,7 @@ function LatestPostItem({ post }: { post: BlogPost }) {
           <span className="text-[12px]" style={{ color: 'rgba(15,27,45,0.45)' }}>{post.date}</span>
           <div className="flex items-center gap-2">
             {photo ? (
-              <img src={photo} alt={post.author.name} className="w-7 h-7 rounded-full object-cover shrink-0" />
+              <Image src={photo} alt={post.author.name} width={28} height={28} className="w-7 h-7 rounded-full object-cover shrink-0" />
             ) : (
               <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-[9px] font-bold shrink-0"
                 style={{ background: 'linear-gradient(135deg,#0d9488,#2dd4bf)' }}>
@@ -457,11 +460,13 @@ function LatestPostItem({ post }: { post: BlogPost }) {
         </div>
 
         {/* Cover image */}
-        <div className="rounded-xl overflow-hidden" style={{ height: 220 }}>
-          <img
+        <div className="relative rounded-xl overflow-hidden" style={{ height: 220 }}>
+          <Image
             src={post.image}
             alt={post.title}
-            className="w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
           />
         </div>
       </div>

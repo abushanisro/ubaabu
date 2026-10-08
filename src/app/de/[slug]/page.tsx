@@ -14,16 +14,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const page = DE_PAGES.find((item) => item.slug === slug)
   if (!page) return {}
 
+  // 'defence-aerospace-manufacturing' has no exact EN counterpart (EN splits it into
+  // /defence-manufacturing + /aerospace-cost-engineering) — self-reference only rather
+  // than declaring a mismatched hreflang pair.
+  const hasEnCounterpart = page.slug !== 'defence-aerospace-manufacturing'
+
   return {
     title: page.title,
     description: page.description,
-    alternates: { canonical: `/de/${page.slug}` },
+    alternates: {
+      canonical: `/de/${page.slug}`,
+      languages: hasEnCounterpart
+        ? { de: `/de/${page.slug}`, en: `/${page.slug}`, 'x-default': `/${page.slug}` }
+        : { de: `/de/${page.slug}`, 'x-default': `/de/${page.slug}` },
+    },
     openGraph: {
       title: page.title,
       description: page.description,
       url: `/de/${page.slug}`,
       type: 'website',
       locale: 'de_DE',
+      siteName: 'Emithran',
     },
   }
 }

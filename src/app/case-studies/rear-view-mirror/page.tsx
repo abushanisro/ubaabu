@@ -1,6 +1,8 @@
 ﻿import CaseStudyShell, {
   SectionLabel, Card, DarkCard,
 } from '@/components/case-studies/CaseStudyShell'
+import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
+import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
   title: 'Rear View Mirror BOM Should-Cost | Emithran',
@@ -48,12 +50,17 @@ const parts = [
 
 const totalAssembly = 0.96
 
+const study = CASE_STUDIES.find((s) => s.slug === 'rear-view-mirror')!
+const articleSchema = buildCaseStudyArticleJsonLd(study, { image: '/assets/casestudy/case3.png' })
+
 export default function RearViewMirrorCaseStudy() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
     <CaseStudyShell
       slug="rear-view-mirror"
       industry="Automotive"
-      date="February 15, 2026"
+      date="April 5, 2026"
       readTime="6 min read"
       metric="5 processes · $0.96 total"
       title={<>Rear View Mirror Assembly<br className="hidden md:block" /> Full BOM Should Cost</>}
@@ -384,5 +391,6 @@ export default function RearViewMirrorCaseStudy() {
       </DarkCard>
 
     </CaseStudyShell>
+    </>
   )
 }
