@@ -204,7 +204,7 @@ function BecomeAPartnerForm() {
     } catch {
       turnstileRef.current?.reset()
       setCfToken('')
-      setErrors({ reason: 'Something went wrong. Please try again or email partner@emithran.com.' })
+      setErrors({ reason: 'Something went wrong. Please try again or email contact@emithran.com.' })
     } finally {
       setLoading(false)
     }
@@ -543,8 +543,8 @@ export default function BecomeAPartnerPage() {
               </div>
               <p className="text-[13px]" style={{ color: 'rgba(15,27,45,0.5)' }}>
                 Questions? Reach out to{' '}
-                <a href="mailto:partner@emithran.com" className="text-[#0d9488] hover:underline">
-                  partner@emithran.com
+                <a href="mailto:contact@emithran.com" className="text-[#0d9488] hover:underline">
+                  contact@emithran.com
                 </a>{' '}
                 before applying.
               </p>

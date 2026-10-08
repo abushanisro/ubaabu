@@ -685,10 +685,6 @@ function ContactFooter() {
               <Mail size={11} />
               contact@emithran.com
             </a>
-            <a href="mailto:partner@emithran.com" className="flex items-center gap-1.5 text-black/40 hover:text-[#0d9e8a] transition-colors">
-              <Mail size={11} />
-              partner@emithran.com
-            </a>
           </div>
 
           {/* Right: privacy + copyright */}

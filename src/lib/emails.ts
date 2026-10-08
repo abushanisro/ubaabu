@@ -1,6 +1,7 @@
 const SITE = 'https://emithran.com'
+export const LOGO_URL = `${SITE}/assets/Emithran.png`
 
-function base(previewText: string, body: string) {
+function base(previewText: string, body: string, badge?: string) {
   return `<!DOCTYPE html>
 <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>
@@ -18,6 +19,8 @@ function base(previewText: string, body: string) {
       .force-white { background-color: #ffffff !important; }
       .force-dark  { background-color: #0f1b2d !important; }
       .force-body  { background-color: #f4f6f9 !important; }
+      .force-hdr   { background-color: #15191f !important; }
+      .force-pill  { background-color: #0d6b63 !important; }
     }
   </style>
 </head>
@@ -34,9 +37,13 @@ function base(previewText: string, body: string) {
           <td style="padding-bottom:18px;" align="center">
             <table cellpadding="0" cellspacing="0" role="presentation">
               <tr>
-                <td style="background:#0f1b2d;border-radius:8px;padding:8px 20px;" class="force-dark">
+                ${badge
+                  ? `<td style="background:#0d6b63;border-radius:12px;padding:12px 28px;" class="force-pill">
+                  <span style="font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${badge}</span>
+                </td>`
+                  : `<td style="background:#0f1b2d;border-radius:8px;padding:8px 20px;" class="force-dark">
                   <span style="font-size:14px;font-weight:800;letter-spacing:0.16em;color:#2dd4bf;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">EMITHRAN</span>
-                </td>
+                </td>`}
               </tr>
             </table>
           </td>
@@ -78,8 +85,8 @@ function stepRow(n: number, text: string) {
   return `
   <tr>
     <td style="padding:8px 0;vertical-align:top;width:28px;">
-      <div style="width:22px;height:22px;background:#0f1b2d;border-radius:50%;text-align:center;line-height:22px;">
-        <span style="font-size:10px;font-weight:700;color:#2dd4bf;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${n}</span>
+      <div style="width:22px;height:22px;background:#9ca3af;border-radius:50%;text-align:center;line-height:22px;">
+        <span style="font-size:10px;font-weight:700;color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${n}</span>
       </div>
     </td>
     <td style="padding:8px 0 8px 10px;font-size:13.5px;color:#374151;line-height:1.55;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${text}</td>
@@ -89,10 +96,10 @@ function stepRow(n: number, text: string) {
 function infoRow(icon: string, label: string, value: string) {
   return `
   <tr>
-    <td style="padding:10px 18px;border-bottom:1px solid #f0f4f8;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#8a96a8;white-space:nowrap;vertical-align:middle;width:1%;">
-      ${icon}&nbsp; ${label}
+    <td style="padding:14px 20px;border-bottom:1px solid #e5e7eb;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#111827;white-space:nowrap;vertical-align:middle;width:130px;">
+      ${label}
     </td>
-    <td style="padding:10px 18px;border-bottom:1px solid #f0f4f8;font-size:13px;color:#0f1b2d;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+    <td style="padding:14px 20px;border-bottom:1px solid #e5e7eb;font-size:14px;color:#111827;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
       ${value}
     </td>
   </tr>`
@@ -103,17 +110,22 @@ function infoRow(icon: string, label: string, value: string) {
 // ─────────────────────────────────────────────
 export function contactConfirmationEmail(firstName: string, company: string) {
   const body = `
-    <!-- header: solid dark navy, full contrast -->
-    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#0f1b2d;padding:36px 36px 32px;" class="force-dark">
-      <tr><td>
-        <p style="margin:0 0 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#2dd4bf;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Message received ✓</p>
-        <h1 style="margin:0 0 10px;font-size:26px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;line-height:1.25;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-          Thanks for reaching out, ${firstName}.
-        </h1>
-        <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-          We've received your message and will be in touch shortly.
-        </p>
-      </td></tr>
+    <!-- header -->
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#15191f;padding:36px;" class="force-hdr">
+      <tr>
+        <td style="vertical-align:middle;">
+          <p style="margin:0 0 10px;font-size:18px;font-weight:600;letter-spacing:0.04em;color:#c9ccd1;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">EMITHRAN</p>
+          <h1 style="margin:0 0 10px;font-size:26px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;line-height:1.25;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+            Thanks for reaching out, ${firstName}.
+          </h1>
+          <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+            We've received your message and will be in touch shortly.
+          </p>
+        </td>
+        <td width="96" align="right" style="vertical-align:middle;padding-left:16px;">
+          <img src="${LOGO_URL}" width="84" height="84" alt="Emithran" style="display:block;width:84px;height:84px;border-radius:50%;border:0;">
+        </td>
+      </tr>
     </table>
 
     <!-- body -->
@@ -152,11 +164,11 @@ export function contactConfirmationEmail(firstName: string, company: string) {
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f8fafc;border-top:1px solid #eef2f7;padding:20px 36px;">
       <tr><td>
         <p style="margin:0 0 2px;font-size:13px;font-weight:700;color:#0f1b2d;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">The Emithran Team</p>
-        <p style="margin:0;font-size:12px;color:#8a96a8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Manufacturing Intelligence · Bangalore, India</p>
+        <p style="margin:0;font-size:12px;color:#8a96a8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Manufacturing Intelligence - Bangalore, India</p>
       </td></tr>
     </table>`
 
-  return base(`We've received your message and will respond within 24 hours.`, body)
+  return base(`We've received your message and will respond within 24 hours.`, body, 'Message received')
 }
 
 // ─────────────────────────────────────────────
@@ -171,24 +183,29 @@ export function demoConfirmationEmail(firstName: string, date: string, time: str
 
   const body = `
     <!-- header -->
-    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#0f1b2d;padding:36px 36px 32px;" class="force-dark">
-      <tr><td>
-        <p style="margin:0 0 10px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#2dd4bf;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Demo confirmed ✓</p>
-        <h1 style="margin:0 0 10px;font-size:26px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;line-height:1.25;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-          You're booked in, ${firstName}!
-        </h1>
-        <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-          Your 30-minute live walkthrough of Emithran is confirmed.
-        </p>
-      </td></tr>
+    <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#15191f;padding:36px;" class="force-hdr">
+      <tr>
+        <td style="vertical-align:middle;">
+          <p style="margin:0 0 10px;font-size:18px;font-weight:600;letter-spacing:0.04em;color:#c9ccd1;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">EMITHRAN</p>
+          <h1 style="margin:0 0 10px;font-size:26px;font-weight:700;color:#ffffff;letter-spacing:-0.02em;line-height:1.25;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+            You're booked in, ${firstName}!
+          </h1>
+          <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.65);line-height:1.65;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
+            Your 30-minute live walkthrough of Emithran is confirmed.
+          </p>
+        </td>
+        <td width="96" align="right" style="vertical-align:middle;padding-left:16px;">
+          <img src="${LOGO_URL}" width="84" height="84" alt="Emithran" style="display:block;width:84px;height:84px;border-radius:50%;border:0;">
+        </td>
+      </tr>
     </table>
 
     <!-- slot card -->
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="padding:28px 36px 4px;" class="force-white">
       <tr><td>
-        <div style="border:1.5px solid #0d9488;border-radius:12px;overflow:hidden;">
-          <div style="background:#0d9488;padding:10px 18px;">
-            <p style="margin:0;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Your session details</p>
+        <div style="border:1.5px solid #0d6b63;border-radius:12px;overflow:hidden;">
+          <div style="background:#0d6b63;padding:14px 20px;">
+            <p style="margin:0;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Session details</p>
           </div>
           <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;">
             ${infoRow('📅', 'Date', formattedDate)}
@@ -225,9 +242,9 @@ export function demoConfirmationEmail(firstName: string, date: string, time: str
     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#f8fafc;border-top:1px solid #eef2f7;padding:20px 36px;">
       <tr><td>
         <p style="margin:0 0 2px;font-size:13px;font-weight:700;color:#0f1b2d;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">The Emithran Team</p>
-        <p style="margin:0;font-size:12px;color:#8a96a8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Manufacturing Intelligence · Bangalore, India</p>
+        <p style="margin:0;font-size:12px;color:#8a96a8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Manufacturing Intelligence - Bangalore, India</p>
       </td></tr>
     </table>`
 
-  return base(`Your demo is booked for ${formattedDate} at ${time} IST.`, body)
+  return base(`Your demo is booked for ${formattedDate} at ${time} IST.`, body, 'Demo booked')
 }

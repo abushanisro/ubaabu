@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { demoConfirmationEmail } from '@/lib/emails'
+import { demoConfirmationEmail, LOGO_URL } from '@/lib/emails'
 
 const resend = new Resend(process.env.RESEND_API_KEY || 're_build_placeholder')
 
@@ -37,9 +37,10 @@ function adminEmail(data: {
 <head><meta charset="utf-8"></head>
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:640px;margin:0 auto;padding:32px 16px;background:#fff;color:#111827;">
   <div style="margin-bottom:32px;">
-    <div style="display:inline-block;background:linear-gradient(135deg,#0d9488,#2dd4bf);padding:10px 20px;border-radius:99px;">
-      <span style="color:white;font-size:13px;font-weight:700;letter-spacing:0.05em;">EMITHRAN</span>
-    </div>
+    <table cellpadding="0" cellspacing="0" role="presentation"><tr>
+      <td style="vertical-align:middle;padding-right:12px;"><img src="${LOGO_URL}" width="48" height="48" alt="Emithran" style="display:block;width:48px;height:48px;border-radius:50%;border:0;"></td>
+      <td style="vertical-align:middle;"><span style="font-size:16px;font-weight:700;letter-spacing:0.06em;color:#15191f;">EMITHRAN</span></td>
+    </tr></table>
     <h1 style="margin:20px 0 4px;font-size:22px;font-weight:700;color:#0f1b2d;">New Demo Request</h1>
     <p style="margin:0;font-size:13px;color:#6b7280;">Submitted via emithran.com/request-demo</p>
   </div>
