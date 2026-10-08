@@ -477,7 +477,7 @@ export default function EnterpriseSection() {
       />
 
       {/* Trust pillars */}
-      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6 pt-2 sm:pt-3 pb-0">
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 sm:px-6 pt-10 sm:pt-16 pb-0">
         <div className="text-center mb-1.5 sm:mb-4">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: '#2dd4bf' }}>
             Built for the Enterprise

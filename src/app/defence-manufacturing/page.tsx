@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/defence-manufacturing' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Defence Manufacturing Software India | Emithran',
     description: 'BOM management, should-cost analysis, and supplier qualification built for India\'s defence OEMs and DRDO supply chains.',
     url: '/defence-manufacturing',

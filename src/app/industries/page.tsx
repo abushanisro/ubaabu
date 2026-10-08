@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/industries' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Emithran for Space, Defence, Aerospace & Precision Manufacturing',
     description: 'Manufacturing intelligence built for India\'s mission-critical industries.',
     url: '/industries', type: 'website', siteName: 'Emithran',

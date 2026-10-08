@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/solutions' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Emithran Solutions - End-to-End Manufacturing Intelligence',
     description: 'From design to delivery: AI-powered solutions for cost, quality, supplier, and risk management.',
     url: '/solutions', type: 'website', siteName: 'Emithran',

@@ -127,7 +127,7 @@ function NewsletterForm() {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#080808] relative overflow-hidden m-0 isolate">
+    <footer className="bg-black relative overflow-hidden m-0 isolate">
       <div className="max-w-[1280px] mx-auto px-8 pt-16 z-40 relative">
         {/* ── Main columns ── */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-10 pb-12 border-b border-white/[0.07]">
@@ -135,6 +135,7 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col space-y-4">
             <div className="flex items-center gap-2">
               <img src="/assets/infographics/logo/logo-black.png" alt="Emithran" className="h-7 w-auto" />
+              <span className="font-display text-lg font-semibold tracking-tight text-white">EMITHRAN</span>
             </div>
 
             {/* Tagline */}

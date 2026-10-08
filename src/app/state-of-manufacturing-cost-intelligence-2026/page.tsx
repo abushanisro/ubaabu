@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/state-of-manufacturing-cost-intelligence-2026' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'State of Manufacturing Cost Intelligence 2026 | Emithran',
     description: 'Original research from completed should-cost and teardown engagements across automotive, electronics, and commercial vehicle programmes.',
     url: '/state-of-manufacturing-cost-intelligence-2026',

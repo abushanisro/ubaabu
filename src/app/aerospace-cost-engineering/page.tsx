@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/aerospace-cost-engineering' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Aerospace Cost Engineering Software India | Emithran',
     description: "Should-cost modelling, BOM management, and supplier intelligence for India's aerospace and aviation supply chains.",
     url: '/aerospace-cost-engineering',

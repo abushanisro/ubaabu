@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/emithran-vs-apriori' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Emithran vs aPriori: Should-Cost Software Comparison',
     description: 'Should-cost analysis, BOM intelligence, and supplier data compared side by side for India-focused and global manufacturing teams.',
     url: '/emithran-vs-apriori',

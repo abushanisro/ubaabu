@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         : { de: `/de/${page.slug}`, 'x-default': `/de/${page.slug}` },
     },
     openGraph: {
+      images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
       title: page.title,
       description: page.description,
       url: `/de/${page.slug}`,

@@ -8,7 +8,7 @@ const light = Inter({ weight: ['300'], subsets: ['latin'], display: 'swap' })
 const CARDS = [
   {
     image: '/assets/api-test-style.png',
-    title: 'API & Data Pipeline',
+    title: 'API Integration',
     body: 'Plug Emithran costing, machine and labour rates, RFQ and supplier intelligence into your ERP or procurement tools, or have our developers and costing engineers build custom workflows, formulas and dashboards with you.',
     href: '/api',
   },

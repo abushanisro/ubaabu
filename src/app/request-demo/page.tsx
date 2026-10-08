@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/request-demo' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Request a Demo — Emithran',
     description: 'Book a 30-minute walkthrough of Emithran\'s manufacturing intelligence platform.',
     url: '/request-demo',

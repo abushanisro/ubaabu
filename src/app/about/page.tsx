@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/about' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'About Emithran - Built by Engineers, for Manufacturers',
     description: 'The story behind Emithran\'s manufacturing intelligence platform and why we built it.',
     url: '/about', type: 'website', siteName: 'Emithran',

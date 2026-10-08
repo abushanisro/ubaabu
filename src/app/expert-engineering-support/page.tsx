@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/expert-engineering-support' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Expert Engineering Support - Costing Engineers for Your Team | Emithran',
     description:
       'Emithran connects end-to-end manufacturing intelligence - automating 3D CAD feature analysis, cycle times, should-cost models, zero-based costing, and supplier nomination.',

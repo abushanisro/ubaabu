@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     languages: { en: '/supplier-intelligence', de: '/de/supplier-intelligence', 'x-default': '/supplier-intelligence' },
   },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Supplier Intelligence Platform India | Emithran',
     description: '72,000+ verified suppliers. Qualification scoring, risk assessment, and capability mapping for defence, aerospace, and space supply chains.',
     url: '/supplier-intelligence',

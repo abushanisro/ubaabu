@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/emithran-vs-teamcenter' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Emithran vs Siemens Teamcenter: Cost Software Comparison',
     description: 'Product cost management, should-costing, and supplier data compared side by side for India-focused and global manufacturing teams.',
     url: '/emithran-vs-teamcenter',

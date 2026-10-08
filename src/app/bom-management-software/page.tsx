@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     languages: { en: '/bom-management-software', de: '/de/bom-management-software', 'x-default': '/bom-management-software' },
   },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'BOM Management Software — Emithran',
     description: 'Validate, collaborate, and cost your bills of materials with AI-powered intelligence. Built for defence, aerospace, and precision manufacturing OEMs in India.',
     url: '/bom-management-software',

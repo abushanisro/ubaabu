@@ -141,6 +141,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/products' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Emithran Products - Full Manufacturing Intelligence Suite',
     description: 'BOM Composer, Should-Cost, Supplier Radar, VAVE Studio, Quality Guard - all connected on one platform.',
     url: '/products', type: 'website', siteName: 'Emithran',

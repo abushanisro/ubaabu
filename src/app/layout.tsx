@@ -39,7 +39,7 @@ const jsonLd = [
       width: 180,
       height: 45,
     },
-    image: `${siteUrl}/opengraph-image`,
+    image: `${siteUrl}/assets/meta/emithran-og.jpg`,
     description:
       'End-to-end manufacturing intelligence platform for space, defence, aerospace, and precision manufacturing companies in India. AI-powered BOM management, should-cost analysis, and supplier intelligence.',
     foundingDate: '2023',
@@ -179,15 +179,6 @@ export const metadata: Metadata = {
     siteName: 'Emithran',
     locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: `${siteUrl}/opengraph-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Emithran - Manufacturing Intelligence Platform',
-        type: 'image/png',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -196,7 +187,6 @@ export const metadata: Metadata = {
     title: 'Emithran - Manufacturing Intelligence Platform',
     description:
       'AI-powered BOM management, should-cost analysis, and supplier intelligence for space, defence, and aerospace manufacturing in India.',
-    images: [`${siteUrl}/opengraph-image.png`],
   },
   other: {
     // Theme

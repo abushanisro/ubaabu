@@ -18,6 +18,7 @@ export const metadata: Metadata = {
     languages: { en: '/should-cost-analysis-software', de: '/de/should-cost-analysis-software', 'x-default': '/should-cost-analysis-software' },
   },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Should-Cost Analysis Software — Emithran',
     description: 'Build bottom-up should-cost models for any manufacturing process. Used by defence, aerospace, and precision manufacturing OEMs in India.',
     url: '/should-cost-analysis-software',

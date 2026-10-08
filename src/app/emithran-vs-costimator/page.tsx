@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/emithran-vs-costimator' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Emithran vs Costimator: Cost Estimating Software Comparison',
     description: 'Manufacturing cost estimating, supplier intelligence, and BOM management compared side by side.',
     url: '/emithran-vs-costimator',

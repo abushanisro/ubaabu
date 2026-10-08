@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/why-emithran' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Why Emithran - Manufacturing Intelligence Built for India',
     description: 'Deeper cost intelligence, live supplier data, and a platform built for Indian manufacturing.',
     url: '/why-emithran', type: 'website', siteName: 'Emithran',

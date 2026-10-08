@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Manufacturing Intelligence Platform India | Emithran',
     description: 'AI-powered BOM management, should-cost analysis, and supplier intelligence for defence, aerospace, and space OEMs in India. 99.4% BOM accuracy.',
     url: '/',

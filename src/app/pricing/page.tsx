@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/pricing' },
   openGraph: {
+    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
     title: 'Emithran Pricing - No Per-Seat Fees, No Hidden Costs',
     description: 'Transparent, outcome-based plans for manufacturers of every scale.',
     url: '/pricing', type: 'website', siteName: 'Emithran',
