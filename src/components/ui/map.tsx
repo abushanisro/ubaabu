@@ -71,7 +71,6 @@ export function WorldMap({
         height="495"
         width="1056"
         draggable={false}
-        priority
       />
       <svg
         ref={svgRef}
