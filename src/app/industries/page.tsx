@@ -3,7 +3,7 @@ import IndustriesPage from '@/components/industries/IndustriesPage'
 import { ogImages } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Space, Defence & Aerospace Manufacturing | Emithran',
+  title: 'Space, Defence & Aerospace Manufacturing',
   description:
     'Emithran serves space & satellite hardware, defence OEMs, aerospace component suppliers, and precision manufacturers - mission-critical sectors where cost accuracy, supplier quality, and delivery visibility determine programme success.',
   keywords: [

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "seo:lastmod": "node scripts/generate-lastmod.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

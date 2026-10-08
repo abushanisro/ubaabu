@@ -1,0 +1,3 @@
+# Commits to skip when deriving sitemap lastmod (they changed many pages' metadata, not their content).
+2f93224  # Centralise share-image config in lib/seo (sitewide OG image metadata only)
+0b51229  # Add EMITHRAN share image site-wide (mixed commit; touched every page's metadata)

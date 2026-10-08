@@ -2,7 +2,7 @@
 
 export const metadata = {
   alternates: { canonical: '/cookies' },
-  title: 'Cookies Policy | Emithran',
+  title: 'Cookies Policy',
   description:
     'Learn how Emithran uses cookies and similar technologies on its manufacturing intelligence platform and website.',
 }

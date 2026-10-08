@@ -3,7 +3,7 @@ import BlogPage from '@/components/blog/BlogPage'
 import type { Metadata } from 'next'
 import { ogImages } from '@/lib/seo'
 export const metadata: Metadata = {
-  title: 'Blog - Manufacturing Intelligence Insights from Emithran',
+  title: { absolute: 'Blog - Manufacturing Intelligence Insights from Emithran' },
   description:
     'Deep-dive articles on should-cost analysis, BOM intelligence, supplier evaluation, VAVE, and AI in manufacturing - written by engineers building the tools.',
   keywords: [

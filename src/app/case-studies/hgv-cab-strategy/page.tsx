@@ -5,7 +5,7 @@ import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
 import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
-  title: 'HGV Cab Should-Cost & Decision Matrix | Emithran',
+  title: 'HGV Cab Should-Cost & Decision Matrix',
   description: 'How Emithran supported a hydrogen HGV manufacturer in evaluating six CAB structure solutions across tooling investment, piece cost, mass, and safety status - from proto to 4,000 units/yr.',
   alternates: { canonical: '/case-studies/hgv-cab-strategy' },
 }

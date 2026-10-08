@@ -83,8 +83,8 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
 
       <section className="py-16 bg-[#0f1b2d] text-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Turn this SEO journey into a qualified pipeline.</h2>
-          <p className="mt-4 text-white/55">Connect the keyword page, content cluster, and product workflow in one demo.</p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">See how this works on your own parts and suppliers.</h2>
+          <p className="mt-4 text-white/55">Book a walkthrough with your BOMs, drawings, or supplier quotes and see should-cost, supplier intelligence, and RFQ preparation working together.</p>
           <Link href="/request-demo" className="mt-8 inline-flex items-center justify-center rounded-xl bg-[#2dd4bf] px-7 py-3 text-sm font-semibold text-[#0f1b2d]">
             Book a walkthrough
           </Link>

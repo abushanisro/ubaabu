@@ -3,7 +3,7 @@ import RequestDemoPage from '@/components/request-demo/RequestDemoPage'
 import { ogImages } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Request a Demo — Emithran Manufacturing Intelligence',
+  title: { absolute: 'Request a Demo — Emithran Manufacturing Intelligence' },
   description:
     'See how Emithran helps space, defence, and precision manufacturing teams cut costs, manage BOMs, and accelerate sourcing. Book a 30-minute live walkthrough.',
   keywords: [

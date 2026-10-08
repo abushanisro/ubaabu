@@ -5,7 +5,7 @@ import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
 import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
-  title: 'HGV Chassis Ladder Frame Should-Cost | Emithran',
+  title: 'HGV Chassis Ladder Frame Should-Cost',
   description: 'How Emithran identified a 38% manufacturing cost reduction for chassis rails by comparing India vs Northern Europe production for an electric HGV OEM.',
   alternates: { canonical: '/case-studies/hgv-chassis' },
 }

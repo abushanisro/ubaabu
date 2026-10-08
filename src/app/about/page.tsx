@@ -20,6 +20,37 @@ export const metadata: Metadata = {
   },
 };
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
+
+// Founder Person schema lives on the About page only (it used to be emitted sitewide from the root layout).
+const peopleJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Singaravelan S.',
+    jobTitle: 'CEO',
+    worksFor: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+    url: `${siteUrl}/about`,
+    sameAs: ['https://www.linkedin.com/in/singaravelan-srinivasan-emuski/'],
+    knowsAbout: ['Manufacturing Intelligence', 'Should Cost Analysis', 'Supplier Intelligence', 'Strategic Sourcing'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Abushan',
+    jobTitle: 'CTO',
+    worksFor: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+    url: `${siteUrl}/about`,
+    sameAs: ['https://www.linkedin.com/in/abushan/'],
+    knowsAbout: ['Cost Engineering Software', 'BOM Management', 'AI Manufacturing', 'Manufacturing Analytics'],
+  },
+]
+
 export default function AboutPage() {
-  return <AboutReferencePage />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(peopleJsonLd) }} />
+      <AboutReferencePage />
+    </>
+  );
 }

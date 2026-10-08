@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 export const metadata: Metadata = {
-  title: 'API Integration | Emithran',
+  title: 'API Integration',
   description:
     'Connect Emithran costing, machine and labour rates, RFQs and supplier data to your ERP and procurement tools through an API, or build custom workflows with our developers and costing engineers.',
   alternates: { canonical: '/api' },

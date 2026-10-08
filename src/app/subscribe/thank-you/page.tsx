@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Thank You for Subscribing | Emithran',
+  title: 'Thank You for Subscribing',
   description: 'You are subscribed to Emithran manufacturing intelligence updates.',
   robots: { index: false, follow: true },
   alternates: { canonical: '/subscribe/thank-you' },

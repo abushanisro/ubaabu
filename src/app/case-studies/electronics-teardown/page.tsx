@@ -5,7 +5,7 @@ import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
 import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
-  title: 'Electronics & PCB Should-Cost Teardown | Emithran',
+  title: 'Electronics & PCB Should-Cost Teardown',
   description: 'How Emithran delivered component-level teardown, bare PCB benchmarking, PCBA should costing, and wire harness costing across radar sensors and EV battery management systems.',
   alternates: { canonical: '/case-studies/electronics-teardown' },
 }

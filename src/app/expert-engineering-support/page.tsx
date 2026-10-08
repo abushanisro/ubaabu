@@ -5,7 +5,7 @@ import { ogImages } from '@/lib/seo'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 export const metadata: Metadata = {
-  title: 'Expert Engineering Support - Costing Engineers for Your Team | Emithran',
+  title: 'Expert Engineering Support - Costing Engineers for Your Team',
   description:
     'Emithran connects end-to-end manufacturing intelligence - automating 3D CAD feature analysis, cycle times, should-cost models, zero-based costing, and supplier nomination across precision aerospace, defence, and automotive programs.',
   keywords: [

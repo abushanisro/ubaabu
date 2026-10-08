@@ -2,7 +2,7 @@
 
 export const metadata = {
   alternates: { canonical: '/about/partners/vendor-onboarding' },
-  title: 'Vendor Onboarding | Emithran',
+  title: 'Vendor Onboarding',
   description: 'Register your manufacturing capabilities in the Emithran supplier database. Join 647+ verified vendors across space, defence, and aerospace.',
 }
 

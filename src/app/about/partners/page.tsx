@@ -1,7 +1,7 @@
 import PartnersPage from '@/components/partners/PartnersPage'
 
 export const metadata = {
-  title: 'Partners | Emithran',
+  title: 'Partners',
   description: 'Accelerate your manufacturing business with Emithran certified partners - system integrators, technology providers, and industry consultants.',
   alternates: { canonical: '/about/partners' },
 }

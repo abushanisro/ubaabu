@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, ChevronDown, Mail, Building2, CalendarCheck } from "lucide-react";
 import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
@@ -158,19 +157,10 @@ function SelectField({
   );
 }
 
+// NOTE: `source` / `cta` are read from window.location at submit time instead of via
+// useSearchParams(). useSearchParams() inside <Suspense fallback={null}> made the whole
+// page client-render only, so the server HTML (and the H1) was empty for crawlers.
 export default function ContactPage() {
-  return (
-    <Suspense fallback={null}>
-      <ContactPageContent />
-    </Suspense>
-  );
-}
-
-function ContactPageContent() {
-  const searchParams = useSearchParams();
-  const source = searchParams.get("source") ?? "";
-  const cta = searchParams.get("cta") ?? "";
-
   const [step, setStep] = useState(1);
   const [dir, setDir] = useState(1);
   const [submitting, setSubmitting] = useState(false);
@@ -194,6 +184,9 @@ function ContactPageContent() {
     setSubmitting(true);
     setSubmitError("");
     try {
+      const params = new URLSearchParams(window.location.search);
+      const source = params.get("source") ?? "";
+      const cta = params.get("cta") ?? "";
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -238,7 +231,7 @@ function ContactPageContent() {
       {/* Page content - grows to push footer down */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-8 sm:py-16 relative z-10">
 
-      {/* Static intro — provides H1 for SEO */}
+      {/* Static intro (page H1) */}
       <div className="w-full max-w-[480px] mb-6 z-10">
         <h1 className="text-2xl sm:text-3xl font-bold text-[#0f1b2d] mb-3 font-[Sora] leading-tight">
           Talk to Our Manufacturing Intelligence Team

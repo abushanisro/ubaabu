@@ -17,3 +17,13 @@ export const OG_IMAGE = {
 
 export const ogImages = [OG_IMAGE]
 export const twitterImages = [OG_IMAGE.url]
+
+/**
+ * The root layout appends " | Emithran" to every page title via `title.template`.
+ * Data-driven titles (landing pages, blog posts) may already carry the brand, which
+ * produced "… | Emithran | Emithran". Strip a trailing brand suffix so the template
+ * adds it exactly once.
+ */
+export function stripBrandSuffix(title: string): string {
+  return title.replace(/\s*\|\s*Emithran(?: Blog)?\s*$/i, '')
+}

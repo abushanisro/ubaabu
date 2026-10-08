@@ -50,6 +50,7 @@ import FinalCTA from '@/components/sections/FinalCTA'
 import FAQ from '@/components/sections/FAQ'
 import VendorManagementApp from '@/components/sections/VendorManagementApp'
 import PlatformPartnership from '@/components/sections/PlatformPartnership'
+import HomeExploreLinks from '@/components/sections/HomeExploreLinks'
 import { ogImages } from '@/lib/seo'
 export default function App() {
   return (
@@ -64,6 +65,7 @@ export default function App() {
       <EnterpriseSection />
       <VendorManagementApp />
       <PlatformPartnership />
+      <HomeExploreLinks />
       <FinalCTA />
       <FAQ />
     </>

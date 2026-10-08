@@ -48,10 +48,11 @@ const jsonLd = [
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Bangalore',
+      // Matches the registered headquarters shown in the site footer. postalCode is
+      // intentionally omitted until the exact PIN is confirmed (previous value was a placeholder).
+      streetAddress: '126, RNS Plaza, Electronic City Phase 2',
       addressLocality: 'Bangalore',
       addressRegion: 'Karnataka',
-      postalCode: '560001',
       addressCountry: 'IN',
     },
     contactPoint: [
@@ -77,11 +78,6 @@ const jsonLd = [
     name: 'Emithran',
     url: siteUrl,
     description: 'End-to-end manufacturing intelligence platform for space, defence, aerospace, and precision manufacturing.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: { '@type': 'EntryPoint', urlTemplate: `${siteUrl}/blog?q={search_term_string}` },
-      'query-input': 'required name=search_term_string',
-    },
   },
   {
     '@context': 'https://schema.org',
@@ -91,32 +87,11 @@ const jsonLd = [
     operatingSystem: 'Web',
     url: siteUrl,
     description: 'AI-powered manufacturing intelligence platform with BOM management, should-cost analysis, supplier radar, VAVE studio, quality guard, and shipment tracking for defence, aerospace, and space manufacturers.',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free trial available' },
     featureList: [
       'BOM Intelligence', 'Should-Cost Analysis', 'Supplier Radar',
       'VAVE Studio', 'Quality Guard', 'Launch Tracker', 'Shipment Hub',
     ],
     provider: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Singaravelan S.',
-    jobTitle: 'CEO',
-    worksFor: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
-    url: `${siteUrl}/about`,
-    sameAs: ['https://www.linkedin.com/in/singaravelan-srinivasan-emuski/'],
-    knowsAbout: ['Manufacturing Intelligence', 'Should Cost Analysis', 'Supplier Intelligence', 'Strategic Sourcing'],
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Abushan',
-    jobTitle: 'CTO',
-    worksFor: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
-    url: `${siteUrl}/about`,
-    sameAs: ['https://www.linkedin.com/in/abushan/'],
-    knowsAbout: ['Cost Engineering Software', 'BOM Management', 'AI Manufacturing', 'Manufacturing Analytics'],
   },
 ]
 

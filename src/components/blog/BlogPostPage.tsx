@@ -12,6 +12,7 @@ import { track } from '@/lib/analytics'
 import { POSTS, type BlogPost, type BlogCategory } from './blogData'
 import type { BlogPostContent, BlogPostFAQ } from './blogContent'
 import { AnimatedArrow } from '@/components/ui/animated-arrow'
+import { relatedLinksForBlog } from '@/lib/internalLinks'
 
 const CATEGORY_STYLES: Record<Exclude<BlogCategory, 'All'>, { bg: string; text: string }> = {
   Corporate:   { bg: 'rgba(45,212,191,0.16)',  text: '#0d9488' },
@@ -350,6 +351,25 @@ function TalkToExpertsCard() {
   )
 }
 
+/* ------------------------- Related Emithran pages ------------------------- */
+
+function RelatedSolutions({ slug }: { slug: string }) {
+  const links = relatedLinksForBlog(slug)
+  return (
+    <section aria-labelledby="related-emithran-heading" className="mb-12 p-5 sm:p-6 rounded-xl" style={{ background: 'rgba(13,148,136,0.05)', border: '1px solid rgba(13,148,136,0.12)' }}>
+      <h2 id="related-emithran-heading" className="font-bold text-base sm:text-lg mb-3" style={{ color: '#0f1b2d' }}>Related on Emithran</h2>
+      <ul className="space-y-3">
+        {links.map(link => (
+          <li key={link.href}>
+            <Link href={link.href} className="font-semibold text-sm hover:underline" style={{ color: '#0d9488' }}>{link.label}</Link>
+            <p className="text-sm mt-0.5" style={{ color: 'rgba(15,27,45,0.6)' }}>{link.description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
 /* ----------------------------- Related articles ----------------------------- */
 
 function RelatedArticles({ posts }: { posts: BlogPost[] }) {
@@ -681,6 +701,8 @@ export default function BlogPostPage({ post, content }: { post: BlogPost; conten
             <ShareBar post={post} />
 
             <div ref={contentRef} className="blog-content mb-12" dangerouslySetInnerHTML={{ __html: content.content }} />
+
+            <RelatedSolutions slug={post.slug} />
 
             {content.faqs && content.faqs.length > 0 && <FAQSection faqs={content.faqs} />}
           </article>

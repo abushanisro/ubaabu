@@ -5,7 +5,7 @@ import { ogImages } from '@/lib/seo'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 export const metadata: Metadata = {
-  title: 'BOM Management Software - Emithran',
+  title: 'BOM Management Software',
   description:
     'BOM management software for precision manufacturing OEMs. Validate, collaborate, and cost your bills of materials with AI-powered intelligence. Used in defence, aerospace, and space.',
   keywords: [

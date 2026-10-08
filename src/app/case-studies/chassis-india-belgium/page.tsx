@@ -5,7 +5,7 @@ import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
 import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
 export const metadata = {
-  title: 'Chassis Should-Cost: India vs Belgium | Emithran',
+  title: 'Chassis Should-Cost: India vs Belgium',
   description: 'How Emithran identified a 38% total landed cost saving for HGV chassis rails by benchmarking India roll forming against Belgium manufacturing, including full DDP logistics from Chennai to Scotland.',
   alternates: { canonical: '/case-studies/chassis-india-belgium' },
 }

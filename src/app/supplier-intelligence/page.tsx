@@ -7,7 +7,7 @@ import { ogImages } from '@/lib/seo'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 export const metadata: Metadata = {
-  title: 'Supplier Intelligence Platform India | Emithran',
+  title: 'Supplier Intelligence Platform India',
   description:
     "India's largest manufacturing supplier intelligence platform. 72,000+ verified suppliers across defence, aerospace, space, and precision manufacturing. Qualification scoring, risk assessment, and capability mapping.",
   keywords: [

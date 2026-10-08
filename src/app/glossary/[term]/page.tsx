@@ -16,7 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ term: str
   if (!item) return {}
 
   return {
-    title: item.title,
+    // item.title already carries the brand ("… | Emithran Glossary"); skip the root template.
+    title: { absolute: item.title },
     description: item.description,
     alternates: { canonical: `/glossary/${item.slug}` },
     openGraph: {

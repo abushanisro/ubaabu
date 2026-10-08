@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { CASE_STUDIES } from './caseStudyData'
+import { relatedLinksForCaseStudy } from '@/lib/internalLinks'
 
 /* ─────────────── types ─────────────── */
 interface Stat { label: string; value: string }
@@ -105,6 +106,31 @@ export function TagBadge({ type }: { type: 'Process' | 'Design' | 'Supplier' | '
     <span className={`shrink-0 rounded border px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide ${styles[type] ?? 'bg-gray-50 text-gray-600 border-gray-100'}`}>
       {type}
     </span>
+  )
+}
+
+/* ─────────────── Related solutions ─────────────── */
+function RelatedSolutions({ slug }: { slug: string }) {
+  const links = relatedLinksForCaseStudy(slug)
+  return (
+    <section className="border-t border-black/[0.07] bg-[#f8fafb] py-10 md:py-12">
+      <div className="mx-auto max-w-[1280px] px-6 md:px-12">
+        <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#0d9488]">Related solutions</p>
+        <h2 className="mb-6 text-xl font-bold tracking-tight text-[#0f1b2d]">Where this analysis fits on the platform</h2>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="group rounded-2xl border border-black/[0.07] bg-white p-5 shadow-sm transition-all hover:border-[#0d9488]/30 hover:shadow-md"
+            >
+              <h3 className="text-[14px] font-bold text-[#0f1b2d] group-hover:text-[#0d9488] transition-colors">{link.label}</h3>
+              <p className="mt-1.5 text-[12px] leading-relaxed text-black/50">{link.description}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }
 
@@ -263,6 +289,9 @@ export default function CaseStudyShell({
           </div>
         </div>
       </div>
+
+      {/* ── Related solutions ── */}
+      <RelatedSolutions slug={slug} />
 
       {/* ── Related studies ── */}
       <RelatedStudies slug={slug} />

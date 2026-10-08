@@ -2,7 +2,7 @@
 
 export const metadata = {
   alternates: { canonical: '/terms' },
-  title: 'Terms of Service | Emithran',
+  title: 'Terms of Service',
   description:
     'The terms and conditions governing your access to and use of the Emithran manufacturing intelligence platform.',
 }

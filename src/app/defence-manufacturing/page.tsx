@@ -7,7 +7,7 @@ import { ogImages } from '@/lib/seo'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 export const metadata: Metadata = {
-  title: 'Defence Manufacturing Software India | Emithran',
+  title: 'Defence Manufacturing Software India',
   description:
     'Manufacturing intelligence software for India\'s defence OEMs and DRDO supply chain. BOM management, should-cost analysis, and supplier qualification built for ITAR-sensitive, mission-critical programmes.',
   keywords: [

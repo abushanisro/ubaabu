@@ -7,7 +7,7 @@ import { ogImages } from '@/lib/seo'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 export const metadata: Metadata = {
-  title: 'Aerospace Cost Engineering Software India | Emithran',
+  title: 'Aerospace Cost Engineering Software India',
   description:
     "Aerospace cost engineering software for India's aviation OEMs, MRO providers, and space manufacturers. Should-cost modelling, BOM management, and supplier intelligence for AS9100-certified supply chains.",
   keywords: [

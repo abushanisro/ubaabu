@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import SeoLandingPage from '@/components/seo/SeoLandingPage'
 import { SEO_LANDING_PAGES } from '@/components/seo/seoRoadmapData'
+import { stripBrandSuffix } from '@/lib/seo'
 import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!page) return {}
 
   return {
-    title: page.title,
+    title: stripBrandSuffix(page.title),
     description: page.description,
     keywords: page.keywords,
     alternates: {

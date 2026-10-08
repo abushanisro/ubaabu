@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { DE_PAGES } from '@/components/seo/seoRoadmapData'
 
 export const metadata: Metadata = {
-  title: 'Emithran Deutschland Pilot',
+  title: { absolute: 'Emithran Deutschland Pilot' },
   description: 'German-language pilot hub for Emithran should-cost analysis, supplier intelligence, and manufacturing benchmarking.',
   alternates: { canonical: '/de' },
 }

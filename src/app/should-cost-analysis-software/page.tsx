@@ -5,7 +5,7 @@ import { ogImages } from '@/lib/seo'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 export const metadata: Metadata = {
-  title: 'Should-Cost Analysis Software - Emithran',
+  title: 'Should-Cost Analysis Software',
   description:
     'Should-cost analysis software for defence, aerospace, and precision manufacturing OEMs. Build bottom-up cost models, close supplier gaps, and negotiate with data — not gut feel.',
   keywords: [

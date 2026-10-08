@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'You\'re Pre-booked | Emithran',
+  title: 'You\'re Pre-booked',
   description: 'You have reserved early access to the Emithran Vendor Management app.',
   robots: { index: false, follow: true },
   alternates: { canonical: '/pre-book/thank-you' },

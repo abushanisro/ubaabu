@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const hasEnCounterpart = page.slug !== 'defence-aerospace-manufacturing'
 
   return {
-    title: page.title,
+    // page.title already carries the brand; skip the root "| Emithran" template.
+    title: { absolute: page.title },
     description: page.description,
     alternates: {
       canonical: `/de/${page.slug}`,

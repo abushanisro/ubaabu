@@ -26,8 +26,19 @@ const resourceLinks: FooterLink[] = [
   { title: "FAQ",            href: "/faq" },
 ];
 
+const solutionLinks: FooterLink[] = [
+  { title: "Should-Cost Analysis",       href: "/should-cost-analysis-software" },
+  { title: "BOM Management",             href: "/bom-management-software" },
+  { title: "Supplier Intelligence",      href: "/supplier-intelligence" },
+  { title: "Defence Manufacturing",      href: "/defence-manufacturing" },
+  { title: "Aerospace Cost Engineering", href: "/aerospace-cost-engineering" },
+  { title: "Emithran vs aPriori",        href: "/emithran-vs-apriori" },
+  { title: "Emithran vs Costimator",     href: "/emithran-vs-costimator" },
+];
+
 const footerLinks = [
   { title: "Platform",   links: platformLinks,  useNextLink: true },
+  { title: "Solutions",  links: solutionLinks,  useNextLink: true },
   { title: "Resources",  links: resourceLinks,  useNextLink: true },
   {
     title: "Company",
@@ -195,8 +206,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Platform · Resources · Company (3-col grid on all sizes) ── */}
-          <div className="lg:col-span-3 grid grid-cols-3 gap-4 sm:gap-8 lg:gap-10">
+          {/* ── Platform · Solutions · Resources · Company ── */}
+          <div className="md:col-span-2 md:order-3 lg:order-none lg:col-span-3 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-x-6 lg:gap-y-8 xl:gap-6">
             {footerLinks.map((section) => (
               <div key={section.title}>
                 <h4 className="text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest mb-4 sm:mb-5">
@@ -228,7 +239,7 @@ export default function Footer() {
           </div>
 
           {/* ── Subscribe (right side) ── */}
-          <div className="lg:col-span-2">
+          <div className="md:order-2 lg:order-none lg:col-span-2">
             <NewsletterForm />
           </div>
         </div>

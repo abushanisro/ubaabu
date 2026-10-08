@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 const PUBLISHED = 'June 2026'
 
 export const metadata: Metadata = {
-  title: 'State of Manufacturing Cost Intelligence 2026 | Emithran',
+  title: 'State of Manufacturing Cost Intelligence 2026',
   description:
     'Original research from completed should-cost and teardown engagements: landed-cost arbitrage between India and Europe, material substitution savings, component-level cost concentration, and PCBA cost benchmarking.',
   keywords: [

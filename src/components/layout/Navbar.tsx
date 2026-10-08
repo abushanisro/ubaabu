@@ -24,6 +24,11 @@ const items: NavItem[] = [
     href: '/solutions',
     children: [
       { label: 'Solutions', href: '/solutions' },
+      { label: 'Should-Cost Analysis', href: '/should-cost-analysis-software' },
+      { label: 'BOM Management', href: '/bom-management-software' },
+      { label: 'Supplier Intelligence', href: '/supplier-intelligence' },
+      { label: 'Defence Manufacturing', href: '/defence-manufacturing' },
+      { label: 'Aerospace Cost Engineering', href: '/aerospace-cost-engineering' },
       { label: 'Engineering Support', href: '/products/engineering-support' },
       { label: 'Training', href: '/products/training' },
     ],
@@ -50,6 +55,8 @@ const items: NavItem[] = [
     children: [
       { label: 'Blog', href: '/blog' },
       { label: 'Case Studies', href: '/case-studies' },
+      { label: 'Emithran vs aPriori', href: '/emithran-vs-apriori' },
+      { label: 'Emithran vs Costimator', href: '/emithran-vs-costimator' },
       { label: 'FAQ', href: '/faq' },
     ],
   },

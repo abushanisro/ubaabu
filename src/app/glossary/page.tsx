@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { GLOSSARY_TERMS } from '@/components/seo/seoRoadmapData'
 
 export const metadata: Metadata = {
-  title: 'Manufacturing SEO Glossary | Emithran',
+  title: 'Manufacturing Cost & Sourcing Glossary',
   description: 'Glossary of manufacturing intelligence, should-cost, BOM, sourcing, procurement, and supplier intelligence terms.',
   alternates: { canonical: '/glossary' },
 }

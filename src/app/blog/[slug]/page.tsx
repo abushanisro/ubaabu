@@ -4,6 +4,7 @@ import { BLOG_CONTENT } from '@/components/blog/blogContent'
 import BlogPostPage from '@/components/blog/BlogPostPage'
 import type { BlogPost } from '@/components/blog/blogData'
 import type { BlogPostContent } from '@/components/blog/blogContent'
+import { stripBrandSuffix } from '@/lib/seo'
 
 function buildRoadmapContent(post: BlogPost): BlogPostContent {
   return {
@@ -64,8 +65,8 @@ function buildRoadmapContent(post: BlogPost): BlogPostContent {
 <h2>Common mistakes</h2>
 <p>The most common mistake is treating this as a reporting project rather than an operating workflow. Dashboards help, but sourcing and engineering teams need structured evidence at the moment of decision. Another mistake is optimising for unit price while ignoring tooling, logistics, quality cost, certification risk, inventory, and supplier switching cost.</p>
 
-<h2>Where this fits in the roadmap</h2>
-<p>This article is part of Emithran's 12-month SEO execution roadmap for manufacturing intelligence. It supports the content cluster around should-cost analysis, BOM management, supplier intelligence, strategic sourcing, VAVE, spend analysis, and international manufacturing benchmarks.</p>
+<h2>Related topics</h2>
+<p>This article is part of Emithran's manufacturing intelligence library. It sits alongside our guides on should-cost analysis, BOM management, supplier intelligence, strategic sourcing, VAVE, spend analysis, and international manufacturing benchmarks.</p>
     `,
   }
 }
@@ -92,7 +93,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ogImage = `${siteUrl}/blog/${slug}/opengraph-image`
 
   return {
-    title,
+    title: stripBrandSuffix(title),
     description,
     keywords: seo?.tags,
     authors: [{ name: post.author.name, url: `${siteUrl}/about` }],
