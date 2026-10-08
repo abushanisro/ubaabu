@@ -24,7 +24,6 @@ const items: NavItem[] = [
     href: '/solutions',
     children: [
       { label: 'Solutions', href: '/solutions' },
-      { label: 'Expert Engineering Support', href: '/expert-engineering-support' },
       { label: 'Engineering Support', href: '/products/engineering-support' },
       { label: 'Training', href: '/products/training' },
     ],

@@ -172,6 +172,16 @@ export default function ExpertEngineeringSupportPage() {
               </p>
             </div>
           </div>
+
+          <div className="text-center">
+            <Link
+              href="/request-demo?source=expert-engineering-support&cta=book-demo"
+              className="inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90 shadow-lg"
+              style={{ background: 'linear-gradient(135deg, oklch(0.68 0.13 180), oklch(0.55 0.16 185))' }}
+            >
+              Book Demo
+            </Link>
+          </div>
         </div>
       </section>
 
