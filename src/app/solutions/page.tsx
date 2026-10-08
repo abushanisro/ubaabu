@@ -7,6 +7,7 @@ import VaveSection      from '@/components/solutions/sections/VaveSection'
 import TrackingSection from '@/components/solutions/sections/TrackingSection'
 
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'Solutions | Manufacturing Intelligence Value Chain',
   description:
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/solutions' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Emithran Solutions - End-to-End Manufacturing Intelligence',
     description: 'From design to delivery: AI-powered solutions for cost, quality, supplier, and risk management.',
     url: '/solutions', type: 'website', siteName: 'Emithran',

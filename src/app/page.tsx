@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Manufacturing Intelligence Platform India | Emithran',
     description: 'AI-powered BOM management, should-cost analysis, and supplier intelligence for defence, aerospace, and space OEMs in India. 99.4% BOM accuracy.',
     url: '/',
@@ -50,6 +50,7 @@ import FinalCTA from '@/components/sections/FinalCTA'
 import FAQ from '@/components/sections/FAQ'
 import VendorManagementApp from '@/components/sections/VendorManagementApp'
 import PlatformPartnership from '@/components/sections/PlatformPartnership'
+import { ogImages } from '@/lib/seo'
 export default function App() {
   return (
     <>

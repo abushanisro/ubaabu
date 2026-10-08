@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/emithran-vs-costimator' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Emithran vs Costimator: Cost Estimating Software Comparison',
     description: 'Manufacturing cost estimating, supplier intelligence, and BOM management compared side by side.',
     url: '/emithran-vs-costimator',

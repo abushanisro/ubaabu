@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/emithran-vs-dfma' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Emithran vs DFMA (Boothroyd Dewhurst): Software Comparison',
     description: 'Design for manufacture and assembly, should-costing, and supplier data compared side by side for India-focused and global manufacturing teams.',
     url: '/emithran-vs-dfma',

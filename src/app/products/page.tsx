@@ -11,6 +11,7 @@ import ShipmentHubSection from '@/components/products/ShipmentHubSection'
 import CostBenchmarkerSection from '@/components/products/CostBenchmarkerSection'
 
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -141,7 +142,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/products' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Emithran Products - Full Manufacturing Intelligence Suite',
     description: 'BOM Composer, Should-Cost, Supplier Radar, VAVE Studio, Quality Guard - all connected on one platform.',
     url: '/products', type: 'website', siteName: 'Emithran',

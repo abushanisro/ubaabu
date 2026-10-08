@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import PrintButton from './PrintButton'
+import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 const PUBLISHED = 'June 2026'
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/state-of-manufacturing-cost-intelligence-2026' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'State of Manufacturing Cost Intelligence 2026 | Emithran',
     description: 'Original research from completed should-cost and teardown engagements across automotive, electronics, and commercial vehicle programmes.',
     url: '/state-of-manufacturing-cost-intelligence-2026',

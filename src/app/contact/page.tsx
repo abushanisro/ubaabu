@@ -1,6 +1,7 @@
 import ContactPage from '@/components/contact/ContactPage'
 
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'Contact Emithran - Talk to a Manufacturing Expert',
   description:
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/contact' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Contact Emithran - Manufacturing Intelligence Experts',
     description: 'Talk to our team about manufacturing intelligence for your programme.',
     url: '/contact', type: 'website', siteName: 'Emithran',

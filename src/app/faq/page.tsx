@@ -2,6 +2,7 @@ import FAQPage from '@/components/faq/FAQPage'
 import { FAQ_CATEGORIES } from '@/components/faq/faqData'
 
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'FAQ — Should-Cost, BOM & Supplier Intelligence',
   description:
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/faq' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Emithran FAQ - Manufacturing Intelligence Questions Answered',
     description: 'Everything you need to know about Emithran\'s manufacturing intelligence platform.',
     url: '/faq', type: 'website', siteName: 'Emithran',

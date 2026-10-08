@@ -4,6 +4,7 @@ import PricingFAQs from '@/components/pricing/PricingFAQs'
 import PricingCTA from '@/components/pricing/PricingCTA'
 
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'Pricing - Outcome-Based Manufacturing Intelligence Plans',
   description:
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/pricing' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Emithran Pricing - No Per-Seat Fees, No Hidden Costs',
     description: 'Transparent, outcome-based plans for manufacturers of every scale.',
     url: '/pricing', type: 'website', siteName: 'Emithran',

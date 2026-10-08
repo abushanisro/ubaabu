@@ -1,6 +1,7 @@
 import BlogPage from '@/components/blog/BlogPage'
 
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'Blog - Manufacturing Intelligence Insights from Emithran',
   description:
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/blog' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Emithran Blog - Manufacturing Intelligence Insights',
     description: 'Deep-dive articles on should-cost, BOM, supplier intelligence, and AI in manufacturing.',
     url: '/blog', type: 'website', siteName: 'Emithran',

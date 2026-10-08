@@ -7,6 +7,7 @@ import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import ChatlingController from '@/components/ui/chatling-controller'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import SiteJsonLd from '@/components/seo/SiteJsonLd'
+import { OG_IMAGE, ogImages, twitterImages } from '@/lib/seo'
 
 const sora = Sora({
   weight: ['400', '500', '600', '700'],
@@ -39,7 +40,7 @@ const jsonLd = [
       width: 180,
       height: 45,
     },
-    image: `${siteUrl}/assets/meta/emithran-og.jpg`,
+    image: `${siteUrl}${OG_IMAGE.url}`,
     description:
       'End-to-end manufacturing intelligence platform for space, defence, aerospace, and precision manufacturing companies in India. AI-powered BOM management, should-cost analysis, and supplier intelligence.',
     foundingDate: '2023',
@@ -179,6 +180,7 @@ export const metadata: Metadata = {
     siteName: 'Emithran',
     locale: 'en_US',
     type: 'website',
+    images: ogImages,
   },
   twitter: {
     card: 'summary_large_image',
@@ -187,6 +189,7 @@ export const metadata: Metadata = {
     title: 'Emithran - Manufacturing Intelligence Platform',
     description:
       'AI-powered BOM management, should-cost analysis, and supplier intelligence for space, defence, and aerospace manufacturing in India.',
+    images: twitterImages,
   },
   other: {
     // Theme

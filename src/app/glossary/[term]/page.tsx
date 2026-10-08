@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { GLOSSARY_TERMS } from '@/components/seo/seoRoadmapData'
+import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ term: str
     description: item.description,
     alternates: { canonical: `/glossary/${item.slug}` },
     openGraph: {
-      images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+      images: ogImages,
       title: item.title,
       description: item.description,
       url: `/glossary/${item.slug}`,

@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { DE_PAGES } from '@/components/seo/seoRoadmapData'
+import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         : { de: `/de/${page.slug}`, 'x-default': `/de/${page.slug}` },
     },
     openGraph: {
-      images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+      images: ogImages,
       title: page.title,
       description: page.description,
       url: `/de/${page.slug}`,

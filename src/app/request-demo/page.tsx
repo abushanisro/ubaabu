@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import RequestDemoPage from '@/components/request-demo/RequestDemoPage'
+import { ogImages } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Request a Demo — Emithran Manufacturing Intelligence',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/request-demo' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Request a Demo — Emithran',
     description: 'Book a 30-minute walkthrough of Emithran\'s manufacturing intelligence platform.',
     url: '/request-demo',

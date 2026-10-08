@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     languages: { en: '/should-cost-analysis-software', de: '/de/should-cost-analysis-software', 'x-default': '/should-cost-analysis-software' },
   },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Should-Cost Analysis Software — Emithran',
     description: 'Build bottom-up should-cost models for any manufacturing process. Used by defence, aerospace, and precision manufacturing OEMs in India.',
     url: '/should-cost-analysis-software',

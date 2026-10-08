@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import ExpertEngineeringSupportPage from '@/components/expert-engineering-support/ExpertEngineeringSupportPage'
+import { ogImages } from '@/lib/seo'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: '/expert-engineering-support' },
   openGraph: {
-    images: [{ url: '/assets/meta/emithran-og.jpg', width: 1200, height: 630, alt: 'Emithran - Manufacturing Intelligence Platform' }],
+    images: ogImages,
     title: 'Expert Engineering Support - Costing Engineers for Your Team | Emithran',
     description:
       'Emithran connects end-to-end manufacturing intelligence - automating 3D CAD feature analysis, cycle times, should-cost models, zero-based costing, and supplier nomination.',
