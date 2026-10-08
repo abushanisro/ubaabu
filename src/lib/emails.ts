@@ -20,7 +20,7 @@ function base(previewText: string, body: string, badge?: string) {
       .force-dark  { background-color: #0f1b2d !important; }
       .force-body  { background-color: #f4f6f9 !important; }
       .force-hdr   { background-color: #15191f !important; }
-      .force-pill  { background-color: #0d6b63 !important; }
+      .force-pill  { background-color: #0d6b63 !important; color: #ffffff !important; }
     }
   </style>
 </head>
@@ -84,24 +84,23 @@ function base(previewText: string, body: string, badge?: string) {
 function stepRow(n: number, text: string) {
   return `
   <tr>
-    <td style="padding:8px 0;vertical-align:top;width:28px;">
-      <div style="width:22px;height:22px;background:#9ca3af;border-radius:50%;text-align:center;line-height:22px;">
-        <span style="font-size:10px;font-weight:700;color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${n}</span>
-      </div>
+    <td style="padding:9px 0;vertical-align:top;width:34px;">
+      <table cellpadding="0" cellspacing="0" role="presentation"><tr>
+        <td width="26" height="26" align="center" valign="middle" bgcolor="#0d6b63" class="force-pill" style="width:26px;height:26px;background:#0d6b63;border-radius:50%;box-shadow:0 0 0 4px #d5ebe8;font-size:12px;font-weight:700;line-height:26px;color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${n}</td>
+      </tr></table>
     </td>
-    <td style="padding:8px 0 8px 10px;font-size:13.5px;color:#374151;line-height:1.55;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${text}</td>
+    <td style="padding:9px 0 9px 8px;font-size:13.5px;color:#1f2937;line-height:1.55;vertical-align:middle;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${text}</td>
   </tr>`
 }
 
-function infoRow(icon: string, label: string, value: string) {
+function infoRow(icon: 'calendar' | 'clock' | 'timer' | 'video', label: string, value: string) {
   return `
   <tr>
-    <td style="padding:14px 20px;border-bottom:1px solid #e5e7eb;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#111827;white-space:nowrap;vertical-align:middle;width:130px;">
-      ${label}
+    <td style="padding:14px 0 14px 20px;border-bottom:1px solid #e5e7eb;width:24px;vertical-align:middle;">
+      <img src="${SITE}/assets/email/${icon}.png" width="20" height="20" alt="" style="display:block;width:20px;height:20px;border:0;">
     </td>
-    <td style="padding:14px 20px;border-bottom:1px solid #e5e7eb;font-size:14px;color:#111827;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-      ${value}
-    </td>
+    <td style="padding:14px 12px 14px 10px;border-bottom:1px solid #e5e7eb;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#111827;white-space:nowrap;vertical-align:middle;width:100px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${label}</td>
+    <td style="padding:14px 20px 14px 0;border-bottom:1px solid #e5e7eb;font-size:14px;color:#111827;font-weight:500;vertical-align:middle;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">${value}</td>
   </tr>`
 }
 
@@ -208,10 +207,10 @@ export function demoConfirmationEmail(firstName: string, date: string, time: str
             <p style="margin:0;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">Session details</p>
           </div>
           <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;">
-            ${infoRow('📅', 'Date', formattedDate)}
-            ${infoRow('🕐', 'Time', `${time} IST`)}
-            ${infoRow('⏱', 'Duration', '30 minutes')}
-            ${infoRow('📍', 'Format', 'Live video walkthrough')}
+            ${infoRow('calendar', 'Date', formattedDate)}
+            ${infoRow('clock', 'Time', `${time} IST`)}
+            ${infoRow('timer', 'Duration', '30 minutes')}
+            ${infoRow('video', 'Format', 'Live video walkthrough')}
           </table>
         </div>
       </td></tr>
@@ -222,7 +221,7 @@ export function demoConfirmationEmail(firstName: string, date: string, time: str
       <tr><td>
 
         <!-- what to expect -->
-        <div style="background:#f8fafc;border:1px solid #e8edf4;border-radius:12px;padding:22px 24px;margin-bottom:24px;">
+        <div style="background:#f8fafc;border:1px solid #e8edf4;border-left:4px solid #0d6b63;border-radius:12px;padding:22px 24px;margin-bottom:24px;">
           <p style="margin:0 0 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#0d9488;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">What to expect</p>
           <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
             ${stepRow(1, 'We\'ll review your company profile and prepare a tailored demo')}
