@@ -1,4 +1,4 @@
-﻿import type { NextConfig } from 'next'
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -24,6 +24,8 @@ const nextConfig: NextConfig = {
       { source: '/favicon.ico', destination: '/assets/favicon/favicon.ico', permanent: false },
       { source: '/should-cost-analysis', destination: '/should-cost-analysis-software', permanent: true },
       { source: '/bom-management', destination: '/bom-management-software', permanent: true },
+      { source: '/emuski', destination: '/expert-engineering-support', permanent: true },
+      { source: '/ai-for-manufacturing', destination: '/expert-engineering-support', permanent: true },
     ]
   },
   async headers() {

@@ -11,6 +11,7 @@ type FooterLink = {
 
 const platformLinks: FooterLink[] = [
   { title: "Products",             href: "/products" },
+  { title: "Expert Engineering Support", href: "/expert-engineering-support" },
   { title: "Engineering Support",  href: "/products/engineering-support" },
   { title: "Training",             href: "/products/training" },
   { title: "Solutions",            href: "/solutions" },

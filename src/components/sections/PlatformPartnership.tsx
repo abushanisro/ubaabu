@@ -7,10 +7,10 @@ const light = Inter({ weight: ['300'], subsets: ['latin'], display: 'swap' })
 
 const CARDS = [
   {
-    image: '/assets/home/expertegineerign%20suport.png',
-    title: 'Expert Engineering Support',
-    body: 'A dedicated costing engineer is deployed with your team, working directly with engineering, sourcing, and procurement to build, validate, and refine costing models using your real parts, BOMs, processes, suppliers, and manufacturing data.',
-    href: '/why-emithran',
+    image: '/assets/api-test-style.png',
+    title: 'API & Data Pipeline',
+    body: 'Plug Emithran costing, machine and labour rates, RFQ and supplier intelligence into your ERP or procurement tools, or have our developers and costing engineers build custom workflows, formulas and dashboards with you.',
+    href: '/api',
   },
   {
     image: '/assets/home/customize.png',
@@ -20,9 +20,9 @@ const CARDS = [
   },
   {
     image: '/assets/home/npdhuman1.png',
-    title: 'In-house NPD Centre - EMUSKI',
-    body: 'Backed by EMUSKI, our in-house NPD innovation centre and live manufacturing plant, Emithran is built from real engineering and manufacturing experience across precision programmes.',
-    href: '/emuski',
+    title: 'Expert Engineering Support',
+    body: 'A dedicated costing engineer is deployed with your team, working directly with engineering, sourcing, and procurement to build, validate, and refine costing models using your real parts, BOMs, processes, suppliers, and manufacturing data.',
+    href: '/expert-engineering-support',
   },
 ]
 
@@ -52,8 +52,14 @@ export default function PlatformPartnership() {
               href={href}
               className="group flex flex-col rounded-2xl p-5 transition-colors hover:bg-white/10"
             >
-              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-xl">
-                <Image src={image} alt={title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 400px" />
+              <div className={`relative mb-5 w-full overflow-hidden rounded-xl h-44`}>
+                <Image
+                  src={image}
+                  alt={title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 400px"
+                />
               </div>
               <h3 className="mb-3 flex items-center gap-1.5 text-[17px] font-bold text-white">
                 {title}
