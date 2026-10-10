@@ -737,8 +737,6 @@ const germanPilotFaqs: SeoLandingPage['faqs'] = [
 // import this single list so adding a new comparison page only requires one edit here plus
 // the new page directory itself.
 export const COMPARISON_PAGE_SLUGS = [
-  'emithran-vs-apriori',
-  'emithran-vs-costimator',
   'emithran-vs-dfma',
   'emithran-vs-tset',
   'emithran-vs-teamcenter',
@@ -919,8 +917,8 @@ const glossaryRelatedLinks: Record<string, { href: string; label: string }[]> = 
   'vendor negotiation': [{ href: '/should-cost-analysis-software', label: 'Should-Cost Analysis Software' }],
   'AI sourcing': [{ href: '/procurement-intelligence', label: 'Procurement Intelligence' }],
   'global strategic sourcing': [{ href: '/strategic-sourcing-software', label: 'Strategic Sourcing Software' }],
-  'aPriori alternative': [{ href: '/emithran-vs-apriori', label: 'Emithran vs aPriori' }],
-  'Costimator alternative': [{ href: '/emithran-vs-costimator', label: 'Emithran vs Costimator' }],
+  'aPriori alternative': [{ href: '/blog/apriori-vs-emithran-comparison', label: 'aPriori vs Emithran: comparison guide' }],
+  'Costimator alternative': [{ href: '/blog/costimator-alternatives', label: 'Costimator alternatives guide' }],
   'DFMA alternative': [{ href: '/emithran-vs-dfma', label: 'Emithran vs DFMA' }],
   'Tset alternative': [{ href: '/emithran-vs-tset', label: 'Emithran vs Tset' }],
   'Teamcenter alternative': [{ href: '/emithran-vs-teamcenter', label: 'Emithran vs Siemens Teamcenter' }],

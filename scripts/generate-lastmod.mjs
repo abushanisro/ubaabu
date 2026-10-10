@@ -45,8 +45,6 @@ const ROUTES = {
   '/terms': ['src/app/terms/page.tsx', 'src/components/legal/TermsPage.tsx'],
   '/cookies': ['src/app/cookies/page.tsx', 'src/components/legal/CookiesPage.tsx'],
   '/dpa': ['src/app/dpa/page.tsx', 'src/components/legal/DPAPage.tsx'],
-  '/emithran-vs-apriori': ['src/app/emithran-vs-apriori'],
-  '/emithran-vs-costimator': ['src/app/emithran-vs-costimator'],
   '/emithran-vs-dfma': ['src/app/emithran-vs-dfma'],
   '/emithran-vs-tset': ['src/app/emithran-vs-tset'],
   '/emithran-vs-teamcenter': ['src/app/emithran-vs-teamcenter'],

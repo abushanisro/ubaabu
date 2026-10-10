@@ -32,8 +32,6 @@ const solutionLinks: FooterLink[] = [
   { title: "Supplier Intelligence",      href: "/supplier-intelligence" },
   { title: "Defence Manufacturing",      href: "/defence-manufacturing" },
   { title: "Aerospace Cost Engineering", href: "/aerospace-cost-engineering" },
-  { title: "Emithran vs aPriori",        href: "/emithran-vs-apriori" },
-  { title: "Emithran vs Costimator",     href: "/emithran-vs-costimator" },
 ];
 
 const footerLinks = [

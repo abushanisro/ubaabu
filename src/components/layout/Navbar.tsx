@@ -55,8 +55,6 @@ const items: NavItem[] = [
     children: [
       { label: 'Blog', href: '/blog' },
       { label: 'Case Studies', href: '/case-studies' },
-      { label: 'Emithran vs aPriori', href: '/emithran-vs-apriori' },
-      { label: 'Emithran vs Costimator', href: '/emithran-vs-costimator' },
       { label: 'FAQ', href: '/faq' },
     ],
   },

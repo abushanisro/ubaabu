@@ -53,12 +53,6 @@ export default function HomeExploreLinks() {
             </Link>
           ))}
         </div>
-        <p className="mt-6 text-[13px] text-black/55">
-          Comparing tools?{' '}
-          <Link href="/emithran-vs-apriori" className="font-semibold text-[#0d9488] hover:underline">Emithran vs aPriori</Link>
-          {' · '}
-          <Link href="/emithran-vs-costimator" className="font-semibold text-[#0d9488] hover:underline">Emithran vs Costimator</Link>
-        </p>
       </div>
     </section>
   )
