@@ -4,8 +4,10 @@
 import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
 import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
+import { pageOpenGraph } from '@/lib/seo'
 export const metadata = {
   alternates: { canonical: '/case-studies/exhaust-system' },
+  openGraph: pageOpenGraph("/case-studies/exhaust-system", "Should Costing for Exhaust System | Emithran Case Study", "How Emithran identified a £1.3m annual cost saving for a high-performance automotive OEM through should-cost analysis of an exhaust assembly."),
   title: { absolute: 'Should Costing for Exhaust System | Emithran Case Study' },
   description: 'How Emithran identified a £1.3m annual cost saving for a high-performance automotive OEM through should-cost analysis of an exhaust assembly.',
 }

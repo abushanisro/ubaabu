@@ -4,10 +4,12 @@
 import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
 import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
+import { pageOpenGraph } from '@/lib/seo'
 export const metadata = {
   title: 'HGV Chassis Ladder Frame Should-Cost',
   description: 'How Emithran identified a 38% manufacturing cost reduction for chassis rails by comparing India vs Northern Europe production for an electric HGV OEM.',
   alternates: { canonical: '/case-studies/hgv-chassis' },
+  openGraph: pageOpenGraph("/case-studies/hgv-chassis", "HGV Chassis Ladder Frame Should-Cost | Emithran", "How Emithran identified a 38% manufacturing cost reduction for chassis rails by comparing India vs Northern Europe production for an electric HGV OEM."),
 }
 
 const study = CASE_STUDIES.find((s) => s.slug === 'hgv-chassis')!

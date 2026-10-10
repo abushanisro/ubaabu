@@ -4,10 +4,12 @@
 import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
 import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
+import { pageOpenGraph } from '@/lib/seo'
 export const metadata = {
   title: 'LCV Rear Axle Should-Cost Analysis',
   description: 'Full assembly should cost for a 2-tonne LCV rear drive axle - 51.2 kg, 40,000 units/year, India manufacturing. Drive Head / Carrier at 46% is the primary cost driver.',
   alternates: { canonical: '/case-studies/rear-axle-should-cost' },
+  openGraph: pageOpenGraph("/case-studies/rear-axle-should-cost", "LCV Rear Axle Should-Cost Analysis | Emithran", "Full assembly should cost for a 2-tonne LCV rear drive axle - 51.2 kg, 40,000 units/year, India manufacturing. Drive Head / Carrier at 46% is the primary cost driver."),
 }
 
 const subAssemblies = [

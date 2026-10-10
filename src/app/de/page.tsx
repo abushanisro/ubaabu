@@ -2,10 +2,12 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { DE_PAGES } from '@/components/seo/seoRoadmapData'
 
+import { pageOpenGraph } from '@/lib/seo'
 export const metadata: Metadata = {
   title: { absolute: 'Emithran Deutschland Pilot' },
   description: 'German-language pilot hub for Emithran should-cost analysis, supplier intelligence, and manufacturing benchmarking.',
   alternates: { canonical: '/de' },
+  openGraph: pageOpenGraph("/de", "Emithran Deutschland Pilot", "German-language pilot hub for Emithran should-cost analysis, supplier intelligence, and manufacturing benchmarking."),
 }
 
 export default function GermanPilotPage() {

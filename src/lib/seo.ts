@@ -27,3 +27,20 @@ export const twitterImages = [OG_IMAGE.url]
 export function stripBrandSuffix(title: string): string {
   return title.replace(/\s*\|\s*Emithran(?: Blog)?\s*$/i, '')
 }
+
+/**
+ * Page-level Open Graph block. Next.js replaces (does not merge) the layout's `openGraph`
+ * when a page defines its own, so a page that only wants a correct `og:url` must supply the
+ * rest too. Pass the page's own path, title (as shown in <title>) and description.
+ */
+export function pageOpenGraph(path: string, title: string, description: string) {
+  return {
+    images: ogImages,
+    title,
+    description,
+    url: path,
+    type: 'website',
+    siteName: 'Emithran',
+    locale: 'en_US',
+  } as const
+}

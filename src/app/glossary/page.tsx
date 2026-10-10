@@ -2,10 +2,12 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { GLOSSARY_TERMS } from '@/components/seo/seoRoadmapData'
 
+import { pageOpenGraph } from '@/lib/seo'
 export const metadata: Metadata = {
   title: 'Manufacturing Cost & Sourcing Glossary',
   description: 'Glossary of manufacturing intelligence, should-cost, BOM, sourcing, procurement, and supplier intelligence terms.',
   alternates: { canonical: '/glossary' },
+  openGraph: pageOpenGraph("/glossary", "Manufacturing Cost & Sourcing Glossary | Emithran", "Glossary of manufacturing intelligence, should-cost, BOM, sourcing, procurement, and supplier intelligence terms."),
 }
 
 export default function GlossaryPage() {

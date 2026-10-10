@@ -4,10 +4,12 @@
 import { CASE_STUDIES } from '@/components/case-studies/caseStudyData'
 import { buildCaseStudyArticleJsonLd } from '@/components/seo/caseStudyJsonLd'
 
+import { pageOpenGraph } from '@/lib/seo'
 export const metadata = {
   title: 'Rear View Mirror BOM Should-Cost',
   description: 'Full BOM should cost analysis for a rear view mirror assembly across 5 manufacturing processes - injection moulding, hot forging, cold forming, compression moulding and laser cutting.',
   alternates: { canonical: '/case-studies/rear-view-mirror' },
+  openGraph: pageOpenGraph("/case-studies/rear-view-mirror", "Rear View Mirror BOM Should-Cost | Emithran", "Full BOM should cost analysis for a rear view mirror assembly across 5 manufacturing processes - injection moulding, hot forging, cold forming, compression moulding and laser cutting."),
 }
 
 const parts = [
