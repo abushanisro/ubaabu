@@ -5,6 +5,13 @@ import BlogPostPage from '@/components/blog/BlogPostPage'
 import type { BlogPost } from '@/components/blog/blogData'
 import type { BlogPostContent } from '@/components/blog/blogContent'
 import { stripBrandSuffix } from '@/lib/seo'
+import { parseDisplayDate } from '@/lib/lastModified'
+
+// Posts store display dates ("July 1, 2026"); schema.org and Open Graph expect ISO 8601.
+function isoDate(value: string): string {
+  const d = parseDisplayDate(value)
+  return Number.isNaN(d.getTime()) ? value : d.toISOString()
+}
 
 function buildRoadmapContent(post: BlogPost): BlogPostContent {
   return {
@@ -105,8 +112,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       url: `${siteUrl}/blog/${slug}`,
       siteName: 'Emithran',
       type: 'article',
-      publishedTime: post.date,
-      modifiedTime: post.date,
+      publishedTime: isoDate(post.date),
+      modifiedTime: isoDate(post.updated ?? post.date),
       authors: [post.author.name],
       tags: seo?.tags,
       images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
@@ -135,8 +142,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
-    datePublished: post.date,
-    dateModified: post.date,
+    datePublished: isoDate(post.date),
+    dateModified: isoDate(post.updated ?? post.date),
     author: {
       '@type': 'Person',
       name: post.author.name,

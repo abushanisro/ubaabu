@@ -33,16 +33,6 @@ const AEROSPACE: InternalLink = {
   label: 'Aerospace Cost Engineering',
   description: 'Should-cost modelling, AS9100 supplier qualification and multi-level aerospace BOMs.',
 }
-const VS_APRIORI: InternalLink = {
-  href: '/emithran-vs-apriori',
-  label: 'Emithran vs aPriori',
-  description: 'Feature-by-feature comparison of the two should-cost platforms.',
-}
-const VS_COSTIMATOR: InternalLink = {
-  href: '/emithran-vs-costimator',
-  label: 'Emithran vs Costimator',
-  description: 'How Emithran compares with Costimator for cost estimating.',
-}
 const CASE_STUDIES: InternalLink = {
   href: '/case-studies',
   label: 'Case Studies',
@@ -51,8 +41,8 @@ const CASE_STUDIES: InternalLink = {
 
 /** Blog slug -> related commercial pages. Unlisted slugs fall back to BLOG_DEFAULT. */
 const BLOG_LINKS: Record<string, InternalLink[]> = {
-  'apriori-vs-emithran-comparison': [VS_APRIORI, SHOULD_COST],
-  'costimator-alternatives': [VS_COSTIMATOR, SHOULD_COST],
+  'apriori-vs-emithran-comparison': [SHOULD_COST, BOM, CASE_STUDIES],
+  'costimator-alternatives': [SHOULD_COST, SUPPLIER, CASE_STUDIES],
   'best-should-cost-software-aerospace-manufacturers': [AEROSPACE, SHOULD_COST],
   'vave-in-aerospace-case-study': [AEROSPACE, SHOULD_COST],
   'best-supplier-intelligence-tools-defence-oems': [SUPPLIER, DEFENCE],

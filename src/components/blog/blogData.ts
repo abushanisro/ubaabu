@@ -7,6 +7,8 @@ export interface BlogPost {
   category: Exclude<BlogCategory, 'All'>
   author: { name: string; role: string; linkedin: string }
   date: string
+  /** Optional date of the last substantive edit; used for schema dateModified and the sitemap, not shown in the UI. */
+  updated?: string
   readTime: string
   image: string
   featured?: boolean
@@ -29,8 +31,8 @@ const ROADMAP_POST_ROWS: [string, string, string, BlogPost['category'], string, 
   ['digital-twin-in-manufacturing', 'Digital Twin in Manufacturing: Practical Use Cases', 'Where digital twins help manufacturing teams, and where cost, supplier, and BOM data still need structured workflows.', 'Industry', 'September 18, 2026', '8 min read'],
   ['spend-analysis-software-guide', 'Spend Analysis Software Guide for Manufacturing', 'How spend analysis software identifies leakage across commodities, suppliers, BOMs, programmes, and regions.', 'Product', 'October 2, 2026', '9 min read'],
   ['mro-spend-analysis', 'MRO Spend Analysis for Manufacturing Teams', 'A focused guide to MRO spend analysis, tail spend visibility, supplier consolidation, and operational cost control.', 'Engineering', 'October 9, 2026', '7 min read'],
-  ['what-is-vave', 'What Is VAVE? Value Analysis and Value Engineering Guide', 'A full guide to VAVE for product, procurement, and manufacturing teams looking to reduce cost without weakening performance.', 'Engineering', 'October 16, 2026', '10 min read'],
-  ['vave-in-aerospace-case-study', 'VAVE in Aerospace: Cost Reduction Case Study', 'How aerospace teams can use value engineering, component substitution, and should-cost analysis to reduce unit cost.', 'Industry', 'October 23, 2026', '8 min read'],
+  ['what-is-vave', 'What Is VAVE? Value Analysis and Value Engineering Guide', 'A full guide to VAVE for product, procurement, and manufacturing teams looking to reduce cost without weakening performance.', 'Engineering', 'July 4, 2026', '10 min read'],
+  ['vave-in-aerospace-case-study', 'VAVE in Aerospace: Cost Reduction Case Study', 'How aerospace teams can use value engineering, component substitution, and should-cost analysis to reduce unit cost.', 'Industry', 'July 4, 2026', '8 min read'],
   ['vendor-negotiation-should-cost', 'Vendor Negotiation with Should-Cost Data', 'How sourcing teams can use should-cost models to move negotiations from percentage demands to evidence-based cost discussions.', 'Engineering', 'November 27, 2026', '8 min read'],
   ['ai-sourcing-software-guide', 'AI Sourcing Software Guide for Manufacturers', 'A guide to AI sourcing software for supplier discovery, RFQ preparation, risk scoring, and should-cost-backed negotiations.', 'Product', 'December 4, 2026', '9 min read'],
   ['strategic-procurement-objectives', 'Strategic Procurement Objectives for Manufacturing', 'Practical procurement objectives that connect cost, quality, supplier resilience, launch readiness, and engineering collaboration.', 'Engineering', 'December 11, 2026', '7 min read'],
@@ -39,7 +41,7 @@ const ROADMAP_POST_ROWS: [string, string, string, BlogPost['category'], string, 
   ['defence-manufacturing-india', 'Defence Manufacturing in India: Procurement and Supplier Guide', 'How Indian defence manufacturing teams can strengthen supplier qualification, cost visibility, and programme sourcing.', 'Industry', 'January 15, 2027', '9 min read'],
   ['supply-chain-risk-management', 'Supply Chain Risk Management for Manufacturing', 'A practical framework for identifying single-source risk, capacity constraints, quality exposure, and delivery vulnerabilities.', 'Engineering', 'February 5, 2027', '8 min read'],
   ['cmmc-compliance-manufacturing', 'CMMC Compliance for Manufacturing Suppliers', 'What manufacturing suppliers need to understand about cybersecurity maturity, defence programmes, and secure data workflows.', 'Industry', 'February 12, 2027', '8 min read'],
-  ['manufacturing-intelligence-pillar', 'Manufacturing Intelligence: The Complete Guide', 'A pillar guide to manufacturing intelligence across BOMs, cost models, supplier data, quality signals, and sourcing decisions.', 'Engineering', 'March 5, 2027', '14 min read'],
+  ['manufacturing-intelligence-pillar', 'Manufacturing Intelligence: The Complete Guide', 'A pillar guide to manufacturing intelligence across BOMs, cost models, supplier data, quality signals, and sourcing decisions.', 'Engineering', 'July 4, 2026', '14 min read'],
   ['ai-in-manufacturing-2027-use-cases', 'AI in Manufacturing: 2027 Use Cases', 'The manufacturing AI use cases that matter most in 2027: cost modelling, supplier intelligence, quality prediction, and sourcing automation.', 'Industry', 'March 12, 2027', '10 min read'],
   ['precision-manufacturing-india-benchmarks', 'Precision Manufacturing India Benchmarks', 'Benchmarks for Indian precision manufacturing across process cost, supplier capability, certification, and delivery readiness.', 'Industry', 'March 19, 2027', '8 min read'],
   ['space-manufacturing-supply-chain', 'Space Manufacturing Supply Chain Guide', 'How space manufacturing teams can qualify suppliers, manage cost risk, and build resilient component supply chains.', 'Industry', 'March 26, 2027', '8 min read'],
@@ -140,24 +142,26 @@ export const POSTS: BlogPost[] = [
   },
   {
     slug: 'apriori-vs-emithran-comparison',
-    title: 'aPriori vs Emithran: Manufacturing Cost Platform Comparison (2026)',
+    title: "aPriori Alternatives: How Manufacturing Cost Estimation Approaches Differ",
     excerpt:
-      'Comparing aPriori and Emithran for should cost analysis and manufacturing intelligence. See which platform fits your team\'s size, budget, and supply chain geography.',
+      "Evaluating aPriori or its alternatives? A buyer's guide to CAD-driven, rule-based, spreadsheet and BOM-level should-cost approaches, with the questions to ask any vendor.",
     category: 'Product',
     author: AUTHORS.ceo,
     date: 'July 1, 2026',
-    readTime: '10 min read',
+    updated: 'October 9, 2026',
+    readTime: '9 min read',
     image: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     slug: 'costimator-alternatives',
-    title: 'Costimator Alternative: Why Manufacturers Are Switching (2026)',
+    title: "Costimator Alternatives: How to Choose the Right Cost Estimating Approach",
     excerpt:
-      'Looking for a Costimator alternative? Compare Costimator\'s quoting-focused approach against AI-powered BOM-level should cost platforms like Emithran.',
+      "Researching Costimator alternatives? See what Costimator is built for, the main alternative approaches, and a scorecard and pilot plan to test options on your own parts.",
     category: 'Product',
     author: AUTHORS.ceo,
     date: 'July 1, 2026',
-    readTime: '8 min read',
+    updated: 'October 9, 2026',
+    readTime: '7 min read',
     image: 'https://images.unsplash.com/photo-1769147339214-076740872485?q=80&w=1031&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {

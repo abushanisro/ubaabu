@@ -21,7 +21,7 @@ const CASE_STUDIES = [
 ]
 
 // Publish dates of the individual blog posts / case studies drive the index-page lastmod.
-const BLOG_DATES = POSTS.filter((post) => Boolean(BLOG_CONTENT[post.slug])).map((post) => parseDisplayDate(post.date))
+const BLOG_DATES = POSTS.filter((post) => Boolean(BLOG_CONTENT[post.slug])).map((post) => parseDisplayDate(post.updated ?? post.date))
 const CASE_STUDY_DATES = CASE_STUDY_DATA.map((study) => new Date(study.dateISO))
 
 function caseStudyDate(slug: string): Date {
@@ -87,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/blog/${post.slug}`,
     priority: 0.8,
     changeFrequency: 'monthly' as const,
-    lastModified: parseDisplayDate(post.date),
+    lastModified: parseDisplayDate(post.updated ?? post.date),
   }))
 
   const seoLandingPages: MetadataRoute.Sitemap = SEO_LANDING_PAGES.map((page) => ({
