@@ -1,4 +1,7 @@
 import BlogPage from '@/components/blog/BlogPage'
+import { POSTS } from '@/components/blog/blogData'
+import { BLOG_CONTENT } from '@/components/blog/blogContent'
+import { parseDisplayDate } from '@/lib/lastModified'
 
 import type { Metadata } from 'next'
 import { ogImages } from '@/lib/seo'
@@ -21,6 +24,13 @@ export const metadata: Metadata = {
   },
 }
 
+// Trending rail lists only the hand-written (indexable) articles that are already
+// published, newest first. Resolved here so article bodies never ship to the client.
+const trendingSlugs = POSTS
+  .filter(p => BLOG_CONTENT[p.slug] && parseDisplayDate(p.date).getTime() <= Date.now())
+  .sort((a, b) => parseDisplayDate(b.date).getTime() - parseDisplayDate(a.date).getTime())
+  .map(p => p.slug)
+
 export default function Page() {
-  return <BlogPage />
+  return <BlogPage trendingSlugs={trendingSlugs} />
 }

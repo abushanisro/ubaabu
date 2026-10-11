@@ -6,7 +6,7 @@ import PricingCTA from '@/components/pricing/PricingCTA'
 import type { Metadata } from 'next'
 import { ogImages } from '@/lib/seo'
 export const metadata: Metadata = {
-  title: 'Pricing - Outcome-Based Manufacturing Intelligence Plans',
+  title: 'Outcome-Based Manufacturing Intelligence Pricing',
   description:
     'Outcome-based pricing for manufacturing intelligence. No per-seat fees, no hidden costs. Plans for startups, growing OEMs, and enterprise manufacturers in defence, aerospace, and space.',
   keywords: [

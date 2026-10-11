@@ -132,7 +132,7 @@ const modulesSchema = MODULES.map((mod) => ({
 }))
 
 export const metadata: Metadata = {
-  title: 'Products - BOM Intelligence, Should-Cost, Supplier Radar & More',
+  title: 'BOM, Should-Cost & Supplier Intelligence Products',
   description:
     'Emithran\'s AI modules: BOM Composer, Should-Cost Analysis, Supplier Radar, VAVE Studio, Quality Guard, Launch Tracker, and Shipment Hub - built for defence, aerospace, and space manufacturers.',
   keywords: [

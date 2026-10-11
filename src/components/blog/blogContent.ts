@@ -3317,7 +3317,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     `,
   },
   'best-should-cost-software-aerospace-manufacturers': {
-    heroImage: 'https://images.unsplash.com/photo-1581094488379-6a10d04c0f04?q=80&w=870&auto=format&fit=crop',
+    heroImage: '/images/blog/should-cost-software-aerospace-manufacturers.jpg',
     authorBio:
       '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs.',
     seo: {
@@ -3393,7 +3393,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     `,
   },
   'best-supplier-intelligence-tools-defence-oems': {
-    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
+    heroImage: '/images/blog/supplier-intelligence-tools-defence-oems.jpg',
     authorBio:
       "<strong>Abushan</strong> is the CTO of Emithran. He builds the supplier intelligence and risk-scoring systems that power sourcing decisions for India's defence, space, and aerospace manufacturers.",
     seo: {
@@ -4675,12 +4675,12 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Rather than maintaining separate, disconnected tools for design-stage cost awareness, sourcing negotiation, and ongoing cost reduction, Emithran keeps cost baselines connected across these activities — built on real operational manufacturing data, with rate libraries spanning India, the US, Germany, and Eastern Europe.</p>
 
-<p><a href="/product-cost-management" style="color:#0d9488;font-weight:600;text-decoration:none;">→ Explore Emithran's Approach to Product Cost Management</a></p>
+<p><a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;text-decoration:none;">→ Explore Emithran's Should-Cost Analysis Software</a></p>
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;background:linear-gradient(135deg,#0f1b2d,#0a2a26);text-align:center;">
   <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.25rem;">Product cost management works when cost is treated as a continuous thread, not a series of disconnected checkpoints.</p>
   <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-bottom:1.5rem;">See how Emithran helps manufacturers connect should cost analysis, supplier benchmarking, and VAVE into one cost management discipline.</p>
-  <a href="/product-cost-management" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 2rem;background:#2dd4bf;color:#0f1b2d;font-weight:700;border-radius:9999px;text-decoration:none;font-size:0.95rem;">See Emithran's Product Cost Management Platform →</a>
+  <a href="/should-cost-analysis-software" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 2rem;background:#2dd4bf;color:#0f1b2d;font-weight:700;border-radius:9999px;text-decoration:none;font-size:0.95rem;">See Emithran's Should-Cost Analysis Software →</a>
 </div>
     `,
   },
@@ -5450,7 +5450,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   },
 
   'manufacturing-intelligence-pillar': {
-    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
+    heroImage: '/images/blog/manufacturing-intelligence-complete-guide.jpg',
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He built the Should-Cost Engine that powers cost modelling for Emithran\'s defence, aerospace, and space OEM customers. He has personally run should-cost analyses on everything from injection-moulded plastic covers to 74-line chassis ladder frame assemblies.',
     seo: {
@@ -5552,7 +5552,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   },
 
   'what-is-vave': {
-    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
+    heroImage: '/images/blog/vave-value-analysis-value-engineering.jpg',
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He built the Should-Cost Engine that powers cost modelling for Emithran\'s defence, aerospace, and space OEM customers. He has personally run should-cost analyses on everything from injection-moulded plastic covers to 74-line chassis ladder frame assemblies.',
     seo: {
@@ -5604,7 +5604,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   },
 
   'vave-in-aerospace-case-study': {
-    heroImage: 'https://images.unsplash.com/photo-1581094488379-6a10d04c0f04?q=80&w=870&auto=format&fit=crop',
+    heroImage: '/images/blog/vave-aerospace-cost-reduction-case-study.jpg',
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He built the Should-Cost Engine that powers cost modelling for Emithran\'s defence, aerospace, and space OEM customers. He has personally run should-cost analyses on everything from injection-moulded plastic covers to 74-line chassis ladder frame assemblies.',
     seo: {

@@ -11,6 +11,8 @@ export interface BlogPost {
   updated?: string
   readTime: string
   image: string
+  /** Descriptive alt text for the cover image; falls back to the title. */
+  imageAlt?: string
   featured?: boolean
 }
 
@@ -73,7 +75,44 @@ function roadmapPost([slug, title, excerpt, category, date, readTime]: [string, 
   }
 }
 
-export const POSTS: BlogPost[] = [
+// Self-hosted cover images with keyword-descriptive filenames and alt text (SEO).
+const COVER_IMAGES: Record<string, { image: string; imageAlt: string }> = {
+  'best-should-cost-software-aerospace-manufacturers': { image: '/images/blog/should-cost-software-aerospace-manufacturers.jpg', imageAlt: 'Engineer reviewing aerospace component costs with should-cost software' },
+  'best-supplier-intelligence-tools-defence-oems': { image: '/images/blog/supplier-intelligence-tools-defence-oems.jpg', imageAlt: 'Supplier intelligence dashboard used by a defence OEM sourcing team' },
+  'supplier-qualification-guide': { image: '/images/blog/supplier-qualification-aerospace-defence.jpg', imageAlt: 'Aerospace and defence supplier qualification on the manufacturing floor' },
+  'what-is-strategic-sourcing': { image: '/images/blog/strategic-sourcing-7-step-process.jpg', imageAlt: 'Procurement team planning the 7-step strategic sourcing process' },
+  'srm-software-comparison': { image: '/images/blog/srm-software-comparison-manufacturing.jpg', imageAlt: 'Comparing SRM software for manufacturing supplier relationships' },
+  'mro-spend-analysis': { image: '/images/blog/mro-spend-analysis-manufacturing.jpg', imageAlt: 'MRO spare parts and maintenance spend in a manufacturing plant' },
+  'what-is-vave': { image: '/images/blog/vave-value-analysis-value-engineering.jpg', imageAlt: 'Value analysis and value engineering (VAVE) review of a product design' },
+  'vave-in-aerospace-case-study': { image: '/images/blog/vave-aerospace-cost-reduction-case-study.jpg', imageAlt: 'Value versus cost chart illustrating VAVE cost reduction in aerospace' },
+  'vendor-negotiation-should-cost': { image: '/images/blog/vendor-negotiation-should-cost-data.jpg', imageAlt: 'Vendor negotiation backed by should-cost data' },
+  'ai-sourcing-software-guide': { image: '/images/blog/ai-sourcing-software-manufacturers.jpg', imageAlt: 'AI sourcing software for manufacturers' },
+  'strategic-procurement-objectives': { image: '/images/blog/strategic-procurement-objectives-manufacturing.jpg', imageAlt: 'Strategic procurement objectives for a manufacturing operation' },
+  'global-strategic-sourcing': { image: '/images/blog/global-strategic-sourcing-engineered-products.jpg', imageAlt: 'Global strategic sourcing of engineered products across regions' },
+  'aerospace-manufacturing-in-india': { image: '/images/blog/aerospace-manufacturing-india.jpg', imageAlt: 'Aircraft representing the aerospace manufacturing sector in India' },
+  'defence-manufacturing-india': { image: '/images/blog/defence-manufacturing-india-procurement.jpg', imageAlt: 'Defence manufacturing and procurement in India' },
+  'supply-chain-risk-management': { image: '/images/blog/supply-chain-risk-management-manufacturing.jpg', imageAlt: 'Supply chain risk management for manufacturing logistics' },
+  'cmmc-compliance-manufacturing': { image: '/images/blog/cmmc-compliance-manufacturing-suppliers.jpg', imageAlt: 'Cybersecurity and CMMC compliance for manufacturing suppliers' },
+  'manufacturing-intelligence-pillar': { image: '/images/blog/manufacturing-intelligence-complete-guide.jpg', imageAlt: 'Manufacturing intelligence connecting BOM, cost, and supplier data on the shop floor' },
+  'ai-in-manufacturing-2027-use-cases': { image: '/images/blog/ai-in-manufacturing-2027-use-cases.jpg', imageAlt: 'AI in manufacturing use cases for 2027' },
+  'precision-manufacturing-india-benchmarks': { image: '/images/blog/precision-manufacturing-india-benchmarks.jpg', imageAlt: 'Precision manufacturing in India benchmarked for cost and capability' },
+  'space-manufacturing-supply-chain': { image: '/images/blog/space-manufacturing-supply-chain.jpg', imageAlt: 'Space manufacturing supply chain for spacecraft components' },
+  'spend-analytics-consulting': { image: '/images/blog/spend-analytics-consulting-manufacturing.jpg', imageAlt: 'Spend analytics consulting for manufacturing procurement' },
+  'spend-opportunity-assessment': { image: '/images/blog/spend-opportunity-assessment-guide.jpg', imageAlt: 'Spend opportunity assessment to find procurement savings' },
+  'procurement-consulting-techniques': { image: '/images/blog/procurement-consulting-techniques-manufacturers.jpg', imageAlt: 'Procurement consulting techniques applied in a manufacturing plant' },
+  'international-procurement-process': { image: '/images/blog/international-procurement-process-manufacturing.jpg', imageAlt: 'International procurement and logistics for manufactured parts' },
+  'defence-procurement-india-guide': { image: '/images/blog/defence-procurement-india-guide.jpg', imageAlt: 'Defence procurement in India for manufacturers and suppliers' },
+  'manufacturing-cost-report-2027': { image: '/images/blog/manufacturing-cost-report-2027-india-europe.jpg', imageAlt: '2027 manufacturing cost report comparing India, Europe, and global sourcing' },
+  'manufacturing-cost-estimation-guide': { image: '/images/blog/manufacturing-cost-estimation-guide.jpg', imageAlt: 'Manufacturing cost estimation for machined, moulded, and fabricated parts' },
+  'dfm-for-aerospace-defence': { image: '/images/blog/dfm-aerospace-defence-components.jpg', imageAlt: 'Design for manufacturability review of aerospace and defence components' },
+  'dfm-by-process-cnc-injection-sheet-metal': { image: '/images/blog/dfm-guidelines-cnc-injection-moulding-sheet-metal.jpg', imageAlt: 'DFM guidelines for CNC machining, injection moulding, and sheet metal' },
+  'what-is-dfma': { image: '/images/blog/dfma-design-for-manufacturability-and-assembly.jpg', imageAlt: 'DFMA: design for manufacturability and assembly explained' },
+  'design-for-additive-manufacturing-guide': { image: '/images/blog/design-for-additive-manufacturing-dfam.jpg', imageAlt: 'Design for additive manufacturing (DfAM) with metal 3D printing' },
+  'supplier-benchmarking-framework': { image: '/images/blog/supplier-benchmarking-framework-manufacturing.jpg', imageAlt: 'Supplier benchmarking framework for manufacturing teams' },
+  'sustainable-manufacturing-guide': { image: '/images/blog/sustainable-manufacturing-carbon-footprint-scope-3.jpg', imageAlt: 'Sustainable manufacturing, carbon footprint, and Scope 3 emissions' },
+}
+
+const POSTS_RAW: BlogPost[] = [
   {
     slug: 'what-is-should-cost-analysis',
     title: 'What Is Should Cost Analysis? Complete Guide for Manufacturers',
@@ -310,3 +349,5 @@ export const POSTS: BlogPost[] = [
   },
   ...ROADMAP_POST_ROWS.map(roadmapPost),
 ]
+
+export const POSTS: BlogPost[] = POSTS_RAW.map(p => ({ ...p, ...COVER_IMAGES[p.slug] }))

@@ -13,10 +13,13 @@ const STANDALONE_BREADCRUMB_SLUGS = new Set([
   'state-of-manufacturing-cost-intelligence-2026',
 ])
 
+const ACRONYMS = new Set(['bom', 'vave', 'dfma', 'api', 'faq'])
+
 function labelFromSegment(segment: string) {
   return segment
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, (char) => char.toUpperCase())
+    .split('-')
+    .map((word) => (ACRONYMS.has(word.toLowerCase()) ? word.toUpperCase() : word.replace(/^\w/, (char) => char.toUpperCase())))
+    .join(' ')
 }
 
 export default function SiteJsonLd() {

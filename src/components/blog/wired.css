@@ -1,0 +1,86 @@
+/* ---------- Editorial blog type (WIRED-style listing + article) ---------- */
+.wired-display {
+  font-family: var(--font-blog-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+.wired-mono {
+  font-family: var(--font-blog-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.wired-serif {
+  font-family: var(--font-blog-serif), Georgia, serif;
+}
+.wired-link:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Article body overrides: serif copy, black rules, no brand chrome. */
+.wired-article .blog-content {
+  font-family: var(--font-blog-serif), Georgia, serif;
+  color: #1a1a1a;
+  font-size: 19px;
+  line-height: 1.65;
+}
+.wired-article .blog-content p { margin: 0 0 1.4rem; }
+.wired-article .blog-content h2,
+.wired-article .blog-content h3 {
+  font-family: var(--font-blog-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: -0.005em;
+  line-height: 1.08;
+}
+.wired-article .blog-content h2 { font-size: 2.1rem; margin: 3rem 0 1.1rem; }
+.wired-article .blog-content h3 {
+  font-size: 1.6rem;
+  margin: 2.25rem 0 0.9rem;
+  padding-top: 0;
+  border-top: none;
+}
+.wired-article .blog-content h4 {
+  font-family: var(--font-blog-mono), ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  color: #000;
+}
+.wired-article .blog-content a {
+  color: #000;
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: #0d9488;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+.wired-article .blog-content a:hover { color: #0d9488; }
+.wired-article .blog-content strong { color: #000; }
+.wired-article .blog-content em { color: inherit; }
+.wired-article .blog-content ul > li::before {
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 0;
+  background: #000;
+}
+.wired-article .blog-content blockquote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  font-family: var(--font-blog-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #000;
+}
+.wired-article .blog-content table { font-family: var(--font-inter), sans-serif; font-size: 15px; }
+.wired-article .blog-content img { border-radius: 0; }
+.wired-article .blog-content .cta-box {
+  border-radius: 0;
+  background: #000;
+  border: none;
+  font-family: var(--font-inter), sans-serif;
+}
+.wired-article .blog-content .cta-box h3 { color: #fff; }
+.wired-article .blog-content .cta-box a { color: #fff; text-decoration-color: #2dd4bf; }
