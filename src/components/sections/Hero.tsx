@@ -117,9 +117,9 @@ export default function Hero() {
           <div className="relative overflow-hidden rounded-2xl shadow-[0_32px_80px_rgba(0,0,0,0.22)]">
             <HeroVideoDialog
               animationStyle="from-center"
-              videoSrc="/videos/emithran-overview.mp4"
+              videoSrc="/videos/emithran-manufacturing-intelligence-platform-overview.mp4"
               thumbnailSrc="/assets/hero-page/3d-drawing.png"
-              thumbnailAlt="Emithran platform preview"
+              thumbnailAlt="Emithran end-to-end manufacturing intelligence platform overview video"
               isOpen={videoOpen}
               onOpenChange={setVideoOpen}
               className="[&_img]:rounded-none [&_img]:border-0 [&_img]:shadow-none"

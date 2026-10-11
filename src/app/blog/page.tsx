@@ -31,6 +31,27 @@ const trendingSlugs = POSTS
   .sort((a, b) => parseDisplayDate(b.date).getTime() - parseDisplayDate(a.date).getTime())
   .map(p => p.slug)
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
+
+// Structured data for the product demo video embedded in the listing's demo band.
+const demoVideoJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: 'Emithran Product Demo: Should-Cost, Supplier Intelligence, and BOM Validation',
+  description:
+    'A tour of Emithran running should-cost analysis, supplier intelligence, and BOM validation on real manufacturing part data.',
+  thumbnailUrl: [`${siteUrl}/videos/emithran-should-cost-supplier-intelligence-demo-poster.jpg`],
+  contentUrl: `${siteUrl}/videos/emithran-should-cost-supplier-intelligence-demo.mp4`,
+  uploadDate: '2026-10-11',
+  duration: 'PT1M34S',
+  publisher: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+}
+
 export default function Page() {
-  return <BlogPage trendingSlugs={trendingSlugs} />
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(demoVideoJsonLd) }} />
+      <BlogPage trendingSlugs={trendingSlugs} />
+    </>
+  )
 }

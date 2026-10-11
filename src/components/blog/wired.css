@@ -84,3 +84,9 @@
 }
 .wired-article .blog-content .cta-box h3 { color: #fff; }
 .wired-article .blog-content .cta-box a { color: #fff; text-decoration-color: #2dd4bf; }
+
+/* Demo video seek bar: thin track (filled via inline gradient), square teal thumb */
+.demo-seek { -webkit-appearance: none; appearance: none; height: 4px; cursor: pointer; }
+.demo-seek::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; background: #2dd4bf; border: 0; }
+.demo-seek::-moz-range-thumb { width: 12px; height: 12px; background: #2dd4bf; border: 0; border-radius: 0; }
+.demo-seek:focus-visible { outline: 2px solid #2dd4bf; outline-offset: 4px; }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { POSTS, type BlogCategory, type BlogPost } from './blogData'
@@ -10,6 +10,167 @@ import './wired.css'
 const CATEGORIES: BlogCategory[] = ['All', 'Corporate', 'Engineering', 'Industry', 'Product']
 
 const RULE = '1px solid #e2e2e2'
+
+const DEMO_VIDEO = '/videos/emithran-should-cost-supplier-intelligence-demo.mp4'
+const DEMO_POSTER = '/videos/emithran-should-cost-supplier-intelligence-demo-poster.jpg'
+
+function formatTime(seconds: number) {
+  if (!Number.isFinite(seconds)) return '0:00'
+  const s = Math.floor(seconds)
+  return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`
+}
+
+const ICON = 'w-4 h-4'
+const CONTROL = 'inline-flex items-center justify-center w-10 h-10 text-white hover:bg-white hover:text-black transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2dd4bf]'
+
+// Starts muted on its own the first time it scrolls into view and plays once (no loop).
+// Viewers can pause, restart, scrub to any point, and turn the sound on. It pauses while
+// off-screen and resumes on return only if it was playing when it left.
+function DemoVideo() {
+  const ref = useRef<HTMLVideoElement>(null)
+  const autoStarted = useRef(false)
+  const resumeOnReturn = useRef(false)
+  const [playing, setPlaying] = useState(false)
+  const [ended, setEnded] = useState(false)
+  const [muted, setMuted] = useState(true)
+  const [time, setTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+
+  useEffect(() => {
+    const video = ref.current
+    if (!video) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!autoStarted.current || resumeOnReturn.current) {
+            autoStarted.current = true
+            resumeOnReturn.current = false
+            video.play().catch(() => {})
+          }
+        } else if (!video.paused) {
+          resumeOnReturn.current = true
+          video.pause()
+        }
+      },
+      { threshold: 0.4 },
+    )
+    observer.observe(video)
+    return () => observer.disconnect()
+  }, [])
+
+  const togglePlay = () => {
+    const video = ref.current
+    if (!video) return
+    autoStarted.current = true
+    resumeOnReturn.current = false
+    if (video.paused || video.ended) video.play().catch(() => {})
+    else video.pause()
+  }
+
+  const restart = () => {
+    const video = ref.current
+    if (!video) return
+    video.currentTime = 0
+    video.play().catch(() => {})
+  }
+
+  const seek = (value: number) => {
+    const video = ref.current
+    if (!video) return
+    video.currentTime = value
+    setTime(value)
+  }
+
+  const toggleSound = () => {
+    const video = ref.current
+    if (!video) return
+    video.muted = !muted
+    setMuted(!muted)
+  }
+
+  const progress = duration ? (time / duration) * 100 : 0
+
+  return (
+    <div className="ring-1 ring-white/15 bg-neutral-950">
+      <div className="relative aspect-video overflow-hidden bg-neutral-900">
+        <video
+          ref={ref}
+          src={DEMO_VIDEO}
+          poster={DEMO_POSTER}
+          muted
+          playsInline
+          preload="metadata"
+          aria-label="Emithran product demo: should-cost analysis, supplier intelligence, and BOM validation"
+          onClick={togglePlay}
+          onPlay={() => { setPlaying(true); setEnded(false) }}
+          onPause={() => setPlaying(false)}
+          onEnded={() => { setPlaying(false); setEnded(true) }}
+          onTimeUpdate={e => setTime(e.currentTarget.currentTime)}
+          onLoadedMetadata={e => setDuration(e.currentTarget.duration)}
+          className="absolute inset-0 w-full h-full object-cover cursor-pointer"
+        />
+        <span className="wired-mono absolute top-0 left-0 bg-black text-white text-[10px] font-semibold px-3 py-2 pointer-events-none">
+          Product tour
+        </span>
+        {!playing && (
+          <button
+            type="button"
+            onClick={ended ? restart : togglePlay}
+            aria-label={ended ? 'Replay video' : 'Play video'}
+            className="wired-mono absolute inset-0 m-auto w-fit h-fit inline-flex items-center gap-3 bg-black/80 backdrop-blur-sm text-white text-[11px] font-semibold px-5 py-4 ring-1 ring-white/25 hover:bg-white hover:text-black transition-colors"
+          >
+            {ended ? (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className={ICON} aria-hidden>
+                <path d="M3 12a9 9 0 1 0 3-6.7" /><polyline points="3 3 3 9 9 9" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" className={ICON} aria-hidden><polygon points="6 4 20 12 6 20" fill="currentColor" /></svg>
+            )}
+            {ended ? 'Watch again' : 'Play'}
+          </button>
+        )}
+      </div>
+
+      {/* Control bar */}
+      <div className="flex items-center gap-1 border-t border-white/15 pr-3">
+        <button type="button" onClick={togglePlay} aria-label={playing ? 'Pause video' : 'Play video'} className={CONTROL}>
+          {playing ? (
+            <svg viewBox="0 0 24 24" className={ICON} aria-hidden><rect x="6" y="4" width="4" height="16" fill="currentColor" /><rect x="14" y="4" width="4" height="16" fill="currentColor" /></svg>
+          ) : (
+            <svg viewBox="0 0 24 24" className={ICON} aria-hidden><polygon points="6 4 20 12 6 20" fill="currentColor" /></svg>
+          )}
+        </button>
+        <button type="button" onClick={restart} aria-label="Restart video" className={CONTROL}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className={ICON} aria-hidden>
+            <path d="M3 12a9 9 0 1 0 3-6.7" /><polyline points="3 3 3 9 9 9" />
+          </svg>
+        </button>
+        <span className="wired-mono text-[10px] font-medium text-white/80 tabular-nums px-2 shrink-0">
+          {formatTime(time)} / {formatTime(duration)}
+        </span>
+        <input
+          type="range"
+          min={0}
+          max={duration || 0}
+          step={0.1}
+          value={time}
+          onChange={e => seek(Number(e.target.value))}
+          aria-label="Seek video"
+          className="demo-seek flex-1 min-w-0 mx-2"
+          style={{ background: `linear-gradient(to right, #2dd4bf ${progress}%, rgba(255,255,255,0.25) ${progress}%)` }}
+        />
+        <button type="button" onClick={toggleSound} aria-label={muted ? 'Turn sound on' : 'Mute video'} className={CONTROL}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={ICON} aria-hidden>
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none" />
+            {muted
+              ? <><line x1="23" y1="9" x2="17" y2="15" /><line x1="17" y1="9" x2="23" y2="15" /></>
+              : <path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14" />}
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
 
 function Byline({ post, className = '' }: { post: BlogPost; className?: string }) {
   return (
@@ -256,23 +417,32 @@ export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] })
 
           {/* Demo band */}
           <section className="bg-black text-white mt-14">
-            <div className="max-w-[1480px] mx-auto px-4 sm:px-8 py-14 grid lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8">
-                <p className="wired-mono text-[11px] font-medium text-white/70 mb-4">Platform demo</p>
-                <h2 className="wired-display text-[34px] sm:text-[46px] leading-[1.02]">
+            <div className="max-w-[1480px] mx-auto px-4 sm:px-8 py-14 lg:py-20 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              <div className="lg:col-span-5 order-2 lg:order-1">
+                <p className="wired-mono text-[11px] font-medium text-[#2dd4bf] mb-4">Platform demo</p>
+                <h2 className="wired-display text-[34px] sm:text-[44px] leading-[1.02]">
                   See Emithran in Action With Your Own Part Data
                 </h2>
-                <p className="wired-serif mt-4 text-[17px] leading-[1.55] text-white/75 max-w-2xl">
+                <p className="wired-serif mt-5 text-[17px] leading-[1.6] text-white/75">
                   Should-cost, supplier intelligence, and BOM validation on a real component from your supply chain, in 30 minutes.
                 </p>
-              </div>
-              <div className="lg:col-span-4 lg:text-right">
+                <ul className="mt-7 border-t border-white/15">
+                  {['Should-cost breakdown by process and material', 'Supplier capability and risk signals', 'BOM validation against live sourcing data'].map(item => (
+                    <li key={item} className="wired-mono flex items-center gap-3 border-b border-white/15 py-3 text-[11px] font-medium text-white/85">
+                      <span className="w-1.5 h-1.5 bg-[#2dd4bf] shrink-0" aria-hidden />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
                 <Link
                   href="/contact?source=blog-listing&cta=book-a-demo"
-                  className="wired-mono inline-block bg-white text-black text-[12px] font-semibold px-7 py-4 hover:bg-[#2dd4bf] transition-colors"
+                  className="wired-mono mt-8 inline-block bg-white text-black text-[12px] font-semibold px-7 py-4 hover:bg-[#2dd4bf] transition-colors"
                 >
                   Book a demo »
                 </Link>
+              </div>
+              <div className="lg:col-span-7 order-1 lg:order-2">
+                <DemoVideo />
               </div>
             </div>
           </section>
