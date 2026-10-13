@@ -1224,7 +1224,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>The right tool can change that, but only if it fits how your team works. The wrong one can mean months of set-up for software that does not match your parts, your processes or your suppliers.</p>
 
-<p>This guide explains how to evaluate should-cost software, then describes five tools and approaches in a neutral way. Emithran makes one of the products discussed here. The others are described only from public vendor pages and trade sources, listed at the end with the date we checked them. If you are new to the topic, start with <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">what should-cost analysis is</a>.</p>
+<p>This guide explains how to evaluate should-cost software, then describes five tools and approaches in a neutral way. Emithran makes one of the products discussed here, <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost and costing software for parts and BOMs</a>. The others are described only from public vendor pages and trade sources, listed at the end with the date we checked them. If you are new to the topic, start with <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">what should-cost analysis is</a>.</p>
 
 <h2>What should-cost software does</h2>
 
