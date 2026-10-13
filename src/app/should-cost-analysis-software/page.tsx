@@ -7,7 +7,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 export const metadata: Metadata = {
   title: 'Should-Cost Analysis & Modeling Software for OEMs',
   description:
-    'Should-cost analysis and modeling software for OEMs: build bottom-up part and BOM cost models, check supplier quotes and compare locations on landed cost.',
+    'Should-cost analysis software and modeling tool for OEMs: build bottom-up part and BOM cost models, check supplier quotes and compare locations on landed cost.',
   keywords: [
     'should cost analysis software', 'should cost modeling software', 'should cost software India', 'manufacturing cost analysis tool',
     'should cost modelling platform', 'supplier negotiation software', 'cost engineering software',
@@ -319,7 +319,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
                 An independent, bottom-up estimate of what a part should cost
               </h2>
               <p className="text-[15px] leading-relaxed mb-5" style={{ color: 'rgba(15,27,45,0.65)' }}>
-                Should-cost analysis, also called clean-sheet or zero-based costing, estimates what a part or assembly should cost to make, built up from its inputs rather than taken from a supplier&apos;s quote. <strong>Should-cost modeling software</strong> makes that estimate repeatable, documented and comparable across suppliers, materials and locations.
+                Should-cost analysis, also called clean-sheet or zero-based costing, estimates what a part or assembly should cost to make, built up from its inputs rather than taken from a supplier&apos;s quote. <strong>Should-cost modeling software</strong> makes that estimate repeatable, documented and comparable across suppliers, materials and locations. Emithran works as costing software for the buyer&apos;s side of the table: it builds a part&apos;s cost up from material, process, labour and overhead so teams can check supplier quotes.
               </p>
               <p className="text-[15px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.65)' }}>
                 Each element of an Emithran model is tied to an explicit assumption, so a supplier&apos;s quote can be compared with the model element by element, not just in total.
@@ -552,6 +552,9 @@ export default function ShouldCostAnalysisSoftwarePage() {
               </Link>
             ))}
           </div>
+          <p className="mt-6 text-[14px] leading-relaxed max-w-3xl" style={{ color: 'rgba(15,27,45,0.62)' }}>
+            For the wider discipline behind these models, see our <Link href="/cost-engineering-software" className="font-semibold underline" style={{ color: '#0d9488' }}>cost engineering software</Link> page.
+          </p>
         </section>
 
         {/* ── CTA ── */}
