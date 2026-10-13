@@ -163,36 +163,88 @@ const examples = [
   },
 ]
 
+const BLEND = { '--blendBackground': '#2dd4bf', '--blendForeground': '#0f1b2d', '--blendIntersection': '#0d9488' } as React.CSSProperties
+
+function DuotoneIcon({ id, bg, fg }: { id: string; bg: string; fg: string }) {
+  return (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={BLEND}>
+      <defs>
+        <clipPath id={id}>
+          <path fillRule="evenodd" clipRule="evenodd" d={bg} />
+        </clipPath>
+      </defs>
+      <path fillRule="evenodd" clipRule="evenodd" d={bg} style={{ fill: 'var(--blendBackground)' }} />
+      <path fillRule="evenodd" clipRule="evenodd" d={fg} style={{ fill: 'var(--blendForeground)' }} />
+      <g clipPath={`url(#${id})`}>
+        <path fillRule="evenodd" clipRule="evenodd" d={fg} style={{ fill: 'var(--blendIntersection)' }} />
+      </g>
+    </svg>
+  )
+}
+
+const featureIcons = {
+  // Operation bars with a gear
+  process: {
+    bg: 'M2 2h30a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2ZM2 13h26a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2ZM2 24h18a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Z',
+    fg: 'M37.12 24.73L39.88 25.31L39.88 28.69L37.12 29.27L36.05 31.85L37.6 34.21L35.21 36.6L32.85 35.05L30.27 36.12L29.69 38.88L26.31 38.88L25.73 36.12L23.15 35.05L20.79 36.6L18.4 34.21L19.95 31.85L18.88 29.27L16.12 28.69L16.12 25.31L18.88 24.73L19.95 22.15L18.4 19.79L20.79 17.4L23.15 18.95L25.73 17.88L26.31 15.12L29.69 15.12L30.27 17.88L32.85 18.95L35.21 17.4L37.6 19.79L36.05 22.15ZM32.2 27A4.2 4.2 0 1 0 23.8 27A4.2 4.2 0 1 0 32.2 27Z',
+  },
+  // Child parts connected up to a parent assembly
+  bom: {
+    bg: 'M19 12H21V20H36V27H34V22H21V27H19V22H6V27H4V20H19ZM3 27h4a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3ZM18 27h4a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3ZM33 27h4a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-5a3 3 0 0 1 3-3Z',
+    fg: 'M14 2h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H14a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Z',
+  },
+  // Globe with a location pin
+  geography: {
+    bg: 'M16 0a16 16 0 1 1 0 32a16 16 0 1 1 0-32ZM3 9.5h26V11H3ZM3 21h26v1.5H3ZM15.25 2.5h1.5v7h-1.5ZM15.25 11h1.5v10h-1.5ZM15.25 22.5h1.5v7h-1.5Z',
+    fg: 'M29 12a9 9 0 0 1 9 9c0 6.5-9 18-9 18s-9-11.5-9-18a9 9 0 0 1 9-9ZM32.5 21a3.5 3.5 0 1 0-7 0a3.5 3.5 0 1 0 7 0Z',
+  },
+  // Drawing sheet with a set square
+  drawing: {
+    bg: 'M8 0h13l7 7v23a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4ZM9 10h12v2H9ZM9 16h14v2H9ZM9 22h8v2H9Z',
+    fg: 'M38 16v22H16ZM35 25.2v9.8h-9.8Z',
+  },
+  // Two overlapping speech bubbles
+  negotiation: {
+    bg: 'M4 2h18a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H11l-7 6v-6a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4Z',
+    fg: 'M18 13h18a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4v6l-7-6H18a4 4 0 0 1-4-4V17a4 4 0 0 1 4-4ZM22.5 22a1.5 1.5 0 1 0-3 0a1.5 1.5 0 1 0 3 0ZM28.5 22a1.5 1.5 0 1 0-3 0a1.5 1.5 0 1 0 3 0ZM34.5 22a1.5 1.5 0 1 0-3 0a1.5 1.5 0 1 0 3 0Z',
+  },
+  // Branching arrows
+  scenarios: {
+    bg: 'M21 9.00006H17.5335C16.9094 9.00006 16.5583 8.28225 16.9415 7.78961L22.408 0.761224C22.7083 0.375164 23.2917 0.375165 23.592 0.761224L29.0585 7.78961C29.4417 8.28225 29.0906 9.00006 28.4665 9.00006H25V10C25 15.7102 21.0117 20.4888 15.6687 21.7022C17.7322 23.8573 19 26.7806 19 30V31.0001H22.4665C23.0906 31.0001 23.4417 31.7179 23.0585 32.2105L17.592 39.2389C17.2917 39.625 16.7083 39.625 16.408 39.2389L10.9415 32.2105C10.5583 31.7179 10.9094 31.0001 11.5335 31.0001H15V30C15 25.5817 11.4183 22 7 22H2C0.89543 22 0 21.1046 0 20C0 18.8954 0.89543 18 2 18H7H13C17.4183 18 21 14.4183 21 10V9.00006Z',
+    fg: 'M31 18.0001V14.5336C31 13.9095 31.7178 13.5584 32.2105 13.9416L39.2388 19.4081C39.6249 19.7084 39.6249 20.2919 39.2388 20.5922L32.2105 26.0587C31.7178 26.4418 31 26.0908 31 25.4667V22.0001H1.99741C0.892845 22.0001 0 21.1047 0 20.0001C0 18.8956 0.892846 18.0001 1.99741 18.0001H31Z',
+  },
+}
+
 const features = [
   {
-    icon: '⚙',
+    icon: featureIcons.process,
     title: 'Process-Level Costing',
     body: 'Costs are shown per operation rather than as one lump sum, so you can see which processes and which parts drive the price.',
   },
   {
-    icon: '📊',
+    icon: featureIcons.bom,
     title: 'BOM Roll-Up and Cost Drivers',
     body: 'Costs roll up through multi-level BOMs so you can see which components and sub-assemblies carry the most cost, and focus negotiation effort there.',
     href: '/bom-management-software',
     hrefLabel: 'BOM management software',
   },
   {
-    icon: '🌍',
+    icon: featureIcons.geography,
     title: 'Multi-Geography and Landed Cost',
     body: 'Compare India, Germany, the UK, the USA, China, Mexico and Turkey. See delivered cost including packing, freight, duty and delivery, not just ex-works price.',
   },
   {
-    icon: '📐',
+    icon: featureIcons.drawing,
     title: 'Drawing, CAD and BOM Input',
     body: 'Cost a single part from a drawing, CAD file or part description, or a whole assembly from its BOM.',
   },
   {
-    icon: '🤝',
+    icon: featureIcons.negotiation,
     title: 'Negotiation Briefs',
     body: 'Should-cost against the supplier quote, the gap by cost element, and a suggested target price, in a form you can share with the supplier.',
   },
   {
-    icon: '🔀',
+    icon: featureIcons.scenarios,
     title: 'Scenarios and VAVE',
     body: 'Compare materials, processes and sourcing options, such as titanium vs stainless steel or make vs buy, and link the findings to value analysis and value engineering.',
     href: '/vave-software',
@@ -451,9 +503,9 @@ export default function ShouldCostAnalysisSoftwarePage() {
               What the should-cost engine covers
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map(f => (
+              {features.map((f, i) => (
                 <div key={f.title} className="rounded-2xl p-6" style={{ border: '1px solid rgba(0,0,0,0.07)', background: '#fff' }}>
-                  <p className="text-2xl mb-3" aria-hidden="true">{f.icon}</p>
+                  <div className="mb-4"><DuotoneIcon id={`ShouldCostFeatureIcon-${i}`} {...f.icon} /></div>
                   <h3 className="text-[15px] font-bold mb-2">{f.title}</h3>
                   <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>{f.body}</p>
                   {f.href && (

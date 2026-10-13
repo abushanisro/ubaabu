@@ -139,10 +139,11 @@ const POSTS_RAW: BlogPost[] = [
     slug: 'should-cost-analysis-software-comparison',
     title: 'Should Cost Analysis Software: Top Tools Compared (2026)',
     excerpt:
-      'Compare the top should cost analysis software platforms for manufacturers in 2026 — aPriori, Costimator, FACTON, and Emithran. Find the right tool for your supply chain.',
+      'A buyer\'s guide to should cost analysis software: how to judge costing method, process data, BOM support and quote validation, with a neutral look at five tools.',
     category: 'Product',
     author: AUTHORS.ceo,
     date: 'July 1, 2026',
+    updated: 'October 13, 2026',
     readTime: '10 min read',
     image: 'https://images.pexels.com/photos/34804005/pexels-photo-34804005.jpeg',
   },

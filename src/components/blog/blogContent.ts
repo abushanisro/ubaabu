@@ -1173,10 +1173,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     seo: {
       metaTitle: 'Should Cost Analysis Software: Top Tools Compared (2026)',
       metaDescription:
-        'Compare the top should cost analysis software platforms for manufacturers in 2026 — aPriori, Costimator, FACTON, and Emithran. Find the right tool for your supply chain.',
+        "Buyer's guide to should cost analysis software: how to judge costing method, process data, BOM support and quote validation, plus a neutral look at five tools.",
       ogTitle: 'Should Cost Analysis Software: Top Tools Compared (2026)',
       ogDescription:
-        'Side-by-side comparison of the leading should cost analysis software platforms — with evaluation criteria, feature breakdowns, and best-fit guidance by manufacturer type.',
+        "How to evaluate should cost analysis software: costing method, process and rate data, BOM support, supplier-quote validation and transparency, with a sourced look at five tools.",
       tags: [
         'should cost analysis software',
         'should cost software',
@@ -1189,292 +1189,214 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     },
     faqs: [
       {
-        question: 'What is the best should cost analysis software for small manufacturers?',
+        question: 'What should I look for in should cost analysis software?',
         answer:
-          'For small manufacturers, the most accessible options are Costimator (for machine shops focused on quoting) and Emithran (for OEMs and procurement teams that need BOM-level should cost analysis without enterprise-level IT investment).',
+          "Start with how the estimate is built (bottom-up from material, process, labour and overhead, or from historical prices), whether the assumptions are visible and editable, which processes and regions the rate data covers, whether it works on a whole BOM or one part at a time, and whether you can load a supplier quote and see the gap by cost element. Then test each shortlisted tool on parts whose real cost you already know.",
+      },
+      {
+        question: 'How is should cost software different from a cost estimating or quoting tool?',
+        answer:
+          "Both estimate manufacturing cost, but they are usually built for different jobs. Estimating and quoting tools help a manufacturer price its own work from its own process knowledge. Should-cost tools are typically used on the buying or engineering side to build an independent estimate and compare it with a supplier's quote. Some products cover both, so check what each vendor describes and test it on your workflow.",
       },
       {
         question: 'How much does should cost software cost?',
         answer:
-          'Enterprise platforms like aPriori and FACTON typically start at $100,000+ annually with multi-month implementations. Platforms like Emithran offer more accessible pricing models for mid-market manufacturers — contact us for pricing based on your team size and BOM complexity.',
+          "Many vendors do not publish list prices for enterprise products, so ask each one for a written quote that covers licences, implementation, training, rate and data updates, and support. Emithran's pricing page describes an outcome-based model; confirm what applies to your team with the Emithran team.",
       },
       {
-        question: 'Can should cost software integrate with my ERP?',
+        question: 'Can should cost software integrate with my ERP or PLM system?',
         answer:
-          'Most modern should cost platforms offer API-based integration with common ERP and PLM systems. Emithran supports structured data export compatible with leading ERP environments.',
+          "It depends on the product, so ask each vendor which connections are native and get the answer in writing. Emithran's API page describes connecting to ERP, BOM and PLM systems, but native connectors for specific systems are not listed, so confirm any integration requirement in a demo.",
       },
       {
         question: 'Is should cost analysis software worth the investment?',
         answer:
-          'For organisations managing complex, outsourced supply chains, the ROI is typically clear within the first procurement cycle. A single successful renegotiation on a high-volume component — supported by a credible should cost model — can recover the annual software cost many times over.',
+          "It depends on how many parts you buy, how much of your spend is negotiated, and how much time your team spends building and updating cost models by hand. A practical test is a pilot: cost a small set of parts where you know the real cost, compare the results with supplier quotes, and measure the time and effort each tool needs.",
       },
       {
         question: 'Does Emithran support non-machined parts?',
         answer:
-          'Yes. Emithran covers a wide range of manufacturing process families including CNC machining, sheet metal fabrication, welding and assembly, surface treatment, and composite structures, with ongoing additions to the process library.',
+          "Yes. Emithran currently supports CNC machining, stamping, casting (sand, die and investment), injection moulding, sheet metal fabrication, roll forming, welded assemblies and PCB assembly. Forging, extrusion and additive manufacturing are being added. If your parts depend on a process that is not listed, ask about it in a demo.",
       },
     ],
     content: `
-<p style="font-size:1.1rem;color:#374151;line-height:1.8;font-style:italic;border-left:3px solid #0d9e8a;padding-left:1.25rem;margin-bottom:2rem;">If you are evaluating should cost analysis software, you already know the problem you are solving: supplier quotes arrive with no cost justification, negotiations are uneven, and your procurement team is running models in spreadsheets that take too long and break whenever a design changes.</p>
+<p style="font-size:1.1rem;color:#374151;line-height:1.8;font-style:italic;border-left:3px solid #0d9e8a;padding-left:1.25rem;margin-bottom:2rem;">If you are evaluating should cost analysis software, you already know the problem: supplier quotes arrive with little cost justification, negotiations are uneven, and the cost models that exist live in spreadsheets that are slow to update and hard to review.</p>
 
-<p>The right software changes all of that. The wrong choice costs you a six-figure implementation budget and two years of workflow disruption before you admit it is not working.</p>
+<p>The right tool can change that, but only if it fits how your team works. The wrong one can mean months of set-up for software that does not match your parts, your processes or your suppliers.</p>
 
-<p>This guide compares the leading should cost analysis platforms — what each does well, who it is built for, and where it falls short — so you can make an informed decision before signing a contract.</p>
+<p>This guide explains how to evaluate should-cost software, then describes five tools and approaches in a neutral way. Emithran makes one of the products discussed here. The others are described only from public vendor pages and trade sources, listed at the end with the date we checked them. If you are new to the topic, start with <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">what should-cost analysis is</a>.</p>
 
-<h2>What to Look for in Should Cost Analysis Software</h2>
+<h2>What should-cost software does</h2>
 
-<p>Before comparing tools, align on your evaluation criteria. The checklist below reflects what procurement and cost engineering leaders consistently cite as the decision factors that matter most:</p>
+<p>A should-cost model estimates what a part or assembly should cost to make, built up from its inputs (material, process, labour, overhead, tooling and margin) instead of taken from a supplier&rsquo;s quote. The value is the comparison: when a quote and the model differ, the gap can be examined by cost element and turned into specific questions for the supplier.</p>
+
+<p>Products in this space take different routes to that estimate. Some start from a 3D CAD model, some from a drawing or part description, some from a bill of materials and supplier quotes, and some from an estimator&rsquo;s own process plan. That difference matters more than any feature list.</p>
+
+<h2>How to Evaluate Should Cost Analysis Software</h2>
+
+<p>Use the criteria below to compare any tool, including ours. Each one is a question to put to every vendor and to test on your own parts.</p>
 
 <ol>
-  <li><strong>Automation depth</strong> — Can the platform build a should cost model from a BOM or CAD file automatically, or does it require manual inputs for every component?</li>
-  <li><strong>Process coverage</strong> — Does it cover your manufacturing processes? CNC machining, sheet metal, castings, composites, electronics, and surface treatments have very different cost structures.</li>
-  <li><strong>Geographic cost libraries</strong> — Are labor rates, machine rates, and material prices calibrated for your target geographies, including India, Southeast Asia, and Eastern Europe — not just the US and Germany?</li>
-  <li><strong>BOM-level scalability</strong> — Can you run should cost across a 200-line BOM simultaneously, or only one component at a time?</li>
-  <li><strong>Supplier benchmarking</strong> — Does the platform compare should cost models against actual supplier quotes continuously, or only at point-in-time analysis?</li>
-  <li><strong>Integration</strong> — Does it connect to your PLM, ERP, or procurement system, or does it sit in isolation?</li>
-  <li><strong>Deployment and pricing model</strong> — Enterprise SaaS with a seven-figure implementation, or a platform accessible to mid-market manufacturers?</li>
-  <li><strong>Industry calibration</strong> — Is the cost database generic, or calibrated for your specific industry — aerospace, defence, EV, or drones?</li>
+  <li><strong>Costing methodology</strong> — Is the estimate built bottom-up from material, process, labour and overhead, or derived from historical prices or analogies? Can you see how every number was produced?</li>
+  <li><strong>Material, process and rate assumptions</strong> — Which manufacturing processes are covered, and how are labour rates, machine rates, energy and material prices sourced and kept current for the countries you buy from? Can you edit an assumption and see the result change?</li>
+  <li><strong>Inputs required</strong> — Does the tool need a finished 3D model, or can it work from a drawing, a part description or a BOM line? What happens for parts with no clean CAD model?</li>
+  <li><strong>BOM support</strong> — Can you cost a multi-level assembly and roll the result up, or only one part at a time?</li>
+  <li><strong>Supplier-quote validation</strong> — Can you load a quote and see the difference by cost element, not just in total? Does the output help you prepare a negotiation?</li>
+  <li><strong>Transparency of cost breakdowns</strong> — Is the breakdown shown per operation, in a form engineers can review and you can share with a supplier?</li>
+  <li><strong>Fit to your workflow</strong> — Who will use it (design, cost engineering, sourcing, or a supplier estimating its own jobs)? Which PLM, ERP and CAD connections are native, and which need custom work? How is your data handled?</li>
+  <li><strong>Set-up effort and total cost</strong> — What do licences, implementation, training, data updates and support cost, and how long does a pilot take? Get answers in writing rather than relying on category assumptions.</li>
 </ol>
 
-<h2>Top Should Cost Analysis Software Platforms in 2026</h2>
+<h2>Five Tools and Approaches at a Glance</h2>
 
-<h3>1. aPriori</h3>
-
-<p style="font-size:0.85rem;color:#0d9488;font-weight:600;margin-bottom:0.75rem;">Best for: Large aerospace and automotive OEMs with dedicated cost engineering teams and enterprise IT infrastructure.</p>
-
-<p>aPriori is the most established name in manufacturing cost management software. It offers deep CAD integration (CATIA, NX, Creo, SolidWorks), a broad manufacturing process library, and region-specific cost databases covering North America, Europe, and China.</p>
-
-<p><strong>Strengths:</strong></p>
-<ul>
-  <li>Mature, feature-rich platform with 20+ years of development</li>
-  <li>Strong CAD-to-cost workflow for early design stage costing</li>
-  <li>Large process library covering machined parts, castings, plastics, and PCBs</li>
-  <li>Established customer base in automotive and aerospace Tier 1s</li>
-</ul>
-
-<p><strong>Limitations:</strong></p>
-<ul>
-  <li>Enterprise pricing places it out of reach for most mid-market manufacturers</li>
-  <li>Implementation timelines can run 6–18 months</li>
-  <li>Cost database calibration for India and Southeast Asia is limited</li>
-  <li>Heavy IT dependency — requires significant internal resource to manage</li>
-  <li>Designed primarily for US and European cost structures</li>
-</ul>
-
-<div style="padding:0.85rem 1rem;border-radius:8px;background:rgba(15,27,45,0.04);border:1px solid rgba(15,27,45,0.1);margin-top:0.75rem;">
-  <p style="font-size:0.85rem;color:#374151;margin:0;"><strong>Best fit:</strong> Fortune 500 OEMs and large Tier 1 suppliers with dedicated cost engineering departments and six-figure software budgets.</p>
-</div>
-
-<h3>2. Costimator (MTI Systems)</h3>
-
-<p style="font-size:0.85rem;color:#0d9488;font-weight:600;margin-bottom:0.75rem;">Best for: Job shops and contract manufacturers that need quick manufacturing cost estimates for quoting purposes.</p>
-
-<p>Costimator is a long-standing desktop-based cost estimating tool used primarily by precision machine shops and contract manufacturers. It focuses on helping shops price jobs quickly and accurately, rather than on procurement-side should cost modeling.</p>
-
-<p><strong>Strengths:</strong></p>
-<ul>
-  <li>Strong for machining and sheet metal cost estimation</li>
-  <li>Widely used in the job shop community</li>
-  <li>Reasonable learning curve for experienced machinists</li>
-</ul>
-
-<p><strong>Limitations:</strong></p>
-<ul>
-  <li>Desktop-based architecture limits collaboration and scalability</li>
-  <li>Not designed for BOM-level procurement cost analysis</li>
-  <li>Limited AI or machine learning capability</li>
-  <li>Minimal supplier benchmarking or negotiation support features</li>
-  <li>Not calibrated for Indian or emerging market cost structures</li>
-</ul>
-
-<div style="padding:0.85rem 1rem;border-radius:8px;background:rgba(15,27,45,0.04);border:1px solid rgba(15,27,45,0.1);margin-top:0.75rem;">
-  <p style="font-size:0.85rem;color:#374151;margin:0;"><strong>Best fit:</strong> CNC job shops and contract manufacturers quoting individual parts, not OEM procurement teams managing supply chain costs.</p>
-</div>
-
-<h3>3. FACTON EPC</h3>
-
-<p style="font-size:0.85rem;color:#0d9488;font-weight:600;margin-bottom:0.75rem;">Best for: European automotive OEMs and Tier 1 suppliers with SAP environments.</p>
-
-<p>FACTON (now part of Siemens) is an enterprise product costing platform with deep roots in the German automotive supply chain. It focuses on total cost of ownership and integrated cost management across the product lifecycle.</p>
-
-<p><strong>Strengths:</strong></p>
-<ul>
-  <li>Strong SAP and PLM integration</li>
-  <li>Robust product cost lifecycle management</li>
-  <li>Established in European automotive supply chains</li>
-  <li>Detailed overhead and allocation modelling capabilities</li>
-</ul>
-
-<p><strong>Limitations:</strong></p>
-<ul>
-  <li>Implementation complexity is high — typically requires specialist consultants</li>
-  <li>Primarily designed for automotive; limited calibration for aerospace, drones, or defence</li>
-  <li>Geographic cost data weighted toward Western Europe and North America</li>
-  <li>Enterprise-only pricing</li>
-  <li>Minimal presence in India or Asia-Pacific markets</li>
-</ul>
-
-<div style="padding:0.85rem 1rem;border-radius:8px;background:rgba(15,27,45,0.04);border:1px solid rgba(15,27,45,0.1);margin-top:0.75rem;">
-  <p style="font-size:0.85rem;color:#374151;margin:0;"><strong>Best fit:</strong> Large European automotive OEMs with existing SAP ecosystems and dedicated cost controlling teams.</p>
-</div>
-
-<h3>4. Boothroyd Dewhurst DFMA Software</h3>
-
-<p style="font-size:0.85rem;color:#0d9488;font-weight:600;margin-bottom:0.75rem;">Best for: Design engineers evaluating manufacturability and assembly cost during product development.</p>
-
-<p>Boothroyd Dewhurst's DFMA tool is the original design-for-manufacture-and-assembly software. Its cost analysis capabilities are designed to support design decisions — comparing assembly methods, part consolidation, and process alternatives — rather than procurement-side supplier negotiation.</p>
-
-<p><strong>Strengths:</strong></p>
-<ul>
-  <li>Excellent for DFM and assembly cost analysis during design</li>
-  <li>Strong academic and research pedigree</li>
-  <li>Supports design trade-off decisions at the concept stage</li>
-</ul>
-
-<p><strong>Limitations:</strong></p>
-<ul>
-  <li>Not a procurement or supply chain tool</li>
-  <li>Requires significant manual input for each analysis</li>
-  <li>Does not scale to BOM-level supplier cost benchmarking</li>
-  <li>Limited to design-phase use cases</li>
-</ul>
-
-<div style="padding:0.85rem 1rem;border-radius:8px;background:rgba(15,27,45,0.04);border:1px solid rgba(15,27,45,0.1);margin-top:0.75rem;">
-  <p style="font-size:0.85rem;color:#374151;margin:0;"><strong>Best fit:</strong> R&amp;D and product design teams evaluating process and assembly alternatives — not procurement teams managing live supplier relationships.</p>
-</div>
-
-<h3>5. Emithran</h3>
-
-<p style="font-size:0.85rem;color:#0d9488;font-weight:600;margin-bottom:0.75rem;">Best for: Aerospace, drone, defence, and EV OEMs that need AI-powered should cost analysis at BOM scale — with specific calibration for Indian manufacturing economics and global supplier benchmarking.</p>
-
-<p>Emithran is an AI-powered manufacturing intelligence platform purpose-built for the cost engineering and procurement challenges of high-complexity, regulated-industry supply chains. Unlike legacy platforms that require months of implementation and dedicated IT teams, Emithran is designed to deliver should cost models from day one — from BOM upload to cost baseline in under an afternoon.</p>
-
-<p><strong>What makes Emithran different:</strong></p>
-
-<ul>
-  <li><strong>Built on real manufacturing data.</strong> Emithran's cost models are calibrated on live operational data from precision CNC manufacturing, including AS9100D and ISO 9001-certified production environments. This means the machine rates, scrap factors, and process benchmarks reflect actual ground-level economics — not textbook estimates.</li>
-  <li><strong>BOM-to-cost automation.</strong> Upload your full Bill of Materials and Emithran returns a should cost baseline across every line item simultaneously. No component-by-component manual entry, no separate model for each part.</li>
-  <li><strong>India-first, globally calibrated.</strong> Emithran's cost database covers India, Eastern Europe, Germany, and the US with regional accuracy that no US-origin platform currently matches for the Indian manufacturing context. This is critical for OEMs sourcing components from Indian Tier 1s and Tier 2s.</li>
-  <li><strong>Aerospace, defence, drone, and EV-specific.</strong> The platform is built for regulated-industry supply chains where AS9100D compliance, CMMC requirements, and design-to-cost pressures are daily realities — not an afterthought.</li>
-  <li><strong>VAVE integration.</strong> Should cost models feed directly into VAVE workflow — identifying which components have the highest cost reduction potential and surfacing design and supplier alternatives automatically.</li>
-  <li><strong>RFQ intelligence.</strong> Emithran compares live supplier quotes against should cost models in real time, flagging outliers, calculating negotiation opportunity, and generating cost justification reports for procurement teams.</li>
-</ul>
-
-<h2>Head-to-Head Comparison</h2>
-
-<div style="overflow-x:auto;margin:1.5rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;min-width:680px;border-collapse:collapse;font-size:0.83rem;">
     <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Feature</th>
-        <th style="padding:0.65rem 0.9rem;text-align:center;font-weight:700;color:#0d1117;">aPriori</th>
-        <th style="padding:0.65rem 0.9rem;text-align:center;font-weight:700;color:#0d1117;">Costimator</th>
-        <th style="padding:0.65rem 0.9rem;text-align:center;font-weight:700;color:#0d1117;">FACTON</th>
-        <th style="padding:0.65rem 0.9rem;text-align:center;font-weight:700;color:#0d9488;">Emithran</th>
+      <tr>
+        <th style="padding:0.75rem 1rem;text-align:left;background:#0f1b2d;color:#fff;">Tool</th>
+        <th style="padding:0.75rem 1rem;text-align:left;background:#1e2a3a;color:#94a3b8;">How it is described publicly</th>
+        <th style="padding:0.75rem 1rem;text-align:left;background:#1e2a3a;color:#94a3b8;">Starting point for the estimate</th>
       </tr>
     </thead>
     <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">AI/ML Automation</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Partial</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Minimal</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Partial</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅ Full</td>
+      <tr style="border-bottom:1px solid #e5e7eb;">
+        <td style="padding:0.7rem 1rem;vertical-align:top;font-weight:600;color:#0d1117;">aPriori</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Product cost management, design for manufacturability and sustainability, and supplier collaboration (Built In)</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">CAD-driven: the 3D model is the main input (DEVELOP3D, 2011)</td>
       </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">BOM-Level Analysis</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;">✅</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;">✅</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅</td>
+      <tr style="background:#f9fafb;border-bottom:1px solid #e5e7eb;">
+        <td style="padding:0.7rem 1rem;vertical-align:top;font-weight:600;color:#0d1117;">Costimator (MTI Systems)</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Cost estimating and quoting software for manufacturing, including a should-cost offering (MTI Systems)</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Process cost models used by an estimator</td>
       </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">CAD Integration</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;">✅</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Limited</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;">✅</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅</td>
+      <tr style="border-bottom:1px solid #e5e7eb;">
+        <td style="padding:0.7rem 1rem;vertical-align:top;font-weight:600;color:#0d1117;">FACTON EPC Suite</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Enterprise product costing software, with a Should Costing module aimed at purchasing teams (FACTON)</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Digital cost models, with integrated benchmark data</td>
       </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">India Cost Database</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">⚠️ Limited</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅ Full</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">Aerospace / Defence Focus</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;">✅</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Limited</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">EV / Drone Use Cases</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Partial</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Partial</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">VAVE Integration</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Partial</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Partial</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">RFQ Benchmarking</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Partial</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;">✅</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">Mid-Market Accessible</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;">✅</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#ef4444;">❌</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">Implementation Time</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">6–18 months</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Weeks</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">6–12 months</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">Days–weeks</td>
+      <tr style="background:#f9fafb;border-bottom:1px solid #e5e7eb;">
+        <td style="padding:0.7rem 1rem;vertical-align:top;font-weight:600;color:#0d1117;">DFMA (Boothroyd Dewhurst)</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Should-costing software that builds estimates from material costs, cycle times and process logic (Boothroyd Dewhurst)</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Process-based models, with an optional global costing data add-on</td>
       </tr>
       <tr>
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d1117;">India/APAC Support</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">Limited</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">None</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#374151;">None</td>
-        <td style="padding:0.65rem 0.9rem;text-align:center;color:#0d9488;font-weight:600;">✅ Primary</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;font-weight:600;color:#0d9488;">Emithran</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Bottom-up should-cost for parts and multi-level BOMs, with BOM management and supplier data on one platform</td>
+        <td style="padding:0.7rem 1rem;vertical-align:top;color:#374151;">Drawing, CAD file, part description or BOM, plus an optional supplier quote</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<h2>How to Choose the Right Should Cost Software</h2>
+<p style="font-size:0.85rem;color:#6b7280;">The table summarises public descriptions, not a feature-by-feature scoring. We have not marked any tool as better or worse, because that depends on your parts, processes and suppliers.</p>
+
+<h3>aPriori</h3>
+
+<p>According to Built In, aPriori was founded in 2003 and is headquartered in Concord, Massachusetts. Its platform is described there as combining product cost management, design for manufacturability and sustainability, and supplier collaboration, with more than 450 manufacturing process simulations and more than 80 regional economic models. A 2011 DEVELOP3D review, which predates later versions of the product, describes a CAD-driven approach in which the 3D model is the main input.</p>
+
+<p><strong>Worth checking:</strong></p>
+<ul>
+  <li>How much set-up and specialist time the tool needs, and what you do for parts or assemblies without a clean CAD model.</li>
+  <li>Whether the regional rate data covers the countries and processes you actually buy from.</li>
+  <li>Which PLM, ERP and CAD connections are native, confirmed in writing.</li>
+</ul>
+
+<h3>Costimator (MTI Systems)</h3>
+
+<p>MTI Systems describes Costimator as cost estimating and quoting software designed for manufacturing, used for product costing and process planning. Its page groups the product under machining, sheet metal fabrication, and should-cost and quoting, names machine shops and sheet metal fabricators as users, and says its cost models calculate cycle times and costs across a range of processes. It also says the product integrates with many ERP systems and exports estimate data to XML files for use in other applications.</p>
+
+<p>The same page does not state the deployment model (desktop or cloud), whether whole BOMs or assemblies are supported, or how CAD files are handled. Those are the points to put to MTI if they matter to you.</p>
+
+<p><strong>Worth checking:</strong></p>
+<ul>
+  <li>Whether the should-cost offering fits a buyer-side workflow or mainly an estimator&rsquo;s quoting workflow.</li>
+  <li>How rates and process standards are maintained, and who edits them.</li>
+  <li>What can be exported from your version, and in which formats.</li>
+</ul>
+
+<h3>FACTON EPC Suite</h3>
+
+<p>FACTON is described by its owner as a German-based provider of enterprise product costing software for manufacturers and suppliers. In January 2021 it was acquired by FOG Software Group, an operating group of Vela Software and Constellation Software. FACTON describes the EPC Suite as supporting cost management across the product life cycle, and its Should Costing module as aimed at purchasing teams, with integrated benchmark data and a Cost Model Designer for building digital cost models.</p>
+
+<p><strong>Worth checking:</strong></p>
+<ul>
+  <li>How the should-costing module relates to the wider product costing suite, and which parts you would actually license.</li>
+  <li>Implementation approach and who typically carries it out.</li>
+  <li>Which regions and processes the benchmark data covers.</li>
+</ul>
+
+<h3>DFMA (Boothroyd Dewhurst)</h3>
+
+<p>Boothroyd Dewhurst says its should-costing software lets teams create their own should-cost estimates instead of relying only on supplier quotes, based on material costs, cycle times and manufacturing process logic. It lists design engineering, manufacturing engineering, cost engineering and engineering leadership as users, offers a Global Costing Data add-on for comparing regions, and says DFMA does not need a finished 3D model to begin a cost analysis.</p>
+
+<p><strong>Worth checking:</strong></p>
+<ul>
+  <li>How much input each analysis needs, and how results are carried across many parts or a full BOM.</li>
+  <li>Which regions and processes the costing data covers, and how often it is updated.</li>
+  <li>How outputs are shared with sourcing teams and suppliers.</li>
+</ul>
+
+<h3>Emithran</h3>
+
+<p>Emithran builds bottom-up should-cost models for individual parts and multi-level BOMs from a drawing, CAD file or part description. It shows a supplier&rsquo;s quote beside the model, the gap by cost element and a suggested target price, and can compare locations (India, Germany, the UK, the USA, China, Mexico and Turkey) on delivered cost. It ships with India-native labour, material and supplier data, and combines should-cost with BOM management and supplier intelligence on one platform. See the <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">Emithran should-cost analysis software page</a> for the details.</p>
+
+<p>Emithran currently supports CNC machining, stamping, casting (sand, die and investment), injection moulding, sheet metal fabrication, roll forming, welded assemblies and PCB assembly, with forging, extrusion and additive manufacturing being added. Its process coverage is narrower than the largest CAD-driven libraries, so test your own parts before you decide.</p>
+
+<p><strong>Worth checking:</strong></p>
+<ul>
+  <li>That your processes, materials and regions are covered today, not just planned.</li>
+  <li>Which PLM, ERP and CAD connections you need, and how they work in practice.</li>
+  <li>How the quote-gap output fits your negotiation process.</li>
+</ul>
+
+<h2>Which Approach Fits Which Need</h2>
 
 <div style="display:flex;flex-direction:column;gap:0.75rem;margin:1.25rem 0;">
   <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <p style="font-weight:700;color:#0d1117;margin-bottom:0.35rem;">Choose aPriori if:</p>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">You are a large OEM or Tier 1 supplier with a dedicated cost engineering team, an existing PLM environment (CATIA, NX, Creo), and a budget for enterprise-grade implementation. aPriori is a powerful platform when properly resourced.</p>
+    <p style="font-weight:700;color:#0d1117;margin-bottom:0.35rem;">Decisions made at design time, on parts with usable 3D models</p>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">CAD-driven tools such as aPriori are worth testing, especially if you need very broad process coverage or want costing close to the design environment.</p>
   </div>
   <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <p style="font-weight:700;color:#0d1117;margin-bottom:0.35rem;">Choose Costimator if:</p>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">You run a precision machine shop and need to price jobs quickly. It is a quoting tool, not a procurement benchmarking platform.</p>
+    <p style="font-weight:700;color:#0d1117;margin-bottom:0.35rem;">Estimating and quoting your own manufacturing work</p>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">Estimating and quoting tools such as Costimator are built around that job. Test whether the should-cost side fits a buyer-side workflow if that is your need.</p>
   </div>
   <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <p style="font-weight:700;color:#0d1117;margin-bottom:0.35rem;">Choose FACTON if:</p>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">You are a European automotive OEM with SAP ERP and need deep product cost lifecycle integration across engineering and finance.</p>
+    <p style="font-weight:700;color:#0d1117;margin-bottom:0.35rem;">Enterprise product costing, with should-costing for purchasing</p>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">FACTON EPC Suite covers costing across the product life cycle, with a Should Costing module for purchasing. Check how much of the suite you would need.</p>
+  </div>
+  <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
+    <p style="font-weight:700;color:#0d1117;margin-bottom:0.35rem;">Process-based should-cost from design and cost engineering teams</p>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">DFMA from Boothroyd Dewhurst is built around process-based models and lists engineering teams as its users. Check how results reach sourcing.</p>
   </div>
   <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.2);background:rgba(13,148,136,0.06);">
-    <p style="font-weight:700;color:#0d9488;margin-bottom:0.35rem;">Choose Emithran if:</p>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">You are an aerospace, defence, drone, or EV manufacturer — in India or sourcing from India — that needs AI-powered should cost analysis at BOM scale without a year-long implementation. Particularly strong if you are running VAVE programmes, managing RFQ cycles across complex supply chains, or entering the Indian defence and space manufacturing ecosystem.</p>
+    <p style="font-weight:700;color:#0d9488;margin-bottom:0.35rem;">Starting from a BOM, drawings and supplier quotes</p>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">If procurement and cost engineering teams need should-cost, BOM and supplier data in one place, and buy from India or compare India with other locations, Emithran is built for that workflow. Confirm process and region coverage on your own parts first.</p>
   </div>
 </div>
+
+<h2>How to Run a Fair Pilot</h2>
+
+<ol>
+  <li><strong>Pick a small set of parts</strong> — Include different processes and at least a few parts where you already know the real cost, such as parts you make or have long quote history on.</li>
+  <li><strong>Give every tool the same inputs</strong> — The same drawings, volumes and locations, so differences come from the tool and not the data.</li>
+  <li><strong>Compare assumptions, not just totals</strong> — Look at cycle times, rates, yield and overhead for each operation, and check which ones you can edit.</li>
+  <li><strong>Load a real supplier quote</strong> — See whether the gap by cost element gives you something you can use in a negotiation.</li>
+  <li><strong>Record the effort</strong> — Note the set-up time, the specialist help needed and the manual steps for each tool.</li>
+  <li><strong>Get integration answers in writing</strong> — Ask each vendor which PLM, ERP and CAD connections are native.</li>
+</ol>
+
+<h2>Sources and how we checked</h2>
+<p style="font-size:0.9rem;color:#374151;">Competitor details in this article come only from the public pages below, checked on 13 October 2026. Vendors change products, packaging and pricing, so confirm current details with each vendor before you decide. If you spot something out of date, <a href="/contact?source=blog-correction&cta=suggest-correction" style="color:#0d9488;font-weight:600;">tell us</a> and we will correct it.</p>
+<ul style="font-size:0.88rem;color:#374151;padding-left:1.2rem;">
+  <li style="margin-bottom:0.4rem;"><a href="https://builtin.com/company/apriori" style="color:#0d9488;font-weight:600;" target="_blank" rel="noopener noreferrer">Built In: aPriori company profile</a> (founding year, headquarters, platform description, process and regional model counts)</li>
+  <li style="margin-bottom:0.4rem;"><a href="https://develop3d.com/manufacture/apriori-2011-review/" style="color:#0d9488;font-weight:600;" target="_blank" rel="noopener noreferrer">DEVELOP3D: aPriori 2011 review</a> (how the CAD-driven approach works; an independent review from 2011, so the product has since changed)</li>
+  <li style="margin-bottom:0.4rem;"><a href="https://www.mtisystems.com/costimator/" style="color:#0d9488;font-weight:600;" target="_blank" rel="noopener noreferrer">MTI Systems: Costimator</a> (product description, processes, should-cost and quoting, ERP integration and export; deployment model, BOM support and CAD integration are not stated on that page)</li>
+  <li style="margin-bottom:0.4rem;"><a href="https://www.facton.com/en-us/software/facton-epc-suite" style="color:#0d9488;font-weight:600;" target="_blank" rel="noopener noreferrer">FACTON: EPC Suite</a> (cost estimates across the product life cycle)</li>
+  <li style="margin-bottom:0.4rem;"><a href="https://www.facton.com/software/facton-epc-suite/should-costing" style="color:#0d9488;font-weight:600;" target="_blank" rel="noopener noreferrer">FACTON: EPC Should Costing</a> (purchasing focus, benchmark data, Cost Model Designer)</li>
+  <li style="margin-bottom:0.4rem;"><a href="https://www.fogsoftwaregroup.com/press-releases/facton-acquired-by-fog-software-group" style="color:#0d9488;font-weight:600;" target="_blank" rel="noopener noreferrer">FOG Software Group: FACTON acquisition announcement</a> (ownership, January 2021, German-based, EPC Suite)</li>
+  <li style="margin-bottom:0.4rem;"><a href="https://www.dfma.com/about.asp" style="color:#0d9488;font-weight:600;" target="_blank" rel="noopener noreferrer">Boothroyd Dewhurst: DFMA</a> (should-costing description, users, Global Costing Data add-on)</li>
+  <li style="margin-bottom:0.4rem;"><a href="https://www.dfma.com/blog/dfma-should-costing-tool-differentiator-part-3.asp" style="color:#0d9488;font-weight:600;" target="_blank" rel="noopener noreferrer">Boothroyd Dewhurst: DFMA should-costing blog</a> (does not need a finished 3D model)</li>
+</ul>
 
 <div style="margin:2.5rem 0;padding:2rem;border-radius:16px;background:linear-gradient(135deg,#0f1b2d,#0a2a26);text-align:center;">
   <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.25rem;">Choosing the right should cost platform is a significant decision.</p>
