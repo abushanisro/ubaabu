@@ -4,6 +4,8 @@ import Script from 'next/script'
 import './globals.css'
 import ConditionalNavbar from '@/components/layout/ConditionalNavbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
+import FooterOutro from '@/components/layout/FooterOutro'
+import SmoothScroll from '@/components/providers/SmoothScroll'
 import ChatlingController from '@/components/ui/chatling-controller'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import SiteJsonLd from '@/components/seo/SiteJsonLd'
@@ -221,44 +223,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <span aria-hidden className="pointer-events-none fixed inset-y-0 z-40 w-px bg-black/[0.08] hidden md:block" style={{ right: 64 }} />
 
         {/* Outro: desktop only — iOS Safari has compositor bugs with large fixed background text; hidden on mobile to prevent scroll-bleed glitch */}
-        <div
-          className="hidden md:flex fixed bottom-0 inset-x-0 h-screen overflow-hidden pointer-events-none"
-          style={{
-            zIndex: 0,
-            willChange: 'transform',
-            backgroundImage: [
-              'repeating-linear-gradient(90deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 5px)',
-              'linear-gradient(to bottom, #fff 0%, #b2f5ea 40%, #2dd4bf 100%)',
-            ].join(', '),
-          }}
-        >
-          <div
-            className="absolute bottom-0 left-0 right-0 text-center font-black select-none whitespace-nowrap"
-            style={{
-              fontSize: 'clamp(40px, 19.5vw, 260px)',
-              color: '#0f1b2d',
-              letterSpacing: '-0.02em',
-              lineHeight: 1,
-              marginBottom: '0.06em',
-            }}
-          >
-            EMITHRAN
-          </div>
-        </div>
+        <FooterOutro spacerId="footer-outro-spacer" />
 
         <ConditionalNavbar />
         <ChatlingController />
 
         {/* White content on top */}
-        <div className="relative bg-white" style={{ backgroundColor: 'white', WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}>
-          <GoogleAnalytics />
-          <SiteJsonLd />
-          <main className="relative">{children}</main>
-          <ConditionalFooter />
-        </div>
+        <SmoothScroll>
+          <div className="relative bg-white">
+            <GoogleAnalytics />
+            <SiteJsonLd />
+            <main className="relative">{children}</main>
+            <ConditionalFooter />
+          </div>
+        </SmoothScroll>
 
         {/* Spacer — desktop only (mobile has no outro to reveal) */}
-        <div className="h-0 md:h-[45vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
+        <div id="footer-outro-spacer" className="h-0 md:h-[45vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
 
         <script dangerouslySetInnerHTML={{ __html: 'window.chtlConfig = { chatbotId: "7877335611" }' }} />
         <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="afterInteractive" />

@@ -1,19 +1,25 @@
 'use client'
 import { useEffect } from 'react'
 import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 
+// Lenis only smooths the native window scroll - the DOM, URLs and content
+// stay exactly as rendered, so crawlers and no-JS visitors are unaffected.
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.4,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    })
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-    requestAnimationFrame(raf)
+    const lenis = new Lenis({
+      lerp: 0.1,
+      autoRaf: true,
+      // In-page #anchor links scroll smoothly, offset for the fixed navbar
+      anchors: { offset: -80 },
+      // Pauses while a modal sets overflow:hidden on <html>/<body>
+      autoToggle: true,
+      // Scrollable panels (modals, chat, dropdowns) keep their own native scroll
+      allowNestedScroll: true,
+      stopInertiaOnNavigate: true,
+    })
 
     return () => lenis.destroy()
   }, [])

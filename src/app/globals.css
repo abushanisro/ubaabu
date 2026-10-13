@@ -114,7 +114,8 @@ body {
 @layer base {
   * { border-color: var(--color-border); }
   html {
-    scroll-behavior: smooth;
+    /* No CSS scroll-behavior: smooth - Lenis (SmoothScroll provider) handles it,
+       and the two fight each other, causing laggy scroll. */
     overflow-x: clip;
   }
   body {
