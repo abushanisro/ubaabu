@@ -41,6 +41,10 @@ const faqs = [
     a: 'Should-cost analysis software builds a bottom-up estimate of what a part or assembly should cost to manufacture, from explicit cost assumptions rather than a supplier\'s quoted price, so you can compare the two. Emithran does this for individual parts and multi-level BOMs, with BOM management and supplier data on the same platform.',
   },
   {
+    q: 'What is costing software, and where does Emithran fit?',
+    a: 'Costing software is a broad term. It covers tools that estimate what a part will cost to make, tools that allocate overheads through activity-based costing, and tools that track project or job costs. Emithran is manufacturing costing software for part and BOM costing: it builds a bottom-up should-cost from material, process, labour and overhead, rolls it up through a multi-level BOM, and lets you compare the result with a supplier quote and across manufacturing locations.',
+  },
+  {
     q: 'What do I need to build a should-cost model?',
     a: 'A drawing, CAD file or detailed part description; the material and annual volume; and the manufacturing location you want to assume. A supplier quote is optional, but it lets the model show the gap between quote and should-cost. The more complete the drawing or CAD file, the more precise the estimate.',
   },
