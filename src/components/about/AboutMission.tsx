@@ -14,7 +14,7 @@ export default function AboutMission() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-white py-16 lg:py-24">
 
       {/* Decorative left triangle */}
       <div

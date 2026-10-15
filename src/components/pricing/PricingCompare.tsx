@@ -81,7 +81,7 @@ export default function PricingCompare() {
 
   return (
     <section id="compare" className="pricing-section bg-[#f0fdf9]">
-      <div className="mx-auto max-w-[1200px] px-6 py-14">
+      <div className="mx-auto max-w-[1200px] px-6 py-10">
 
         {/* Header */}
         <AnimateIn>

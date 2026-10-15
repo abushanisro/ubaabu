@@ -392,7 +392,7 @@ function ArrowIcon() {
 
 function ExploreSection() {
   return (
-    <section className="border-t bg-white py-10 sm:py-16 px-6 md:px-12" style={{ borderColor: 'rgba(13,148,136,0.10)' }}>
+    <section className="border-t bg-white py-10 sm:py-12 px-6 md:px-12" style={{ borderColor: 'rgba(13,148,136,0.10)' }}>
       <div className="mx-auto max-w-[1280px]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 
@@ -490,7 +490,7 @@ export default function BecomeAPartnerPage() {
   return (
     <main>
       <PartnerEcosystemNav />
-      <section className="bg-white py-12 sm:py-20 px-6 md:px-12">
+      <section className="bg-white py-10 sm:py-14 px-6 md:px-12">
         <div className="mx-auto max-w-[1280px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24">
 

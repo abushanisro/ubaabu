@@ -29,7 +29,7 @@ const CARDS = [
 export default function PlatformPartnership() {
   return (
     <section
-      className="relative overflow-hidden py-10 md:py-14"
+      className="relative overflow-hidden py-10 md:py-12"
       style={{
         backgroundImage: [
           'repeating-linear-gradient(90deg, rgba(0,0,0,0.08) 0px, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 5px)',

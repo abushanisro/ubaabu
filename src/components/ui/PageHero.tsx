@@ -2,7 +2,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 
 export default function PageHero({ eyebrow, title, subtitle, children }: { eyebrow: string; title: string; subtitle?: string; children?: React.ReactNode }) {
   return (
-    <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-28 border-b border-border overflow-hidden">
+    <section className="relative pt-40 pb-14 lg:pt-48 lg:pb-20 border-b border-border overflow-hidden">
       {/* faint dot grid */}
       <div
         className="absolute inset-0 opacity-[0.05] pointer-events-none"

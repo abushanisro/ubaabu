@@ -35,7 +35,7 @@ const LINKS = [
 
 export default function HomeExploreLinks() {
   return (
-    <section className="bg-white py-10 md:py-16" aria-labelledby="explore-emithran-heading">
+    <section className="bg-white py-10 md:py-12" aria-labelledby="explore-emithran-heading">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
         <p className="mb-2 text-[11px] font-bold uppercase tracking-widest text-[#0d9488]">Explore Emithran</p>
         <h2 id="explore-emithran-heading" className="max-w-2xl text-2xl font-bold tracking-tight text-[#0f1b2d] md:text-3xl">

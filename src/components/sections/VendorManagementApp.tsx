@@ -8,7 +8,7 @@ const PRE_BOOK_HREF = '/pre-book'
 
 export default function VendorManagementApp() {
   return (
-    <section className="bg-white py-10 md:py-14">
+    <section className="bg-white py-10 md:py-12">
       <div className="mx-auto max-w-[1280px] px-4 md:px-12">
         <h2
           className={`${light.className} mx-auto mb-8 md:mb-10 whitespace-normal md:whitespace-nowrap text-center leading-tight text-[#0f1b2d] text-[20px] sm:text-[24px] md:[font-size:clamp(0.85rem,2.5vw,2.75rem)]`}

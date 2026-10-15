@@ -457,7 +457,7 @@ export default function PricingPackages() {
   return (
     <>
       {/* ══════════════ Use-case cards section ══════════════ */}
-      <section id="packages" className="pricing-section relative overflow-hidden bg-[#f8f9fa] py-10 md:py-14">
+      <section id="packages" className="pricing-section relative overflow-hidden bg-[#f8f9fa] py-10 md:py-12">
 
         {/* Full-section SVG background */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -544,7 +544,7 @@ export default function PricingPackages() {
       </section>
 
       {/* ══════════════ API Pricing section ══════════════ */}
-      <section id="api-pricing" className="pricing-section bg-[#f8f9fa] py-16 md:py-20">
+      <section id="api-pricing" className="pricing-section bg-[#f8f9fa] py-12 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6">
           <AnimateIn>
             <div className="relative overflow-hidden rounded-3xl bg-white px-8 py-10 shadow-[0_1px_4px_rgba(0,0,0,0.06),0_4px_24px_rgba(0,0,0,0.06)]">

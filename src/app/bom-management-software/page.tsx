@@ -150,7 +150,7 @@ export default function BomManagementSoftwarePage() {
       <main style={{ background: '#fff', color: '#0f1b2d' }}>
 
         {/* ── Hero ── */}
-        <section className="relative overflow-hidden pt-28 pb-20" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+        <section className="relative overflow-hidden pt-28 pb-14" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
           <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(13,148,136,0.08) 0%, transparent 70%)' }} />
           </div>
@@ -188,7 +188,7 @@ export default function BomManagementSoftwarePage() {
         </section>
 
         {/* ── What is BOM management ── */}
-        <section className="py-20 max-w-5xl mx-auto px-6 lg:px-10">
+        <section className="py-14 max-w-5xl mx-auto px-6 lg:px-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>Why BOM Management Matters</p>
@@ -219,7 +219,7 @@ export default function BomManagementSoftwarePage() {
         </section>
 
         {/* ── How it works ── */}
-        <section className="py-20" style={{ background: '#0f1b2d' }}>
+        <section className="py-14" style={{ background: '#0f1b2d' }}>
           <div className="max-w-5xl mx-auto px-6 lg:px-10">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#2dd4bf' }}>How It Works</p>
             <h2 className="text-3xl font-bold tracking-tight mb-12 text-white">
@@ -238,7 +238,7 @@ export default function BomManagementSoftwarePage() {
         </section>
 
         {/* ── Features ── */}
-        <section className="py-20 max-w-5xl mx-auto px-6 lg:px-10">
+        <section className="py-14 max-w-5xl mx-auto px-6 lg:px-10">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>Platform Capabilities</p>
           <h2 className="text-3xl font-bold tracking-tight mb-12">
             More than BOM storage — intelligence at every line item
@@ -255,7 +255,7 @@ export default function BomManagementSoftwarePage() {
         </section>
 
         {/* ── Case study callout ── */}
-        <section className="py-16" style={{ background: 'rgba(13,148,136,0.04)', borderTop: '1px solid rgba(13,148,136,0.1)', borderBottom: '1px solid rgba(13,148,136,0.1)' }}>
+        <section className="py-12" style={{ background: 'rgba(13,148,136,0.04)', borderTop: '1px solid rgba(13,148,136,0.1)', borderBottom: '1px solid rgba(13,148,136,0.1)' }}>
           <div className="max-w-5xl mx-auto px-6 lg:px-10">
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div>
@@ -290,7 +290,7 @@ export default function BomManagementSoftwarePage() {
         </section>
 
         {/* ── Comparison table ── */}
-        <section className="py-20 max-w-5xl mx-auto px-6 lg:px-10">
+        <section className="py-14 max-w-5xl mx-auto px-6 lg:px-10">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>How We Compare</p>
           <h2 className="text-3xl font-bold tracking-tight mb-10">
             Emithran vs spreadsheets vs ERP BOM modules
@@ -320,7 +320,7 @@ export default function BomManagementSoftwarePage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="py-20" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
+        <section className="py-14" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
           <div className="max-w-3xl mx-auto px-6 lg:px-10">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>FAQ</p>
             <h2 className="text-3xl font-bold tracking-tight mb-10">Common questions about BOM management software</h2>
@@ -348,7 +348,7 @@ export default function BomManagementSoftwarePage() {
         </section>
 
         {/* ── CTA ── */}
-        <section className="py-20" style={{ background: '#0f1b2d' }}>
+        <section className="py-14" style={{ background: '#0f1b2d' }}>
           <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-5">
               See BOM Intelligence in action

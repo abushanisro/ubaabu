@@ -210,7 +210,7 @@ export default function TrainingPage() {
       </section>
 
       {/* ── Training tracks ── */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="mb-12">
             <p className="text-[11px] font-semibold uppercase tracking-widest text-[#0d9e8a] mb-3">Training tracks</p>
@@ -248,7 +248,7 @@ export default function TrainingPage() {
       </section>
 
       {/* ── Why train with Emithran ── */}
-      <section className="py-20 bg-[#f8fafc] border-t border-black/[0.05]">
+      <section className="py-14 bg-[#f8fafc] border-t border-black/[0.05]">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
             <div className="lg:w-[260px] flex-shrink-0">
@@ -274,7 +274,7 @@ export default function TrainingPage() {
       </section>
 
       {/* ── Need help? ── */}
-      <section className="py-20 bg-white border-t border-black/[0.05]">
+      <section className="py-14 bg-white border-t border-black/[0.05]">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
 
@@ -336,7 +336,7 @@ export default function TrainingPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 bg-white border-t border-black/[0.05]">
+      <section className="py-12 bg-white border-t border-black/[0.05]">
         <div className="mx-auto max-w-[1280px] px-6 md:px-12">
           <div
             className="relative overflow-hidden rounded-2xl px-10 py-14 md:px-16"

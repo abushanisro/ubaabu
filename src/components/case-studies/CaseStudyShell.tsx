@@ -138,7 +138,7 @@ function RelatedSolutions({ slug }: { slug: string }) {
 function RelatedStudies({ slug }: { slug: string }) {
   const related = CASE_STUDIES.filter(cs => cs.slug !== slug).slice(0, 3)
   return (
-    <section className="border-t border-black/[0.07] bg-white py-12 md:py-16">
+    <section className="border-t border-black/[0.07] bg-white py-10 md:py-12">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
         <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.14em] text-[#0d9488]">Related</p>
         <h2 className="mb-8 text-xl font-bold tracking-tight text-[#0f1b2d]">More case studies</h2>

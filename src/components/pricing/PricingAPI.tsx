@@ -104,7 +104,7 @@ function FeatureRow({ f, dark }: { f: Feature; dark: boolean }) {
 export default function PricingAPI() {
   return (
     <section id="api" className="pricing-section bg-[#f0fdf9]">
-      <div className="mx-auto max-w-[1200px] px-6 py-16 md:py-20">
+      <div className="mx-auto max-w-[1200px] px-6 py-12 md:py-14">
 
         {/* Header */}
         <AnimateIn>

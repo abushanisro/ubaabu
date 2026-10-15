@@ -2,7 +2,7 @@
 
 export default function FinalCTA() {
   return (
-    <section id="demo" className="bg-white py-4 md:py-14">
+    <section id="demo" className="bg-white py-4 md:py-10">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
 
         {/* ── Desktop card (md+) ── */}

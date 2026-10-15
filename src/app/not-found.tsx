@@ -118,7 +118,7 @@ export default function NotFound() {
       <div className="flex-1 mx-auto w-full max-w-[1280px] px-6 md:px-12">
 
         {/* ── Hero copy ── */}
-        <section className="relative pt-20 pb-16 md:pb-20 border-b border-black/[0.07] flex justify-center">
+        <section className="relative pt-20 pb-12 md:pb-14 border-b border-black/[0.07] flex justify-center">
 
           {/* Column guides */}
           <div className="pointer-events-none hidden sm:flex absolute inset-0 justify-between px-0 z-0" aria-hidden="true">
@@ -144,7 +144,7 @@ export default function NotFound() {
         </section>
 
         {/* ── Recovery cards grid ── */}
-        <section className="relative py-16 md:py-20">
+        <section className="relative py-12 md:py-14">
 
           <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-black/[0.07]">
             {cards.map(({ Icon, title, body, href }) => (

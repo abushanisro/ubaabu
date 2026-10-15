@@ -115,7 +115,7 @@ export default function CaseStudies() {
   }
 
   return (
-    <section className="bg-white py-16 md:py-20 border-t border-black/[0.06]">
+    <section className="bg-white py-12 md:py-14 border-t border-black/[0.06]">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
 
         {/* Header */}

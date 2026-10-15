@@ -2,7 +2,7 @@ import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 export default function FAQ() {
   return (
-    <section className="bg-white border-t border-black/[0.06] py-16 md:py-20">
+    <section className="bg-white border-t border-black/[0.06] py-12 md:py-14">
       <div className="mx-auto max-w-[1280px] px-6 md:px-12">
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">

@@ -128,7 +128,7 @@ export default function SupplierIntelligencePage() {
         subtitle="Emithran is supplier intelligence software that gives procurement and programme teams access to 72,000+ verified Indian manufacturers - with qualification scores, risk flags, and capability data to make confident sourcing decisions fast."
       />
 
-      <section className="py-20 lg:py-28 border-b border-white/10">
+      <section className="py-14 lg:py-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionLabel>Platform capabilities</SectionLabel>
           <h2 className="font-display text-white text-[36px] lg:text-[52px] leading-[0.95] tracking-tight max-w-3xl mb-16">
@@ -145,7 +145,7 @@ export default function SupplierIntelligencePage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 border-b border-white/10">
+      <section className="py-14 lg:py-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionLabel>Scale</SectionLabel>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-8">
@@ -159,7 +159,7 @@ export default function SupplierIntelligencePage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 border-b border-white/10">
+      <section className="py-14 lg:py-20 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <SectionLabel>Industry coverage</SectionLabel>
           <h2 className="font-display text-white text-[36px] lg:text-[48px] leading-[0.95] max-w-2xl mb-10">
@@ -183,7 +183,7 @@ export default function SupplierIntelligencePage() {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28 border-b border-white/10">
+      <section className="py-14 lg:py-20 border-b border-white/10">
         <div className="max-w-3xl mx-auto px-6 lg:px-10">
           <SectionLabel>FAQ</SectionLabel>
           <h2 className="font-display text-white text-[32px] lg:text-[40px] leading-[0.95] mb-10">

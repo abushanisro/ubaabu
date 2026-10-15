@@ -81,7 +81,7 @@ export default function EmithranVsTeamcenterPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <main style={{ background: '#fff', color: '#0f1b2d' }}>
-        <section className="relative overflow-hidden pt-28 pb-16" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+        <section className="relative overflow-hidden pt-28 pb-12" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
           <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-10 text-center">
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full text-[12px] font-semibold" style={{ background: 'rgba(13,148,136,0.08)', color: '#0d9488', border: '1px solid rgba(13,148,136,0.2)' }}>
               Comparison
@@ -98,7 +98,7 @@ export default function EmithranVsTeamcenterPage() {
           </div>
         </section>
 
-        <section className="py-16 lg:py-20" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+        <section className="py-12 lg:py-14" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
           <div className="max-w-5xl mx-auto px-6 lg:px-10">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8 text-center">Feature-by-feature comparison</h2>
             <div className="overflow-x-auto rounded-xl border" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
@@ -128,7 +128,7 @@ export default function EmithranVsTeamcenterPage() {
           </div>
         </section>
 
-        <section className="py-16 lg:py-20" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+        <section className="py-12 lg:py-14" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
           <div className="max-w-5xl mx-auto px-6 lg:px-10 grid md:grid-cols-2 gap-10">
             <div>
               <h2 className="text-xl font-bold mb-4" style={{ color: '#0d9488' }}>Where Emithran fits best</h2>
@@ -149,7 +149,7 @@ export default function EmithranVsTeamcenterPage() {
           </div>
         </section>
 
-        <section className="py-16 lg:py-20">
+        <section className="py-12 lg:py-14">
           <div className="max-w-3xl mx-auto px-6 lg:px-10">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-10 text-center">Frequently asked questions</h2>
             <div className="divide-y" style={{ borderColor: 'rgba(0,0,0,0.07)' }}>
@@ -163,7 +163,7 @@ export default function EmithranVsTeamcenterPage() {
           </div>
         </section>
 
-        <section className="py-16" style={{ background: 'rgba(13,148,136,0.04)' }}>
+        <section className="py-12" style={{ background: 'rgba(13,148,136,0.04)' }}>
           <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">See Emithran on your own BOMs</h2>
             <p className="mb-8" style={{ color: 'rgba(15,27,45,0.6)' }}>Most pilots start within a week, using your own parts and suppliers.</p>

@@ -4,7 +4,7 @@ import type { SeoLandingPage as SeoLandingPageData } from './seoRoadmapData'
 export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
   return (
     <main className="min-h-screen bg-white text-[#0f1b2d]">
-      <section className="pt-28 pb-16 border-b border-black/10">
+      <section className="pt-28 pb-12 border-b border-black/10">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <div className="flex items-center gap-2 text-sm mb-8 text-black/40">
             <Link href="/" className="hover:text-[#0d9488]">Emithran</Link>
@@ -31,7 +31,7 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
         </div>
       </section>
 
-      <section className="py-14 border-b border-black/10">
+      <section className="py-10 border-b border-black/10">
         <div className="max-w-6xl mx-auto px-6 lg:px-10 grid gap-4 md:grid-cols-3">
           {page.metrics.map((metric) => (
             <div key={metric.label} className="rounded-xl border border-[#0d9488]/15 bg-[#0d9488]/5 p-6">
@@ -42,7 +42,7 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-12">
         <div className="max-w-6xl mx-auto px-6 lg:px-10 grid gap-10">
           {page.sections.map((section) => (
             <article key={section.heading} className="grid gap-6 md:grid-cols-[0.9fr_1.1fr] md:items-start">
@@ -66,7 +66,7 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
         </div>
       </section>
 
-      <section className="py-16 bg-[#f8fafb] border-y border-black/10">
+      <section className="py-12 bg-[#f8fafb] border-y border-black/10">
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-4 text-[#0d9488]">FAQ</p>
           <h2 className="text-3xl font-bold tracking-tight mb-8">Common questions</h2>
@@ -81,7 +81,7 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
         </div>
       </section>
 
-      <section className="py-16 bg-[#0f1b2d] text-white">
+      <section className="py-12 bg-[#0f1b2d] text-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">See how this works on your own parts and suppliers.</h2>
           <p className="mt-4 text-white/55">Book a walkthrough with your BOMs, drawings, or supplier quotes and see should-cost, supplier intelligence, and RFQ preparation working together.</p>

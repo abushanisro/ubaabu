@@ -405,7 +405,7 @@ export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] })
 
           {/* Editor's pick */}
           {feature && (
-            <section className="max-w-[1480px] mx-auto px-4 sm:px-8 pt-14">
+            <section className="max-w-[1480px] mx-auto px-4 sm:px-8 pt-10">
               <SectionTag>Editor&apos;s Pick</SectionTag>
               <FeatureStory post={feature} />
               {row.length > 0 && (
@@ -417,7 +417,7 @@ export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] })
           )}
 
           {/* Demo band */}
-          <section className="bg-black text-white mt-14">
+          <section className="bg-black text-white mt-10">
             <div className="max-w-[1480px] mx-auto px-4 sm:px-8 py-14 lg:py-20 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               <div className="lg:col-span-5 order-2 lg:order-1">
                 <p className="wired-mono text-[11px] font-medium text-[#2dd4bf] mb-4">Platform demo</p>
@@ -450,7 +450,7 @@ export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] })
 
           {/* The latest */}
           {latest.length > 0 && (
-            <section className="max-w-[1480px] mx-auto px-4 sm:px-8 pt-16">
+            <section className="max-w-[1480px] mx-auto px-4 sm:px-8 pt-12">
               <SectionTag>The Latest</SectionTag>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 pt-8">
                 {latest.map(p => <GridStory key={p.slug} post={p} />)}
@@ -459,7 +459,7 @@ export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] })
           )}
 
           {/* Case studies */}
-          <section className="max-w-[1480px] mx-auto px-4 sm:px-8 pt-16 pb-20">
+          <section className="max-w-[1480px] mx-auto px-4 sm:px-8 pt-12 pb-14">
             <SectionTag>Case Studies</SectionTag>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {CASE_STUDIES.map((cs, i) => (

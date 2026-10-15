@@ -44,7 +44,7 @@ function DocumentsIcon() {
 export default function PricingCTA() {
   return (
     <section id="final-cta" className="pricing-section bg-white">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-6 py-14 md:grid-cols-3 md:gap-10 md:py-20">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-6 py-10 md:grid-cols-3 md:gap-10 md:py-14">
 
         {/* Col 1 - headline + CTAs */}
         <div className="cta-fade-up">

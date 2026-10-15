@@ -67,7 +67,7 @@ export default function App() {
       <DeferredSection height={3000}><PlatformShowcase /></DeferredSection>
       <DeferredSection height={650}><StatsSection /></DeferredSection>
       <DeferredSection height={2100}><ProductIntelligence /></DeferredSection>
-      <div className="bg-white h-16 lg:h-24" />
+      <div className="bg-white h-10 lg:h-16" />
       <WatchDemo />
       <DeferredSection height={680}><CaseStudies /></DeferredSection>
       <DeferredSection height={800}><EnterpriseSection /></DeferredSection>

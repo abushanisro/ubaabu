@@ -261,7 +261,7 @@ function CaseStudyCarousel() {
   }, [])
 
   return (
-    <section className="w-full overflow-hidden py-16" style={{ background: '#fafffe' }}>
+    <section className="w-full overflow-hidden py-12" style={{ background: '#fafffe' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-8 flex items-end justify-between">
         <div>
           <p className="text-[11px] font-bold uppercase tracking-widest mb-2" style={{ color: '#0d9488' }}>

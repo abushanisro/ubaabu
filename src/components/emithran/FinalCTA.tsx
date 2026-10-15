@@ -15,8 +15,8 @@ export default function FinalCTA() {
       style={{
         background: '#080808',
         color: '#ffffff',
-        paddingTop: 'clamp(3rem, 6vw, 5rem)',
-        paddingBottom: 'clamp(3rem, 6vw, 5rem)',
+        paddingTop: 'clamp(2.5rem, 4.5vw, 3.5rem)',
+        paddingBottom: 'clamp(2.5rem, 4.5vw, 3.5rem)',
         position: 'relative',
         overflow: 'hidden',
       }}

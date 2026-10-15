@@ -300,7 +300,7 @@ function CheckIcon() {
 
 function WhyPartnersSection() {
   return (
-    <section className="bg-white py-20 px-6 md:px-12">
+    <section className="bg-white py-14 px-6 md:px-12">
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
 
@@ -431,7 +431,7 @@ const SPECIALISATIONS = [
 
 function SpecialisationsSection() {
   return (
-    <section id="browse" className="py-20 px-6 md:px-12" style={{ background: '#f0fdf9' }}>
+    <section id="browse" className="py-14 px-6 md:px-12" style={{ background: '#f0fdf9' }}>
       <div className="mx-auto max-w-[1280px]">
         <p className="text-[11px] font-bold uppercase tracking-widest mb-3" style={{ color: '#0d9488' }}>
           Partner specialisations
@@ -642,7 +642,7 @@ function CaseStudyCarousel() {
   return (
     <section
       id="case-studies"
-      className="py-16 px-6 md:px-12 bg-white"
+      className="py-12 px-6 md:px-12 bg-white"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -792,7 +792,7 @@ function ArrowLink({ href, children }: { href: string; children: React.ReactNode
 
 function BottomCTA() {
   return (
-    <section className="py-20 px-6 md:px-12 bg-white border-t" style={{ borderColor: 'rgba(13,148,136,0.10)' }}>
+    <section className="py-14 px-6 md:px-12 bg-white border-t" style={{ borderColor: 'rgba(13,148,136,0.10)' }}>
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:items-start">
 

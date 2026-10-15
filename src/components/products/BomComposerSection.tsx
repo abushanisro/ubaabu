@@ -194,7 +194,7 @@ export default function BomComposerSection() {
       <div className="pointer-events-none absolute inset-0"
         style={{ backgroundImage: 'radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-16 lg:pt-24 pb-16">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 pt-12 lg:pt-16 pb-12">
 
         {/* ── Two-column layout ── */}
         <div className="relative flex flex-col lg:flex-row gap-10 pb-0 group">

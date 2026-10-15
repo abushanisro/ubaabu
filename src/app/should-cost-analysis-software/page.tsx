@@ -329,7 +329,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
       <main style={{ background: '#fff', color: '#0f1b2d' }}>
 
         {/* ── Hero ── */}
-        <section className="relative overflow-hidden pt-28 pb-14 md:pb-20" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+        <section className="relative overflow-hidden pt-28 pb-10 md:pb-14" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
           <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
             <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(13,148,136,0.08) 0%, transparent 70%)' }} />
           </div>
@@ -367,7 +367,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── What is should-cost analysis software ── */}
-        <section className="py-14 md:py-20 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="what-is-heading">
+        <section className="py-10 md:py-14 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="what-is-heading">
           <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>What is should-cost analysis software?</p>
@@ -408,7 +408,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── Who it is for ── */}
-        <section className="py-14 md:py-20" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)', borderBottom: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="audience-heading">
+        <section className="py-10 md:py-14" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)', borderBottom: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="audience-heading">
           <div className="max-w-5xl mx-auto px-6 lg:px-10">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>Who it is for</p>
             <h2 id="audience-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-10 max-w-3xl">
@@ -445,7 +445,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── How it works ── */}
-        <section className="py-14 md:py-20" style={{ background: '#0f1b2d' }} aria-labelledby="how-heading">
+        <section className="py-10 md:py-14" style={{ background: '#0f1b2d' }} aria-labelledby="how-heading">
           <div className="max-w-5xl mx-auto px-6 lg:px-10">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#2dd4bf' }}>How It Works</p>
             <h2 id="how-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-10 md:mb-12 text-white max-w-3xl">
@@ -469,7 +469,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── Worked examples ── */}
-        <section id="worked-examples" className="py-14 md:py-20 max-w-5xl mx-auto px-6 lg:px-10 scroll-mt-24" aria-labelledby="examples-heading">
+        <section id="worked-examples" className="py-10 md:py-14 max-w-5xl mx-auto px-6 lg:px-10 scroll-mt-24" aria-labelledby="examples-heading">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>Worked examples</p>
           <h2 id="examples-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-4 max-w-3xl">
             Should-cost models applied to real programmes
@@ -500,7 +500,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── Capabilities ── */}
-        <section className="py-14 md:py-20" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="capabilities-heading">
+        <section className="py-10 md:py-14" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="capabilities-heading">
           <div className="max-w-5xl mx-auto px-6 lg:px-10">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>Platform Capabilities</p>
             <h2 id="capabilities-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-10 md:mb-12 max-w-3xl">
@@ -527,7 +527,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── Comparison table ── */}
-        <section className="py-14 md:py-20 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="compare-heading">
+        <section className="py-10 md:py-14 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="compare-heading">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>How We Compare</p>
           <h2 id="compare-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-4 max-w-3xl">
             Emithran vs spreadsheets vs enterprise costing tools
@@ -565,7 +565,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── FAQ ── */}
-        <section className="py-14 md:py-20" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="faq-heading">
+        <section className="py-10 md:py-14" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="faq-heading">
           <div className="max-w-3xl mx-auto px-6 lg:px-10">
             <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>FAQ</p>
             <h2 id="faq-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-8 md:mb-10">Common questions about should-cost software</h2>
@@ -593,7 +593,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── Learn more ── */}
-        <section className="py-14 md:py-16 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="guides-heading">
+        <section className="py-10 md:py-12 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="guides-heading">
           <h2 id="guides-heading" className="text-xl md:text-2xl font-bold tracking-tight mb-6">Learn more about should-cost analysis</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {guides.map(g => (
@@ -614,7 +614,7 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── CTA ── */}
-        <section className="py-14 md:py-20" style={{ background: '#0f1b2d' }} aria-labelledby="cta-heading">
+        <section className="py-10 md:py-14" style={{ background: '#0f1b2d' }} aria-labelledby="cta-heading">
           <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
             <h2 id="cta-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-5">
               See a should-cost model built on one of your parts

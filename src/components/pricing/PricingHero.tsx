@@ -60,7 +60,7 @@ export default function PricingHero() {
         <div className="absolute right-[-18%] top-[30%] h-[280px] w-[480px] rotate-[-18deg] rounded-[28px] bg-[#0d9488]/15" />
       </div>
 
-      <div className="relative mx-auto max-w-[1200px] px-6 pt-24 pb-12 md:pt-32 md:pb-16">
+      <div className="relative mx-auto max-w-[1200px] px-6 pt-24 pb-10 md:pt-32 md:pb-12">
 
         <AnimateIn>
           <h1 className="max-w-3xl text-[32px] font-bold leading-[1.08] tracking-tight text-[#0a0a0a] md:text-[40px] lg:text-[50px]">

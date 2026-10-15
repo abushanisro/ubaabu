@@ -182,7 +182,7 @@ export default function IndustriesPage() {
     <div className="min-h-screen bg-white font-sans">
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-white pt-24 pb-16 md:pt-32 md:pb-20">
+      <section className="relative overflow-hidden bg-white pt-24 pb-12 md:pt-32 md:pb-14">
 
         {/* Background decoration */}
         <div aria-hidden className="pointer-events-none absolute right-0 top-0 h-full w-[55%] overflow-hidden">
@@ -250,7 +250,7 @@ export default function IndustriesPage() {
       </div>
 
       {/* ── Industry cards ── */}
-      <section className="py-16 md:py-24">
+      <section className="py-12 md:py-16">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
 
           <AnimateIn>
@@ -324,7 +324,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* ── Cross-industry capabilities ── */}
-      <section className="border-t border-black/[0.07] bg-[#fafffe] py-16 md:py-20">
+      <section className="border-t border-black/[0.07] bg-[#fafffe] py-12 md:py-14">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <AnimateIn>
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.16em] text-[#0d9488]">
@@ -359,7 +359,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-12 md:py-16">
+      <section className="py-10 md:py-12">
         <RequestCTA />
       </section>
 

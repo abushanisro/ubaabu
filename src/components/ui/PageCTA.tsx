@@ -1,6 +1,6 @@
 ﻿export default function PageCTA({ title = 'See Emithran in action.', subtitle = 'Book a programme-specific walkthrough. We sign NDAs before every demo.' }) {
   return (
-    <section className="border-t border-border py-24 lg:py-32">
+    <section className="border-t border-border py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10">
         <div className="max-w-2xl">
           <h3 className="font-display text-white text-[36px] lg:text-[52px] leading-[0.95] mb-4">{title}</h3>

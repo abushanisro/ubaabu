@@ -196,7 +196,7 @@ function TableOfContents({ contentRef }: { contentRef: React.RefObject<HTMLDivEl
 function RelatedSolutions({ slug }: { slug: string }) {
   const links = relatedLinksForBlog(slug)
   return (
-    <section aria-labelledby="related-emithran-heading" className="mt-14 pt-4" style={{ borderTop: '1px solid #000' }}>
+    <section aria-labelledby="related-emithran-heading" className="mt-10 pt-4" style={{ borderTop: '1px solid #000' }}>
       <h2 id="related-emithran-heading" className="wired-mono text-[11px] font-semibold mb-2">Related on Emithran</h2>
       <ul>
         {links.map(link => (
@@ -214,7 +214,7 @@ function RelatedSolutions({ slug }: { slug: string }) {
 
 function FAQSection({ faqs }: { faqs: BlogPostFAQ[] }) {
   return (
-    <section className="mt-14 pt-4" style={{ borderTop: '1px solid #000' }}>
+    <section className="mt-10 pt-4" style={{ borderTop: '1px solid #000' }}>
       <h2 className="wired-mono text-[11px] font-semibold mb-2">Frequently asked questions</h2>
       {faqs.map(faq => (
         <div key={faq.question} className="py-5" style={{ borderBottom: RULE }}>
@@ -231,7 +231,7 @@ function FAQSection({ faqs }: { faqs: BlogPostFAQ[] }) {
 function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
   const photo = AUTHOR_PHOTOS[post.author.name]
   return (
-    <section className="mt-14 pt-6 flex gap-5" style={{ borderTop: '1px solid #000' }}>
+    <section className="mt-10 pt-6 flex gap-5" style={{ borderTop: '1px solid #000' }}>
       {photo && (
         <Image src={photo} alt={post.author.name} width={72} height={72} className="w-[72px] h-[72px] object-cover shrink-0 grayscale" />
       )}
@@ -254,7 +254,7 @@ function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
 
 function NewsletterSignup() {
   return (
-    <section className="mt-14 p-6 sm:p-8 bg-[#f3f3f3]">
+    <section className="mt-10 p-6 sm:p-8 bg-[#f3f3f3]">
       <p className="wired-mono text-[11px] font-semibold mb-3">Newsletter</p>
       <h2 className="wired-display text-[32px] leading-[1.02] text-black max-w-md">
         Get the Manufacturing Intelligence Briefing
@@ -304,7 +304,7 @@ function TalkToExpertsBand() {
 
 function RelatedArticles({ posts }: { posts: BlogPost[] }) {
   return (
-    <section className="max-w-[1600px] mx-auto px-4 sm:px-8 py-16">
+    <section className="max-w-[1600px] mx-auto px-4 sm:px-8 py-12">
       <h2 className="wired-display text-black text-[40px] sm:text-[48px] leading-none pb-3 mb-8" style={{ borderBottom: '1px solid #000' }}>
         More From Emithran
       </h2>

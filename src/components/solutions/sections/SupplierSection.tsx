@@ -62,8 +62,8 @@ export default function SupplierSection() {
       className="relative"
       style={{
         background:      '#fafafa',
-        paddingTop:      'clamp(4rem, 8vw, 7rem)',
-        paddingBottom:   'clamp(5rem, 10vw, 9rem)',
+        paddingTop:      'clamp(3rem, 6vw, 5rem)',
+        paddingBottom:   'clamp(3.5rem, 7vw, 6rem)',
         borderTop:       '1px solid rgba(0,0,0,0.06)',
         scrollMarginTop: '160px',
       }}

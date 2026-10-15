@@ -812,7 +812,7 @@ export default function VendorOnboardingPage() {
   return (
     <main>
       <PartnerEcosystemNav />
-      <section className="bg-white py-12 sm:py-20 px-6 md:px-12">
+      <section className="bg-white py-10 sm:py-14 px-6 md:px-12">
         <div className="mx-auto max-w-[1280px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24">
 

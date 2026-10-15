@@ -101,7 +101,7 @@ export default function ApiPage() {
   return (
     <main className="pt-24 text-white" style={{ background: NAVY }}>
       <div className="mx-auto max-w-[1180px] border-x px-6 md:px-12" style={{ borderColor: LINE }}>
-        <section className="border-b py-16 md:py-24" style={{ borderColor: LINE }}>
+        <section className="border-b py-12 md:py-16" style={{ borderColor: LINE }}>
           <Heading
             lead="Reliable, Extensible Infrastructure for Every Stack."
             rest="Fit Emithran to your plants, parts and procurement process with flexible API and custom build options."
@@ -120,7 +120,7 @@ export default function ApiPage() {
           </div>
         </section>
 
-        <section className="border-b py-16 md:py-24" style={{ borderColor: LINE }}>
+        <section className="border-b py-12 md:py-16" style={{ borderColor: LINE }}>
           <Heading
             lead="Connect to Existing Systems."
             rest="Pipe costing, rates, RFQs and supplier data into your ERP, BOMs and trackers, and build custom workflows on top."
@@ -145,7 +145,7 @@ export default function ApiPage() {
           </div>
         </section>
 
-        <section className="border-b py-16 md:py-24" style={{ borderColor: LINE }}>
+        <section className="border-b py-12 md:py-16" style={{ borderColor: LINE }}>
           <Heading
             lead="Scale with Confidence."
             rest="Replace 8 to 9 hours of Excel consolidation with live dashboards that answer plant-visit questions in seconds."
@@ -170,7 +170,7 @@ export default function ApiPage() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24">
+        <section className="py-12 md:py-16">
           <Heading
             lead="Choose an Integration Path."
             rest="With dedicated costing engineers and clear documentation, start with the option that fits your team."

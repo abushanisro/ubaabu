@@ -61,7 +61,7 @@ export default function ExpertEngineeringSupportPage() {
     <div className="min-h-screen bg-white text-[#0f1b2d]">
       {/* ── 1. Hero ────────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden bg-[#080808] pt-28 pb-20 md:pt-36 md:pb-28"
+        className="relative overflow-hidden bg-[#080808] pt-28 pb-14 md:pt-36 md:pb-20"
         style={{
           backgroundImage: 'url(/assets/element-bg/background.png)',
           backgroundSize: '100% 103%',
@@ -97,7 +97,7 @@ export default function ExpertEngineeringSupportPage() {
       </section>
 
       {/* ── 2. Pillars ────────────────────────────────────────── */}
-      <section className="bg-[#f8fafc] py-16 md:py-20 border-b border-black/[0.06]">
+      <section className="bg-[#f8fafc] py-12 md:py-14 border-b border-black/[0.06]">
         <div className="mx-auto max-w-[1100px] px-6">
           <div className="mx-auto grid max-w-[820px] grid-cols-1 gap-6 md:grid-cols-2">
             {PILLARS.map(({ image, title, description, links }) => (
@@ -130,7 +130,7 @@ export default function ExpertEngineeringSupportPage() {
       </section>
 
       {/* ── 3. Introductory Call ──────────────────────────────── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white py-12 md:py-16">
         <div className="mx-auto max-w-[1140px] px-6">
           {/* Section Header */}
           <div className="mb-10 text-center">
@@ -186,7 +186,7 @@ export default function ExpertEngineeringSupportPage() {
       </section>
 
       {/* ── 4. Success Stories ────────────────────────────────── */}
-      <section className="bg-[#f8fafc] py-16 md:py-20 border-t border-b border-black/[0.06]">
+      <section className="bg-[#f8fafc] py-12 md:py-14 border-t border-b border-black/[0.06]">
         <div className="mx-auto max-w-[1100px] px-6">
           <h2 className="mb-2 text-center text-2xl md:text-3xl font-bold tracking-tight text-[#0f1b2d]">
             Success Stories

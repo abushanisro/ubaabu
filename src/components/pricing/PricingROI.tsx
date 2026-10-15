@@ -54,7 +54,7 @@ export default function PricingROI() {
 
   return (
     <section id="roi" className="pricing-section bg-white">
-      <div className="mx-auto max-w-[1200px] px-6 py-14">
+      <div className="mx-auto max-w-[1200px] px-6 py-10">
 
         {/* Header */}
         <AnimateIn>
