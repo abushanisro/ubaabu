@@ -43,7 +43,7 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
   const maxT = Math.max(...TREND)
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0fdf9 100%)', border: '1px solid rgba(20,184,166,0.18)', boxShadow: '0 0 20px rgba(45,212,191,0.12),0 0 60px rgba(45,212,191,0.06),0 24px 64px rgba(0,0,0,0.06)' }}>
+    <div className="relative flex flex-col w-full h-full overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(180deg,#ffffff 0%,#f0fdf9 100%)', border: '1px solid rgba(20,184,166,0.18)', boxShadow: '0 0 20px rgba(45,212,191,0.12),0 0 60px rgba(45,212,191,0.06),0 24px 64px rgba(0,0,0,0.06)' }}>
 
       {/* Grid background */}
       <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(13,148,136,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(13,148,136,0.07) 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
@@ -66,7 +66,7 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
         </div>
       </div>
 
-      <div className="px-5 pt-4 pb-3 flex flex-col gap-4" style={{ height: 'calc(100% - 44px)' }}>
+      <div className="px-5 pt-4 pb-3 flex flex-1 flex-col gap-4">
 
         {/* Scan panel + defect trend - top row */}
         <div className="flex gap-4 flex-1">
@@ -167,7 +167,7 @@ function QualityGuardViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
+      <div className="flex flex-wrap lg:flex-nowrap items-center gap-4 gap-y-1.5 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['99.1%', 'best yield'], ['−71%', 'defects (12wk)'], ['1', 'CAPA open']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
             <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
@@ -266,7 +266,7 @@ export default function QualityGuardSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
+                className="grid min-h-[260px] lg:min-h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <QualityGuardViz inView={inView} />

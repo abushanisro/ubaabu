@@ -141,7 +141,7 @@ export default function EngineeringSupportPage() {
         />
         <div className="relative mx-auto max-w-[1280px] px-6 md:px-12 pt-32 pb-24">
           <div className="max-w-[680px]">
-            <h1 className="font-display text-[2.6rem] md:text-[3.4rem] font-bold text-[#0f1b2d] leading-[1.1] tracking-tight">
+            <h1 className="font-display text-[clamp(2rem,calc((100vw_-_3rem)/7.4),2.6rem)] md:text-[3.4rem] font-bold text-[#0f1b2d] leading-[1.1] tracking-tight">
               Expert support for every stage of your manufacturing journey
             </h1>
             <p className="mt-5 text-[16px] text-[#0f1b2d]/55 leading-relaxed max-w-[520px]">

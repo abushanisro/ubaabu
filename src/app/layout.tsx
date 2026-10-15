@@ -5,7 +5,6 @@ import './globals.css'
 import ConditionalNavbar from '@/components/layout/ConditionalNavbar'
 import ConditionalFooter from '@/components/layout/ConditionalFooter'
 import FooterOutro from '@/components/layout/FooterOutro'
-import SmoothScroll from '@/components/providers/SmoothScroll'
 import ChatlingController from '@/components/ui/chatling-controller'
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'
 import SiteJsonLd from '@/components/seo/SiteJsonLd'
@@ -209,9 +208,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {/* Critical inline CSS — prevents FOUC and CLS before Tailwind loads */}
         <style dangerouslySetInnerHTML={{ __html: 'html,body{background:#fff;margin:0;padding:0}*,*::before,*::after{box-sizing:border-box}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}' }} />
-        {/* LCP image preload — tells browser to fetch hero images before render */}
-        <link rel="preload" as="image" href="/assets/cards/projectcardmobile.svg" fetchPriority="high" media="(max-width: 1023px)" />
-        <link rel="preload" as="image" href="/assets/cards/projectcard.svg" fetchPriority="high" media="(min-width: 1024px)" />
         {/* Sitemap link — explicitly declared for crawlers */}
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
@@ -229,20 +225,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ChatlingController />
 
         {/* White content on top */}
-        <SmoothScroll>
-          <div className="relative bg-white">
-            <GoogleAnalytics />
-            <SiteJsonLd />
-            <main className="relative">{children}</main>
-            <ConditionalFooter />
-          </div>
-        </SmoothScroll>
+        <div className="relative bg-white">
+          <GoogleAnalytics />
+          <SiteJsonLd />
+          <main className="relative">{children}</main>
+          <ConditionalFooter />
+        </div>
 
         {/* Spacer — desktop only (mobile has no outro to reveal) */}
         <div id="footer-outro-spacer" className="h-0 md:h-[45vh] relative" style={{ zIndex: 1 }} aria-hidden="true" />
 
         <script dangerouslySetInnerHTML={{ __html: 'window.chtlConfig = { chatbotId: "7877335611" }' }} />
-        <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="afterInteractive" />
+        <Script async data-id="7877335611" id="chtl-script" src="https://chatling.ai/js/embed.js" strategy="lazyOnload" />
       </body>
     </html>
   )

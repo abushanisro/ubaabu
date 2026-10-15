@@ -202,7 +202,7 @@ export default function AboutReferencePage() {
             {/* Left - pure white, text on white */}
             <div>
               <Reveal delay={100}>
-                <h1 className="text-5xl md:text-6xl xl:text-[72px] font-bold leading-[1.04] tracking-tight text-[#0f1b2d]">
+                <h1 className="text-[clamp(2rem,calc((100vw_-_3rem)/7.4),3rem)] md:text-6xl xl:text-[72px] font-bold leading-[1.04] tracking-tight text-[#0f1b2d]">
                   Manufacturing<br />intelligence,<br />built on the<br />
                   <span style={{ color: '#0d9488' }}>shop floor.</span>
                 </h1>

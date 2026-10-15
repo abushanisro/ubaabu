@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from "react";
+import { visibleRafLoop } from "@/lib/visibleRafLoop";
 
 type Time = "pre-dawn" | "sunrise" | "daytime" | "dusk" | "sunset" | "night";
 
@@ -28,7 +29,6 @@ export function ManufacturingViz({ index, time, playing }: Props) {
   useEffect(() => {
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d")!;
-    let raf = 0;
     let w = 0, h = 0, dpr = Math.min(window.devicePixelRatio, 2);
 
     const resize = () => {
@@ -64,12 +64,10 @@ export function ManufacturingViz({ index, time, playing }: Props) {
         case 3: drawWorldMap(ctx, w, h, t, pal); break;
       }
       ctx.globalAlpha = 1;
-
-      raf = requestAnimationFrame(draw);
     };
-    raf = requestAnimationFrame(draw);
+    const stopLoop = visibleRafLoop(canvas, draw);
 
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); };
+    return () => { stopLoop(); ro.disconnect(); };
   }, []);
 
   return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" aria-hidden />;

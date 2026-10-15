@@ -10,7 +10,7 @@ export function AuthHeader({ rightLink }: AuthHeaderProps) {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2">
           <img
-            src="/assets/infographics/logo/logo-white.png"
+            src="/assets/infographics/logo/logo-white.webp" width={256} height={256}
             alt="Emithran"
             className="h-8 w-auto"
           />
@@ -57,7 +57,7 @@ export function AuthFooter() {
           <div className="flex flex-col gap-2">
             <a href="/" className="flex items-center gap-2 w-fit">
               <img
-                src="/assets/infographics/logo/logo-white.png"
+                src="/assets/infographics/logo/logo-white.webp" width={256} height={256}
                 alt="Emithran"
                 className="h-5 w-auto"
               />

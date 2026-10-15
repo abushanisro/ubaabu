@@ -97,7 +97,7 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Matching scene */}
-      <div ref={containerRef} className="relative flex items-center justify-between px-8" style={{ height: 256 }}>
+      <div ref={containerRef} className="relative flex items-center justify-between px-3 sm:px-8" style={{ height: 256 }}>
 
         {/* Left: Requirements */}
         <div className="flex flex-col gap-4 z-10">
@@ -161,7 +161,7 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
             initial={{ opacity: 0, scale: 0.7 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.55, delay: 0.65, ease: EASE }}
-            className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center"
+            className="relative z-10 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center"
             style={{ background: 'linear-gradient(135deg,#f0fdf9 0%,#ccfbf1 100%)', border: '1px solid rgba(20,184,166,0.45)', boxShadow: '0 0 28px rgba(45,212,191,0.20)' }}
           >
             <Users className="w-6 h-6" style={{ color: '#0d9488' }} />
@@ -204,7 +204,7 @@ function VendorMatchViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-4 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
+      <div className="flex flex-wrap lg:flex-nowrap items-center gap-4 gap-y-1.5 px-4 py-2 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['1,284', 'evaluated'], ['3', 'shortlisted'], ['< 4hr', 'RFQ turnaround']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
             <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
@@ -305,7 +305,7 @@ export default function VendorMatchSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
+                className="grid min-h-[260px] lg:min-h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <VendorMatchViz inView={inView} />

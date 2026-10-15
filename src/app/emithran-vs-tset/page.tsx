@@ -101,7 +101,7 @@ export default function EmithranVsTsetPage() {
           <div className="max-w-5xl mx-auto px-6 lg:px-10">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8 text-center">Feature-by-feature comparison</h2>
             <div className="overflow-x-auto rounded-xl border" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
-              <table className="w-full text-sm">
+              <table className="w-full min-w-[560px] md:min-w-0 text-sm">
                 <thead>
                   <tr style={{ background: 'rgba(13,148,136,0.05)' }}>
                     <th className="px-5 py-3.5 text-left font-semibold" style={{ color: 'rgba(15,27,45,0.7)' }}>Criterion</th>

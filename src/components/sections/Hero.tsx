@@ -54,8 +54,11 @@ export default function Hero() {
     <section className="relative bg-white" style={{ minHeight: '100svh' }}>
       {/* hero background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <img src="/assets/cards/projectcardmobile.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center translate-y-20 lg:hidden" fetchPriority="high" />
-        <img src="/assets/cards/projectcard.svg" alt="" className="absolute inset-0 h-full w-full object-cover object-center hidden lg:block lg:translate-y-20" fetchPriority="high" />
+        {/* One <picture> so only the artwork for the current breakpoint is downloaded */}
+        <picture>
+          <source media="(min-width: 1024px)" srcSet="/assets/cards/projectcard.webp" width={1672} height={941} />
+          <img src="/assets/cards/projectcardmobile.webp" width={900} height={1599} alt="" className="absolute inset-0 h-full w-full object-cover object-center translate-y-20" fetchPriority="high" />
+        </picture>
       </div>
 
       <style>{`
@@ -118,7 +121,8 @@ export default function Hero() {
             <HeroVideoDialog
               animationStyle="from-center"
               videoSrc="/videos/emithran-overview.mp4"
-              thumbnailSrc="/assets/hero-page/3d-drawing.png"
+              thumbnailSrc="/assets/hero-page/3d-drawing.webp"
+              priority
               thumbnailAlt="Emithran platform preview"
               isOpen={videoOpen}
               onOpenChange={setVideoOpen}
@@ -148,21 +152,21 @@ export default function Hero() {
         >
           {(() => {
             const logos = [
-              { src: '/assets/trustedby/ashokleyland.svg', alt: 'Ashok Leyland', cls: 'h-14' },
-              { src: '/assets/trustedby/TATAPower.svg',    alt: 'TATA Power' },
-              { src: '/assets/trustedby/digantara.svg',    alt: 'Digantara' },
-              { src: '/assets/trustedby/Pixxel.svg',       alt: 'Pixxel' },
-              { src: '/assets/trustedby/RolandBerger.svg', alt: 'Roland Berger' },
-              { src: '/assets/trustedby/rainmaker.svg',    alt: 'Rainmaker' },
-              { src: '/assets/trustedby/ForusHealth.svg',  alt: 'Forus Health' },
-              { src: '/assets/trustedby/Aadya.svg',        alt: 'Aadya' },
-              { src: '/assets/trustedby/Tanbo.svg',        alt: 'Tanbo' },
+              { src: '/assets/trustedby/ashokleyland.webp', alt: 'Ashok Leyland', cls: 'h-14' },
+              { src: '/assets/trustedby/TATAPower.webp',    alt: 'TATA Power' },
+              { src: '/assets/trustedby/digantara.webp',    alt: 'Digantara' },
+              { src: '/assets/trustedby/Pixxel.webp',       alt: 'Pixxel' },
+              { src: '/assets/trustedby/RolandBerger.webp', alt: 'Roland Berger' },
+              { src: '/assets/trustedby/rainmaker.webp',    alt: 'Rainmaker' },
+              { src: '/assets/trustedby/ForusHealth.webp',  alt: 'Forus Health' },
+              { src: '/assets/trustedby/Aadya.webp',        alt: 'Aadya' },
+              { src: '/assets/trustedby/Tanbo.webp',        alt: 'Tanbo' },
             ]
             const row = [...logos, ...logos, ...logos, ...logos]
             return (
               <div className="marquee-p flex w-max items-center gap-10 md:gap-14">
                 {row.map((logo, i) => (
-                  <img key={i} src={logo.src} alt={logo.alt} className={`${logo.cls ?? 'h-10'} w-auto object-contain opacity-80`} loading="lazy" decoding="async" />
+                  <img key={i} src={logo.src} alt={logo.alt} className={`${logo.cls ?? 'h-10'} w-auto object-contain opacity-80`} width={160} height={160} loading="lazy" decoding="async" />
                 ))}
               </div>
             )

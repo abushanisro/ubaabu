@@ -63,7 +63,7 @@ export default async function GlossaryTermPage({ params }: { params: Promise<{ t
       <main className="min-h-screen bg-white pt-28 pb-16 text-[#0f1b2d]">
         <article className="max-w-3xl mx-auto px-6 lg:px-10">
           <Link href="/glossary" className="text-sm font-semibold text-[#0d9488]">Glossary</Link>
-          <h1 className="mt-5 text-4xl md:text-5xl font-bold tracking-tight capitalize">{item.term}</h1>
+          <h1 className="mt-5 text-[clamp(1.75rem,calc((100vw_-_3rem)/8.9),2.25rem)] md:text-5xl font-bold tracking-tight capitalize break-words">{item.term}</h1>
           <p className="mt-6 text-lg leading-relaxed text-black/60">{item.description}</p>
           {item.relatedLinks.length > 0 && (
             <>

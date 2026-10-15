@@ -13,7 +13,7 @@ export default function PageHero({ eyebrow, title, subtitle, children }: { eyebr
       />
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
         <SectionLabel>{eyebrow}</SectionLabel>
-        <h1 className="font-display text-white text-[44px] sm:text-[60px] lg:text-[80px] leading-[0.95] tracking-tight max-w-5xl mb-8">
+        <h1 className="font-display text-white text-[clamp(2rem,calc((100vw_-_3rem)/7.4),44px)] sm:text-[60px] lg:text-[80px] leading-[0.95] tracking-tight max-w-5xl mb-8">
           {title}
         </h1>
         {subtitle && (

@@ -1,9 +1,7 @@
 "use client";
 
-import { useRef, useState, useMemo } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import DottedMap from "dotted-map";
-import Image from "next/image";
 
 interface MapProps {
   dots?: Array<{
@@ -25,22 +23,6 @@ export function WorldMap({
 }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
-
-  const map = useMemo(
-    () => new DottedMap({ height: 100, grid: "diagonal" }),
-    []
-  );
-
-  const svgMap = useMemo(
-    () =>
-      map.getSVG({
-        radius: 0.22,
-        color: "#0a6e6055",
-        shape: "circle",
-        backgroundColor: "transparent",
-      }),
-    [map]
-  );
 
   const projectPoint = (lat: number, lng: number) => {
     const x = (lng + 180) * (800 / 360);
@@ -64,12 +46,17 @@ export function WorldMap({
 
   return (
     <div className="w-full aspect-[2/1] bg-white rounded-xl relative font-sans overflow-hidden">
-      <Image
-        src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
+      {/* Pre-rendered from dotted-map ({ height: 100, grid: "diagonal" }, radius 0.22, #0a6e6055).
+          Generating it at runtime cost ~600 KB of inline SVG and a long main-thread task. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/assets/maps/world-dotted.webp"
         className="h-full w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] pointer-events-none select-none object-cover"
         alt="world map"
-        height="495"
-        width="1056"
+        height="606"
+        width="1200"
+        loading="lazy"
+        decoding="async"
         draggable={false}
       />
       <svg

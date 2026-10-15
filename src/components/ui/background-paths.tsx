@@ -1,7 +1,7 @@
-"use client";
-
-import { motion } from "framer-motion";
-
+// Decorative flowing lines. Pure CSS (stroke-dashoffset + opacity keyframes in
+// globals.css) - previously 36 framer-motion paths per instance were driven
+// from JavaScript on every frame. Same look: the dash pattern matches framer's
+// pathLength=1 / pathOffset 0→1→0 sweep. Server component, no hydration cost.
 export function FloatingPaths({ position }: { position: number }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
     id: i,
@@ -10,26 +10,18 @@ export function FloatingPaths({ position }: { position: number }) {
   }));
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
       <svg className="w-full h-full" viewBox="0 0 696 316" fill="none" preserveAspectRatio="xMidYMid slice">
         {paths.map((path) => (
-          <motion.path
+          <path
             key={path.id}
             d={path.d}
+            pathLength={1}
+            className="floating-path"
             stroke="white"
             strokeWidth={path.width}
             strokeOpacity={0.03 + path.id * 0.012}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
-            animate={{
-              pathLength: 1,
-              opacity: [0.3, 0.6, 0.3],
-              pathOffset: [0, 1, 0],
-            }}
-            transition={{
-              duration: 20 + (path.id % 5) * 3,
-              repeat: Infinity,
-              ease: "linear",
-            }}
+            style={{ animationDuration: `${20 + (path.id % 5) * 3}s` }}
           />
         ))}
       </svg>

@@ -110,29 +110,12 @@ const cards = [
 // ── Page ──────────────────────────────────────────────────────────────────
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans">
-
-      {/* Header */}
-      <header className="w-full border-b border-black/[0.07] bg-white/90 backdrop-blur-sm">
-        <div className="mx-auto max-w-[1280px] px-6 md:px-12 h-14 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2">
-            <img src="/assets/infographics/logo/logo-white.png" alt="Emithran" className="h-8 w-auto" />
-            <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">EMITHRAN</span>
-          </Link>
-          <Link
-            href="/"
-            className="group inline-flex items-center gap-1 text-[13px] font-medium text-[#0d9e8a] hover:opacity-75 transition-opacity"
-          >
-            Back to home
-            <svg className="ml-0.5 group-hover:translate-x-0.5 transition-transform" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M0 5h7M6 1l4 4-4 4" />
-            </svg>
-          </Link>
-        </div>
-      </header>
+    // The root layout already renders the site Navbar and Footer around this page, so it has none of its own.
+    // Top padding matches the height of the header this page used to draw, keeping the content where it was.
+    <div className="min-h-screen bg-white flex flex-col font-sans pt-14">
 
       {/* Main */}
-      <main className="flex-1 mx-auto w-full max-w-[1280px] px-6 md:px-12">
+      <div className="flex-1 mx-auto w-full max-w-[1280px] px-6 md:px-12">
 
         {/* ── Hero copy ── */}
         <section className="relative pt-20 pb-16 md:pb-20 border-b border-black/[0.07] flex justify-center">
@@ -191,42 +174,7 @@ export default function NotFound() {
           </div>
         </section>
 
-      </main>
-
-      {/* Footer bar */}
-      <footer className="relative w-full border-t border-black/[0.07] bg-white/80 overflow-hidden">
-        {/* Diagonal bands - bottom-left corner */}
-        <div className="pointer-events-none absolute bottom-0 left-0 w-[380px] h-[120px]" aria-hidden="true">
-          <div
-            className="absolute h-[2px] bg-[#0d9e8a]/[0.18]"
-            style={{ top: '30px', left: 0, right: 0, transform: 'skewY(-8deg)', transformOrigin: 'left center' }}
-          />
-          <div
-            className="absolute h-[2px] bg-[#0d9e8a]/[0.28]"
-            style={{ top: '46px', left: '4%', right: '8%', transform: 'skewY(-8deg) translateY(6px)', transformOrigin: 'left center' }}
-          />
-          <div
-            className="absolute h-[2px]"
-            style={{
-              top: '62px', left: 0, right: 0,
-              transform: 'skewY(-8deg) translateY(6px)',
-              transformOrigin: 'left center',
-              background: 'linear-gradient(90deg, transparent 0%, #0d9e8a 30%, #2dd4bf 60%, transparent 100%)',
-              opacity: 0.35,
-            }}
-          />
-        </div>
-
-        <div className="relative mx-auto max-w-[1280px] px-6 md:px-12 h-14 flex items-center justify-between">
-          <span className="text-[11px] text-black/30">
-            © {new Date().getFullYear()} Emithran Technologies Pvt. Ltd.
-          </span>
-          <div className="flex items-center gap-4 text-[11px] text-black/30">
-            <Link href="/privacy" className="hover:text-black/60 transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-black/60 transition-colors">Terms</Link>
-          </div>
-        </div>
-      </footer>
+      </div>
 
     </div>
   )

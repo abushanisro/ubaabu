@@ -25,6 +25,8 @@ interface HeroVideoProps {
   /** Controlled open state - if provided, the component defers to the parent */
   isOpen?: boolean
   onOpenChange?: (open: boolean) => void
+  /** Above-the-fold thumbnail (LCP candidate): fetch eagerly at high priority */
+  priority?: boolean
 }
 
 const animationVariants = {
@@ -80,6 +82,7 @@ export function HeroVideoDialog({
   className,
   isOpen: externalIsOpen,
   onOpenChange,
+  priority = false,
 }: HeroVideoProps) {
   const [internalOpen, setInternalOpen] = useState(false)
 
@@ -109,6 +112,9 @@ export function HeroVideoDialog({
           alt={thumbnailAlt}
           width={1920}
           height={1080}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          decoding="async"
           className="w-full transition-all duration-200 group-hover:brightness-[0.8] ease-out rounded-md shadow-lg border"
         />
         <div className="absolute inset-0 flex items-center justify-center group-hover:scale-100 scale-[0.9] transition-all duration-200 ease-out rounded-2xl">

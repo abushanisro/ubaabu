@@ -210,7 +210,7 @@ export default function BomManagementSoftwarePage() {
                 { stat: '2,400+', label: 'Verified suppliers in network' },
               ].map(({ stat, label }) => (
                 <div key={label} className="rounded-2xl p-5" style={{ border: '1px solid rgba(13,148,136,0.15)', background: 'rgba(13,148,136,0.03)' }}>
-                  <p className="text-[32px] font-bold mb-1" style={{ color: '#0d9488' }}>{stat}</p>
+                  <p className="text-[clamp(1.5rem,calc((100vw_-_144px)/7.2),32px)] font-bold mb-1" style={{ color: '#0d9488' }}>{stat}</p>
                   <p className="text-[13px]" style={{ color: 'rgba(15,27,45,0.55)' }}>{label}</p>
                 </div>
               ))}
@@ -296,7 +296,7 @@ export default function BomManagementSoftwarePage() {
             Emithran vs spreadsheets vs ERP BOM modules
           </h2>
           <div className="overflow-x-auto rounded-2xl" style={{ border: '1px solid rgba(0,0,0,0.07)' }}>
-            <table className="w-full text-[14px]">
+            <table className="w-full min-w-[560px] md:min-w-0 text-[14px]">
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.07)', background: '#f8fafb' }}>
                   <th className="px-5 py-4 text-left text-[11px] font-bold uppercase tracking-wider" style={{ color: 'rgba(15,27,45,0.4)' }}>Criterion</th>

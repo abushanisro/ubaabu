@@ -134,6 +134,9 @@ interface CookieRow {
 function CookieTable({ rows }: { rows: CookieRow[] }) {
   return (
     <div className="rounded-xl overflow-hidden mb-5" style={{ border: '1px solid rgba(15,27,45,0.09)' }}>
+      {/* Scrolls sideways on small screens so the four columns stay readable */}
+      <div className="overflow-x-auto">
+      <div className="min-w-[560px] sm:min-w-0">
       {/* Header */}
       <div
         className="grid grid-cols-4 gap-0 px-4 py-3 border-b"
@@ -162,6 +165,8 @@ function CookieTable({ rows }: { rows: CookieRow[] }) {
           <span className="text-[13px]" style={{ color: 'rgba(15,27,45,0.55)' }}>{row.duration}</span>
         </div>
       ))}
+      </div>
+      </div>
     </div>
   )
 }
@@ -207,7 +212,7 @@ export default function CookiesPage() {
         <div className="mx-auto max-w-[1160px] px-6 md:px-12">
 
           {/* Breadcrumb */}
-          <div className="flex items-center gap-1.5 pt-10 pb-4 text-[12px]" style={{ color: 'rgba(15,27,45,0.4)' }}>
+          <div className="flex items-center gap-1.5 pt-26 lg:pt-28 pb-4 text-[12px]" style={{ color: 'rgba(15,27,45,0.4)' }}>
             <Link href="/" className="hover:text-[#0d9488] transition-colors">Home</Link>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
               <path d="M4.5 3l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />

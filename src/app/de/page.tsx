@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 
 export default function GermanPilotPage() {
   return (
-    <main className="min-h-screen bg-white pt-28 pb-16 text-[#0f1b2d]">
+    <main lang="de" className="min-h-screen bg-white pt-28 pb-16 text-[#0f1b2d]">
       <div className="max-w-5xl mx-auto px-6 lg:px-10">
         <p className="text-[11px] font-bold uppercase tracking-widest text-[#0d9488]">Deutschland Pilot</p>
-        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight">
+        <h1 className="mt-4 text-4xl md:text-5xl font-bold tracking-tight break-words hyphens-auto">
           Fertigungsintelligenz fuer Kosten, Lieferanten und BOMs.
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-relaxed text-black/60">

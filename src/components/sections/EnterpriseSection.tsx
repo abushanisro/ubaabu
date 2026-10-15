@@ -1,13 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import dynamic from 'next/dynamic'
 import { DottedSurface } from '@/components/ui/dotted-surface'
+import { visibleRafLoop } from '@/lib/visibleRafLoop'
 
-const SplineScene = dynamic(
-  () => import('@/components/ui/splite').then(m => ({ default: m.SplineScene })),
-  { ssr: false, loading: () => null }
-)
 
 type Item = { id: string; label: string; sub: string; desc: string; bg: string; fg: string; int: string }
 
@@ -202,35 +198,8 @@ const PILLARS = [
   { Icon: ScaleIcon,     title: 'Scalable platform',         badge: undefined,   body: 'Single unified platform spanning programmes, geographies, and Tier-1 to Tier-4 supplier networks at full scale.' },
   { Icon: StabilityIcon, title: 'Operational stability',     badge: undefined,   body: 'Proven reliability for mission-critical manufacturing and sourcing workflows across long-cycle defence programmes.' },
 ]
-const SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode'
 
 type Pt = { x: number; y: number }
-
-function RobotSkeleton({ size }: { size: number }) {
-  return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden>
-      <div style={{ width: size, height: size, position: 'relative' }}>
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{ border: '1px solid rgba(45,212,191,0.15)' }}
-        />
-        <div
-          className="absolute inset-0 rounded-full"
-          style={{ border: '1px solid rgba(45,212,191,0.25)', animation: 'em-ping-ring 2s ease-out infinite', transformOrigin: 'center' }}
-        />
-        <div
-          className="absolute rounded-full"
-          style={{
-            inset: '22%',
-            background: 'linear-gradient(90deg, rgba(45,212,191,0.05) 0%, rgba(45,212,191,0.15) 50%, rgba(45,212,191,0.05) 100%)',
-            backgroundSize: '200% auto',
-            animation: 'em-shimmer-anim 2.4s linear infinite',
-          }}
-        />
-      </div>
-    </div>
-  )
-}
 
 export default function EnterpriseSection() {
   const sectionRef  = useRef<HTMLElement>(null)
@@ -239,20 +208,15 @@ export default function EnterpriseSection() {
   const coreRef    = useRef<HTMLDivElement>(null)
   const itemElsRef = useRef<Map<string, HTMLElement>>(new Map())
   const activeRef  = useRef<string | null>(null)
-  const rafRef     = useRef<number>(0)
   const timerRef   = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const [activeId,      setActiveId]      = useState<string | null>(null)
   const [pinnedId,      setPinnedId]      = useState<string | null>(null)
   const [isMob,         setIsMob]         = useState(false)
   const [clientMounted, setClientMounted] = useState(false)
-  const [splineVisible, setSplineVisible] = useState(false)
-  const [splineReady,   setSplineReady]   = useState(false)
 
   useEffect(() => { activeRef.current = activeId }, [activeId])
 
-  // Must be declared before the IO effect so it runs first and
-  // clientMounted is true before splineVisible can ever become true.
   useEffect(() => { setClientMounted(true) }, [])
 
   useEffect(() => {
@@ -260,18 +224,6 @@ export default function EnterpriseSection() {
     check()
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
-  }, [])
-
-  // Gate Spline load until section is near viewport (200px pre-load buffer)
-  useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
-    const io = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setSplineVisible(true); io.disconnect() } },
-      { rootMargin: '800px 0px', threshold: 0 }
-    )
-    io.observe(el)
-    return () => io.disconnect()
   }, [])
 
   function layoutItems() {
@@ -409,12 +361,11 @@ export default function EnterpriseSection() {
         const end: Pt = { x: c.x - (dx / len) * c.r * 1.05, y: c.y - (dy / len) * c.r * 1.05 }
         connectors(edge, end, active, phase)
       })
-      rafRef.current = requestAnimationFrame(render)
     }
     resize()
-    rafRef.current = requestAnimationFrame(render)
+    const stopLoop = visibleRafLoop(stage, render)
     const ro = new ResizeObserver(resize); ro.observe(stage)
-    return () => { cancelAnimationFrame(rafRef.current); ro.disconnect() }
+    return () => { stopLoop(); ro.disconnect() }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   function enter(id: string) {
@@ -444,7 +395,7 @@ export default function EnterpriseSection() {
       {/* Background image - mobile SVG */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/assets/cards/entrise-mobile.svg"
+        src="/assets/cards/entrise-mobile.webp"
         alt=""
         aria-hidden="true"
         className="sm:hidden"
@@ -461,7 +412,7 @@ export default function EnterpriseSection() {
       {/* Background image - desktop PNG */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/assets/cards/entrpisebg.svg"
+        src="/assets/cards/entrpisebg.webp"
         alt=""
         aria-hidden="true"
         className="hidden sm:block"
@@ -711,18 +662,25 @@ export default function EnterpriseSection() {
               {/* Outer ambient glow rings */}
               <div className="absolute inset-0 pointer-events-none" style={{ borderRadius: '50%', boxShadow: '0 0 60px 20px rgba(45,212,191,0.18), 0 0 120px 40px rgba(13,158,138,0.10)' }} />
 
-              {/* Spline robot with brand teal filter */}
-              <div className="relative w-full h-full"
+              {/* Robot with brand teal filter. Pre-rendered from the Spline scene
+                  (prod.spline.design/kZDDjO5HuC9GJUM2): the live WebGL runtime was a
+                  2 MB bundle that froze scrolling for seconds while it compiled and then
+                  re-rendered (and re-filtered) every frame. A static image costs ~16 KB;
+                  the float is a transform-only animation, so it stays on the compositor. */}
+              <div className="relative w-full h-full em-robot-float"
                 style={{ filter: 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)' }}>
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{ opacity: splineReady ? 0 : 1, transition: 'opacity 0.5s ease' }}
-                >
-                  <RobotSkeleton size={robotSize} />
-                </div>
-                {splineVisible && (
-                  <SplineScene scene={SCENE} className="w-full h-full" onLoad={() => setSplineReady(true)} />
-                )}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/assets/enterprise/robot.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width={520}
+                  height={520}
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                  className="w-full h-full object-contain select-none"
+                />
                 <div className="absolute inset-0 pointer-events-none rounded-full"
                   style={{ background: 'radial-gradient(circle at 50% 40%, rgba(45,212,191,0.10) 0%, transparent 68%)', mixBlendMode: 'screen' }} />
               </div>
@@ -764,8 +722,12 @@ export default function EnterpriseSection() {
               )}
             </>
           ) : (
-            /* SSR / first-paint placeholder - no dynamic imports in this branch */
-            <RobotSkeleton size={robotSize} />
+            /* SSR / first paint: same robot artwork, without the client-only chips */
+            <div className="relative w-full h-full"
+              style={{ filter: 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)' }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/enterprise/robot.webp" alt="" aria-hidden="true" width={520} height={520} loading="lazy" decoding="async" draggable={false} className="w-full h-full object-contain select-none" />
+            </div>
           )}
         </div>
 

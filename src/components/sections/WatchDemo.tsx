@@ -20,26 +20,26 @@ export default function WatchDemo() {
   return (
     <section className="relative w-full bg-white overflow-hidden">
 
-      {/* ── Mobile background SVG — absolutely behind content so height is content-driven ── */}
-      <div className="md:hidden absolute inset-0 -z-0 pointer-events-none">
+      {/* ── Mobile/tablet background SVG — absolutely behind content so height is content-driven ── */}
+      <div className="lg:hidden absolute inset-0 -z-0 pointer-events-none">
         <img
-          src="/assets/cards/watchdemomobiile.svg"
+          src="/assets/cards/watchdemomobiile.webp" width={900} height={1599} loading="lazy" decoding="async"
           alt="" aria-hidden
           className="w-full h-full object-cover object-top"
         />
       </div>
 
-      {/* ── Desktop background SVG - md and above ── */}
+      {/* ── Desktop background SVG - lg and above. Covers the section (no distortion); anchored left so the wave stays in view when content makes the section taller than the artwork ── */}
       <img
-        src="/assets/cards/watchdemo.svg"
+        src="/assets/cards/watchdemo.webp" width={1693} height={929} loading="lazy" decoding="async"
         alt="" aria-hidden
-        className="w-full h-auto hidden md:block"
+        className="hidden lg:block absolute inset-0 w-full h-full object-cover object-left"
       />
 
       {/* ══════════════════════════════════════════════
-          MOBILE LAYOUT  — normal flow, height = content
+          MOBILE + TABLET LAYOUT  — normal flow, height = content
       ══════════════════════════════════════════════ */}
-      <div className="md:hidden relative flex flex-col px-3 pt-6 pb-6" style={{ gap: 0 }}>
+      <div className="lg:hidden relative flex flex-col px-3 pt-6 pb-6" style={{ gap: 0 }}>
 
         {/* ── Headline + CTAs ── */}
         <div className="flex flex-col items-center text-center shrink-0 mb-2">
@@ -77,7 +77,7 @@ export default function WatchDemo() {
           <HeroVideoDialog
             animationStyle="from-center"
             videoSrc="/videos/emithran-manufacturing-intelligence-platform-overview.mp4"
-            thumbnailSrc="/assets/cards/videocard.svg"
+            thumbnailSrc="/assets/cards/videocard.webp"
             thumbnailAlt="Watch Emithran in action"
             className="h-full [&_img]:rounded-none [&_img]:border-0 [&_img]:shadow-none [&_img]:block [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
           />
@@ -142,8 +142,10 @@ export default function WatchDemo() {
 
       {/* ══════════════════════════════════════════════
           DESKTOP OVERLAY  (hidden below lg)
+          In normal flow with the artwork's aspect ratio as its minimum height:
+          identical to the artwork where content fits, grows instead of clipping where it doesn't
       ══════════════════════════════════════════════ */}
-      <div className="hidden md:flex absolute inset-0 flex-col justify-between">
+      <div className="hidden lg:flex relative aspect-[1693/929] flex-col justify-between">
 
         {/* Top: flanking cards + headline + CTAs */}
         <div className="w-full px-8 pt-10">

@@ -113,11 +113,11 @@ export default function RadialOrbitalTimeline({
 
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 200;
     const radian = (angle * Math.PI) / 180;
 
-    const x = radius * Math.cos(radian) + centerOffset.x;
-    const y = radius * Math.sin(radian) + centerOffset.y;
+    // Multipliers of the CSS orbit radius (--r), so the nodes are placed correctly from the first paint
+    const x = Math.cos(radian);
+    const y = Math.sin(radian);
 
     const zIndex = Math.round(100 + 50 * Math.cos(radian));
     const opacity = Math.max(
@@ -154,11 +154,14 @@ export default function RadialOrbitalTimeline({
 
   return (
     <div
-      className="w-full h-full flex flex-col items-center justify-center bg-[#0f1b2d] rounded-2xl overflow-hidden"
+      className="w-full h-full flex flex-col items-center justify-center bg-[#0f1b2d] rounded-2xl overflow-hidden [container-type:size]"
       ref={containerRef}
       onClick={handleContainerClick}
     >
-      <div className="relative w-full max-w-4xl h-full flex items-center justify-center">
+      {/* Orbit radius (--r): 200px by default, reduced only when the container is too small to hold the nodes
+          (44px margin covers the 40px node plus the lag of its 700ms position transition while rotating).
+          Done in CSS so the server-rendered markup is already the right size and nothing shifts after hydration. */}
+      <div className="relative w-full max-w-4xl h-full flex items-center justify-center [--r:max(70px,calc(50cqmin-44px))] [@container_(min-width:440px)_and_(min-height:440px)]:[--r:200px]">
         <div
           className="absolute w-full h-full flex items-center justify-center"
           ref={orbitRef}
@@ -176,7 +179,10 @@ export default function RadialOrbitalTimeline({
             <div className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md"></div>
           </div>
 
-          <div className="absolute w-96 h-96 rounded-full border border-teal-400/15"></div>
+          <div
+            className="absolute rounded-full border border-teal-400/15"
+            style={{ width: "calc(var(--r) * 2 - 16px)", height: "calc(var(--r) * 2 - 16px)" }}
+          ></div>
 
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);
@@ -186,7 +192,7 @@ export default function RadialOrbitalTimeline({
             const Icon = item.icon;
 
             const nodeStyle = {
-              transform: `translate(${position.x}px, ${position.y}px)`,
+              transform: `translate(calc(var(--r) * ${position.x.toFixed(4)} + ${centerOffset.x}px), calc(var(--r) * ${position.y.toFixed(4)} + ${centerOffset.y}px))`,
               zIndex: isExpanded ? 200 : position.zIndex,
               opacity: isExpanded ? 1 : position.opacity,
             };

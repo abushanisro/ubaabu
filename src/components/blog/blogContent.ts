@@ -29,6 +29,406 @@ export interface BlogPostContent {
 }
 
 export const BLOG_CONTENT: Record<string, BlogPostContent> = {
+  'should-cost-analysis-guide': {
+    heroImage: '/images/blog/should-cost-analysis-guide.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Should-Cost Analysis: Complete Guide for Manufacturers',
+      metaDescription:
+        'Learn how should-cost analysis works, what data you need, and how to use it to negotiate supplier prices with confidence. Includes a worked example.',
+      ogTitle: 'Should-Cost Analysis: The Complete Guide for Manufacturers',
+      ogDescription:
+        'Learn how should-cost analysis works, what data you need, and how to use it to negotiate supplier prices with confidence. Includes a worked example.',
+      tags: [
+        'should cost analysis',
+        'should cost model',
+        'should costing',
+        'how to do a should cost analysis',
+        'should cost vs actual cost',
+        'should cost analysis example',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is should-cost analysis?',
+        answer:
+          'Should-cost analysis is a method of estimating what a part or product should cost to make, based on its material, manufacturing processes, labour, overhead and a reasonable profit margin. It gives buyers an independent reference point for judging supplier quotes and preparing negotiations.',
+      },
+      {
+        question: 'How do you do a should-cost analysis?',
+        answer:
+          "Define the part and scope, estimate the material cost from the stock size, calculate the cost of each manufacturing operation from cycle time and machine rate, add setup, tooling, labour and finishing, then apply overhead and margin. Finally, compare the total with the supplier's quote and investigate the largest gaps.",
+      },
+      {
+        question: 'What is the difference between should-cost and cost-plus?',
+        answer:
+          "Should-cost is built independently from the part and the process, so it does not depend on the supplier's reported costs. Cost-plus starts from the supplier's actual costs and adds an agreed margin, which means inefficiency is passed on to the buyer.",
+      },
+      {
+        question: 'Is a should-cost model the same as an actual cost?',
+        answer:
+          "No. A should-cost model estimates what a part ought to cost under efficient, well-run conditions. A supplier's actual cost reflects its real equipment, yield, scale and overheads. The difference between the two is useful information, not necessarily a sign of a problem.",
+      },
+      {
+        question: 'How accurate is should-cost analysis?',
+        answer:
+          'Accuracy depends on the quality of your inputs, especially cycle time, material yield and rates. A well-built model is usually best treated as a range with clearly stated assumptions rather than a single exact figure.',
+      },
+      {
+        question: 'When should you use should-cost analysis?',
+        answer:
+          'It is most useful for custom or complex parts without a market price, for high-value or high-volume purchases, during sourcing and negotiation, and when comparing make-versus-buy or regional sourcing options.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 14 minutes</p>
+
+<p>A supplier sends a quote for a machined bracket. It looks reasonable, but you cannot say whether it is fair, because you have nothing to measure it against. That is the problem should-cost analysis solves. Instead of accepting a price or negotiating on instinct, you build an independent estimate of what the part ought to cost, based on its material, the processes needed to make it, and a realistic share of overhead and margin.</p>
+
+<p>This guide explains how should-cost analysis works, what data you need, and how to run one from start to finish. It includes a worked example with real arithmetic, a comparison with other pricing methods, and a practical section on using the result to negotiate with suppliers.</p>
+
+<div style="padding:1.25rem 1.5rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.5rem 0;">
+  <p style="font-weight:700;color:#0d1117;margin:0 0 0.5rem;">Key takeaways</p>
+  <ul style="margin:0;">
+    <li>Should-cost analysis estimates what a part should cost to make, built bottom-up from material, process, labour, overhead and margin.</li>
+    <li>It differs from cost-plus pricing and from simply reviewing a quote: it starts from the part and the process, not from the supplier's number.</li>
+    <li>The quality of the result depends on your inputs: accurate geometry, realistic cycle times and defensible machine and labour rates.</li>
+    <li>A should-cost model is most useful when it is shared in negotiation as a fact base, not used as an ultimatum.</li>
+    <li>Treat the output as a range with stated assumptions, not a single "true" price.</li>
+  </ul>
+</div>
+
+<h2>What Is Should-Cost Analysis?</h2>
+
+<p>Should-cost analysis is a method for estimating the fair cost of a part or product by modelling how it is made. You break the part into its cost elements (raw material, each manufacturing operation, labour, tooling, overhead and profit), assign a defensible value to each, and add them up. The total is the should-cost: what an efficient, well-run supplier in a given region should need to charge to produce the part and earn a reasonable margin.</p>
+
+<p>A should-cost model is sometimes called a clean-sheet estimate, because you build it from a blank page rather than from historical prices. Procurement, cost engineering and supplier development teams use should costing for several reasons:</p>
+
+<ul>
+  <li><strong>Quote validation.</strong> Check whether a supplier's price is in line with the cost of making the part.</li>
+  <li><strong>Negotiation preparation.</strong> Walk into a conversation with a line-by-line view of where the price may be high.</li>
+  <li><strong>Sourcing decisions.</strong> Compare regions, processes or make-versus-buy options on a like-for-like basis.</li>
+  <li><strong>Design feedback.</strong> Show engineers which features and tolerances drive cost, so savings can be captured before release.</li>
+</ul>
+
+<p>The approach is common in aerospace, automotive, industrial equipment and any sector that buys complex, custom-made parts, because those parts rarely have a market price you can simply look up.</p>
+
+<h3>Why Should-Cost Analysis Matters</h3>
+
+<p>For custom parts, price transparency is low. Two suppliers may quote very differently for the same drawing, and neither quote usually explains why. Without a reference point, buyers tend to fall back on negotiating a flat percentage off the last price, which may leave real savings on the table or push a supplier below a sustainable margin.</p>
+
+<p>A should-cost model changes the conversation. It shifts the question from "can you do better on price?" to "here is how we believe this part is made; where does your process differ from our assumptions?" That is a more productive, fact-based discussion for both sides.</p>
+
+<h2>Should-Cost vs Cost-Plus vs Quote Review</h2>
+
+<p>Should-cost analysis is often confused with two neighbouring methods. They answer different questions.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Method</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Starting point</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Main question</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Typical weakness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Should-cost analysis</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">The part, its material and the manufacturing process</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">What should this part cost to make?</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Needs good process and rate data</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Cost-plus pricing</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">The supplier's reported costs</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">What did it cost the supplier, plus an agreed margin?</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Rewards inefficiency; relies on the supplier's cost data</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Quote review (price analysis)</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Competing quotes or historical prices</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Is this quote in line with others?</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Cannot tell you if all quotes are too high</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Cost-plus takes the supplier's actual costs as given and adds a margin. If the supplier is inefficient, the buyer pays for it. Quote review compares prices against each other or against history. It is quick, but it only tells you which quote is lower, not whether the lowest quote is fair.</p>
+
+<p>Should-cost is independent of the supplier's numbers. That independence is its main strength. It is also why a should-cost estimate and an actual cost often differ, and understanding that difference is a skill in itself. We cover it in detail in our guide to should-cost vs actual cost.</p>
+
+<p>Should-cost is one of several ways to estimate manufacturing cost. For a broader comparison of analogous, parametric, bottom-up, activity-based and AI-driven approaches, see our guide to <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. Should-cost modelling is a form of bottom-up estimating, which is why it tends to be the most detailed and the most data-hungry.</p>
+
+<h2>Inputs for a Should-Cost Model: Material, Process, Labour, Overhead and Margin</h2>
+
+<p>A reliable should-cost model is only as good as its inputs. Most models draw on five groups of data.</p>
+
+<h3>1. Material cost</h3>
+
+<p>Start with the raw material the part is made from, and how much of it you need to buy.</p>
+
+<ul>
+  <li><strong>Material grade and form:</strong> for example, 6061-T6 aluminium bar, a titanium forging, or a cold-rolled steel sheet.</li>
+  <li><strong>Gross weight (blank or stock size):</strong> the amount you buy, not the finished part weight. For a machined part, the stock must be larger than the finished geometry.</li>
+  <li><strong>Price per kilogram:</strong> use a current index, a quoted price from a distributor, or your own purchasing data.</li>
+  <li><strong>Scrap and yield:</strong> machining chips, sheet offcuts and rejected parts all affect the true material cost. Some scrap can be sold back, which reduces the net cost.</li>
+</ul>
+
+<p>Material is often the most objective part of the model, because prices are tracked and published. It is also where many estimates go wrong, by using finished weight instead of stock weight.</p>
+
+<h3>2. Process and machine cost</h3>
+
+<p>Next, identify every manufacturing operation needed and estimate the time each takes. For a machined part this may include cutting, drilling, milling, turning, heat treatment and inspection.</p>
+
+<p>For each operation you need two things:</p>
+
+<ul>
+  <li><strong>Cycle time:</strong> how long the operation takes per part, including loading and unloading where relevant.</li>
+  <li><strong>Machine hour rate:</strong> what it costs to run the machine for one hour, covering depreciation, power, maintenance, floor space and similar costs.</li>
+</ul>
+
+<p>Process cost is cycle time multiplied by the machine rate, plus any setup cost spread over the batch. Cycle time is usually the hardest input to estimate, and it has the largest effect on the result for machined parts.</p>
+
+<h3>3. Labour cost</h3>
+
+<p>Labour covers the people directly involved in producing the part: machine operators, setup technicians, inspectors and finishing staff.</p>
+
+<ul>
+  <li><strong>Labour rate:</strong> use a fully loaded hourly rate for the region you are modelling. Rates differ widely between countries and even within a country.</li>
+  <li><strong>Labour time:</strong> operators often tend more than one machine, so attribute only the share of time that applies to your part.</li>
+</ul>
+
+<p>Be consistent about whether the machine hour rate already includes the operator. Counting labour in both places is a common source of overstated estimates.</p>
+
+<h3>4. Tooling and setup</h3>
+
+<p>Some costs do not scale with the number of parts. Fixtures, programming, first-article inspection and machine setup are one-time or per-batch costs. Divide them by the order quantity to get a per-part figure. This is why the same part costs more per unit at 50 pieces than at 5,000.</p>
+
+<h3>5. Overhead and margin</h3>
+
+<p>Finally, add the costs that sit around the shop floor and the profit the supplier needs to stay in business.</p>
+
+<ul>
+  <li><strong>Overhead (SG&amp;A):</strong> factory management, quality systems, engineering support, administration and sales. It is usually modelled as a percentage of the direct cost.</li>
+  <li><strong>Profit margin:</strong> a reasonable margin for the supplier's industry and risk profile.</li>
+</ul>
+
+<p>Both figures should come from a defensible source, such as published industry benchmarks, financial reports or your own supplier knowledge. If you cannot justify a number, show it as a range.</p>
+
+<h2>Step-by-Step Worked Example</h2>
+
+<p>This section answers a common question: how do you do a should-cost analysis in practice? The example below is illustrative. The prices and rates are assumptions chosen to show the method, not market data, so replace them with your own figures.</p>
+
+<div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1.25rem 0;">
+  <p style="font-size:0.95rem;color:#374151;margin:0;"><strong>The part:</strong> a machined aluminium bracket, 6061-T6, order quantity 500 pieces, anodised finish.</p>
+</div>
+
+<h3>Step 1: Define the part and the scope</h3>
+
+<p>Gather the drawing or CAD model, the material specification, tolerances, surface finish, order quantity and any special requirements. Decide the sourcing region you are modelling, because rates depend on it.</p>
+
+<h3>Step 2: Estimate the material cost</h3>
+
+<p>The finished bracket weighs less than the stock needed to machine it. In this example the blank weighs 1.2 kg, and aluminium bar costs 4.50 USD per kg.</p>
+
+<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-family:monospace;font-size:0.9rem;color:#0d1117;">
+  Material cost: 1.2 kg × 4.50 = 5.40 USD per part
+</div>
+
+<h3>Step 3: Estimate machining cost</h3>
+
+<p>The part needs three milling operations, with a total cycle time of 14 minutes. The assumed machine hour rate is 55 USD.</p>
+
+<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-family:monospace;font-size:0.9rem;color:#0d1117;">
+  Machining cost: (14 ÷ 60) × 55 = 12.83 USD per part
+</div>
+
+<h3>Step 4: Add setup, fixtures and consumables</h3>
+
+<ul>
+  <li><strong>Setup:</strong> 3 hours × 55 USD = 165 USD, spread across 500 parts = 0.33 USD per part</li>
+  <li><strong>Fixturing:</strong> 300 USD one-time cost ÷ 500 = 0.60 USD per part</li>
+  <li><strong>Cutting tools and consumables:</strong> 0.90 USD per part</li>
+</ul>
+
+<h3>Step 5: Add labour, inspection and finishing</h3>
+
+<ul>
+  <li><strong>Operator labour:</strong> the operator tends two machines, so half of the 14-minute cycle applies. At 22 USD per hour: (7 ÷ 60) × 22 = 2.57 USD per part</li>
+  <li><strong>Deburring and inspection:</strong> 4 minutes at 22 USD per hour = 1.47 USD per part</li>
+  <li><strong>Anodising (outsourced):</strong> 2.20 USD per part</li>
+</ul>
+
+<h3>Step 6: Add overhead and margin</h3>
+
+<p>The direct cost subtotal is 26.30 USD. Assume overhead of 10% and a profit margin of 12%.</p>
+
+<ul>
+  <li><strong>Overhead:</strong> 26.30 × 10% = 2.63 USD</li>
+  <li><strong>Cost with overhead:</strong> 28.93 USD</li>
+  <li><strong>Margin:</strong> 28.93 × 12% = 3.47 USD</li>
+</ul>
+
+<h3>The should-cost breakdown</h3>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost element</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Basis</th>
+        <th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">USD per part</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Material</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">1.2 kg × 4.50 USD/kg</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5.40</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Machining</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">14 min × 55 USD/hr</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">12.83</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Setup</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">165 USD ÷ 500 parts</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.33</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Fixturing</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">300 USD ÷ 500 parts</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.60</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Tooling and consumables</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Per-part estimate</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.90</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Operator labour</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">7 min × 22 USD/hr</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.57</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Deburring and inspection</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">4 min × 22 USD/hr</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">1.47</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Anodising</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Outsourced process</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.20</td>
+      </tr>
+      <tr style="border-bottom:1px solid #e5e7eb;background:#f8fafc;">
+        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost subtotal</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;"></td>
+        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;text-align:right;">26.30</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Overhead</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">10% of direct cost</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.63</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Margin</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">12% of cost with overhead</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3.47</td>
+      </tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);">
+        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Should-cost</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;"></td>
+        <td style="padding:0.65rem 0.9rem;color:#0d9488;font-weight:700;text-align:right;">32.40</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Step 7: Compare with the supplier quote</h3>
+
+<p>Suppose the supplier quoted 41.50 USD per part. The gap is 9.10 USD, or about 28% above the should-cost.</p>
+
+<p>That gap is not proof that the supplier is overcharging. It is a prompt for questions. The supplier may use a slower process, include a cost you did not model, run a smaller shop with higher overhead, or have priced in risk on tight tolerances. Each line of the model gives you a specific place to ask. The next section explains how to do that constructively.</p>
+
+<h2>Using Should-Cost Analysis in Supplier Negotiations</h2>
+
+<p>A should-cost model is most valuable when it changes how a negotiation is run. Used well, it replaces vague pressure with specific, answerable questions.</p>
+
+<h3>Share the logic, not just the number</h3>
+
+<p>Opening with "our model says 32.40 USD" invites an argument about whose number is right. Opening with "we estimated a 14-minute cycle time and a 55 USD machine rate; how does that compare with yours?" invites a discussion about facts. Suppliers often have information you lack, such as a faster process, a different machine or a better yield, and the conversation can surface it.</p>
+
+<h3>Go line by line</h3>
+
+<p>Compare the supplier's quote breakdown against your model and focus on the largest gaps first. In the example above, a large difference in machining time matters far more than a small difference in setup. Concentrate your effort where the money is.</p>
+
+<h3>Separate legitimate gaps from negotiable ones</h3>
+
+<p>Not every difference is a negotiating point. Some reflect real constraints: a small batch, a hard-to-source material, a certification requirement or a regional labour rate. Acknowledge these openly. Credibility with a supplier is worth more than a marginal price point, and a model that admits its own uncertainty is more persuasive than one that pretends to be exact.</p>
+
+<h3>Look for improvement, not only price</h3>
+
+<p>Should-cost data can point to savings that do not involve squeezing margin. Examples include changing a tolerance, switching the stock size, combining operations, or adjusting batch quantities. These benefit both sides and tend to hold up better over time than a one-off price cut.</p>
+
+<p>For a deeper look at tactics, see our <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;font-weight:600;">supplier negotiation strategy playbook</a>.</p>
+
+<h2>Common Mistakes in Should-Cost Analysis</h2>
+
+<p>Even experienced teams run into the same handful of problems.</p>
+
+<ul>
+  <li><strong>Using finished weight instead of stock weight.</strong> Material cost is based on what you buy, not what ships.</li>
+  <li><strong>Guessing cycle times.</strong> Cycle time is the most influential input for machined parts. Use CAM estimates, shop data or time studies where you can, and mark any guess as an assumption.</li>
+  <li><strong>Double-counting labour.</strong> If the machine hour rate already includes the operator, do not add operator labour again.</li>
+  <li><strong>Ignoring batch size.</strong> Setup and tooling costs behave very differently at 50 pieces and at 5,000. Always model the quantity you actually intend to order.</li>
+  <li><strong>Applying one overhead rate everywhere.</strong> Overhead and margin vary by region, supplier size and process. A single flat percentage can mislead.</li>
+  <li><strong>Treating the result as exact.</strong> A should-cost estimate is a well-supported range, not a precise price. Present it that way.</li>
+  <li><strong>Using it as an ultimatum.</strong> If the model is presented as the only correct answer, suppliers will challenge it, and you may lose the opportunity to learn from their feedback.</li>
+  <li><strong>Letting the model go stale.</strong> Material prices, labour rates and energy costs change. Review and update the inputs regularly.</li>
+</ul>
+
+<h3>Moving from spreadsheets to dedicated tools</h3>
+
+<p>Many teams begin with a spreadsheet, which is a sensible way to learn the method. As the number of parts grows, maintaining rates, templates and assumptions by hand becomes slow and error-prone. At that stage, it is worth evaluating dedicated tooling. Our guide to choosing <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;font-weight:600;">should-cost modeling software</a> explains what to look for, and you can see how our approach works on the <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform page</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is should-cost analysis?</h3>
+<p>Should-cost analysis is a method of estimating what a part or product should cost to make, based on its material, manufacturing processes, labour, overhead and a reasonable profit margin. It gives buyers an independent reference point for judging supplier quotes and preparing negotiations.</p>
+
+<h3>How do you do a should-cost analysis?</h3>
+<p>Define the part and scope, estimate the material cost from the stock size, calculate the cost of each manufacturing operation from cycle time and machine rate, add setup, tooling, labour and finishing, then apply overhead and margin. Finally, compare the total with the supplier's quote and investigate the largest gaps.</p>
+
+<h3>What is the difference between should-cost and cost-plus?</h3>
+<p>Should-cost is built independently from the part and the process, so it does not depend on the supplier's reported costs. Cost-plus starts from the supplier's actual costs and adds an agreed margin, which means inefficiency is passed on to the buyer.</p>
+
+<h3>Is a should-cost model the same as an actual cost?</h3>
+<p>No. A should-cost model estimates what a part ought to cost under efficient, well-run conditions. A supplier's actual cost reflects its real equipment, yield, scale and overheads. The difference between the two is useful information, not necessarily a sign of a problem.</p>
+
+<h3>How accurate is should-cost analysis?</h3>
+<p>Accuracy depends on the quality of your inputs, especially cycle time, material yield and rates. A well-built model is usually best treated as a range with clearly stated assumptions rather than a single exact figure.</p>
+
+<h3>When should you use should-cost analysis?</h3>
+<p>It is most useful for custom or complex parts without a market price, for high-value or high-volume purchases, during sourcing and negotiation, and when comparing make-versus-buy or regional sourcing options.</p>
+
+<h2>Get Started with Your Own Should-Cost Analysis</h2>
+
+<p>Should-cost analysis turns a quote from something you accept or reject into something you can examine, question and discuss. Start with one part, build the model line by line, and note every assumption. Each analysis you complete makes the next one faster and more reliable.</p>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the should-cost checklist</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Follow the steps above on your next quote with our one-page checklist.</p>
+  <a href="/downloads/should-cost-analysis-checklist.pdf" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the checklist (PDF)</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Manufacturing cost estimation methods</a> · Should-cost vs actual cost · <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;">Supplier negotiation strategy</a></p>
+    `,
+  },
   'compound-growth-manufacturing-cost-intelligence': {
     heroImage:
       'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',

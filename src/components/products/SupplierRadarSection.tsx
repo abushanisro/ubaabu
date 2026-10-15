@@ -139,7 +139,7 @@ function RadarViz({ inView }: { inView: boolean }) {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center gap-5 px-4 py-2.5 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
+      <div className="flex flex-wrap lg:flex-nowrap items-center gap-5 gap-y-1.5 px-4 py-2.5 border-t" style={{ borderColor: '#d9f2ee', background: '#f0fdf9' }}>
         {[['1,284', 'active'], ['3', 'at risk'], ['98.6%', 'OTIF']].map(([val, lbl]) => (
           <div key={lbl} className="flex items-baseline gap-1">
             <span className="text-xs font-bold" style={{ color: '#0d9488' }}>{val}</span>
@@ -242,7 +242,7 @@ export default function SupplierRadarSection() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
-                className="block h-[260px] lg:h-[340px] w-full rounded-2xl overflow-hidden"
+                className="grid min-h-[260px] lg:min-h-[340px] w-full rounded-2xl overflow-hidden"
                 style={{ boxShadow: '0 24px 64px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.06)' }}
               >
                 <RadarViz inView={inView} />

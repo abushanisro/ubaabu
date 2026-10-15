@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 
 interface Props {
   title: string;
@@ -11,7 +11,6 @@ interface Props {
 
 export function ManufacturingCard({ title, description, children, className = "", onClick }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState<React.CSSProperties>({});
 
   const handleMove = (e: React.MouseEvent) => {
     const el = ref.current;
@@ -19,11 +18,13 @@ export function ManufacturingCard({ title, description, children, className = ""
     const r = el.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width - 0.5;
     const y = (e.clientY - r.top) / r.height - 0.5;
-    setStyle({
-      transform: `perspective(1100px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg) translateY(-4px)`,
-    });
+    // Tilt is written directly to the element (transform = compositor-only),
+    // avoiding a React re-render of the card body on every mouse move.
+    el.style.transform = `perspective(1100px) rotateX(${-y * 6}deg) rotateY(${x * 6}deg) translateY(-4px)`;
   };
-  const reset = () => setStyle({ transform: "perspective(1100px) rotateX(0) rotateY(0)" });
+  const reset = () => {
+    if (ref.current) ref.current.style.transform = "perspective(1100px) rotateX(0) rotateY(0)";
+  };
 
   return (
     <div
@@ -31,7 +32,6 @@ export function ManufacturingCard({ title, description, children, className = ""
       onMouseMove={handleMove}
       onMouseLeave={reset}
       onClick={onClick}
-      style={style}
       className={`card-3d card-shadow hover:card-shadow-hover rounded-2xl bg-card p-6 border border-gray-200/60 hover:border-black relative overflow-hidden group cursor-pointer transition-colors duration-300 ${className}`}
     >
       <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-primary/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />

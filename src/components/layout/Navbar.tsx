@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
@@ -66,10 +66,33 @@ export default function Navbar() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
 
+  // Last pointer type, so a touch tap opens a dropdown instead of following the parent link
+  const lastPointer = useRef<string>('mouse')
+  const navRef = useRef<HTMLElement>(null)
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Escape closes any open menu; a tap outside the nav closes an open dropdown
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setHoveredItem(null)
+        setMobileOpen(false)
+      }
+    }
+    const onPointerDown = (e: PointerEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setHoveredItem(null)
+    }
+    document.addEventListener('keydown', onKey)
+    document.addEventListener('pointerdown', onPointerDown)
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.removeEventListener('pointerdown', onPointerDown)
+    }
   }, [])
 
   return (
@@ -80,33 +103,67 @@ export default function Navbar() {
         borderBottom:   '1px solid rgba(0,0,0,0.08)',
       }}
     >
-      <nav className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
+      <nav ref={navRef} className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" prefetch={false} className="flex items-center gap-1">
-          <img src="/assets/infographics/logo/logo-white.png" alt="Emithran" className="h-8 w-auto" />
+          <img src="/assets/infographics/logo/logo-white.webp" width={256} height={256} alt="Emithran" className="h-8 w-auto" />
           <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">EMITHRAN</span>
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-0.5 md:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex">
           {items.map((item) =>
             item.children ? (
               <li
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => setHoveredItem(item.label)}
-                onMouseLeave={() => setHoveredItem(null)}
+                onPointerEnter={(e) => { if (e.pointerType === 'mouse') setHoveredItem(item.label) }}
+                onPointerLeave={(e) => { if (e.pointerType === 'mouse') setHoveredItem(null) }}
+                onFocus={() => setHoveredItem(item.label)}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget as Node)) setHoveredItem(null)
+                }}
               >
-                <a
-                  href={item.href}
-                  className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors whitespace-nowrap"
-                >
-                  {item.label}
-                  <ChevronDown
-                    size={14}
-                    className={`transition-transform duration-200 ${hoveredItem === item.label ? 'rotate-180' : ''}`}
-                  />
-                </a>
+                {(() => {
+                  const open = hoveredItem === item.label
+                  const triggerClass = 'flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-black/60 hover:text-black hover:bg-black/5 transition-colors whitespace-nowrap'
+                  const chevron = (
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+                    />
+                  )
+                  return item.href ? (
+                    <a
+                      href={item.href}
+                      aria-haspopup="true"
+                      aria-expanded={open}
+                      onPointerDown={(e) => { lastPointer.current = e.pointerType }}
+                      onClick={(e) => {
+                        // First tap on touch opens the dropdown; the next tap follows the link
+                        if (lastPointer.current !== 'mouse' && !open) {
+                          e.preventDefault()
+                          setHoveredItem(item.label)
+                        }
+                      }}
+                      className={triggerClass}
+                    >
+                      {item.label}
+                      {chevron}
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      aria-haspopup="true"
+                      aria-expanded={open}
+                      onClick={() => setHoveredItem(item.label)}
+                      className={triggerClass}
+                    >
+                      {item.label}
+                      {chevron}
+                    </button>
+                  )
+                })()}
                 {hoveredItem === item.label && (
                   <div className="absolute left-0 top-full z-50 mt-0 min-w-[190px] rounded-xl border border-black/8 bg-white py-1.5 shadow-xl">
                     {item.children.map((child) => (
@@ -135,7 +192,7 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop CTA */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <a
             href="/contact?source=navbar&cta=contact-us"
             className="rounded-md border border-black/15 px-4 py-2 text-sm font-semibold text-[#0d1117] hover:bg-black/[0.04] transition-colors whitespace-nowrap"
@@ -153,9 +210,11 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-[#080808]"
+          className="-my-1.5 -mr-3 inline-flex h-11 w-11 items-center justify-center text-[#080808] lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-nav"
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -163,7 +222,11 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="mx-4 mb-2 rounded-xl border border-black/8 bg-white p-4 shadow-lg md:hidden">
+        <div
+          id="mobile-nav"
+          data-lenis-prevent
+          className="mx-4 mb-2 max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-xl border border-black/8 bg-white p-4 shadow-lg lg:hidden"
+        >
           {items.map((item) =>
             item.children ? (
               <div key={item.label}>

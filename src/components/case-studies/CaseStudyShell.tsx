@@ -196,7 +196,7 @@ export default function CaseStudyShell({
         />
 
         {/* Content */}
-        <div className="relative mx-auto flex h-full min-h-[340px] md:min-h-[500px] max-w-[1280px] flex-col justify-end px-6 pb-10 md:px-12 md:pb-14">
+        <div className="relative mx-auto flex h-full min-h-[340px] md:min-h-[500px] max-w-[1280px] flex-col justify-end px-6 pt-24 pb-10 md:px-12 md:pt-0 md:pb-14">
 
           {/* Breadcrumb */}
           <Link

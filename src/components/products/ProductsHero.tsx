@@ -110,6 +110,11 @@ export default function ProductsHero() {
               loop
               muted
               playsInline
+              width={3836}
+              height={2160}
+              // Reserve the box before metadata loads - without it the hero grew
+              // from 150px to full height after load (CLS ~0.1 at tablet widths)
+              style={{ aspectRatio: '3836 / 2160' }}
               className="w-full h-auto block"
               src="/videos/emuski.mp4"
             />
@@ -128,7 +133,7 @@ export default function ProductsHero() {
       <HeroVideoDialog
         animationStyle="from-center"
         videoSrc="/videos/emuski.mp4"
-        thumbnailSrc="/assets/hero-page/3d-drawing.png"
+        thumbnailSrc="/assets/hero-page/3d-drawing.webp"
         thumbnailAlt=""
         isOpen={videoOpen}
         onOpenChange={setVideoOpen}

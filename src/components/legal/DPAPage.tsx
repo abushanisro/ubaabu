@@ -130,8 +130,8 @@ function Callout({ children }: { children: React.ReactNode }) {
 
 function DefRow({ term, definition }: { term: string; definition: React.ReactNode }) {
   return (
-    <div className="flex gap-5 py-3.5 border-b" style={{ borderColor: 'rgba(15,27,45,0.07)' }}>
-      <span className="text-[13px] font-semibold shrink-0 w-48" style={{ color: '#0f1b2d' }}>
+    <div className="flex flex-col gap-1 sm:flex-row sm:gap-5 py-3.5 border-b" style={{ borderColor: 'rgba(15,27,45,0.07)' }}>
+      <span className="text-[13px] font-semibold sm:shrink-0 sm:w-48" style={{ color: '#0f1b2d' }}>
         &ldquo;{term}&rdquo;
       </span>
       <span className="text-[13px] leading-[1.7]" style={{ color: 'rgba(15,27,45,0.68)' }}>
@@ -182,7 +182,7 @@ export default function DPAPage() {
         <div className="mx-auto max-w-[1160px] px-6 md:px-12">
 
           {/* Breadcrumb */}
-          <div className="flex items-center gap-1.5 pt-10 pb-4 text-[12px]" style={{ color: 'rgba(15,27,45,0.4)' }}>
+          <div className="flex items-center gap-1.5 pt-26 lg:pt-28 pb-4 text-[12px]" style={{ color: 'rgba(15,27,45,0.4)' }}>
             <Link href="/" className="hover:text-[#0d9488] transition-colors">Home</Link>
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="shrink-0">
               <path d="M4.5 3l3 3-3 3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />

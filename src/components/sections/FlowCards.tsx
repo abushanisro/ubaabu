@@ -69,7 +69,7 @@ export default function FlowCards() {
               <HeroVideoDialog
                 animationStyle="from-center"
                 videoSrc="/videos/emithran-manufacturing-intelligence-platform-overview.mp4"
-                thumbnailSrc="/assets/cards/videocard.svg"
+                thumbnailSrc="/assets/cards/videocard.webp"
                 thumbnailAlt="Watch Emithran in action"
               />
             </div>

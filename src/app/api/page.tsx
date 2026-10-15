@@ -64,7 +64,7 @@ const PATHS = [
     cta: 'Talk to Our Team',
     href: '/contact',
     visual: (
-      <pre className="overflow-hidden p-6 font-mono text-[12px] leading-6" style={{ color: '#cbd5e1' }}>
+      <pre className="overflow-x-auto p-6 font-mono text-[12px] leading-6" style={{ color: '#cbd5e1' }}>
         <span style={{ color: TEAL }}>curl</span> https://api.emithran.com/v1/costs \{'\n'}
         {'  '}-H <span style={{ color: '#fdba74' }}>&quot;Authorization: Bearer $KEY&quot;</span> \{'\n'}
         {'  '}-F <span style={{ color: '#fdba74' }}>file=@bracket.step</span>
@@ -175,20 +175,23 @@ export default function ApiPage() {
             lead="Choose an Integration Path."
             rest="With dedicated costing engineers and clear documentation, start with the option that fits your team."
           />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {/* Subgrid keeps the three panels the same height when one grows to fit its content */}
+          <div className="mt-12 grid gap-6 md:grid-cols-3 md:gap-y-0">
             {PATHS.map((p) => (
-              <div key={p.title}>
-                <div className="h-[184px] overflow-hidden rounded-xl" style={{ background: PANEL, border: `1px solid ${LINE}` }}>
+              <div key={p.title} className="md:grid md:grid-rows-subgrid md:row-span-2">
+                <div className="min-h-[184px] overflow-hidden rounded-xl" style={{ background: PANEL, border: `1px solid ${LINE}` }}>
                   {p.visual}
                 </div>
-                <p className="mt-6 text-[16px] leading-7">
-                  <strong className="font-semibold">{p.title}</strong>{' '}
-                  <span style={{ color: 'rgba(255,255,255,0.55)' }}>{p.body}</span>
-                </p>
-                <Link href={p.href} className="group mt-4 inline-flex items-center gap-1.5 text-[15px] font-semibold hover:text-white" style={{ color: TEAL }}>
-                  {p.cta}
-                  <AnimatedArrow />
-                </Link>
+                <div>
+                  <p className="mt-6 text-[16px] leading-7">
+                    <strong className="font-semibold">{p.title}</strong>{' '}
+                    <span style={{ color: 'rgba(255,255,255,0.55)' }}>{p.body}</span>
+                  </p>
+                  <Link href={p.href} className="group mt-4 inline-flex items-center gap-1.5 text-[15px] font-semibold hover:text-white" style={{ color: TEAL }}>
+                    {p.cta}
+                    <AnimatedArrow />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

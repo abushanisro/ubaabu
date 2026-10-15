@@ -7,10 +7,15 @@ export default function RequestCTA() {
         <img
           alt=""
           aria-hidden="true"
-          className="w-full h-auto block"
-          src="/assets/cards/requestcard.svg"
+          className="absolute inset-0 w-full h-full object-cover block"
+          src="/assets/cards/requestcard.webp"
+            width={1920}
+            height={754}
+            loading="lazy"
+            decoding="async"
         />
-        <div className="absolute inset-0 flex items-center justify-end">
+        {/* In normal flow with the artwork's aspect ratio as its minimum height: identical where the copy fits, grows instead of clipping where it doesn't */}
+        <div className="relative aspect-[2002/786] flex items-center justify-end">
           <div className="w-[55%] pr-14 pl-6">
             <h2 className="text-[2.2rem] font-bold tracking-tight text-white leading-[1.15]">
               The AI platform for India's critical manufacturing.
@@ -43,7 +48,11 @@ export default function RequestCTA() {
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover"
-          src="/assets/cards/requestcardmobile.svg"
+          src="/assets/cards/requestcardmobile.webp"
+            width={900}
+            height={1599}
+            loading="lazy"
+            decoding="async"
         />
         <div className="absolute inset-0 flex flex-col items-center justify-end pb-16 px-6 text-center">
           <h2 className="text-2xl font-bold tracking-tight text-white leading-[1.2]">

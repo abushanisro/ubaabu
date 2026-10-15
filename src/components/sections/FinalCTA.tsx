@@ -8,12 +8,17 @@ export default function FinalCTA() {
         {/* ── Desktop card (md+) ── */}
         <div className="relative overflow-hidden rounded-2xl hidden md:block">
           <img
-            src="/assets/cards/requestcard.svg"
+            src="/assets/cards/requestcard.webp"
+            width={1920}
+            height={754}
+            loading="lazy"
+            decoding="async"
             alt=""
             aria-hidden
-            className="w-full h-auto block"
+            className="absolute inset-0 w-full h-full object-cover block"
           />
-          <div className="absolute inset-0 flex items-center justify-end">
+          {/* In normal flow with the artwork's aspect ratio as its minimum height: identical where the copy fits, grows instead of clipping where it doesn't */}
+          <div className="relative aspect-[2002/786] flex items-center justify-end">
             <div className="w-[55%] pr-14 pl-6">
               <h2 className="text-[2.2rem] font-bold tracking-tight text-white leading-[1.15]">
                 The AI platform for India's critical manufacturing.
@@ -44,7 +49,11 @@ export default function FinalCTA() {
         {/* ── Mobile card (< md) - 9:16 aspect ratio ── */}
         <div className="relative overflow-hidden rounded-2xl md:hidden" style={{ aspectRatio: '9 / 16' }}>
           <img
-            src="/assets/cards/requestcardmobile.svg"
+            src="/assets/cards/requestcardmobile.webp"
+            width={900}
+            height={1599}
+            loading="lazy"
+            decoding="async"
             alt=""
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover"

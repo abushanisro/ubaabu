@@ -462,7 +462,11 @@ export default function PricingPackages() {
         {/* Full-section SVG background */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <img
-            src="/assets/cards/projectcarddemo.svg"
+            src="/assets/cards/projectcarddemo.webp"
+            width={1672}
+            height={941}
+            loading="lazy"
+            decoding="async"
             alt=""
             className="h-full w-full object-cover object-top opacity-20 md:object-center md:opacity-30"
           />
@@ -498,7 +502,7 @@ export default function PricingPackages() {
                       <p className="mt-2 text-[13px] leading-relaxed text-[#0f1b2d]/55">{c.body}</p>
                       <button
                         onClick={() => setModal({ open: true, intent: c.id })}
-                        className="group mt-4 inline-flex w-fit items-center gap-2 whitespace-nowrap rounded-full border border-[#0d9488]/30 bg-[#0d9488]/5 px-4 py-2 text-[12px] font-semibold text-[#0d9488] transition-all hover:border-[#0d9488] hover:bg-[#0d9488]/10"
+                        className="group mt-4 inline-flex w-fit items-center gap-2 whitespace-normal lg:whitespace-nowrap rounded-full border border-[#0d9488]/30 bg-[#0d9488]/5 px-4 py-2 text-[12px] font-semibold text-[#0d9488] transition-all hover:border-[#0d9488] hover:bg-[#0d9488]/10"
                       >
                         {c.ctaLabel}
                         <ArrowRight className="size-3 shrink-0 transition-transform group-hover:translate-x-0.5" aria-hidden />

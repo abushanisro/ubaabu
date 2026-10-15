@@ -74,10 +74,10 @@ export default async function GermanDetailPage({ params }: { params: Promise<{ s
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-      <main className="min-h-screen bg-white pt-28 pb-16 text-[#0f1b2d]">
+      <main lang="de" className="min-h-screen bg-white pt-28 pb-16 text-[#0f1b2d]">
         <article className="max-w-4xl mx-auto px-6 lg:px-10">
           <Link href="/de" className="text-sm font-semibold text-[#0d9488]">Deutschland</Link>
-          <h1 className="mt-5 text-4xl md:text-5xl font-bold tracking-tight">{page.h1}</h1>
+          <h1 className="mt-5 text-4xl md:text-5xl font-bold tracking-tight break-words hyphens-auto">{page.h1}</h1>
           <p className="mt-6 text-lg leading-relaxed text-black/60">{page.intro}</p>
 
           <div className="mt-12 space-y-10">
@@ -87,7 +87,7 @@ export default async function GermanDetailPage({ params }: { params: Promise<{ s
                 <p className="mt-3 leading-relaxed text-black/65">{section.body}</p>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-3">
                   {section.bullets.map((bullet) => (
-                    <li key={bullet} className="rounded-xl border border-[#0d9488]/15 bg-[#0d9488]/5 p-4 text-sm leading-relaxed text-black/65">
+                    <li key={bullet} className="rounded-xl border border-[#0d9488]/15 bg-[#0d9488]/5 p-4 text-sm leading-relaxed text-black/65 break-words hyphens-auto">
                       {bullet}
                     </li>
                   ))}

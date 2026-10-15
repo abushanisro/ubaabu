@@ -121,7 +121,7 @@ export default function StateOfManufacturingCostIntelligencePage() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {keyFindings.map((f) => (
                 <div key={f.label} className="rounded-xl border p-5 text-center" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
-                  <p className="text-[32px] font-bold tracking-tight" style={{ color: '#0d9488' }}>{f.value}</p>
+                  <p className="text-[clamp(1.5rem,calc((100vw_-_152px)/6.4),32px)] font-bold tracking-tight" style={{ color: '#0d9488' }}>{f.value}</p>
                   <p className="mt-2 text-[12.5px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>{f.label}</p>
                 </div>
               ))}

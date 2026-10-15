@@ -1,8 +1,28 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import { useInView } from 'framer-motion'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 import dynamic from 'next/dynamic'
+
+// Animated demos are 5-6 MB each. Native loading="lazy" still fetches them
+// ~1-2 viewports early (pulling one into the initial desktop load), so only
+// mount the <picture> once its card is about to scroll into view.
+function LazyDemo({ name, alt }: { name: string; alt: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: '200px' })
+  return (
+    // Until mounted, the wrapper carries the alt text so SSR/crawlers still see a labelled image
+    <div ref={ref} className="block w-full h-full" {...(inView ? {} : { role: 'img', 'aria-label': alt })}>
+      {inView && (
+        <picture className="block w-full h-full">
+          <source srcSet={`/videos/card/${name}.webp`} type="image/webp" />
+          <img src={`/videos/card/${name}.gif`} alt={alt} width={1280} height={720} decoding="async" className="w-full h-full object-contain rounded-xl" />
+        </picture>
+      )}
+    </div>
+  )
+}
 
 // ── Data ──────────────────────────────────────────────────────
 
@@ -208,15 +228,15 @@ export default function ProductIntelligence() {
                   />
                   {gi === 0 ? (
                     <div className="absolute inset-0 z-10 flex items-center justify-center p-4 lg:p-6">
-                      <img src="/videos/card/demo.gif" alt="Product demo" className="w-full h-full object-contain rounded-xl" />
+                      <LazyDemo name="demo" alt="Product demo" />
                     </div>
                   ) : gi === 1 ? (
                     <div className="absolute inset-0 z-10 flex items-center justify-center p-4 lg:p-6">
-                      <img src="/videos/card/demo2.gif" alt="Product demo" className="w-full h-full object-contain rounded-xl" />
+                      <LazyDemo name="demo2" alt="Product demo" />
                     </div>
                   ) : (
                     <div className="absolute inset-0 z-10 flex items-center justify-center p-4 lg:p-6">
-                      <img src="/videos/card/delivery.gif" alt="Delivery tracking demo" className="w-full h-full object-contain rounded-xl" />
+                      <LazyDemo name="delivery" alt="Delivery tracking demo" />
                     </div>
                   )}
                   <div className="absolute top-4 left-4 z-20">

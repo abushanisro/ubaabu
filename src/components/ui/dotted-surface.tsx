@@ -1,6 +1,7 @@
 'use client';
 import { cn } from '@/lib/utils';
 import React, { useEffect, useRef } from 'react';
+import { visibleRafLoop } from '@/lib/visibleRafLoop';
 
 
 
@@ -50,13 +51,13 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
     };
 
     let count = 0;
-    let rafId: number;
 
     const draw = () => {
-      rafId = requestAnimationFrame(draw);
       ctx.clearRect(0, 0, w, h);
       ctx.globalAlpha = 0.55;
       ctx.fillStyle   = '#2dd4bf';
+      // One path + one fill for all dots (instead of 2,400 separate fills per frame)
+      ctx.beginPath();
 
       for (let ix = 0; ix < AMOUNTX; ix++) {
         for (let iy = 0; iy < AMOUNTY; iy++) {
@@ -66,11 +67,11 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
                      Math.sin((iy + count) * 0.5) * 4;
           const p = project(px, py, pz);
           if (!p || p.x < -5 || p.x > w + 5 || p.y < -5 || p.y > h + 5) continue;
-          ctx.beginPath();
+          ctx.moveTo(p.x + p.r, p.y);
           ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fill();
         }
       }
+      ctx.fill();
       count += 0.015;
     };
 
@@ -83,10 +84,10 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
     window.addEventListener('resize', resize);
     const ro = new ResizeObserver(resize);
     ro.observe(container);
-    draw();
+    const stopLoop = visibleRafLoop(container, draw);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      stopLoop();
       window.removeEventListener('resize', resize);
       ro.disconnect();
       if (container.contains(canvas)) container.removeChild(canvas);

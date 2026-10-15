@@ -1,43 +1,48 @@
 "use client";
 import { useEffect } from "react";
 
+// Hides the Chatling widget while the hero (first viewport) or the footer is on
+// screen. Uses IntersectionObservers instead of a scroll listener so nothing
+// runs (or forces layout) on every scroll frame.
 export default function ChatlingController() {
   useEffect(() => {
     const getWidget = () =>
       document.getElementById("chtl-chat-icon-container") as HTMLElement | null;
 
-    function update() {
+    let heroVisible = window.scrollY < window.innerHeight * 0.9;
+    let footerVisible = false;
+
+    const apply = () => {
       const widget = getWidget();
-      if (!widget) return;
+      if (widget) widget.style.display = heroVisible || footerVisible ? "none" : "";
+    };
 
-      // Hide when hero (first viewport) is visible
-      const heroVisible = window.scrollY < window.innerHeight * 0.9;
+    // Sentinel spanning the first 90% of the viewport height at the top of the page
+    const sentinel = document.createElement("div");
+    sentinel.setAttribute("aria-hidden", "true");
+    sentinel.style.cssText = "position:absolute;top:0;left:0;width:1px;height:90vh;pointer-events:none;visibility:hidden";
+    document.body.appendChild(sentinel);
 
-      // Hide when footer is visible
-      const footer = document.querySelector("footer");
-      const footerVisible = footer
-        ? footer.getBoundingClientRect().top < window.innerHeight
-        : false;
+    const heroIO = new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; apply(); });
+    heroIO.observe(sentinel);
 
-      widget.style.display = heroVisible || footerVisible ? "none" : "";
-    }
+    const footerIO = new IntersectionObserver(([e]) => { footerVisible = e.isIntersecting; apply(); });
+    const footer = document.querySelector("footer");
+    if (footer) footerIO.observe(footer);
 
-    // Poll until the widget appears (async third-party script)
-    const interval = setInterval(() => {
-      if (getWidget()) {
-        update();
-        clearInterval(interval);
-      }
-    }, 200);
-    const timeout = setTimeout(() => clearInterval(interval), 8000);
-
-    window.addEventListener("scroll", update, { passive: true });
-    update();
+    // The widget is injected asynchronously by a third-party script: apply the
+    // current state as soon as it appears.
+    const mo = new MutationObserver(() => {
+      if (getWidget()) { apply(); mo.disconnect(); }
+    });
+    if (getWidget()) apply();
+    else mo.observe(document.body, { childList: true });
 
     return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-      window.removeEventListener("scroll", update);
+      heroIO.disconnect();
+      footerIO.disconnect();
+      mo.disconnect();
+      sentinel.remove();
       const widget = getWidget();
       if (widget) widget.style.display = "";
     };

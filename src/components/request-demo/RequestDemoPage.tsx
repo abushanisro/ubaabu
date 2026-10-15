@@ -173,7 +173,7 @@ export default function RequestDemoPage() {
       <header className="relative z-20 w-full bg-white/90 backdrop-blur border-b border-black/[0.06]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-8 h-13 flex items-center justify-between" style={{ height: 52 }}>
           <a href="/" className="flex items-center gap-2">
-            <img src="/assets/infographics/logo/logo-white.png" alt="Emithran" className="h-7 w-auto" />
+            <img src="/assets/infographics/logo/logo-white.webp" width={256} height={256} alt="Emithran" className="h-7 w-auto" />
             <span className="font-display text-[15px] font-semibold tracking-tight text-[#080808]">EMITHRAN</span>
           </a>
           <a href="/" className="group inline-flex items-center gap-0 text-[13px] text-[#0d9e8a] hover:opacity-75 transition-opacity">
@@ -375,7 +375,7 @@ export default function RequestDemoPage() {
           <nav className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-0">
             <div className="flex flex-col gap-2">
               <a href="/" className="flex items-center gap-2 w-fit">
-                <img src="/assets/infographics/logo/logo-white.png" alt="Emithran" className="h-5 w-auto" />
+                <img src="/assets/infographics/logo/logo-white.webp" width={256} height={256} alt="Emithran" className="h-5 w-auto" />
                 <span className="text-[#0f1b2d] text-sm font-bold tracking-widest">EMITHRAN</span>
               </a>
               <a href="/" className="group flex items-center gap-1 text-[13px] text-black/40 hover:text-[#0d9e8a] transition-colors w-fit">

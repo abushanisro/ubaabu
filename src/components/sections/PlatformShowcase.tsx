@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { FloatingPaths } from "@/components/ui/background-paths";
 import { X } from "lucide-react";
@@ -394,14 +395,17 @@ function AnalyticsCard() {
 
 function BentoSystemCard() {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [cardIdx, setCardIdx] = useState(0);
   const [expanded, setExpanded] = useState(false);
 
+  // Spotlight position is written straight to CSS variables - no React
+  // re-render (of the whole card and its animated paths) on every mouse move.
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    const el = cardRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - rect.left}px`);
+    el.style.setProperty("--my", `${e.clientY - rect.top}px`);
   };
 
   useEffect(() => {
@@ -438,7 +442,7 @@ function BentoSystemCard() {
         <div className="absolute -top-10 right-10 w-48 h-48 rounded-full blur-3xl"
           style={{ background: "oklch(0.78 0.10 175 / 0.20)" }} />
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-          style={{ background: `radial-gradient(280px circle at ${mouse.x}px ${mouse.y}px, rgba(255,255,255,0.12), transparent 70%)` }} />
+          style={{ background: `radial-gradient(280px circle at var(--mx, 0px) var(--my, 0px), rgba(255,255,255,0.12), transparent 70%)` }} />
       </div>
 
       {/* Expand button - sits ABOVE the card at top-right, outside overflow clip */}
@@ -498,7 +502,9 @@ function BentoSystemCard() {
     </div>
 
     {/* ── Expanded detail modal - same pattern as all other cards ── */}
-    {expanded && (
+    {/* Portaled to <body>: the section uses content-visibility (layout containment),
+        which would otherwise make it the containing block for this fixed overlay */}
+    {expanded && createPortal(
       <div
         className="fixed inset-0 z-50 flex items-end justify-center md:items-stretch md:justify-center md:px-6"
         style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, oklch(0.85 0.1 185 / 0.45) 100%)", backdropFilter: "blur(16px)" }}
@@ -651,7 +657,8 @@ function BentoSystemCard() {
 
           </div>
         </div>
-      </div>
+      </div>,
+      document.body
     )}
     </>
   );
@@ -682,7 +689,7 @@ export default function PlatformShowcase() {
       className="platform-showcase"
       style={{
         backgroundColor: '#ffffff',
-        backgroundImage: 'url(/assets/cards/demo.svg)',
+        backgroundImage: 'url(/assets/cards/demo.webp)',
         backgroundSize: '100% auto',
         backgroundPosition: 'bottom center',
         backgroundRepeat: 'no-repeat',
@@ -718,7 +725,7 @@ export default function PlatformShowcase() {
       </div>
 
       {/* ── Expand dialog ── */}
-      {active && (
+      {active && createPortal(
         <div
           className="fixed inset-0 z-50 flex items-end justify-center md:items-stretch md:justify-center md:px-6"
           style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, oklch(0.85 0.1 185 / 0.45) 100%)", backdropFilter: "blur(16px)" }}
@@ -848,7 +855,8 @@ export default function PlatformShowcase() {
 
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

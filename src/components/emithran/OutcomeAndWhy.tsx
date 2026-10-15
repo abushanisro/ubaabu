@@ -247,6 +247,19 @@ export default function OutcomeAndWhy() {
     return () => { emblaApi.off('select', onSelect) }
   }, [emblaApi])
 
+  // Keep the active mobile tab in view by scrolling the tab strip only -
+  // scrollIntoView would also scroll the page to the strip on every autoplay tick
+  const tabStripRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const strip = tabStripRef.current
+    const tab = strip?.children[activeIdx] as HTMLElement | undefined
+    if (!strip || !tab || strip.clientWidth === 0) return
+    const left = tab.getBoundingClientRect().left - strip.getBoundingClientRect().left + strip.scrollLeft
+    const right = left + tab.offsetWidth
+    if (left < strip.scrollLeft) strip.scrollTo({ left, behavior: 'smooth' })
+    else if (right > strip.scrollLeft + strip.clientWidth) strip.scrollTo({ left: right - strip.clientWidth, behavior: 'smooth' })
+  }, [activeIdx])
+
   const canPrev = activeIdx > 0
   const canNext = activeIdx < OUTCOMES.length - 1
 
@@ -296,11 +309,10 @@ export default function OutcomeAndWhy() {
               className="flex items-center justify-between sm:justify-start gap-4 sm:gap-6 w-full md:w-auto"
             >
               {/* Category tabs - mobile only */}
-              <div className="flex items-center gap-0.5 sm:gap-1 overflow-x-auto no-scrollbar md:hidden">
+              <div ref={tabStripRef} className="flex items-center gap-0.5 sm:gap-1 overflow-x-auto no-scrollbar md:hidden">
                 {OUTCOMES.map((item, i) => (
                   <button
                     key={item.category}
-                    ref={(el) => { if (el && activeIdx === i) el.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' }) }}
                     onClick={() => scrollTo(i)}
                     className="relative flex flex-col items-start px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-200 shrink-0"
                     style={{

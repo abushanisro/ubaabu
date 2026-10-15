@@ -96,6 +96,7 @@ const SUPPLY_CHAIN: InternalLink = {
 
 /** Blog slug -> related commercial pages. Unlisted slugs fall back to BLOG_DEFAULT. */
 const BLOG_LINKS: Record<string, InternalLink[]> = {
+  'should-cost-analysis-guide': [SHOULD_COST, COST_ENG, CASE_STUDIES],
   'apriori-vs-emithran-comparison': [SHOULD_COST, BOM, CASE_STUDIES],
   'costimator-alternatives': [SHOULD_COST, SUPPLIER, CASE_STUDIES],
   'best-should-cost-software-aerospace-manufacturers': [AEROSPACE, AERO_MFG, SHOULD_COST],

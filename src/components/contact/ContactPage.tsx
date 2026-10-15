@@ -448,7 +448,7 @@ function ContactHeader({ step }: { step: number }) {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 h-14 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2">
-          <img src="/assets/infographics/logo/logo-white.png" alt="Emithran" className="h-8 w-auto" />
+          <img src="/assets/infographics/logo/logo-white.webp" width={256} height={256} alt="Emithran" className="h-8 w-auto" />
           <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">EMITHRAN</span>
         </a>
 
@@ -492,7 +492,7 @@ function ContactFooter() {
           {/* Left: logo + visit link */}
           <div className="flex flex-col gap-2">
             <a href="/" className="flex items-center gap-2 w-fit">
-              <img src="/assets/infographics/logo/logo-white.png" alt="Emithran" className="h-5 w-auto" />
+              <img src="/assets/infographics/logo/logo-white.webp" width={256} height={256} alt="Emithran" className="h-5 w-auto" />
               <span className="text-[#0f1b2d] text-sm font-bold tracking-widest">EMITHRAN</span>
             </a>
             <a

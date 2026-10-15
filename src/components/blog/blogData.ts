@@ -114,6 +114,18 @@ const COVER_IMAGES: Record<string, { image: string; imageAlt: string }> = {
 
 const POSTS_RAW: BlogPost[] = [
   {
+    slug: 'should-cost-analysis-guide',
+    title: 'Should-Cost Analysis: The Complete Guide for Manufacturers',
+    excerpt:
+      'Learn how should-cost analysis works, what data you need, and how to use it to negotiate supplier prices with confidence. Includes a worked example.',
+    category: 'Engineering',
+    author: AUTHORS.cto,
+    date: 'October 15, 2026',
+    readTime: '14 min read',
+    image: '/images/blog/should-cost-analysis-guide.jpg',
+    imageAlt: 'Should-cost analysis of a manufactured part with cost breakdown and supplier quote review',
+  },
+  {
     slug: 'what-is-should-cost-analysis',
     title: 'What Is Should Cost Analysis? Complete Guide for Manufacturers',
     excerpt:

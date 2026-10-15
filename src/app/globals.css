@@ -114,9 +114,14 @@ body {
 @layer base {
   * { border-color: var(--color-border); }
   html {
-    /* No CSS scroll-behavior: smooth - Lenis (SmoothScroll provider) handles it,
-       and the two fight each other, causing laggy scroll. */
+    /* Native scrolling runs on the compositor thread, so it stays smooth even
+       while the main thread is busy. (A JS scroll smoother like Lenis ties every
+       scroll frame to the main thread and made the page feel laggy.) */
     overflow-x: clip;
+    scroll-padding-top: 80px; /* in-page #anchor targets clear the fixed navbar */
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
   }
   body {
     background-color: var(--background);
@@ -279,8 +284,10 @@ body::before {
 .card-3d {
   transform-style: preserve-3d;
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s;
-  will-change: transform;
 }
+/* Promote to a GPU layer only while interacting - a permanent will-change kept
+   every card (and its 3D subtree) as its own layer, inflating per-frame layerize cost. */
+.card-3d:hover { will-change: transform; }
 .card-shadow {
   box-shadow: 0 1px 2px oklch(0.5 0.05 200 / 0.04), 0 8px 30px oklch(0.5 0.08 200 / 0.06);
 }
@@ -302,6 +309,15 @@ body::before {
 @keyframes dialogSlideUp { from { opacity: 0; transform: translateY(32px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.em-robot-float { animation: drift 6s ease-in-out infinite; will-change: transform; }
+/* FloatingPaths (components/ui/background-paths.tsx). Only stroke-dashoffset is
+   animated: an opacity animation would make Chrome promote each of the 72 SVG
+   paths to its own compositor layer, which costs more than it saves. */
+.floating-path { stroke-dasharray: 1 1; opacity: 0.45; animation: floating-path-flow 20s linear infinite; }
+@keyframes floating-path-flow {
+  0%, 100% { stroke-dashoffset: 0; }
+  50%      { stroke-dashoffset: -1; }
+}
 
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 @keyframes slideIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: translateX(0); } }

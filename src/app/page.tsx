@@ -52,22 +52,30 @@ import VendorManagementApp from '@/components/sections/VendorManagementApp'
 import PlatformPartnership from '@/components/sections/PlatformPartnership'
 import HomeExploreLinks from '@/components/sections/HomeExploreLinks'
 import { ogImages } from '@/lib/seo'
+import DeferredSection from '@/components/layout/DeferredSection'
+import HashAnchorFix from '@/components/layout/HashAnchorFix'
 export default function App() {
   return (
     <>
+      {/* LCP image preload (homepage only; React hoists these into <head>). It's
+          tiny, so it is ready for the very first paint instead of waiting for
+          the frame after hydration. */}
+      <link rel="preload" as="image" href="/assets/cards/projectcardmobile.webp" media="(max-width: 1023px)" fetchPriority="high" />
+      <link rel="preload" as="image" href="/assets/cards/projectcard.webp" media="(min-width: 1024px)" fetchPriority="high" />
+      <HashAnchorFix />
       <Hero />
-      <PlatformShowcase />
-      <StatsSection />
-      <ProductIntelligence />
+      <DeferredSection height={3000}><PlatformShowcase /></DeferredSection>
+      <DeferredSection height={650}><StatsSection /></DeferredSection>
+      <DeferredSection height={2100}><ProductIntelligence /></DeferredSection>
       <div className="bg-white h-16 lg:h-24" />
       <WatchDemo />
-      <CaseStudies />
-      <EnterpriseSection />
-      <VendorManagementApp />
-      <PlatformPartnership />
-      <HomeExploreLinks />
-      <FinalCTA />
-      <FAQ />
+      <DeferredSection height={680}><CaseStudies /></DeferredSection>
+      <DeferredSection height={800}><EnterpriseSection /></DeferredSection>
+      <DeferredSection height={520}><VendorManagementApp /></DeferredSection>
+      <DeferredSection height={900}><PlatformPartnership /></DeferredSection>
+      <DeferredSection height={700}><HomeExploreLinks /></DeferredSection>
+      <DeferredSection height={560}><FinalCTA /></DeferredSection>
+      <DeferredSection height={320}><FAQ /></DeferredSection>
     </>
   )
 }

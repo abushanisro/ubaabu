@@ -226,7 +226,8 @@ function LeadStory({ post }: { post: BlogPost }) {
 
 function ThumbStory({ post, last }: { post: BlogPost; last?: boolean }) {
   return (
-    <article className="flex gap-4 py-6" style={{ borderBottom: last ? 'none' : RULE }}>
+    // Stacks the thumbnail above the copy when the picks column is too narrow for both side by side (lg until ~1360px)
+    <article className="flex gap-4 @max-[280px]:flex-col py-6" style={{ borderBottom: last ? 'none' : RULE }}>
       <Link href={`/blog/${post.slug}`} className="relative shrink-0 w-[112px] h-[112px] sm:w-[136px] sm:h-[136px] overflow-hidden bg-black">
         <Image src={post.image} alt={post.imageAlt ?? post.title} fill sizes="136px" className="object-cover" />
       </Link>
@@ -382,7 +383,7 @@ export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] })
               <div className="lg:col-span-9 lg:pr-8 lg:border-r border-[#e2e2e2]">
                 <SectionTag>Today&apos;s Picks</SectionTag>
                 <div className="grid grid-cols-1 lg:grid-cols-9">
-                  <div className="order-2 lg:order-1 lg:col-span-3 lg:pr-8 lg:border-r border-[#e2e2e2]">
+                  <div className="@container order-2 lg:order-1 lg:col-span-3 lg:pr-8 lg:border-r border-[#e2e2e2]">
                     {picks.map((p, i) => <ThumbStory key={p.slug} post={p} last={i === picks.length - 1} />)}
                   </div>
                   <div className="order-1 lg:order-2 lg:col-span-6 pt-8 pb-6 lg:pl-8">

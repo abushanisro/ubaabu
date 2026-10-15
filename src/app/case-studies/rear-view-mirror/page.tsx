@@ -348,7 +348,7 @@ export default function RearViewMirrorCaseStudy() {
       <div>
         <SectionLabel>Process Coverage</SectionLabel>
         <h2 className="mb-6 text-xl font-bold text-[#0f1b2d]">5 distinct manufacturing technologies in one assembly</h2>
-        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {[
             { process: 'Injection Moulding',    part: 'Mirror Cover',  highlight: 'PP+20% GF, 2-cavity cold runner, H13 tool' },
             { process: 'Hot Forging + CNC',     part: 'Mirror Arm',    highlight: '9 operations, induction heating, thread rolling' },

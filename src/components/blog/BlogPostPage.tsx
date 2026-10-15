@@ -117,6 +117,17 @@ function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
 function TableOfContents({ contentRef }: { contentRef: React.RefObject<HTMLDivElement | null> }) {
   const [items, setItems] = useState<{ id: string; text: string; level: number }[]>([])
   const [activeId, setActiveId] = useState<string>('')
+  const listRef = useRef<HTMLOListElement>(null)
+
+  // When the list scrolls inside the sidebar, keep the active section in view (scrolls the list only, never the page)
+  useEffect(() => {
+    const list = listRef.current
+    const link = activeId ? list?.querySelector<HTMLElement>(`a[href="#${CSS.escape(activeId)}"]`) : null
+    if (!list || !link || list.scrollHeight <= list.clientHeight) return
+    const top = link.offsetTop // relative to the list, which is the positioned offsetParent
+    if (top < list.scrollTop) list.scrollTop = top
+    else if (top + link.offsetHeight > list.scrollTop + list.clientHeight) list.scrollTop = top + link.offsetHeight - list.clientHeight
+  }, [activeId])
 
   // Extract headings, assign IDs, track active via scroll
   useEffect(() => {
@@ -155,9 +166,9 @@ function TableOfContents({ contentRef }: { contentRef: React.RefObject<HTMLDivEl
   if (sections.length === 0) return null
 
   return (
-    <nav aria-label="In this story">
+    <nav aria-label="In this story" className="flex flex-col min-h-0">
       <p className="wired-mono text-[11px] font-semibold pb-3" style={{ borderBottom: '1px solid #000' }}>In this story</p>
-      <ol>
+      <ol ref={listRef} className="relative min-h-0 overflow-y-auto [scrollbar-width:thin]">
         {sections.map((item, i) => {
           const isActive = activeId === item.id
           return (
@@ -321,8 +332,9 @@ function PromoBar() {
   const [open, setOpen] = useState(true)
   if (!open) return null
   return (
-    <div className="fixed bottom-4 inset-x-4 sm:inset-x-12 z-40 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.15)]">
-      <div className="flex items-center justify-center gap-3 px-10 py-3.5 text-center text-[13px] sm:text-[14px] text-black/80">
+    // Right inset keeps the bar clear of the Chatling chat icon (55px, fixed ~20px from the bottom-right corner)
+    <div className="fixed bottom-4 left-4 right-[88px] sm:inset-x-24 z-40 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.15)]">
+      <div className="flex items-center justify-center gap-3 pl-3 pr-9 sm:px-10 py-3.5 text-center text-[13px] sm:text-[14px] text-black/80">
         <p>
           Cost, suppliers, and BOMs in one place. <strong className="text-black">Get Emithran today.</strong>{' '}
           <Link href="/contact?source=blog&cta=promo-bar" className="wired-mono font-semibold text-black underline underline-offset-4 text-[12px]">
@@ -370,9 +382,10 @@ export default function BlogPostPage({ post, content }: { post: BlogPost; conten
           </article>
 
           <aside className="hidden lg:block lg:col-span-4">
-            <div className="sticky top-24 space-y-10">
+            {/* Capped to the viewport (above the fixed promo bar) so the CTA stays reachable; a long contents list scrolls inside it */}
+            <div className="sticky top-24 flex flex-col max-h-[calc(100dvh-11rem)] space-y-10">
               <TableOfContents contentRef={contentRef} />
-              <div className="bg-black text-white p-6">
+              <div className="shrink-0 bg-black text-white p-6">
                 <p className="wired-mono text-[11px] font-semibold text-white/70 mb-3">Talk to our team</p>
                 <p className="wired-display text-[26px] leading-[1.05]">
                   Should-cost, supplier intelligence, or BOM automation for your parts.
