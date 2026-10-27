@@ -31,6 +31,13 @@ const trendingSlugs = POSTS
   .sort((a, b) => parseDisplayDate(b.date).getTime() - parseDisplayDate(a.date).getTime())
   .map(p => p.slug)
 
+// Short teaser for the lead story: the first body paragraph of each article, stripped to plain text.
+const teasers: Record<string, string> = {}
+for (const [slug, post] of Object.entries(BLOG_CONTENT)) {
+  const para = [...post.content.matchAll(/<p(?![^>]*font-size:0\.85rem)[^>]*>([\s\S]*?)<\/p>/g)][0]?.[1]
+  if (para) teasers[slug] = para.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
+}
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 // Structured data for the product demo video embedded in the listing's demo band.
@@ -51,7 +58,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(demoVideoJsonLd) }} />
-      <BlogPage trendingSlugs={trendingSlugs} />
+      <BlogPage trendingSlugs={trendingSlugs} teasers={teasers} />
     </>
   )
 }

@@ -29,6 +29,270 @@ export interface BlogPostContent {
 }
 
 export const BLOG_CONTENT: Record<string, BlogPostContent> = {
+  'sheet-metal-cost-estimation': {
+    heroImage: '/images/blog/sheet-metal-cost-estimation.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Sheet Metal Cost Estimation: Formula & Worked Example',
+      metaDescription:
+        'Estimate sheet metal part cost step by step: material, nesting, laser cutting, bending, finishing and setup. Includes a worked example and formula.',
+      ogTitle: 'Sheet Metal Cost Estimation: How to Price Laser-Cut and Bent Parts',
+      ogDescription:
+        'Estimate sheet metal part cost step by step: material, nesting, laser cutting, bending, finishing and setup. Includes a worked example and formula.',
+      tags: [
+        'sheet metal cost estimation',
+        'sheet metal fabrication cost',
+        'sheet metal part cost calculation',
+        'laser cutting cost per part',
+        'sheet metal bending cost',
+        'sheet metal costing',
+      ],
+    },
+    howTo: {
+      name: 'How to estimate the cost of a sheet metal part',
+      steps: [
+        { name: 'Find the flat blank', text: 'Unfold the bent part to get its flat length and width. Use the bounding rectangle unless you have a nesting tool.' },
+        { name: 'Estimate nesting utilisation', text: 'Simple rectangular parts often nest at 80 to 90 percent; irregular shapes can fall to 60 to 70 percent. Divide the blank area by the utilisation to get the sheet consumed.' },
+        { name: 'Cost the material', text: 'Convert the sheet consumed to weight using thickness and density, then multiply by the price per kg.' },
+        { name: 'Cost the cutting', text: 'Add cut length divided by cutting speed to the number of pierces times pierce time, then multiply by the laser or punch machine rate. Add handling and sorting time.' },
+        { name: 'Cost bending and hardware', text: 'Multiply handling time plus bends times time per bend by the press brake rate, then add purchased hardware and its insertion labour.' },
+        { name: 'Spread setup over the batch', text: 'Add programming, machine setup and first-article inspection, then divide the total by the batch quantity.' },
+        { name: 'Add finishing and roll up', text: 'Add finishing and inspection, then apply overhead and margin to get the part price.' },
+      ],
+    },
+    faqs: [
+      {
+        question: 'How do you calculate the cost of a sheet metal part?',
+        answer:
+          'Add the material consumed (including nesting scrap), laser or punch time × machine rate, bending time × press brake rate, hardware, finishing and inspection. Then add setup cost divided by batch quantity, and apply overhead and margin.',
+      },
+      {
+        question: 'How much does laser cutting cost per part?',
+        answer:
+          'It depends on cut length, material, thickness and machine rate. As a worked example, a 2 mm mild steel bracket with about 800 mm of cut and 5 pierces takes about 0.2 minutes of laser time, which is about $0.30 at $90/hour. Thicker or slower materials cost much more per part.',
+      },
+      {
+        question: 'What drives sheet metal bending cost?',
+        answer:
+          'The number of bends, part size and weight, tolerance requirements and any special forming tools. Setup for the press brake is a separate fixed cost.',
+      },
+      {
+        question: 'Why is sheet metal so much cheaper per part in larger batches?',
+        answer:
+          'Fixed costs (programming, machine setup, first-article inspection, and finishing minimum charges) are spread over more parts. In the example above, setup alone falls from $0.85 to $0.09 per part.',
+      },
+      {
+        question: 'How accurate is a bottom-up sheet metal estimate?',
+        answer:
+          'With realistic machine rates and nesting, many estimates land within 10 to 15 percent of actual supplier quotes. Accuracy depends on the quality of your rates, so validate them against real quotes.',
+      },
+      {
+        question: 'What is a good nesting utilisation rate?',
+        answer:
+          'Simple rectangular parts commonly reach 80 to 90 percent. Irregular shapes or grain-direction constraints often fall to 60 to 75 percent.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 11 minutes</p>
+
+<p>Sheet metal cost estimation means building a part's price from the bottom up: material, cutting, bending, hardware, finishing, setup and inspection. If you can price each of those, you can price any bracket, enclosure or panel, and you can tell whether a supplier's quote is fair.</p>
+
+<p>This guide walks through every cost component, gives you the formula, and ends with a worked example of the same bracket at 100 and 1,000 pieces. If you're new to the broader method, start with our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">complete guide to should-cost analysis</a>.</p>
+
+<h2>Cost Components of a Sheet Metal Part</h2>
+
+<p>Every sheet metal part cost comes from the same six building blocks:</p>
+
+<ul>
+  <li><strong>Material:</strong> the sheet consumed, including the scrap between parts</li>
+  <li><strong>Cutting:</strong> laser, punch or waterjet time multiplied by the machine rate</li>
+  <li><strong>Bending and forming:</strong> press brake time per bend, plus any forming</li>
+  <li><strong>Hardware:</strong> inserts, nuts, studs and the labour to fit them</li>
+  <li><strong>Finishing:</strong> powder coat, plating, anodising or paint</li>
+  <li><strong>Setup and inspection:</strong> one-off costs spread across the batch</li>
+</ul>
+
+<p>Then you add overhead and margin. The full formula:</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Part price = [Material + Cutting + Bending + Hardware + Finishing + Inspection + (Setup ÷ Quantity)] × (1 + overhead %) × (1 + margin %)</p>
+</div>
+
+<p>Everything is per part, except setup, which is a fixed cost divided by quantity. That one division explains most of the price difference between a prototype and a production run. For how overhead fits into the total, see <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;font-weight:600;">how to calculate total manufacturing cost</a>.</p>
+
+<h2>Material: Blank Size, Nesting and Scrap</h2>
+
+<p>You pay for the whole sheet, not just the part. So the material cost depends on the flat blank size and how efficiently parts nest on the sheet.</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Material cost = (blank area ÷ nesting utilisation) × thickness × density × price per kg</p>
+</div>
+
+<ol>
+  <li><strong>Find the flat blank.</strong> Unfold the bent part to get its flat length and width. Use the bounding rectangle unless you have a nesting tool.</li>
+  <li><strong>Estimate nesting utilisation.</strong> Simple rectangular parts often nest at 80 to 90 percent. Irregular shapes and parts needing grain direction or edge margins can fall to 60 to 70 percent.</li>
+  <li><strong>Convert to weight.</strong> Steel is about 7.85 g/cm³, stainless steel about 8.0 and aluminium about 2.7.</li>
+  <li><strong>Multiply by the price per kg,</strong> and subtract a scrap credit if your supplier gives one.</li>
+</ol>
+
+<p>Material is rarely the largest cost on a thin-gauge part, but it's the one most people get wrong, because they cost the part weight instead of the sheet consumed.</p>
+
+<h2>Cutting: Laser/Punch Time × Machine Rate</h2>
+
+<p>Cutting cost is time on the machine multiplied by its hourly rate.</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0 0 0.4rem;font-weight:600;color:#0d1117;">Cutting time = (cut length ÷ cutting speed) + (number of pierces × pierce time)</p>
+  <p style="margin:0;font-weight:600;color:#0d1117;">Laser cutting cost per part = cutting time × machine rate</p>
+</div>
+
+<p>Cut length is the outer perimeter plus every hole, slot and internal cut-out. Cutting speed depends on material, thickness and laser power. Thin mild steel cuts quickly, while thick stainless or aluminium is much slower. Pierces matter more than they look: a part with 40 small holes pays for 40 pierces.</p>
+
+<p>The machine rate is where most estimates drift. A realistic hourly rate includes depreciation, power, assist gas, maintenance, floor space and the operator, and it has to be adjusted for utilisation. We cover this in how to calculate machine hour rate.</p>
+
+<p>Punching works the same way (strokes × stroke time × press rate) and wins on parts with many repeating holes or forms. Laser wins on complex contours and low volumes because it needs no tooling.</p>
+
+<p>Don't forget the handling: unloading, sorting and deburring parts after cutting takes time too, usually a fraction of a minute per part.</p>
+
+<h2>Bending, Forming and Hardware</h2>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Sheet metal bending cost = (handling time + bends × time per bend) × press brake rate</p>
+</div>
+
+<p>A small part with two bends typically takes well under a minute on a press brake, but cost climbs with:</p>
+
+<ul>
+  <li><strong>Bend count:</strong> every extra bend is another handling step</li>
+  <li><strong>Part size and weight:</strong> large or heavy parts may need two operators</li>
+  <li><strong>Tight tolerances:</strong> angle tolerances below about ±1° need extra checking</li>
+  <li><strong>Special forming:</strong> hems, offsets, louvres and embosses may need dedicated tooling</li>
+</ul>
+
+<p>Hardware adds both a purchased cost and an insertion cost. A self-clinching nut might cost a few cents, but installing it takes a press and an operator, so cost both.</p>
+
+<h2>Setup, Tooling and Batch-Size Effects</h2>
+
+<p>Setup is the fixed cost that makes small orders expensive. It includes:</p>
+
+<ul>
+  <li>Programming and nesting the laser job</li>
+  <li>Loading material and tuning cut parameters</li>
+  <li>Setting up the press brake with the right tooling and a first-off bend</li>
+  <li>First-article inspection</li>
+</ul>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Setup cost per part = total setup cost ÷ batch quantity</p>
+</div>
+
+<p>At quantity 10, an $85 setup adds $8.50 to every part. At 1,000, it adds under ten cents. If the part needs custom tooling (a progressive die or special bending tool), amortise that cost over the expected lifetime volume, not just the first order.</p>
+
+<p>This is why quoting one unit price for "any quantity" is a red flag. A good estimate always shows the batch-size curve.</p>
+
+<h2>Finishing and Inspection</h2>
+
+<p>Finishing is often the second or third largest cost line on a bent part, and it's the one with the highest minimum charges. Powder coating, zinc plating and anodising are usually priced per part or per square metre, with a minimum lot charge. That means finishing cost per part falls steeply as quantity rises.</p>
+
+<p>Inspection has two parts: a one-off first-article inspection (included in setup above) and in-process checks. Cost a small per-part allowance for sampling, and more for aerospace or medical parts with full dimensional reports.</p>
+
+<h2>Worked Example: Bracket, Qty 100 vs 1,000</h2>
+
+<p><strong>The part:</strong> a 2 mm mild steel bracket, flat blank 200 × 120 mm, with 4 holes (Ø10 mm) and 2 bends. It has 2 self-clinching nuts and is powder coated.</p>
+
+<p><strong>Assumptions</strong> (illustrative; use your own regional rates):</p>
+
+<ul>
+  <li>Steel: 7.85 g/cm³ at $1.00/kg; nesting utilisation 75%</li>
+  <li>Laser: $90/hour ($1.50/min), cutting speed 5,000 mm/min, 0.5 s per pierce</li>
+  <li>Press brake with operator: $80/hour ($1.33/min)</li>
+  <li>Labour for handling and inserts: $0.60/min</li>
+  <li>Overhead 15% of direct cost; margin 12%</li>
+</ul>
+
+<ul>
+  <li><strong>Material:</strong> Sheet area consumed = 24,000 mm² ÷ 0.75 = 32,000 mm². That's 32,000 × 2 mm × 7.85 g/cm³ ≈ 0.50 kg, so <strong>$0.50</strong>.</li>
+  <li><strong>Cutting:</strong> Cut length is about 766 mm (640 mm perimeter plus about 126 mm of holes), rounded up to 800 mm to allow for slots and corner reliefs. That's 800 ÷ 5,000 = 0.16 min of cutting plus 5 pierces (about 0.04 min) = 0.20 min × $1.50 = <strong>$0.30</strong>. Handling and sorting, 0.2 min × $0.60 = <strong>$0.12</strong>.</li>
+  <li><strong>Bending:</strong> 0.4 min × $1.33 = <strong>$0.53</strong>.</li>
+  <li><strong>Hardware:</strong> 2 nuts at $0.08 plus insertion of 0.1 min × $0.60 = <strong>$0.22</strong>.</li>
+  <li><strong>Inspection:</strong> sampling allowance <strong>$0.10</strong>.</li>
+  <li><strong>Setup:</strong> laser (20 min × $1.50 = $30) + press brake (30 min × $1.33 = $40) + first-article inspection ($15) = <strong>$85 one-off</strong>.</li>
+  <li><strong>Finishing:</strong> powder coat at $0.80/part at qty 100 and $0.45/part at qty 1,000 (minimum lot charges spread over more parts).</li>
+</ul>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost line (per part)</th>
+        <th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Qty 100</th>
+        <th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Qty 1,000</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.50</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Laser cutting</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.30</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.30</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Handling and sorting</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.12</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.12</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Bending</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.53</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.53</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Hardware</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.22</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.22</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.10</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Finishing</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.80</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.45</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup ($85 ÷ qty)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.85</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.09</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;text-align:right;">$3.42</td><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;text-align:right;">$2.31</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead (15%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.51</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.35</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;text-align:right;">$3.93</td><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;text-align:right;">$2.66</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Price with 12% margin</td><td style="padding:0.65rem 0.9rem;color:#0d9488;font-weight:700;text-align:right;">$4.40</td><td style="padding:0.65rem 0.9rem;color:#0d9488;font-weight:700;text-align:right;">$2.98</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Same part, same process, and the price falls by about 32 percent per part at ten times the volume. Almost all of that comes from setup and finishing, not from cutting or bending. This is the main insight to carry into any supplier discussion: when a quote doesn't show that same drop, ask why. You can check it against the <a href="/blog/cost-breakdown-analysis" style="color:#0d9488;font-weight:600;">manufacturing cost drivers</a> that matter most for your part.</p>
+
+<h2>Where Estimates Go Wrong</h2>
+
+<ul>
+  <li><strong>Costing part weight instead of sheet consumed.</strong> This understates material by 25 to 40 percent on poor nests.</li>
+  <li><strong>Using a generic machine rate.</strong> A rate that ignores utilisation can be off by a third either way.</li>
+  <li><strong>Ignoring pierces and small features.</strong> A part with many tiny holes can cut slower than its perimeter suggests.</li>
+  <li><strong>Forgetting minimum charges.</strong> Finishing, plating and outside processes often have lot minimums that dominate small orders.</li>
+  <li><strong>Treating setup as per-part cost.</strong> It's fixed. Always show the quantity curve.</li>
+  <li><strong>Skipping tolerances.</strong> Tight angle or flatness requirements add inspection and rework time.</li>
+</ul>
+
+<p>An estimate you can reproduce line by line is one you can defend in a negotiation. For a software-assisted version of this method, see our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>How do you calculate the cost of a sheet metal part?</h3>
+<p>Add the material consumed (including nesting scrap), laser or punch time × machine rate, bending time × press brake rate, hardware, finishing and inspection. Then add setup cost divided by batch quantity, and apply overhead and margin.</p>
+
+<h3>How much does laser cutting cost per part?</h3>
+<p>It depends on cut length, material, thickness and machine rate. As a worked example, a 2 mm mild steel bracket with about 800 mm of cut and 5 pierces takes about 0.2 minutes of laser time, which is about $0.30 at $90/hour. Thicker or slower materials cost much more per part.</p>
+
+<h3>What drives sheet metal bending cost?</h3>
+<p>The number of bends, part size and weight, tolerance requirements and any special forming tools. Setup for the press brake is a separate fixed cost.</p>
+
+<h3>Why is sheet metal so much cheaper per part in larger batches?</h3>
+<p>Fixed costs (programming, machine setup, first-article inspection, and finishing minimum charges) are spread over more parts. In the example above, setup alone falls from $0.85 to $0.09 per part.</p>
+
+<h3>How accurate is a bottom-up sheet metal estimate?</h3>
+<p>With realistic machine rates and nesting, many estimates land within 10 to 15 percent of actual supplier quotes. Accuracy depends on the quality of your rates, so validate them against real quotes.</p>
+
+<h3>What is a good nesting utilisation rate?</h3>
+<p>Simple rectangular parts commonly reach 80 to 90 percent. Irregular shapes or grain-direction constraints often fall to 60 to 75 percent.</p>
+
+<h2>Run These Numbers on Your Own Parts</h2>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the sheet metal costing template</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Includes the formulas and the bracket example above.</p>
+  <a href="/downloads/sheet-metal-costing-template.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the template (CSV)</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cost-breakdown-analysis" style="color:#0d9488;">Cost breakdown analysis</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a></p>
+    `,
+  },
   'should-cost-analysis-guide': {
     heroImage: '/images/blog/should-cost-analysis-guide.jpg',
     authorBio:

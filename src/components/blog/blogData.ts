@@ -114,6 +114,19 @@ const COVER_IMAGES: Record<string, { image: string; imageAlt: string }> = {
 
 const POSTS_RAW: BlogPost[] = [
   {
+    slug: 'sheet-metal-cost-estimation',
+    title: 'Sheet Metal Cost Estimation: How to Price Laser-Cut and Bent Parts',
+    excerpt:
+      'Estimate sheet metal part cost step by step: material, nesting, laser cutting, bending, finishing and setup. Includes a worked example and formula.',
+    category: 'Engineering',
+    author: AUTHORS.cto,
+    date: 'October 28, 2026',
+    readTime: '11 min read',
+    image: '/images/blog/sheet-metal-cost-estimation.jpg',
+    imageAlt: 'Sheet metal fabrication of laser-cut and bent parts',
+    featured: true,
+  },
+  {
     slug: 'should-cost-analysis-guide',
     title: 'Should-Cost Analysis: The Complete Guide for Manufacturers',
     excerpt:
@@ -292,7 +305,6 @@ const POSTS_RAW: BlogPost[] = [
     date: 'June 9, 2026',
     readTime: '14 min read',
     image: engineeringImage,
-    featured: true,
   },
   {
     slug: 'should-cost-analysis-supplier-negotiation',

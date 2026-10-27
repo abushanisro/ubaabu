@@ -1,0 +1,43 @@
+Sheet metal costing template (bracket example from the Emithran guide),,,
+Edit the inputs in column B; all cost lines recalculate. Rates are illustrative - use your own regional rates.,,,
+,,,
+INPUTS,Value,Unit,Note
+Quantity,100,pcs,
+Flat blank area,24000,mm2,200 x 120 mm
+Nesting utilisation,0.75,ratio,0.60-0.90 typical
+Thickness,2,mm,
+Density,7.85,g/cm3,Steel 7.85 / stainless 8.0 / aluminium 2.7
+Material price,1.00,per kg,
+Cut length,800,mm,Perimeter + holes + slots
+Cutting speed,5000,mm/min,
+Pierces,5,count,
+Pierce time,0.5,sec,
+Laser rate,1.50,per min,= 90 per hour
+Handling and sorting time,0.2,min,
+Labour rate,0.60,per min,
+Bends,2,count,
+Bending time (handling + bends),0.4,min,
+Press brake rate,1.33,per min,= 80 per hour
+Hardware cost (all pieces),0.16,per part,2 nuts x 0.08
+Hardware insertion time,0.1,min,
+Inspection allowance,0.10,per part,
+Finishing cost,0.80,per part,Minimum lot charges spread over quantity
+Setup - laser,30,one-off,20 min x laser rate
+Setup - press brake,40,one-off,30 min x press brake rate
+Setup - first-article inspection,15,one-off,
+Overhead,0.15,ratio,
+Margin,0.12,ratio,
+,,,
+COST LINE (per part),Value,,
+Material,=B6/B7*B8/1000*B9/1000*B10,,Blank area / utilisation x thickness x density x price per kg
+Laser cutting,=(B11/B12+B13*B14/60)*B15,,
+Handling and sorting,=B16*B17,,
+Bending,=B19*B20,,
+Hardware,=B21+B22*B17,,
+Inspection,=B23,,
+Finishing,=B24,,
+Setup (fixed / quantity),=(B25+B26+B27)/B5,,
+Direct cost,=SUM(B32:B39),,
+Overhead,=B40*B28,,
+Total cost,=B40+B41,,
+Price with margin,=B42*(1+B29),,

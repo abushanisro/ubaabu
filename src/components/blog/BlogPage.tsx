@@ -195,7 +195,7 @@ function SectionTag({ children }: { children: React.ReactNode }) {
 
 /* ------------------------------- Lead story ------------------------------- */
 
-function LeadStory({ post }: { post: BlogPost }) {
+function LeadStory({ post, teaser }: { post: BlogPost; teaser?: string }) {
   return (
     <article className="text-center">
       <Kicker className="mb-4">{post.category}</Kicker>
@@ -208,7 +208,7 @@ function LeadStory({ post }: { post: BlogPost }) {
         {post.excerpt}
       </p>
       <Byline post={post} className="mt-5" />
-      <Link href={`/blog/${post.slug}`} className="relative block mt-7 w-full aspect-[16/10] overflow-hidden bg-black">
+      <Link href={`/blog/${post.slug}`} className="relative block mt-7 w-full aspect-[16/10] lg:aspect-[3/2] overflow-hidden bg-black">
         <Image
           src={post.image}
           alt={post.imageAlt ?? post.title}
@@ -218,6 +218,19 @@ function LeadStory({ post }: { post: BlogPost }) {
           className="object-cover transition-transform duration-500 hover:scale-[1.02]"
         />
       </Link>
+      {teaser && (
+        <>
+          <p className="wired-serif mt-6 mx-auto max-w-[620px] text-[15px] sm:text-[16px] leading-[1.65] text-[#444] line-clamp-3">
+            {teaser}
+          </p>
+          <Link
+            href={`/blog/${post.slug}`}
+            className="wired-mono mt-6 inline-flex items-center gap-2 self-center bg-black text-white text-[12px] font-semibold px-6 py-3 transition-colors hover:bg-[#333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+          >
+            Read more <span aria-hidden>»</span>
+          </Link>
+        </>
+      )}
     </article>
   )
 }
@@ -316,7 +329,7 @@ function GridStory({ post }: { post: BlogPost }) {
 
 /* ---------------------------------- Page ---------------------------------- */
 
-export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] }) {
+export default function BlogPage({ trendingSlugs, teasers = {} }: { trendingSlugs: string[]; teasers?: Record<string, string> }) {
   const [active, setActive] = useState<BlogCategory>('All')
 
   const posts = POSTS.filter(p => active === 'All' || p.category === active)
@@ -325,15 +338,15 @@ export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] })
   // Trending is site-wide (hand-written SEO articles, newest first) and ignores the category filter.
   const trending = trendingSlugs
     .filter(slug => slug !== lead?.slug)
-    .slice(0, 6)
+    .slice(0, 8)
     .map(slug => POSTS.find(p => p.slug === slug))
     .filter((p): p is BlogPost => Boolean(p))
 
   const pool = posts.filter(p => p !== lead && !trending.includes(p))
-  const picks = pool.slice(0, 4)
-  const feature = pool[4]
-  const row = pool.slice(5, 9)
-  const latest = pool.slice(9)
+  const picks = pool.slice(0, 3)
+  const feature = pool[3]
+  const row = pool.slice(4, 8)
+  const latest = pool.slice(8)
 
   return (
     <main className={`${blogFontVars} min-h-screen bg-white text-black pt-16`}>
@@ -387,7 +400,7 @@ export default function BlogPage({ trendingSlugs }: { trendingSlugs: string[] })
                     {picks.map((p, i) => <ThumbStory key={p.slug} post={p} last={i === picks.length - 1} />)}
                   </div>
                   <div className="order-1 lg:order-2 lg:col-span-6 pt-8 pb-6 lg:pl-8">
-                    <LeadStory post={lead} />
+                    <LeadStory post={lead} teaser={teasers[lead.slug]} />
                   </div>
                 </div>
               </div>
