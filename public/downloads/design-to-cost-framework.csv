@@ -1,0 +1,48 @@
+"Design-to-cost framework (six steps, allocation worksheet and bracket example from the Emithran guide)"
+Edit the inputs in the shaded sections; formulas recalculate. All figures are illustrative - use your own.
+
+1. THE SIX STEPS,What to do,Owner,Due
+Set the product cost target,Work back from the selling price: target cost = selling price − required profit.,,
+Allocate the target,"Break the product target down to subsystems, then parts, by function, by share of the previous product’s cost, or a mix of both.",,
+Baseline the current design,"Estimate what the present or concept design costs, using analogous data or a bottom-up cost model, to get the gap to target.",,
+Find the cost drivers,"Identify which features, materials, tolerances and processes drive the gap, and where a small design change moves cost most.",,
+Redesign and trade off,"Generate options such as fewer parts, simpler geometry, standard materials, relaxed tolerances or a different process, and re-estimate each against performance, quality and safety requirements.",,
+Track and control,"Report cost against target at every design review, and treat an overrun like a missed weight or performance requirement, with an action, an owner and a date.",,
+
+2. ALLOCATION WORKSHEET,Value,Note
+Product cost target,100,Selling price - required profit
+Unallocated reserve (ratio),0.04,Typically 0.03-0.05
+Allocatable target,=B13*(1-B14)
+
+Part / subsystem,Share weight,Allocated target,Current estimate,Gap (estimate - allocation)
+Bracket,30,=$B$15*B18/SUM($B$18:$B$21),33,=D18-C18
+Housing,40,=$B$15*B19/SUM($B$18:$B$21),38,=D19-C19
+Fasteners,10,=$B$15*B20/SUM($B$18:$B$21),9,=D20-C20
+Finish,20,=$B$15*B21/SUM($B$18:$B$21),22,=D21-C21
+Total,=SUM(B18:B21),=SUM(C18:C21),=SUM(D18:D21),=SUM(E18:E21)
+
+3. BRACKET EXAMPLE,Baseline,Redesign,Saving
+Density (g/cm3),2.7,2.7
+Material price (per kg),5,5
+Blank length (mm),120,120
+Blank width (mm),80,80
+Blank thickness (mm),40,25
+Machining time (min),25,14
+Machining rate (per min),1.0,1.0
+Setup per batch,120,80
+Batch quantity,100,100
+Anodising per part,4,4
+Inspection per part,2,1
+Overhead (ratio of direct cost),0.12,0.12
+
+Material,=B27*B28*B29/1000*B25/1000*B26,=C27*C28*C29/1000*C25/1000*C26,=B38-C38
+Machining,=B30*B31,=C30*C31,=B39-C39
+Setup per part,=B32/B33,=C32/C33,=B40-C40
+Anodising,=B34,=C34,=B41-C41
+Inspection,=B35,=C35,=B42-C42
+Direct cost,=SUM(B38:B42),=SUM(C38:C42),=B43-C43
+Overhead,=B43*B36,=C43*C36,=B44-C44
+Total cost,=B43+B44,=C43+C44,=B45-C45
+Target for this part,30,30
+Gap to target (negative = under target),=B45-B46,=C45-C46
+Reduction vs baseline,,=(B45-C45)/B45

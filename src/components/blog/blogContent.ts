@@ -29,6 +29,2437 @@ export interface BlogPostContent {
 }
 
 export const BLOG_CONTENT: Record<string, BlogPostContent> = {
+  'parametric-vs-analogous-cost-estimating': {
+    heroImage: '/images/blog/parametric-vs-analogous-cost-estimating.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Parametric vs Analogous Cost Estimating: When to Use',
+      metaDescription:
+        'Parametric vs analogous cost estimating compared: how each works, accuracy, data needed, and which to use at concept, design and quote stages.',
+      ogTitle: 'Parametric vs Analogous Cost Estimating: When to Use Each',
+      ogDescription:
+        'Parametric vs analogous cost estimating compared: how each works, accuracy, data needed, and which to use at concept, design and quote stages.',
+      tags: [
+        'parametric vs analogous estimating',
+        'analogous estimating',
+        'parametric estimating',
+        'parametric cost estimation example',
+        'analogous vs parametric',
+        'estimating by analogy',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is the difference between parametric and analogous estimating?',
+        answer:
+          'Analogous estimating adjusts the known cost of a similar past part for the differences. Parametric estimating uses a formula, fitted to many past parts, that calculates cost from design parameters such as weight or feature count.',
+      },
+      {
+        question: 'Which is more accurate, parametric or analogous estimating?',
+        answer:
+          'Parametric is usually more accurate and more consistent, because it’s based on data and gives the same answer for the same inputs. Analogous is quicker but depends on the quality of the reference part and the estimator’s judgement.',
+      },
+      {
+        question: 'When should I use analogous estimating?',
+        answer:
+          'Use it early, when little is defined, when you have few data points, or when you need a fast sanity check on another estimate. Document the reference part and the adjustments so the number can be reviewed.',
+      },
+      {
+        question: 'What data do I need for parametric estimating?',
+        answer:
+          'A set of past parts of the same type with their final costs and the parameters that drive cost, such as weight, size, feature count and material. A common guide is at least 15 to 30 clean data points per part family, but the number depends on how many parameters you use.',
+      },
+      {
+        question: 'Can parametric and analogous estimating be used together?',
+        answer:
+          'Yes, and it’s good practice. Use parametric for fast, consistent estimates and analogous as an independent check. A large gap between the two is a signal to investigate.',
+      },
+      {
+        question: 'Are parametric and analogous estimating accurate enough for supplier negotiation?',
+        answer:
+          'Usually not. They give a total without a line-by-line breakdown, so you can’t show a supplier which cost is too high. For negotiation, build a bottom-up should-cost, and use these methods to check it.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 10 minutes</p>
+
+<p>Analogous estimating predicts cost by comparing a new part with a similar one you already know the cost of. Parametric estimating predicts cost from a formula that links cost to design variables like weight or feature count, built from many past parts. Analogous is faster and rougher. Parametric is a bit more work and more accurate, and it needs data.</p>
+
+<p>This guide explains how each works with the same worked example, compares accuracy and data needs, and shows which to use at concept, design and quote stages. For the full set of methods, see our guide to <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation</a>.</p>
+
+<h2>Definitions</h2>
+
+<p><strong>Analogous estimating</strong> (also called estimating by analogy) starts from a known reference: a past part, product or project with a known cost. You adjust that cost for the differences between the reference and the new item, such as size, complexity and volume. It’s a judgement-based, top-down method.</p>
+
+<p><strong>Parametric estimating</strong> uses a statistical relationship between cost and one or more measurable parameters. The relationship is called a cost estimating relationship (CER). You fit it to historical data, then put in the parameters of the new part to get a cost. It’s data-driven and repeatable.</p>
+
+<p><em>A note on terms:</em> project managers use “analogous” and “parametric” estimating too, mostly for project cost and duration. The ideas are the same, but this article is about estimating the cost of manufactured parts.</p>
+
+<p>Both are top-down methods. They estimate from the whole, not from the operations. The alternative is bottom-up estimating, which builds up cost operation by operation and is covered later as a benchmark.</p>
+
+<h2>How Each Works with an Example</h2>
+
+<p>We’ll estimate the same part with both methods: a machined aluminium bracket, batch of 200, that is a bit bigger and more complex than one we’ve made before. All numbers are illustrative.</p>
+
+<h3>Analogous: step by step</h3>
+
+<ol>
+  <li><strong>Pick a reference.</strong> A similar bracket made last year cost $42.00 at a batch of 500. It was 0.8 kg finished weight with 4 pockets.</li>
+  <li><strong>List the differences</strong> between the reference and the new part:
+    <ul>
+      <li>Larger envelope and weight (1.0 kg): +15%</li>
+      <li>More features, 6 pockets instead of 4: +10%</li>
+      <li>Smaller batch, 200 instead of 500, so setup is spread over fewer parts: +10%</li>
+    </ul>
+  </li>
+  <li><strong>Apply the adjustments.</strong></li>
+</ol>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">$42.00 × 1.15 × 1.10 × 1.10 = $58.44</p>
+</div>
+
+<p>The whole estimate took five minutes and needs one past part. But notice where the accuracy comes from: the three adjustment factors are judgement calls. Change the complexity factor from 10 to 20 percent and the answer moves to $63.76.</p>
+
+<h3>Parametric: step by step</h3>
+
+<ol>
+  <li><strong>Collect data</strong> on past parts of the same type. Here, 24 machined aluminium brackets, with their weight, number of pockets and final cost.</li>
+  <li><strong>Choose the parameters</strong> that explain cost. Weight and pocket count work for this family.</li>
+  <li><strong>Fit the relationship</strong> (a simple regression). The result:</li>
+</ol>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Cost = $8.00 + ($36.00 × weight in kg) + ($2.50 × number of pockets)</p>
+</div>
+
+<ol start="4">
+  <li><strong>Check the fit</strong> against the data. Look at how well the formula reproduces the known parts, and the range of weights and pockets in the dataset (here 0.3 to 1.5 kg and 2 to 8 pockets).</li>
+  <li><strong>Apply it</strong> to the new part (1.0 kg, 6 pockets): $8.00 + $36.00 + $15.00 = <strong>$59.00</strong></li>
+</ol>
+
+<p>Once the formula exists, every new estimate takes seconds and any engineer gets the same answer. That’s the real advantage. The effort is front-loaded into the data and the model. If you want to build one, see cost estimating relationships (CERs), which we’ll cover in a dedicated guide.</p>
+
+<h3>A benchmark: bottom-up for the same part</h3>
+
+<p>To see how close the shortcuts are, here is the bottom-up estimate for the same bracket. The method is covered in our <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;font-weight:600;">should-cost modeling methodology guide</a>.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost line (per part, batch of 200)</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$9.50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machining (31 min at $1.00/min)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$31.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup ($120 ÷ 200)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.60</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Finishing</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$4.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$46.60</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead (12%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.59</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$52.19</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Margin (10%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.22</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Price</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$57.41</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Method</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Estimate</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Difference from bottom-up</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Analogous</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$58.44</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+1.8%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Parametric</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$59.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+2.8%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Bottom-up (benchmark)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$57.41</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">none</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Both shortcuts landed within 3 percent here. Don’t read that as typical. The example is built so the reference part and the dataset fit the new part well. In practice, a poor reference or an out-of-range input can push either method off by 20 percent or more.</p>
+
+<h2>Accuracy and Data Needs</h2>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;"></th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Analogous</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Parametric</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Data needed</td><td style="padding:0.65rem 0.9rem;color:#374151;">One or a few similar past parts</td><td style="padding:0.65rem 0.9rem;color:#374151;">A cleaned historical dataset (often 15 to 30 or more data points per part family)</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Setup effort</td><td style="padding:0.65rem 0.9rem;color:#374151;">Almost none</td><td style="padding:0.65rem 0.9rem;color:#374151;">Significant: collect, normalise, fit and validate</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Time per estimate</td><td style="padding:0.65rem 0.9rem;color:#374151;">Minutes</td><td style="padding:0.65rem 0.9rem;color:#374151;">Seconds once built</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Typical accuracy*</td><td style="padding:0.65rem 0.9rem;color:#374151;">Wide (about ±20–40%)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Moderate (about ±10–25%)</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Main source of error</td><td style="padding:0.65rem 0.9rem;color:#374151;">Reference part not truly similar; subjective adjustment factors</td><td style="padding:0.65rem 0.9rem;color:#374151;">Model used outside the range of its data; missing cost drivers</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Bias risk</td><td style="padding:0.65rem 0.9rem;color:#374151;">High: people choose the reference they expect</td><td style="padding:0.65rem 0.9rem;color:#374151;">Lower: same inputs give the same answer</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Explains the “why”?</td><td style="padding:0.65rem 0.9rem;color:#374151;">Partly, through the adjustments</td><td style="padding:0.65rem 0.9rem;color:#374151;">Partly, through the coefficients</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="font-size:0.85rem;color:#6b7280;">*Rule-of-thumb ranges, not guarantees. They depend on data quality and part type.</p>
+
+<p>Two warnings that apply to both:</p>
+
+<ul>
+  <li><strong>Neither shows where the cost comes from.</strong> You can’t hand a supplier a parametric number and argue about the machining line. For negotiation you need a bottom-up should-cost, as in our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</li>
+  <li><strong>Both inherit the history.</strong> If past parts were bought from an expensive supplier or with an inefficient process, the new estimate carries that inefficiency forward.</li>
+</ul>
+
+<h2>Comparison Table</h2>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Question</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Analogous</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Parametric</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">How does it work?</td><td style="padding:0.65rem 0.9rem;color:#374151;">Adjust a known similar cost for differences</td><td style="padding:0.65rem 0.9rem;color:#374151;">Calculate cost from a formula fitted to past data</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">What do I need?</td><td style="padding:0.65rem 0.9rem;color:#374151;">A comparable past part</td><td style="padding:0.65rem 0.9rem;color:#374151;">A dataset of past parts with costs and parameters</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">How fast?</td><td style="padding:0.65rem 0.9rem;color:#374151;">Minutes</td><td style="padding:0.65rem 0.9rem;color:#374151;">Seconds, after setup</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">How consistent?</td><td style="padding:0.65rem 0.9rem;color:#374151;">Varies by estimator</td><td style="padding:0.65rem 0.9rem;color:#374151;">Same inputs give the same output</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Best when</td><td style="padding:0.65rem 0.9rem;color:#374151;">Data is thin, a quick answer is needed</td><td style="padding:0.65rem 0.9rem;color:#374151;">Product family has plenty of history</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Weakest when</td><td style="padding:0.65rem 0.9rem;color:#374151;">No truly similar part exists</td><td style="padding:0.65rem 0.9rem;color:#374151;">New technology, or inputs outside the data range</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Typical use</td><td style="padding:0.65rem 0.9rem;color:#374151;">Early concept, rough budget, sanity check</td><td style="padding:0.65rem 0.9rem;color:#374151;">Design-stage trade-offs, product families, programme budgets</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Typical accuracy</td><td style="padding:0.65rem 0.9rem;color:#374151;">±20–40%</td><td style="padding:0.65rem 0.9rem;color:#374151;">±10–25%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Which to Use at Each Stage</h2>
+
+<p><strong>Concept stage (little is defined).</strong> Use analogous, or a simple parametric formula if you already have one. The design is going to change, so a fast answer with a wide range is right. State the range with the number.</p>
+
+<p><strong>Design stage (geometry is taking shape).</strong> Use parametric if you have a good dataset, because it lets you compare design options consistently (for example, “what does one extra pocket cost?”). If you don’t have the data, use analogous with a documented reference, and start collecting data.</p>
+
+<p><strong>Quote and negotiation stage (design is fixed, a price is on the table).</strong> Neither is enough. Use bottom-up / should-cost so you can challenge the quote line by line. Use analogous or parametric only as a sanity check on the supplier’s total.</p>
+
+<p><strong>Portfolio screening (hundreds of parts).</strong> Use parametric, or an AI-based variant of it, to flag the parts that deserve a detailed bottom-up look.</p>
+
+<p>A quick decision rule:</p>
+
+<ul>
+  <li><strong>No data, need a number now:</strong> analogous.</li>
+  <li><strong>Plenty of history, need consistent numbers:</strong> parametric.</li>
+  <li><strong>Need to defend or negotiate the number:</strong> bottom-up.</li>
+</ul>
+
+<h2>Combining Methods</h2>
+
+<p>The strongest practice is to use more than one and compare:</p>
+
+<ul>
+  <li><strong>Parametric</strong> as the primary tool for fast, repeatable estimates across a product family.</li>
+  <li><strong>Analogous</strong> as an independent check. If the two disagree by more than 20 to 25 percent, find out why before trusting either.</li>
+  <li><strong>Bottom-up</strong> on the biggest spend or biggest disagreements, where the detail pays for itself.</li>
+  <li><strong>Feed results back.</strong> Every new quote or actual cost becomes a data point that improves the parametric model, so the model gets better each year.</li>
+</ul>
+
+<p>This also protects you against each method’s blind spot: analogous bias, and parametric extrapolation. For a wider view of how all five common methods fit together, read <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. To see how estimates like these are automated at scale, explore our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is the difference between parametric and analogous estimating?</h3>
+<p>Analogous estimating adjusts the known cost of a similar past part for the differences. Parametric estimating uses a formula, fitted to many past parts, that calculates cost from design parameters such as weight or feature count.</p>
+
+<h3>Which is more accurate, parametric or analogous estimating?</h3>
+<p>Parametric is usually more accurate and more consistent, because it’s based on data and gives the same answer for the same inputs. Analogous is quicker but depends on the quality of the reference part and the estimator’s judgement.</p>
+
+<h3>When should I use analogous estimating?</h3>
+<p>Use it early, when little is defined, when you have few data points, or when you need a fast sanity check on another estimate. Document the reference part and the adjustments so the number can be reviewed.</p>
+
+<h3>What data do I need for parametric estimating?</h3>
+<p>A set of past parts of the same type with their final costs and the parameters that drive cost, such as weight, size, feature count and material. A common guide is at least 15 to 30 clean data points per part family, but the number depends on how many parameters you use.</p>
+
+<h3>Can parametric and analogous estimating be used together?</h3>
+<p>Yes, and it’s good practice. Use parametric for fast, consistent estimates and analogous as an independent check. A large gap between the two is a signal to investigate.</p>
+
+<h3>Are parametric and analogous estimating accurate enough for supplier negotiation?</h3>
+<p>Usually not. They give a total without a line-by-line breakdown, so you can’t show a supplier which cost is too high. For negotiation, build a bottom-up should-cost, and use these methods to check it.</p>
+
+<h2>See the Full Picture</h2>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Read: Estimation methods guide</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Manufacturing cost estimation: a guide to every method.</p>
+  <a href="/blog/manufacturing-cost-estimation-methods" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Read the guide</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;">Manufacturing cost estimation methods</a> · <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;">Should-cost modeling methodology</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a></p>
+    `,
+  },
+  'total-manufacturing-cost-formula': {
+    heroImage: '/images/blog/total-manufacturing-cost-formula.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Total Manufacturing Cost: Formula & Calculation',
+      metaDescription:
+        'Calculate total manufacturing cost with the right formula: direct materials, direct labour and overhead. Includes a worked example and common mistakes.',
+      ogTitle: 'Total Manufacturing Cost: How to Calculate It Correctly',
+      ogDescription:
+        'Calculate total manufacturing cost with the right formula: direct materials, direct labour and overhead. Includes a worked example and common mistakes.',
+      tags: [
+        'total manufacturing cost',
+        'total manufacturing cost formula',
+        'how to calculate total manufacturing cost',
+        'manufacturing cost formula',
+        'cost of goods manufactured',
+        'unit manufacturing cost',
+      ],
+    },
+    howTo: {
+      name: 'How to calculate total manufacturing cost',
+      steps: [
+        { name: 'Calculate direct materials used', text: 'Beginning raw materials inventory + purchases (including freight-in) − ending raw materials inventory.' },
+        { name: 'Calculate direct labour', text: 'Direct labour hours × fully loaded hourly rate.' },
+        { name: 'Add up manufacturing overhead', text: 'Indirect materials, indirect labour, rent, utilities, machine depreciation, maintenance and similar factory costs.' },
+        { name: 'Calculate total manufacturing cost', text: 'Direct materials used + direct labour + manufacturing overhead.' },
+        { name: 'Calculate cost of goods manufactured and unit cost', text: 'Add beginning work-in-progress, subtract ending work-in-progress, then divide by units completed.' },
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is total manufacturing cost?',
+        answer:
+          'It is the sum of the direct materials used, direct labour and manufacturing overhead incurred to produce goods in a period. It excludes selling and administrative costs.',
+      },
+      {
+        question: 'What is the formula for total manufacturing cost?',
+        answer:
+          'Total manufacturing cost = direct materials used + direct labour + manufacturing overhead.',
+      },
+      {
+        question: 'How do you calculate total manufacturing cost?',
+        answer:
+          'Work out direct materials used (beginning inventory + purchases − ending inventory), add direct labour (hours × loaded rate), and add manufacturing overhead (indirect materials, indirect labour, rent, utilities, depreciation, maintenance and similar costs).',
+      },
+      {
+        question: 'What is the difference between total manufacturing cost and cost of goods manufactured?',
+        answer:
+          'Total manufacturing cost is the cost put into production in a period. Cost of goods manufactured adjusts it for work-in-progress: add beginning WIP and subtract ending WIP. It represents the cost of goods actually completed.',
+      },
+      {
+        question: 'How do you calculate unit manufacturing cost?',
+        answer:
+          'Divide cost of goods manufactured by the number of units completed. In the example above, $208,000 ÷ 10,400 units = $20.00 per unit.',
+      },
+      {
+        question: 'Does total manufacturing cost include shipping and marketing?',
+        answer:
+          'Freight-in on raw materials is included, because it is part of acquiring materials. Shipping to customers and marketing are selling costs and are excluded.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 9 minutes</p>
+
+<p>Total manufacturing cost is everything it costs to run production in a period: the direct materials used, the direct labour spent and the manufacturing overhead. Add those three and you have the figure. Divide by units to get the unit cost.</p>
+
+<p>The formula is simple. Most errors come from what goes into each of the three inputs. This guide gives the formula, explains each input, walks through a full worked example (including cost of goods manufactured) and lists the mistakes that distort the answer.</p>
+
+<h2>Total Manufacturing Cost Defined</h2>
+
+<p>Total manufacturing cost (TMC) is the sum of all costs incurred in the factory to produce goods in a given period, such as a month or a year. It includes only manufacturing costs. Selling, marketing and head-office administration (SG&amp;A) are excluded.</p>
+
+<p>It’s used to:</p>
+
+<ul>
+  <li>Price products and check margins</li>
+  <li>Value inventory and report cost of goods sold</li>
+  <li>Compare plants, lines or periods</li>
+  <li>Build the baseline for a should-cost model</li>
+</ul>
+
+<p>Our guide to <a href="/blog/direct-vs-indirect-manufacturing-costs" style="color:#0d9488;font-weight:600;">direct vs indirect manufacturing costs</a> explains how each cost is classified. This post focuses on the calculation. The classification here follows common cost-accounting practice; terminology varies slightly between US GAAP, IFRS and local standards.</p>
+
+<h2>Formula</h2>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Total manufacturing cost = Direct materials used + Direct labour + Manufacturing overhead</p>
+</div>
+
+<p>Two related measures appear in the same calculation:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Measure</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Formula</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Prime cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct materials + Direct labour</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Conversion cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct labour + Manufacturing overhead</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Total manufacturing cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct materials + Direct labour + Manufacturing overhead</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Cost of goods manufactured (COGM)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Total manufacturing cost + Beginning WIP − Ending WIP</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Unit manufacturing cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">COGM ÷ Units completed</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>TMC measures the cost put into production during the period. COGM adjusts it for work-in-progress (WIP), so it measures the cost of the goods finished in the period. Both are covered in the worked example.</p>
+
+<h2>Direct Materials</h2>
+
+<p>Direct materials are the raw materials and purchased components that become part of the product and can be traced to it. The figure you need is materials <em>used</em>, not materials <em>bought</em>.</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Direct materials used = Beginning raw materials inventory + Purchases − Ending raw materials inventory</p>
+</div>
+
+<p>Include freight-in and import duties on the materials, because they are part of getting the material to the factory. Leave out indirect materials such as coolant, cleaning supplies and small consumables, which belong in overhead.</p>
+
+<h2>Direct Labour</h2>
+
+<p>Direct labour is the cost of the people who work directly on the product, for the time they spend on it.</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Direct labour = Direct labour hours × Fully loaded hourly rate</p>
+</div>
+
+<p>The loaded rate includes wages plus employer-paid benefits and payroll taxes. Supervisors, maintenance staff and inspectors are indirect labour, so they go into overhead.</p>
+
+<p>Where machines do most of the work, labour hours may be a small part of the cost, and machine time becomes the better basis for costing. See <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;font-weight:600;">how to calculate machine hour rate</a>.</p>
+
+<h2>Manufacturing Overhead</h2>
+
+<p>Manufacturing overhead covers every factory cost that isn’t direct material or direct labour:</p>
+
+<ul>
+  <li><strong>Indirect materials:</strong> coolant, lubricants, cleaning supplies, small tools</li>
+  <li><strong>Indirect labour:</strong> supervisors, maintenance, quality, material handlers</li>
+  <li><strong>Facility and equipment:</strong> rent or building depreciation, machine depreciation, insurance, utilities, factory software</li>
+</ul>
+
+<p>Overhead can’t be traced to one product, so it’s allocated, usually with a rate based on direct labour hours or machine hours:</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0 0 0.4rem;font-weight:600;color:#0d1117;">Overhead rate = Total overhead ÷ Allocation base (for example, direct labour hours)</p><p style="margin:0;font-weight:600;color:#0d1117;">Applied overhead = Overhead rate × Base used by the product</p>
+</div>
+
+<h2>Worked Example</h2>
+
+<p>A small factory, one month (illustrative figures):</p>
+
+<p><strong>Direct materials</strong></p>
+<ul>
+  <li>Beginning raw materials inventory: $20,000</li>
+  <li>Purchases (including freight-in): $85,000</li>
+  <li>Ending raw materials inventory: $15,000</li>
+</ul>
+
+<p><strong>Direct labour</strong></p>
+<ul>
+  <li>3,000 direct labour hours at $24 per hour (fully loaded)</li>
+</ul>
+
+<p><strong>Manufacturing overhead</strong></p>
+<ul>
+  <li>Indirect materials: $6,000</li>
+  <li>Indirect labour: $18,000</li>
+  <li>Factory rent: $9,000</li>
+  <li>Utilities: $4,500</li>
+  <li>Machine depreciation: $10,000</li>
+  <li>Maintenance: $3,500</li>
+</ul>
+
+<p><strong>Work-in-progress and output</strong></p>
+<ul>
+  <li>Beginning WIP: $12,000</li>
+  <li>Ending WIP: $17,000</li>
+  <li>Units completed: 10,400</li>
+</ul>
+
+<ol>
+  <li><strong>Direct materials used:</strong> $20,000 + $85,000 − $15,000 = <strong>$90,000</strong></li>
+  <li><strong>Direct labour:</strong> 3,000 × $24 = <strong>$72,000</strong></li>
+  <li><strong>Manufacturing overhead:</strong> $6,000 + $18,000 + $9,000 + $4,500 + $10,000 + $3,500 = <strong>$51,000</strong></li>
+  <li><strong>Total manufacturing cost:</strong> $90,000 + $72,000 + $51,000 = <strong>$213,000</strong></li>
+  <li><strong>Cost of goods manufactured:</strong> $213,000 + $12,000 (beginning WIP) − $17,000 (ending WIP) = <strong>$208,000</strong></li>
+</ol>
+
+<p><strong>Summary:</strong></p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Item</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Direct materials used</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$90,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Direct labour</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$72,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Manufacturing overhead</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$51,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total manufacturing cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$213,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Plus beginning WIP</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$12,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Less ending WIP</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">($17,000)</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Cost of goods manufactured</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$208,000</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Other figures from the same data:</p>
+
+<ul>
+  <li><strong>Prime cost:</strong> $90,000 + $72,000 = $162,000</li>
+  <li><strong>Conversion cost:</strong> $72,000 + $51,000 = $123,000</li>
+  <li><strong>Overhead rate:</strong> $51,000 ÷ 3,000 hours = $17.00 per direct labour hour, which equals 70.8 percent of direct labour cost</li>
+</ul>
+
+<p style="font-size:0.9rem;color:#4b5563;">The example treats WIP simply, as one dollar figure. If you use process costing, the WIP adjustment is done in equivalent units instead.</p>
+
+<h2>Per-Unit Cost</h2>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Unit manufacturing cost = COGM ÷ Units completed</p>
+</div>
+
+<p>$208,000 ÷ 10,400 = <strong>$20.00 per unit</strong></p>
+
+<p>Use COGM and not TMC here. Dividing TMC ($213,000) by units gives $20.48, which overstates the cost of finished units because it includes costs still sitting in WIP.</p>
+
+<h3>The same method at part level</h3>
+
+<p>Costing a single order works the same way. A batch of 200 machined brackets uses 50 direct labour hours, with $1,600 of material and the $17.00 overhead rate from above:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Item</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Calculation</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Direct materials</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;"></td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1,600</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Direct labour</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">50 h × $24</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1,200</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead applied</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">50 h × $17</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$850</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost of batch</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$3,650</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Unit cost</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$3,650 ÷ 200</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$18.25</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>This is the bridge between factory-level accounting and part costing. When you estimate a part before it exists, you build the same lines from process times and rates, which is the approach covered in our guide to <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;font-weight:600;">bottom-up should-cost estimating</a>. Which inputs have the largest effect on that number is covered in <a href="/blog/manufacturing-cost-drivers" style="color:#0d9488;font-weight:600;">manufacturing cost drivers</a>.</p>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the cost breakdown template</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Includes the formula, the worked example and the part-level calculation.</p>
+  <a href="/downloads/cost-breakdown-template.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the template (CSV)</a>
+</div>
+
+<h2>Mistakes to Avoid</h2>
+
+<ul>
+  <li><strong>Using purchases instead of materials used.</strong> Buying stock isn’t the same as consuming it. Adjust for inventory movement.</li>
+  <li><strong>Counting a cost twice.</strong> If machine depreciation is already in your machine hour rate, don’t also add it to the overhead pool.</li>
+  <li><strong>Including SG&amp;A.</strong> Sales salaries and head-office costs are not manufacturing costs. Including them overstates product cost.</li>
+  <li><strong>Misclassifying indirect labour as direct.</strong> Supervisors and maintenance staff belong in overhead.</li>
+  <li><strong>Ignoring WIP.</strong> If you skip the WIP adjustment, the unit cost reflects the wrong goods.</li>
+  <li><strong>Dividing by units started</strong> instead of units completed (or the wrong equivalent units where WIP is large).</li>
+  <li><strong>Using budgeted overhead rates without checking them.</strong> If actual overhead or hours differ a lot, your unit cost drifts. Review rates and variances regularly.</li>
+  <li><strong>Forgetting freight-in, duties and scrap.</strong> These belong in the material cost.</li>
+  <li><strong>Ignoring idle capacity.</strong> Low volume spreads fixed overhead over fewer units, so unit cost rises. Know which part of the rise is genuine cost and which is underused capacity.</li>
+</ul>
+
+<p>For how overhead behaves when volumes change, see <a href="/blog/direct-vs-indirect-manufacturing-costs" style="color:#0d9488;font-weight:600;">direct vs indirect manufacturing costs</a>. To apply these calculations to supplier quotes, explore our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is total manufacturing cost?</h3>
+<p>It is the sum of the direct materials used, direct labour and manufacturing overhead incurred to produce goods in a period. It excludes selling and administrative costs.</p>
+
+<h3>What is the formula for total manufacturing cost?</h3>
+<p>Total manufacturing cost = direct materials used + direct labour + manufacturing overhead.</p>
+
+<h3>How do you calculate total manufacturing cost?</h3>
+<p>Work out direct materials used (beginning inventory + purchases − ending inventory), add direct labour (hours × loaded rate), and add manufacturing overhead (indirect materials, indirect labour, rent, utilities, depreciation, maintenance and similar costs).</p>
+
+<h3>What is the difference between total manufacturing cost and cost of goods manufactured?</h3>
+<p>Total manufacturing cost is the cost put into production in a period. Cost of goods manufactured adjusts it for work-in-progress: add beginning WIP and subtract ending WIP. It represents the cost of goods actually completed.</p>
+
+<h3>How do you calculate unit manufacturing cost?</h3>
+<p>Divide cost of goods manufactured by the number of units completed. In the example above, $208,000 ÷ 10,400 units = $20.00 per unit.</p>
+
+<h3>Does total manufacturing cost include shipping and marketing?</h3>
+<p>Freight-in on raw materials is included, because it is part of acquiring materials. Shipping to customers and marketing are selling costs and are excluded.</p>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/direct-vs-indirect-manufacturing-costs" style="color:#0d9488;">Direct vs indirect manufacturing costs</a> · <a href="/blog/manufacturing-cost-drivers" style="color:#0d9488;">Manufacturing cost drivers</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a> · <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;">Should-cost modeling methodology</a></p>
+    `,
+  },
+  'manufacturing-cost-drivers': {
+    heroImage: '/images/blog/manufacturing-cost-drivers.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Manufacturing Cost Drivers: What Decides Part Cost',
+      metaDescription:
+        'The main manufacturing cost drivers (material, geometry, tolerances, process, volume, overhead) and how to see which ones move your part cost most.',
+      ogTitle: 'Manufacturing Cost Drivers: The Variables That Decide Part Cost',
+      ogDescription:
+        'The main manufacturing cost drivers (material, geometry, tolerances, process, volume, overhead) and how to see which ones move your part cost most.',
+      tags: [
+        'manufacturing cost drivers',
+        'cost drivers in manufacturing',
+        'cost driver analysis',
+        'part cost drivers',
+        'what drives manufacturing cost',
+        'tolerance cost impact',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What are the main manufacturing cost drivers?',
+        answer:
+          'The main ones are material and scrap, part geometry and features, tolerances and surface finish, the choice of process and machine, volume and batch size, and overhead and machine utilisation.',
+      },
+      {
+        question: 'What is cost driver analysis?',
+        answer:
+          'It’s the practice of changing each cost driver one at a time and measuring the effect on part cost, so you can rank the drivers and focus on the few that matter most.',
+      },
+      {
+        question: 'What drives manufacturing cost the most?',
+        answer:
+          'It depends on the part. For machined parts, machining time is often the largest driver. For simple parts in expensive alloys, material dominates. For low-volume parts, setup and fixed costs matter most.',
+      },
+      {
+        question: 'How do tolerances affect manufacturing cost?',
+        answer:
+          'Tighter tolerances increase machining time, scrap and rework, and inspection effort, and may require a more precise machine. The cost rises steeply as limits tighten, which is why tight tolerances should be used only where function requires them.',
+      },
+      {
+        question: 'How does volume affect cost per part?',
+        answer:
+          'Fixed costs such as setup, programming, tooling and minimum-lot charges are spread over the batch, so cost per part falls as quantity rises. In the example above, the bracket price changes from $66.53 at 10 pieces to $55.44 at 100 and $54.33 at 1,000, from setup alone.',
+      },
+      {
+        question: 'Which cost drivers can a design engineer control?',
+        answer:
+          'Mainly geometry and features, material selection, tolerances and surface finish, and part count. These are fixed at the design stage and usually have the largest effect on cost, which is why design-to-cost and DFM focus on them.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 10 minutes</p>
+
+<p>Manufacturing cost drivers are the design and production choices that determine what a part costs. Material, geometry, tolerances, process, volume and overhead are the main ones. A handful of them usually decide most of the price, so the skill is knowing which ones matter for your part.</p>
+
+<p>This guide explains each driver, shows how to compare their effect with a sensitivity example, and gives you a simple way to run a cost driver analysis. It builds on <a href="/blog/total-manufacturing-cost-formula" style="color:#0d9488;font-weight:600;">how to calculate total manufacturing cost</a>, which shows how the pieces add up.</p>
+
+<h2>What Is a Cost Driver</h2>
+
+<p>A cost driver is any variable that, when it changes, changes the cost of the part. Some are design choices (material grade, wall thickness, tolerance). Others are production choices (process, batch size, machine). Others are business conditions (machine utilisation, energy prices).</p>
+
+<p>Two ideas are worth keeping straight:</p>
+
+<ul>
+  <li><strong>Size of the cost line vs sensitivity.</strong> A big cost line isn’t always the best lever. What counts is how much the cost moves when you change the driver by a realistic amount.</li>
+  <li><strong>Who controls it.</strong> Design engineers control geometry and tolerances. Buyers control volume and batch timing. Suppliers control process efficiency and overhead. A driver you can’t influence is something to understand, not to attack.</li>
+</ul>
+
+<p>Cost driver analysis is simply ranking these variables by effect, so you spend your time on the few that matter. It is the first step in <a href="/blog/design-to-cost" style="color:#0d9488;font-weight:600;">design-to-cost</a> work.</p>
+
+<h2>Material and Scrap</h2>
+
+<p>Material cost is not the weight of the finished part. It’s the weight of what you buy, multiplied by price, minus any scrap value.</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Material cost = (Stock weight × price per kg) − scrap credit</p>
+</div>
+
+<p>What moves it:</p>
+
+<ul>
+  <li><strong>Material grade and price.</strong> Stainless steel, titanium and some aluminium alloys cost several times more per kg than mild steel.</li>
+  <li><strong>Stock form and size.</strong> A near-net-shape blank wastes less than a solid billet.</li>
+  <li><strong>Buy-to-fly ratio.</strong> This compares the weight you buy with the weight in the finished part. A 1.6 kg billet that becomes a 0.6 kg bracket has a ratio of about 2.7, meaning more than 60 percent is cut away. In sheet metal, nesting yield plays the same role.</li>
+  <li><strong>Scrap and rework.</strong> Every scrapped part is paid for by the good ones.</li>
+</ul>
+
+<p>Material often matters most for expensive alloys, large parts and low-complexity parts, where there’s little machining to drive cost up.</p>
+
+<h2>Geometry and Features</h2>
+
+<p>Geometry sets how much work the process has to do. The drivers are:</p>
+
+<ul>
+  <li><strong>Size and volume of material removed.</strong> More removal means more machining time.</li>
+  <li><strong>Feature count and type.</strong> Deep pockets, thin walls, small radii, undercuts and many different hole sizes all add time, tooling or setups.</li>
+  <li><strong>Number of setups.</strong> Every time a part must be flipped or re-fixtured, you add handling time, fixtures and tolerance stack-up.</li>
+  <li><strong>Complexity of shape.</strong> Features that need multi-axis machining, special cutters or secondary operations cost more.</li>
+</ul>
+
+<p>Geometry is the largest lever in the design stage because it fixes the process and time before anything is quoted. Our <a href="/blog/design-for-manufacturability-guide" style="color:#0d9488;font-weight:600;">DFM guide</a> lists the specific rules that keep geometry cheap to make.</p>
+
+<h2>Tolerances and Surface Finish</h2>
+
+<p>Tolerance is often the most costly hidden driver, because it quietly raises machining time, scrap risk and inspection effort all at once.</p>
+
+<p>As tolerances tighten:</p>
+
+<ul>
+  <li>The process may need slower speeds, extra finishing passes or a different, more precise machine.</li>
+  <li>More parts are rejected or reworked.</li>
+  <li>Inspection time rises, and some features need a coordinate measuring machine instead of simple gauges.</li>
+</ul>
+
+<p><strong>Tolerance cost impact: an example.</strong> For the bracket used in the sensitivity example below, imagine non-critical features get tighter tolerances than they need. Machining time rises by 5 minutes ($5.00) and inspection by $1.50, so direct cost rises by $6.50, or about 14 percent, with no gain in function.</p>
+
+<p>Surface finish works the same way. A fine finish on a hidden face can add grinding, polishing or extra passes. The rule is the same as in DFM: specify tight limits only where the function needs them, and use general tolerances elsewhere.</p>
+
+<h2>Process and Machine Choice</h2>
+
+<p>The same shape can be made in several ways, and each has a different cost structure.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Process</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Typical cost profile</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Where it tends to win</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">CNC machining</td><td style="padding:0.65rem 0.9rem;color:#374151;">Low setup, high cost per part</td><td style="padding:0.65rem 0.9rem;color:#374151;">Low volumes, complex shapes, tight tolerances</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Sheet metal (laser + bend)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Moderate setup, low cost per part</td><td style="padding:0.65rem 0.9rem;color:#374151;">Flat or folded parts, medium volumes</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Casting or forging</td><td style="padding:0.65rem 0.9rem;color:#374151;">High tooling, low cost per part</td><td style="padding:0.65rem 0.9rem;color:#374151;">High volumes, near-net shapes</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Additive manufacturing</td><td style="padding:0.65rem 0.9rem;color:#374151;">No tooling, high cost per part</td><td style="padding:0.65rem 0.9rem;color:#374151;">Very low volumes, complex internal features</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The process decides which cost lines dominate. Machining is driven by cycle time, casting by tooling and yield, sheet metal by nesting and handling. For the sheet metal case in detail, see <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;font-weight:600;">sheet metal cost estimation</a>.</p>
+
+<p>Machine choice matters too, mostly through the machine hour rate. A faster, more expensive machine can cost less per part if it cuts the time by more than the rate rises. See <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;font-weight:600;">how to calculate machine hour rate</a> for how rates are built and why they differ.</p>
+
+<h2>Volume and Batch Size</h2>
+
+<p>Volume affects cost mainly by spreading fixed costs: programming, machine setup, first-article inspection, tooling and minimum-lot charges for outside processes.</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Setup cost per part = Total setup cost ÷ Batch quantity</p>
+</div>
+
+<p>It also changes what’s worth doing. At high volume, a casting die or a dedicated fixture can pay for itself. At low volume, flexible processes win, even though each part costs more.</p>
+
+<p>Related effects:</p>
+
+<ul>
+  <li><strong>Learning and process optimisation</strong> reduce cycle time over a long run.</li>
+  <li><strong>Material purchasing</strong> gets cheaper at larger quantities.</li>
+  <li><strong>Batch timing.</strong> Ordering ten small batches costs more than one batch of the same total, because setup is repeated.</li>
+</ul>
+
+<h2>Overhead and Utilisation</h2>
+
+<p>Overhead is the cost of running the factory around the part, such as supervision, maintenance, rent and depreciation. It’s added as a percentage or built into machine rates. <a href="/blog/direct-vs-indirect-manufacturing-costs" style="color:#0d9488;font-weight:600;">Direct vs indirect manufacturing costs</a> explains how it is classified and allocated.</p>
+
+<p>Utilisation is the hidden multiplier. Most overhead is fixed, so it’s spread over productive hours. When utilisation falls, every hour costs more. Using the bracket’s machine rate of $60/hour at 75 percent utilisation (treating the rate as entirely fixed cost, for simplicity):</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Utilisation</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Machine rate</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Machining cost (30 min)</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">60%</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$75.00/h</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$37.50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">75%</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$60.00/h</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$30.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">90%</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$50.00/h</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$25.00</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>A supplier with a full order book can quote the same operation a lot lower than one with idle machines. That’s a cost driver you can’t see on the drawing, but it often explains the spread between quotes.</p>
+
+<h2>Sensitivity Example</h2>
+
+<p>This is where the drivers come together. Sensitivity analysis changes one driver at a time and measures what happens to the price. The ranking tells you where to focus.</p>
+
+<p><strong>The part</strong> (illustrative): a machined aluminium bracket, batch of 100.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost line (per part)</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material (1.6 kg at $5.00/kg)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$8.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machining (30 min at $1.00/min)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$30.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup ($100 ÷ 100)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Finishing</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$4.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$2.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$45.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead (12%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.40</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$50.40</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Price with 10% margin</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$55.44</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p><strong>Test 1: raise each driver by 10 percent, one at a time.</strong></p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Driver (+10%)</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Price change</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">% change in price</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machining time</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+$3.70</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+6.7%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material cost</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+$0.99</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+1.8%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead rate (12% to 13.2%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+$0.59</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+1.1%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Finishing</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+$0.49</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+0.9%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+$0.25</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+0.4%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+$0.12</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+0.2%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div role="img" aria-label="Bar chart of price sensitivity: machining time +6.7%, material +1.8%, overhead rate +1.1%, finishing +0.9%, inspection +0.4%, setup +0.2%" style="margin:1.25rem 0;padding:1rem 1.25rem;border:1px solid #e5e7eb;border-radius:10px;"><p style="margin:0 0 0.6rem;font-size:0.8rem;font-weight:700;color:#0d1117;">Change in price from a 10% increase in each driver</p><div style="display:flex;align-items:center;gap:0.75rem;margin:0.45rem 0;font-size:0.85rem;"><span style="flex:0 0 38%;color:#374151;">Machining time</span><div style="flex:1;background:#f1f5f9;border-radius:4px;"><div style="width:100.0%;background:#0d9488;height:1.1rem;border-radius:4px;"></div></div><span style="flex:0 0 3.4rem;text-align:right;font-weight:700;color:#0d1117;">+6.7%</span></div><div style="display:flex;align-items:center;gap:0.75rem;margin:0.45rem 0;font-size:0.85rem;"><span style="flex:0 0 38%;color:#374151;">Material cost</span><div style="flex:1;background:#f1f5f9;border-radius:4px;"><div style="width:26.9%;background:#0d9488;height:1.1rem;border-radius:4px;"></div></div><span style="flex:0 0 3.4rem;text-align:right;font-weight:700;color:#0d1117;">+1.8%</span></div><div style="display:flex;align-items:center;gap:0.75rem;margin:0.45rem 0;font-size:0.85rem;"><span style="flex:0 0 38%;color:#374151;">Overhead rate</span><div style="flex:1;background:#f1f5f9;border-radius:4px;"><div style="width:16.4%;background:#0d9488;height:1.1rem;border-radius:4px;"></div></div><span style="flex:0 0 3.4rem;text-align:right;font-weight:700;color:#0d1117;">+1.1%</span></div><div style="display:flex;align-items:center;gap:0.75rem;margin:0.45rem 0;font-size:0.85rem;"><span style="flex:0 0 38%;color:#374151;">Finishing</span><div style="flex:1;background:#f1f5f9;border-radius:4px;"><div style="width:13.4%;background:#0d9488;height:1.1rem;border-radius:4px;"></div></div><span style="flex:0 0 3.4rem;text-align:right;font-weight:700;color:#0d1117;">+0.9%</span></div><div style="display:flex;align-items:center;gap:0.75rem;margin:0.45rem 0;font-size:0.85rem;"><span style="flex:0 0 38%;color:#374151;">Inspection</span><div style="flex:1;background:#f1f5f9;border-radius:4px;"><div style="width:6.0%;background:#0d9488;height:1.1rem;border-radius:4px;"></div></div><span style="flex:0 0 3.4rem;text-align:right;font-weight:700;color:#0d1117;">+0.4%</span></div><div style="display:flex;align-items:center;gap:0.75rem;margin:0.45rem 0;font-size:0.85rem;"><span style="flex:0 0 38%;color:#374151;">Setup</span><div style="flex:1;background:#f1f5f9;border-radius:4px;"><div style="width:3.0%;background:#0d9488;height:1.1rem;border-radius:4px;"></div></div><span style="flex:0 0 3.4rem;text-align:right;font-weight:700;color:#0d1117;">+0.2%</span></div></div>
+
+<p>Machining time moves the price more than the other five put together, because it’s two-thirds of direct cost.</p>
+
+<p><strong>Test 2: use realistic ranges, not equal percentages.</strong> A 10 percent change is a fair starting point, but real drivers don’t all move by 10 percent. Here are some real-world swings on the same bracket:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Scenario</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Price</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Change vs baseline</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Baseline (qty 100)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$55.44</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;"></td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Order qty 10 (setup $10.00/part)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$66.53</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+20.0%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Order qty 1,000 (setup $0.10/part)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$54.33</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">−2.0%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Tolerances tightened on non-critical features (+$6.50 direct)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$63.45</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+14.4%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machine utilisation falls to 60%</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$64.68</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+16.7%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machine utilisation rises to 90%</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$49.28</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">−11.1%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="font-size:0.85rem;color:#6b7280;">Each scenario changes only one thing and keeps overhead at 12 percent and margin at 10 percent. The utilisation scenarios treat the whole machine rate as fixed cost, which exaggerates the effect.</p>
+
+<p>Three lessons from this example:</p>
+
+<ol>
+  <li><strong>Rank by realistic swing, not by line size.</strong> Setup is the smallest line at qty 100 but becomes a 20 percent effect at qty 10.</li>
+  <li><strong>Design-controlled drivers are large.</strong> Tolerance and geometry choices (machining time) move the price by double digits and sit entirely with the engineering team.</li>
+  <li><strong>The biggest levers can be invisible on a quote.</strong> Utilisation is a supplier-side variable, but it swings the price by roughly ±11 to 17 percent.</li>
+</ol>
+
+<h3>How to run a cost driver analysis</h3>
+
+<ol>
+  <li>Build or obtain a cost breakdown for a representative part (see <a href="/blog/total-manufacturing-cost-formula" style="color:#0d9488;font-weight:600;">total manufacturing cost</a>).</li>
+  <li>List the candidate drivers, using the sections above as a checklist.</li>
+  <li>Assign a realistic range to each, such as quantity 10 to 1,000, or tolerance as drawn vs relaxed.</li>
+  <li>Change one driver at a time and record the effect on part cost.</li>
+  <li>Rank the results and pick the top three.</li>
+  <li>Decide who owns each (design, purchasing or supplier) and what action is possible.</li>
+  <li>Repeat as the design changes. Drivers shift as geometry and volume change.</li>
+</ol>
+
+<p>Once you know your top drivers, the next step is to act on them. <a href="/blog/what-is-vave" style="color:#0d9488;font-weight:600;">Value engineering</a> is the method for cutting cost while protecting function, and <a href="/blog/design-to-cost" style="color:#0d9488;font-weight:600;">design-to-cost</a> builds the target into the design from the start. For automating this analysis across many parts, see our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What are the main manufacturing cost drivers?</h3>
+<p>The main ones are material and scrap, part geometry and features, tolerances and surface finish, the choice of process and machine, volume and batch size, and overhead and machine utilisation.</p>
+
+<h3>What is cost driver analysis?</h3>
+<p>It’s the practice of changing each cost driver one at a time and measuring the effect on part cost, so you can rank the drivers and focus on the few that matter most.</p>
+
+<h3>What drives manufacturing cost the most?</h3>
+<p>It depends on the part. For machined parts, machining time is often the largest driver. For simple parts in expensive alloys, material dominates. For low-volume parts, setup and fixed costs matter most.</p>
+
+<h3>How do tolerances affect manufacturing cost?</h3>
+<p>Tighter tolerances increase machining time, scrap and rework, and inspection effort, and may require a more precise machine. The cost rises steeply as limits tighten, which is why tight tolerances should be used only where function requires them.</p>
+
+<h3>How does volume affect cost per part?</h3>
+<p>Fixed costs such as setup, programming, tooling and minimum-lot charges are spread over the batch, so cost per part falls as quantity rises. In the example above, the bracket price changes from $66.53 at 10 pieces to $55.44 at 100 and $54.33 at 1,000, from setup alone.</p>
+
+<h3>Which cost drivers can a design engineer control?</h3>
+<p>Mainly geometry and features, material selection, tolerances and surface finish, and part count. These are fixed at the design stage and usually have the largest effect on cost, which is why design-to-cost and DFM focus on them.</p>
+
+<h2>Act on Your Cost Drivers</h2>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Read: Design-to-cost guide</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Definition, process and worked examples.</p>
+  <a href="/blog/design-to-cost" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Read the guide</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/design-to-cost" style="color:#0d9488;">Design-to-cost guide</a> · <a href="/blog/direct-vs-indirect-manufacturing-costs" style="color:#0d9488;">Direct vs indirect manufacturing costs</a> · <a href="/blog/design-for-manufacturability-guide" style="color:#0d9488;">Design for manufacturability</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a></p>
+    `,
+  },
+  'should-cost-vs-actual-cost': {
+    heroImage: '/images/blog/should-cost-vs-actual-cost.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Should-Cost vs Actual Cost: Why the Gap Matters',
+      metaDescription:
+        'How to compare should-cost with supplier quotes and actual cost, what causes the gap, and how to turn the difference into a negotiation plan.',
+      ogTitle: 'Should-Cost vs Actual Cost: Why the Gap Matters',
+      ogDescription:
+        'How to compare should-cost with supplier quotes and actual cost, what causes the gap, and how to turn the difference into a negotiation plan.',
+      tags: [
+        'should cost vs actual cost',
+        'should cost vs quote',
+        'cost gap analysis',
+        'supplier quote analysis',
+        'price variance analysis',
+        'supplier cost breakdown',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is the difference between should-cost and actual cost?',
+        answer:
+          'Should-cost is a modelled estimate of what a part should cost with an efficient process. Actual cost is what it really costs to make, including any inefficiency. The difference is the efficiency gap.',
+      },
+      {
+        question: 'What is the difference between should-cost and a supplier quote?',
+        answer:
+          'Should-cost is what you calculate independently. The quote is what the supplier asks for, which includes their margin and any inefficiencies or risk premiums. The difference is the negotiation gap.',
+      },
+      {
+        question: 'How do you do a cost gap analysis?',
+        answer:
+          'Build a should-cost model, get a line-by-line breakdown from the supplier, compare each line, record the cause of each gap, and rank the gaps by size and strength of evidence. Then plan your negotiation around the top few.',
+      },
+      {
+        question: 'How big a gap between should-cost and the quote is normal?',
+        answer:
+          'There’s no fixed figure, as it depends on volume, complexity and the quality of your model. A gap of roughly 10 to 15 percent is often within the range of normal modelling and negotiation margin, while a gap of 25 percent or more deserves close questions. Treat these as rules of thumb and not benchmarks.',
+      },
+      {
+        question: 'Can should-cost be higher than the quote?',
+        answer:
+          'Yes, and it means your model is probably wrong or the supplier has an unusual advantage, such as spare capacity or a better process. Check your rates, yield and cycle times before drawing any conclusion.',
+      },
+      {
+        question: 'How do you know a supplier cost breakdown is accurate?',
+        answer:
+          'You can’t know for certain without open-book access, but you can test it. Compare line items against material price indices, similar parts and your own process logic, and ask the supplier to explain any line that doesn’t fit.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 10 minutes</p>
+
+<p>Should-cost is what a part ought to cost to make, built from the process up. Actual cost is what it really costs, and the quoted price is what a supplier asks you to pay. The distance between them is the gap, and it is where procurement and cost-engineering teams find savings.</p>
+
+<p>This guide shows how to compare the three numbers, what causes the gap, how to read a supplier quote line by line, and how to turn the difference into a negotiation plan. It includes a worked example and a gap-closing worksheet. If you’re new to the method, start with our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+
+<h2>Should-Cost vs Actual vs Quoted Price</h2>
+
+<p>Three numbers get mixed up, so define them first.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Term</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">What it is</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Who knows it</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Should-cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">A modelled estimate of what the part should cost, built from material, process times, rates, overhead and a fair margin</td><td style="padding:0.65rem 0.9rem;color:#374151;">You, once you’ve built the model</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Quoted price</td><td style="padding:0.65rem 0.9rem;color:#374151;">What the supplier asks you to pay</td><td style="padding:0.65rem 0.9rem;color:#374151;">Both sides</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Actual cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">What it really costs to make the part, including all the inefficiencies</td><td style="padding:0.65rem 0.9rem;color:#374151;">The supplier (or you, if you make it in-house)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>How they relate:</p>
+
+<ul>
+  <li><strong>Quoted price minus should-cost</strong> is the <em>negotiation gap</em>. It shows how much room you have to challenge the quote.</li>
+  <li><strong>Actual cost minus should-cost</strong> is the <em>efficiency gap</em>. It shows how far real production is from a well-run process. When you make parts in-house, this is your variance.</li>
+  <li><strong>Quoted price minus actual cost</strong> is the supplier’s real margin, which you usually can’t see unless the contract is open-book.</li>
+</ul>
+
+<p>Most buyers only see the quoted price. Should-cost lets you estimate the other two, which is why it matters.</p>
+
+<h2>Where the Gap Comes From</h2>
+
+<p>A gap between should-cost and the quote can come from the supplier’s side, your side, or the model itself. Group the causes so you know which ones you can act on.</p>
+
+<h3>Supplier-side causes (often negotiable)</h3>
+
+<ul>
+  <li>Padded material allowance or poor nesting and yield</li>
+  <li>Cycle times longer than an efficient process needs</li>
+  <li>Machine rates above what the equipment really costs per hour</li>
+  <li>Overhead and margin stacked too high</li>
+  <li>Setup and tooling charged in full to a small batch, or charged again on repeat orders</li>
+  <li>Risk premiums for price volatility, with no basis</li>
+</ul>
+
+<h3>Buyer-side causes (fix on your side)</h3>
+
+<ul>
+  <li>Tight tolerances and finishes on non-critical features</li>
+  <li>Small or irregular order quantities</li>
+  <li>Short lead times that force expedited work</li>
+  <li>Unclear drawings that make the supplier price in uncertainty</li>
+</ul>
+
+<h3>Model-side causes (check your own work)</h3>
+
+<ul>
+  <li>Rates that don’t match the supplier’s region or machine</li>
+  <li>Utilisation assumed too high</li>
+  <li>Missing cost lines, such as packaging, certifications or inspection reports</li>
+  <li>Wrong material grade or stock size</li>
+</ul>
+
+<p>A good analyst always checks the third list first. If your model is off, you’ll lose credibility the first time you present it. See <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;font-weight:600;">how to calculate machine hour rate</a> for the input that most often causes model errors.</p>
+
+<h2>Reading a Supplier Quote Line by Line</h2>
+
+<p>A single number tells you nothing. Ask for a breakdown, then compare each line against your model. Start with these questions:</p>
+
+<ul>
+  <li><strong>Material:</strong> What weight, grade and price per kg? How much scrap or yield loss is assumed? Is it priced at stock or at market?</li>
+  <li><strong>Process time:</strong> What is the cycle time per operation? How many setups?</li>
+  <li><strong>Rates:</strong> What hourly rate for each machine and for labour? Do they include the operator?</li>
+  <li><strong>Setup and tooling:</strong> What is the one-off cost, and is it spread over this batch or the lifetime volume?</li>
+  <li><strong>Outside processes:</strong> What does finishing, plating or heat treatment cost, and is there a lot minimum?</li>
+  <li><strong>Overhead and profit:</strong> What percentages, and applied to what base?</li>
+  <li><strong>Extras:</strong> Packaging, freight, certification and inspection reports. Are they included?</li>
+</ul>
+
+<p>If the supplier won’t give a breakdown, you can still compare the total against your should-cost and ask them to explain the largest differences. For the full approach, see our guide to <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;font-weight:600;">supplier negotiation with should-cost</a>.</p>
+
+<h3>Worked example</h3>
+
+<p><strong>The part:</strong> a machined aluminium bracket, batch of 500. Illustrative numbers.</p>
+
+<p><strong>Should-cost model:</strong></p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Line (per part)</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Should-cost</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$6.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machining (20 min at $1.00/min)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$20.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup ($150 ÷ 500)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.30</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Finishing</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$30.30</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead (12%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3.64</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$33.94</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Margin (10%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3.39</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Should-cost price</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$37.33</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p><strong>Supplier quote:</strong> $48.00 per part, with this breakdown:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Line (per part)</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Quote</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Should-cost</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Gap</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$7.50</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$6.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machining</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$25.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$20.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.60</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.30</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.30</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Finishing</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$4.50</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$2.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead and profit (combined)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$8.40</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$7.03</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.37</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$48.00</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$37.33</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$10.67</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The quote is $10.67 above should-cost, which is 28.6 percent over the model, or 22.2 percent of the quoted price. Machining alone accounts for $5.00 of the gap (about 47 percent), so that’s where the first conversation should happen.</p>
+
+<h2>Gap-Closing Worksheet</h2>
+
+<p>A gap only turns into savings if you sort it. For each line, record four things (gap, cause, evidence and whether it is negotiable), then decide an action:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Line</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Gap ($/part)</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cause (supplier, buyer or model)</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Evidence</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Negotiable?</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Action</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">…</td><td style="padding:0.65rem 0.9rem;color:#374151;">…</td><td style="padding:0.65rem 0.9rem;color:#374151;">…</td><td style="padding:0.65rem 0.9rem;color:#374151;">…</td><td style="padding:0.65rem 0.9rem;color:#374151;">…</td><td style="padding:0.65rem 0.9rem;color:#374151;">…</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Then rank the lines by size of gap × strength of evidence × how negotiable it is.</p>
+
+<p>Applied to the example:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Line</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Gap</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Likely cause</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Evidence strength</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Action</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Machining</td><td style="padding:0.65rem 0.9rem;color:#374151;">$5.00</td><td style="padding:0.65rem 0.9rem;color:#374151;">Cycle time (25 vs 20 min) or rate above model</td><td style="padding:0.65rem 0.9rem;color:#374151;">Medium: depends on process assumptions</td><td style="padding:0.65rem 0.9rem;color:#374151;">Ask for cycle time and rate; compare with a similar part</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Material</td><td style="padding:0.65rem 0.9rem;color:#374151;">$1.50</td><td style="padding:0.65rem 0.9rem;color:#374151;">Scrap allowance or price per kg</td><td style="padding:0.65rem 0.9rem;color:#374151;">High: market price and stock size are checkable</td><td style="padding:0.65rem 0.9rem;color:#374151;">Ask for weight, yield and price per kg</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Finishing</td><td style="padding:0.65rem 0.9rem;color:#374151;">$1.50</td><td style="padding:0.65rem 0.9rem;color:#374151;">Outside-process price</td><td style="padding:0.65rem 0.9rem;color:#374151;">Medium</td><td style="padding:0.65rem 0.9rem;color:#374151;">Get a second finishing quote</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;">$1.00</td><td style="padding:0.65rem 0.9rem;color:#374151;">Full inspection vs sampling</td><td style="padding:0.65rem 0.9rem;color:#374151;">Medium</td><td style="padding:0.65rem 0.9rem;color:#374151;">Agree inspection plan and drawing callouts</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Overhead and profit</td><td style="padding:0.65rem 0.9rem;color:#374151;">$1.37</td><td style="padding:0.65rem 0.9rem;color:#374151;">Percentages above norm</td><td style="padding:0.65rem 0.9rem;color:#374151;">Low: depends on supplier’s cost structure</td><td style="padding:0.65rem 0.9rem;color:#374151;">Raise only after the other lines</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Setup</td><td style="padding:0.65rem 0.9rem;color:#374151;">$0.30</td><td style="padding:0.65rem 0.9rem;color:#374151;">Amortisation</td><td style="padding:0.65rem 0.9rem;color:#374151;">High but small</td><td style="padding:0.65rem 0.9rem;color:#374151;">Confirm it’s not charged twice on repeats</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Start with the biggest, best-evidenced lines. A common mistake is opening with margin, where you have the least evidence, so it turns into an argument.</p>
+
+<h2>When the Gap Is Legitimate</h2>
+
+<p>A gap isn’t always a problem. Before you push, check whether the supplier has a reason, because a fair price wins you a better long-term relationship than a squeezed one.</p>
+
+<p>Typical legitimate reasons:</p>
+
+<ul>
+  <li><strong>Low volume or high mix.</strong> Setup, programming and inspection don’t shrink with small batches.</li>
+  <li><strong>Tolerance or quality requirements your model missed.</strong> Tight tolerances add machining time, scrap risk and inspection.</li>
+  <li><strong>Certifications and traceability.</strong> Aerospace, medical and defence work needs extra documents and audits.</li>
+  <li><strong>Expedited or uncertain schedules.</strong> Short lead times use premium capacity.</li>
+  <li><strong>Real material volatility.</strong> In a rising market, a supplier may reasonably price in a buffer.</li>
+  <li><strong>Supplier capability.</strong> A specialist with the right equipment and a good scrap rate can be worth a premium.</li>
+  <li><strong>Higher regional rates.</strong> Labour, energy and rent differ by location.</li>
+</ul>
+
+<p>If a gap is explained and fair, update your model, not your position. A should-cost model that never learns from supplier input stops being accurate.</p>
+
+<h2>Turning the Gap into a Negotiation Plan</h2>
+
+<ol>
+  <li><strong>Validate the model first.</strong> Check rates, material, yield and any missing lines. Fix anything that is wrong on your side.</li>
+  <li><strong>Rank the gap lines</strong> with the worksheet. Choose two or three to lead with.</li>
+  <li><strong>Prepare evidence for each:</strong> material price indices, similar-part quotes, machine rate benchmarks, process-time logic.</li>
+  <li><strong>Open with questions, not accusations.</strong> “Can you walk me through the cycle time?” gets better information than “your quote is too high”.</li>
+  <li><strong>Trade, don’t just push.</strong> Offer what you can: larger or more predictable volumes, longer contracts, relaxed tolerances on non-critical features, simplified drawings.</li>
+  <li><strong>Set a target and a walk-away.</strong> Know the price you’ll accept, based on should-cost plus a fair margin, and what you’ll do if you don’t get it.</li>
+  <li><strong>Record the outcome.</strong> Update the model and the worksheet, so the next negotiation starts from better data.</li>
+</ol>
+
+<p>For the full playbook, including tactics and sequencing, read our <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;font-weight:600;">should-cost analysis and supplier negotiation guide</a>. To do this at scale across many parts, see how to choose <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;font-weight:600;">should-cost modeling software</a>, and for the methods behind your estimate, <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. You can also explore our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is the difference between should-cost and actual cost?</h3>
+<p>Should-cost is a modelled estimate of what a part should cost with an efficient process. Actual cost is what it really costs to make, including any inefficiency. The difference is the efficiency gap.</p>
+
+<h3>What is the difference between should-cost and a supplier quote?</h3>
+<p>Should-cost is what you calculate independently. The quote is what the supplier asks for, which includes their margin and any inefficiencies or risk premiums. The difference is the negotiation gap.</p>
+
+<h3>How do you do a cost gap analysis?</h3>
+<p>Build a should-cost model, get a line-by-line breakdown from the supplier, compare each line, record the cause of each gap, and rank the gaps by size and strength of evidence. Then plan your negotiation around the top few.</p>
+
+<h3>How big a gap between should-cost and the quote is normal?</h3>
+<p>There’s no fixed figure, as it depends on volume, complexity and the quality of your model. A gap of roughly 10 to 15 percent is often within the range of normal modelling and negotiation margin, while a gap of 25 percent or more deserves close questions. Treat these as rules of thumb and not benchmarks.</p>
+
+<h3>Can should-cost be higher than the quote?</h3>
+<p>Yes, and it means your model is probably wrong or the supplier has an unusual advantage, such as spare capacity or a better process. Check your rates, yield and cycle times before drawing any conclusion.</p>
+
+<h3>How do you know a supplier cost breakdown is accurate?</h3>
+<p>You can’t know for certain without open-book access, but you can test it. Compare line items against material price indices, similar parts and your own process logic, and ask the supplier to explain any line that doesn’t fit.</p>
+
+<h2>Get the Worksheet</h2>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the should-cost checklist</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Includes the quote questions and the gap worksheet from this guide.</p>
+  <a href="/downloads/should-cost-gap-worksheet.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the worksheet (CSV)</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;">Manufacturing cost estimation methods</a> · <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;">Supplier negotiation with should-cost</a> · <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;">Should-cost modeling software</a></p>
+    `,
+  },
+  'direct-vs-indirect-manufacturing-costs': {
+    heroImage: '/images/blog/direct-vs-indirect-manufacturing-costs.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Direct vs Indirect Manufacturing Costs: Examples',
+      metaDescription:
+        'What counts as direct and indirect manufacturing cost? Clear definitions, examples, allocation methods and formulas, and how both affect part cost.',
+      ogTitle: 'Direct vs Indirect Manufacturing Costs: Definitions, Examples and Formulas',
+      ogDescription:
+        'What counts as direct and indirect manufacturing cost? Clear definitions, examples, allocation methods and formulas, and how both affect part cost.',
+      tags: [
+        'direct vs indirect manufacturing costs',
+        'indirect manufacturing costs',
+        'direct manufacturing costs examples',
+        'manufacturing overhead',
+        'direct and indirect costs formula',
+        'overhead allocation',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is the difference between direct and indirect manufacturing costs?',
+        answer:
+          'Direct costs can be traced to a specific product, such as raw material and the labour spent on it. Indirect costs support production in general and can’t be traced to one product, such as rent, maintenance and supervision.',
+      },
+      {
+        question: 'What are examples of direct manufacturing costs?',
+        answer:
+          'Raw materials, purchased components built into the product, and the wages of workers who make it, for the time they spend on it.',
+      },
+      {
+        question: 'What are indirect manufacturing costs?',
+        answer:
+          'Costs of running the factory that can’t be assigned to one product: indirect materials such as coolant, indirect labour such as supervisors and maintenance staff, and facility costs such as rent, insurance, utilities and machine depreciation. Together they’re called manufacturing overhead.',
+      },
+      {
+        question: 'How is manufacturing overhead allocated to products?',
+        answer:
+          'Most commonly with a single rate based on direct labour hours, machine hours or direct material cost. More accurate is activity-based costing, which assigns overhead to products according to the activities they actually use, such as setups and inspections.',
+      },
+      {
+        question: 'What is the formula for total manufacturing cost?',
+        answer:
+          'Total manufacturing cost = direct materials + direct labour + manufacturing overhead. Divide by the number of units to get the unit manufacturing cost.',
+      },
+      {
+        question: 'Is labour always a direct cost?',
+        answer:
+          'No. The wages of workers who make the product are direct labour, but supervisors, maintenance staff, inspectors and material handlers are indirect labour, as their work supports many products.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 9 minutes</p>
+
+<p>Direct manufacturing costs are the costs you can trace to a specific product, such as the steel in a bracket or the operator’s time on it. Indirect manufacturing costs are the costs of running the factory that you can’t trace to one product, such as rent, supervision, maintenance and factory utilities. Add them together and you have the total manufacturing cost of a part.</p>
+
+<p>The line between the two decides how accurate your part cost is. This guide gives clear definitions, an examples table, the formulas, and a worked example showing how two allocation methods can give the same part a cost that differs by almost 50 percent.</p>
+
+<h2>Definitions</h2>
+
+<p><strong>Direct costs</strong> can be traced to a single product or batch, economically and without guesswork. There are two kinds:</p>
+
+<ul>
+  <li><strong>Direct materials:</strong> raw material and purchased components that become part of the product.</li>
+  <li><strong>Direct labour:</strong> wages of the people who work on the product itself, for the time they spend on it.</li>
+</ul>
+
+<p><strong>Indirect costs</strong> are needed to make products but can’t be traced to one of them. Together they are called manufacturing overhead (also factory overhead). They fall into three groups:</p>
+
+<ul>
+  <li><strong>Indirect materials:</strong> consumables not worth tracking per part, such as coolant, lubricants, cleaning supplies and small fasteners.</li>
+  <li><strong>Indirect labour:</strong> supervisors, maintenance staff, quality inspectors, material handlers and production planners.</li>
+  <li><strong>Other factory costs:</strong> rent, building depreciation, machine depreciation, insurance, utilities and factory software.</li>
+</ul>
+
+<p>A helpful test: if this part were never made, would this cost disappear? If yes, it’s direct. If it would continue, it’s indirect.</p>
+
+<p>One boundary to note: selling, general and administrative (SG&amp;A) costs such as sales salaries, head-office rent and marketing are not manufacturing overhead. They sit outside manufacturing cost and are added later when setting the price.</p>
+
+<h2>Examples Table</h2>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost item</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Direct or indirect?</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Why</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Aluminium bar for a bracket</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct material</td><td style="padding:0.65rem 0.9rem;color:#374151;">Becomes part of the product, traceable per part</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Machine operator’s time on the job</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct labour</td><td style="padding:0.65rem 0.9rem;color:#374151;">Traceable to the job</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Purchased bearing in an assembly</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct material</td><td style="padding:0.65rem 0.9rem;color:#374151;">Part of the product</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Cutting coolant</td><td style="padding:0.65rem 0.9rem;color:#374151;">Indirect material</td><td style="padding:0.65rem 0.9rem;color:#374151;">Used across all jobs, not worth tracing</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Cutting tools and inserts</td><td style="padding:0.65rem 0.9rem;color:#374151;">Usually indirect (direct if tracked per job)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Depends on whether usage is measured per part</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Production supervisor’s salary</td><td style="padding:0.65rem 0.9rem;color:#374151;">Indirect labour</td><td style="padding:0.65rem 0.9rem;color:#374151;">Supports many products</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Maintenance technician</td><td style="padding:0.65rem 0.9rem;color:#374151;">Indirect labour</td><td style="padding:0.65rem 0.9rem;color:#374151;">Keeps machines running for all products</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Factory rent and insurance</td><td style="padding:0.65rem 0.9rem;color:#374151;">Indirect (other)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Continues whatever is made</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Machine depreciation</td><td style="padding:0.65rem 0.9rem;color:#374151;">Indirect, but often charged to products through a machine hour rate</td><td style="padding:0.65rem 0.9rem;color:#374151;">Fixed cost of the equipment</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Electricity for production machines</td><td style="padding:0.65rem 0.9rem;color:#374151;">Indirect (direct if sub-metered)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Shared unless measured per job</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Sales team salaries</td><td style="padding:0.65rem 0.9rem;color:#374151;">Not manufacturing cost (SG&A)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Outside the factory</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Grey areas exist, and that’s fine. What matters is that you pick a rule, apply it consistently and document it. A cutting insert, for example, may be treated as direct in one shop that tracks tool life per job and indirect in another that doesn’t. Classification here follows common cost-accounting practice; treatment of tooling, utilities and machine depreciation varies between companies and accounting standards.</p>
+
+<h2>How Overhead Is Allocated (Rates, ABC)</h2>
+
+<p>Direct costs go straight on the part. Indirect costs can’t, so they must be allocated. There are two main approaches.</p>
+
+<h3>Single overhead rate</h3>
+
+<p>Pick one measure of activity, divide total overhead by it, and apply the rate to every product. Common bases are:</p>
+
+<ul>
+  <li>Direct labour hours or direct labour cost</li>
+  <li>Machine hours</li>
+  <li>Direct material cost</li>
+</ul>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Overhead rate = Total annual overhead ÷ Total annual activity (hours or cost)</p>
+</div>
+
+<p>This is simple and works well when products are similar and use resources in roughly the same proportions. It’s the method behind the “overhead as a percentage” line in most quotes.</p>
+
+<p>A machine-hour rate is a more refined version of this, because it ties machine-related overhead (depreciation, power, maintenance, floor space) to the time a part actually spends on a machine. See <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;font-weight:600;">how to calculate machine hour rate</a> for the full build-up.</p>
+
+<h3>Activity-based costing (ABC)</h3>
+
+<p>ABC assigns overhead to the activities that cause it, such as machine running, setups and inspections. You build a cost pool for each activity and divide it by its driver (machine hours, number of setups, number of inspections). Each product is charged for the activities it actually uses.</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Activity rate = Cost of activity pool ÷ Total volume of the activity driver</p>
+</div>
+
+<p>ABC takes more effort, but it’s much more accurate when products differ in volume and complexity, which is typical in high-mix manufacturing.</p>
+
+<h2>Formulas</h2>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Item</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Formula</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Prime cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct materials + Direct labour</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Conversion cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct labour + Manufacturing overhead</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Total manufacturing cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Direct materials + Direct labour + Manufacturing overhead</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Overhead rate (labour hours)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Total overhead ÷ Total direct labour hours</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Overhead as % of direct labour</td><td style="padding:0.65rem 0.9rem;color:#374151;">Total overhead ÷ Total direct labour cost × 100</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">ABC activity rate</td><td style="padding:0.65rem 0.9rem;color:#374151;">Activity cost pool ÷ Activity driver volume</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Unit manufacturing cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Total manufacturing cost ÷ Units produced</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>For the complete calculation, including cost of goods manufactured, see our guide to <a href="/blog/total-manufacturing-cost-formula" style="color:#0d9488;font-weight:600;">how to calculate total manufacturing cost</a>.</p>
+
+<h3>Worked example: one part, two methods</h3>
+
+<p><strong>The shop</strong> (illustrative):</p>
+
+<ul>
+  <li>Annual manufacturing overhead: $600,000</li>
+  <li>Direct labour: 20,000 hours a year at $24/hour ($480,000)</li>
+  <li>Overhead pools for ABC: machine running $300,000 (6,000 machine hours, so $50/hour), setups $200,000 (400 setups, so $500 each), inspection $100,000 (2,000 inspections, so $50 each)</li>
+</ul>
+
+<p>The pools add up to $600,000, the same total as above.</p>
+
+<p><strong>Method 1: single rate on direct labour hours.</strong> Overhead rate = $600,000 ÷ 20,000 hours = <strong>$30 per direct labour hour</strong> (equal to 125 percent of direct labour cost).</p>
+
+<p><strong>Method 2: ABC.</strong> Take two of the parts made in the shop:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;"></th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Part A (simple, high volume)</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Part B (complex, low volume)</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Batch size</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">1,000</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Direct material per part</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$12.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Direct labour per part</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.2 h = $4.80</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.5 h = $12.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machine hours per part</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.05</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.40</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setups per batch</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">1</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">1</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspections per batch</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p><strong>Part A overhead per part (ABC):</strong></p>
+
+<ul>
+  <li>Machine: 0.05 h × $50 = $2.50</li>
+  <li>Setup: $500 ÷ 1,000 = $0.50</li>
+  <li>Inspection: (2 × $50) ÷ 1,000 = $0.10</li>
+  <li><strong>Total: $3.10</strong></li>
+</ul>
+
+<p><strong>Part B overhead per part (ABC):</strong></p>
+
+<ul>
+  <li>Machine: 0.40 h × $50 = $20.00</li>
+  <li>Setup: $500 ÷ 50 = $10.00</li>
+  <li>Inspection: (4 × $50) ÷ 50 = $4.00</li>
+  <li><strong>Total: $34.00</strong></li>
+</ul>
+
+<p><strong>Single-rate overhead:</strong> Part A: 0.2 h × $30 = $6.00. Part B: 0.5 h × $30 = $15.00.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;"></th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Part A</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Part B</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Direct material</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$12.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Direct labour</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$4.80</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$12.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead, single rate</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$6.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$15.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost, single rate</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$15.80</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$39.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead, ABC</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3.10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$34.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost, ABC</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$12.90</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$58.00</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Difference</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">−$2.90 (−18%)</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">+$19.00 (+49%)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The single rate over-costs the simple, high-volume part and under-costs the complex, low-volume one. It happens because labour hours don’t capture setups and machine time. Part B’s real cost is almost 50 percent higher than the simple method shows.</p>
+
+<h2>Impact on Pricing and Margin</h2>
+
+<p>Suppose you price Part B at its single-rate cost plus a 10 percent margin:</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Price = $39.00 × 1.10 = $42.90</p>
+</div>
+
+<p>But its real cost under ABC is $58.00, so every part sold loses $15.10. Meanwhile Part A, priced at $15.80 × 1.10 = $17.38, is overpriced against its real cost of $12.90, which makes it easy for a competitor to undercut you.</p>
+
+<p>This is how wrong overhead allocation causes real business damage:</p>
+
+<ul>
+  <li>Complex products are underpriced and win work that loses money.</li>
+  <li>Simple products are overpriced and lose business to competitors.</li>
+  <li>Make-vs-buy decisions go wrong, because an outsourced price looks expensive when your internal cost is understated.</li>
+  <li>Supplier negotiation weakens. If you build a should-cost with the wrong overhead, you can wrongly accuse a fair supplier of overcharging, or miss a real overcharge.</li>
+</ul>
+
+<p>Overhead is also one of the most important manufacturing cost drivers, especially in low-volume work, where setups and inspection weigh heavily on each part. See our <a href="/blog/manufacturing-cost-drivers" style="color:#0d9488;font-weight:600;">manufacturing cost drivers guide</a> for how the drivers combine.</p>
+
+<h2>Common Mistakes</h2>
+
+<ul>
+  <li><strong>Using one shop-wide overhead rate for everything.</strong> It hides the difference between simple and complex parts.</li>
+  <li><strong>Mixing up direct and indirect.</strong> Counting the same cost twice (for example, in a machine rate and again as overhead) inflates the estimate.</li>
+  <li><strong>Treating SG&amp;A as manufacturing overhead.</strong> This overstates product cost and distorts gross margin.</li>
+  <li><strong>Ignoring utilisation.</strong> Overhead per hour rises when machines sit idle. Use realistic volumes when you divide.</li>
+  <li><strong>Allocating on the wrong base.</strong> Labour hours make little sense where machines do most of the work, so use machine hours there.</li>
+  <li><strong>Never updating the rates.</strong> Rents, energy and wages change. Review rates at least once a year.</li>
+  <li><strong>Treating fixed and variable overhead as the same.</strong> Fixed overhead doesn’t change with volume, while variable overhead does. Know which is which before you quote a very different volume.</li>
+</ul>
+
+<p>To apply this in practice, see our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is the difference between direct and indirect manufacturing costs?</h3>
+<p>Direct costs can be traced to a specific product, such as raw material and the labour spent on it. Indirect costs support production in general and can’t be traced to one product, such as rent, maintenance and supervision.</p>
+
+<h3>What are examples of direct manufacturing costs?</h3>
+<p>Raw materials, purchased components built into the product, and the wages of workers who make it, for the time they spend on it.</p>
+
+<h3>What are indirect manufacturing costs?</h3>
+<p>Costs of running the factory that can’t be assigned to one product: indirect materials such as coolant, indirect labour such as supervisors and maintenance staff, and facility costs such as rent, insurance, utilities and machine depreciation. Together they’re called manufacturing overhead.</p>
+
+<h3>How is manufacturing overhead allocated to products?</h3>
+<p>Most commonly with a single rate based on direct labour hours, machine hours or direct material cost. More accurate is activity-based costing, which assigns overhead to products according to the activities they actually use, such as setups and inspections.</p>
+
+<h3>What is the formula for total manufacturing cost?</h3>
+<p>Total manufacturing cost = direct materials + direct labour + manufacturing overhead. Divide by the number of units to get the unit manufacturing cost.</p>
+
+<h3>Is labour always a direct cost?</h3>
+<p>No. The wages of workers who make the product are direct labour, but supervisors, maintenance staff, inspectors and material handlers are indirect labour, as their work supports many products.</p>
+
+<h2>Go Deeper</h2>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Read: Total manufacturing cost</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">How to roll direct and indirect costs into a correct part cost.</p>
+  <a href="/blog/total-manufacturing-cost-formula" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Read the guide</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/cost-breakdown-analysis" style="color:#0d9488;">Cost breakdown analysis</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a></p>
+    `,
+  },
+  'manufacturing-cost-estimation-methods': {
+    heroImage: '/images/blog/manufacturing-cost-estimation-methods.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Manufacturing Cost Estimation: Methods Compared',
+      metaDescription:
+        'Compare analogous, parametric, bottom-up, activity-based and AI-driven manufacturing cost estimation: accuracy, data needed and when to use each.',
+      ogTitle: 'Manufacturing Cost Estimation: A Guide to Every Method',
+      ogDescription:
+        'Compare analogous, parametric, bottom-up, activity-based and AI-driven manufacturing cost estimation: accuracy, data needed and when to use each.',
+      tags: [
+        'manufacturing cost estimation',
+        'cost estimation methods',
+        'cost estimating techniques',
+        'how to estimate manufacturing cost',
+        'parametric cost estimation',
+        'bottom up cost estimating',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What are the main methods of manufacturing cost estimation?',
+        answer:
+          'The five most common are analogous (by comparison with a similar part), parametric (by formula from historical data), bottom-up (by costing every operation), activity-based (by assigning overhead to activities) and AI or ML-driven (by a model trained on past parts).',
+      },
+      {
+        question: 'Which cost estimation method is most accurate?',
+        answer:
+          'Bottom-up estimating is usually the most accurate when the design is defined and you have reliable rates, typically within about 5 to 15 percent. It also explains where each cost comes from, which makes it the best method for challenging supplier quotes.',
+      },
+      {
+        question: 'How do you estimate manufacturing cost for a new part?',
+        answer:
+          'At concept stage, use analogous or parametric estimating from similar past parts. As the design develops, build a bottom-up model from the routing, operation times, machine rates and material cost, then add setup, overhead and margin.',
+      },
+      {
+        question: 'What is the difference between parametric and bottom-up estimating?',
+        answer:
+          'Parametric estimating predicts cost from a few design variables using a formula built on past data. Bottom-up estimating builds cost from the ground up, operation by operation. Parametric is faster but less detailed; bottom-up is slower but traceable.',
+      },
+      {
+        question: 'Can AI replace traditional cost estimation?',
+        answer:
+          'Not entirely. AI is fast and scales well, but it depends on the quality and relevance of its training data, and many models can’t explain their numbers. Most teams use AI for screening and early estimates, then use bottom-up methods where they need to justify a figure.',
+      },
+      {
+        question: 'How accurate are cost estimates at the design stage?',
+        answer:
+          'Accuracy improves as the design firms up. Concept-stage estimates can be off by 30 percent or more, while detailed-design estimates can reach about 5 to 15 percent. Always quote an estimate as a range, together with the method used.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 12 minutes</p>
+
+<p>Manufacturing cost estimation is the process of predicting what it will cost to make a part or product before you make it, or before a supplier quotes it. There isn’t one right way to do it. Five methods are in common use: analogous, parametric, bottom-up, activity-based and AI-driven. Each trades speed against accuracy and needs different data.</p>
+
+<p>This guide explains each method, shows all five applied to the same part, and gives you a table for choosing between them. If you’re mainly after supplier negotiation, jump to our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+
+<h2>Why the Estimation Method Matters</h2>
+
+<p>The method you choose decides three things: how fast you get an answer, how much you can trust it, and what data you need first.</p>
+
+<p>Using the wrong method is expensive in both directions:</p>
+
+<ul>
+  <li>A detailed bottom-up estimate at concept stage wastes weeks, because the design will change anyway.</li>
+  <li>A quick analogy at quote review gives you a number you can’t defend, because it can’t show a supplier which line is too high.</li>
+</ul>
+
+<p>The right question is not “which method is best?” but “which method fits the decision I’m making now, with the data I have?” Most mature teams use several methods at different stages and cross-check them against each other.</p>
+
+<h2>Analogous</h2>
+
+<p><strong>How it works:</strong> you find a similar part you already know the cost of, then adjust for differences, usually size, weight, material or complexity.</p>
+
+<p><strong>Example:</strong> a past housing weighed 0.5 kg and cost $36. The new one weighs 0.6 kg, so you scale the cost by weight: $36 × (0.6 ÷ 0.5) = <strong>$43.20</strong>.</p>
+
+<p><strong>Strengths:</strong> very fast, needs almost no data, works at concept stage when little is defined.</p>
+
+<p><strong>Weaknesses:</strong> accuracy depends on how truly similar the reference part is. It hides the reasons behind the number, so it’s weak in negotiations. Bias creeps in easily, because people choose the reference that supports what they already expect.</p>
+
+<p><strong>Best for:</strong> early concepts, rough budgets, sanity checks.</p>
+
+<h2>Parametric</h2>
+
+<p><strong>How it works:</strong> you build a mathematical relationship between cost and one or more design variables, such as weight, size, number of features or material, using data from past parts. This relationship is often called a cost estimating relationship, or CER.</p>
+
+<p><strong>Example:</strong> a regression across 30 past machined housings gives: cost = $7 + $55 per kg of finished weight. For 0.6 kg: 7 + (55 × 0.6) = <strong>$40.00</strong>.</p>
+
+<p><strong>Strengths:</strong> fast once built, repeatable, and removes individual bias. Accuracy improves as your data grows.</p>
+
+<p><strong>Weaknesses:</strong> it needs a clean historical dataset and is only valid within the range it was built on. Extrapolating to a very different part gives bad answers. It tells you the cost, but not where it comes from.</p>
+
+<p><strong>Best for:</strong> design-stage comparisons, product families with plenty of history, and aerospace and defence programmes.</p>
+
+<p>For the head-to-head between parametric and analogous estimating, see our guide to <a href="/blog/parametric-vs-analogous-cost-estimating" style="color:#0d9488;font-weight:600;">parametric vs analogous cost estimating</a>.</p>
+
+<h2>Bottom-Up / Should-Cost</h2>
+
+<p><strong>How it works:</strong> you break the part into operations (cut, drill, bend, finish), cost each from time × rate plus material, then add setup, overhead and margin. The roll-up is the estimate. When used to check or challenge a supplier quote, this is called should-cost.</p>
+
+<p><strong>Example</strong> (the same housing):</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost line (per part, batch of 50)</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material (1.1 kg billet at $5.00/kg)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machining (22 min at $1.00/min)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$22.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup ($60 ÷ 50)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.20</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Finishing</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.50</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$33.20</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead (12%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3.98</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$37.18</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Price with 10% margin</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$40.90</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p><strong>Strengths:</strong> the most accurate method when inputs are good, fully traceable line by line, and the only one that can point to why a quote is too high.</p>
+
+<p><strong>Weaknesses:</strong> needs a defined design, a routing, and reliable machine and labour rates. It takes more time per part, which is why it’s usually automated at scale.</p>
+
+<p><strong>Best for:</strong> quote review, supplier negotiation, make-vs-buy decisions and detailed design.</p>
+
+<p>Read the how-to in our <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;font-weight:600;">should-cost modeling methodology guide</a>, and the negotiation application in the <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+
+<h2>Activity-Based</h2>
+
+<p><strong>How it works:</strong> activity-based costing (ABC) is a more careful way to handle overhead. Instead of adding one flat percentage, it assigns overhead to the specific activities that cause it, such as machine setups, inspections, material handling and engineering changes, using a cost per activity driver. Our <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;font-weight:600;">cost modeling guide</a> covers ABC alongside standard and target costing.</p>
+
+<p><strong>Example:</strong> the bottom-up estimate above used a flat 12 percent overhead ($3.98). With ABC, the housing is charged for its real activities (one setup, one inspection plan and one material move), which comes to $4.60. That lifts the total cost to $37.80 and the price to <strong>$41.58</strong>.</p>
+
+<p><strong>Strengths:</strong> it reveals why low-volume, complex parts cost more than a flat percentage suggests, and it stops high-volume simple parts from subsidising them.</p>
+
+<p><strong>Weaknesses:</strong> it needs activity data and agreement on cost drivers, and it takes effort to maintain. For simple, high-volume parts the gain over flat overhead is small.</p>
+
+<p><strong>Best for:</strong> high-mix, low-volume manufacturing, and cases where overhead is a large share of cost.</p>
+
+<h2>AI and ML-Driven</h2>
+
+<p><strong>How it works:</strong> a model is trained on past parts (geometry, material, process and actual cost) and predicts cost for a new part, often directly from the CAD file. Some tools combine this with bottom-up logic so that the estimate still breaks down by operation.</p>
+
+<p><strong>Example:</strong> from the CAD of the housing, a trained model returns <strong>$41.80</strong> with a range of $37 to $46.</p>
+
+<p><strong>Strengths:</strong> very fast, scales to thousands of parts, and can pick up patterns in the data that a hand-built formula would miss.</p>
+
+<p><strong>Weaknesses:</strong> quality depends entirely on the training data. A pure black-box model gives a number with no explanation, which limits its use in negotiation. It can also fail quietly on parts unlike its training set.</p>
+
+<p><strong>Best for:</strong> screening large part portfolios, early-stage estimates from CAD, and teams with a lot of clean historical cost data.</p>
+
+<h2>Method Selection Table (Stage vs Accuracy vs Data)</h2>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Method</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Best stage</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Typical accuracy*</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Data needed</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Speed</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Explains the “why”?</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Analogous</td><td style="padding:0.65rem 0.9rem;color:#374151;">Concept</td><td style="padding:0.65rem 0.9rem;color:#374151;">Wide (±20–40%)</td><td style="padding:0.65rem 0.9rem;color:#374151;">One similar past part</td><td style="padding:0.65rem 0.9rem;color:#374151;">Minutes</td><td style="padding:0.65rem 0.9rem;color:#374151;">No</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Parametric</td><td style="padding:0.65rem 0.9rem;color:#374151;">Concept to design</td><td style="padding:0.65rem 0.9rem;color:#374151;">Moderate (±10–25%)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Historical cost dataset</td><td style="padding:0.65rem 0.9rem;color:#374151;">Fast once built</td><td style="padding:0.65rem 0.9rem;color:#374151;">Partly</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Bottom-up / should-cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Detailed design, quote review</td><td style="padding:0.65rem 0.9rem;color:#374151;">Tight (±5–15%)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Design, routing, rates</td><td style="padding:0.65rem 0.9rem;color:#374151;">Hours per part, minutes if automated</td><td style="padding:0.65rem 0.9rem;color:#374151;">Yes, line by line</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Activity-based</td><td style="padding:0.65rem 0.9rem;color:#374151;">Detailed, high-mix</td><td style="padding:0.65rem 0.9rem;color:#374151;">Tight (±5–15%)</td><td style="padding:0.65rem 0.9rem;color:#374151;">Activity costs and drivers</td><td style="padding:0.65rem 0.9rem;color:#374151;">Slow to set up</td><td style="padding:0.65rem 0.9rem;color:#374151;">Yes, for overhead</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">AI / ML-driven</td><td style="padding:0.65rem 0.9rem;color:#374151;">Concept to design, portfolio scans</td><td style="padding:0.65rem 0.9rem;color:#374151;">Moderate (±10–20%), varies with data</td><td style="padding:0.65rem 0.9rem;color:#374151;">Large training dataset, CAD</td><td style="padding:0.65rem 0.9rem;color:#374151;">Seconds</td><td style="padding:0.65rem 0.9rem;color:#374151;">Depends on tool</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p style="font-size:0.85rem;color:#6b7280;">*These are rule-of-thumb ranges, not guarantees. Real accuracy depends on your data quality and part type.</p>
+
+<p>A simple way to choose:</p>
+
+<ul>
+  <li><strong>No design yet, need a budget?</strong> Analogous or parametric.</li>
+  <li><strong>Many similar parts and lots of history?</strong> Parametric or AI.</li>
+  <li><strong>Quote in hand, need to challenge it?</strong> Bottom-up.</li>
+  <li><strong>Overhead is large and mix is complex?</strong> Add activity-based costing.</li>
+  <li><strong>Screening hundreds of parts quickly?</strong> AI, then bottom-up on the biggest spend.</li>
+</ul>
+
+<h2>Accuracy Expectations by Design Stage</h2>
+
+<p>Accuracy isn’t only about the method. It depends on how much is known about the design. Estimates naturally narrow as the design firms up:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Design stage</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">What’s known</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Realistic range</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Concept</td><td style="padding:0.65rem 0.9rem;color:#374151;">Function, rough size, material family</td><td style="padding:0.65rem 0.9rem;color:#374151;">Very wide (±30% or more)</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Preliminary design</td><td style="padding:0.65rem 0.9rem;color:#374151;">Geometry, main processes</td><td style="padding:0.65rem 0.9rem;color:#374151;">Moderate (±15–25%)</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Detailed design</td><td style="padding:0.65rem 0.9rem;color:#374151;">Full drawing, tolerances, routing</td><td style="padding:0.65rem 0.9rem;color:#374151;">Tight (±5–15%)</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Quote or production</td><td style="padding:0.65rem 0.9rem;color:#374151;">Final design, supplier process</td><td style="padding:0.65rem 0.9rem;color:#374151;">Tightest, limited by rates and utilisation</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Two practical points follow:</p>
+
+<ul>
+  <li><strong>Don’t demand tight accuracy too early.</strong> A ±30% estimate at concept is normal and still useful, because the decision it supports is also rough.</li>
+  <li><strong>State the range with every estimate.</strong> A single number implies precision you don’t have. A range plus the method used lets decision-makers judge risk.</li>
+</ul>
+
+<p>Whatever the method, estimates are only as good as their inputs. Machine rates are the biggest of those, so see <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;font-weight:600;">how to calculate machine hour rate</a> before building a bottom-up model.</p>
+
+<h3>Combining methods</h3>
+
+<p>The strongest approach is to use two methods and compare. A parametric model gives a fast top-down number, a bottom-up model gives the detailed view, and a big gap between them is a flag to investigate. In the housing example, the five estimates fall between $40.00 and $43.20, which is a tight cluster. If one had come in at $60, you would know to check that estimate’s inputs before trusting any of them.</p>
+
+<p>For where to go next, our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a> shows how bottom-up estimates can be automated at scale.</p>
+
+<h2>FAQ</h2>
+
+<h3>What are the main methods of manufacturing cost estimation?</h3>
+<p>The five most common are analogous (by comparison with a similar part), parametric (by formula from historical data), bottom-up (by costing every operation), activity-based (by assigning overhead to activities) and AI or ML-driven (by a model trained on past parts).</p>
+
+<h3>Which cost estimation method is most accurate?</h3>
+<p>Bottom-up estimating is usually the most accurate when the design is defined and you have reliable rates, typically within about 5 to 15 percent. It also explains where each cost comes from, which makes it the best method for challenging supplier quotes.</p>
+
+<h3>How do you estimate manufacturing cost for a new part?</h3>
+<p>At concept stage, use analogous or parametric estimating from similar past parts. As the design develops, build a bottom-up model from the routing, operation times, machine rates and material cost, then add setup, overhead and margin.</p>
+
+<h3>What is the difference between parametric and bottom-up estimating?</h3>
+<p>Parametric estimating predicts cost from a few design variables using a formula built on past data. Bottom-up estimating builds cost from the ground up, operation by operation. Parametric is faster but less detailed; bottom-up is slower but traceable.</p>
+
+<h3>Can AI replace traditional cost estimation?</h3>
+<p>Not entirely. AI is fast and scales well, but it depends on the quality and relevance of its training data, and many models can’t explain their numbers. Most teams use AI for screening and early estimates, then use bottom-up methods where they need to justify a figure.</p>
+
+<h3>How accurate are cost estimates at the design stage?</h3>
+<p>Accuracy improves as the design firms up. Concept-stage estimates can be off by 30 percent or more, while detailed-design estimates can reach about 5 to 15 percent. Always quote an estimate as a range, together with the method used.</p>
+
+<h2>Where to Go Next</h2>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Read the should-cost guide</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">The most practical entry point for purchasing and cost-engineering teams.</p>
+  <a href="/blog/should-cost-analysis-guide" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Read the should-cost guide</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;">Should-cost modeling methodology</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a></p>
+    `,
+  },
+  'design-for-manufacturability-guide': {
+    heroImage: '/images/blog/design-for-manufacturability-guide.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Design for Manufacturability (DFM): Rules & Checklist',
+      metaDescription:
+        'A practical DFM guide: core principles, design rules for machining, sheet metal and casting, plus a downloadable pre-release checklist.',
+      ogTitle: 'Design for Manufacturability (DFM): Principles, Rules and a Checklist',
+      ogDescription:
+        'A practical DFM guide: core principles, design rules for machining, sheet metal and casting, plus a downloadable pre-release checklist.',
+      tags: [
+        'design for manufacturability',
+        'design for manufacturing',
+        'dfm guidelines',
+        'dfm principles',
+        'dfm checklist',
+        'dfm rules for machining',
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is design for manufacturability?',
+        answer:
+          'Design for manufacturability (DFM) is the practice of designing a part so it can be made easily and at low cost with the intended process. It means checking features, tolerances and materials against process limits during design, not after.',
+      },
+      {
+        question: 'What are the main DFM principles?',
+        answer:
+          'Keep designs simple, reduce part count, use standard materials and sizes, design for the chosen process, apply tight tolerances only where needed, make features accessible, and minimise setups.',
+      },
+      {
+        question: 'What are the key DFM rules for machining?',
+        answer:
+          'Radius internal corners, keep pockets and holes within standard tool reach, avoid very thin walls, use standard hole and thread sizes, and limit the number of setups. Always confirm exact limits with your machine shop.',
+      },
+      {
+        question: 'What is the difference between DFM and DFMA?',
+        answer:
+          'DFM focuses on making individual parts easy to manufacture. DFMA adds assembly, aiming to reduce part count and simplify how parts are put together.',
+      },
+      {
+        question: 'When should you do a DFM review?',
+        answer:
+          'At concept, during detailed design, and before release, with a final check against first-article results. The earlier the review, the cheaper the change.',
+      },
+      {
+        question: 'How does DFM reduce cost?',
+        answer:
+          'It removes features, tolerances and operations that add cost without adding function, which cuts machining time, scrap, setups and inspection. Because design decisions fix most of a product’s cost, DFM has an outsized effect on unit cost.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 11 minutes</p>
+
+<p>Design for manufacturability (DFM) means designing a part so it’s easy and cheap to make without losing function. A DFM-minded designer checks every feature against how it will actually be produced, so problems show up on the screen and not on the shop floor.</p>
+
+<p>This guide covers what DFM is, the core principles, practical design rules for machining, sheet metal and casting, the features that quietly add cost, and a pre-release checklist you can use today. If you want the cost side of the story first, read our <a href="/blog/design-to-cost" style="color:#0d9488;font-weight:600;">design-to-cost guide</a>.</p>
+
+<h2>What DFM Is and Why It Matters</h2>
+
+<p>Design for manufacturability is the practice of shaping a design around the capabilities and limits of the manufacturing process that will make it. Design for manufacturing is the same idea under a different name. Searchers use both terms interchangeably.</p>
+
+<p>It matters because most of a part’s cost is committed in the design stage. A pocket that’s too deep, a corner that’s too sharp, or a tolerance that’s tighter than the function needs is cheap to change in CAD and costly to change after tooling is cut or a first batch is scrapped.</p>
+
+<p>DFM pays off in four ways:</p>
+
+<ul>
+  <li><strong>Lower unit cost:</strong> less machining time, less scrap, fewer operations.</li>
+  <li><strong>Fewer iterations:</strong> fewer supplier queries and re-quotes.</li>
+  <li><strong>Better quality:</strong> simpler parts have fewer ways to go wrong.</li>
+  <li><strong>Faster launch:</strong> parts that are easy to make are easy to ramp.</li>
+</ul>
+
+<h2>Core DFM Principles</h2>
+
+<p>These principles apply regardless of process:</p>
+
+<ol>
+  <li><strong>Keep it simple.</strong> Every extra feature is extra time, tooling or inspection. If a feature has no function, remove it.</li>
+  <li><strong>Reduce part count.</strong> Fewer parts mean fewer suppliers, fasteners, assembly steps and failure points. Combine parts where function allows.</li>
+  <li><strong>Use standard materials and sizes.</strong> Stock sizes, common alloys and standard fasteners are cheaper and faster to source.</li>
+  <li><strong>Design for the process you’ll use.</strong> The right rules for a CNC part are wrong for a casting.</li>
+  <li><strong>Specify tolerances only where they matter.</strong> Apply tight limits to functional features and let everything else use the general tolerance.</li>
+  <li><strong>Design for access.</strong> If a cutter, probe or tool can’t reach a feature, it can’t be made or checked.</li>
+  <li><strong>Design for repeatable setup.</strong> Fewer setups and clear datums reduce handling, fixtures and error.</li>
+  <li><strong>Design for assembly.</strong> Make parts self-locating, symmetrical or obviously orientated, so they can’t be assembled wrongly. (This is where DFMA, covered below, takes over.)</li>
+</ol>
+
+<h2>Design Rules by Process</h2>
+
+<p>The numbers below are common starting points. Capabilities vary by supplier and material, so always confirm with the shop that will make the part.</p>
+
+<h3>DFM rules for machining</h3>
+
+<ul>
+  <li><strong>Internal corners: radius them.</strong> Cutters are round, so a sharp internal corner isn’t possible. A common guide is to make the radius at least one-third of the pocket depth, and use the same radius everywhere so one tool does the job.</li>
+  <li><strong>Pocket depth:</strong> keep depth to about four times the pocket width or less. Deep, narrow pockets need long, flexible tools that chatter and slow down.</li>
+  <li><strong>Hole depth:</strong> standard drilling works well to about four to six times the diameter. Deeper holes need special drills and cost more.</li>
+  <li><strong>Standard hole sizes:</strong> use standard drill and reamer sizes so no special tools are needed.</li>
+  <li><strong>Wall thickness:</strong> very thin walls vibrate and deflect during cutting. As a rough guide, keep metal walls above about 0.8 mm, and thicker for tall walls.</li>
+  <li><strong>Threads:</strong> thread depth beyond about 1.5 to 2 times the diameter adds little strength. Specify standard thread sizes.</li>
+  <li><strong>Setups:</strong> design so features can be machined from as few sides as possible. Each extra setup adds handling time and tolerance stack-up.</li>
+  <li><strong>Flat bottoms and undercuts:</strong> avoid undercuts and features that need special cutters unless essential.</li>
+</ul>
+
+<h3>DFM rules for sheet metal</h3>
+
+<ul>
+  <li><strong>Bend radius:</strong> make the inside bend radius at least equal to the material thickness for most ductile metals. Tighter bends risk cracking.</li>
+  <li><strong>Hole size:</strong> keep hole diameter at least equal to the material thickness, to avoid punch breakage.</li>
+  <li><strong>Hole to edge:</strong> keep holes at least about two times the thickness from an edge.</li>
+  <li><strong>Hole to bend:</strong> keep holes clear of the bend line so they don’t distort. A common guide is at least two and a half times the thickness plus the bend radius.</li>
+  <li><strong>Flange length:</strong> keep the shortest flange at least about four times the thickness, or the press brake can’t grip it.</li>
+  <li><strong>Bend relief:</strong> add small relief cuts where a bend meets a flat edge, to prevent tearing.</li>
+  <li><strong>Consistent thickness and bend direction:</strong> use one sheet thickness where you can, and bend in the same direction to reduce part rotation.</li>
+</ul>
+
+<p>To see how these choices turn into a price, read our <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;font-weight:600;">sheet metal cost estimation guide</a>.</p>
+
+<h3>DFM rules for casting</h3>
+
+<ul>
+  <li><strong>Uniform wall thickness:</strong> uneven walls cool at different rates and cause shrinkage and porosity. Keep thickness consistent and blend changes gradually.</li>
+  <li><strong>Draft angles:</strong> add draft on vertical faces so the part releases from the mould. A few degrees is common; the right figure depends on the process and depth.</li>
+  <li><strong>Fillets and radii:</strong> use generous radii on corners to reduce stress and improve metal flow.</li>
+  <li><strong>Ribs:</strong> use ribs instead of thick sections for stiffness. Ribs are often kept to roughly half to two-thirds of the wall thickness they join.</li>
+  <li><strong>Avoid undercuts:</strong> they need side cores or slides, which add tooling cost.</li>
+  <li><strong>Machining allowance:</strong> add stock only where you’ll machine, and keep critical machined faces accessible.</li>
+</ul>
+
+<h2>Tolerances, Features and Materials That Add Cost</h2>
+
+<p>Some design choices look harmless on the drawing and expensive in production.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Design choice</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Why it adds cost</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Tight tolerances on non-critical features</td><td style="padding:0.65rem 0.9rem;color:#374151;">Slower cutting, extra finishing passes, more inspection, higher scrap</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Fine surface finishes</td><td style="padding:0.65rem 0.9rem;color:#374151;">Extra operations such as grinding or polishing</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Deep or narrow features</td><td style="padding:0.65rem 0.9rem;color:#374151;">Long tools, slow feed rates, vibration</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Many different hole or radius sizes</td><td style="padding:0.65rem 0.9rem;color:#374151;">More tool changes and tooling</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Exotic or hard-to-machine materials</td><td style="padding:0.65rem 0.9rem;color:#374151;">Slower cutting, tool wear, longer lead times</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Non-standard stock sizes</td><td style="padding:0.65rem 0.9rem;color:#374151;">Higher material cost and waste</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Cosmetic requirements on hidden faces</td><td style="padding:0.65rem 0.9rem;color:#374151;">Added finishing and inspection</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Large numbers of setups</td><td style="padding:0.65rem 0.9rem;color:#374151;">More handling, fixtures and cumulative error</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Tolerance is the biggest hidden cost. As limits tighten, cost generally rises steeply, because the process needs more precision, slower speeds and more inspection. The rule of thumb is simple: tolerance only what the function needs. Use general tolerances for the rest, and review any tight limit asking “what fails if this is looser?” For how all these drivers combine, see our <a href="/blog/manufacturing-cost-drivers" style="color:#0d9488;font-weight:600;">manufacturing cost drivers guide</a>.</p>
+
+<h2>DFM Review: When and Who</h2>
+
+<p>DFM works best when it’s a routine step in the design process, not a late audit.</p>
+
+<p><strong>When:</strong></p>
+
+<ul>
+  <li><strong>Concept stage:</strong> check process choice, material and rough feasibility.</li>
+  <li><strong>Detailed design:</strong> review features, tolerances and rules once geometry is stable.</li>
+  <li><strong>Pre-release:</strong> do a final sign-off before drawings go to suppliers or tooling is ordered.</li>
+  <li><strong>After first articles:</strong> capture what the shop learned and feed it back into the next design.</li>
+</ul>
+
+<p><strong>Who:</strong></p>
+
+<ul>
+  <li>The design engineer, who owns the design.</li>
+  <li>A manufacturing or process engineer, who knows what the process can do.</li>
+  <li>A supplier or toolmaker, ideally involved early, because they know their own machines.</li>
+  <li>Quality, to flag anything hard to inspect.</li>
+  <li>Procurement or cost engineering, to estimate cost impact and challenge expensive features.</li>
+</ul>
+
+<p>A short, structured review (30 to 60 minutes with a checklist) beats a long, unfocused one. The checklist below is built for that.</p>
+
+<h2>Pre-Release DFM Checklist</h2>
+
+<p>Use this before releasing a drawing or sending a quote request.</p>
+
+<h3>General</h3>
+<ul style="list-style:none;padding-left:0;">
+  <li>☐ Every feature has a function. Anything that doesn’t is removed or simplified.</li>
+  <li>☐ Part count has been reviewed. Combination opportunities are checked.</li>
+  <li>☐ Standard materials, stock sizes and fasteners are used where possible.</li>
+  <li>☐ The intended manufacturing process and volume are stated.</li>
+</ul>
+
+<h3>Tolerances and finish</h3>
+<ul style="list-style:none;padding-left:0;">
+  <li>☐ Tight tolerances apply only to functional features.</li>
+  <li>☐ General tolerances cover everything else.</li>
+  <li>☐ Surface finish requirements are no tighter than needed.</li>
+  <li>☐ Datums are clear and reflect how the part is made and measured.</li>
+</ul>
+
+<h3>Machined parts</h3>
+<ul style="list-style:none;padding-left:0;">
+  <li>☐ Internal corners have radii, ideally one common value.</li>
+  <li>☐ Pocket and hole depths are within standard tool reach.</li>
+  <li>☐ Walls are thick enough to avoid deflection.</li>
+  <li>☐ Features can be reached with as few setups as possible.</li>
+  <li>☐ Standard hole and thread sizes are used.</li>
+</ul>
+
+<h3>Sheet metal parts</h3>
+<ul style="list-style:none;padding-left:0;">
+  <li>☐ Bend radii, hole sizes and flange lengths follow the thickness rules above.</li>
+  <li>☐ Holes are clear of edges and bend lines.</li>
+  <li>☐ Bend relief is included where required.</li>
+</ul>
+
+<h3>Cast parts</h3>
+<ul style="list-style:none;padding-left:0;">
+  <li>☐ Wall thickness is uniform or blends gradually.</li>
+  <li>☐ Draft is on all relevant faces, with generous fillets.</li>
+  <li>☐ Undercuts are avoided or justified.</li>
+</ul>
+
+<h3>Cost and supply</h3>
+<ul style="list-style:none;padding-left:0;">
+  <li>☐ A cost estimate exists, and the top cost drivers are identified.</li>
+  <li>☐ Lead time and supplier capability are confirmed.</li>
+  <li>☐ Inspection requirements are achievable and not excessive.</li>
+</ul>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the DFM checklist</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">These items in a one-page format by process.</p>
+  <a href="/downloads/dfm-checklist.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the checklist (CSV)</a>
+</div>
+
+<h2>DFM vs DFMA</h2>
+
+<p>DFM and DFMA are related but not identical.</p>
+
+<ul>
+  <li><strong>DFM</strong> (design for manufacturing) focuses on making each part easy to produce.</li>
+  <li><strong>DFMA</strong> (design for manufacturing and assembly) adds assembly: reducing part count, simplifying fastening and making assembly error-proof.</li>
+</ul>
+
+<p>In practice, DFMA is DFM plus a structured look at how parts go together. Teams often start with DFM on individual parts, then apply DFMA to the assembly. We explain the differences in <a href="/blog/what-is-dfma" style="color:#0d9488;font-weight:600;">what is DFMA</a>.</p>
+
+<p>DFM is also closely related to value engineering, which asks how to deliver the same function for less cost, often after a design is already in production. See our guide to <a href="/blog/what-is-vave" style="color:#0d9488;font-weight:600;">value analysis and value engineering</a>.</p>
+
+<h3>Tools for DFM</h3>
+
+<p>Manual checklists work for a few parts. When you have hundreds of parts, many suppliers and frequent design changes, automated checks in CAD or a dedicated platform save time by flagging rule violations and estimating cost impact automatically. To put a cost on each design decision as it changes, see our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is design for manufacturability?</h3>
+<p>Design for manufacturability (DFM) is the practice of designing a part so it can be made easily and at low cost with the intended process. It means checking features, tolerances and materials against process limits during design, not after.</p>
+
+<h3>What are the main DFM principles?</h3>
+<p>Keep designs simple, reduce part count, use standard materials and sizes, design for the chosen process, apply tight tolerances only where needed, make features accessible, and minimise setups.</p>
+
+<h3>What are the key DFM rules for machining?</h3>
+<p>Radius internal corners, keep pockets and holes within standard tool reach, avoid very thin walls, use standard hole and thread sizes, and limit the number of setups. Always confirm exact limits with your machine shop.</p>
+
+<h3>What is the difference between DFM and DFMA?</h3>
+<p>DFM focuses on making individual parts easy to manufacture. DFMA adds assembly, aiming to reduce part count and simplify how parts are put together.</p>
+
+<h3>When should you do a DFM review?</h3>
+<p>At concept, during detailed design, and before release, with a final check against first-article results. The earlier the review, the cheaper the change.</p>
+
+<h3>How does DFM reduce cost?</h3>
+<p>It removes features, tolerances and operations that add cost without adding function, which cuts machining time, scrap, setups and inspection. Because design decisions fix most of a product’s cost, DFM has an outsized effect on unit cost.</p>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/design-to-cost" style="color:#0d9488;">Design-to-cost guide</a> · <a href="/blog/what-is-dfma" style="color:#0d9488;">What is DFMA?</a> · <a href="/blog/what-is-vave" style="color:#0d9488;">Value analysis and value engineering</a> · <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;">Sheet metal cost estimation</a></p>
+    `,
+  },
+  'design-to-cost': {
+    heroImage: '/images/blog/design-to-cost.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Design-to-Cost: Definition, Process & Examples',
+      metaDescription:
+        'Design-to-cost explained: how teams set a cost target, allocate it by part and process, and design to hit it. Includes examples and a step-by-step process.',
+      ogTitle: 'Design-to-Cost: Definition, Process and Worked Examples',
+      ogDescription:
+        'Design-to-cost explained: how teams set a cost target, allocate it by part and process, and design to hit it. Includes examples and a step-by-step process.',
+      tags: [
+        'design to cost',
+        'design to cost process',
+        'design to cost examples',
+        'design to cost methodology',
+        'design to cost vs target costing',
+        'design to cost aerospace',
+      ],
+    },
+    howTo: {
+      name: 'How to run the design-to-cost process',
+      steps: [
+        { name: 'Set the product cost target', text: 'Work back from the selling price: target cost = selling price − required profit.' },
+        { name: 'Allocate the target', text: 'Break the product target down to subsystems, then parts, by function, by share of the previous product’s cost, or a mix of both.' },
+        { name: 'Baseline the current design', text: 'Estimate what the present or concept design costs, using analogous data or a bottom-up cost model, to get the gap to target.' },
+        { name: 'Find the cost drivers', text: 'Identify which features, materials, tolerances and processes drive the gap, and where a small design change moves cost most.' },
+        { name: 'Redesign and trade off', text: 'Generate options such as fewer parts, simpler geometry, standard materials, relaxed tolerances or a different process, and re-estimate each against performance, quality and safety requirements.' },
+        { name: 'Track and control', text: 'Report cost against target at every design review, and treat an overrun like a missed weight or performance requirement, with an action, an owner and a date.' },
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is design to cost?',
+        answer:
+          'Design-to-cost is a method where a cost target is set before design begins and treated as a design requirement. Engineers allocate the target to parts and processes, estimate cost as they design, and change the design until it meets the target.',
+      },
+      {
+        question: 'What are the steps in the design-to-cost process?',
+        answer:
+          'Set the product target, allocate it to subsystems and parts, baseline the current design, find the cost drivers, redesign and trade off options, then track cost against target at every design review.',
+      },
+      {
+        question: 'What’s the difference between design-to-cost and target costing?',
+        answer:
+          'Target costing sets the cost target from market price and required profit. Design-to-cost is the engineering process of designing a product to meet that target. They’re usually used together.',
+      },
+      {
+        question: 'How is design-to-cost different from value engineering?',
+        answer:
+          'Design-to-cost starts with a target and shapes the design to meet it. Value engineering takes an existing design or function and looks for ways to deliver the same function at lower cost.',
+      },
+      {
+        question: 'Is design-to-cost used in aerospace?',
+        answer:
+          'Yes. It began in defence acquisition, and aerospace and defence programmes still use it to manage unit cost, often alongside should-cost reviews and learning-curve forecasts.',
+      },
+      {
+        question: 'How much can design-to-cost save?',
+        answer:
+          'It depends on how early it’s applied and how far the starting design is from the target. In the bracket example above, the redesign cut cost by 38 percent. Savings are usually largest when cost is considered before the design is released.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 12 minutes</p>
+
+<p>Design-to-cost (DTC) is an engineering approach where a cost target is set before design starts, then treated like any other requirement, alongside weight, strength or performance. Engineers design to hit that target instead of finding out the cost afterwards and trying to cut it.</p>
+
+<p>This guide covers what design to cost means, why it works, the six-step process, a worked bracket redesign with numbers, and how it differs from target costing and value engineering.</p>
+
+<h2>What Is Design-to-Cost</h2>
+
+<p>Design-to-cost is a method for managing product cost during design. The team:</p>
+
+<ol>
+  <li>Sets a cost target for the product, based on what the market or customer will pay.</li>
+  <li>Allocates that target to subsystems, parts and processes.</li>
+  <li>Estimates the cost of each design decision against its allocation.</li>
+  <li>Changes the design when it overruns, and tracks the result through every design gate.</li>
+</ol>
+
+<p>The idea started in US defence acquisition, where programmes began treating unit cost as a requirement, not an outcome. It’s now used in aerospace, automotive, industrial equipment and consumer hardware.</p>
+
+<p>The key principle: <strong>cost is a design parameter, not an after-the-fact measurement.</strong></p>
+
+<h2>Why Cost Is Locked In at the Design Stage</h2>
+
+<p>Most of a product’s cost is decided by early design choices: material, geometry, tolerances, the number of parts, and the processes needed to make them. Once drawings are released and tooling is built, changes are slow and expensive.</p>
+
+<p>Industry sources commonly estimate that a large majority of a product’s cost is committed during design, even though design itself consumes only a small share of the budget.</p>
+
+<p>The practical consequence is that the cheapest time to reduce cost is before the design is frozen. Negotiating with suppliers later can trim a few percent, while a design change can remove a third of the cost. That’s why design-to-cost sits upstream of purchasing tools like <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis</a>.</p>
+
+<h2>The Design-to-Cost Process in 6 Steps</h2>
+
+<p><strong>Step 1: Set the product cost target.</strong> Start from the market. Work back from the selling price: target cost = selling price − required profit. The formula and examples are in our <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;font-weight:600;">cost modeling guide</a>, which covers target costing alongside other methods.</p>
+
+<p><strong>Step 2: Allocate the target.</strong> Break the product target down to subsystems, then parts. Common methods are by function (what the part is worth to the customer), by share of the previous product’s cost, or by a mix of both.</p>
+
+<p><strong>Step 3: Baseline the current design.</strong> Estimate what the present or concept design costs, using analogous data or a bottom-up cost model. This gives you the gap between current cost and target cost.</p>
+
+<p><strong>Step 4: Find the cost drivers.</strong> Identify which features, materials, tolerances and processes drive the gap. A sensitivity view shows where a small design change moves cost most.</p>
+
+<p><strong>Step 5: Redesign and trade off.</strong> Generate options: fewer parts, simpler geometry, standard materials, relaxed tolerances, a different process. Re-estimate each. Check that each option still meets performance, quality and safety requirements.</p>
+
+<p><strong>Step 6: Track and control.</strong> Report cost against target at every design review. Treat a cost overrun like a missed weight or performance requirement. It needs an action, an owner and a date.</p>
+
+<h2>Setting and Allocating Cost Targets</h2>
+
+<p>A good target is specific, tied to a volume and a date, and owned. “Reduce cost” isn’t a target. “Unit cost of $30 at 5,000 units a year, by design freeze” is.</p>
+
+<p>Allocation is where most programmes struggle. Three methods work well in practice:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Method</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">How it works</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Best for</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Historical share</td><td style="padding:0.65rem 0.9rem;color:#374151;">Split the target in the same proportions as the last product’s cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Derivative products with a close predecessor</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Functional value</td><td style="padding:0.65rem 0.9rem;color:#374151;">Give more budget to the functions customers value most</td><td style="padding:0.65rem 0.9rem;color:#374151;">New products, consumer-facing designs</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Bottom-up estimate, then trim</td><td style="padding:0.65rem 0.9rem;color:#374151;">Cost a concept design and cut each part’s share proportionally</td><td style="padding:0.65rem 0.9rem;color:#374151;">Complex assemblies with data available</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Keep a small reserve, typically 3 to 5 percent, unallocated at the top level so one overrun doesn’t force a full re-allocation. For a deeper treatment of setting and tracking targets, see our <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;font-weight:600;">guide to cost modeling in manufacturing</a>.</p>
+
+<h2>Worked Example: Bracket Redesign</h2>
+
+<p><strong>The situation:</strong> a machined aluminium bracket costs more than the $30.00 target allocated to it. The assumptions are illustrative: batch of 100, 6061 aluminium at $5.00/kg, machining at $60/hour ($1.00/min), overhead at 12 percent of direct cost.</p>
+
+<ul>
+  <li><strong>Baseline design:</strong> machined from a solid billet of 120 × 80 × 40 mm, with deep pockets, four setups and tight tolerances on most dimensions.</li>
+  <li><strong>Redesign:</strong> use a 120 × 80 × 25 mm extruded blank, remove the deep pockets, standardise radii so one tool covers them, cut setups from four to two, and relax non-critical tolerances.</li>
+</ul>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost line (per part)</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Baseline</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Redesign</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Saving</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.18 (1.04 kg)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3.24 (0.65 kg)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.94</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machining</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$25.00 (25 min)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$14.00 (14 min)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$11.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup ($120 vs $80 per batch of 100)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.20</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.80</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.40</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Anodising</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$4.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$4.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Inspection</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$2.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.00</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$37.38</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$23.04</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$14.34</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead (12%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$4.49</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$2.76</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.73</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total cost</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$41.87</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$25.80</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$16.07</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p><strong>Result:</strong></p>
+
+<ul>
+  <li>The baseline misses the target by $11.87, which is about 40 percent over target.</li>
+  <li>The redesign comes in at $25.80, $4.20 under the target, and 38 percent below the baseline.</li>
+  <li>Nearly 70 percent of the saving came from machining time, which is why cost-driver analysis comes before redesign.</li>
+</ul>
+
+<p>Notice what did not work: switching the finish gave nothing. Without a cost model, a team might have spent weeks negotiating the anodising price for no gain.</p>
+
+<h2>DTC vs Target Costing vs Value Engineering</h2>
+
+<p>These terms are often mixed up. They overlap, but each answers a different question.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;"></th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Design-to-cost</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Target costing</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Value engineering</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Core question</td><td style="padding:0.65rem 0.9rem;color:#374151;">How do we design to hit this cost?</td><td style="padding:0.65rem 0.9rem;color:#374151;">What should this product cost, given the price?</td><td style="padding:0.65rem 0.9rem;color:#374151;">How do we get the same function for less?</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Starts from</td><td style="padding:0.65rem 0.9rem;color:#374151;">A cost target</td><td style="padding:0.65rem 0.9rem;color:#374151;">Market price minus profit</td><td style="padding:0.65rem 0.9rem;color:#374151;">An existing design or function</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">When used</td><td style="padding:0.65rem 0.9rem;color:#374151;">During design</td><td style="padding:0.65rem 0.9rem;color:#374151;">Concept and planning</td><td style="padding:0.65rem 0.9rem;color:#374151;">Design or in production</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Focus</td><td style="padding:0.65rem 0.9rem;color:#374151;">Engineering decisions, cost tracking</td><td style="padding:0.65rem 0.9rem;color:#374151;">Setting the target</td><td style="padding:0.65rem 0.9rem;color:#374151;">Function analysis, cost reduction</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>In short: target costing sets the number, design-to-cost engineers to the number, and value engineering reduces cost while protecting function. They work well together. For the first comparison, see our <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;font-weight:600;">cost modeling guide</a>, and for the value-based view, our guide to <a href="/blog/what-is-vave" style="color:#0d9488;font-weight:600;">value analysis and value engineering</a>.</p>
+
+<h2>Data and Tools Needed</h2>
+
+<p>You don’t need heavy software to start, but you do need four things:</p>
+
+<ul>
+  <li>A cost model that estimates part cost from design inputs (material, geometry, process, volume).</li>
+  <li>Machine and labour rates for your shop or suppliers. See <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;font-weight:600;">how to calculate machine hour rate</a>.</li>
+  <li>Material prices and scrap assumptions.</li>
+  <li>A tracking view that shows cost against target at each design review.</li>
+</ul>
+
+<p>Spreadsheets work for single parts, but they stop scaling when you have many parts, many design variants and many reviews. A dedicated tool keeps the cost model linked to the design so the estimate updates when the design does. See how this works in practice on our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is design to cost?</h3>
+<p>Design-to-cost is a method where a cost target is set before design begins and treated as a design requirement. Engineers allocate the target to parts and processes, estimate cost as they design, and change the design until it meets the target.</p>
+
+<h3>What are the steps in the design-to-cost process?</h3>
+<p>Set the product target, allocate it to subsystems and parts, baseline the current design, find the cost drivers, redesign and trade off options, then track cost against target at every design review.</p>
+
+<h3>What’s the difference between design-to-cost and target costing?</h3>
+<p>Target costing sets the cost target from market price and required profit. Design-to-cost is the engineering process of designing a product to meet that target. They’re usually used together.</p>
+
+<h3>How is design-to-cost different from value engineering?</h3>
+<p>Design-to-cost starts with a target and shapes the design to meet it. Value engineering takes an existing design or function and looks for ways to deliver the same function at lower cost.</p>
+
+<h3>Is design-to-cost used in aerospace?</h3>
+<p>Yes. It began in defence acquisition, and aerospace and defence programmes still use it to manage unit cost, often alongside should-cost reviews and learning-curve forecasts.</p>
+
+<h3>How much can design-to-cost save?</h3>
+<p>It depends on how early it’s applied and how far the starting design is from the target. In the bracket example above, the redesign cut cost by 38 percent. Savings are usually largest when cost is considered before the design is released.</p>
+
+<h2>Apply It to Your Own Product</h2>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the design-to-cost framework</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Includes the six steps, an allocation worksheet and the bracket example.</p>
+  <a href="/downloads/design-to-cost-framework.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the framework (CSV)</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/what-is-vave" style="color:#0d9488;">Value analysis and value engineering</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a></p>
+    `,
+  },
+  'machine-hour-rate-calculation': {
+    heroImage: '/images/blog/machine-hour-rate-calculation.jpg',
+    authorBio:
+      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
+    seo: {
+      metaTitle: 'Machine Hour Rate: Formula, Calculation & Example',
+      metaDescription:
+        'How to calculate machine hour rate for CNC, laser and press machines: depreciation, power, maintenance, floor space and labour, with a worked example.',
+      ogTitle: 'How to Calculate Machine Hour Rate (Formula, Example and Template)',
+      ogDescription:
+        'How to calculate machine hour rate for CNC, laser and press machines: depreciation, power, maintenance, floor space and labour, with a worked example.',
+      tags: [
+        'machine hour rate',
+        'machine hour rate formula',
+        'how to calculate machine hour rate',
+        'cnc machine hour rate',
+        'machine hour rate calculation example',
+        'machine hour rate vs labour rate',
+      ],
+    },
+    howTo: {
+      name: 'How to calculate machine hour rate',
+      steps: [
+        { name: 'Calculate annual depreciation', text: '(Purchase price − residual value) ÷ useful life in years.' },
+        { name: 'Calculate finance cost', text: 'Average investment × interest rate, where average investment = (purchase price + residual value) ÷ 2.' },
+        { name: 'Add power', text: 'Average kW draw × productive hours × electricity price per kWh.' },
+        { name: 'Add maintenance', text: 'A percentage of purchase price (often 3 to 7 percent per year), or actual service history if you have it.' },
+        { name: 'Add tooling, consumables and floor space', text: 'Add annual tooling and consumables, plus floor space (area × cost per m² per year).' },
+        { name: 'Add operator cost if included', text: 'Add the operator’s loaded annual cost if the rate is meant to include labour.' },
+        { name: 'Calculate productive hours', text: 'Scheduled hours × utilisation.' },
+        { name: 'Divide', text: 'Divide the total annual cost by productive hours to get the machine hour rate.' },
+      ],
+    },
+    faqs: [
+      {
+        question: 'What is a machine hour rate?',
+        answer:
+          'It’s the cost of running a machine for one productive hour, calculated by dividing its total annual cost (depreciation, finance, power, maintenance, tooling, floor space and optionally the operator) by its annual productive hours.',
+      },
+      {
+        question: 'How do you calculate machine hour rate?',
+        answer:
+          'Add up annual depreciation, finance cost, power, maintenance, tooling and floor space (plus operator cost if included), then divide by productive hours, which equal scheduled hours multiplied by utilisation.',
+      },
+      {
+        question: 'What is a typical CNC machine hour rate?',
+        answer:
+          'It varies widely by machine, region and what’s included. Rates of roughly $30 to $60 per hour for 3-axis machines and $60 to $120 or more for 5-axis machines are common when the operator is included, but you should calculate your own rate rather than rely on a benchmark.',
+      },
+      {
+        question: 'What is the difference between machine hour rate and labour rate?',
+        answer:
+          'Labour rate is the loaded hourly cost of a person. Machine hour rate is the cost of the machine, and it may or may not include the operator. Use one method consistently so you don’t double-count labour.',
+      },
+      {
+        question: 'Why does utilisation matter so much?',
+        answer:
+          'Most machine costs are fixed, so lower utilisation spreads them over fewer hours. In the example above, dropping from 90 to 60 percent utilisation raises the rate by 50 percent.',
+      },
+      {
+        question: 'Should I include overhead in the machine hour rate?',
+        answer:
+          'Include costs directly tied to the machine (floor space, power, maintenance). General overhead such as admin and management is usually added separately as a percentage on top, so it isn’t counted twice.',
+      },
+    ],
+    content: `
+<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 10 minutes</p>
+
+<p>A machine hour rate is the cost of running one machine for one productive hour. It’s the number you multiply by cycle time to get the machining, cutting or forming cost of a part. Get it wrong and every cost estimate built on it is wrong too.</p>
+
+<p>This guide shows how to calculate machine hour rate step by step for CNC, laser and press machines. It includes a worked example comparing a 3-axis and a 5-axis CNC, and shows why utilisation matters more than any other input. It’s also the rate behind the cutting and bending costs in our <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;font-weight:600;">sheet metal cost estimation guide</a>.</p>
+
+<h2>What a Machine Hour Rate Is</h2>
+
+<p>A machine hour rate (MHR) spreads all the annual costs of owning and running a machine over the hours it actually produces parts. The result is one number in dollars per hour.</p>
+
+<p>Shops use it because a single “shop rate” hides real differences. A $300,000 five-axis machine costs far more per hour than a $60,000 manual mill, and your estimates should show that.</p>
+
+<h2>Components: Depreciation, Finance, Power, Maintenance, Tooling, Floor Space</h2>
+
+<p>Most machine hour rates are built from the same cost blocks:</p>
+
+<ul>
+  <li><strong>Depreciation:</strong> the machine’s purchase price, less residual value, spread over its useful life.</li>
+  <li><strong>Finance cost:</strong> the cost of capital tied up in the machine (interest, or the return you’d earn elsewhere).</li>
+  <li><strong>Power:</strong> electricity for the spindle, axes, coolant, hydraulics and controls.</li>
+  <li><strong>Maintenance:</strong> scheduled service, repairs and spare parts, often 3 to 7 percent of purchase price per year.</li>
+  <li><strong>Tooling and consumables:</strong> cutting tools, inserts, coolant, assist gas, lubricants.</li>
+  <li><strong>Floor space:</strong> the share of rent or building cost for the area the machine occupies.</li>
+  <li><strong>Operator:</strong> wages plus benefits, if you want a fully loaded rate (see below).</li>
+</ul>
+
+<p>Insurance, software licences and compressed air are smaller items, but add them if they matter in your shop.</p>
+
+<h2>Formula Step by Step</h2>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Machine hour rate = Total annual machine cost ÷ Annual productive hours</p>
+</div>
+
+<ol>
+  <li><strong>Calculate annual depreciation:</strong> (purchase price − residual value) ÷ useful life in years.</li>
+  <li><strong>Calculate finance cost:</strong> average investment × interest rate, where average investment = (purchase price + residual value) ÷ 2.</li>
+  <li><strong>Add power:</strong> average kW draw × productive hours × electricity price per kWh.</li>
+  <li><strong>Add maintenance:</strong> a percentage of purchase price, or actual service history if you have it.</li>
+  <li><strong>Add tooling and consumables, and floor space</strong> (area × cost per m² per year).</li>
+  <li><strong>Add operator cost</strong> if the rate is meant to include labour.</li>
+  <li><strong>Calculate productive hours:</strong> scheduled hours × utilisation.</li>
+  <li><strong>Divide</strong> the total annual cost by productive hours.</li>
+</ol>
+
+<p>Productive hours are the hours when the machine is actually cutting or forming, not the hours it sits powered on. That is what step 7 is for.</p>
+
+<h2>Worked Example: 3-Axis vs 5-Axis CNC</h2>
+
+<p><strong>Shared assumptions</strong> (illustrative; use your own figures):</p>
+
+<ul>
+  <li>Useful life: 10 years; finance rate: 8%; residual value: 10% of price</li>
+  <li>Scheduled hours: 4,000 per year (two shifts, about 250 days)</li>
+  <li>Utilisation: 75%, so productive hours = 4,000 × 0.75 = 3,000</li>
+  <li>Electricity: $0.12/kWh at an average 10 kW draw while productive</li>
+  <li>Maintenance: 5% of purchase price per year</li>
+  <li>Floor space: $120 per m² per year</li>
+</ul>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Annual cost</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">3-axis CNC</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">5-axis CNC</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Purchase price</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$80,000</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$300,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Depreciation</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$7,200</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$27,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Finance cost (8% on average investment)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3,520</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$13,200</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Power</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3,600</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$3,600</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Maintenance (5%)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$4,000</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$15,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Tooling and consumables</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5,000</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$9,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Floor space (12 m² / 20 m²)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1,440</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$2,400</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Operator (4,000 h × $22 / $30)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$88,000</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$120,000</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total annual cost</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$112,760</td><td style="padding:0.65rem 0.9rem;color:#0d1117;text-align:right;font-weight:700;">$190,200</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Productive hours</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3,000</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3,000</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Machine hour rate (with operator)</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$37.59/h</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$63.40/h</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The 5-axis machine costs about 69 percent more per hour. That does not mean parts cost 69 percent more. Take a part that needs 12 minutes on the 3-axis machine across multiple setups, but 7 minutes on the 5-axis machine in one setup:</p>
+
+<ul>
+  <li><strong>3-axis:</strong> 12 ÷ 60 × $37.59 = <strong>$7.52</strong></li>
+  <li><strong>5-axis:</strong> 7 ÷ 60 × $63.40 = <strong>$7.40</strong></li>
+</ul>
+
+<p>Same part, near-identical machine cost, in spite of a much higher hourly rate. This is why you compare cost per part, not rate per hour, when choosing a process. (Fixturing and extra setups on the 3-axis route would tip it further toward the 5-axis.)</p>
+
+<h2>Utilisation: The Input That Moves the Rate Most</h2>
+
+<p>Utilisation is the share of scheduled hours the machine spends producing. Almost every cost in the rate is fixed. Depreciation, finance, floor space and the operator’s wage don’t fall when the machine sits idle. So fewer productive hours means the same cost spread over fewer hours.</p>
+
+<p>Using the 3-axis example (treating all costs as fixed for simplicity):</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Utilisation</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Productive hours</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Machine hour rate</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">60%</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2,400</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$46.98/h</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">75%</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3,000</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$37.59/h</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">90%</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3,600</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$31.32/h</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Moving from 60 to 90 percent utilisation cuts the rate by a third. In reality, power and tooling rise with run time, so the swing is slightly smaller, but the direction is the same. When a quote seems high, ask what utilisation the supplier assumed. And when you build a rate, use a realistic utilisation, not 100 percent. Typical job shops run at 50 to 80 percent.</p>
+
+<h2>Machine Hour Rate vs Labour Rate</h2>
+
+<p>These are different numbers, and mixing them up double-counts or misses cost.</p>
+
+<ul>
+  <li><strong>Labour rate:</strong> the loaded hourly cost of a person (wages, benefits, payroll taxes). In the example, $22/h.</li>
+  <li><strong>Machine hour rate:</strong> the cost of the machine itself, with or without the operator.</li>
+</ul>
+
+<p>There are two clean ways to handle it:</p>
+
+<ol>
+  <li><strong>Machine-only rate plus a separate labour line.</strong> Use this when one operator tends several machines, or labour time differs from machine time (for example, manual setup).</li>
+  <li><strong>Combined rate,</strong> as in the table above. Use this when one operator is tied to one machine for the whole cycle.</li>
+</ol>
+
+<p>Pick one method and use it consistently across your estimates. If you want to see how these roll up into a part price, read <a href="/blog/total-manufacturing-cost-formula" style="color:#0d9488;font-weight:600;">how to calculate total manufacturing cost</a>.</p>
+
+<h2>Using the Rate in a Should-Cost Model</h2>
+
+<p>In a should-cost model, each operation’s cost is:</p>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
+  <p style="margin:0;font-weight:600;color:#0d1117;">Operation cost = (Cycle time + Setup time ÷ batch size) × Machine hour rate</p>
+</div>
+
+<p>Rates are the biggest lever in a bottom-up estimate, because they apply to every minute of every operation. A few practical rules:</p>
+
+<ul>
+  <li>Keep a rate table by machine type, not one shop-wide number.</li>
+  <li>Review it annually, and when you buy or retire a machine.</li>
+  <li>Validate your rates against a few real supplier quotes before relying on them.</li>
+</ul>
+
+<p>For the full method, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>. For a ready-made spreadsheet, use the <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;font-weight:600;">should-cost Excel template guide</a> or run it in our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is a machine hour rate?</h3>
+<p>It’s the cost of running a machine for one productive hour, calculated by dividing its total annual cost (depreciation, finance, power, maintenance, tooling, floor space and optionally the operator) by its annual productive hours.</p>
+
+<h3>How do you calculate machine hour rate?</h3>
+<p>Add up annual depreciation, finance cost, power, maintenance, tooling and floor space (plus operator cost if included), then divide by productive hours, which equal scheduled hours multiplied by utilisation.</p>
+
+<h3>What is a typical CNC machine hour rate?</h3>
+<p>It varies widely by machine, region and what’s included. Rates of roughly $30 to $60 per hour for 3-axis machines and $60 to $120 or more for 5-axis machines are common when the operator is included, but you should calculate your own rate rather than rely on a benchmark.</p>
+
+<h3>What is the difference between machine hour rate and labour rate?</h3>
+<p>Labour rate is the loaded hourly cost of a person. Machine hour rate is the cost of the machine, and it may or may not include the operator. Use one method consistently so you don’t double-count labour.</p>
+
+<h3>Why does utilisation matter so much?</h3>
+<p>Most machine costs are fixed, so lower utilisation spreads them over fewer hours. In the example above, dropping from 90 to 60 percent utilisation raises the rate by 50 percent.</p>
+
+<h3>Should I include overhead in the machine hour rate?</h3>
+<p>Include costs directly tied to the machine (floor space, power, maintenance). General overhead such as admin and management is usually added separately as a percentage on top, so it isn’t counted twice.</p>
+
+<h2>Calculate Your Own Rates</h2>
+
+<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
+  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the machine hour rate calculator</p>
+  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Includes the formula, the 3-axis and 5-axis example and a utilisation sensitivity table.</p>
+  <a href="/downloads/machine-hour-rate-calculator.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the calculator (CSV)</a>
+</div>
+
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;">Sheet metal cost estimation</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a></p>
+    `,
+  },
   'sheet-metal-cost-estimation': {
     heroImage: '/images/blog/sheet-metal-cost-estimation.jpg',
     authorBio:
@@ -119,7 +2550,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <p style="margin:0;font-weight:600;color:#0d1117;">Part price = [Material + Cutting + Bending + Hardware + Finishing + Inspection + (Setup ÷ Quantity)] × (1 + overhead %) × (1 + margin %)</p>
 </div>
 
-<p>Everything is per part, except setup, which is a fixed cost divided by quantity. That one division explains most of the price difference between a prototype and a production run. For how overhead fits into the total, see <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;font-weight:600;">how to calculate total manufacturing cost</a>.</p>
+<p>Everything is per part, except setup, which is a fixed cost divided by quantity. That one division explains most of the price difference between a prototype and a production run. For how overhead fits into the total, see <a href="/blog/total-manufacturing-cost-formula" style="color:#0d9488;font-weight:600;">how to calculate total manufacturing cost</a>.</p>
 
 <h2>Material: Blank Size, Nesting and Scrap</h2>
 
@@ -149,7 +2580,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Cut length is the outer perimeter plus every hole, slot and internal cut-out. Cutting speed depends on material, thickness and laser power. Thin mild steel cuts quickly, while thick stainless or aluminium is much slower. Pierces matter more than they look: a part with 40 small holes pays for 40 pierces.</p>
 
-<p>The machine rate is where most estimates drift. A realistic hourly rate includes depreciation, power, assist gas, maintenance, floor space and the operator, and it has to be adjusted for utilisation. We cover this in how to calculate machine hour rate.</p>
+<p>The machine rate is where most estimates drift. A realistic hourly rate includes depreciation, power, assist gas, maintenance, floor space and the operator, and it has to be adjusted for utilisation. We cover this in <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;font-weight:600;">how to calculate machine hour rate</a>.</p>
 
 <p>Punching works the same way (strokes × stroke time × press rate) and wins on parts with many repeating holes or forms. Laser wins on complex contours and low volumes because it needs no tooling.</p>
 
@@ -247,7 +2678,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   </table>
 </div>
 
-<p>Same part, same process, and the price falls by about 32 percent per part at ten times the volume. Almost all of that comes from setup and finishing, not from cutting or bending. This is the main insight to carry into any supplier discussion: when a quote doesn't show that same drop, ask why. You can check it against the <a href="/blog/cost-breakdown-analysis" style="color:#0d9488;font-weight:600;">manufacturing cost drivers</a> that matter most for your part.</p>
+<p>Same part, same process, and the price falls by about 32 percent per part at ten times the volume. Almost all of that comes from setup and finishing, not from cutting or bending. This is the main insight to carry into any supplier discussion: when a quote doesn't show that same drop, ask why. You can check it against the <a href="/blog/manufacturing-cost-drivers" style="color:#0d9488;font-weight:600;">manufacturing cost drivers</a> that matter most for your part.</p>
 
 <h2>Where Estimates Go Wrong</h2>
 
@@ -423,9 +2854,9 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Cost-plus takes the supplier's actual costs as given and adds a margin. If the supplier is inefficient, the buyer pays for it. Quote review compares prices against each other or against history. It is quick, but it only tells you which quote is lower, not whether the lowest quote is fair.</p>
 
-<p>Should-cost is independent of the supplier's numbers. That independence is its main strength. It is also why a should-cost estimate and an actual cost often differ, and understanding that difference is a skill in itself. We cover it in detail in our guide to should-cost vs actual cost.</p>
+<p>Should-cost is independent of the supplier's numbers. That independence is its main strength. It is also why a should-cost estimate and an actual cost often differ, and understanding that difference is a skill in itself. We cover it in detail in our guide to <a href="/blog/should-cost-vs-actual-cost" style="color:#0d9488;font-weight:600;">should-cost vs actual cost</a>.</p>
 
-<p>Should-cost is one of several ways to estimate manufacturing cost. For a broader comparison of analogous, parametric, bottom-up, activity-based and AI-driven approaches, see our guide to <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. Should-cost modelling is a form of bottom-up estimating, which is why it tends to be the most detailed and the most data-hungry.</p>
+<p>Should-cost is one of several ways to estimate manufacturing cost. For a broader comparison of analogous, parametric, bottom-up, activity-based and AI-driven approaches, see our guide to <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. Should-cost modelling is a form of bottom-up estimating, which is why it tends to be the most detailed and the most data-hungry.</p>
 
 <h2>Inputs for a Should-Cost Model: Material, Process, Labour, Overhead and Margin</h2>
 
@@ -690,7 +3121,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/downloads/should-cost-analysis-checklist.pdf" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the checklist (PDF)</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Manufacturing cost estimation methods</a> · Should-cost vs actual cost · <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;">Supplier negotiation strategy</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;">Manufacturing cost estimation methods</a> · <a href="/blog/should-cost-vs-actual-cost" style="color:#0d9488;">Should-cost vs actual cost</a> · <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;">Supplier negotiation strategy</a></p>
     `,
   },
   'compound-growth-manufacturing-cost-intelligence': {
@@ -5830,66 +8261,6 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-bottom:1.5rem;">See how Emithran turns your BOM directly into should cost intelligence, automatically.</p>
   <a href="/bom-management-software" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 2rem;background:#2dd4bf;color:#0f1b2d;font-weight:700;border-radius:9999px;text-decoration:none;font-size:0.95rem;">See Emithran's BOM-Connected Cost Engine — Book a Demo →</a>
 </div>
-    `,
-  },
-
-  'design-for-manufacturability-guide': {
-    heroImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=870&auto=format&fit=crop',
-    authorBio:
-      '<strong>Abushan</strong> is the CTO of Emithran. He built the Should-Cost Engine that powers cost modelling for Emithran\'s defence, aerospace, and space OEM customers. He has personally run should-cost analyses on everything from injection-moulded plastic covers to 74-line chassis ladder frame assemblies.',
-    seo: {
-      metaTitle: 'Design for Manufacturability (DFM): A Complete Guide | Emithran',
-      metaDescription: 'What DFM is, the core principles, a practical DFM checklist, and how DFM differs from DFMA — with examples from aerospace and defence programmes.',
-      ogTitle: 'Design for Manufacturability Guide',
-      ogDescription: 'A practical guide to DFM principles, checklist, and why it matters most in aerospace and defence programmes.',
-      tags: ['design for manufacturability', 'DFM checklist', 'DFM vs DFMA', 'DFM principles', 'manufacturability review'],
-    },
-    faqs: [
-      { question: 'What is DFM in manufacturing?', answer: "Design for manufacturability is the practice of designing a part so it can be produced efficiently, with available processes, at the lowest defensible cost — without compromising required function, fit, or performance. It's applied during design review, before drawings are released." },
-      { question: "What's the difference between DFM and DFMA?", answer: 'DFM focuses on the manufacturability of individual parts. DFMA (Design for Manufacturability and Assembly) extends the same discipline to how parts come together — fastener count, assembly sequence, and error-proofing during assembly.' },
-      { question: 'When in the design process should DFM happen?', answer: 'As early as possible — ideally during concept and detail design, before drawings are released and tooling is committed. Changes are cheapest at this stage; the same change after release requires requalification, documentation updates, and possibly new tooling.' },
-      { question: 'Does DFM apply once a part is already in production?', answer: "DFM review is most valuable before release, but a redesign-for-cost or VAVE exercise on an in-production part can still find savings — just at the higher cost of requalification and tooling change." },
-      { question: 'How is DFM connected to should-cost analysis?', answer: "A should-cost model quantifies the financial impact of a DFM finding. Without it, a DFM review can flag that a feature is 'expensive to machine' qualitatively; with it, the review can state precisely how much that feature costs and what changing it would save." },
-    ],
-    content: `
-<p style="font-size:1.1rem;color:#374151;line-height:1.8;font-style:italic;border-left:3px solid #0d9e8a;padding-left:1.25rem;margin-bottom:2rem;">Most manufacturing cost is locked in before a single supplier quotes the part — at the design stage. Design for manufacturability (DFM) is the discipline of catching that cost before it's committed, not after.</p>
-
-<h2>What is DFM?</h2>
-<p><a href="/glossary/design-for-manufacturability" style="color:#0d9488;font-weight:600;">Design for manufacturability</a> is the practice of designing a part so it can be produced efficiently, with available processes, at the lowest defensible cost — without compromising required function, fit, or performance. DFM review happens during design, before drawings are released and tooling is committed, when changes are still cheap to make.</p>
-
-<h2>Core DFM principles</h2>
-<ul>
-  <li><strong>Minimise part count</strong> — fewer parts means fewer interfaces, fewer tolerances to stack, and less assembly labour</li>
-  <li><strong>Design for the dominant process</strong> — a part designed around CNC machining logic will cost more to cast or mould, and vice versa</li>
-  <li><strong>Standardise tolerances and features</strong> — tight tolerances and unusual features drive cost disproportionately to their functional value</li>
-  <li><strong>Design for available tooling</strong> — reusing existing fixtures, dies, or cutting tools avoids new tooling spend</li>
-  <li><strong>Avoid secondary operations where possible</strong> — every heat treatment, plating, or finishing step adds cost, lead time, and a quality-failure point</li>
-  <li><strong>Design for inspection</strong> — features that are hard to measure are hard to qualify, which slows PPAP and adds inspection cost</li>
-</ul>
-
-<h2>A practical DFM checklist</h2>
-<ol>
-  <li>Can part count be reduced without compromising function?</li>
-  <li>Does the design match the intended manufacturing process's natural geometry?</li>
-  <li>Are tolerances set to functional requirements, not habit?</li>
-  <li>Can any secondary operation be eliminated?</li>
-  <li>Is the design manufacturable by more than one qualified supplier, or does it lock in a single source?</li>
-  <li>Has the should-cost impact of each design decision been quantified, not just discussed?</li>
-</ol>
-
-<h2>DFM vs DFMA</h2>
-<p>DFM focuses on manufacturability of individual parts. DFMA (Design for Manufacturability and Assembly) extends the same discipline to how parts come together — fastener count, assembly sequence, access for tooling, and error-proofing during assembly. A part can pass DFM review and still be expensive to assemble; DFMA closes that gap.</p>
-
-<h2>Why DFM pays off earliest in defence and aerospace programmes</h2>
-<p>In <a href="/aerospace-cost-engineering" style="color:#0d9488;font-weight:600;">aerospace and defence programmes</a>, design changes after release carry outsized cost — requalification, AS9100 documentation updates, and long lead times for re-tooling. A DFM review that catches a manufacturability issue before release is dramatically cheaper than the same fix after first-article inspection. One recent should-cost engagement found a 39% body-cost reduction on an electronics assembly simply by correcting a design-stage input-weight assumption — the kind of catch DFM review is built to make.</p>
-
-<h2>Key takeaways</h2>
-<ul>
-  <li>DFM is most valuable before drawings are released, when changes are still cheap</li>
-  <li>The core principles — fewer parts, process-matched design, functional tolerances, reused tooling — apply across machining, casting, moulding, and sheet metal</li>
-  <li>DFMA extends DFM to assembly-level cost and error-proofing</li>
-  <li>In aerospace and defence, the cost of a late design change is disproportionately high, which makes early DFM review especially valuable</li>
-</ul>
     `,
   },
 

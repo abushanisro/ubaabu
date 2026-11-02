@@ -1,0 +1,40 @@
+﻿"Cost breakdown template: total manufacturing cost, COGM and part-level cost (worked example from the Emithran guide)"
+Edit the inputs in column B; everything below recalculates. All figures are illustrative - use your own.
+
+1. INPUTS,Value,Note
+Beginning raw materials inventory,20000
+Purchases (incl. freight-in and duties),85000
+Ending raw materials inventory,15000
+Direct labour hours,3000
+Fully loaded hourly rate,24,Wages + benefits + payroll taxes
+Indirect materials,6000
+Indirect labour,18000
+Factory rent,9000
+Utilities,4500
+Machine depreciation,10000,Leave out if already in a machine hour rate
+Maintenance,3500
+Beginning WIP,12000
+Ending WIP,17000
+Units completed,10400
+
+2. FACTORY-LEVEL CALCULATION,Value,Formula
+Direct materials used,=B5+B6-B7,Beginning + purchases - ending
+Direct labour,=B8*B9,Hours x loaded rate
+Manufacturing overhead,=SUM(B10:B15),Sum of overhead lines
+Total manufacturing cost,=B21+B22+B23,DM + DL + OH
+Cost of goods manufactured (COGM),=B24+B16-B17,TMC + beginning WIP - ending WIP
+Unit manufacturing cost,=B25/B18,COGM / units completed
+Prime cost,=B21+B22,DM + DL
+Conversion cost,=B22+B23,DL + OH
+Overhead rate (per direct labour hour),=B23/B8,OH / DL hours
+Overhead as % of direct labour cost,=B23/B22,
+TMC / units (do not use for unit cost),=B24/B18,Overstates cost: includes WIP
+
+3. PART-LEVEL CALCULATION (batch),Value,Formula
+Batch quantity,200
+Direct labour hours for batch,50
+Direct materials for batch,1600
+Direct labour,=B35*B9,Hours x loaded rate
+Overhead applied,=B35*B29,Hours x overhead rate
+Total cost of batch,=B36+B37+B38,
+Unit cost,=B39/B34,Batch cost / quantity
