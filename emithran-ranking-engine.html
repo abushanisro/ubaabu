@@ -1,0 +1,817 @@
+<title>Emithran Ranking Engine</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: engineering datasheet. Sticky section index on the left, one reading column on the right; diagrams break wide inside scroll boxes. */
+:root {
+  --paper: #F4F6F7;
+  --panel: #FFFFFF;
+  --ink: #111B22;
+  --muted: #56656F;
+  --rule: #D3DCE1;
+  --accent: #0D6C75;
+  --accent-soft: #DDEEEF;
+  --warn: #9A5806;
+  --warn-soft: #FBEFDA;
+  --bad: #A8261E;
+  --bad-soft: #F8E2DF;
+  --good: #2B7531;
+  --good-soft: #E2F0E3;
+  --code-bg: #EDF1F3;
+  --f-display: "IBM Plex Sans Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0D1317; --panel: #141C22; --ink: #E2E9ED; --muted: #93A2AC; --rule: #29353D;
+    --accent: #4FC0C8; --accent-soft: #10333A; --warn: #E6A44C; --warn-soft: #382812;
+    --bad: #EF8A80; --bad-soft: #3A1C19; --good: #7DC982; --good-soft: #19301D; --code-bg: #10181D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0D1317; --panel: #141C22; --ink: #E2E9ED; --muted: #93A2AC; --rule: #29353D;
+  --accent: #4FC0C8; --accent-soft: #10333A; --warn: #E6A44C; --warn-soft: #382812;
+  --bad: #EF8A80; --bad-soft: #3A1C19; --good: #7DC982; --good-soft: #19301D; --code-bg: #10181D;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 15.5px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.shell { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 48px; padding-block: 40px 80px; }
+@media (max-width: 900px) { .shell { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 24px 56px; } .toc { position: static !important; } }
+.toc { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 24px); align-self: start; font-size: 13px; }
+.toc .label { font-family: var(--f-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: t; }
+.toc li { counter-increment: t; }
+.toc a { display: flex; gap: 8px; padding: 3px 0; color: var(--muted); text-decoration: none; }
+.toc a::before { content: counter(t, decimal-leading-zero); font-family: var(--f-mono); color: var(--accent); font-size: 11.5px; padding-top: 1px; }
+.toc a:hover { color: var(--ink); }
+@media (max-width: 900px) { .toc ol { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); } }
+main { min-width: 0; display: grid; gap: 64px; }
+header.hero { display: grid; gap: 14px; border-bottom: 2px solid var(--ink); padding-bottom: 28px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(32px, 5vw, 50px); font-weight: 700; letter-spacing: -.01em; }
+h2 { font-size: clamp(24px, 3vw, 31px); font-weight: 600; display: flex; gap: 12px; align-items: baseline; }
+h2 .n { font-family: var(--f-mono); font-size: 14px; color: var(--accent); font-weight: 500; }
+h3 { font-size: 19px; font-weight: 600; }
+p { margin: 0; max-width: 68ch; }
+.lede { font-size: 18px; color: var(--ink); max-width: 64ch; }
+.meta { font-family: var(--f-mono); font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+section { display: grid; gap: 18px; scroll-margin-top: 24px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.stat { background: var(--panel); padding: 16px 18px; display: grid; gap: 4px; }
+.stat b { font-family: var(--f-display); font-size: 30px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.stat span { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.callout { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 14px 18px; display: grid; gap: 6px; max-width: 76ch; }
+.callout.info { border-color: var(--accent); background: var(--accent-soft); }
+.callout strong { font-weight: 600; }
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--rule); padding: 18px 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.card h3 { font-size: 17px; }
+.card ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.tag { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.scroll { overflow-x: auto; background: var(--panel); border: 1px solid var(--rule); }
+.figure { display: grid; gap: 8px; }
+.figure figcaption, .caption { font-size: 13px; color: var(--muted); max-width: 72ch; }
+.scroll svg { display: block; min-width: 760px; width: 100%; height: auto; }
+pre.mermaid { margin: 0; padding: 20px; min-width: 640px; background: transparent; text-align: center; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); background: var(--panel); position: sticky; top: 0; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td code, p code, li code { font-family: var(--f-mono); font-size: 12.5px; background: var(--code-bg); padding: 1px 5px; }
+.table-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--rule); }
+.table-wrap table { min-width: 620px; }
+.chip { display: inline-block; font-family: var(--f-mono); font-size: 11px; letter-spacing: .04em; padding: 2px 8px; white-space: nowrap; font-weight: 500; }
+.chip.use { background: var(--good-soft); color: var(--good); }
+.chip.clean { background: var(--warn-soft); color: var(--warn); }
+.chip.drop { background: var(--bad-soft); color: var(--bad); }
+.bars { display: grid; gap: 7px; background: var(--panel); border: 1px solid var(--rule); padding: 18px 20px; }
+.bar { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr) 64px; gap: 12px; align-items: center; font-size: 13px; }
+.bar .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.bar .track { height: 14px; background: var(--code-bg); }
+.bar .fill { height: 100%; background: var(--accent); }
+.bar .fill.off { background: var(--muted); opacity: .55; }
+.bar .v { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--f-mono); font-size: 12px; }
+@media (max-width: 560px) { .bar { grid-template-columns: minmax(0, 1fr) 56px; } .bar .track { grid-column: 1 / -1; grid-row: 2; } }
+pre.code { margin: 0; padding: 16px 18px; background: var(--code-bg); border: 1px solid var(--rule); overflow-x: auto; font-family: var(--f-mono); font-size: 12.5px; line-height: 1.55; color: var(--ink); }
+pre.code .c { color: var(--muted); }
+pre.code .k { color: var(--accent); }
+ol.steps { margin: 0; padding-left: 22px; display: grid; gap: 10px; max-width: 76ch; }
+ol.steps li::marker { font-family: var(--f-mono); color: var(--accent); }
+.sources { font-size: 13.5px; display: grid; gap: 4px; padding-left: 18px; margin: 0; }
+footer { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; }
+/* svg tokens */
+.sv-box { fill: var(--panel); stroke: var(--rule); stroke-width: 1.25; }
+.sv-sub { fill: var(--paper); stroke: var(--rule); stroke-width: 1; }
+.sv-acc { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.75; }
+.sv-tok { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1; }
+.sv-shadow { fill: var(--panel); stroke: var(--rule); stroke-width: 1; }
+.sv-line { stroke: var(--muted); stroke-width: 1.25; fill: none; }
+.sv-arrowhead { fill: var(--muted); }
+.sv-t { fill: var(--ink); font-family: var(--f-body); font-size: 13px; }
+.sv-tb { fill: var(--ink); font-family: var(--f-body); font-size: 13px; font-weight: 600; }
+.sv-ts { fill: var(--muted); font-family: var(--f-body); font-size: 11.5px; }
+.sv-mono { fill: var(--ink); font-family: var(--f-mono); font-size: 12px; }
+.sv-step { fill: var(--accent); font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .04em; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="shell">
+  <nav class="toc" aria-label="Sections">
+    <div class="label">Design doc</div>
+    <ol>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#audit">Data audit</a></li>
+      <li><a href="#competitor">aPriori teardown</a></li>
+      <li><a href="#bert">BERT architecture</a></li>
+      <li><a href="#hld">High-level design</a></li>
+      <li><a href="#dataflow">Data flow</a></li>
+      <li><a href="#lld">Low-level design</a></li>
+      <li><a href="#crawl">Screaming Frog plan</a></li>
+      <li><a href="#keywords">Keyword targets</a></li>
+      <li><a href="#authority">Links and AI search</a></li>
+      <li><a href="#plan">90-day plan</a></li>
+      <li><a href="#kpis">KPIs and risks</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="eyebrow">Search architecture · Emithran vs aPriori</div>
+      <h1>Emithran Ranking Engine</h1>
+      <p class="lede">A BERT-based content system to outrank apriori.com on should-cost, BOM, and sourcing searches. Google runs BERT to understand pages. We run the same family of models to measure what the top pages cover, find the gaps, and refuse to publish anything thinner than the page we are trying to beat.</p>
+      <div class="meta"><span>As of 2026-11-07</span><span>Data: Semrush US exports, June 2026</span></div>
+    </header>
+
+    <!-- 01 SUMMARY -->
+    <section id="summary">
+      <h2><span class="n">01</span>Summary</h2>
+      <p>aPriori looks big but its organic footprint is narrow. Most of its traffic sits on one off-topic blog post, and none of its top pages are aimed at buyers. Emithran can take #1 on a defined set of non-brand buyer keywords in 6 to 9 months by fixing its own site first, then publishing pages that pass a BERT coverage gate.</p>
+      <div class="stats">
+        <div class="stat"><b>11,761</b><span>aPriori US organic visits/mo across 314 ranking pages</span></div>
+        <div class="stat"><b>70%</b><span>of that from one "simulation software" post, not a buyer term</span></div>
+        <div class="stat"><b>1,248</b><span>visits/mo on its should-cost page, the real page to beat</span></div>
+        <div class="stat"><b>0</b><span>commercial-intent pages in its top 15</span></div>
+        <div class="stat"><b>327</b><span>keywords at KD 20 or below in your master list, about 56K searches/mo</span></div>
+      </div>
+      <div class="callout info">
+        <strong>What BERT can and cannot do here</strong>
+        <p>Google confirmed in 2019 that BERT helps it understand about 1 in 10 US English searches, and Google's Danny Sullivan said there is nothing to optimize for with BERT specifically. So "using BERT to rank" means using BERT-family models as our measuring instrument. Rankings still come from relevance, quality, and links.</p>
+      </div>
+    </section>
+
+    <!-- 02 AUDIT -->
+    <section id="audit">
+      <h2><span class="n">02</span>Data audit: ubaabu/memory</h2>
+      <p>I opened all 12 files. Seven are usable as they are, two need filtering, and three are noise from the AI-visibility tool confusing "apriori" with other brands and should not be used. Everything is from June 2026, so re-pull volumes and positions in week 1.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>File</th><th class="num">Rows</th><th>What it really holds</th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><td>Emithran_SEO_Master_Toolkit_COMPLETE.xlsx</td><td class="num">11 sheets</td><td>500 keywords, 151 easy wins, 24 landing pages, 100 blog topics, tech fixes, GEO plan, revenue pages</td><td><span class="chip clean">Use, clean</span></td></tr>
+            <tr><td>Emithran_SEO_Execution_Toolkit.xlsx</td><td class="num">11 sheets</td><td>300-article topical map, 22 landing pages, 30 link targets, 12-month roadmap (starts Jul 2026, now behind)</td><td><span class="chip use">Use</span></td></tr>
+            <tr><td>apriori.com-organic.PagesV3</td><td class="num">314</td><td>Traffic, keywords, intent, and AI-engine citations per aPriori page</td><td><span class="chip use">Use</span></td></tr>
+            <tr><td>apriori.com-backlinks_pages</td><td class="num">10,000</td><td>Referring domains per aPriori URL; 8,951 live, 673 return 404</td><td><span class="chip use">Use</span></td></tr>
+            <tr><td>apriori.com-organic.Competitors</td><td class="num">3,395</td><td>Shared-keyword rivals; 26 have relevance 0.04 or higher (dfma.com top at 0.48)</td><td><span class="chip use">Use top 26</span></td></tr>
+            <tr><td>sources_apriori_com_worldwide.csv</td><td class="num">300</td><td>aPriori URLs that AI engines cite, 651 prompt citations in total</td><td><span class="chip use">Use</span></td></tr>
+            <tr><td>gap_source_domains_apriori_com_worldwide.csv</td><td class="num">1,000</td><td>Domains AI engines cite on aPriori-type prompts: YouTube, dfma.com, Reddit, Wikipedia, Medium</td><td><span class="chip use">Use</span></td></tr>
+            <tr><td>brand_topics_apriori_com_worldwide.csv</td><td class="num">392</td><td>About half on-topic (should-cost, DFM, PLM); half noise ("Rolex Sigma Dial", "Market Basket Analysis")</td><td><span class="chip clean">Filter</span></td></tr>
+            <tr><td>brand_topics_apriori_com_worldwide (1).csv</td><td class="num">100</td><td>The first 100 rows of the file above</td><td><span class="chip drop">Duplicate</span></td></tr>
+            <tr><td>gap_topics_apriori_com_worldwide.csv</td><td class="num">1,000</td><td>Furniture, dialysis, and pharma topics; zero rows mention aPriori</td><td><span class="chip drop">Noise</span></td></tr>
+            <tr><td>gap_source_domains_apriori_com_worldwide (1).csv</td><td class="num">1,000</td><td>Instagram, Crate &amp; Barrel, West Elm; compared against furniture brands</td><td><span class="chip drop">Noise</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">The master keyword list also has junk rows that score high only because their KD is 0, such as "supplierday.com products catalog" and "web design for manufacturing companies". Remove competitor domain names and web-design queries before building briefs.</p>
+    </section>
+
+    <!-- 03 COMPETITOR -->
+    <section id="competitor">
+      <h2><span class="n">03</span>aPriori teardown</h2>
+      <p>Only 8 of aPriori's 314 ranking pages get 100 or more visits a month. Leave the grey bar alone. The teal bars are the pages Emithran competes with directly.</p>
+      <div class="bars" role="img" aria-label="aPriori top pages by US organic visits per month">
+        <div class="bar"><span class="name" title="/blog/design-engineers-what-you-dont-know-about-simulation-software…">/blog/…simulation-software…</span><div class="track"><div class="fill off" style="width:100%"></div></div><span class="v">8,241</span></div>
+        <div class="bar"><span class="name">/should-cost-analysis/</span><div class="track"><div class="fill" style="width:15.1%"></div></div><span class="v">1,248</span></div>
+        <div class="bar"><span class="name">/ (homepage, brand)</span><div class="track"><div class="fill off" style="width:8.4%"></div></div><span class="v">693</span></div>
+        <div class="bar"><span class="name">/glossary/simulation-software/</span><div class="track"><div class="fill off" style="width:3.7%"></div></div><span class="v">301</span></div>
+        <div class="bar"><span class="name">/solutions/products/ap-pro/</span><div class="track"><div class="fill off" style="width:2%"></div></div><span class="v">162</span></div>
+        <div class="bar"><span class="name">/blog/…manufacturing-costing-software/</span><div class="track"><div class="fill" style="width:1.5%"></div></div><span class="v">127</span></div>
+        <div class="bar"><span class="name">/design-for-manufacturability/</span><div class="track"><div class="fill" style="width:1.4%"></div></div><span class="v">114</span></div>
+        <div class="bar"><span class="name">/glossary/manufacturing-process/</span><div class="track"><div class="fill" style="width:1.4%"></div></div><span class="v">112</span></div>
+        <div class="bar"><span class="name">/blog/what-is-design-to-cost…/</span><div class="track"><div class="fill" style="width:.8%"></div></div><span class="v">65</span></div>
+      </div>
+      <div class="two">
+        <div class="card"><span class="tag">Where it is weak</span><h3>Open lanes</h3><ul>
+          <li>Its should-cost page ranks for 204 keywords but lost 105 visits in the last period.</li>
+          <li>Its 12 solution pages are named after products (aP Pro, aP Analytics), not buyer problems.</li>
+          <li>No pages for supplier intelligence, strategic sourcing, SRM, or spend analysis.</li>
+          <li>No aerospace or defense pages.</li>
+        </ul></div>
+        <div class="card"><span class="tag">Where it is strong</span><h3>Authority to respect</h3><ul>
+          <li>1,177 referring domains to the root domain and 383 to the homepage.</li>
+          <li>Best content earns 18 to 29 domains: a capex benchmark post (29), DFM guide (24), DFM examples (23), design-to-cost explainer (20), Eaton case study (19).</li>
+          <li>AI engines cite its manufacturing-process glossary (35 prompts) and should-cost page (34).</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- 04 BERT -->
+    <section id="bert">
+      <h2><span class="n">04</span>BERT architecture, and how we use it</h2>
+      <p>BERT reads a whole passage at once and gives every token a vector shaped by the words on both sides. We pool those vectors into one vector per passage, then compare our draft with the pages ranking in the top 10.</p>
+      <figure class="figure">
+        <div class="scroll">
+          <svg viewBox="0 0 900 600" role="img" aria-label="BERT pipeline from input text to a coverage score">
+            <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="sv-arrowhead"/></marker></defs>
+            <!-- step labels -->
+            <text x="24" y="40" class="sv-step">1 · INPUT</text>
+            <text x="24" y="102" class="sv-step">2 · TOKENIZE</text>
+            <text x="24" y="178" class="sv-step">3 · EMBED</text>
+            <text x="24" y="318" class="sv-step">4 · ENCODE</text>
+            <text x="24" y="336" class="sv-ts">× 12 layers</text>
+            <text x="24" y="486" class="sv-step">5 · POOL</text>
+            <text x="24" y="558" class="sv-step">6 · COMPARE</text>
+            <!-- 1 input -->
+            <rect x="150" y="16" width="500" height="40" rx="6" class="sv-box"/>
+            <text x="400" y="41" text-anchor="middle" class="sv-t">Input: a search query, or one H2 section of a page (up to 256 tokens)</text>
+            <path d="M400 56V78" class="sv-line" marker-end="url(#ah)"/>
+            <!-- 2 tokens -->
+            <rect x="150" y="80" width="76" height="34" rx="4" class="sv-tok"/><text x="188" y="102" text-anchor="middle" class="sv-mono">[CLS]</text>
+            <rect x="234.8" y="80" width="76" height="34" rx="4" class="sv-tok"/><text x="272.8" y="102" text-anchor="middle" class="sv-mono">should</text>
+            <rect x="319.6" y="80" width="76" height="34" rx="4" class="sv-tok"/><text x="357.6" y="102" text-anchor="middle" class="sv-mono">cost</text>
+            <rect x="404.4" y="80" width="76" height="34" rx="4" class="sv-tok"/><text x="442.4" y="102" text-anchor="middle" class="sv-mono">analysis</text>
+            <rect x="489.2" y="80" width="76" height="34" rx="4" class="sv-tok"/><text x="527.2" y="102" text-anchor="middle" class="sv-mono">software</text>
+            <rect x="574" y="80" width="76" height="34" rx="4" class="sv-tok"/><text x="612" y="102" text-anchor="middle" class="sv-mono">[SEP]</text>
+            <path d="M400 114V136" class="sv-line" marker-end="url(#ah)"/>
+            <!-- 3 embeddings -->
+            <rect x="150" y="138" width="500" height="22" rx="4" class="sv-sub"/><text x="162" y="153" class="sv-t">Token embedding</text><text x="638" y="153" text-anchor="end" class="sv-ts">what the word piece is</text>
+            <rect x="150" y="164" width="500" height="22" rx="4" class="sv-sub"/><text x="162" y="179" class="sv-t">+ Segment embedding</text><text x="638" y="179" text-anchor="end" class="sv-ts">sentence A or sentence B</text>
+            <rect x="150" y="190" width="500" height="22" rx="4" class="sv-sub"/><text x="162" y="205" class="sv-t">+ Position embedding</text><text x="638" y="205" text-anchor="end" class="sv-ts">where it sits = one 768-d vector per token</text>
+            <path d="M400 212V234" class="sv-line" marker-end="url(#ah)"/>
+            <!-- 4 encoder stack -->
+            <rect x="166" y="252" width="500" height="184" rx="6" class="sv-shadow" opacity=".5"/>
+            <rect x="158" y="244" width="500" height="184" rx="6" class="sv-shadow" opacity=".8"/>
+            <rect x="150" y="236" width="500" height="184" rx="6" class="sv-box"/>
+            <rect x="166" y="250" width="468" height="42" rx="4" class="sv-acc"/>
+            <text x="180" y="267" class="sv-tb">Multi-head self-attention (12 heads)</text>
+            <text x="180" y="284" class="sv-ts">Each token attends to every other token, left and right</text>
+            <rect x="166" y="298" width="468" height="24" rx="4" class="sv-sub"/><text x="180" y="315" class="sv-t">Add and layer norm (residual connection)</text>
+            <rect x="166" y="328" width="468" height="42" rx="4" class="sv-sub"/>
+            <text x="180" y="345" class="sv-tb">Feed-forward network</text>
+            <text x="180" y="362" class="sv-ts">768 → 3,072 → 768, applied to each token</text>
+            <rect x="166" y="376" width="468" height="24" rx="4" class="sv-sub"/><text x="180" y="393" class="sv-t">Add and layer norm</text>
+            <text x="634" y="414" text-anchor="end" class="sv-ts">output feeds the next layer</text>
+            <path d="M400 436V458" class="sv-line" marker-end="url(#ah)"/>
+            <!-- 5 pool -->
+            <rect x="150" y="460" width="240" height="44" rx="6" class="sv-box"/>
+            <text x="270" y="479" text-anchor="middle" class="sv-tb">Contextual token vectors</text>
+            <text x="270" y="495" text-anchor="middle" class="sv-ts">one 768-d vector per token</text>
+            <path d="M390 482H408" class="sv-line" marker-end="url(#ah)"/>
+            <rect x="410" y="460" width="240" height="44" rx="6" class="sv-box"/>
+            <text x="530" y="479" text-anchor="middle" class="sv-tb">Mean pooling, normalize</text>
+            <text x="530" y="495" text-anchor="middle" class="sv-ts">one vector for the whole passage</text>
+            <path d="M530 504V526" class="sv-line" marker-end="url(#ah)"/>
+            <!-- 6 compare -->
+            <rect x="150" y="528" width="500" height="52" rx="6" class="sv-acc"/>
+            <text x="400" y="550" text-anchor="middle" class="sv-tb">Cosine similarity against top-10 SERP subtopic vectors</text>
+            <text x="400" y="568" text-anchor="middle" class="sv-ts">Output: coverage %, list of missing subtopics, overlap with our own pages</text>
+            <!-- right panel -->
+            <rect x="684" y="16" width="200" height="190" rx="6" class="sv-box"/>
+            <text x="698" y="40" class="sv-tb">Pre-training (Google, 2018)</text>
+            <text x="698" y="64" class="sv-t">Masked LM: hide 15% of</text>
+            <text x="698" y="81" class="sv-t">tokens, predict them</text>
+            <text x="698" y="105" class="sv-t">Next-sentence prediction:</text>
+            <text x="698" y="122" class="sv-t">does B follow A?</text>
+            <text x="698" y="146" class="sv-ts">BooksCorpus, 800M words</text>
+            <text x="698" y="163" class="sv-ts">English Wikipedia, 2,500M words</text>
+            <text x="698" y="187" class="sv-ts">WordPiece vocabulary, 30K</text>
+            <rect x="684" y="220" width="200" height="150" rx="6" class="sv-box"/>
+            <text x="698" y="244" class="sv-tb">Model sizes</text>
+            <text x="698" y="268" class="sv-t">BERT-base</text>
+            <text x="698" y="285" class="sv-ts">12 layers, 768 hidden,</text>
+            <text x="698" y="301" class="sv-ts">12 heads, 110M parameters</text>
+            <text x="698" y="325" class="sv-t">BERT-large</text>
+            <text x="698" y="342" class="sv-ts">24 layers, 1,024 hidden,</text>
+            <text x="698" y="358" class="sv-ts">16 heads, 340M parameters</text>
+            <rect x="684" y="384" width="200" height="196" rx="6" class="sv-acc"/>
+            <text x="698" y="408" class="sv-tb">What we run</text>
+            <text x="698" y="432" class="sv-mono">all-MiniLM-L6-v2</text>
+            <text x="698" y="449" class="sv-ts">384-d, about 5x faster</text>
+            <text x="698" y="473" class="sv-mono">all-mpnet-base-v2</text>
+            <text x="698" y="490" class="sv-ts">768-d, best quality</text>
+            <text x="698" y="514" class="sv-mono">BERTopic</text>
+            <text x="698" y="531" class="sv-ts">clusters chunks into subtopics</text>
+            <text x="698" y="555" class="sv-ts">Laptop CPU is enough</text>
+            <text x="698" y="571" class="sv-ts">at this data size</text>
+          </svg>
+        </div>
+        <figcaption>Steps 1 to 4 are BERT itself; 5 and 6 are our scoring layer. Sizes and pre-training data are from the original BERT paper (Devlin et al., 2018). The models we run are distilled BERT-family encoders from the sentence-transformers library.</figcaption>
+      </figure>
+      <div class="two">
+        <div class="card"><span class="tag">Google's side</span><h3>BERT inside Search</h3><ul>
+          <li>Reads the query in context, so "for", "to", and "no" change meaning.</li>
+          <li>Matches the query against passages on your page.</li>
+          <li>Rewards pages that answer the actual question in natural language.</li>
+          <li>You cannot tune for it directly.</li>
+        </ul></div>
+        <div class="card"><span class="tag">Our side</span><h3>BERT as an instrument</h3><ul>
+          <li>Finds the subtopics every top-10 page covers.</li>
+          <li>Scores our draft's coverage before it ships.</li>
+          <li>Checks the draft matches the SERP's intent.</li>
+          <li>Blocks two Emithran pages from competing for one keyword.</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- 05 HLD -->
+    <section id="hld">
+      <h2><span class="n">05</span>High-level design</h2>
+      <p>Seven layers run as one weekly loop. Data comes in, the BERT engine scores it, people write, a gate decides, the site publishes, and monitoring picks the next batch of keywords.</p>
+      <figure class="figure">
+        <div class="scroll">
+<pre class="mermaid">
+flowchart LR
+  subgraph SRC["1 Data sources"]
+    A1["Semrush exports&lt;br/&gt;keywords, aPriori pages, backlinks"]
+    A2["Screaming Frog free&lt;br/&gt;section crawls, max 500 URLs"]
+    A3["Google Search Console&lt;br/&gt;queries, positions, indexing"]
+    A4["SERP export or SERP API&lt;br/&gt;top-10 URLs per keyword"]
+  end
+  subgraph ING["2 Ingestion"]
+    B1["Loaders and cleaners&lt;br/&gt;noise filter, dedupe"]
+    B2["Page fetcher&lt;br/&gt;robots-aware, H2 chunker"]
+  end
+  subgraph STO["3 Storage"]
+    C1[("SQLite&lt;br/&gt;keywords, pages, chunks,&lt;br/&gt;scores, ranks")]
+    C2[("Vector store&lt;br/&gt;NumPy or FAISS")]
+  end
+  subgraph NLP["4 BERT engine"]
+    D1["Embedder&lt;br/&gt;sentence-transformers"]
+    D2["Topic model&lt;br/&gt;BERTopic"]
+    D3["Scorers&lt;br/&gt;coverage, intent, overlap"]
+  end
+  subgraph OPS["5 Content ops"]
+    E1["Brief builder"]
+    E2["Expert writer and editor"]
+    E3{"Publish gate"}
+  end
+  subgraph WEB["6 emithran.com"]
+    F1["Pages with schema,&lt;br/&gt;sitemap, internal links"]
+  end
+  subgraph MON["7 Monitoring"]
+    G1["Weekly report&lt;br/&gt;rank vs aPriori"]
+  end
+  A1 --> B1
+  A2 --> B1
+  A3 --> B1
+  A4 --> B2
+  B1 --> C1
+  B2 --> C1
+  C1 --> D1
+  D1 --> C2
+  C2 --> D2
+  D2 --> D3
+  D3 --> E1
+  E1 --> E2
+  E2 --> E3
+  E3 -- pass --> F1
+  E3 -- "fail: gap list" --> E2
+  F1 --> A2
+  F1 --> A3
+  A3 --> G1
+  G1 -- "next keyword batch" --> E1
+</pre>
+        </div>
+        <figcaption>Do not scrape Google result pages directly; it breaks Google's terms. Use Semrush's SERP data or a paid SERP API for the top-10 URL lists, then fetch those pages while respecting each site's robots.txt.</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Layer</th><th>Component</th><th>Technology</th><th>Runs</th></tr></thead>
+          <tbody>
+            <tr><td>Sources</td><td>Semrush, Screaming Frog, Search Console, SERP data</td><td>CSV/XLSX exports, Search Console API</td><td>Weekly</td></tr>
+            <tr><td>Ingestion</td><td>Loaders, cleaner, page fetcher, chunker</td><td>Python, pandas, httpx, trafilatura</td><td>Per keyword batch</td></tr>
+            <tr><td>Storage</td><td>Relational store, vector store</td><td>SQLite file; NumPy arrays or FAISS</td><td>Always on disk</td></tr>
+            <tr><td>BERT engine</td><td>Embedder, topic model, scorers</td><td>sentence-transformers, BERTopic, KeyBERT</td><td>Per brief and per draft</td></tr>
+            <tr><td>Content ops</td><td>Brief, writing, gate</td><td>Generated brief doc plus a named expert author</td><td>Per page</td></tr>
+            <tr><td>Site</td><td>Landing pages, blog, glossary, comparisons</td><td>Your CMS, JSON-LD schema, XML sitemap</td><td>On publish</td></tr>
+            <tr><td>Monitoring</td><td>Rank and crawl report</td><td>Search Console API, Screaming Frog CSVs</td><td>Weekly; aPriori re-pull monthly</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 06 DATA FLOW -->
+    <section id="dataflow">
+      <h2><span class="n">06</span>Data flow</h2>
+      <p>Four stores, six processes. Every number in the weekly report can be traced back to a stored row with its source and date.</p>
+      <figure class="figure">
+        <div class="scroll">
+<pre class="mermaid">
+flowchart TB
+  X1(["Semrush"])
+  X2(["SERP source"])
+  X3(["Screaming Frog"])
+  X4(["Search Console"])
+  X5(["Writers"])
+  P1["P1 Clean and load"]
+  P2["P2 Fetch and chunk pages"]
+  P3["P3 Embed chunks"]
+  P4["P4 Find subtopics and gaps"]
+  P5["P5 Score draft at the gate"]
+  P6["P6 Track rank and crawl health"]
+  D1[("D1 Keywords and clusters")]
+  D2[("D2 Pages and chunks")]
+  D3[("D3 Vectors")]
+  D4[("D4 Scores, ranks, crawl issues")]
+  X1 -- "keyword and competitor exports" --> P1
+  P1 -- "clean keyword rows" --> D1
+  X2 -- "top-10 URLs per keyword" --> P2
+  D1 -- "target keywords" --> P2
+  P2 -- "page text split by H2" --> D2
+  D2 -- "chunks" --> P3
+  P3 -- "384-d or 768-d vectors" --> D3
+  D3 -- "competitor vectors" --> P4
+  P4 -- "brief with subtopics" --> X5
+  X5 -- "draft" --> P5
+  D3 -- "our page vectors" --> P5
+  P5 -- "coverage, intent, overlap" --> D4
+  X3 -- "crawl CSVs" --> P6
+  X4 -- "positions, clicks" --> P6
+  P6 -- "weekly rows" --> D4
+  D4 -- "keywords losing ground" --> D1
+</pre>
+        </div>
+        <figcaption>Rounded nodes are outside sources, rectangles are processes, cylinders are stores. The loop from D4 back to D1 re-queues any keyword that slips or never reaches the top 10.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 07 LLD -->
+    <section id="lld">
+      <h2><span class="n">07</span>Low-level design</h2>
+      <p>One Python package with four modules, one SQLite schema, and one command per stage. Everything below runs on a Mac without a GPU.</p>
+      <h3>Package layout</h3>
+<pre class="code">emithran_seo/
+  config.py            <span class="c"># model names, thresholds, file paths</span>
+  ingest/
+    semrush.py         <span class="c"># load_keywords(), load_competitor_pages(), drop_noise()</span>
+    frog.py            <span class="c"># load_crawl(csv) -> CrawlIssue rows</span>
+    gsc.py             <span class="c"># fetch_performance(site, start, end)</span>
+    fetch.py           <span class="c"># fetch_page(url) -> clean text, respects robots.txt</span>
+    chunk.py           <span class="c"># split_by_h2(html, max_tokens=256)</span>
+  nlp/
+    embed.py           <span class="c"># embed(texts) -> normalized vectors</span>
+    topics.py          <span class="c"># subtopics(keyword_id) via BERTopic</span>
+    score.py           <span class="c"># coverage(), overlap(), intent_match()</span>
+  content/
+    brief.py           <span class="c"># build_brief(keyword) -> markdown brief</span>
+    gate.py            <span class="c"># check(draft) -> pass or gap list</span>
+  monitor/
+    report.py          <span class="c"># weekly rank-vs-aPriori table</span>
+  data/seo.sqlite</pre>
+
+      <h3>Database schema</h3>
+      <figure class="figure">
+        <div class="scroll">
+<pre class="mermaid">
+erDiagram
+  KEYWORD ||--o{ SERP_RESULT : "ranks"
+  KEYWORD ||--o{ SUBTOPIC : "has"
+  KEYWORD ||--o{ DRAFT : "targets"
+  KEYWORD ||--o{ RANK_HISTORY : "tracked in"
+  PAGE ||--o{ SERP_RESULT : "appears as"
+  PAGE ||--o{ CHUNK : "split into"
+  CHUNK ||--|| EMBEDDING : "encoded as"
+  DRAFT ||--o{ GATE_SCORE : "scored by"
+  KEYWORD {
+    int id PK
+    string keyword
+    string cluster
+    int volume
+    int kd
+    string intent
+    string target_url
+  }
+  PAGE {
+    string url PK
+    string domain
+    bool is_ours
+    string title
+    int word_count
+    date fetched_at
+  }
+  SERP_RESULT {
+    int keyword_id FK
+    string url FK
+    int position
+    date checked_at
+  }
+  CHUNK {
+    int id PK
+    string url FK
+    string h2
+    text body
+    int tokens
+  }
+  EMBEDDING {
+    int chunk_id FK
+    string model
+    blob vector
+  }
+  SUBTOPIC {
+    int id PK
+    int keyword_id FK
+    string label
+    blob centroid
+  }
+  DRAFT {
+    int id PK
+    int keyword_id FK
+    int version
+    string author
+    string status
+  }
+  GATE_SCORE {
+    int draft_id FK
+    float coverage
+    bool intent_match
+    float max_overlap
+    bool passed
+  }
+  RANK_HISTORY {
+    int keyword_id FK
+    date day
+    float position
+    int clicks
+    int impressions
+  }
+</pre>
+        </div>
+      </figure>
+
+      <h3>Sequence: one keyword from brief to live page</h3>
+      <figure class="figure">
+        <div class="scroll">
+<pre class="mermaid">
+sequenceDiagram
+  actor Lead as SEO lead
+  participant B as brief.py
+  participant S as SERP source
+  participant F as fetch.py + chunk.py
+  participant E as embed.py + topics.py
+  actor W as Expert writer
+  participant G as gate.py
+  participant Site as emithran.com
+  participant GSC as Search Console
+  Lead->>B: build_brief("should cost analysis software")
+  B->>S: top-10 URLs
+  S-->>B: 10 URLs incl. apriori.com
+  B->>F: fetch and split by H2
+  F-->>E: about 150 chunks
+  E-->>B: subtopics and key phrases
+  B-->>W: brief with must-cover subtopics
+  W->>G: draft v1
+  G-->>W: fail, 71% coverage, 4 gaps listed
+  W->>G: draft v2 with gaps filled and a worked example
+  G-->>Site: pass, publish
+  Site->>GSC: indexed, impressions start
+  GSC-->>Lead: weekly position vs aPriori
+</pre>
+        </div>
+        <figcaption>The coverage figure and chunk count in this sequence are an illustrative run, not measured results.</figcaption>
+      </figure>
+
+      <h3>Core scoring code</h3>
+<pre class="code"><span class="k">from</span> sentence_transformers <span class="k">import</span> SentenceTransformer, util
+
+model = SentenceTransformer(<span class="k">"sentence-transformers/all-mpnet-base-v2"</span>)
+
+<span class="k">def</span> embed(texts):
+    <span class="k">return</span> model.encode(texts, normalize_embeddings=True, batch_size=32)
+
+<span class="k">def</span> coverage(draft_chunks, subtopics, threshold=0.55):
+    <span class="c">"""Share of SERP subtopics the draft covers, plus the ones it misses."""</span>
+    sims = util.cos_sim(embed(subtopics), embed(draft_chunks))   <span class="c"># subtopics x chunks</span>
+    best = sims.max(dim=1).values
+    gaps = [t <span class="k">for</span> t, s <span class="k">in</span> zip(subtopics, best) <span class="k">if</span> s &lt; threshold]
+    <span class="k">return</span> 1 - len(gaps) / len(subtopics), gaps
+
+<span class="k">def</span> overlap(draft_text, our_pages):
+    <span class="c">"""Highest similarity to any page we already have (cannibalization check)."""</span>
+    d = embed([draft_text])
+    p = embed([pg.text <span class="k">for</span> pg <span class="k">in</span> our_pages])
+    <span class="k">return</span> float(util.cos_sim(d, p).max())
+
+<span class="k">def</span> gate(draft_chunks, draft_text, subtopics, our_pages, serp_intent, draft_intent):
+    cov, gaps = coverage(draft_chunks, subtopics)
+    ok = cov &gt;= 0.80 <span class="k">and</span> overlap(draft_text, our_pages) &lt; 0.85 <span class="k">and</span> draft_intent == serp_intent
+    <span class="k">return</span> ok, cov, gaps</pre>
+      <p class="caption">The 0.55, 0.80, and 0.85 values are starting points. Calibrate them on your first 10 published pages against what actually ranks. A high score means the page is not thin; it does not guarantee a ranking.</p>
+    </section>
+
+    <!-- 08 CRAWL -->
+    <section id="crawl">
+      <h2><span class="n">08</span>Screaming Frog free tier plan</h2>
+      <p>The free version crawls up to 500 URLs. Crawl one section at a time and let Search Console cover what the Spider cannot. Fix your audit's two blockers before anything else.</p>
+      <figure class="figure">
+        <div class="scroll">
+<pre class="mermaid">
+flowchart LR
+  S1["Pick one section&lt;br/&gt;/blog, /platform, /industries, root"] --> S2["Crawl, max 500 URLs"]
+  S2 --> S3["Export CSVs&lt;br/&gt;crawls cannot be saved"]
+  S3 --> S4["Load into SQLite&lt;br/&gt;frog.py"]
+  S4 --> S5{"New 4xx, 5xx,&lt;br/&gt;missing H1,&lt;br/&gt;duplicate titles?"}
+  S5 -- yes --> S6["Fix, then re-crawl&lt;br/&gt;that section"]
+  S6 --> S2
+  S5 -- no --> S7["Check indexing and&lt;br/&gt;Core Web Vitals in&lt;br/&gt;Search Console"]
+</pre>
+        </div>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Priority</th><th>Issue from your audit</th><th>Fix</th><th>Effort</th></tr></thead>
+          <tbody>
+            <tr><td><span class="chip drop">Blocker</span></td><td>robots.txt fails format validation</td><td>Rewrite with clean User-agent groups; validate in Search Console</td><td>1 hour</td></tr>
+            <tr><td><span class="chip drop">Blocker</span></td><td><code>/request-demo</code> blocked for Googlebot and AI crawlers</td><td>Remove from Disallow; resubmit sitemap</td><td>1 hour</td></tr>
+            <tr><td><span class="chip clean">High</span></td><td>7 blog posts return 404, 51 broken internal links</td><td>Republish or 301 to the closest page</td><td>1 day</td></tr>
+            <tr><td><span class="chip clean">High</span></td><td>No H1 on <code>/contact</code> and 30 UTM copies; 12 long titles</td><td>Add H1; canonical the UTM copies; trim titles to about 60 characters</td><td>2 to 3 hours</td></tr>
+            <tr><td><span class="chip clean">Medium</span></td><td>148 of 305 structured-data items have errors; no FAQPage on <code>/faq</code></td><td>Fix Organization, SoftwareApplication, FAQ, Article schema</td><td>1 to 2 days</td></tr>
+            <tr><td><span class="chip clean">Medium</span></td><td>Google-Extended blocked site-wide</td><td>Decide on purpose; unblock if you want Gemini to use your content</td><td>1 hour</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">Third-party reviews say the free tier lacks JavaScript rendering, custom extraction, saved crawls, and Search Console integration. Use Search Console's URL Inspection to see rendered HTML. Buy the licence (listed at £199/year) only once the site passes about 500 indexable URLs.</p>
+    </section>
+
+    <!-- 09 KEYWORDS -->
+    <section id="keywords">
+      <h2><span class="n">09</span>Keyword targets</h2>
+      <p>Wave 1 takes low-difficulty buyer keywords that aPriori ignores. Wave 2 goes head-to-head on its should-cost and DFM terms once the domain has some authority.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Cluster</th><th class="num">Keywords</th><th class="num">Volume/mo</th><th class="num">Median KD</th><th>Wave</th></tr></thead>
+          <tbody>
+            <tr><td>BOM Management</td><td class="num">82</td><td class="num">55,020</td><td class="num">21</td><td>1: flagship module</td></tr>
+            <tr><td>Strategic Sourcing</td><td class="num">111</td><td class="num">37,220</td><td class="num">16</td><td>1: highest CPC, $33.60</td></tr>
+            <tr><td>Spend Analysis</td><td class="num">69</td><td class="num">17,030</td><td class="num">15</td><td>1</td></tr>
+            <tr><td>SRM</td><td class="num">40</td><td class="num">15,220</td><td class="num">15</td><td>1</td></tr>
+            <tr><td>Supplier Intelligence</td><td class="num">40</td><td class="num">9,480</td><td class="num">10.5</td><td>1: no competitor page</td></tr>
+            <tr><td>Design for Manufacturability</td><td class="num">63</td><td class="num">20,180</td><td class="num">7</td><td>2: vs aPriori</td></tr>
+            <tr><td>Should Cost Analysis</td><td class="num">60</td><td class="num">15,480</td><td class="num">7.5</td><td>2: vs aPriori</td></tr>
+            <tr><td>Digital Twin</td><td class="num">35</td><td class="num">75,110</td><td class="num">38</td><td>Authority content only</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>First pages to build</th><th>Keyword</th><th class="num">Volume</th><th class="num">KD</th></tr></thead>
+          <tbody>
+            <tr><td><code>/should-cost-analysis-software</code></td><td>should cost analysis software</td><td class="num">390</td><td class="num">8</td></tr>
+            <tr><td><code>/bom-management-software</code></td><td>bom management software</td><td class="num">720</td><td class="num">7</td></tr>
+            <tr><td><code>/strategic-sourcing-software</code></td><td>strategic sourcing software</td><td class="num">880</td><td class="num">21</td></tr>
+            <tr><td><code>/supplier-intelligence</code></td><td>supplier intelligence</td><td class="num">260</td><td class="num">14</td></tr>
+            <tr><td><code>/srm-software</code></td><td>srm software</td><td class="num">720</td><td class="num">17</td></tr>
+            <tr><td><code>/should-cost-modeling-software</code></td><td>should cost modeling software</td><td class="num">480</td><td class="num">9</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="caption">Head-to-head set for wave 2: should cost analysis (590/mo, aPriori at position 6), design to cost, design for manufacturing, manufacturing cost estimation, manufacturing costing software. One keyword maps to one page and one intent.</p>
+    </section>
+
+    <!-- 10 AUTHORITY -->
+    <section id="authority">
+      <h2><span class="n">10</span>Links and AI search</h2>
+      <p>Your clean AI-visibility file shows which sites AI engines cite when they answer aPriori-type questions. After aPriori itself, they lean on YouTube, a direct competitor, and community sites. Show up where they already look.</p>
+      <div class="bars" role="img" aria-label="Domains AI engines cite on aPriori-related prompts">
+        <div class="bar"><span class="name">apriori.com</span><div class="track"><div class="fill off" style="width:100%"></div></div><span class="v">61</span></div>
+        <div class="bar"><span class="name">youtube.com</span><div class="track"><div class="fill" style="width:63.9%"></div></div><span class="v">39</span></div>
+        <div class="bar"><span class="name">dfma.com</span><div class="track"><div class="fill off" style="width:45.9%"></div></div><span class="v">28</span></div>
+        <div class="bar"><span class="name">galorath.com</span><div class="track"><div class="fill off" style="width:31.1%"></div></div><span class="v">19</span></div>
+        <div class="bar"><span class="name">wikipedia.org</span><div class="track"><div class="fill" style="width:27.9%"></div></div><span class="v">17</span></div>
+        <div class="bar"><span class="name">reddit.com</span><div class="track"><div class="fill" style="width:26.2%"></div></div><span class="v">16</span></div>
+        <div class="bar"><span class="name">mtisystems.com</span><div class="track"><div class="fill off" style="width:24.6%"></div></div><span class="v">15</span></div>
+        <div class="bar"><span class="name">medium.com</span><div class="track"><div class="fill" style="width:23%"></div></div><span class="v">14</span></div>
+        <div class="bar"><span class="name">linkedin.com</span><div class="track"><div class="fill" style="width:23%"></div></div><span class="v">14</span></div>
+      </div>
+      <p class="caption">Citation counts on tracked prompts (US). Teal bars are channels Emithran can publish on; grey bars are competitor sites.</p>
+      <div class="two">
+        <div class="card"><span class="tag">Earn links</span><h3>Copy what worked for aPriori</h3><ul>
+          <li>One original cost benchmark (aerospace or defense), like its capex post with 29 domains.</li>
+          <li>A should-cost guide with worked examples, plus a PDF version.</li>
+          <li>Named customer case studies, like its Eaton post with 19 domains.</li>
+          <li>Comparison pages vs aPriori and DFMA; dfma.com already does this.</li>
+        </ul></div>
+        <div class="card"><span class="tag">Get listed</span><h3>Profiles and associations</h3><ul>
+          <li>G2, Capterra, TrustRadius, Gartner Peer Insights, SourceForge, AlternativeTo.</li>
+          <li>Contributed articles for ICEAA, NDIA, AIAA, SME.org.</li>
+          <li>Pitches to IndustryWeek and Tech-Clarity.</li>
+          <li>Wikidata entry and Organization schema with <code>sameAs</code> links.</li>
+        </ul></div>
+        <div class="card"><span class="tag">Show up in AI answers</span><h3>Channels AI engines cite</h3><ul>
+          <li>Short YouTube explainers for each pillar topic.</li>
+          <li>Engineers answering real questions on Reddit, not promoting.</li>
+          <li>LinkedIn and Medium versions of each pillar post, linking back.</li>
+          <li>No self-written Wikipedia article; it gets removed.</li>
+        </ul></div>
+      </div>
+      <p class="caption">aPriori has 673 dead URLs that still have backlinks, but only 29 referring domains point at them in total. Contact the sites linking to its dead Nikola and GE Aviation case studies; skip the rest.</p>
+    </section>
+
+    <!-- 11 PLAN -->
+    <section id="plan">
+      <h2><span class="n">11</span>90-day plan</h2>
+      <p>Monday 2026-11-09 to Friday 2027-02-05. Each phase starts only after the gate before it passes.</p>
+      <figure class="figure">
+        <div class="scroll">
+<pre class="mermaid">
+gantt
+  dateFormat YYYY-MM-DD
+  axisFormat %b %d
+  section Foundation
+  Fix tech, refresh data          :a1, 2026-11-09, 2026-11-20
+  Gate 1 technical clean          :milestone, m1, 2026-11-20, 0d
+  Build BERT pipeline             :a2, 2026-11-16, 2026-12-04
+  Review and entity profiles      :a3, 2026-11-16, 2026-12-11
+  section Content
+  6 commercial pages              :b1, 2026-11-23, 2026-12-18
+  Blog wave 1, 10 posts           :b2, 2026-11-30, 2026-12-18
+  Gate 2 first content            :milestone, m2, 2026-12-18, 0d
+  Blog wave 2 and glossary        :b3, 2027-01-04, 2027-02-05
+  Comparison pages                :b4, 2027-01-11, 2027-02-05
+  section Authority
+  Benchmark post, PDF guide       :c1, 2026-12-14, 2027-01-29
+  Association outreach            :c2, 2027-01-04, 2027-02-05
+  Gate 3 day 90 review            :milestone, m3, 2027-02-05, 0d
+</pre>
+        </div>
+      </figure>
+      <ol class="steps">
+        <li><strong>Week 1 (Nov 9).</strong> Re-pull Semrush. Fix robots.txt and unblock <code>/request-demo</code>. Verify Search Console. Crawl each section with Screaming Frog and export the CSVs. Clean the keyword list.</li>
+        <li><strong>Week 2 (Nov 16).</strong> Fix the 404s, H1s, titles, UTM canonicals, and sitemap. Set up the Python environment and load the SQLite schema. Collect SERP text for the first 16 keywords. Start G2, Capterra, TrustRadius, and Wikidata. <em>Gate 1: Nov 20.</em></li>
+        <li><strong>Weeks 3 and 4 (Nov 23, Nov 30).</strong> Run briefs for the 6 commercial keywords. Publish <code>/should-cost-analysis-software</code> and <code>/bom-management-software</code> first. Add schema.</li>
+        <li><strong>Weeks 5 and 6 (Dec 7, Dec 14).</strong> Publish the other four commercial pages and 10 blog posts. Calibrate the gate thresholds. Start benchmark data collection. <em>Gate 2: Dec 18.</em></li>
+        <li><strong>Weeks 7 and 8 (Dec 21, Dec 28).</strong> Holiday weeks with light output. Draft the PDF guide and benchmark post. First internal-link audit.</li>
+        <li><strong>Weeks 9 and 10 (Jan 4, Jan 11).</strong> Blog wave 2: 15 posts and 10 glossary terms. Comparison pages vs aPriori and DFMA. Outreach to ICEAA, NDIA, AIAA, SME.org.</li>
+        <li><strong>Weeks 11 and 12 (Jan 18, Jan 25).</strong> Publish the benchmark post and PDF guide by Jan 29. Pitch IndustryWeek and Tech-Clarity. Fix orphan pages.</li>
+        <li><strong>Week 13 (Feb 1).</strong> Day-90 review: Search Console results, head-to-head ranks vs aPriori, fresh aPriori re-pull, plan for months 4 to 6. <em>Gate 3: Feb 5.</em></li>
+      </ol>
+    </section>
+
+    <!-- 12 KPIs -->
+    <section id="kpis">
+      <h2><span class="n">12</span>KPIs, gates, and risks</h2>
+      <p>Judge the campaign on rank for a fixed keyword set and on demo requests. The month-6 targets are planning values; revise them at the day-90 gate.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Gate</th><th>Date</th><th>Pass criteria</th></tr></thead>
+          <tbody>
+            <tr><td>Technical clean</td><td>2026-11-20</td><td>Valid robots.txt, <code>/request-demo</code> crawlable, 0 broken internal links, sitemap indexed</td></tr>
+            <tr><td>First content</td><td>2026-12-18</td><td>6 commercial pages and 10 posts live and indexed; every page passed the gate</td></tr>
+            <tr><td>Day 90</td><td>2027-02-05</td><td>40+ pages indexed; first targets in the top 20; review profiles live; organic demo baseline recorded</td></tr>
+            <tr><td>Month 6</td><td>2027-05</td><td>5+ head-to-head keywords ahead of aPriori; first #1 on a KD 20 or lower buyer keyword</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Risk</th><th>What happens</th><th>Fallback</th></tr></thead>
+          <tbody>
+            <tr><td>New domain is slow to rank</td><td>Pages index but sit below page 2 for months</td><td>Lean on low-KD terms, review sites, and AI-cited channels while links build</td></tr>
+            <tr><td>Volume over quality</td><td>Thin, near-duplicate pages from the 300-article map</td><td>Keep the gate; cap output at what a named expert can review</td></tr>
+            <tr><td>aPriori responds</td><td>It adds buyer pages or refreshes its should-cost page</td><td>Monthly re-pull; refresh calendar for your own pages</td></tr>
+            <tr><td>Stale or noisy data</td><td>Targets built on June figures or furniture topics</td><td>Refresh in week 1; use only the files marked Use</td></tr>
+            <tr><td>Trusting the score too much</td><td>High coverage, no ranking</td><td>Decide on Search Console results; recalibrate thresholds</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 13 SOURCES -->
+    <section id="sources">
+      <h2><span class="n">13</span>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers (arXiv, 2018)</a></li>
+        <li><a href="https://blog.google/products/search/search-language-understanding-bert/" target="_blank" rel="noopener">Google: Understanding searches better than ever before (Oct 2019)</a></li>
+        <li><a href="https://www.seroundtable.com/google-bert-no-optimization-28435.html" target="_blank" rel="noopener">Search Engine Roundtable: Google says there is nothing to optimize for with BERT</a></li>
+        <li><a href="https://www.sbert.net/docs/sentence_transformer/pretrained_models.html" target="_blank" rel="noopener">sentence-transformers: pretrained models</a></li>
+        <li><a href="https://www.screamingfrog.co.uk/seo-spider/" target="_blank" rel="noopener">Screaming Frog SEO Spider (free tier, 500 URLs)</a></li>
+        <li><a href="https://www.temperstack.com/software/screaming-frog/" target="_blank" rel="noopener">Temperstack: Screaming Frog free vs paid features</a></li>
+        <li><a href="https://medium.com/@shaikhrayyan123/a-comprehensive-guide-to-understanding-bert-from-beginners-to-advanced-2379699e2b51" target="_blank" rel="noopener">Shaikh Rayyan, A Comprehensive Guide to Understanding BERT (Medium)</a>. Requested reading; blocked from automated access, so its figures are taken from the original paper instead.</li>
+        <li>Semrush exports for apriori.com (US, 2026-06-15) and the Emithran SEO toolkits in <code>ubaabu/memory</code>.</li>
+      </ul>
+    </section>
+
+    <footer>Emithran Ranking Engine · design doc as of 2026-11-07 · companion to the editable Claude Doc version of this plan.</footer>
+  </main>
+</div>
