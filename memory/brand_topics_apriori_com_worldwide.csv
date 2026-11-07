@@ -1,0 +1,393 @@
+name,country,visibility,difficulty,mentions,volume,volume_trend,intents
+Should-Cost Modeling,in,47,43,5,1791,0;0;88;88;89;100;88;85;86;86;86;94,task:5;informational:75;navigational:2;commercial:10;transactional:8
+Apriori Algorithm and Technologies,us,40,46,10,11176,0;0;81;81;100;42;86;87;71;74;71;73,task:8;informational:71;navigational:13;commercial:5;transactional:3
+Should Cost Analysis and Modeling,us,39,53,24,14685,0;0;87;98;98;100;93;93;95;95;96;96,task:8;informational:74;navigational:5;commercial:6;transactional:7
+Rolex Sigma Dial Watches,us,34,27,4,196,0;0;100;77;46;45;38;40;38;83;81;81,task:1;informational:61;navigational:9;commercial:25;transactional:4
+apriori dan a posteriori,id,33,31,4,49116,0;0;0;0;0;0;0;0;0;0;100;95,task:2;informational:86;navigational:5;commercial:5;transactional:2
+Market Basket Analysis,br,32,51,2,668,0;0;32;47;63;46;54;52;47;48;54;100,task:5;informational:75;navigational:2;commercial:10;transactional:8
+apriori Geschäfts­lösungen AG,de,29,48,2,460,0;0;65;65;68;60;72;100;59;19;14;13,task:3;informational:15;navigational:70;commercial:7;transactional:5
+Association Rule Mining and Apriori Algorithm,us,28,50,4,7451,0;0;87;93;89;91;92;88;88;87;100;94,task:10;informational:81;navigational:2;commercial:5;transactional:2
+Market Basket Analysis,mx,26,25,3,1333,0;0;34;35;35;26;26;26;26;28;28;100,task:5;informational:65;navigational:2;commercial:13;transactional:15
+SolidWorks Design Verification Tools,us,25,56,1,58,0;0;69;100;82;52;40;36;33;40;40;67,task:3;informational:70;navigational:5;commercial:9;transactional:13
+Factory Cost and Pricing,us,24,43,2,325,0;0;84;100;91;74;74;65;67;46;55;41,task:5;informational:46;navigational:5;commercial:15;transactional:29
+Part and Target Analysis,us,24,38,2,805,0;0;100;90;80;36;36;43;36;58;70;35,task:7;informational:48;navigational:33;commercial:7;transactional:5
+Manufacturing Cost Estimation and Quoting Software,us,23,53,13,5804,0;0;30;40;43;50;54;53;53;74;81;100,task:5;informational:59;navigational:5;commercial:23;transactional:8
+原価企画と自動車業界,jp,23,48,1,3209,0;0;24;33;98;87;89;100;95;98;89;91,task:5;informational:83;navigational:5;commercial:5;transactional:2
+DFMA: diseño para fabricación y ensamblaje,mx,22,59,1,511,0;0;62;63;64;64;64;89;100;65;65;87,task:10;informational:70;navigational:2;commercial:10;transactional:8
+Maskininlärning: vad är det,se,22,66,1,855,0;0;18;19;76;77;77;77;77;100;99;97,task:4;informational:83;navigational:5;commercial:5;transactional:3
+Manufacturing Methods and Processes,uk,22,52,1,2246,0;0;87;57;58;59;98;99;99;100;100;100,task:2;informational:83;navigational:5;commercial:8;transactional:2
+association rule mining,tr,22,72,1,1425,0;0;0;0;0;0;0;0;0;0;100;100,task:5;informational:75;navigational:10;commercial:7;transactional:3
+design for manufacturability,sg,22,63,1,2259,0;0;0;0;0;0;0;0;0;0;100;100,task:12;informational:76;navigational:3;commercial:6;transactional:3
+Automotive Industry Benchmarking and Cost Analysis,us,21,45,2,2020,0;0;100;83;63;53;57;69;56;46;65;80,task:5;informational:65;navigational:2;commercial:24;transactional:4
+Design for Manufacturing (DFM),mx,21,40,2,1867,0;0;74;77;77;97;97;97;98;89;100;100,task:2;informational:80;navigational:3;commercial:5;transactional:10
+A Priori Concepts,dk,21,41,1,2236,0;0;0;0;0;0;0;0;0;100;92;93,task:5;informational:83;navigational:5;commercial:5;transactional:2
+1974 Rolex Watches,us,21,58,1,148,0;0;100;76;9;8;8;8;7;9;12;12,task:2;informational:30;navigational:5;commercial:58;transactional:5
+A Priori Investments and Capital Partners,us,21,18,2,45,0;0;55;62;67;49;49;100;62;40;43;3,task:3;informational:32;navigational:46;commercial:11;transactional:8
+Apeiro e Design,us,21,8,1,292,0;0;100;85;77;22;26;26;26;27;26;26,task:7;informational:64;navigational:9;commercial:13;transactional:7
+Classical and Traditional Machine Learning,us,21,30,1,300,0;0;100;92;52;12;12;14;12;11;11;13,task:5;informational:70;navigational:5;commercial:16;transactional:4
+Door Profit Analysis and Insights,us,21,30,1,101,0;0;98;100;84;81;61;2;2;1;1;4,task:17;informational:35;navigational:33;commercial:10;transactional:5
+AP Manufacturing and Technology,us,20,55,3,357,0;0;100;83;66;41;41;51;29;9;8;30,task:6;informational:69;navigational:12;commercial:9;transactional:4
+Design for Manufacturing,tw,20,37,1,11511,0;0;0;0;0;0;0;0;0;0;35;100,task:8;informational:72;navigational:3;commercial:15;transactional:2
+data mining,za,20,61,1,1531,0;0;0;0;0;0;0;0;0;85;100;93,task:5;informational:75;navigational:2;commercial:10;transactional:8
+Restaurants in Bubikon,ch,20,14,1,863,0;0;0;0;0;0;0;0;0;100;99;99,task:2;informational:45;navigational:27;commercial:16;transactional:10
+ZnanyLekarz Kraków,pl,20,38,1,1140,0;0;0;0;0;0;0;0;0;100;33;31,task:3;informational:23;navigational:50;commercial:8;transactional:16
+denetimli ve denetimsiz öğrenme,tr,20,59,1,1530,0;0;0;0;0;0;0;0;0;0;96;100,task:2;informational:83;navigational:5;commercial:10
+Machine Learning: Types & Algorithms,ae,19,28,1,314,0;0;67;76;79;74;100;74;71;71;86;83,task:4;informational:82;navigational:2;commercial:6;transactional:6
+Van Graff,pl,19,36,1,60,0;0;0;0;0;0;0;0;0;100;82;78,task:7;informational:40;navigational:28;commercial:12;transactional:13
+数据分析中的挖掘技术,tw,19,61,2,7563,0;0;0;0;0;0;0;0;0;0;86;100,task:2;informational:83;navigational:5;commercial:8;transactional:2
+Supervised and Unsupervised Learning,au,19,20,2,3604,0;0;87;87;89;95;96;100;99;94;94;93,task:8;informational:64;navigational:4;commercial:20;transactional:4
+Design for manufacturability,vn,19,52,1,1608,0;0;0;0;0;0;0;0;0;0;40;100,task:2;informational:78;navigational:8;commercial:10;transactional:2
+Vericut and CGTech Simulation Software,us,19,23,1,1541,0;0;17;18;71;69;70;72;71;76;100;100,task:2;informational:38;navigational:35;commercial:14;transactional:11
+Design for Manufacturing (DFM),uk,19,35,2,11312,0;0;98;97;100;93;93;95;95;100;100;100,task:5;informational:72;navigational:6;commercial:9;transactional:8
+Ristoranti e hotel Dei Priori,it,19,23,1,2646,0;0;83;98;100;57;61;67;66;78;87;86,task:2;informational:30;navigational:44;commercial:17;transactional:7
+supervised vs unsupervised learning,tr,19,67,1,3123,0;0;0;0;0;0;0;0;0;0;100;100,task:8;informational:68;navigational:2;commercial:19;transactional:3
+Conocimientos a priori y a posteriori,pe,18,35,1,5755,0;0;0;0;0;0;0;0;0;78;100;99,task:5;informational:80;navigational:3;commercial:10;transactional:2
+Weka machine learning software,co,18,21,1,176,0;0;0;0;0;0;0;0;0;69;67;100,task:8;informational:62;navigational:10;commercial:8;transactional:12
+DFM/DFMA: Design for Manufacturability and Assembly,in,18,53,1,8740,0;0;93;92;93;97;97;96;97;100;100;100,task:12;informational:73;navigational:8;commercial:5;transactional:2
+Data Discretization Techniques,us,18,57,1,10637,0;0;46;61;62;62;61;63;63;100;97;96,task:12;informational:70;navigational:8;commercial:8;transactional:2
+Eco Hubs,es,18,42,1,106,0;0;71;71;100;88;59;60;67;63;63;66,informational:48;navigational:37;commercial:11;transactional:4
+a priori,il,18,45,1,528,0;0;0;0;0;0;0;0;0;100;100;100,task:5;informational:74;navigational:4;commercial:10;transactional:7
+Van Graaf online winkel,ch,17,53,2,1247,0;0;0;0;0;0;0;0;0;100;99;100,task:4;informational:36;navigational:46;commercial:10;transactional:4
+unsupervised learning,id,17,51,1,3156,0;0;0;0;0;0;0;0;0;0;96;100,task:2;informational:71;navigational:5;commercial:10;transactional:12
+Design for Manufacturing (DFM),ca,17,24,2,4428,0;0;54;54;53;94;100;100;100;78;99;99,task:5;informational:78;navigational:6;commercial:5;transactional:6
+supervised learning,ph,17,50,1,4476,0;0;0;0;0;0;0;0;0;0;74;100,task:2;informational:87;navigational:5;commercial:4;transactional:2
+Crypto APY and Interest Rates,it,17,11,1,1905,0;0;61;63;80;100;90;90;90;80;80;81,task:2;informational:76;navigational:3;commercial:17;transactional:2
+Design for Manufacturing (DFM),au,17,12,1,804,0;0;83;83;75;78;87;89;87;89;100;100,task:2;informational:80;navigational:5;commercial:8;transactional:5
+Digital Factory Solutions,us,17,33,1,539,0;0;100;77;62;45;26;47;39;17;17;20,task:5;informational:70;navigational:5;commercial:12;transactional:8
+Manufacturing in Malaysia,my,17,38,1,50478,0;0;0;0;0;0;0;0;0;0;100;89,task:5;informational:75;navigational:5;commercial:12;transactional:3
+Crypto Moonshot Coins and Trump-themed Tokens,us,17,38,1,1479,0;0;100;97;81;76;40;40;42;56;69;66,task:8;informational:60;navigational:5;commercial:17;transactional:10
+Supervised and Unsupervised Machine Learning,uk,17,31,2,9336,0;0;55;54;80;95;100;98;98;88;89;90,task:2;informational:70;navigational:4;commercial:20;transactional:4
+cost and spend usage,tw,17,60,1,50799,0;0;0;0;0;0;0;0;0;0;100;84,task:6;informational:82;navigational:4;commercial:6;transactional:2
+Design for Manufacturing and Assembly (DFMA),us,16,45,1,5307,0;0;74;76;76;80;84;84;84;89;95;100,task:10;informational:72;navigational:9;commercial:5;transactional:4
+Respiratorer og åndedrætsstøtte,dk,16,43,1,855,0;0;0;0;0;0;0;0;0;99;100;99,task:12;informational:73;navigational:8;commercial:5;transactional:2
+DFM and Design for Manufacturing,nl,16,23,2,947,0;0;87;89;90;83;86;89;86;97;100;100,task:12;informational:70;navigational:3;commercial:12;transactional:3
+A Priori Concepts,ch,16,21,1,1461,0;0;0;0;0;0;0;0;0;91;100;100,task:5;informational:77;navigational:10;commercial:5;transactional:3
+Bar Betis en Cádiz,es,16,51,1,1154,0;0;87;87;100;98;68;74;72;76;78;77,task:2;informational:62;navigational:28;commercial:6;transactional:2
+Conocimiento a priori y a posteriori,co,16,23,1,6852,0;0;0;0;0;0;0;0;0;100;98;98,task:2;informational:82;navigational:6;commercial:5;transactional:5
+Cost Factors Analysis,us,16,34,1,790,0;0;86;90;70;33;13;43;32;100;100;60,task:9;informational:73;navigational:3;commercial:10;transactional:5
+Supervised vs Unsupervised Learning,de,16,33,1,7032,0;0;31;31;39;43;72;74;73;100;98;98,task:8;informational:72;navigational:2;commercial:12;transactional:6
+Học có giám sát,vn,15,20,1,3630,0;0;0;0;0;0;0;0;0;0;99;100,task:2;informational:86;navigational:3;commercial:4;transactional:5
+DFX: Design for X,de,15,21,1,1014,0;0;59;59;100;84;54;57;54;65;56;100,task:2;informational:68;navigational:17;commercial:7;transactional:6
+design for manufacturability,il,15,24,1,238,0;0;0;0;0;0;0;0;0;100;100;100,task:8;informational:66;navigational:7;commercial:10;transactional:9
+林立宇 演算法,tw,15,48,1,3075,0;0;0;0;0;0;0;0;0;0;5;100,task:7;informational:63;navigational:5;commercial:12;transactional:13
+market basket analysis,th,14,24,1,1038,0;0;0;0;0;0;0;0;0;0;80;100,task:12;informational:75;navigational:4;commercial:7;transactional:2
+supervised vs unsupervised learning,il,14,33,1,721,0;0;0;0;0;0;0;0;0;85;100;80,task:2;informational:83;navigational:5;commercial:5;transactional:5
+Association terminology,in,14,38,1,87160,0;0;77;35;37;37;37;37;37;36;100;100,task:2;informational:85;navigational:4;commercial:5;transactional:4
+Cost Engineering and Engineering Degree Costs,us,14,65,1,2784,0;0;70;84;85;78;75;89;78;88;100;89,task:3;informational:76;navigational:5;commercial:11;transactional:5
+Cost and Price Modeling,us,14,49,1,4551,0;0;33;35;41;46;48;47;47;49;100;81,task:8;informational:65;navigational:5;commercial:12;transactional:10
+Generative Design,es,14,22,1,211,0;0;22;22;30;25;62;61;67;100;85;91,task:9;informational:64;navigational:16;commercial:8;transactional:3
+Manufacturing technology,ph,14,36,1,3828,0;0;0;0;0;0;0;0;0;0;24;100,task:2;informational:80;navigational:5;commercial:10;transactional:3
+Trade Promotion and Spend Optimization,us,14,47,1,2943,0;0;36;74;89;51;16;16;16;35;100;78,task:2;informational:65;navigational:5;commercial:20;transactional:8
+Panama Design Center,pa,13,50,1,878,0;0;0;0;0;0;0;0;0;90;94;100,task:3;informational:37;navigational:42;commercial:14;transactional:4
+DFM Injection Molding Optimization,us,13,30,1,476,0;0;63;72;48;39;45;44;36;41;63;100,task:8;informational:78;navigational:2;commercial:10;transactional:2
+supervised dan unsupervised learning,id,13,55,1,17877,0;0;0;0;0;0;0;0;0;0;100;81,task:2;informational:83;navigational:5;commercial:8;transactional:2
+Data Mining for BI and Analytics,in,13,36,1,1763,0;0;81;77;71;50;52;56;49;100;84;84,task:8;informational:67;navigational:2;commercial:10;transactional:13
+Boxed Toothbrushes,au,13,42,1,83,0;0;11;11;13;96;93;18;18;100;63;65,task:3;informational:46;navigational:4;commercial:33;transactional:14
+A Priori Definitions,au,13,38,1,13778,0;0;82;82;62;71;70;71;72;96;100;100,task:2;informational:80;navigational:6;commercial:8;transactional:4
+Supervised vs Unsupervised Machine Learning,us,13,78,3,56476,0;0;89;99;89;86;94;94;94;93;100;100,task:5;informational:75;navigational:4;commercial:12;transactional:4
+design for manufacturing,tr,13,51,1,249,0;0;0;0;0;0;0;0;0;0;87;100,task:12;informational:78;navigational:3;commercial:5;transactional:2
+manufacturing processes,tr,13,52,1,636,0;0;0;0;0;0;0;0;0;0;70;100,task:2;informational:80;navigational:5;commercial:10;transactional:3
+Sukienki Van Graaf,pl,12,34,1,107,0;0;0;0;0;0;0;0;0;100;77;73,task:3;informational:20;navigational:49;commercial:11;transactional:17
+supervised learning,kr,12,37,1,540,0;0;0;0;0;0;0;0;0;0;100;21,task:2;informational:75;navigational:5;commercial:8;transactional:10
+Aprendizaje automático: supervisado y no supervisado,mx,12,27,1,1087,0;0;86;100;99;86;84;86;86;96;84;85,task:5;informational:80;navigational:5;commercial:5;transactional:5
+Analogous and Parametric Cost Estimating in Project Management,us,12,38,1,3126,0;0;67;67;66;94;100;100;100;98;100;100,task:2;informational:79;navigational:5;commercial:12;transactional:2
+Digital Twin Technology,in,12,54,1,29537,0;0;97;98;99;100;100;100;100;100;92;91,task:2;informational:76;navigational:5;commercial:12;transactional:5
+MES vs ERP Systems,us,12,62,1,1959,0;0;91;100;90;88;90;92;98;95;100;99,task:5;informational:59;navigational:6;commercial:26;transactional:4
+Laurel Apparel and Brand Identity,uk,12,55,1,418,0;0;37;41;33;47;82;100;94;74;69;55,task:3;informational:47;navigational:27;commercial:9;transactional:14
+Supervised vs Unsupervised Learning,in,11,72,2,120943,0;0;100;100;100;89;91;91;91;93;66;66,task:2;informational:73;navigational:5;commercial:16;transactional:4
+Cost of Goods Manufactured and Manufacturing Costs,us,11,32,1,14941,0;0;100;99;98;98;100;100;100;92;91;91,task:2;informational:84;navigational:2;commercial:8;transactional:4
+Luxury and Unique Toothbrushes,uk,11,49,1,6655,0;0;2;15;1;1;2;2;26;28;3;100,task:6;informational:37;navigational:15;commercial:18;transactional:24
+Nicorandil meds and uses,in,11,47,1,79174,0;0;48;74;81;100;99;99;99;88;99;99,task:2;informational:75;navigational:5;commercial:15;transactional:3
+Ubiquiti Outdoor and Mesh WiFi Access Points,us,11,38,1,19052,0;0;40;43;44;50;78;78;79;98;100;100,task:5;informational:50;navigational:12;commercial:15;transactional:18
+Van Graaf odzież męska,pl,10,71,3,199,0;0;0;0;0;0;0;0;0;75;100;99,task:4;informational:4;navigational:72;commercial:4;transactional:16
+DFM Tools and Software,us,10,43,3,580,0;0;73;59;66;56;59;38;38;90;100;81,task:5;informational:61;navigational:17;commercial:14;transactional:3
+Design for Manufacturing and Analysis,us,10,29,2,1446,0;0;23;24;23;51;71;77;33;100;76;75,task:6;informational:74;navigational:5;commercial:10;transactional:5
+Frases y palabras en latín,co,10,59,1,4857,0;0;0;0;0;0;0;0;0;96;100;100,task:12;informational:70;navigational:2;commercial:8;transactional:8
+Engineering Cost Estimation,us,10,37,1,1038,0;0;90;98;45;43;51;64;60;96;100;84,task:10;informational:75;navigational:5;commercial:6;transactional:4
+Engineering Planning and Design,us,10,57,1,1766,0;0;66;73;50;59;59;76;55;89;58;100,task:8;informational:72;navigational:5;commercial:10;transactional:5
+Minería de datos y analítica,mx,10,50,1,5568,0;0;96;100;85;85;84;84;85;84;72;72,task:5;informational:70;navigational:5;commercial:14;transactional:6
+data mining,id,10,67,2,46719,0;0;0;0;0;0;0;0;0;0;100;91,task:2;informational:84;navigational:6;commercial:6;transactional:2
+Data Science & Mining MCQs,in,10,45,1,4632,0;0;36;47;51;39;39;38;39;52;81;100,task:12;informational:66;navigational:3;commercial:10;transactional:9
+A Priori and A Posteriori Knowledge,us,10,75,2,102078,0;0;62;58;52;90;93;93;93;69;100;100,task:5;informational:80;navigational:6;commercial:6;transactional:3
+Manufacturing Accounting,us,10,65,1,5807,0;0;93;100;58;71;92;80;80;90;94;98,task:12;informational:72;navigational:3;commercial:11;transactional:2
+Recipe Cost and Pricing Cards,us,10,38,1,490,0;0;17;27;18;44;50;100;78;64;60;94,task:14;informational:73;navigational:5;commercial:6;transactional:2
+Machine Learning Concepts,ar,9,41,1,3398,0;0;0;0;0;0;0;0;0;82;100;100,task:8;informational:58;navigational:4;commercial:26;transactional:4
+Predictive Analytics & ML,in,9,66,1,24868,0;0;99;98;100;94;92;92;92;93;72;75,task:8;informational:66;navigational:6;commercial:14;transactional:6
+Total Cost Calculation and Formulas,us,9,75,2,58610,0;0;100;98;95;97;99;98;98;100;99;99,task:12;informational:75;navigational:5;commercial:6;transactional:2
+Top Machine Learning Algorithms 2024,us,9,57,1,621,0;0;42;34;100;76;81;26;26;43;19;18,task:2;informational:69;navigational:5;commercial:13;transactional:11
+Japanese traditional clothing,ie,8,49,1,204,0;0;0;0;0;0;0;0;0;90;100;100,task:5;informational:59;navigational:6;commercial:21;transactional:9
+Van Graaf swetry,pl,8,69,1,486,0;0;0;0;0;0;0;0;0;100;83;73,task:3;informational:33;navigational:51;commercial:4;transactional:9
+Data Mining & Processing,in,7,76,1,119530,0;0;100;92;94;87;83;83;83;83;81;81,task:5;informational:71;navigational:5;commercial:11;transactional:8
+Kryptowährungen der Zukunft,at,7,55,1,1549,0;0;0;0;0;0;0;0;0;29;99;100,task:5;informational:68;navigational:5;commercial:16;transactional:6
+Manufacturing and Manufacturers,us,7,82,3,188672,0;0;92;51;53;51;53;53;53;55;100;100,task:2;informational:69;navigational:5;commercial:16;transactional:8
+Veelbelovende crypto en nieuwe cryptomunten,nl,7,59,2,403,0;0;41;54;52;86;88;94;94;97;97;100,task:2;informational:63;navigational:4;commercial:26;transactional:5
+Crypto Airdrops Hub,nl,7,54,1,193,0;0;81;90;91;87;85;88;89;100;94;97,task:2;informational:58;navigational:23;commercial:13;transactional:4
+Accounts Payable Analytics and Reporting,us,7,50,1,1930,0;0;63;65;74;86;81;81;77;96;90;100,task:9;informational:72;navigational:4;commercial:9;transactional:6
+ICO and Crypto Offerings,in,7,57,1,28684,0;0;75;85;89;87;96;96;96;100;87;87,informational:69;navigational:12;commercial:17;transactional:2
+Overhead and Cost Management,us,7,76,1,85133,0;0;99;96;93;91;78;78;78;79;100;100,task:8;informational:70;navigational:5;commercial:13;transactional:4
+Vagas de Emprego em Araucária,br,7,69,1,7996,0;0;68;84;83;80;79;81;81;100;92;92,task:3;informational:70;navigational:5;commercial:16;transactional:6
+Bitvavo en crypto koersen,nl,6,61,2,57025,0;0;81;94;100;97;97;97;97;97;91;91,informational:51;navigational:23;commercial:17;transactional:9
+Data Mining and Techniques,us,6,79,1,173684,0;0;48;85;83;81;91;91;91;100;100;100,task:12;informational:75;navigational:3;commercial:6;transactional:4
+Crypto Market Cap,de,5,63,2,114228,0;0;36;36;45;45;49;49;49;69;100;100,task:2;informational:64;navigational:16;commercial:14;transactional:4
+Cryptocurrency Investment Strategies,uk,5,64,1,30832,0;0;24;23;26;47;83;83;84;84;100;100,task:5;informational:49;navigational:5;commercial:30;transactional:11
+Industrial and Manufacturing Pricing Strategies,us,5,48,1,1610,0;0;91;100;75;22;33;24;23;14;13;64,task:8;informational:75;navigational:5;commercial:10;transactional:2
+vangraaf markası,tr,4,68,2,375,0;0;0;0;0;0;0;0;0;0;24;100,informational:48;navigational:37;commercial:10;transactional:5
+Contract Lifecycle Management Solutions,us,4,44,1,572,0;0;97;100;64;64;47;44;36;53;40;47,task:7;informational:46;navigational:4;commercial:31;transactional:12
+Cost Engineer Job Opportunities,us,4,72,1,2091,0;0;30;48;31;36;36;71;44;61;91;100,task:7;informational:38;navigational:10;commercial:40;transactional:5
+Bitcoin and Cryptocurrency Prices,uk,4,67,3,588728,0;0;57;55;56;68;73;73;73;94;100;100,task:2;informational:58;navigational:12;commercial:23;transactional:5
+Inflation Economics and Causes,us,4,82,1,186871,0;0;100;95;87;88;87;87;87;90;92;92,task:3;informational:79;navigational:5;commercial:8;transactional:5
+Aupark Bratislava Geschäfte & Öffnungszeiten,at,3,63,1,1858,0;0;0;0;0;0;0;0;0;100;92;90,task:4;informational:49;navigational:36;commercial:7;transactional:4
+Construction Takeoff and Estimation Software,us,3,61,1,41515,0;0;58;64;70;72;69;70;70;99;100;100,task:8;informational:49;navigational:5;commercial:30;transactional:8
+Source Intelligence and Sourcing Data,us,3,60,1,1997,0;0;23;23;20;10;10;7;5;10;100;91,task:1;informational:58;navigational:24;commercial:11;transactional:6
+Khaki Bomber Jackets,au,3,68,1,401,0;0;47;47;50;49;52;51;66;77;93;100,task:5;informational:40;navigational:5;commercial:30;transactional:20
+Monad Blockchain Ecosystem,us,3,55,1,3304,0;0;25;23;20;43;46;47;46;74;96;100,task:2;informational:66;navigational:17;commercial:8;transactional:7
+Crypto News and Markets,ca,2,65,1,220713,0;0;29;29;30;49;49;49;49;93;100;100,task:3;informational:56;navigational:12;commercial:24;transactional:5
+New Crypto Listings & Projects,nl,2,59,1,702,0;0;77;99;100;61;57;60;59;77;76;78,task:12;informational:57;navigational:8;commercial:12;transactional:11
+Best Cryptocurrencies and Investment Predictions,us,2,70,1,151407,0;0;49;53;74;97;100;99;99;92;87;87,task:10;informational:49;navigational:4;commercial:33;transactional:4
+Cost Tracking and Management Tools,us,2,70,1,1373,0;0;100;99;80;49;45;19;19;21;42;40,task:2;informational:73;navigational:5;commercial:15;transactional:5
+Crypto Market Data,au,2,62,1,223268,0;0;28;28;35;40;48;48;48;78;100;100,task:5;informational:52;navigational:11;commercial:22;transactional:10
+Cryptocurrency and Bitcoin Market,us,2,77,3,2365697,0;0;33;33;42;69;86;86;86;100;100;100,task:3;informational:58;navigational:5;commercial:24;transactional:10
+Linux-Administrator Jobs,de,2,68,1,2982,0;0;100;100;94;78;78;61;47;82;61;92,task:5;informational:74;navigational:5;commercial:13;transactional:3
+Python Data Mining,us,2,67,1,3337,0;0;100;83;57;54;50;26;20;26;14;37,task:6;informational:77;navigational:2;commercial:11;transactional:4
+BOM Cost Analysis and Optimization,us,0,34,0,1160,0;0;100;86;83;40;38;39;40;54;58;55,task:10;informational:65;navigational:5;commercial:10;transactional:10
+Product Design and Manufacturing,us,0,47,0,734,0;0;83;88;74;26;26;26;26;100;57;53,task:10;informational:64;navigational:11;commercial:12;transactional:3
+3D Factory Models and Designs,us,0,54,0,1583,0;0;79;57;67;30;14;21;14;30;19;100,task:17;informational:67;navigational:3;commercial:6;transactional:7
+Configura and Customization Platforms,us,0,44,0,539,0;0;57;57;45;45;44;81;69;100;47;45,task:5;informational:60;navigational:18;commercial:9;transactional:8
+Consumer Product Design and Development,us,0,57,0,2840,0;0;100;100;70;60;97;53;50;53;81;71,task:12;informational:70;navigational:5;commercial:10;transactional:3
+Cost Breakdown & Analysis,br,0,49,0,1476,0;0;77;83;83;56;54;100;92;15;98;96,task:5;informational:72;navigational:5;commercial:10;transactional:8
+DFMA and Manufacturability,ca,0,35,0,928,0;0;58;58;66;64;64;70;64;88;100;87,task:5;informational:83;navigational:5;commercial:5;transactional:2
+Design for Manufacturing and Abbreviations,us,0,65,0,54501,0;0;53;54;56;68;58;58;58;99;100;100,task:2;informational:79;navigational:6;commercial:10;transactional:3
+Digital Engineering and Solutions,us,0,72,0,5896,0;0;52;51;92;93;89;89;89;98;100;97,task:5;informational:70;navigational:8;commercial:12;transactional:5
+Digital Thread in Manufacturing and Engineering,us,0,44,0,3940,0;0;62;64;55;58;67;72;73;100;97;93,task:5;informational:71;navigational:3;commercial:13;transactional:8
+Engineering and Design Optimization,us,0,47,0,4297,0;0;89;100;28;30;27;29;24;39;78;55,task:3;informational:71;navigational:6;commercial:10;transactional:10
+GD&T Software and Geometric Dimensioning Tolerancing Tools,us,0,48,0,768,0;0;37;23;27;19;20;46;28;87;100;66,task:5;informational:73;navigational:5;commercial:15;transactional:2
+Industrial Equipment Design and Manufacturing,us,0,56,0,1075,0;0;53;91;58;42;42;57;15;57;100;57,task:10;informational:66;navigational:13;commercial:9;transactional:2
+Manufacturing Design Engineering,us,0,54,0,2540,0;0;49;36;28;18;18;13;11;36;100;54,task:5;informational:72;navigational:5;commercial:10;transactional:8
+Manufacturing Engineering & Technology,ca,0,53,0,3784,0;0;93;93;100;81;84;85;83;69;94;87,task:2;informational:65;navigational:5;commercial:18;transactional:10
+Manufacturing Process Planning and Management,us,0,50,0,2272,0;0;84;100;62;39;36;37;35;81;97;90,task:20;informational:61;navigational:10;commercial:7;transactional:2
+Product Lifecycle Management (PLM) and Application Lifecycle Management (ALM),us,0,76,0,93029,0;0;73;65;72;73;82;83;83;100;100;100,task:8;informational:65;navigational:5;commercial:19;transactional:3
+engineering design process and principles,us,0,70,0,25390,0;0;13;54;49;60;73;73;74;75;100;84,task:2;informational:75;navigational:6;commercial:14;transactional:3
+wire design services and companies,us,0,52,0,51,0;0;100;48;44;19;19;48;61;21;19;13,task:5;informational:51;navigational:18;commercial:21;transactional:5
+A Priori & A Posteriori Concepts,de,0,41,0,25280,0;0;64;64;53;42;45;45;45;97;100;100,task:2;informational:79;navigational:8;commercial:8;transactional:3
+AI Pros and Cons,in,0,76,0,128489,0;0;100;91;92;74;81;81;81;88;69;69,task:8;informational:76;navigational:5;commercial:8;transactional:3
+AI Tools for Product Management and Development,us,0,70,0,4695,0;0;75;78;87;80;86;54;53;53;100;76,task:8;informational:52;navigational:4;commercial:33;transactional:3
+Cost Drivers in Cost Accounting,us,0,27,0,4003,0;0;100;100;97;84;78;78;79;79;82;82,task:2;informational:79;navigational:5;commercial:11;transactional:3
+Cost Drivers in Finance & Procurement,br,0,25,0,526,0;0;73;80;85;83;83;86;86;84;100;100,task:2;informational:68;navigational:16;commercial:7;transactional:7
+Cost Performance and Cost Management Software,us,0,63,0,631,0;0;93;100;66;23;23;23;21;7;7;24,task:3;informational:38;navigational:24;commercial:17;transactional:18
+Cost-Benefit Analysis Templates and Ratios,us,0,57,0,7108,0;0;100;94;62;68;62;62;62;66;56;56,task:13;informational:78;navigational:3;commercial:5;transactional:1
+Cost-Benefit Analysis and Its Implications,us,0,78,0,175293,0;0;96;96;92;92;93;93;93;97;100;100,task:10;informational:74;navigational:3;commercial:11;transactional:2
+Design Technology and Innovation,us,0,72,0,8173,0;0;86;77;58;65;61;51;57;52;100;82,task:5;informational:65;navigational:8;commercial:16;transactional:6
+Digital Forge and Digital Manufacturing,us,0,43,0,334,0;0;100;82;75;48;84;74;58;47;44;36,task:3;informational:73;navigational:5;commercial:12;transactional:7
+Digital Manufacturing and Transformation,us,0,68,0,9415,0;0;100;76;38;54;64;58;56;64;66;62,task:5;informational:72;navigational:6;commercial:10;transactional:7
+Digital Product Lifecycle Management,us,0,43,0,2537,0;0;100;100;71;52;52;21;25;31;54;76,task:2;informational:73;navigational:8;commercial:12;transactional:5
+Digital Twin in Manufacturing and AI,us,0,80,0,36098,0;0;46;53;56;77;83;83;81;92;100;100,task:8;informational:71;navigational:3;commercial:13;transactional:5
+Eco-Friendly and Sustainable Products,us,0,70,0,88390,0;0;75;74;63;73;76;76;76;91;100;100,task:2;informational:68;navigational:5;commercial:17;transactional:8
+Engineering and Design Services,us,0,49,0,603,0;0;98;100;30;36;36;5;4;8;29;22,task:3;informational:32;navigational:22;commercial:31;transactional:12
+Future Factories and Industry 4.0,us,0,48,0,4479,0;0;100;84;24;22;22;34;28;56;75;69,task:2;informational:83;navigational:3;commercial:10;transactional:2
+Generative AI in Manufacturing,us,0,71,0,3421,0;0;95;89;100;65;64;65;14;42;34;66,task:8;informational:72;navigational:5;commercial:10;transactional:5
+Manufactura y procesos,mx,0,70,0,53404,0;0;98;100;97;93;92;92;92;93;85;85,task:2;informational:78;navigational:5;commercial:12;transactional:3
+Manufacturing Efficiency and Productivity,us,0,57,0,4808,0;0;97;100;75;80;84;84;84;96;92;88,task:12;informational:73;navigational:4;commercial:9;transactional:2
+Manufacturing Process and Guide,us,0,36,0,104,0;0;46;100;53;20;20;24;7;11;15;9,task:10;informational:70;navigational:5;commercial:12;transactional:3
+Manufacturing Processes and Industries,us,0,68,0,9149,0;0;77;79;83;86;95;95;96;92;100;100,task:2;informational:74;navigational:6;commercial:15;transactional:3
+Manufacturing Technology and Industry Trends,us,0,75,0,12749,0;0;100;80;59;60;65;66;66;72;79;78,task:2;informational:80;navigational:4;commercial:9;transactional:5
+Motor Manufacturing and Factory Production,us,0,27,0,262,0;0;100;26;52;63;17;10;1;7;7;5,task:8;informational:65;navigational:12;commercial:9;transactional:6
+Packaging Engineering,mx,0,36,0,402,0;0;29;35;39;32;39;54;55;100;95;87,task:2;informational:69;navigational:5;commercial:21;transactional:3
+Product Manufacturing and Development,us,0,76,0,11108,0;0;97;98;100;100;96;97;100;97;98;96,task:8;informational:69;navigational:5;commercial:10;transactional:8
+Spend Analysis and Analytics,uk,0,18,0,661,0;0;100;73;79;91;78;78;77;93;93;91,task:8;informational:70;navigational:5;commercial:10;transactional:7
+Sustainable Manufacturing and Green Production,us,0,75,0,9123,0;0;92;95;82;81;82;83;79;87;100;89,task:12;informational:72;navigational:6;commercial:8;transactional:2
+Virtual Factory and Manufacturing,us,0,29,0,3971,0;0;55;62;54;4;4;4;12;100;96;92,task:2;informational:69;navigational:10;commercial:10;transactional:9
+factory interior design and images,us,0,61,0,858,0;0;100;96;85;54;37;28;24;7;7;52,task:7;informational:48;navigational:14;commercial:20;transactional:11
+lj design and manufacturing,us,0,39,0,158,0;0;100;84;62;3;3;82;62;24;20;10,task:3;informational:53;navigational:18;commercial:18;transactional:8
+3D Engineering & Automation,in,0,0,0,476,0;0;86;76;83;73;73;87;78;83;98;100,task:17;informational:38;navigational:30;commercial:10;transactional:5
+AB Suppliers and Wholesale Supply,us,0,0,0,598,0;0;8;9;9;70;70;68;48;41;28;100,task:3;informational:38;navigational:21;commercial:27;transactional:11
+AG & Industrial Equipment,ca,0,0,0,240,0;0;64;64;76;71;80;100;77;72;60;60,task:3;informational:37;navigational:35;commercial:17;transactional:8
+ARO Pro and Related Brands,us,0,0,0,9,0;0;5;19;34;25;2;16;16;100;2;2,task:3;informational:28;navigational:17;commercial:40;transactional:12
+Abiotic Factors in Gaming and Equipment,us,0,0,0,213,0;0;44;41;37;32;90;100;46;7;7;7,task:3;informational:80;navigational:5;commercial:8;transactional:4
+Absolute Manufacturing and Machining,us,0,0,0,78,0;0;92;100;95;44;44;40;12;17;17;19,task:3;informational:22;navigational:46;commercial:21;transactional:8
+Accidental Superpower Analysis,us,0,0,0,377,0;0;100;97;90;37;32;28;26;21;21;26,task:3;informational:60;navigational:5;commercial:12;transactional:20
+Advanced Manufacturing Journals,in,0,0,0,5220,0;0;41;64;74;81;77;75;80;76;100;78,task:1;informational:72;navigational:14;commercial:8;transactional:5
+Advanced Manufacturing Tech,au,0,0,0,1352,0;0;50;50;45;42;48;47;44;39;96;100,task:2;informational:67;navigational:12;commercial:10;transactional:9
+Assembly and Assembling Terminology,us,0,0,0,7637,0;0;19;22;57;76;44;47;38;20;100;84,task:5;informational:77;navigational:7;commercial:8;transactional:3
+BIW in Automotive Design,in,0,0,0,5578,0;0;100;100;95;93;89;89;88;65;64;71,task:8;informational:72;navigational:5;commercial:12;transactional:3
+Bulkinkopen en inkoopadvies,nl,0,0,0,171,0;0;56;91;90;86;86;88;98;100;87;67,task:13;informational:58;navigational:4;commercial:14;transactional:11
+Business Sustainability,au,0,0,0,776,0;0;72;72;77;72;69;69;69;79;77;100,task:5;informational:70;navigational:5;commercial:15;transactional:5
+CAD Mapping & GIS Software,de,0,0,0,665,0;0;84;84;100;86;79;42;41;59;66;67,task:7;informational:66;navigational:9;commercial:15;transactional:3
+Circular Economy & Material Economics,no,0,0,0,538,0;0;0;0;0;0;0;0;0;100;67;62,task:2;informational:72;navigational:13;commercial:10;transactional:3
+Cloud Architecture and Cloud Architects,us,0,0,0,21955,0;0;59;66;60;63;84;85;84;95;100;100,task:5;informational:66;navigational:7;commercial:14;transactional:8
+Cloud Computing,br,0,0,0,37794,0;0;49;51;50;48;42;43;43;100;97;98,task:4;informational:65;navigational:6;commercial:17;transactional:8
+Cloud Computing Challenges,in,0,0,0,4884,0;0;98;100;94;89;89;88;86;89;94;91,task:8;informational:78;navigational:2;commercial:10;transactional:2
+Cloud Computing Platforms,de,0,0,0,10135,0;0;93;93;100;98;84;85;85;90;92;92,task:10;informational:62;navigational:5;commercial:20;transactional:3
+Cloud Computing Terminology,us,0,0,0,1598,0;0;76;70;86;99;100;58;54;66;51;52,task:8;informational:75;navigational:6;commercial:8;transactional:3
+Cloud Computing and Cloud Services,uk,0,0,0,89066,0;0;83;80;77;89;88;89;89;100;100;100,task:8;informational:70;navigational:5;commercial:13;transactional:4
+Cloud Computing and Cloud Types,us,0,0,0,1141932,0;0;58;68;69;78;85;85;85;100;100;100,task:5;informational:81;navigational:5;commercial:6;transactional:3
+Cloud Infrastructure and Networking,us,0,0,0,21812,0;0;72;74;81;87;100;100;99;95;97;97,task:10;informational:67;navigational:8;commercial:10;transactional:5
+Computer Aided Engineering Drawings,in,0,0,0,3214,0;0;95;94;98;100;99;99;99;92;89;89,task:4;informational:71;navigational:7;commercial:12;transactional:6
+Construction Cost Estimation and Budgeting,us,0,0,0,12200,0;0;100;89;72;74;75;75;76;73;76;77,task:12;informational:70;navigational:4;commercial:10;transactional:4
+Consumer Product Manufacturing and Metal Parts,us,0,0,0,1098,0;0;100;100;78;42;42;34;11;13;13;49,task:2;informational:73;navigational:5;commercial:15;transactional:5
+Cost Accounting Essentials,in,0,0,0,209783,0;0;85;61;75;74;60;60;60;100;97;97,task:2;informational:80;navigational:5;commercial:10;transactional:3
+Cost Drivers in Business and Finance,us,0,0,0,827,0;0;81;88;89;90;92;92;92;100;100;100,task:2;informational:77;navigational:8;commercial:10;transactional:3
+Cost Engineering,au,0,0,0,370,0;0;100;100;98;87;80;79;80;77;100;87,task:8;informational:70;navigational:5;commercial:10;transactional:7
+Cost-Driven Design,de,0,0,0,4129,0;0;66;66;25;34;22;35;22;27;27;100,task:2;informational:78;navigational:5;commercial:10;transactional:5
+Costimator software,au,0,0,0,72,0;0;68;68;85;85;85;98;99;88;100;99,task:3;informational:38;navigational:30;commercial:14;transactional:15
+Costing and Cost Modelling,uk,0,0,0,935,0;0;67;72;73;95;74;80;75;100;100;100,task:8;informational:64;navigational:11;commercial:9;transactional:8
+Costos indirectos de fabricación,br,0,0,0,5316,0;0;36;100;100;87;71;71;71;54;54;54,task:5;informational:67;navigational:5;commercial:7;transactional:16
+Cradle to Grave Life Cycle Assessment,us,0,0,0,1957,0;0;35;100;34;26;26;26;26;46;38;32,task:8;informational:77;navigational:5;commercial:8;transactional:2
+Códigos DTC Automotrices,mx,0,0,0,6868,0;0;85;89;100;97;52;53;53;83;82;82,task:2;informational:70;navigational:13;commercial:12;transactional:3
+DFX in Movies and Theater,us,0,0,0,8963,0;0;88;92;63;66;63;62;62;97;100;100,task:4;informational:77;navigational:6;commercial:9;transactional:4
+Defined Design Concepts,us,0,0,0,3937,0;0;71;56;38;40;61;82;63;100;94;87,task:10;informational:58;navigational:14;commercial:11;transactional:7
+Design and Engineering Process,es,0,0,0,1832,0;0;54;54;54;48;75;74;74;100;100;100,task:5;informational:64;navigational:5;commercial:10;transactional:16
+Design for Manufacturability,de,0,0,0,1783,0;0;89;89;92;98;79;80;79;100;95;96,task:12;informational:75;navigational:5;commercial:5;transactional:3
+Design for Manufacturability,dk,0,0,0,966,0;0;0;0;0;0;0;0;0;53;100;100,task:2;informational:64;navigational:8;commercial:10;transactional:16
+Design for Manufacturing,co,0,0,0,70,0;0;0;0;0;0;0;0;0;100;100;100,task:10;informational:70;navigational:2;commercial:10;transactional:8
+Design for Manufacturing,hk,0,0,0,8403,0;0;0;0;0;0;0;0;0;0;15;100,task:2;informational:82;navigational:4;commercial:10;transactional:2
+Design for Manufacturing,br,0,0,0,1143,0;0;95;100;42;37;96;97;97;96;94;94,task:4;informational:80;navigational:4;commercial:8;transactional:4
+Design for Manufacturing (DFM),no,0,0,0,182,0;0;0;0;0;0;0;0;0;100;95;95,task:8;informational:77;navigational:5;commercial:8;transactional:2
+Design for Manufacturing (DFM),it,0,0,0,1620,0;0;50;55;55;52;58;59;57;97;100;99,task:5;informational:75;navigational:5;commercial:10;transactional:5
+Design for manufacturability,pl,0,0,0,740,0;0;0;0;0;0;0;0;0;100;79;79,task:6;informational:79;navigational:5;commercial:8;transactional:2
+Digital Television and Signal Transmission,us,0,0,0,15256,0;0;84;37;37;37;80;80;80;100;40;40,task:2;informational:68;navigational:6;commercial:16;transactional:8
+Digitale Fabrik,de,0,0,0,1092,0;0;54;54;54;60;80;76;54;100;82;89,task:2;informational:57;navigational:15;commercial:20;transactional:6
+Direct and Indirect Labor Costs,us,0,0,0,10256,0;0;87;87;89;98;98;98;99;92;95;100,task:5;informational:72;navigational:5;commercial:10;transactional:8
+Diseño de tu taller,co,0,0,0,55,0;0;0;0;0;0;0;0;0;100;81;28,task:40;informational:29;navigational:19;commercial:8;transactional:4
+EU and UK CBAM Regulations and Reporting,uk,0,0,0,8030,0;0;85;91;51;89;84;84;85;98;100;100,task:5;informational:72;navigational:5;commercial:10;transactional:8
+Eco Sourcing and Sustainable Procurement,us,0,0,0,390,0;0;100;97;79;2;2;1;1;41;36;12,task:7;informational:56;navigational:2;commercial:15;transactional:20
+Eco-friendly & Sustainable Living,in,0,0,0,40980,0;0;52;52;55;52;94;94;94;100;94;94,task:2;informational:68;navigational:5;commercial:20;transactional:5
+Eco-friendly & Sustainable Living,de,0,0,0,4046,0;0;84;84;87;85;92;94;95;95;97;100,task:2;informational:78;navigational:5;commercial:12;transactional:3
+Eco2 Manufacturing,ca,0,0,0,332,0;0;64;64;68;61;61;61;61;100;91;89,informational:51;navigational:36;commercial:9;transactional:4
+Engineered Systems and Systems Engineering,uk,0,0,0,1550,0;0;100;59;51;46;81;78;78;83;98;95,task:2;informational:75;navigational:8;commercial:10;transactional:5
+Engineering Design Process,uk,0,0,0,1552,0;0;73;59;51;53;64;65;63;77;100;87,task:8;informational:78;navigational:2;commercial:10;transactional:2
+English Production Terminology,de,0,0,0,1738,0;0;41;41;39;40;92;100;83;36;35;36,task:4;informational:79;navigational:5;commercial:9;transactional:3
+Environmental Products and Sustainability,us,0,0,0,1551,0;0;100;66;58;38;39;33;12;18;54;54,task:3;informational:38;navigational:34;commercial:13;transactional:12
+European Automotive,es,0,0,0,1788,0;0;62;62;67;61;51;54;51;64;85;100,task:3;informational:59;navigational:15;commercial:15;transactional:8
+Exotic Metals and Automation Industry,us,0,0,0,2697,0;0;100;99;88;86;89;91;91;82;99;97,task:5;informational:63;navigational:13;commercial:10;transactional:9
+Fabrication and Fabricating Terminology,us,0,0,0,81009,0;0;24;18;21;21;25;23;23;51;100;100,task:3;informational:79;navigational:5;commercial:10;transactional:3
+Farm Equipment and Machinery,us,0,0,0,5182,0;0;96;100;66;69;64;64;64;50;53;52,task:1;informational:60;navigational:11;commercial:22;transactional:6
+Finished Product and Process Goods,us,0,0,0,1326,0;0;100;99;91;75;83;86;83;75;76;76,task:5;informational:75;navigational:5;commercial:10;transactional:5
+Fossil Fuels and Carbon Cycle,us,0,0,0,671615,0;0;79;75;89;91;92;92;92;100;100;100,task:8;informational:83;navigational:4;commercial:5
+GD&T Essentials,in,0,0,0,44495,0;0;100;75;76;49;75;75;75;76;53;53,informational:79;navigational:11;commercial:6;transactional:4
+GD&T Explanation and Applications,us,0,0,0,116,0;0;98;98;100;86;86;84;89;78;79;89,task:2;informational:84;navigational:5;commercial:5;transactional:4
+Geometric Tolerancing and Dimensioning,uk,0,0,0,8079,0;0;91;87;87;87;98;100;100;86;94;95,task:5;informational:76;navigational:7;commercial:10;transactional:2
+Go to Production Process,us,0,0,0,595,0;0;50;71;45;49;52;100;72;45;29;61,task:8;informational:50;navigational:25;commercial:14;transactional:3
+Green Future,ca,0,0,0,242,0;0;12;12;15;16;16;19;18;20;100;73,task:10;informational:44;navigational:31;commercial:7;transactional:8
+How It's Made,nl,0,0,0,942,0;0;68;86;55;52;50;51;50;100;94;91,task:2;informational:75;navigational:8;commercial:6;transactional:9
+How It's Made - Manufacturing Process,us,0,0,0,39642,0;0;100;81;39;41;43;44;44;84;86;86,task:3;informational:76;navigational:6;commercial:8;transactional:7
+Impact Products and Manufacturing,us,0,0,0,809,0;0;100;78;76;43;13;13;13;42;40;42,task:5;informational:68;navigational:7;commercial:16;transactional:4
+Industrial Manufacturing Processes,ca,0,0,0,932,0;0;100;100;100;86;80;75;76;67;83;80,task:8;informational:72;navigational:5;commercial:10;transactional:5
+Industrial Sustainability,us,0,0,0,3079,0;0;100;94;64;50;47;11;11;23;51;33,task:5;informational:75;navigational:5;commercial:10;transactional:5
+Industrial materials and processes,ph,0,0,0,2049,0;0;0;0;0;0;0;0;0;0;74;100,task:2;informational:78;navigational:5;commercial:10;transactional:5
+Ipratico Cloud ERP,it,0,0,0,10293,0;0;25;32;33;33;33;35;35;100;100;100,informational:37;navigational:41;commercial:10;transactional:12
+Kunststoffe und Plastik – Eigenschaften & Herstellung,de,0,0,0,25511,0;0;93;93;94;70;100;100;100;71;70;70,task:2;informational:80;navigational:3;commercial:7;transactional:8
+LED-Streifen und Bänder Beleuchtung,ch,0,0,0,3272,0;0;0;0;0;0;0;0;0;100;95;96,task:3;informational:55;navigational:1;commercial:31;transactional:10
+Life Cycle Assessment,in,0,0,0,25178,0;0;100;100;99;96;61;61;61;96;90;90,task:4;informational:79;navigational:5;commercial:9;transactional:3
+Life Cycle Assessment (LCA),no,0,0,0,1689,0;0;0;0;0;0;0;0;0;100;99;99,task:10;informational:78;navigational:5;commercial:5;transactional:2
+Life Cycle Assessment (LCA),se,0,0,0,3049,0;0;77;83;94;91;91;100;98;97;97;88,task:5;informational:72;navigational:2;commercial:18;transactional:3
+Life cycle assessment,hk,0,0,0,2724,0;0;0;0;0;0;0;0;0;0;100;92,task:1;informational:82;navigational:5;commercial:10;transactional:2
+Lifecycle analysis,ar,0,0,0,205,0;0;0;0;0;0;0;0;0;96;98;100,task:13;informational:61;navigational:19;commercial:4;transactional:3
+Manufactured Housing and Manufacturing Terms,us,0,0,0,60864,0;0;45;29;39;43;78;78;78;84;97;100,task:5;informational:77;navigational:2;commercial:8;transactional:8
+Manufacturing Analytics,in,0,0,0,1126,0;0;78;74;75;73;59;48;45;67;100;100,task:5;informational:75;navigational:5;commercial:10;transactional:5
+Manufacturing Analytics and Industry Insights,uk,0,0,0,135,0;0;47;31;29;29;57;37;33;55;100;87,task:7;informational:44;navigational:24;commercial:11;transactional:14
+Manufacturing Costs and Cost Analysis,us,0,0,0,352,0;0;76;100;91;93;77;77;77;79;76;77,task:8;informational:78;navigational:2;commercial:10;transactional:2
+Manufacturing Definitions,mx,0,0,0,838,0;0;15;20;17;16;99;100;100;99;14;13,task:3;informational:73;navigational:7;commercial:14;transactional:3
+Manufacturing Industry Essentials,in,0,0,0,468397,0;0;44;49;50;47;48;48;48;48;100;100,task:2;informational:79;navigational:5;commercial:8;transactional:6
+Manufacturing Materials and Processes,us,0,0,0,4641,0;0;11;17;9;10;10;30;26;13;100;74,task:2;informational:83;navigational:5;commercial:8;transactional:2
+Manufacturing Processes,au,0,0,0,751,0;0;96;96;100;97;97;97;97;95;95;97,task:10;informational:78;navigational:3;commercial:8;transactional:1
+Manufacturing Rebuild and Development,us,0,0,0,1026,0;0;23;100;31;33;35;35;37;57;36;34,task:5;informational:60;navigational:17;commercial:10;transactional:8
+Manufacturing Technology,uk,0,0,0,1121,0;0;100;50;54;84;79;78;78;56;85;82,task:2;informational:78;navigational:5;commercial:10;transactional:5
+Manufacturing Translations,fr,0,0,0,1386,0;0;41;41;44;44;44;52;47;100;61;55,task:17;informational:58;navigational:5;commercial:8;transactional:12
+Manufacturing and Manufactured Goods,fr,0,0,0,4821,0;0;90;90;92;91;93;94;94;97;98;100,task:3;informational:74;navigational:5;commercial:14;transactional:4
+Manufacturing and Manufacturers,uk,0,0,0,49681,0;0;44;52;52;67;67;67;67;94;100;100,task:4;informational:75;navigational:8;commercial:10;transactional:3
+Manufacturing process,vn,0,0,0,717,0;0;0;0;0;0;0;0;0;0;100;85,task:10;informational:73;navigational:2;commercial:8;transactional:7
+Manufacturing: Definitions & Processes,ae,0,0,0,7103,0;0;96;98;100;99;99;100;100;93;83;82,task:5;informational:80;navigational:5;commercial:5;transactional:5
+Manufacturing: definitions and meaning,sa,0,0,0,5873,0;0;0;0;0;0;0;0;0;99;100;100,task:2;informational:83;navigational:5;commercial:8;transactional:2
+Material Creation and Manufacturing,us,0,0,0,873,0;0;100;89;62;67;100;90;21;83;69;47,task:10;informational:56;navigational:6;commercial:24;transactional:4
+Material Sourcing and Procurement,us,0,0,0,1823,0;0;95;100;93;92;88;92;80;83;95;92,task:12;informational:69;navigational:3;commercial:12;transactional:4
+Materials Characterization Techniques and Services,us,0,0,0,3073,0;0;31;41;33;35;45;47;32;100;52;41,task:4;informational:72;navigational:6;commercial:15;transactional:3
+Multi-Source Agreements,au,0,0,0,674,0;0;68;68;54;86;77;82;84;90;94;100,task:7;informational:70;navigational:5;commercial:11;transactional:7
+Nederlandse Groene Steden,nl,0,0,0,338,0;0;42;42;44;45;78;100;75;59;49;44,task:5;informational:65;navigational:15;commercial:10;transactional:5
+ODM and OEM Manufacturing,us,0,0,0,2636,0;0;95;95;94;99;99;99;99;99;100;100,task:5;informational:70;navigational:10;commercial:10;transactional:5
+OEM and ODM Sourcing,es,0,0,0,733,0;0;66;66;68;68;74;74;82;83;88;100,task:5;informational:65;navigational:5;commercial:20;transactional:5
+Organizational Silos and Their Impact,us,0,0,0,14200,0;0;66;68;62;70;74;83;83;80;100;96,informational:80;navigational:6;commercial:10;transactional:4
+PLM and Life Cycle Management,se,0,0,0,2815,0;0;97;100;100;100;98;99;99;97;96;98,task:8;informational:62;navigational:5;commercial:15;transactional:10
+Performance Engineering,au,0,0,0,993,0;0;70;70;63;83;84;89;92;95;98;100,task:10;informational:68;navigational:7;commercial:10;transactional:5
+Peter Zeihan Geopolitics,ca,0,0,0,666,0;0;100;100;89;85;85;90;90;77;73;68,task:7;informational:54;navigational:17;commercial:11;transactional:11
+Philosophy and Definitions of A Priori and A Posteriori,uk,0,0,0,17189,0;0;53;52;54;50;52;53;53;91;100;100,task:2;informational:83;navigational:6;commercial:6;transactional:3
+Precision CNC Turning Parts,uk,0,0,0,918,0;0;71;42;68;100;93;94;95;63;69;70,task:2;informational:47;navigational:12;commercial:30;transactional:9
+Precision Wire Forms Industry,us,0,0,0,91,0;0;95;98;100;99;100;100;100;82;82;82,task:3;informational:38;navigational:43;commercial:8;transactional:8
+Price Negotiation and Cost Discussion,us,0,0,0,2672,0;0;77;68;66;58;57;59;42;56;85;100,task:13;informational:56;navigational:10;commercial:7;transactional:14
+Pro Twins and Twin-Related Businesses,uk,0,0,0,160,0;0;100;46;38;41;46;43;47;31;38;33,task:3;informational:47;navigational:22;commercial:11;transactional:17
+Procurement and Vendor Negotiation,us,0,0,0,2093,0;0;93;94;95;91;89;90;90;100;99;99,task:12;informational:69;navigational:6;commercial:10;transactional:3
+Product Lifecycle Management,at,0,0,0,806,0;0;0;0;0;0;0;0;0;100;87;89,task:2;informational:73;navigational:5;commercial:15;transactional:5
+Product Lifecycle Management (PLM),br,0,0,0,22538,0;0;24;29;29;25;34;34;34;100;100;100,task:2;informational:68;navigational:5;commercial:17;transactional:8
+Product Line and Product Mix Strategies,us,0,0,0,10590,0;0;84;78;79;85;80;98;88;93;80;100,task:4;informational:77;navigational:5;commercial:11;transactional:3
+Production Costs in Economics,us,0,0,0,1642,0;0;83;91;75;100;91;91;91;89;97;96,task:8;informational:77;navigational:5;commercial:8;transactional:2
+Profit Margin Analytics,fr,0,0,0,1833,0;0;92;92;100;97;93;99;96;87;83;86,task:20;informational:58;navigational:5;commercial:6;transactional:11
+Raw Materials & Finished Goods,in,0,0,0,38490,0;0;99;99;100;46;99;98;99;99;93;93,task:10;informational:65;navigational:7;commercial:10;transactional:8
+Reverse Auction and Bidding Strategies,us,0,0,0,7163,0;0;89;87;77;68;74;74;74;77;100;98,task:5;informational:71;navigational:5;commercial:11;transactional:8
+Reverse Auction and Bidding Strategies,uk,0,0,0,1475,0;0;25;24;24;19;22;22;22;41;100;75,task:2;informational:80;navigational:5;commercial:10;transactional:3
+Reverse Auctions and Bidding,ca,0,0,0,838,0;0;88;88;88;83;59;64;60;64;100;88,task:2;informational:71;navigational:5;commercial:15;transactional:7
+Roll Forming Machinery,ae,0,0,0,186,0;0;96;97;100;100;100;100;100;100;100;100,task:5;informational:73;navigational:5;commercial:15;transactional:2
+SDGs and Sustainability,au,0,0,0,126442,0;0;58;58;70;81;89;89;89;95;100;100,task:6;informational:68;navigational:9;commercial:10;transactional:7
+SRM SAP,tw,0,0,0,4179,0;0;0;0;0;0;0;0;0;0;15;100,task:2;informational:75;navigational:10;commercial:10;transactional:3
+SRM information,za,0,0,0,694,0;0;0;0;0;0;0;0;0;100;99;99,task:7;informational:62;navigational:18;commercial:7;transactional:6
+SRM: Gestión de Proveedores,co,0,0,0,1369,0;0;0;0;0;0;0;0;0;100;100;100,task:5;informational:72;navigational:5;commercial:10;transactional:8
+Sampe 2025 and Sampes,us,0,0,0,106,0;0;84;100;89;73;18;19;18;15;12;14,task:3;informational:56;navigational:19;commercial:11;transactional:11
+Simulation,my,0,0,0,44028,0;0;0;0;0;0;0;0;0;0;100;100,task:12;informational:75;navigational:4;commercial:8;transactional:1
+Simulation Software and Tools,uk,0,0,0,742,0;0;64;55;54;50;49;52;52;100;94;85,task:5;informational:70;navigational:6;commercial:15;transactional:4
+Special Products Manufacturing,us,0,0,0,318,0;0;74;77;59;53;83;92;100;94;47;97,task:7;informational:42;navigational:33;commercial:10;transactional:8
+Spend Analytics,no,0,0,0,321,0;0;0;0;0;0;0;0;0;100;100;100,task:6;informational:64;navigational:4;commercial:18;transactional:8
+Spend and Spending Analysis,us,0,0,0,51021,0;0;39;40;42;45;44;44;44;67;99;100,task:10;informational:70;navigational:2;commercial:12;transactional:6
+Strategic Sourcing and Contracting,us,0,0,0,4079,0;0;79;81;98;100;94;95;93;97;99;100,task:10;informational:73;navigational:2;commercial:15
+Streaming Factory,br,0,0,0,316,0;0;42;45;47;45;44;100;82;56;54;60,task:3;informational:55;navigational:12;commercial:17;transactional:13
+Supplier Contract Management,uk,0,0,0,8428,0;0;12;46;46;46;57;58;58;99;100;100,task:5;informational:67;navigational:5;commercial:15;transactional:8
+Supplier Relationship Management,in,0,0,0,6634,0;0;91;90;100;100;83;83;83;93;96;97,task:5;informational:70;navigational:5;commercial:15;transactional:5
+Supplier Relationship Management,no,0,0,0,104,0;0;0;0;0;0;0;0;0;100;97;95,task:8;informational:75;navigational:5;commercial:10;transactional:2
+Supplier Relationship Management,au,0,0,0,1257,0;0;69;69;69;68;96;95;95;100;94;94,task:2;informational:80;navigational:5;commercial:10;transactional:3
+Supplier Relationship Management,it,0,0,0,619,0;0;92;100;100;100;85;86;85;67;78;78,task:3;informational:68;navigational:9;commercial:12;transactional:8
+Supplier Relationship Management (SRM),us,0,0,0,21170,0;0;64;96;97;97;97;97;98;99;100;100,task:3;informational:74;navigational:5;commercial:13;transactional:5
+Supplier Relationship Management (SRM) Essentials,ca,0,0,0,1041,0;0;89;89;100;99;88;88;88;92;94;95,task:5;informational:84;navigational:5;commercial:6
+Supplier relationship management,ph,0,0,0,8073,0;0;0;0;0;0;0;0;0;0;99;100,task:2;informational:74;navigational:5;commercial:10;transactional:9
+Supply Chain Drivers,in,0,0,0,1767,0;0;93;91;92;100;89;96;86;94;89;85,task:5;informational:78;navigational:5;commercial:10;transactional:2
+Supply Chain Management,in,0,0,0,4336,0;0;99;99;100;100;90;89;89;80;77;78,task:3;informational:76;navigational:5;commercial:10;transactional:6
+Sustainability Challenges and Issues,us,0,0,0,3361,0;0;41;100;73;16;24;25;19;28;57;38,task:12;informational:72;navigational:3;commercial:10;transactional:3
+Sustainability Communication Strategies,uk,0,0,0,1055,0;0;65;20;19;19;19;14;12;100;89;32,task:5;informational:72;navigational:3;commercial:10;transactional:10
+Sustainability Solutions,au,0,0,0,587,0;0;8;8;10;46;49;51;52;28;93;100,task:12;informational:70;navigational:4;commercial:10;transactional:4
+Sustainable Manufacturing Practices,uk,0,0,0,1345,0;0;71;71;81;78;87;88;85;97;100;100,task:5;informational:75;navigational:2;commercial:10;transactional:8
+Sustainable Product Design,uk,0,0,0,3043,0;0;54;14;16;12;15;15;15;22;100;75,task:8;informational:72;navigational:2;commercial:10;transactional:8
+Sustainable Supply Chains,ca,0,0,0,1590,0;0;29;29;68;52;51;53;40;100;76;66,task:2;informational:75;navigational:8;commercial:10;transactional:5
+Sustainable Tech & Development,in,0,0,0,2126,0;0;46;100;100;90;84;83;83;98;99;86,task:5;informational:75;navigational:5;commercial:10;transactional:5
+Sustainable technology,id,0,0,0,5442,0;0;0;0;0;0;0;0;0;0;12;100,task:5;informational:78;navigational:5;commercial:10;transactional:2
+Target Pricing & Costing,it,0,0,0,620,0;0;100;80;80;49;49;100;71;41;41;41,task:12;informational:75;navigational:3;commercial:8;transactional:2
+Technical Performance Metrics,us,0,0,0,1858,0;0;8;9;12;17;24;39;36;23;23;100,task:2;informational:83;navigational:5;commercial:5;transactional:5
+Thermoforming and Plastic Packaging,us,0,0,0,16832,0;0;53;58;59;71;72;74;74;92;100;100,task:2;informational:66;navigational:3;commercial:23;transactional:6
+Three Pillars of Project Management,us,0,0,0,454,0;0;63;94;80;74;82;83;63;91;100;69,task:2;informational:80;navigational:5;commercial:8;transactional:5
+Total Cost of Ownership (TCO) in Vehicles,us,0,0,0,66636,0;0;74;74;93;70;66;66;66;70;100;100,task:4;informational:73;navigational:6;commercial:13;transactional:4
+Tri L Manufacturing and Design,us,0,0,0,1106,0;0;9;9;8;8;8;7;100;23;28;28,informational:46;navigational:42;commercial:9;transactional:3
+Tyco Electronics and TE Connectivity,uk,0,0,0,4062,0;0;73;68;68;70;88;94;94;100;96;96,task:5;informational:37;navigational:35;commercial:12;transactional:11
+Value Engineering and Analysis,us,0,0,0,16697,0;0;74;90;89;93;100;100;100;99;99;98,task:5;informational:77;navigational:7;commercial:8;transactional:3
+X Design Variants,br,0,0,0,283,0;0;21;23;32;58;75;82;81;100;74;74,task:10;informational:40;navigational:22;commercial:11;transactional:17
+a priori and a posteriori,ph,0,0,0,17403,0;0;0;0;0;0;0;0;0;0;32;100,task:2;informational:80;navigational:7;commercial:8;transactional:3
+appron and apprin,us,0,0,0,587,0;0;83;83;84;12;12;14;13;74;100;26,task:8;informational:70;navigational:2;commercial:17;transactional:3
+aprios custom manufacturing,us,0,0,0,35,0;0;4;5;5;5;5;25;16;100;33;6,task:7;informational:28;navigational:40;commercial:17;transactional:8
+artificial intelligence pros and cons,za,0,0,0,4557,0;0;0;0;0;0;0;0;0;100;73;72,task:2;informational:85;navigational:5;commercial:5;transactional:3
+cloud computing models,za,0,0,0,521,0;0;0;0;0;0;0;0;0;100;94;96,task:5;informational:80;navigational:5;commercial:8;transactional:2
+cloud infrastructure,sg,0,0,0,855,0;0;0;0;0;0;0;0;0;0;75;100,task:2;informational:73;navigational:8;commercial:15;transactional:2
+design for manufacturability,ph,0,0,0,2973,0;0;0;0;0;0;0;0;0;0;97;100,task:4;informational:82;navigational:6;commercial:6;transactional:2
+design for manufacturability,kr,0,0,0,3936,0;0;0;0;0;0;0;0;0;0;63;100,task:2;informational:75;navigational:4;commercial:10;transactional:9
+design for manufacturability,id,0,0,0,1983,0;0;0;0;0;0;0;0;0;0;79;100,task:10;informational:80;navigational:3;commercial:5;transactional:2
+digital twin,ph,0,0,0,13047,0;0;0;0;0;0;0;0;0;0;27;100,task:2;informational:72;navigational:8;commercial:10;transactional:8
+fabrication definition and process,ph,0,0,0,50166,0;0;0;0;0;0;0;0;0;0;95;100,task:2;informational:75;navigational:7;commercial:8;transactional:8
+hisse maliyet hesaplama,tr,0,0,0,210,0;0;0;0;0;0;0;0;0;0;100;100,task:10;informational:73;navigational:5;commercial:9;transactional:3
+holistic interior and design,us,0,0,0,383,0;0;100;69;59;59;59;25;26;16;28;28,task:2;informational:56;navigational:19;commercial:14;transactional:9
+howw manufacturing,us,0,0,0,5477,0;0;66;55;55;70;70;100;66;83;74;78,task:5;informational:52;navigational:33;commercial:6;transactional:4
+manufacturing,tw,0,0,0,19641,0;0;0;0;0;0;0;0;0;0;98;100,task:2;informational:80;navigational:5;commercial:10;transactional:3
+manufacturing,th,0,0,0,5334,0;0;0;0;0;0;0;0;0;0;90;100,task:4;informational:67;navigational:9;commercial:12;transactional:8
+manufacturing definition,za,0,0,0,8200,0;0;0;0;0;0;0;0;0;100;67;67,task:2;informational:85;navigational:5;commercial:5;transactional:3
+manufacturing meaning,id,0,0,0,1455,0;0;0;0;0;0;0;0;0;0;47;100,task:1;informational:87;navigational:3;commercial:8;transactional:1
+manufaktur,id,0,0,0,31053,0;0;0;0;0;0;0;0;0;0;100;100,task:5;informational:72;navigational:9;commercial:12;transactional:2
+procurement professionals,au,0,0,0,573,0;0;79;79;82;74;63;58;57;100;69;64,task:10;informational:50;navigational:8;commercial:27;transactional:5
+proses produksi,id,0,0,0,124950,0;0;0;0;0;0;0;0;0;0;93;100,task:2;informational:80;navigational:5;commercial:10;transactional:3
+prosumer appliances and tech,us,0,0,0,396,0;0;65;51;97;77;77;94;54;10;100;83,task:7;informational:44;navigational:4;commercial:37;transactional:8
+semiconductor fabrication,tw,0,0,0,2268,0;0;0;0;0;0;0;0;0;0;100;97,task:7;informational:73;navigational:5;commercial:10;transactional:5
+مصانع وإنتاج,us,0,0,0,282,0;0;84;73;56;53;84;100;77;40;24;24,task:2;informational:73;navigational:5;commercial:11;transactional:9
+ระบบ SRM,th,0,0,0,1263,0;0;0;0;0;0;0;0;0;0;75;100,task:3;informational:54;navigational:28;commercial:10;transactional:5
+建設・製造業の原価管理ソフト,jp,0,0,0,1871,0;0;26;27;28;61;60;62;61;100;93;93,task:3;informational:64;navigational:2;commercial:28;transactional:3
+製造業の英語表現,jp,0,0,0,16586,0;0;63;64;89;92;54;55;55;100;85;86,task:12;informational:75;navigational:3;commercial:8;transactional:2
