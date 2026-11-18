@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { ArrowRight, Check, FileText, Globe2, Layers, Network, Plus } from 'lucide-react'
 import { ogImages } from '@/lib/seo'
+import ShouldCostHeroMockup from '@/components/should-cost/ShouldCostHeroMockup'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
@@ -320,71 +322,115 @@ const guides = [
   { href: '/glossary/should-cost-analysis', label: 'Should-cost glossary entry', note: 'Short definition and related terms' },
 ]
 
+const TEAL = '#0d9488'
+const INK = '#0f1b2d'
+const MUTED = 'rgba(15,27,45,0.64)'
+const LINE = '#e3e8ec'
+
+const heroStrip = [
+  { Icon: Layers, title: features[0].title },
+  { Icon: Network, title: features[1].title },
+  { Icon: Globe2, title: features[2].title },
+  { Icon: FileText, title: features[3].title },
+]
+
+function Eyebrow({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) {
+  return (
+    <p className="flex items-center gap-2.5 text-[12px] font-semibold uppercase tracking-[0.12em] mb-4" style={{ color: dark ? '#2dd4bf' : TEAL }}>
+      <span className="h-px w-6 shrink-0" style={{ background: dark ? '#2dd4bf' : TEAL }} />
+      {children}
+    </p>
+  )
+}
+
 export default function ShouldCostAnalysisSoftwarePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
 
-      <main style={{ background: '#fff', color: '#0f1b2d' }}>
+      <main style={{ background: '#fff', color: INK }}>
 
         {/* ── Hero ── */}
-        <section className="relative overflow-hidden pt-28 pb-10 md:pb-14" style={{ borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
-          <div className="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-            <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% -10%, rgba(13,148,136,0.08) 0%, transparent 70%)' }} />
+        <section className="relative overflow-hidden pt-28 md:pt-32" style={{ borderBottom: `1px solid ${LINE}` }}>
+          <div className="max-w-7xl mx-auto px-6 lg:px-10">
+            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] gap-12 lg:gap-14 items-center pb-14 md:pb-20">
+              <div>
+                <div className="inline-flex items-center mb-7 px-3.5 py-1.5 rounded-full text-[13px] font-medium" style={{ background: '#effaf8', color: '#0b7a70', border: '1px solid #c9ebe6' }}>
+                  Manufacturing Intelligence Platform
+                </div>
+                <h1 className="text-[2.25rem] sm:text-5xl lg:text-[3.4rem] font-bold leading-[1.06] mb-7" style={{ letterSpacing: '-0.03em' }}>
+                  Should-Cost Analysis &amp; Modeling Software
+                  <span className="block mt-1" style={{ color: TEAL }}> for Engineered Parts and Assemblies</span>
+                </h1>
+                <p className="text-[17px] md:text-[19px] leading-[1.6] mb-9 max-w-[38rem]" style={{ color: 'rgba(15,27,45,0.78)' }}>
+                  Emithran builds bottom-up should-cost models for parts and multi-level BOMs, so cost engineers and sourcing teams can check supplier quotes against an independent estimate, compare materials, processes and locations, and negotiate from evidence.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Link
+                    href="/request-demo"
+                    className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3.5 rounded-lg text-[15px] font-semibold text-white transition-colors hover:bg-[#0b7f75]"
+                    style={{ background: TEAL, boxShadow: '0 1px 0 rgba(255,255,255,0.15) inset, 0 1px 2px rgba(15,27,45,0.15)' }}
+                  >
+                    Request a Demo
+                  </Link>
+                  <Link
+                    href="#worked-examples"
+                    className="inline-flex items-center justify-center w-full sm:w-auto px-6 py-3.5 rounded-lg text-[15px] font-semibold transition-colors hover:bg-[#e2f4f1]"
+                    style={{ background: '#effaf8', color: '#0b7a70', border: '1px solid #c9ebe6' }}
+                  >
+                    See Worked Examples
+                  </Link>
+                </div>
+                <p className="mt-7 text-[14px] max-w-[34rem] leading-relaxed" style={{ color: 'rgba(15,27,45,0.58)' }}>
+                  Built for cost engineers, sourcing and procurement teams, and design leads at manufacturers in defence, aerospace, space and automotive programmes.
+                </p>
+              </div>
+
+              <div className="relative lg:-mr-6 xl:-mr-10">
+                <ShouldCostHeroMockup />
+              </div>
+            </div>
           </div>
-          <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-10 text-center">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full text-[12px] font-semibold" style={{ background: 'rgba(13,148,136,0.08)', color: '#0d9488', border: '1px solid rgba(13,148,136,0.2)' }}>
-              Manufacturing Intelligence Platform
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight mb-6 leading-tight">
-              Should-Cost Analysis &amp; Modeling Software
-              <span style={{ color: '#0d9488' }}> for Engineered Parts and Assemblies</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl mb-9 max-w-3xl mx-auto leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>
-              Emithran builds bottom-up should-cost models for parts and multi-level BOMs, so cost engineers and sourcing teams can check supplier quotes against an independent estimate, compare materials, processes and locations, and negotiate from evidence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Link
-                href="/request-demo"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3.5 rounded-xl text-[15px] font-semibold transition-colors"
-                style={{ background: '#0d9488', color: '#fff' }}
-              >
-                Request a Demo
-              </Link>
-              <Link
-                href="#worked-examples"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3.5 rounded-xl text-[15px] font-semibold transition-colors"
-                style={{ background: 'rgba(13,148,136,0.08)', color: '#0d9488', border: '1px solid rgba(13,148,136,0.2)' }}
-              >
-                See Worked Examples
-              </Link>
-            </div>
-            <p className="mt-6 text-[13px] max-w-2xl mx-auto leading-relaxed" style={{ color: 'rgba(15,27,45,0.5)' }}>
-              Built for cost engineers, sourcing and procurement teams, and design leads at manufacturers in defence, aerospace, space and automotive programmes.
-            </p>
+
+          {/* Capability strip */}
+          <div style={{ borderTop: `1px solid ${LINE}`, background: '#fcfdfd' }}>
+            <ul className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              {heroStrip.map(({ Icon, title }, i) => (
+                <li
+                  key={title}
+                  className={`flex items-center gap-3 py-5 lg:px-6 ${i === 0 ? 'lg:pl-0' : ''} ${i > 0 ? 'border-t sm:border-t-0 lg:border-l' : ''} ${i > 1 ? 'sm:border-t lg:border-t-0' : ''}`}
+                  style={{ borderColor: LINE }}
+                >
+                  <Icon className="h-5 w-5 shrink-0" strokeWidth={1.75} style={{ color: TEAL }} aria-hidden="true" />
+                  <a href="#capabilities-heading" className="text-[14.5px] font-medium leading-snug hover:underline underline-offset-4" style={{ color: INK }}>{title}</a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
         {/* ── What is should-cost analysis software ── */}
-        <section className="py-10 md:py-14 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="what-is-heading">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
+        <section className="py-16 md:py-24 max-w-6xl mx-auto px-6 lg:px-10" aria-labelledby="what-is-heading">
+          <div className="grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-10 md:gap-16 items-start">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>What is should-cost analysis software?</p>
-              <h2 id="what-is-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-5">
+              <Eyebrow>What is should-cost analysis software?</Eyebrow>
+              <h2 id="what-is-heading" className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.15] mb-6">
                 An independent, bottom-up estimate of what a part should cost
               </h2>
-              <p className="text-[15px] leading-relaxed mb-5" style={{ color: 'rgba(15,27,45,0.65)' }}>
-                Should-cost analysis, also called clean-sheet or zero-based costing, estimates what a part or assembly should cost to make, built up from its inputs rather than taken from a supplier&apos;s quote. <strong>Should-cost modeling software</strong> makes that estimate repeatable, documented and comparable across suppliers, materials and locations. Emithran works as costing software for the buyer&apos;s side of the table: it builds a part&apos;s cost up from material, process, labour and overhead so teams can check supplier quotes.
+              <p className="text-[16px] leading-[1.7] mb-5" style={{ color: MUTED }}>
+                Should-cost analysis, also called clean-sheet or zero-based costing, estimates what a part or assembly should cost to make, built up from its inputs rather than taken from a supplier&apos;s quote. <strong style={{ color: INK }}>Should-cost modeling software</strong> makes that estimate repeatable, documented and comparable across suppliers, materials and locations. Emithran works as costing software for the buyer&apos;s side of the table: it builds a part&apos;s cost up from material, process, labour and overhead so teams can check supplier quotes.
               </p>
-              <p className="text-[15px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.65)' }}>
+              <p className="text-[16px] leading-[1.7]" style={{ color: MUTED }}>
                 Each element of an Emithran model is tied to an explicit assumption, so a supplier&apos;s quote can be compared with the model element by element, not just in total.
               </p>
             </div>
-            <div className="rounded-2xl p-6" style={{ border: '1px solid rgba(13,148,136,0.15)', background: 'rgba(13,148,136,0.03)' }}>
-              <p className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color: '#0d9488' }}>What goes into a model</p>
-              <p className="text-[13px] mb-5" style={{ color: 'rgba(15,27,45,0.55)' }}>Each element carries an assumption that can be reviewed.</p>
-              <ul className="space-y-3.5">
+            <div className="rounded-xl bg-white" style={{ border: `1px solid ${LINE}`, boxShadow: '0 1px 2px rgba(15,27,45,0.04)' }}>
+              <div className="px-6 pt-5 pb-4" style={{ borderBottom: `1px solid ${LINE}` }}>
+                <p className="text-[15px] font-semibold" style={{ color: INK }}>What goes into a model</p>
+                <p className="text-[13px] mt-1" style={{ color: 'rgba(15,27,45,0.55)' }}>Each element carries an assumption that can be reviewed.</p>
+              </div>
+              <ol>
                 {[
                   { label: 'Raw material', note: 'Material weight and price' },
                   { label: 'Process cost', note: 'Cycle time × machine-hour rate, plus labour' },
@@ -393,197 +439,223 @@ export default function ShouldCostAnalysisSoftwarePage() {
                   { label: 'Overheads', note: 'Machine and labour overheads' },
                   { label: 'SG&A and profit', note: 'Applied as stated percentages' },
                   { label: 'Delivered cost', note: 'Packing, freight, duty and delivery, when you need landed cost' },
-                ].map(({ label, note }) => (
-                  <li key={label} className="flex gap-3 text-[13px] leading-snug">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: '#0d9488' }} />
-                    <span><span className="font-semibold">{label}</span><span style={{ color: 'rgba(15,27,45,0.55)' }}> — {note}</span></span>
+                ].map(({ label, note }, i) => (
+                  <li key={label} className="grid grid-cols-[2rem_minmax(0,1fr)] sm:grid-cols-[2rem_10rem_minmax(0,1fr)] gap-x-3 gap-y-0.5 px-6 py-3 text-[14px]" style={{ borderTop: i ? '1px solid #eef1f3' : 'none' }}>
+                    <span className="font-mono text-[12px] pt-px" style={{ color: 'rgba(15,27,45,0.38)' }}>{String(i + 1).padStart(2, '0')}</span>
+                    <span className="font-semibold" style={{ color: INK }}>{label}</span>
+                    <span className="col-start-2 sm:col-start-3" style={{ color: 'rgba(15,27,45,0.6)' }}><span className="sr-only">— </span>{note}</span>
                   </li>
                 ))}
-              </ul>
-              <p className="mt-5 text-[12px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.45)' }}>
-                See these elements applied to real parts in the <Link href="#worked-examples" className="underline" style={{ color: '#0d9488' }}>worked examples</Link>.
+              </ol>
+              <p className="px-6 py-4 text-[13px] leading-relaxed rounded-b-xl" style={{ color: 'rgba(15,27,45,0.55)', borderTop: `1px solid ${LINE}`, background: '#fafbfc' }}>
+                See these elements applied to real parts in the <Link href="#worked-examples" className="underline underline-offset-2 font-medium" style={{ color: TEAL }}>worked examples</Link>.
               </p>
             </div>
           </div>
         </section>
 
         {/* ── Who it is for ── */}
-        <section className="py-10 md:py-14" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)', borderBottom: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="audience-heading">
-          <div className="max-w-5xl mx-auto px-6 lg:px-10">
-            <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>Who it is for</p>
-            <h2 id="audience-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-10 max-w-3xl">
+        <section className="py-16 md:py-24" style={{ background: '#f6f8f9', borderTop: `1px solid ${LINE}`, borderBottom: `1px solid ${LINE}` }} aria-labelledby="audience-heading">
+          <div className="max-w-6xl mx-auto px-6 lg:px-10">
+            <Eyebrow>Who it is for</Eyebrow>
+            <h2 id="audience-heading" className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.15] mb-10 md:mb-12 max-w-3xl">
               Who uses should-cost software, and the problems it solves
             </h2>
-            <div className="grid sm:grid-cols-2 gap-5 mb-10">
-              {audiences.map(a => (
-                <div key={a.title} className="rounded-2xl p-6" style={{ border: '1px solid rgba(0,0,0,0.07)', background: '#fff' }}>
-                  <h3 className="text-[16px] font-bold mb-2">{a.title}</h3>
-                  <p className="text-[14px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.62)' }}>{a.body}</p>
+            <div className="grid sm:grid-cols-2 rounded-xl overflow-hidden bg-white mb-12" style={{ border: `1px solid ${LINE}` }}>
+              {audiences.map((a, i) => (
+                <div
+                  key={a.title}
+                  className={`p-7 md:p-8 ${i % 2 === 1 ? 'sm:border-l' : ''} ${i > 0 ? 'border-t' : ''} ${i === 1 ? 'sm:border-t-0' : ''}`}
+                  style={{ borderColor: LINE }}
+                >
+                  <p className="font-mono text-[12px] mb-3" style={{ color: TEAL }}>{String(i + 1).padStart(2, '0')}</p>
+                  <h3 className="text-[18px] font-semibold mb-2.5">{a.title}</h3>
+                  <p className="text-[15px] leading-[1.65]" style={{ color: MUTED }}>{a.body}</p>
                   {a.href && (
-                    <Link href={a.href} className="inline-block mt-3 text-[13px] font-semibold" style={{ color: '#0d9488' }}>{a.hrefLabel} →</Link>
+                    <Link href={a.href} className="inline-flex items-center gap-1 mt-4 text-[14px] font-semibold hover:underline underline-offset-4" style={{ color: TEAL }}>
+                      {a.hrefLabel} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
                   )}
                 </div>
               ))}
             </div>
-            <div className="grid md:grid-cols-2 gap-8 items-start">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-start">
               <div>
-                <h3 className="text-[15px] font-bold mb-3">Typical problems it addresses</h3>
-                <ul className="space-y-2.5">
+                <h3 className="text-[17px] font-semibold mb-4">Typical problems it addresses</h3>
+                <ul className="space-y-3">
                   {problems.map(p => (
-                    <li key={p} className="flex gap-3 text-[14px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.65)' }}>
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: '#0d9488' }} />
+                    <li key={p} className="flex gap-3 text-[15px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.72)' }}>
+                      <span className="mt-[3px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style={{ background: '#e2f4f1' }}>
+                        <Check className="h-3 w-3" strokeWidth={2.5} style={{ color: TEAL }} aria-hidden="true" />
+                      </span>
                       {p}
                     </li>
                   ))}
                 </ul>
               </div>
-              <p className="text-[14px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.62)' }}>
-                The same workflow supports programmes in <Link href="/defence-manufacturing" className="font-semibold underline" style={{ color: '#0d9488' }}>defence manufacturing</Link> and <Link href="/aerospace-cost-engineering" className="font-semibold underline" style={{ color: '#0d9488' }}>aerospace cost engineering</Link>, where supplier qualification and documented cost evidence matter, as well as automotive and precision-engineering supply chains.
+              <p className="text-[15px] leading-[1.7] md:pt-10" style={{ color: MUTED }}>
+                The same workflow supports programmes in <Link href="/defence-manufacturing" className="font-semibold underline underline-offset-2" style={{ color: TEAL }}>defence manufacturing</Link> and <Link href="/aerospace-cost-engineering" className="font-semibold underline underline-offset-2" style={{ color: TEAL }}>aerospace cost engineering</Link>, where supplier qualification and documented cost evidence matter, as well as automotive and precision-engineering supply chains.
               </p>
             </div>
           </div>
         </section>
 
         {/* ── How it works ── */}
-        <section className="py-10 md:py-14" style={{ background: '#0f1b2d' }} aria-labelledby="how-heading">
-          <div className="max-w-5xl mx-auto px-6 lg:px-10">
-            <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#2dd4bf' }}>How It Works</p>
-            <h2 id="how-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-10 md:mb-12 text-white max-w-3xl">
+        <section className="py-16 md:py-24" style={{ background: INK }} aria-labelledby="how-heading">
+          <div className="max-w-6xl mx-auto px-6 lg:px-10">
+            <Eyebrow dark>How It Works</Eyebrow>
+            <h2 id="how-heading" className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.15] mb-12 md:mb-14 text-white max-w-3xl">
               How should-cost modeling works in Emithran
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
               {steps.map(s => (
-                <div key={s.n}>
+                <li key={s.n} className="pt-5" style={{ borderTop: '1px solid rgba(255,255,255,0.14)' }}>
                   <p className="text-[36px] font-black mb-3" style={{ color: 'rgba(45,212,191,0.25)' }}>{s.n}</p>
-                  <h3 className="text-[16px] font-bold text-white mb-3">{s.title}</h3>
-                  <p className="text-[14px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>{s.body}</p>
-                </div>
+                  <h3 className="text-[17px] font-semibold text-white mb-3">{s.title}</h3>
+                  <p className="text-[14.5px] leading-[1.65]" style={{ color: 'rgba(255,255,255,0.64)' }}>{s.body}</p>
+                </li>
               ))}
-            </div>
-            <p className="mt-10 text-[14px] leading-relaxed max-w-3xl" style={{ color: 'rgba(255,255,255,0.6)' }}>
+            </ol>
+            <p className="mt-12 pt-8 text-[15px] leading-relaxed max-w-3xl" style={{ color: 'rgba(255,255,255,0.64)', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
               Prefer to have engineers build the first models? Emithran&apos;s{' '}
-              <Link href="/expert-engineering-support" className="font-semibold underline" style={{ color: '#2dd4bf' }}>Expert Engineering Support</Link>{' '}
+              <Link href="/expert-engineering-support" className="font-semibold underline underline-offset-2" style={{ color: '#2dd4bf' }}>Expert Engineering Support</Link>{' '}
               team covers product cost estimation, teardown and benchmarking, and sourcing support.
             </p>
           </div>
         </section>
 
         {/* ── Worked examples ── */}
-        <section id="worked-examples" className="py-10 md:py-14 max-w-5xl mx-auto px-6 lg:px-10 scroll-mt-24" aria-labelledby="examples-heading">
-          <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>Worked examples</p>
-          <h2 id="examples-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-4 max-w-3xl">
+        <section id="worked-examples" className="py-16 md:py-24 max-w-6xl mx-auto px-6 lg:px-10 scroll-mt-24" aria-labelledby="examples-heading">
+          <Eyebrow>Worked examples</Eyebrow>
+          <h2 id="examples-heading" className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.15] mb-4 max-w-3xl">
             Should-cost models applied to real programmes
           </h2>
-          <p className="text-[15px] leading-relaxed mb-10 max-w-3xl" style={{ color: 'rgba(15,27,45,0.62)' }}>
+          <p className="text-[16px] leading-[1.7] mb-10 md:mb-12 max-w-3xl" style={{ color: MUTED }}>
             Three decisions where a bottom-up cost model gave the team something concrete to compare. Figures are taken from the linked case studies.
           </p>
           <div className="grid md:grid-cols-3 gap-5">
             {examples.map(ex => (
-              <div key={ex.title} className="rounded-2xl p-6 flex flex-col" style={{ border: '1px solid rgba(13,148,136,0.18)', background: 'rgba(13,148,136,0.03)' }}>
-                <p className="text-[10px] font-bold uppercase tracking-widest mb-3" style={{ color: '#0d9488' }}>{ex.tag}</p>
-                <h3 className="text-[16px] font-bold mb-3 leading-snug">{ex.title}</h3>
-                <p className="text-[13px] leading-relaxed mb-5" style={{ color: 'rgba(15,27,45,0.62)' }}>{ex.body}</p>
-                <div className="mt-auto">
-                  <p className="text-[24px] font-bold leading-tight" style={{ color: '#0d9488' }}>{ex.result}</p>
-                  <p className="text-[12px] mb-4" style={{ color: 'rgba(15,27,45,0.5)' }}>{ex.resultNote}</p>
-                  {ex.caveat && (
-                    <p className="text-[12px] mb-4 leading-relaxed" style={{ color: 'rgba(15,27,45,0.62)' }}>{ex.caveat}</p>
-                  )}
-                  <Link href={ex.href} className="text-[13px] font-semibold" style={{ color: '#0d9488' }}>Read the case study →</Link>
+              <article key={ex.title} className="rounded-xl bg-white flex flex-col transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(15,27,45,0.2)]" style={{ border: `1px solid ${LINE}` }}>
+                <div className="p-6 pb-5">
+                  <span className="inline-block text-[12px] font-medium px-2.5 py-1 rounded-md mb-4" style={{ background: '#effaf8', color: '#0b7a70' }}>{ex.tag}</span>
+                  <h3 className="text-[17px] font-semibold mb-3 leading-snug">{ex.title}</h3>
+                  <p className="text-[14px] leading-[1.65]" style={{ color: MUTED }}>{ex.body}</p>
                 </div>
-              </div>
+                <div className="mt-auto px-6 py-5 rounded-b-xl" style={{ borderTop: `1px solid ${LINE}`, background: '#fafbfc' }}>
+                  <p className="text-[26px] font-bold leading-tight tracking-tight" style={{ color: INK, fontVariantNumeric: 'tabular-nums', fontFamily: 'var(--font-display)' }}>{ex.result}</p>
+                  <p className="text-[13px] mt-1 mb-4 leading-snug" style={{ color: 'rgba(15,27,45,0.58)' }}>{ex.resultNote}</p>
+                  {ex.caveat && (
+                    <p className="text-[12.5px] mb-4 leading-relaxed pl-3" style={{ color: 'rgba(15,27,45,0.6)', borderLeft: '2px solid #d9e0e5' }}>{ex.caveat}</p>
+                  )}
+                  <Link href={ex.href} className="inline-flex items-center gap-1 text-[14px] font-semibold hover:underline underline-offset-4" style={{ color: TEAL }}>
+                    Read the case study <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
-          <p className="mt-8 text-[14px]">
-            <Link href="/case-studies" className="font-semibold" style={{ color: '#0d9488' }}>Browse all case studies →</Link>
+          <p className="mt-8 text-[15px]">
+            <Link href="/case-studies" className="inline-flex items-center gap-1 font-semibold hover:underline underline-offset-4" style={{ color: TEAL }}>
+              Browse all case studies <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
           </p>
         </section>
 
         {/* ── Capabilities ── */}
-        <section className="py-10 md:py-14" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="capabilities-heading">
-          <div className="max-w-5xl mx-auto px-6 lg:px-10">
-            <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>Platform Capabilities</p>
-            <h2 id="capabilities-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-10 md:mb-12 max-w-3xl">
+        <section className="py-16 md:py-24" style={{ background: '#f6f8f9', borderTop: `1px solid ${LINE}` }} aria-labelledby="capabilities-heading">
+          <div className="max-w-6xl mx-auto px-6 lg:px-10">
+            <Eyebrow>Platform Capabilities</Eyebrow>
+            <h2 id="capabilities-heading" className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.15] mb-10 md:mb-12 max-w-3xl scroll-mt-28">
               What the should-cost engine covers
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px rounded-xl overflow-hidden" style={{ background: LINE, border: `1px solid ${LINE}` }}>
               {features.map((f, i) => (
-                <div key={f.title} className="rounded-2xl p-6" style={{ border: '1px solid rgba(0,0,0,0.07)', background: '#fff' }}>
-                  <div className="mb-4"><DuotoneIcon id={`ShouldCostFeatureIcon-${i}`} {...f.icon} /></div>
-                  <h3 className="text-[15px] font-bold mb-2">{f.title}</h3>
-                  <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.6)' }}>{f.body}</p>
+                <div key={f.title} className="bg-white p-7">
+                  <div className="mb-5"><DuotoneIcon id={`ShouldCostFeatureIcon-${i}`} {...f.icon} /></div>
+                  <h3 className="text-[16.5px] font-semibold mb-2.5">{f.title}</h3>
+                  <p className="text-[14.5px] leading-[1.65]" style={{ color: MUTED }}>{f.body}</p>
                   {f.href && (
-                    <Link href={f.href} className="inline-block mt-3 text-[13px] font-semibold" style={{ color: '#0d9488' }}>{f.hrefLabel} →</Link>
+                    <Link href={f.href} className="inline-flex items-center gap-1 mt-4 text-[14px] font-semibold hover:underline underline-offset-4" style={{ color: TEAL }}>
+                      {f.hrefLabel} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
                   )}
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-[14px] leading-relaxed max-w-3xl" style={{ color: 'rgba(15,27,45,0.62)' }}>
+            <p className="mt-8 text-[15px] leading-[1.7] max-w-3xl" style={{ color: MUTED }}>
               Should-cost is one module of the Emithran platform. It works alongside{' '}
-              <Link href="/bom-management-software" className="font-semibold underline" style={{ color: '#0d9488' }}>BOM management</Link> and{' '}
-              <Link href="/supplier-intelligence" className="font-semibold underline" style={{ color: '#0d9488' }}>supplier intelligence</Link>, so the cost model, the BOM and the supplier shortlist share the same data.
+              <Link href="/bom-management-software" className="font-semibold underline underline-offset-2" style={{ color: TEAL }}>BOM management</Link> and{' '}
+              <Link href="/supplier-intelligence" className="font-semibold underline underline-offset-2" style={{ color: TEAL }}>supplier intelligence</Link>, so the cost model, the BOM and the supplier shortlist share the same data.
             </p>
           </div>
         </section>
 
         {/* ── Comparison table ── */}
-        <section className="py-10 md:py-14 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="compare-heading">
-          <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>How We Compare</p>
-          <h2 id="compare-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-4 max-w-3xl">
+        <section className="py-16 md:py-24 max-w-6xl mx-auto px-6 lg:px-10" aria-labelledby="compare-heading">
+          <Eyebrow>How We Compare</Eyebrow>
+          <h2 id="compare-heading" className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.15] mb-4 max-w-3xl">
             Emithran vs spreadsheets vs enterprise costing tools
           </h2>
-          <p className="text-[15px] leading-relaxed mb-8 max-w-3xl" style={{ color: 'rgba(15,27,45,0.62)' }}>
+          <p className="text-[16px] leading-[1.7] mb-10 max-w-3xl" style={{ color: MUTED }}>
             Each approach suits a different team. Where an enterprise tool has broader process coverage than Emithran, that is a real advantage, so the fairest test is to cost the same parts in each.
           </p>
           <p className="sm:hidden text-[12px] mb-2" style={{ color: 'rgba(15,27,45,0.45)' }}>Swipe sideways to compare all three.</p>
-          <div className="overflow-x-auto rounded-2xl" style={{ border: '1px solid rgba(0,0,0,0.07)' }}>
-            <table className="w-full min-w-[720px] text-[14px]">
+          <div className="overflow-x-auto rounded-xl bg-white" style={{ border: `1px solid ${LINE}` }}>
+            <table className="w-full min-w-[760px] text-[14.5px]">
               <caption className="sr-only">Comparison of Emithran, spreadsheets and enterprise costing tools</caption>
+              <colgroup>
+                <col className="w-[19%]" />
+                <col className="w-[31%]" />
+                <col className="w-[25%]" />
+                <col className="w-[25%]" />
+              </colgroup>
               <thead>
-                <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.07)', background: '#f8fafb' }}>
-                  <th scope="col" className="px-5 py-4 text-left text-[11px] font-bold uppercase tracking-wider" style={{ color: 'rgba(15,27,45,0.4)' }}>Criterion</th>
-                  <th scope="col" className="px-5 py-4 text-left text-[12px] font-bold" style={{ color: '#0d9488', background: 'rgba(13,148,136,0.04)' }}>Emithran</th>
-                  <th scope="col" className="px-5 py-4 text-left text-[12px] font-semibold" style={{ color: 'rgba(15,27,45,0.55)' }}>Spreadsheets</th>
-                  <th scope="col" className="px-5 py-4 text-left text-[12px] font-semibold" style={{ color: 'rgba(15,27,45,0.55)' }}>Enterprise CAD-based tools</th>
+                <tr style={{ borderBottom: `1px solid ${LINE}` }}>
+                  <th scope="col" className="px-5 py-4 text-left text-[12px] font-semibold uppercase tracking-[0.08em]" style={{ color: 'rgba(15,27,45,0.45)', background: '#fafbfc' }}>Criterion</th>
+                  <th scope="col" className="px-5 py-4 text-left text-[14px] font-semibold" style={{ color: '#0b7a70', background: '#effaf8', boxShadow: `inset 0 3px 0 ${TEAL}` }}>Emithran</th>
+                  <th scope="col" className="px-5 py-4 text-left text-[14px] font-semibold" style={{ color: 'rgba(15,27,45,0.7)', background: '#fafbfc' }}>Spreadsheets</th>
+                  <th scope="col" className="px-5 py-4 text-left text-[14px] font-semibold" style={{ color: 'rgba(15,27,45,0.7)', background: '#fafbfc' }}>Enterprise CAD-based tools</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonRows.map((row, i) => (
-                  <tr key={row.criterion} style={{ borderBottom: i < comparisonRows.length - 1 ? '1px solid rgba(0,0,0,0.05)' : 'none' }}>
-                    <th scope="row" className="px-5 py-3.5 text-left align-top font-medium" style={{ color: 'rgba(15,27,45,0.7)' }}>{row.criterion}</th>
-                    <td className="px-5 py-3.5 align-top font-medium" style={{ color: '#0f1b2d', background: 'rgba(13,148,136,0.02)' }}>{row.emithran}</td>
-                    <td className="px-5 py-3.5 align-top" style={{ color: 'rgba(15,27,45,0.6)' }}>{row.spreadsheets}</td>
-                    <td className="px-5 py-3.5 align-top" style={{ color: 'rgba(15,27,45,0.6)' }}>{row.enterprise}</td>
+                  <tr key={row.criterion} style={{ borderBottom: i < comparisonRows.length - 1 ? '1px solid #eef1f3' : 'none' }}>
+                    <th scope="row" className="px-5 py-4 text-left align-top font-semibold" style={{ color: INK }}>{row.criterion}</th>
+                    <td className="px-5 py-4 align-top" style={{ color: INK, background: 'rgba(13,148,136,0.04)' }}>{row.emithran}</td>
+                    <td className="px-5 py-4 align-top" style={{ color: 'rgba(15,27,45,0.62)' }}>{row.spreadsheets}</td>
+                    <td className="px-5 py-4 align-top" style={{ color: 'rgba(15,27,45,0.62)' }}>{row.enterprise}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-          <p className="mt-6 text-[14px] leading-relaxed max-w-3xl" style={{ color: 'rgba(15,27,45,0.62)' }}>
-            Evaluating options? Our <Link href="/blog/should-cost-analysis-software-comparison" className="font-semibold underline" style={{ color: '#0d9488' }}>should-cost software buyer&apos;s comparison</Link> covers what to look for. Pricing is outcome-based; see the <Link href="/pricing" className="font-semibold underline" style={{ color: '#0d9488' }}>pricing page</Link> for packages.
+          <p className="mt-6 text-[15px] leading-[1.7] max-w-3xl" style={{ color: MUTED }}>
+            Evaluating options? Our <Link href="/blog/should-cost-analysis-software-comparison" className="font-semibold underline underline-offset-2" style={{ color: TEAL }}>should-cost software buyer&apos;s comparison</Link> covers what to look for. Pricing is outcome-based; see the <Link href="/pricing" className="font-semibold underline underline-offset-2" style={{ color: TEAL }}>pricing page</Link> for packages.
           </p>
         </section>
 
         {/* ── FAQ ── */}
-        <section className="py-10 md:py-14" style={{ background: '#f8fafb', borderTop: '1px solid rgba(0,0,0,0.06)' }} aria-labelledby="faq-heading">
-          <div className="max-w-3xl mx-auto px-6 lg:px-10">
-            <p className="text-[11px] font-bold uppercase tracking-widest mb-4" style={{ color: '#0d9488' }}>FAQ</p>
-            <h2 id="faq-heading" className="text-2xl md:text-3xl font-bold tracking-tight mb-8 md:mb-10">Common questions about should-cost software</h2>
-            <div className="space-y-3">
-              {faqs.map(f => (
+        <section className="py-16 md:py-24" style={{ background: '#f6f8f9', borderTop: `1px solid ${LINE}` }} aria-labelledby="faq-heading">
+          <div className="max-w-6xl mx-auto px-6 lg:px-10 grid lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.5fr)] gap-10 lg:gap-16">
+            <div>
+              <Eyebrow>FAQ</Eyebrow>
+              <h2 id="faq-heading" className="text-[1.75rem] md:text-[2.25rem] font-bold leading-[1.15] lg:sticky lg:top-28">Common questions about should-cost software</h2>
+            </div>
+            <div className="rounded-xl bg-white" style={{ border: `1px solid ${LINE}` }}>
+              {faqs.map((f, i) => (
                 <details
                   key={f.q}
-                  className="rounded-xl group"
-                  style={{ border: '1px solid rgba(0,0,0,0.07)', background: '#fff' }}
+                  className="group"
+                  style={{ borderTop: i ? `1px solid ${LINE}` : 'none' }}
                 >
                   <summary
-                    className="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 cursor-pointer list-none text-[15px] font-semibold"
-                    style={{ color: '#0f1b2d' }}
+                    className="flex items-start justify-between gap-6 px-6 py-5 cursor-pointer list-none text-[16px] font-semibold [&::-webkit-details-marker]:hidden"
+                    style={{ color: INK }}
                   >
                     {f.q}
-                    <span className="shrink-0 text-[#0d9488] text-lg leading-none" aria-hidden="true">+</span>
+                    <Plus className="mt-0.5 h-5 w-5 shrink-0 transition-transform duration-200 group-open:rotate-45" strokeWidth={1.75} style={{ color: TEAL }} aria-hidden="true" />
                   </summary>
-                  <p className="px-5 sm:px-6 pb-5 text-[14px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.65)' }}>
+                  <p className="px-6 pb-6 -mt-1 text-[15px] leading-[1.7] max-w-[44rem]" style={{ color: MUTED }}>
                     {f.a}
                   </p>
                 </details>
@@ -593,47 +665,50 @@ export default function ShouldCostAnalysisSoftwarePage() {
         </section>
 
         {/* ── Learn more ── */}
-        <section className="py-10 md:py-12 max-w-5xl mx-auto px-6 lg:px-10" aria-labelledby="guides-heading">
-          <h2 id="guides-heading" className="text-xl md:text-2xl font-bold tracking-tight mb-6">Learn more about should-cost analysis</h2>
+        <section className="py-16 md:py-20 max-w-6xl mx-auto px-6 lg:px-10" aria-labelledby="guides-heading">
+          <h2 id="guides-heading" className="text-[1.4rem] md:text-[1.75rem] font-bold leading-tight mb-8">Learn more about should-cost analysis</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {guides.map(g => (
               <Link
                 key={g.href}
                 href={g.href}
-                className="rounded-2xl p-5 block transition-colors"
-                style={{ border: '1px solid rgba(0,0,0,0.08)', background: '#fff' }}
+                className="group rounded-xl p-5 flex flex-col bg-white transition-colors hover:border-[#9fd8d0]"
+                style={{ border: `1px solid ${LINE}` }}
               >
-                <p className="text-[14px] font-bold mb-1.5" style={{ color: '#0d9488' }}>{g.label}</p>
-                <p className="text-[12px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.55)' }}>{g.note}</p>
+                <p className="text-[15px] font-semibold mb-1.5 leading-snug" style={{ color: INK }}>{g.label}</p>
+                <p className="text-[13.5px] leading-relaxed mb-5" style={{ color: 'rgba(15,27,45,0.58)' }}>{g.note}</p>
+                <ArrowRight className="mt-auto h-4 w-4 transition-transform group-hover:translate-x-1" style={{ color: TEAL }} aria-hidden="true" />
               </Link>
             ))}
           </div>
-          <p className="mt-6 text-[14px] leading-relaxed max-w-3xl" style={{ color: 'rgba(15,27,45,0.62)' }}>
-            For the wider discipline behind these models, see our <Link href="/cost-engineering-software" className="font-semibold underline" style={{ color: '#0d9488' }}>cost engineering software</Link> page.
+          <p className="mt-8 text-[15px] leading-[1.7] max-w-3xl" style={{ color: MUTED }}>
+            For the wider discipline behind these models, see our <Link href="/cost-engineering-software" className="font-semibold underline underline-offset-2" style={{ color: TEAL }}>cost engineering software</Link> page.
           </p>
         </section>
 
         {/* ── CTA ── */}
-        <section className="py-10 md:py-14" style={{ background: '#0f1b2d' }} aria-labelledby="cta-heading">
-          <div className="max-w-3xl mx-auto px-6 lg:px-10 text-center">
-            <h2 id="cta-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-5">
-              See a should-cost model built on one of your parts
-            </h2>
-            <p className="text-[15px] sm:text-[16px] mb-9 leading-relaxed" style={{ color: 'rgba(255,255,255,0.6)' }}>
-              Book a 30-minute live walkthrough with Emithran&apos;s engineering team. Bring a drawing, a BOM line or a supplier quote you want to test, and we will show how the model is built and what it tells you.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+        <section className="px-4 sm:px-6 lg:px-10 pb-16 md:pb-24" aria-labelledby="cta-heading">
+          <div className="max-w-6xl mx-auto rounded-2xl px-6 py-12 md:px-14 md:py-16 grid lg:grid-cols-[minmax(0,1.4fr)_auto] gap-8 lg:gap-14 items-center" style={{ background: INK }}>
+            <div>
+              <h2 id="cta-heading" className="text-[1.75rem] sm:text-[2.25rem] md:text-[2.5rem] font-bold leading-[1.12] text-white mb-5">
+                See a should-cost model built on one of your parts
+              </h2>
+              <p className="text-[16px] leading-[1.7] max-w-2xl" style={{ color: 'rgba(255,255,255,0.66)' }}>
+                Book a 30-minute live walkthrough with Emithran&apos;s engineering team. Bring a drawing, a BOM line or a supplier quote you want to test, and we will show how the model is built and what it tells you.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
               <Link
                 href="/request-demo"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 rounded-xl text-[15px] font-semibold"
-                style={{ background: '#0d9488', color: '#fff' }}
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg text-[15px] font-semibold text-white transition-colors hover:bg-[#0b7f75]"
+                style={{ background: TEAL }}
               >
                 Book a Live Demo
               </Link>
               <Link
                 href="/contact?source=should-cost-page&cta=talk-to-engineer"
-                className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 rounded-xl text-[15px] font-semibold"
-                style={{ background: 'rgba(45,212,191,0.1)', color: '#2dd4bf', border: '1px solid rgba(45,212,191,0.25)' }}
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg text-[15px] font-semibold text-white transition-colors hover:bg-white/10"
+                style={{ border: '1px solid rgba(255,255,255,0.22)' }}
               >
                 Talk to an Engineer
               </Link>
