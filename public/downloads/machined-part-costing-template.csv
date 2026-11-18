@@ -1,0 +1,96 @@
+﻿Machined-part costing template (aluminium bracket example from the Emithran CNC should-cost guide)
+"Edit the inputs in column B; everything below recalculates. All figures are illustrative - replace rates, prices and times with your own."
+
+1. PART AND BATCH,Value,Note
+Batch quantity,100,
+Programme quantity (for one-off costs),1500,500 a year x 3 years
+
+2. RATES,Value,Note
+Machine rate ($/min),1.2,$48/h machine + $24/h operator = $72/h
+Manual labour rate ($/min),0.5,"Deburring, masking"
+Inspection rate ($/min),0.6,Per-part inspection
+First-article inspection rate ($/min),0.8,Inspector + CMM
+
+3. MATERIAL,Value,Formula / note
+Blank length (mm),125,Finished 120 + allowance
+Blank width (mm),85,
+Blank thickness (mm),30,
+Density (g/cm3),2.7,Aluminium 6061
+Price per kg ($),4.5,
+Sawing per blank ($),0.35,
+Finished part weight (kg),0.324,From CAD
+Blank volume (cm3),=B15*B16*B17/1000,
+Blank weight (kg),=B22*B18/1000,
+Material cost per part,=B23*B19+B20,Stock + sawing
+Buy-to-fly ratio,=B23/B21,Stock weight / finished weight
+
+4. SETUP AND ONE-OFF COSTS,Value,Formula / note
+Setup time per batch (min),75,Op 10: 45 + Op 20: 30
+Setup per part,=B28*B9/B5,
+Programming and fixtures (one-off $),420,3 h CAM at $60/h + $240 fixture plate and soft jaws
+One-off cost per part,=B30/B6,
+
+5. CYCLE TIME BUILD-UP (min),Value,Formula / note
+Op 10 roughing volume (cm3),130,
+Op 20 roughing volume (cm3),68.75,
+Roughing MRR (cm3/min),80,Check with your machinist
+Finishing path length (mm),3200,"1,600 Op 10 pocket + 1,600 Op 20 face and profile"
+Finishing feed (mm/min),500,
+Drilled holes,8,Op 10 (4 x M8 tap drill + 4 x 6.6 clearance)
+Time per drilled hole (min),0.12,
+Tapped holes (M8),4,
+Time per tap (min),0.15,
+Drill and tap M5 cross holes,2,Op 20
+Time per M5 drill and tap (min),0.3,
+Bore finishing (min),1.5,Estimated
+Chamfering (min),1.0,Estimated
+Tool changes,15,9 in Op 10 + 6 in Op 20
+Time per tool change (min),0.1,6 s
+Non-cutting moves (% of cutting),0.1,
+Operations,2,
+Load and unload per operation (min),1.0,
+Roughing time,"=ROUND(B34/B36,2)+ROUND(B35/B36,2)",
+Finishing time,=B37/B38,
+Cutting time,=B52+B53+B39*B40+B41*B42+B43*B44+B45+B46,
+Total cycle time,"=B54+ROUND((ROUND(B34/B36,2)+1600/B38+B39*B40+B41*B42+B45)*B49,2)+ROUND((ROUND(B35/B36,2)+(B37-1600)/B38+B46+B43*B44)*B49,2)+B47*B48+B50*B51","Cutting + moves (per op, rounded) + tool changes + handling"
+Machining cost per part,=B55*B9,
+
+6. TOOLING,Value,Formula / note
+Roughing end mill price ($),55,
+Roughing end mill life (min),300,
+Finishing end mill price ($),40,
+Finishing end mill life (min),200,
+Drill cost per hole ($),0.04,
+Tap cost per hole ($),0.1,
+Boring insert per part ($),0.3,
+Chamfer tool price ($),25,
+Chamfer tool life (min),250,
+Tooling cost per part,=B59/B60*B52+B61/B62*B53+(B39+B43)*B63+(B41+B43)*B64+B65+B66/B67*B46,
+
+7. FINISHING AND INSPECTION,Value,Formula / note
+Deburring (min),2,
+Anodise per part ($),3.4,Check the processor minimum lot charge
+Masking (min),1,
+First-article inspection per batch (min),45,
+Per-part inspection (min),2.5,
+Packaging per part ($),0.4,
+Finishing and inspection per part,=B71*B10+B72+B73*B10+B74*B12/B5+B75*B11+B76,
+
+8. ROLL-UP,Value,Formula / note
+Scrap and rework allowance,0.02,
+SG&A,0.08,
+Profit (on cost + SG&A),0.1,
+Direct cost,=B24+B29+B31+B56+B68+B77,
+Scrap and rework,=B83*B80,
+Subtotal,=B83+B84,
+SG&A amount,=B85*B81,
+Profit amount,=(B85+B86)*B82,
+Should-cost per part,=B85+B86+B87,
+
+9. QUOTE CHECK,Value,Formula / note
+Supplier quoted price,58.0,
+Quote above should-cost,=B91-B88,
+Quote above should-cost (%),=B92/B88,
+Supplier machining line ($),29.1,"From the quote breakdown, if given"
+Implied rate at our cycle time ($/min),=B94/B55,
+Implied cycle time at our rate (min),=B94/B9,

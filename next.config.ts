@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
       { source: '/blog/vave-cost-reduction-aerospace',       destination: '/vave-software',            permanent: true },
       { source: '/emithran-vs-apriori', destination: '/blog/apriori-vs-emithran-comparison', permanent: true },
       { source: '/emithran-vs-costimator', destination: '/blog/costimator-alternatives', permanent: true },
+      { source: '/resources/should-cost-excel-template', destination: '/blog/should-cost-excel-template', permanent: true },
       { source: '/favicon.ico', destination: '/assets/favicon/favicon.ico', permanent: false },
       { source: '/should-cost-analysis', destination: '/should-cost-analysis-software', permanent: true },
       { source: '/bom-management', destination: '/bom-management-software', permanent: true },

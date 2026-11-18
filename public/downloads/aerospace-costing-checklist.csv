@@ -1,0 +1,97 @@
+﻿Aerospace costing checklist (from the Emithran aerospace should-cost guide)
+"Part A: the checks to run on any aerospace should-cost or quote. Part B: a build-up pre-filled with the titanium bracket example. Part C: a forging vs machining break-even calculator - all figures illustrative, replace with your own."
+
+PART A - CHECKLIST,Done? (Y/N),Notes
+"Material: Price is for the certified, traceable specification you require - not a commercial grade",,
+"Material: Stock form and size match what the supplier will actually buy (plate, bar, forging, casting)",,
+Material: Buy-to-fly ratio calculated from your drawing and stock size,,
+Material: Chip / scrap recovery value included at a realistic rate,,
+"Material: Material price is dated, and an index is agreed for the LTA",,
+"Material: Certification and testing (mill certs, test reports, traceability) costed",,
+Special processes: Full routing listed from the drawing and customer specification,,
+"Special processes: Minimum-lot charges per process captured, and the lot size they cover",,
+"Special processes: Transport to and from processors, and waiting time, included",,
+Special processes: Supplier handling markup on subcontracted processes identified,,
+Quality: First article inspection costed (one-off and per batch),,
+Quality: Per-part inspection of key characteristics (e.g. CMM time) costed,,
+"Quality: Quality system, audits and records sit in rates or overhead - not counted twice",,
+Quality: Scrap and rework allowance reflects late-routing rejection risk,,
+Volume: Batch size and release pattern stated; quotes compared at the same batch size,,
+Volume: Price breaks requested at several batch sizes,,
+"Volume: One-off costs (programming, FAI, dies, fixtures) spread over the stated programme quantity",,
+Rates: Machine and labour rates fit the supplier’s location and machine type,,
+"RFQ: Cost breakdown requested in a standard template (stock, cycle time, setup, processes, inspection, margin)",,
+"RFQ: Certification, approval and documentation requirements stated up front",,
+LTA: Volume bands and batch-size price breaks agreed,,
+LTA: Material element indexed to an agreed index and the stock weight,,
+LTA: Productivity / cycle-time improvement sharing agreed,,
+"LTA: Tooling, die and fixture ownership agreed, including on change of supplier",,
+LTA: Scheduled should-cost refresh and review triggers agreed,,
+
+PART B - SHOULD-COST BUILD-UP,Value,Formula / note
+Annual volume,400,
+Programme quantity,2000,400 a year x 5-year LTA
+Batch size,40,
+Finished weight (kg),0.8,
+Stock weight (kg),7.2,Plate
+Material price ($/kg),50,Certified Ti-6Al-4V (illustrative)
+Chip recovery ($/kg),3,
+Material certification and testing ($/part),12,
+Machine rate ($/hr),110,Fully loaded
+Cycle time (min),150,
+Setup (hours per batch),6,
+Cutting tools and consumables ($/part),30,
+Programming one-off ($),4000,
+Deburr and hand finishing (hours),0.5,
+Finishing labour rate ($/hr),60,
+CMM inspection (hours),0.75,
+Inspection rate ($/hr),80,
+First article inspection one-off ($),1500,
+Special process minimum charges per batch ($),2000,Stress relief $700 + penetrant $800 + anodize $500
+Transport to and from processors ($/part),6,
+Scrap and rework allowance,0.03,
+SG&A,0.08,
+Profit (on cost + SG&A),0.1,
+Supplier quote ($/part),1180,
+
+RESULTS,Value,Formula
+Buy-to-fly ratio,=B36/B35,
+Net material,=B36*B37-(B36-B35)*B38,
+Machining,=B41/60*B40,
+Setup per part,=B42*B40/B34,
+Programming per part,=B44/B33,
+Deburr and finishing,=B45*B46,
+CMM inspection,=B47*B48,
+First article per part,=B49/B33,
+Special processes per part,=B50/B34,
+Direct cost,=B59+B39+B60+B61+B43+B62+B63+B64+B65+B66+B51,
+Scrap and rework,=B67*B52,
+Manufacturing cost,=B67+B68,
+SG&A amount,=B69*B53,
+Profit amount,=(B69+B70)*B54,
+SHOULD-COST per part,=B69+B70+B71,
+Quote gap ($),=B55-B72,
+Quote gap (%),=B73/B72,
+
+PART C - FORGING VS MACHINING BREAK-EVEN (Ti bracket example from the forging vs machining guide),Machined from billet,"Forged, then machined",Note
+Stock or forging weight (kg),8.0,1.6,10:1 vs 2:1 buy-to-fly
+Finished weight (kg),0.8,0.8,
+Price per kg ($),45,80,Forging priced per kg of forging weight
+Chip recovery ($/kg),4,4,
+Machining hours,3.6,1.4,
+Machine rate ($/hr),140,140,
+Setup hours per batch,6,5,
+Batch size,20,20,
+Cutting tools ($/part),60,35,
+Inspection and NDT ($/part),90,90,
+Special processes and certification ($/part),40,55,
+Scrap allowance,0.03,0.03,
+NRE ($),20000,170000,Forging: die $120k + qualification $25k + fixtures/programming/FAI $25k
+RESULTS,Machined,Forged,
+Net material,=B77*B79-(B77-B78)*B80,=C77*C79-(C77-C78)*C80,
+Per-part cost,=(B91+B81*B82+B83/B84*B82+B85+B86+B87)/(1-B88),=(C91+C81*C82+C83/C84*C82+C85+C86+C87)/(1-C88),Before NRE
+Per-part saving (forging),,=B92-C92,
+Break-even volume (parts),,"=IF(C93>0,(C89-B89)/C93,""No break-even"")",Below: machine. Above: forge.
+Volume to test (parts),1000,,Edit this
+Unit cost at that volume,=B92+B89/B95,=C92+C89/B95,Per-part cost + NRE / volume
+Total cost at that volume,=B96*B95,=C96*B95,

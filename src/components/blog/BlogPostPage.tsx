@@ -8,6 +8,7 @@ import { track } from '@/lib/analytics'
 import { POSTS, type BlogPost } from './blogData'
 import type { BlogPostContent, BlogPostFAQ } from './blogContent'
 import { relatedLinksForBlog } from '@/lib/internalLinks'
+import BlogWidgets from './widgets/BlogWidgets'
 import { blogFontVars } from './wiredFonts'
 import './wired.css'
 
@@ -212,6 +213,8 @@ function RelatedSolutions({ slug }: { slug: string }) {
 
 /* ---------------------------------- FAQ ------------------------------------- */
 
+const INLINE_FAQ_HEADING = /<h2[^>]*>\s*(FAQ|FAQs|Frequently Asked Questions)\s*<\/h2>/i
+
 function FAQSection({ faqs }: { faqs: BlogPostFAQ[] }) {
   return (
     <section className="mt-10 pt-4" style={{ borderTop: '1px solid #000' }}>
@@ -371,10 +374,13 @@ export default function BlogPostPage({ post, content }: { post: BlogPost; conten
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           <article className="lg:col-span-8 max-w-[720px] min-w-0">
             <div ref={contentRef} className="blog-content" dangerouslySetInnerHTML={{ __html: content.content }} />
+            <BlogWidgets contentRef={contentRef} html={content.content} />
 
             <RelatedSolutions slug={post.slug} />
 
-            {content.faqs && content.faqs.length > 0 && <FAQSection faqs={content.faqs} />}
+            {/* Skip the standalone block when the article body already has its own FAQ section,
+                so the questions aren't shown twice. FAQPage schema is built from `faqs` in page.tsx either way. */}
+            {content.faqs && content.faqs.length > 0 && !INLINE_FAQ_HEADING.test(content.content) && <FAQSection faqs={content.faqs} />}
 
             <AuthorBio post={post} bio={content.authorBio} />
 

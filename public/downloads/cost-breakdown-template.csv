@@ -1,4 +1,4 @@
-﻿"Cost breakdown template: total manufacturing cost, COGM and part-level cost (worked example from the Emithran guide)"
+﻿"Cost breakdown template: total manufacturing cost, COGM, part-level cost, bottom-up estimate and CER (worked examples from the Emithran guides)"
 Edit the inputs in column B; everything below recalculates. All figures are illustrative - use your own.
 
 1. INPUTS,Value,Note
@@ -38,3 +38,77 @@ Direct labour,=B35*B9,Hours x loaded rate
 Overhead applied,=B35*B29,Hours x overhead rate
 Total cost of batch,=B36+B37+B38,
 Unit cost,=B39/B34,Batch cost / quantity
+
+4. BOTTOM-UP ESTIMATE: ASSUMPTIONS (motor mount assembly),Value,Note
+Batch quantity,100
+CNC milling rate ($/min),1.00,$60/hour
+Manual labour rate ($/min),0.50,$30/hour fully loaded
+Inspection rate ($/min),0.80,$48/hour inspector + CMM
+Scrap and yield allowance (% of direct cost),0.02
+Overhead (% of direct cost after scrap),0.12,Do not also include in machine rates
+Margin (% of total cost),0.10
+
+BILL OF MATERIALS (per assembly),Cost,Source
+Machined bracket stock (6061 aluminium: 1.2 kg x $5.00/kg),=1.2*5,Make
+Bearing,4.20,Buy
+Fasteners (4 screws + 2 dowel pins),0.90,Buy
+Material and purchased items,=SUM(B52:B54),
+
+ROUTING: OPERATION TIMES,Minutes / $,Note
+Op 10 CNC milling: setup per batch (min),60,Two setups
+Op 10 CNC milling: cycle per part (min),18,Biggest input: spend the most care here
+Op 20 Deburr: cycle per part (min),3,Manual
+Op 30 Anodise: outside process ($ per part),3.00,Quoted
+Op 40 Inspect: cycle per part (min),2,Inspector + CMM
+Op 50 Assemble: cycle per part (min),6,Manual
+
+PROCESSING COST (per assembly),Cost,Formula
+Op 10 machining cycle,=B59*B44,Cycle min x mill rate
+Op 10 setup per part,=B58*B44/B43,Setup min x mill rate / batch
+Op 20 deburr,=B60*B45,Cycle min x labour rate
+Op 30 anodise,=B61,Outside process price
+Op 40 inspect,=B62*B46,Cycle min x inspection rate
+Op 50 assemble,=B63*B45,Cycle min x labour rate
+Processing subtotal,=SUM(B66:B71),
+
+ROLL-UP (per assembly),Value,Formula
+Material and purchased items,=B55,
+Processing,=B72,
+Direct cost,=B75+B76,
+Scrap and yield allowance,=B77*B47,
+Direct cost incl. scrap,=B77+B78,
+Overhead,=B79*B48,
+Total cost,=B79+B80,
+Margin,=B81*B49,
+Price,=B81+B82,
+
+5. CER: HISTORICAL DATA (machined aluminium housings - replace with your normalised data),Finished weight (kg),Cost ($)
+Housing 1,0.30,21.50
+Housing 2,0.45,26.00
+Housing 3,0.60,29.80
+Housing 4,0.70,33.50
+Housing 5,0.85,35.20
+Housing 6,1.00,42.00
+Housing 7,1.10,42.50
+Housing 8,1.25,49.00
+Housing 9,1.40,50.80
+Housing 10,1.55,56.50
+Housing 11,1.70,57.00
+Housing 12,1.90,66.00
+
+REGRESSION AND VALIDATION,Value,Formula
+Intercept a ($),"=INTERCEPT(C86:C97,B86:B97)",Base cost independent of size
+Slope b ($ per kg),"=SLOPE(C86:C97,B86:B97)",Cost per kg of finished weight
+R squared,"=RSQ(C86:C97,B86:B97)",Share of cost variation explained
+Standard error ($),"=STEYX(C86:C97,B86:B97)",Typical prediction miss
+Average cost ($),=AVERAGE(C86:C97),
+Standard error as % of average,=B103/B104,
+Valid range: min weight (kg),=MIN(B86:B97),Do not estimate below this
+Valid range: max weight (kg),=MAX(B86:B97),Do not estimate above this
+
+ESTIMATE A NEW PART,Value,Formula
+New part weight (kg),1.35,Edit this
+Estimated cost ($),=B100+B101*B110,a + b x weight
+Low end of range ($),=B111-2*B103,Estimate - 2 standard errors
+High end of range ($),=B111+2*B103,Estimate + 2 standard errors
+Inside valid range?,"=IF(AND(B110>=B106,B110<=B107),""Yes"",""NO - extrapolating"")",

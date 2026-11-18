@@ -1,4 +1,4 @@
-"Design-to-cost framework (six steps, allocation worksheet and bracket example from the Emithran guide)"
+﻿"Design-to-cost framework (six steps, allocation worksheet, bracket example, target costing calculation, allocation and gate tracking, and value engineering function analysis and idea log from the Emithran guides)"
 Edit the inputs in the shaded sections; formulas recalculate. All figures are illustrative - use your own.
 
 1. THE SIX STEPS,What to do,Owner,Due
@@ -46,3 +46,57 @@ Total cost,=B43+B44,=C43+C44,=B45-C45
 Target for this part,30,30
 Gap to target (negative = under target),=B45-B46,=C45-C46
 Reduction vs baseline,,=(B45-C45)/B45
+
+4. TARGET COST CALCULATION (pump example from the target costing guide),Value,Formula
+Market price to the customer,300,From competitor pricing and positioning
+Channel margin (ratio of customer price),0.20,Distributor / dealer / retailer
+Required profit (ratio of net price),0.15,
+Warranty and SG&A allowance (ratio of net price),0.10,
+Net selling price,=B51*(1-B52),Customer price - channel margin
+Required profit,=B55*B53,
+Warranty and SG&A,=B55*B54,
+Target manufacturing cost,=B55-B56-B57,Net price - profit - warranty and SG&A
+Current cost estimate,205,Edit at every design gate
+Gap to target,=B59-B58,Positive = over target
+Gap as % of target,=B60/B58,
+Profit at current estimate,=B55-B59-B57,
+Margin at current estimate,=B62/B55,
+
+5. ALLOCATION (pump subsystems),Value weight,Allocated target,Current estimate,Gap (estimate - target)
+Motor,0.32,=$B$58*B66,62,=D66-C66
+Pump head and housing,0.28,=$B$58*B67,48,=D67-C67
+Electronics,0.18,=$B$58*B68,38,=D68-C68
+Frame and enclosure,0.10,=$B$58*B69,27,=D69-C69
+Assembly test and packaging,0.12,=$B$58*B70,30,=D70-C70
+Total,=SUM(B66:B70),=SUM(C66:C70),=SUM(D66:D70),=SUM(E66:E70)
+
+6. GATE TRACKING,Estimate,Target,Gap (estimate - target),Cost actions closed
+Concept,205,=$B$58,=B74-C74,none yet
+Preliminary design,187.50,=$B$58,=B75-C75,Frame redesign; board consolidation; fastener reduction
+Detailed design,181,=$B$58,=B76-C76,Motor re-sourcing; pump head simplification; tolerance relaxation
+Pre-release,179.50,=$B$58,=B77-C77,Test time cut
+
+7. FUNCTION ANALYSIS (kettle example from the value engineering guide),Parts,Current cost,Worth (estimate),Value index,Proposed cost,Saving
+Heat water,Element and base plate,3.20,3.00,=D80/C80,3.20,=C80-F80
+Contain water,Double-wall stainless body,3.80,3.60,=D81/C81,3.80,=C81-F81
+Shut off safely,Thermostat and boil-dry protector,1.50,0.90,=D82/C82,0.90,=C82-F82
+Cover and fill,Stainless lid and metal hinge,1.30,0.70,=D83/C83,0.70,=C83-F83
+Pour and carry,Handle and screws,0.90,0.80,=D84/C84,0.80,=C84-F84
+Show level and status,Window and LED ring,1.20,0.55,=D85/C85,0.55,=C85-F85
+Supply power,Cordless base and connector,1.10,1.10,=D86/C86,1.10,=C86-F86
+Protect in transit,Packaging,0.60,0.60,=D87/C87,0.60,=C87-F87
+Assemble and test,Labour,0.40,0.30,=D88/C88,0.30,=C88-F88
+Total,,=SUM(C80:C88),=SUM(D80:D88),,=SUM(F80:F88),=SUM(G80:G88)
+Target cost,,12.00,,,,
+Gap to target after changes (negative = under target),,,,,=F89-C90,
+
+8. IDEA LOG,Function,Owner,Saving per unit,Annual volume,Annual saving,Status,Risk / test needed
+Moulded-in window strip; remove LED ring,Show level and status,,0.65,200000,=D94*E94,Proposed,
+Polypropylene lid with moulded-in hinge,Cover and fill,,0.60,200000,=D95*E95,Proposed,
+Combined thermostat and boil-dry control,Shut off safely,,0.60,200000,=D96*E96,Proposed,
+Snap-in handle replaces three screws,Pour and carry,,0.10,200000,=D97*E97,Proposed,
+Fewer screws - shorter assembly,Assemble and test,,0.10,200000,=D98*E98,Proposed,
+Total,,,=SUM(D94:D98),,=SUM(F94:F98),,
+One-off cost (tooling + testing and certification),,,70000,,,,
+Payback (units),,,=D100/D99,,,,
+First-year net saving,,,=F99-D100,,,,

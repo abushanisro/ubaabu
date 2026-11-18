@@ -1,0 +1,63 @@
+﻿Make-vs-buy worksheet (fan shroud example from the Emithran make-vs-buy guide)
+Edit the inputs in column B; everything below recalculates. All figures are illustrative - use your own. Pre-tax and simplified: a single annual capital charge stands in for a full discounted cash flow.
+
+1. INPUTS,Value,Note
+Annual volume (parts),60000,
+Product life (years),5,
+Cost of capital,0.1,
+MAKE: equipment capital,180000,Press and ancillaries
+MAKE: extra fixed overhead per year,30000,Incremental only - not allocated plant overhead
+MAKE: material per part,1.12,Incl. scrap
+MAKE: conversion per part,1.2,40 s cycle x $0.03/s running cost
+MAKE: packaging and handling per part,0.18,
+BUY: quoted price per part,4.8,Replace with the negotiated price to re-run
+BUY: freight per part,0.15,
+BUY: inspection and supplier management per part,0.1,
+Tooling,,Excluded: needed under either option
+
+2. MAKE COST,Value,Formula
+Variable cost per part,=B10+B11+B12,Material + conversion + packaging
+Capital recovery factor,=B7/(1-(1+B7)^-B6),r / (1 - (1+r)^-n)
+Annual capital charge,=B8*B20,
+Annual make cost,=B5*B19+B9+B21,
+Make cost per part,=B22/B5,
+
+3. BUY COST,Value,Formula
+Landed cost per part,=B13+B14+B15,Quote + freight + inspection
+Annual buy cost,=B5*B26,
+
+4. COMPARISON,Value,Formula
+Annual saving from making (negative = buying is cheaper),=B27-B22,
+Saving as % of buy cost,=B30/B27,
+Break-even volume (parts per year),=(B9+B21)/(B26-B19),Fixed cost / per-part difference
+Simple payback on equipment (years),=B8/(B27-B5*B19-B9),Before the capital charge
+
+5. SHOULD-COST CHECK OF THE QUOTE,Value,Formula
+Material,=B10,Same weight and scrap
+Supplier fully loaded rate per second,0.045,Includes supplier equipment and overhead
+Cycle time (s),40,
+Conversion,=B37*B38,
+Packaging,=B12,
+Direct cost,=B36+B39+B40,
+SG&A rate,0.08,
+SG&A,=B41*B42,
+Profit rate,0.1,
+Profit,=(B41+B43)*B44,
+Should-cost per part,=B41+B43+B45,
+Quote above should-cost,=B13-B46,
+Quote above should-cost (%),=B47/B46,
+
+6. VOLUME STRESS TEST,Make,Buy,Cheaper option
+30000,=B9+B21+30000*B19,=30000*B26,"=IF(B51<C51,""Make"",""Buy"")"
+42000,=B9+B21+42000*B19,=42000*B26,"=IF(B52<C52,""Make"",""Buy"")"
+60000,=B9+B21+60000*B19,=60000*B26,"=IF(B53<C53,""Make"",""Buy"")"
+78000,=B9+B21+78000*B19,=78000*B26,"=IF(B54<C54,""Make"",""Buy"")"
+
+7. NON-COST SCORECARD (scores 1-5),Weight,Make score,Buy score,Make weighted,Buy weighted
+Cost,35,4,3,=B57*C57,=B57*D57
+Capability and skills,15,2,5,=B58*C58,=B58*D58
+Capacity and lead time,10,2,4,=B59*C59,=B59*D59
+IP and know-how,10,4,4,=B60*C60,=B60*D60
+Supply risk,15,4,2,=B61*C61,=B61*D61
+Flexibility,15,2,4,=B62*C62,=B62*D62
+Total,=SUM(B57:B62),,,=SUM(E57:E62),=SUM(F57:F62)

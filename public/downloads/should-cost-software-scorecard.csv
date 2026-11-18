@@ -1,0 +1,22 @@
+﻿Should-cost software scorecard (from the Emithran buyer’s guide)
+Agree the weights before any demos. Score each criterion 0-5; points = score x weight / 5. Example scores are illustrative - replace them with your own.
+
+Criterion,Weight,Vendor A score (0-5),Vendor A points,Vendor B score (0-5),Vendor B points,Vendor C score (0-5),Vendor C points,Notes
+Cost model depth and transparency,20,4,=B5*C5/5,5,=B5*E5/5,,=B5*G5/5,
+Process and material coverage,15,3,=B6*C6/5,4,=B6*E6/5,,=B6*G6/5,
+"Data quality, rate libraries and calibration",15,4,=B7*C7/5,3,=B7*E7/5,,=B7*G7/5,
+CAD and geometry input,10,5,=B8*C8/5,3,=B8*E8/5,,=B8*G8/5,
+PLM and ERP integration,10,3,=B9*C9/5,4,=B9*E9/5,,=B9*G9/5,
+"Workflow, quote comparison and reporting",10,4,=B10*C10/5,3,=B10*E10/5,,=B10*G10/5,
+Security and deployment,5,4,=B11*C11/5,3,=B11*E11/5,,=B11*G11/5,
+Usability and time to first result,5,3,=B12*C12/5,5,=B12*E12/5,,=B12*G12/5,
+Vendor support and implementation,5,4,=B13*C13/5,3,=B13*E13/5,,=B13*G13/5,
+Total cost of ownership,5,3,=B14*C14/5,4,=B14*E14/5,,=B14*G14/5,
+Total,=SUM(B5:B14),,=SUM(D5:D14),,=SUM(F5:F14),,=SUM(H5:H14),
+
+PILOT ACCURACY (parts with trusted recent quotes),Should-cost,Quote,Error vs quote,Absolute error
+Part A,12.4,13.0,=(B18-C18)/C18,=ABS(D18)
+Part B,48.0,44.0,=(B19-C19)/C19,=ABS(D19)
+Part C,7.85,8.1,=(B20-C20)/C20,=ABS(D20)
+Part D,150.0,138.0,=(B21-C21)/C21,=ABS(D21)
+Average (signed = bias; absolute = accuracy),,,=AVERAGE(D18:D21),=AVERAGE(E18:E21)

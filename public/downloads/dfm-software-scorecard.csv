@@ -1,0 +1,29 @@
+﻿DFM software evaluation scorecard (from the Emithran DFM software guide)
+"Score each line 0-2 (0 = no, 1 = partly, 2 = yes) during demos and the pilot. Maximum 34. Above about 26 (75%) suggests a strong fit - adjust to your priorities."
+
+Area,Check,Vendor A (0-2),Vendor B (0-2),Vendor C (0-2),Evidence / notes
+Fit with your work,Covers the processes you use most,,,,
+Fit with your work,Rules can be adjusted to match your suppliers,,,,
+Fit with your work,Works with your CAD systems and file types,,,,
+Fit with your work,Handles assemblies as well as single parts,,,,
+Quality of feedback,"Flags are specific: feature, reason and suggested fix",,,,
+Quality of feedback,"Issues are ranked by importance, not just listed",,,,
+Quality of feedback,Engineers can see the logic behind each flag,,,,
+Quality of feedback,Results have been checked against a real part you know well,,,,
+Cost visibility,Each issue shows an effect on cost,,,,
+Cost visibility,Cost assumptions are visible and editable,,,,
+Cost visibility,Estimates have been compared with real quotes,,,,
+Cost visibility,Cost output supports supplier discussions,,,,
+Adoption,Feedback arrives while the design can still change,,,,
+Adoption,"Results can be shared with manufacturing, sourcing and design",,,,
+Adoption,Setup and training time is realistic for your team,,,,
+Adoption,Data security and deployment options meet your rules,,,,
+Adoption,"Clear pricing, including what happens as users and parts grow",,,,
+Total (max 34),,=SUM(C5:C21),=SUM(D5:D21),=SUM(E5:E21),
+% of maximum,,=C22/34,=D22/34,=E22/34,
+
+PILOT (4-6 weeks on one product line),Measure
+Design changes made because of the tool,
+Estimated cost saved by those changes,
+Engineers still using it at the end,
+Analysis time on your most complex part,

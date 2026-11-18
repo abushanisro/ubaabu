@@ -1,0 +1,43 @@
+﻿Manufacturing costing software - buyer’s checklist (from the Emithran buyer’s guide)
+"How to use: set a weight for each row (3 = must-have, 2 = important, 1 = nice to have) before any demos. Score each vendor 0-3 (0 = no, 1 = weak, 2 = adequate, 3 = strong) and record the evidence. Weighted score = weight x score."
+
+1. WEIGHTING GUIDE,Weight,When to use it
+Must-have,3,Without it the tool cannot do the job you are buying it for (e.g. a process behind most of your spend)
+Important,2,"Strongly affects adoption or value, but a workaround exists"
+Nice to have,1,"Useful, but would not change the decision on its own"
+
+2. CHECKLIST,Question,Weight (1-3),Vendor A score (0-3),Vendor A weighted,Vendor B score (0-3),Vendor B weighted,Vendor C score (0-3),Vendor C weighted,Evidence / notes
+Fit,"Does it predict cost (should-cost), or only record it?",2,,=C10*D10,,=C10*F10,,=C10*H10,
+Estimation,"Bottom-up estimates with visible, editable assumptions?",2,,=C11*D11,,=C11*F11,,=C11*H11,
+Estimation,Early-stage and detailed estimates in the same tool?,2,,=C12*D12,,=C12*F12,,=C12*H12,
+Accuracy,Calibration against our quotes and actuals?,2,,=C13*D13,,=C13*F13,,=C13*H13,
+Accuracy,Results from our own five test parts within an agreed tolerance?,2,,=C14*D14,,=C14*F14,,=C14*H14,
+Processes,Covers the processes behind our top 80% of spend?,2,,=C15*D15,,=C15*F15,,=C15*H15,
+Data,"Regional rates, kept current and open to our overrides?",2,,=C16*D16,,=C16*F16,,=C16*H16,
+What-if,"Compares designs, materials, locations and volumes?",2,,=C17*D17,,=C17*F17,,=C17*H17,
+Integration,"CAD, PLM, ERP and procurement connections: standard or custom?",2,,=C18*D18,,=C18*F18,,=C18*H18,
+Governance,"Versioning, roles, approvals, audit trail?",2,,=C19*D19,,=C19*F19,,=C19*H19,
+Security,"SSO, data hosting and IT review passed?",2,,=C20*D20,,=C20*F20,,=C20*H20,
+Pricing,Three-year total including services and growth?,2,,=C21*D21,,=C21*F21,,=C21*H21,
+Support,"Training, response times, named contacts?",2,,=C22*D22,,=C22*F22,,=C22*H22,
+References,Customers in our industry we can speak to?,2,,=C23*D23,,=C23*F23,,=C23*H23,
+Total,,=SUM(C10:C23),,=SUM(E10:E23),,=SUM(G10:G23),,=SUM(I10:I23),
+% of maximum,,,,"=IF($C24=0,"""",E24/($C24*3))",,"=IF($C24=0,"""",G24/($C24*3))",,"=IF($C24=0,"""",I24/($C24*3))",
+
+3. PILOT TEST PLAN,What to do,Owner,Due
+Pick the parts,"Choose 5 to 20 representative parts covering the processes behind your top 80% of spend, each with a recent trusted quote or actual cost",,
+Agree a tolerance,Decide in advance what difference from the known cost counts as acceptable (e.g. within +/-10%),,
+Run the estimates live,"Ask each vendor to build the estimates in a working session, using the same drawings and volumes",,
+Record assumptions,"Capture cycle times, rates, scrap and overhead used, so differences can be explained",,
+Compare and calibrate,Measure the error per part and the average bias; then let each vendor calibrate and re-run,,
+Decide,Combine the pilot result with the checklist score above,,
+
+PILOT RESULTS,Process,Known quote or actual cost,Vendor estimate,Difference (%),Within tolerance?,Absolute difference
+Tolerance (+/- as a decimal),,0.10,,,
+Part 1,,,,"=IF(OR(C37="""",D37=""""),"""",(D37-C37)/C37)","=IF(E37="""","""",IF(ABS(E37)<=$C$36,""Yes"",""No""))","=IF(E37="""","""",ABS(E37))"
+Part 2,,,,"=IF(OR(C38="""",D38=""""),"""",(D38-C38)/C38)","=IF(E38="""","""",IF(ABS(E38)<=$C$36,""Yes"",""No""))","=IF(E38="""","""",ABS(E38))"
+Part 3,,,,"=IF(OR(C39="""",D39=""""),"""",(D39-C39)/C39)","=IF(E39="""","""",IF(ABS(E39)<=$C$36,""Yes"",""No""))","=IF(E39="""","""",ABS(E39))"
+Part 4,,,,"=IF(OR(C40="""",D40=""""),"""",(D40-C40)/C40)","=IF(E40="""","""",IF(ABS(E40)<=$C$36,""Yes"",""No""))","=IF(E40="""","""",ABS(E40))"
+Part 5,,,,"=IF(OR(C41="""",D41=""""),"""",(D41-C41)/C41)","=IF(E41="""","""",IF(ABS(E41)<=$C$36,""Yes"",""No""))","=IF(E41="""","""",ABS(E41))"
+Average difference (bias),,,,"=IFERROR(AVERAGE(E37:E41),"""")",
+Average absolute difference,,,,"=IFERROR(AVERAGE(G37:G41),"""")",
