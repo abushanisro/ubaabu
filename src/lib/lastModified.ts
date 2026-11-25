@@ -19,7 +19,7 @@ export function routeLastModified(route: string): Date {
   return new Date(DATES[route] ?? DATES['@default'])
 }
 
-export function groupLastModified(group: '@landing' | '@glossary' | '@de'): Date {
+export function groupLastModified(group: '@landing' | '@glossary' | '@de' | '@topics' | '@authors'): Date {
   return new Date(DATES[group] ?? DATES['@default'])
 }
 

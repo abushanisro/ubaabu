@@ -31,6 +31,21 @@ const LINKS = [
     title: 'Case Studies',
     body: 'Chassis, axle, exhaust, electronics and cab programmes, with the numbers behind each result.',
   },
+  {
+    href: '/state-of-manufacturing-cost-intelligence-2026',
+    title: 'State of Manufacturing Cost Intelligence 2026',
+    body: 'Our research report: India vs Europe landed cost, material substitution savings and PCBA cost benchmarks.',
+  },
+  {
+    href: '/topics',
+    title: 'Guides by Topic',
+    body: 'Twelve topic hubs covering should-cost, process costing, DFM and VAVE, BOMs, supplier risk, sourcing and more.',
+  },
+  {
+    href: '/resource-centre',
+    title: 'Templates and Calculators',
+    body: 'Free should-cost, machine hour rate, make-vs-buy and supplier scorecard templates.',
+  },
 ]
 
 export default function HomeExploreLinks() {

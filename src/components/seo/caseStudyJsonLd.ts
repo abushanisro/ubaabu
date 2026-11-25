@@ -1,3 +1,4 @@
+import { authorPath } from '@/lib/authors'
 import type { CaseStudy } from '@/components/case-studies/caseStudyData'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
@@ -17,11 +18,14 @@ export function buildCaseStudyArticleJsonLd(study: CaseStudy, opts: { image: str
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
     author: {
       '@type': 'Person',
+      '@id': `${siteUrl}${authorPath(study.author.name)}#person`,
+      url: `${siteUrl}${authorPath(study.author.name)}`,
       name: study.author.name,
       jobTitle: study.author.role,
-      worksFor: { '@type': 'Organization', name: 'Emithran', url: siteUrl },
+      worksFor: { '@id': `${siteUrl}/#organization`, '@type': 'Organization', name: 'Emithran', url: siteUrl },
     },
     publisher: {
+      '@id': `${siteUrl}/#organization`,
       '@type': 'Organization',
       name: 'Emithran',
       logo: {

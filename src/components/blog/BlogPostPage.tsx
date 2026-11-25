@@ -7,7 +7,7 @@ import { MessageCircle, Facebook, Twitter, Linkedin, Link2, Check, X } from 'luc
 import { track } from '@/lib/analytics'
 import { POSTS, type BlogPost } from './blogData'
 import type { BlogPostContent, BlogPostFAQ } from './blogContent'
-import { relatedLinksForBlog } from '@/lib/internalLinks'
+import type { InternalLink } from '@/lib/internalLinks'
 import BlogWidgets from './widgets/BlogWidgets'
 import { blogFontVars } from './wiredFonts'
 import './wired.css'
@@ -77,17 +77,17 @@ function ShareIcons({ post }: { post: BlogPost }) {
 
 /* ---------------------------------- Hero ---------------------------------- */
 
-function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
+function Hero({ post, heroImage, authorHref }: { post: BlogPost; heroImage: string; authorHref: string }) {
   return (
     <header style={{ borderBottom: RULE }}>
       <div className="grid grid-cols-1 lg:grid-cols-2 max-w-[1600px] mx-auto">
         {/* Text */}
         <div className="order-2 lg:order-1 flex flex-col justify-center px-4 sm:px-8 lg:pl-[8.5%] lg:pr-12 py-10 lg:py-16">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-5">
-            <span className="wired-mono bg-black text-white text-[11px] font-semibold px-2.5 py-1.5">
+            <Link href={authorHref} rel="author" className="wired-mono bg-black text-white text-[11px] font-semibold px-2.5 py-1.5 hover:bg-[#0d9488]">
               {post.author.name}
-            </span>
-            <Link href="/blog" className="wired-mono text-[11px] font-medium text-black hover:underline">
+            </Link>
+            <Link href="/blog" className="wired-mono inline-flex min-h-11 items-center text-[11px] font-medium text-black hover:underline">
               {post.category}
             </Link>
             <time className="wired-mono text-[11px] font-medium text-black">{post.date}</time>
@@ -104,7 +104,7 @@ function Hero({ post, heroImage }: { post: BlogPost; heroImage: string }) {
 
         {/* Image */}
         <div className="order-1 lg:order-2 lg:pr-[8.5%]">
-          <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[500px]">
+          <div className="relative w-full h-[40vh] max-h-[420px] lg:max-h-none lg:h-full lg:min-h-[500px]">
             <Image src={heroImage} alt={post.imageAlt ?? post.title} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
           </div>
         </div>
@@ -194,8 +194,7 @@ function TableOfContents({ contentRef }: { contentRef: React.RefObject<HTMLDivEl
 
 /* ------------------------- Related Emithran pages ------------------------- */
 
-function RelatedSolutions({ slug }: { slug: string }) {
-  const links = relatedLinksForBlog(slug)
+function RelatedSolutions({ links }: { links: InternalLink[] }) {
   return (
     <section aria-labelledby="related-emithran-heading" className="mt-10 pt-4" style={{ borderTop: '1px solid #000' }}>
       <h2 id="related-emithran-heading" className="wired-mono text-[11px] font-semibold mb-2">Related on Emithran</h2>
@@ -231,7 +230,7 @@ function FAQSection({ faqs }: { faqs: BlogPostFAQ[] }) {
 
 /* -------------------------------- Author bio -------------------------------- */
 
-function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
+function AuthorBio({ post, bio, authorHref, reviewer }: { post: BlogPost; bio: string; authorHref: string; reviewer?: { name: string; role: string; href: string } }) {
   const photo = AUTHOR_PHOTOS[post.author.name]
   return (
     <section className="mt-10 pt-6 flex gap-5" style={{ borderTop: '1px solid #000' }}>
@@ -239,15 +238,21 @@ function AuthorBio({ post, bio }: { post: BlogPost; bio: string }) {
         <Image src={photo} alt={post.author.name} width={72} height={72} className="w-[72px] h-[72px] object-cover shrink-0 grayscale" />
       )}
       <div>
-        <span className="wired-mono inline-block bg-black text-white text-[11px] font-semibold px-2.5 py-1.5 mb-3">
+        <Link href={authorHref} rel="author" className="wired-mono inline-block bg-black text-white text-[11px] font-semibold px-2.5 py-1.5 mb-3 hover:bg-[#0d9488]">
           {post.author.name}
-        </span>
+        </Link>
         <p className="wired-serif text-[17px] leading-[1.6] text-[#333]" dangerouslySetInnerHTML={{ __html: bio }} />
         <p className="wired-mono mt-3 text-[11px] font-medium text-black/60">
           {post.author.role} · Emithran ·{' '}
           <a href={post.author.linkedin} target="_blank" rel="noopener noreferrer me" className="text-black hover:underline">LinkedIn</a>
-          {' '}· Last updated {post.date}
+          {' '}· <Link href={authorHref} className="text-black hover:underline">All articles</Link>
+          {' '}· Last updated {post.updated ?? post.date}
         </p>
+        {reviewer && (
+          <p className="wired-mono mt-2 text-[11px] font-medium text-black/60">
+            Technically reviewed by <Link href={reviewer.href} className="text-black hover:underline">{reviewer.name}</Link>, {reviewer.role}
+          </p>
+        )}
       </div>
     </section>
   )
@@ -305,11 +310,11 @@ function TalkToExpertsBand() {
 
 /* ----------------------------- Related articles ----------------------------- */
 
-function RelatedArticles({ posts }: { posts: BlogPost[] }) {
+function RelatedArticles({ posts, hub }: { posts: BlogPost[]; hub?: { href: string; label: string } }) {
   return (
     <section className="max-w-[1600px] mx-auto px-4 sm:px-8 py-12">
       <h2 className="wired-display text-black text-[40px] sm:text-[48px] leading-none pb-3 mb-8" style={{ borderBottom: '1px solid #000' }}>
-        More From Emithran
+        Related Reading
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
         {posts.map(p => (
@@ -325,15 +330,47 @@ function RelatedArticles({ posts }: { posts: BlogPost[] }) {
           </article>
         ))}
       </div>
+      {hub && (
+        <p className="mt-10">
+          <Link href={hub.href} className="wired-mono inline-flex min-h-11 items-center text-[12px] font-semibold text-black underline underline-offset-4">
+            {hub.label} »
+          </Link>
+        </p>
+      )}
     </section>
   )
 }
 
 /* ------------------------------ Bottom promo bar ----------------------------- */
 
+const PROMO_DISMISSED_KEY = 'emithran:blog-promo-dismissed'
+
 function PromoBar() {
-  const [open, setOpen] = useState(true)
-  if (!open) return null
+  // Hidden until the reader has scrolled 40% of the page, so it never covers the
+  // opening lines of the article; once dismissed it stays dismissed (SEO audit #09).
+  const [visible, setVisible] = useState(false)
+  const [dismissed, setDismissed] = useState(false)
+  useEffect(() => {
+    let stored = false
+    try { stored = window.localStorage.getItem(PROMO_DISMISSED_KEY) === '1' } catch {}
+    // Previously dismissed: never subscribe, so the bar never becomes visible.
+    if (stored) return
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight
+      if (max > 0 && window.scrollY / max >= 0.4) {
+        setVisible(true)
+        window.removeEventListener('scroll', onScroll)
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  const dismiss = () => {
+    setDismissed(true)
+    try { window.localStorage.setItem(PROMO_DISMISSED_KEY, '1') } catch {}
+  }
+  if (dismissed || !visible) return null
   return (
     // Right inset keeps the bar clear of the Chatling chat icon (55px, fixed ~20px from the bottom-right corner)
     <div className="fixed bottom-4 left-4 right-[88px] sm:inset-x-24 z-40 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.15)]">
@@ -344,7 +381,7 @@ function PromoBar() {
             Book a demo
           </Link>
         </p>
-        <button type="button" onClick={() => setOpen(false)} aria-label="Dismiss" className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-black/60 hover:text-black">
+        <button type="button" onClick={dismiss} aria-label="Dismiss" className="absolute right-0 top-1/2 -translate-y-1/2 grid h-11 w-11 place-items-center text-black/60 hover:text-black">
           <X className="w-4 h-4" />
         </button>
       </div>
@@ -354,13 +391,31 @@ function PromoBar() {
 
 /* ----------------------------------- Page ----------------------------------- */
 
-export default function BlogPostPage({ post, content }: { post: BlogPost; content: BlogPostContent }) {
-  const related = POSTS.filter(p => p.slug !== post.slug).slice(0, 4)
+export default function BlogPostPage({
+  post,
+  content,
+  authorHref,
+  reviewer,
+  relatedSlugs,
+  solutionLinks,
+  hub,
+}: {
+  post: BlogPost
+  content: BlogPostContent
+  authorHref: string
+  reviewer?: { name: string; role: string; href: string }
+  /** Pillar-driven related posts, computed on the server (src/lib/topics.ts). */
+  relatedSlugs: string[]
+  /** "Related on Emithran" product links, computed on the server. */
+  solutionLinks: InternalLink[]
+  hub?: { href: string; label: string }
+}) {
+  const related = relatedSlugs.map(slug => POSTS.find(p => p.slug === slug)).filter((p): p is BlogPost => Boolean(p)).slice(0, 4)
   const contentRef = useRef<HTMLDivElement>(null)
 
   return (
-    <main className={`${blogFontVars} wired-article bg-white text-black pt-16`}>
-      <Hero post={post} heroImage={content.heroImage} />
+    <div className={`${blogFontVars} wired-article bg-white text-black pt-16`}>
+      <Hero post={post} heroImage={content.heroImage} authorHref={authorHref} />
 
       {/* Caption / utility row */}
       <div className="max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-[8.5%] py-4 flex flex-wrap items-center justify-between gap-4" style={{ borderBottom: RULE }}>
@@ -376,13 +431,13 @@ export default function BlogPostPage({ post, content }: { post: BlogPost; conten
             <div ref={contentRef} className="blog-content" dangerouslySetInnerHTML={{ __html: content.content }} />
             <BlogWidgets contentRef={contentRef} html={content.content} />
 
-            <RelatedSolutions slug={post.slug} />
+            <RelatedSolutions links={solutionLinks} />
 
             {/* Skip the standalone block when the article body already has its own FAQ section,
                 so the questions aren't shown twice. FAQPage schema is built from `faqs` in page.tsx either way. */}
             {content.faqs && content.faqs.length > 0 && !INLINE_FAQ_HEADING.test(content.content) && <FAQSection faqs={content.faqs} />}
 
-            <AuthorBio post={post} bio={content.authorBio} />
+            <AuthorBio post={post} bio={content.authorBio} authorHref={authorHref} reviewer={reviewer} />
 
             <NewsletterSignup />
           </article>
@@ -410,9 +465,9 @@ export default function BlogPostPage({ post, content }: { post: BlogPost; conten
 
       <TalkToExpertsBand />
 
-      <RelatedArticles posts={related} />
+      <RelatedArticles posts={related} hub={hub} />
 
       <PromoBar />
-    </main>
+    </div>
   )
 }

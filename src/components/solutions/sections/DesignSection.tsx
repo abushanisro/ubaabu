@@ -124,7 +124,7 @@ export default function DesignSection() {
               transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
               className="relative overflow-hidden rounded-2xl"
             >
-              <img
+              <img width={1536} height={1024}
                 src="/assets/cards/solution/card/design.png"
                 alt="Design intelligence card"
                 className="w-full"

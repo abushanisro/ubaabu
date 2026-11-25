@@ -670,9 +670,9 @@ function CaseStudyCarousel() {
             <div className="flex flex-col gap-5">
               {(['challenge', 'solution', 'impact'] as const).map(key => (
                 <div key={key}>
-                  <h4 className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: item.accentColor }}>
+                  <h3 className="text-[11px] font-bold uppercase tracking-widest mb-1.5" style={{ color: item.accentColor }}>
                     {key.charAt(0).toUpperCase() + key.slice(1)}
-                  </h4>
+                  </h3>
                   <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(15,27,45,0.65)' }}>
                     {item[key]}
                   </p>

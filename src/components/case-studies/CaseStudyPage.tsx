@@ -38,7 +38,7 @@ function AuthorRow({ author, date, readTime }: { author: CaseStudy['author']; da
   return (
     <div className="flex items-center gap-2.5">
       {author.avatar ? (
-        <img src={author.avatar} alt={author.name}
+        <img width={28} height={28} src={author.avatar} alt={author.name}
           className="w-7 h-7 rounded-full object-cover shrink-0"
           style={{ border: '1.5px solid rgba(13,148,136,0.25)' }} />
       ) : (
@@ -94,7 +94,7 @@ function FeaturedCard({ post }: { post: CaseStudy }) {
           </div>
           <Link
             href={`/case-studies/${post.slug}`}
-            className="mt-7 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0d9488] hover:text-[#0f766e] transition-colors"
+            className="mt-7 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-[#0d9488] hover:text-[#0f766e] transition-colors"
           >
             Read case study <span aria-hidden>→</span>
           </Link>
@@ -160,13 +160,13 @@ function PostCard({ post }: { post: CaseStudy }) {
 
 const CASE_ILLUSTRATIONS: Record<string, React.ReactNode> = {
   'exhaust-system': (
-    <img src="/assets/casestudy/case5.png" alt="Automotive exhaust assembly" className="w-full h-full object-cover" />
+    <img width={3000} height={2000} src="/assets/casestudy/case5.png" alt="Automotive exhaust assembly" className="w-full h-full object-cover" />
   ),
   'hgv-chassis': (
-    <img src="/assets/casestudy/truck.png" alt="HGV chassis ladder frame" className="w-full h-full object-cover" />
+    <img width={1280} height={720} src="/assets/casestudy/truck.png" alt="HGV chassis ladder frame" className="w-full h-full object-cover" />
   ),
   'dc-dc-converter': (
-    <img src="/assets/casestudy/case3.png" alt="Aerospace DC-DC converter" className="w-full h-full object-cover" />
+    <img width={1344} height={768} src="/assets/casestudy/case3.png" alt="Aerospace DC-DC converter" className="w-full h-full object-cover" />
   ),
 }
 
@@ -184,7 +184,7 @@ function LatestCaseStudyItem({ post }: { post: CaseStudy }) {
           <span className="text-[12px]" style={{ color: 'rgba(15,27,45,0.45)' }}>{post.date}</span>
           <div className="flex items-center gap-2">
             {post.author.avatar ? (
-              <img src={post.author.avatar} alt={post.author.name}
+              <img width={28} height={28} src={post.author.avatar} alt={post.author.name}
                 className="w-7 h-7 rounded-full object-cover shrink-0"
                 style={{ border: '1.5px solid rgba(13,148,136,0.25)' }} />
             ) : (
@@ -216,7 +216,7 @@ function LatestCaseStudyItem({ post }: { post: CaseStudy }) {
             {post.excerpt}
           </p>
           <Link href={`/case-studies/${post.slug}`}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold group transition-colors"
+            className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold group transition-colors"
             style={{ color: '#0d9488' }}>
             Read case study
             <AnimatedArrow />
@@ -350,7 +350,7 @@ function CaseStudyCarousel() {
                 </time>
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-1 text-[12px] font-semibold group transition-colors duration-150"
+                  className="inline-flex min-h-11 items-center gap-1 text-[12px] font-semibold group transition-colors duration-150"
                   style={{ color: colors.dark ? '#2dd4bf' : '#0d9488' }}
                 >
                   Read more
@@ -380,7 +380,7 @@ export default function CaseStudyPage() {
 
       {/* Hero - blog.svg full section background */}
       <div className="relative w-full overflow-hidden">
-        <img
+        <img width={1536} height={1024}
           src="/assets/blog/blog.svg"
           alt=""
           aria-hidden="true"

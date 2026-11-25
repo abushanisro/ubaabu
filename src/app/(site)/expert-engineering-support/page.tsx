@@ -1,0 +1,66 @@
+import type { Metadata } from 'next'
+import ExpertEngineeringSupportPage from '@/components/expert-engineering-support/ExpertEngineeringSupportPage'
+import { ogImages } from '@/lib/seo'
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
+
+export const metadata: Metadata = {
+  title: 'Expert Engineering Support - Costing Engineers',
+  description:
+    'Cost engineers and analysts on demand: 3D CAD feature analysis, cycle times, should-cost and zero-based costing, and supplier nomination for OEMs.',
+  keywords: [
+    'Expert Engineering Support',
+    'manufacturing intelligence software',
+    'zero based costing',
+    'CAD feature analysis',
+    'should cost analysis India',
+    'supplier nomination precision manufacturing',
+  ],
+  alternates: { canonical: '/expert-engineering-support' },
+  openGraph: {
+    images: ogImages,
+    title: 'Expert Engineering Support - Costing Engineers for Your Team | Emithran',
+    description:
+      'Emithran connects end-to-end manufacturing intelligence - automating 3D CAD feature analysis, cycle times, should-cost models, zero-based costing, and supplier nomination.',
+    url: '/expert-engineering-support',
+    type: 'website',
+    siteName: 'Emithran',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@emithran',
+    creator: '@emithran',
+    title: 'Expert Engineering Support - Costing Engineers for Your Team | Emithran',
+    description:
+      'Automating 3D CAD feature analysis, cycle times, should-cost models, zero-based costing, and supplier nomination across precision manufacturing.',
+  },
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Expert Engineering Support',
+  serviceType: 'Manufacturing Intelligence & Cost Engineering',
+  provider: {
+    '@type': 'Organization',
+    name: 'Emithran',
+    url: siteUrl,
+  },
+  description:
+    'End-to-end manufacturing intelligence platform for CAD feature analysis, zero-based costing, cycle time calculators, and supplier nomination across precision engineering programs.',
+  url: `${siteUrl}/expert-engineering-support`,
+  areaServed: ['IN', 'US', 'EU', 'Global'],
+}
+
+export default function Page() {
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <ExpertEngineeringSupportPage />
+    </>
+  )
+}

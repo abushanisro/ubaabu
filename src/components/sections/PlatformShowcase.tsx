@@ -696,6 +696,7 @@ export default function PlatformShowcase() {
       }}
     >
       <div className="px-6 md:px-12 py-16 md:py-20 max-w-[1400px] mx-auto">
+        <h2 className="sr-only">Platform modules</h2>
         <header className="mb-12 max-w-4xl">
           <p className="text-xl md:text-2xl lg:text-[2.6rem] font-bold leading-[1.25] tracking-tight text-gray-900">
             Precision at every stage of{" "}

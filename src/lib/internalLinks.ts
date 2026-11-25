@@ -38,11 +38,6 @@ const CASE_STUDIES: InternalLink = {
   label: 'Case Studies',
   description: 'Should-cost, teardown and sourcing results from automotive, aerospace and electronics programmes.',
 }
-const SC_MODELING: InternalLink = {
-  href: '/should-cost-modeling-software',
-  label: 'Should-Cost Modeling Software',
-  description: 'Turn drawings, BOMs, process routes and supplier quotes into auditable target costs.',
-}
 const COST_ENG: InternalLink = {
   href: '/cost-engineering-software',
   label: 'Cost Engineering Software',
@@ -88,15 +83,21 @@ const PROC_INTEL: InternalLink = {
   label: 'Procurement Intelligence Platform',
   description: 'BOM-level cost visibility, supplier qualification, risk tracking and opportunity assessment.',
 }
-const SUPPLY_CHAIN: InternalLink = {
-  href: '/supply-chain-intelligence',
-  label: 'Supply Chain Intelligence Platform',
-  description: 'Supplier risk, sourcing alternatives, delivery exposure and BOM-level dependency visibility.',
+
+// Should-cost funnel (SEO audit #07): definition -> how-to -> comparison -> software page.
+const SC_HOW_TO: InternalLink = {
+  href: '/blog/how-to-do-should-cost-analysis',
+  label: 'Next: How to Do a Should-Cost Analysis',
+  description: 'The step-by-step method, from part definition to comparing the model with the supplier quote.',
+}
+const SC_COMPARISON: InternalLink = {
+  href: '/blog/should-cost-analysis-software-comparison',
+  label: 'Next: Should-Cost Software Compared',
+  description: 'How to evaluate should-cost tools, with a neutral look at five approaches and a buyer checklist.',
 }
 
 /** Blog slug -> related commercial pages. Unlisted slugs fall back to BLOG_DEFAULT. */
 const BLOG_LINKS: Record<string, InternalLink[]> = {
-  'should-cost-analysis-guide': [SHOULD_COST, COST_ENG, CASE_STUDIES],
   'apriori-vs-emithran-comparison': [SHOULD_COST, BOM, CASE_STUDIES],
   'costimator-alternatives': [SHOULD_COST, SUPPLIER, CASE_STUDIES],
   'best-should-cost-software-aerospace-manufacturers': [AEROSPACE, AERO_MFG, SHOULD_COST],
@@ -112,19 +113,52 @@ const BLOG_LINKS: Record<string, InternalLink[]> = {
   'design-for-manufacturability-guide': [DFM, SHOULD_COST, BOM],
   'spend-analysis-software-guide': [SPEND, SUPPLIER, SHOULD_COST],
   'what-is-vave': [VAVE_SW, SHOULD_COST, CASE_STUDIES],
-  'should-cost-modeling-software-buyers-guide': [SHOULD_COST, SC_MODELING, CASE_STUDIES],
+  'what-is-should-cost-analysis': [SC_HOW_TO, SHOULD_COST, CASE_STUDIES],
+  'how-to-do-should-cost-analysis': [SC_COMPARISON, SHOULD_COST, CASE_STUDIES],
+  'should-cost-analysis-software-comparison': [SHOULD_COST, COST_ENG, CASE_STUDIES],
+  'should-cost-modeling-methodology-tools-examples': [SC_HOW_TO, SHOULD_COST, CASE_STUDIES],
   'cost-engineering-software': [COST_ENG, SHOULD_COST, CASE_STUDIES],
   'srm-software-comparison': [SRM, SUPPLIER, SHOULD_COST],
   'aerospace-manufacturing-in-india': [AERO_MFG, AEROSPACE, SUPPLIER],
   'vendor-negotiation-should-cost': [SHOULD_COST, RFQ_INTEL, CASE_STUDIES],
   'ai-sourcing-software-guide': [PROC_INTEL, SUPPLIER, SHOULD_COST],
-  'global-strategic-sourcing': [SOURCING, SUPPLY_CHAIN, SUPPLIER],
+  'global-strategic-sourcing': [SOURCING, SUPPLIER, SHOULD_COST],
   'mro-spend-analysis': [SPEND, SUPPLIER, SHOULD_COST],
 }
 const BLOG_DEFAULT: InternalLink[] = [SHOULD_COST, CASE_STUDIES]
 
+/**
+ * Secondary money pages that need more contextual inlinks (SEO audit #05 target: 10+).
+ * Each is linked from the "Related on Emithran" block of the posts listed here.
+ */
+const PAGE_TO_POSTS: [InternalLink, string[]][] = [
+  [
+    { href: '/manufacturing-benchmarking', label: 'Manufacturing Benchmarking', description: 'Compare part, process and supplier costs across regions and suppliers with should-cost data.' },
+    ['cnc-machining-cost-estimation', 'machine-hour-rate-calculation', 'manufacturing-cost-drivers', 'total-manufacturing-cost-formula', 'sheet-metal-cost-estimation', 'forging-vs-machining-cost', 'titanium-inconel-machining-cost', 'should-cost-vs-actual-cost', 'compound-growth-manufacturing-cost-intelligence', 'manufacturing-cost-estimation-methods', 'direct-vs-indirect-manufacturing-costs'],
+  ],
+  [
+    { href: '/total-cost-ownership', label: 'Total Cost of Ownership for Manufacturing', description: 'Look past unit price to tooling, logistics, quality, inventory and switching cost.' },
+    ['make-vs-buy-analysis', 'single-source-vs-sole-source', 'supplier-price-increase-negotiation', 'supplier-negotiation-strategy', 'build-vs-buy-should-cost-tool', 'direct-vs-indirect-manufacturing-costs', 'buy-to-fly-ratio', 'supplier-scorecard-template', 'should-cost-analysis-supplier-negotiation', 'rfq-automation-manufacturing'],
+  ],
+  [
+    { href: '/defense-manufacturing-software', label: 'Defense Manufacturing Software', description: 'Secure BOM validation, supplier qualification and cost evidence for defence programmes.' },
+    ['defense-should-cost-analysis', 'nadcap-accreditation-explained', 'as9100-vs-iso-9001', 'aerospace-supplier-qualification-checklist', 'ice-vs-should-cost', 'best-supplier-intelligence-tools-defence-oems', 'space-manufacturing-cost', 'titanium-inconel-machining-cost', 'learning-curve-cost-estimating', 'aerospace-should-cost-analysis'],
+  ],
+  [
+    { href: '/manufacturing-intelligence', label: 'Manufacturing Intelligence Platform', description: 'BOMs, should-cost models and supplier data connected in one system.' },
+    ['manufacturing-intelligence-pillar', 'ai-should-cost-software', 'ml-vs-rule-based-cost-estimating', 'digital-twin-in-manufacturing', 'compound-growth-manufacturing-cost-intelligence', 'rfq-automation-manufacturing', 'supplier-discovery-software', 'pcm-vs-erp-costing', 'product-cost-management-software', 'build-vs-buy-should-cost-tool'],
+  ],
+  [
+    { href: '/manufacturing-process-library', label: 'Manufacturing Process Library', description: 'Process routes, cycle-time drivers and machine-rate assumptions for cost engineering.' },
+    ['cnc-machining-cost-estimation', 'sheet-metal-cost-estimation', 'forging-vs-machining-cost', 'titanium-inconel-machining-cost', 'machine-hour-rate-calculation', 'cost-estimating-relationships-cers', 'bottom-up-cost-estimating', 'design-for-manufacturing-examples', 'dfm-vs-dfma', 'design-for-manufacturability-guide'],
+  ],
+]
+
 export function relatedLinksForBlog(slug: string): InternalLink[] {
-  return BLOG_LINKS[slug] ?? BLOG_DEFAULT
+  const base = BLOG_LINKS[slug] ?? BLOG_DEFAULT
+  const extra = PAGE_TO_POSTS.filter(([, posts]) => posts.includes(slug)).map(([link]) => link)
+  // Keep the hand-picked first link (e.g. the should-cost funnel), then the secondary page(s).
+  return [...base.slice(0, 1), ...extra, ...base.slice(1)].filter((l, i, arr) => arr.findIndex((x) => x.href === l.href) === i)
 }
 
 /** Case-study slug -> related commercial pages. */

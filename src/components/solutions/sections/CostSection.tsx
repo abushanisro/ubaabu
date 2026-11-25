@@ -107,7 +107,7 @@ export default function CostSection() {
               transition={{ duration: 0.85, delay: 0.15, ease: EASE }}
               className="relative overflow-hidden rounded-2xl"
             >
-              <img
+              <img width={1536} height={1024}
                 src="/assets/cards/solution/card/cost.png"
                 alt="Cost intelligence card"
                 className="w-full"

@@ -135,7 +135,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
               >
                 <div className="relative w-full h-full rounded-2xl shadow-2xl overflow-hidden"
                   style={{ border: '1px solid rgba(0,0,0,0.08)' }}>
-                  <img
+                  <img width={800} height={600}
                     src={item.photo.url}
                     alt={item.photo.text}
                     className="absolute inset-0 w-full h-full object-cover"

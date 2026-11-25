@@ -21,9 +21,23 @@ const platformLinks: FooterLink[] = [
 const resourceLinks: FooterLink[] = [
   { title: "Case Studies",   href: "/case-studies" },
   { title: "Blog",           href: "/blog" },
+  { title: "Topics",         href: "/topics" },
+  { title: "Glossary",       href: "/glossary" },
+  { title: "Resource Centre", href: "/resource-centre" },
+  { title: "2026 Cost Report", href: "/state-of-manufacturing-cost-intelligence-2026" },
   { title: "Industries",     href: "/industries" },
   { title: "Why Emithran",   href: "/why-emithran" },
   { title: "FAQ",            href: "/faq" },
+];
+
+// Comparison pages get a sitewide footer column (SEO audit Nov 2026, #05).
+const compareLinks: FooterLink[] = [
+  { title: "Emithran vs Tset",       href: "/emithran-vs-tset" },
+  { title: "Emithran vs DFMA",       href: "/emithran-vs-dfma" },
+  { title: "Emithran vs Teamcenter", href: "/emithran-vs-teamcenter" },
+  { title: "aPriori Alternatives",   href: "/blog/apriori-alternatives" },
+  { title: "Costimator Alternatives", href: "/blog/costimator-alternatives" },
+  { title: "Should-Cost Tools Compared", href: "/blog/should-cost-analysis-software-comparison" },
 ];
 
 const solutionLinks: FooterLink[] = [
@@ -38,6 +52,7 @@ const footerLinks = [
   { title: "Platform",   links: platformLinks,  useNextLink: true },
   { title: "Solutions",  links: solutionLinks,  useNextLink: true },
   { title: "Resources",  links: resourceLinks,  useNextLink: true },
+  { title: "Compare",    links: compareLinks,   useNextLink: true },
   {
     title: "Company",
     links: [
@@ -45,6 +60,7 @@ const footerLinks = [
       { title: "Partners", href: "/about/partners" },
       { title: "Careers",  href: "/about" },
       { title: "Contact",  href: "/contact?source=footer&cta=contact" },
+      { title: "Deutsch",  href: "/de" },
     ],
   },
 ];
@@ -107,9 +123,9 @@ function NewsletterForm() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-[340px]">
-      <h4 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-4">
+      <h2 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-4">
         Subscribe
-      </h4>
+      </h2>
       <p className="text-[13px] text-white/40 leading-relaxed mb-3">
         Manufacturing intelligence insights, in your inbox.
       </p>
@@ -154,9 +170,9 @@ export default function Footer() {
 
             {/* Our Locations */}
             <div>
-              <h4 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-4">
+              <h2 className="text-white text-[11px] font-semibold uppercase tracking-widest mb-4">
                 Our Locations
-              </h4>
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
 
                 {/* Headquarters */}
@@ -175,7 +191,7 @@ export default function Footer() {
                       126, RNS Plaza, Electronic City Phase 2, Bangalore
                     </span>
                   </a>
-                  <a href="tel:+919360216324" className="flex items-center gap-2">
+                  <a href="tel:+919360216324" className="flex min-h-11 items-center gap-2">
                     <Phone size={14} className="text-[#0d9e8a] shrink-0" />
                     <span className="text-[13px] text-white/40 hover:text-[#0d9e8a] transition-colors">
                       +91 93602 16324
@@ -192,7 +208,7 @@ export default function Footer() {
                     <MapPin size={14} className="text-[#0d9e8a] mt-0.5 shrink-0" />
                     <span className="text-[13px] text-white/40 leading-snug">Hosur, Tamil Nadu</span>
                   </div>
-                  <a href="mailto:contact@emithran.com" className="flex items-center gap-2">
+                  <a href="mailto:contact@emithran.com" className="flex min-h-11 items-center gap-2">
                     <Mail size={14} className="text-[#0d9e8a] shrink-0" />
                     <span className="text-[13px] text-white/40 hover:text-[#0d9e8a] transition-colors">
                       contact@emithran.com
@@ -205,26 +221,26 @@ export default function Footer() {
           </div>
 
           {/* ── Platform · Solutions · Resources · Company ── */}
-          <div className="md:col-span-2 md:order-3 lg:order-none lg:col-span-3 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-8 lg:gap-x-6 lg:gap-y-8 xl:gap-6">
+          <div className="md:col-span-2 md:order-3 lg:order-none lg:col-span-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-5 gap-4 sm:gap-8 lg:gap-x-6 lg:gap-y-8 xl:gap-6">
             {footerLinks.map((section) => (
               <div key={section.title}>
-                <h4 className="text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest mb-4 sm:mb-5">
+                <h2 className="text-white text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest mb-4 sm:mb-5">
                   {section.title}
-                </h4>
-                <ul className="space-y-2 sm:space-y-3">
+                </h2>
+                <ul className="space-y-0 sm:space-y-3">
                   {section.links.map((link) => (
                     <li key={link.title} className="relative">
                       {section.useNextLink ? (
                         <Link
                           href={link.href}
-                          className="text-[11px] sm:text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors leading-snug block"
+                          className="text-[11px] sm:text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors leading-snug flex min-h-11 items-center sm:block sm:min-h-0"
                         >
                           {link.title}
                         </Link>
                       ) : (
                         <a
                           href={link.href}
-                          className="text-[11px] sm:text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors leading-snug block"
+                          className="text-[11px] sm:text-[13px] text-white/45 hover:text-[#0d9e8a] transition-colors leading-snug flex min-h-11 items-center sm:block sm:min-h-0"
                         >
                           {link.title}
                         </a>
@@ -246,14 +262,14 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 pb-4 text-sm">
 
           {/* Social icons */}
-          <div className="flex items-center gap-4 text-white/40">
-            <a href="https://www.linkedin.com/company/emithran/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="hover:text-[#0d9e8a] transition-colors">
+          <div className="flex items-center gap-0 text-white/40">
+            <a href="https://www.linkedin.com/company/emithran/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" className="inline-grid h-11 w-11 place-items-center hover:text-[#0d9e8a] transition-colors">
               <Linkedin size={18} />
             </a>
-            <a href="https://x.com/emithran_ai" aria-label="X" target="_blank" rel="noopener noreferrer" className="hover:text-[#0d9e8a] transition-colors">
+            <a href="https://x.com/emithran_ai" aria-label="X" target="_blank" rel="noopener noreferrer" className="inline-grid h-11 w-11 place-items-center hover:text-[#0d9e8a] transition-colors">
               <Twitter size={18} />
             </a>
-            <a href="https://wa.me/message/TAG2CE2KT3R4F1" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
+            <a href="https://wa.me/message/TAG2CE2KT3R4F1" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer" className="inline-grid h-11 w-11 place-items-center hover:text-[#25D366] transition-colors">
               <WhatsAppIcon size={18} />
             </a>
 
@@ -268,7 +284,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               title="Summarize with ChatGPT"
-              className="hover:text-[#10a37f] transition-colors"
+              className="inline-grid h-11 w-11 place-items-center hover:text-[#10a37f] transition-colors"
             >
               <ChatGPTIcon size={18} />
             </a>
@@ -278,7 +294,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               title="Summarize with Grok"
-              className="hover:text-white/80 transition-colors"
+              className="inline-grid h-11 w-11 place-items-center hover:text-white/80 transition-colors"
             >
               <GrokIcon size={18} />
             </a>
@@ -288,7 +304,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               title="Summarize with Claude"
-              className="hover:text-[#d97757] transition-colors"
+              className="inline-grid h-11 w-11 place-items-center hover:text-[#d97757] transition-colors"
             >
               <AnthropicIcon size={18} />
             </a>
@@ -298,7 +314,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-end gap-1.5">
             <div className="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-1">
               {legalLinks.map(l => (
-                <Link key={l.title} href={l.href} className="text-[11px] text-white/30 hover:text-white/70 transition-colors whitespace-nowrap">
+                <Link key={l.title} href={l.href} className="inline-flex min-h-11 min-w-11 justify-center items-center text-[11px] text-white/30 hover:text-white/70 transition-colors whitespace-nowrap">
                   {l.title}
                 </Link>
               ))}

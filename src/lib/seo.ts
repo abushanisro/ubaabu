@@ -44,3 +44,30 @@ export function pageOpenGraph(path: string, title: string, description: string) 
     locale: 'en_US',
   } as const
 }
+
+/**
+ * Meta description ≤ `max` characters (SEO audit Nov 2026, issue #11: keep descriptions
+ * at ~140–155). Keeps whole sentences when they fit; otherwise cuts at a word boundary.
+ */
+export function metaDescription(text: string, max = 155): string {
+  const clean = text.replace(/\s+/g, ' ').trim()
+  if (clean.length <= max) return clean
+  const sentences = clean.match(/[^.!?]+[.!?]+(\s|$)/g) ?? []
+  let out = ''
+  for (const s of sentences) {
+    if ((out + s).trim().length > max) break
+    out += s
+  }
+  out = out.trim()
+  if (out.length >= 120) return out
+  const cut = clean.slice(0, max - 1).replace(/[\s,;:–-]+\S*$/, '')
+  return `${cut}…`
+}
+
+/**
+ * Title helper: drop a hard-coded year in parentheses, e.g. "(2026)", which looks stale
+ * the following January (issue #11). Years that matter are added from dateModified.
+ */
+export function stripYearSuffix(title: string): string {
+  return title.replace(/\s*\((?:19|20)\d{2}\)\s*/g, ' ').replace(/\s{2,}/g, ' ').trim()
+}

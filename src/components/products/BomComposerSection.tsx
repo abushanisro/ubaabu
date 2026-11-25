@@ -186,6 +186,7 @@ export default function BomComposerSection() {
       aria-label="BOM Composer module"
       className="relative bg-white overflow-hidden"
     >
+      <h2 className="sr-only">BOM Composer</h2>
       {/* Subtle teal ambient in section background */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 55% 50% at 15% 60%, rgba(20,184,166,0.04) 0%, transparent 70%)' }} />
