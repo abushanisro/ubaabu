@@ -54,6 +54,7 @@ import PlatformPartnership from '@/components/sections/PlatformPartnership'
 import HomeExploreLinks from '@/components/sections/HomeExploreLinks'
 import { ogImages } from '@/lib/seo'
 import { organizationSchema, softwareSchema, websiteSchema } from '@/lib/schema'
+import { HERO_THUMB } from '@/lib/heroImage'
 import DeferredSection from '@/components/layout/DeferredSection'
 import HashAnchorFix from '@/components/layout/HashAnchorFix'
 export default function App() {
@@ -65,7 +66,7 @@ export default function App() {
       <link rel="preload" as="image" href="/assets/cards/projectcard.webp" media="(min-width: 1024px)" fetchPriority="high" />
       {/* Mobile: the decorative background is inline SVG now, so the product thumbnail is the
           largest image above the fold — preload it for phones (SEO audit #04). */}
-      <link rel="preload" as="image" href="/assets/hero-page/3d-drawing.webp" media="(max-width: 1023px)" fetchPriority="high" />
+      <link rel="preload" as="image" href={HERO_THUMB.src} imageSrcSet={HERO_THUMB.srcSet} imageSizes={HERO_THUMB.sizes} media="(max-width: 1023px)" fetchPriority="high" />
       {/* Organization + WebSite are declared once, here, with stable @ids; every other page
           references them by @id (SEO audit #12). */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([organizationSchema, websiteSchema, softwareSchema()]) }} />

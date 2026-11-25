@@ -21,6 +21,11 @@ interface HeroVideoProps {
   onOpenChange?: (open: boolean) => void
   /** Above-the-fold thumbnail (LCP candidate): fetch eagerly at high priority */
   priority?: boolean
+  /** Responsive thumbnail sources; width/height are the intrinsic size (aspect ratio). */
+  thumbnailSrcSet?: string
+  thumbnailSizes?: string
+  thumbnailWidth?: number
+  thumbnailHeight?: number
 }
 
 
@@ -41,6 +46,10 @@ export function HeroVideoDialog({
   isOpen: externalIsOpen,
   onOpenChange,
   priority = false,
+  thumbnailSrcSet,
+  thumbnailSizes,
+  thumbnailWidth = 1920,
+  thumbnailHeight = 1080,
 }: HeroVideoProps) {
   const [internalOpen, setInternalOpen] = useState(false)
 
@@ -68,9 +77,11 @@ export function HeroVideoDialog({
       >
         <img
           src={thumbnailSrc}
+          srcSet={thumbnailSrcSet}
+          sizes={thumbnailSrcSet ? thumbnailSizes : undefined}
           alt={thumbnailAlt}
-          width={1920}
-          height={1080}
+          width={thumbnailWidth}
+          height={thumbnailHeight}
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}
           decoding="async"

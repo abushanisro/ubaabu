@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
 import { Typewriter } from '@/components/ui/typewriter'
 import { AnimatedArrow } from '@/components/ui/animated-arrow'
+import { HERO_THUMB } from '@/lib/heroImage'
 
 const CAPABILITIES = ['BOM Intelligence', 'Should-Cost', 'Supplier Radar', 'Quality & PPAP']
 
@@ -102,7 +103,11 @@ export default function Hero() {
             <HeroVideoDialog
               animationStyle="from-center"
               videoSrc="/videos/emithran-overview.mp4"
-              thumbnailSrc="/assets/hero-page/3d-drawing.webp"
+              thumbnailSrc={HERO_THUMB.src}
+              thumbnailSrcSet={HERO_THUMB.srcSet}
+              thumbnailSizes={HERO_THUMB.sizes}
+              thumbnailWidth={HERO_THUMB.width}
+              thumbnailHeight={HERO_THUMB.height}
               priority
               thumbnailAlt="Emithran platform preview"
               isOpen={videoOpen}
