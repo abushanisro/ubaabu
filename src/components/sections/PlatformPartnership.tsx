@@ -10,7 +10,7 @@ const CARDS = [
     image: '/assets/api-test-style.png',
     title: 'API Integration',
     body: 'Plug Emithran costing, machine and labour rates, RFQ and supplier intelligence into your ERP or procurement tools, or have our developers and costing engineers build custom workflows, formulas and dashboards with you.',
-    href: '/api',
+    href: '/api-integration',
   },
   {
     image: '/assets/home/customize.png',

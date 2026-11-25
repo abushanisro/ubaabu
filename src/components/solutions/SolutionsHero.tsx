@@ -197,7 +197,7 @@ export default function SolutionsHero() {
           }
         `}</style>
         <div aria-hidden className="hero-wave-container">
-          <img
+          <img width={1280} height={720}
             src="/assets/cards/solution/hero.svg"
             alt=""
             style={{

@@ -170,6 +170,7 @@ export default function SupplierRadarSection() {
       aria-label="Supplier Radar module"
       className="relative bg-white overflow-hidden"
     >
+      <h2 className="sr-only">Supplier Radar</h2>
       {/* Ambient - top-right for variety */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 50% 45% at 80% 25%, rgba(20,184,166,0.04) 0%, transparent 70%)' }} />

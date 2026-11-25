@@ -60,7 +60,7 @@ export default function BlogCTA({
         className="w-full sm:w-64 md:w-72 shrink-0 rounded-xl overflow-hidden"
         style={{ maxHeight: 200, opacity: 0.88 }}
       >
-        <img
+        <img width={776} height={446}
           src="/assets/hero-page/3d-drawing.png"
           alt="Engineering blueprint"
           className="w-full h-full object-cover"

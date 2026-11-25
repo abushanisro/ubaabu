@@ -353,10 +353,18 @@ export default function BlogPage({ trendingSlugs, teasers = {} }: { trendingSlug
 
       {/* Promo strip */}
       <div className="bg-black text-white">
-        <div className="flex items-center justify-center gap-4 h-11 px-4">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 min-h-11 px-4">
           <span className="wired-mono text-[11px] font-semibold">Emithran Insights</span>
           <span className="w-px h-5 bg-white/30" aria-hidden />
-          <Link href="/contact?source=blog-listing&cta=book-a-demo" className="wired-mono text-[11px] font-semibold hover:underline">
+          <Link href="/state-of-manufacturing-cost-intelligence-2026" className="wired-mono inline-flex min-h-11 items-center text-[11px] font-semibold hover:underline">
+            2026 Cost Report »
+          </Link>
+          <span className="w-px h-5 bg-white/30" aria-hidden />
+          <Link href="/topics" className="wired-mono inline-flex min-h-11 items-center text-[11px] font-semibold hover:underline">
+            Topics »
+          </Link>
+          <span className="w-px h-5 bg-white/30 hidden sm:block" aria-hidden />
+          <Link href="/contact?source=blog-listing&cta=book-a-demo" className="wired-mono inline-flex min-h-11 items-center text-[11px] font-semibold hover:underline">
             Book a demo »
           </Link>
         </div>
@@ -364,9 +372,10 @@ export default function BlogPage({ trendingSlugs, teasers = {} }: { trendingSlug
 
       {/* Section nav / category filter */}
       <nav aria-label="Blog categories" style={{ borderBottom: RULE }}>
-        <div className="max-w-[1480px] mx-auto px-4 sm:px-8 flex items-center gap-6 sm:gap-8 h-14 overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
-          <h1 className="wired-display text-[26px] leading-none shrink-0 pr-2">
+        <div className="max-w-[1480px] mx-auto px-4 sm:px-8 flex flex-wrap sm:flex-nowrap items-center gap-x-5 gap-y-0 sm:gap-8 py-1 sm:py-0 sm:h-14 sm:overflow-x-auto" style={{ scrollbarWidth: 'none' }}>
+          <h1 className="wired-display text-[26px] leading-none shrink-0 pr-2 w-full sm:w-auto py-2 sm:py-0">
             <span className="inline-block bg-black text-white px-2 py-0.5">BLOG</span>
+            <span className="sr-only"> — manufacturing cost, should-cost and supplier intelligence articles</span>
           </h1>
           {CATEGORIES.map(cat => (
             <button
@@ -374,7 +383,7 @@ export default function BlogPage({ trendingSlugs, teasers = {} }: { trendingSlug
               type="button"
               onClick={() => setActive(cat)}
               aria-pressed={active === cat}
-              className="wired-mono text-[12px] font-medium whitespace-nowrap h-full transition-colors hover:text-black"
+              className="wired-mono text-[12px] font-medium whitespace-nowrap h-11 sm:h-full transition-colors hover:text-black"
               style={{
                 color: active === cat ? '#000' : 'rgba(0,0,0,0.5)',
                 boxShadow: active === cat ? 'inset 0 -3px 0 #000' : 'none',

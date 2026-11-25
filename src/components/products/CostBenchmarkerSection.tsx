@@ -173,6 +173,7 @@ export default function CostBenchmarkerSection() {
       aria-label="Cost Benchmarker module"
       className="relative bg-white overflow-hidden"
     >
+      <h2 className="sr-only">Cost Benchmarker</h2>
       {/* Ambient - slightly stronger for premium feel */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(20,184,166,0.05) 0%, transparent 70%)' }} />

@@ -1,9 +1,14 @@
 import Link from 'next/link'
 import type { SeoLandingPage as SeoLandingPageData } from './seoRoadmapData'
+import { LANDING_EXPANSIONS } from './landingContent'
+import { ExpansionBlocks, RelatedLinksBlock } from './ExpansionBlocks'
+import { DOWNLOAD_FILES } from '@/lib/topics'
 
 export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
+  const expansion = LANDING_EXPANSIONS[page.slug]
+  const faqs = [...page.faqs, ...(expansion?.faqs ?? [])]
   return (
-    <main className="min-h-screen bg-white text-[#0f1b2d]">
+    <div className="min-h-screen bg-white text-[#0f1b2d]">
       <section className="pt-28 pb-12 border-b border-black/10">
         <div className="max-w-6xl mx-auto px-6 lg:px-10">
           <div className="flex items-center gap-2 text-sm mb-8 text-black/40">
@@ -20,6 +25,9 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
           <p className="max-w-3xl mt-6 text-lg leading-relaxed text-black/60">
             {page.intro}
           </p>
+          {expansion && (
+            <p className="max-w-3xl mt-4 text-[15px] leading-relaxed text-black/70">{expansion.summary}</p>
+          )}
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <Link href="/request-demo" className="inline-flex items-center justify-center rounded-xl bg-[#0d9488] px-6 py-3 text-sm font-semibold text-white">
               Request a Demo
@@ -66,12 +74,32 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
         </div>
       </section>
 
+      {expansion && <ExpansionBlocks data={expansion} />}
+
+      {page.slug === 'resource-centre' && (
+        <section id="downloads" className="py-12 border-t border-black/10">
+          <div className="max-w-6xl mx-auto px-6 lg:px-10">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#0d9488]">Downloads</p>
+            <h2 className="mt-3 text-2xl md:text-3xl font-bold tracking-tight">Free templates, checklists and calculators</h2>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {DOWNLOAD_FILES.map((d) => (
+                <li key={d.href}>
+                  <a href={d.href} download className="flex min-h-11 items-center rounded-xl border border-black/10 p-4 text-sm font-semibold hover:border-[#0d9488]/40 hover:text-[#0d9488]">
+                    {d.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
       <section className="py-12 bg-[#f8fafb] border-y border-black/10">
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
           <p className="text-[11px] font-bold uppercase tracking-widest mb-4 text-[#0d9488]">FAQ</p>
           <h2 className="text-3xl font-bold tracking-tight mb-8">Common questions</h2>
           <div className="grid gap-3">
-            {page.faqs.map((faq) => (
+            {faqs.map((faq) => (
               <details key={faq.question} className="rounded-xl border border-black/10 bg-white p-5">
                 <summary className="cursor-pointer text-sm font-semibold">{faq.question}</summary>
                 <p className="mt-3 text-sm leading-relaxed text-black/60">{faq.answer}</p>
@@ -80,6 +108,8 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
           </div>
         </div>
       </section>
+
+      {expansion && <RelatedLinksBlock links={expansion.related} />}
 
       <section className="py-12 bg-[#0f1b2d] text-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-10 text-center">
@@ -90,6 +120,6 @@ export default function SeoLandingPage({ page }: { page: SeoLandingPageData }) {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

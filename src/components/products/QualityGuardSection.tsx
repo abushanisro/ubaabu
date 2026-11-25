@@ -196,6 +196,7 @@ export default function QualityGuardSection() {
       aria-label="Quality Guard module"
       className="relative bg-white overflow-hidden"
     >
+      <h2 className="sr-only">Quality Guard</h2>
       {/* Ambient - top-center */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 55% 35% at 50% 0%, rgba(20,184,166,0.05) 0%, transparent 100%)' }} />

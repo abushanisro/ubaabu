@@ -196,6 +196,7 @@ export default function VaveStudioSection() {
       aria-label="VAVE Studio module"
       className="relative bg-white overflow-hidden"
     >
+      <h2 className="sr-only">VAVE Studio</h2>
       {/* Ambient - center-left for variety */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 50% 50% at 20% 55%, rgba(20,184,166,0.04) 0%, transparent 70%)' }} />

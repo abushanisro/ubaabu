@@ -100,7 +100,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <ul>
   <li><strong>PPM and OTIF need clear rules.</strong> Define what counts as “defective” and what counts as “on time”, and apply the same rule to every supplier. One example of an on-time rule is a delivery window from two days before the due date to zero days after; use your own industry’s standard if it differs.</li>
-  <li><strong>The price metric should compare with something.</strong> A target price from a should-cost model is better than comparing with last year’s price, because it asks whether the price is right, not only whether it changed. Our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> explains how to build one.</li>
+  <li><strong>The price metric should compare with something.</strong> A target price from a should-cost model is better than comparing with last year’s price, because it asks whether the price is right, not only whether it changed. Our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> explains how to build one.</li>
   <li><strong>Fewer metrics beat more.</strong> Nine is enough. Every metric you add costs data effort and dilutes attention.</li>
   <li><strong>Count only what the supplier controls.</strong> Late deliveries caused by your own schedule changes should be excluded or flagged.</li>
 </ul>
@@ -317,7 +317,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>The email arrives with a percentage and a sentence: “due to rising input costs, we must increase prices by 12 percent from the first of next month.” Many buyers respond in one of two ways. They accept because it’s easier, or they refuse and risk the relationship. Both skip the useful step, which is to work out how much of the increase the supplier’s costs actually justify.</p>
 
-<p>This guide shows how to respond with data: ask for the cost basis, test it against should-cost and index figures, set up material pass-through where it makes sense, and settle on a fair number. It uses one worked example, and ends with a response template and a list of the cases where accepting is the right call. For the general method behind the cost model, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>; for the wider negotiation, our <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;font-weight:600;">supplier negotiation strategy playbook</a>.</p>
+<p>This guide shows how to respond with data: ask for the cost basis, test it against should-cost and index figures, set up material pass-through where it makes sense, and settle on a fair number. It uses one worked example, and ends with a response template and a list of the cases where accepting is the right call. For the general method behind the cost model, see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>; for the wider negotiation, our <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;font-weight:600;">supplier negotiation strategy playbook</a>.</p>
 
 <h2>Why Suppliers Ask for Increases</h2>
 
@@ -549,7 +549,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/downloads/price-increase-response-template.xlsx" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the template (Excel)</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/value-engineering" style="color:#0d9488;">Value engineering</a> · <a href="/blog/single-source-vs-sole-source" style="color:#0d9488;">Single-source vs sole-source</a> · <a href="/blog/supplier-scorecard-template" style="color:#0d9488;">Supplier scorecard template</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a> · <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/value-engineering" style="color:#0d9488;">Value engineering</a> · <a href="/blog/single-source-vs-sole-source" style="color:#0d9488;">Single-source vs sole-source</a> · <a href="/blog/supplier-scorecard-template" style="color:#0d9488;">Supplier scorecard template</a></p>
     `,
   },
   'supplier-negotiation-strategy': {
@@ -608,7 +608,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Most supplier negotiations are won or lost before anyone sits down. The buyer who arrives knowing what the part should cost, what the alternatives are and what they’re willing to trade has a very different conversation from one who arrives with “your price is too high”.</p>
 
-<p>This playbook shows how to run a negotiation backed by should-cost data: preparing, choosing an opening position, handling pushback and trading concessions. It includes a worked example that takes a part from $52.00 to $45.80 across four rounds, and a prep-sheet template you can copy. If you’re new to should-cost, start with our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>. The playbook is written for direct, manufactured parts; the principles carry over to services and indirect spend, but the cost models differ.</p>
+<p>This playbook shows how to run a negotiation backed by should-cost data: preparing, choosing an opening position, handling pushback and trading concessions. It includes a worked example that takes a part from $52.00 to $45.80 across four rounds, and a prep-sheet template you can copy. If you’re new to should-cost, start with our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>. The playbook is written for direct, manufactured parts; the principles carry over to services and indirect spend, but the cost models differ.</p>
 
 <h2>Why Fact-Based Negotiation Wins</h2>
 
@@ -632,7 +632,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Good preparation takes a day for a significant part, and it’s where most of the value is created. Work through six steps.</p>
 
-<p><strong>1. Build the should-cost and test it.</strong> Create a bottom-up model for the part: material, process times, rates, setup, overhead and a fair margin. Before you rely on it, check the weak points: machine rates, yield and cycle times. A model with an obvious flaw loses you credibility in the first five minutes. For the method, see the <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>; for a worked machined part, see our <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;font-weight:600;">CNC machining should-cost example</a>.</p>
+<p><strong>1. Build the should-cost and test it.</strong> Create a bottom-up model for the part: material, process times, rates, setup, overhead and a fair margin. Before you rely on it, check the weak points: machine rates, yield and cycle times. A model with an obvious flaw loses you credibility in the first five minutes. For the method, see the <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>; for a worked machined part, see our <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;font-weight:600;">CNC machining should-cost example</a>.</p>
 
 <p><strong>2. Get the supplier’s breakdown, or estimate it.</strong> Ask for a cost breakdown by line. If the supplier won’t give one, you can still compare the total and ask them to explain the biggest differences. Quote analysis, line by line, is covered in <a href="/blog/should-cost-vs-actual-cost" style="color:#0d9488;font-weight:600;">should-cost vs actual cost</a>.</p>
 
@@ -900,7 +900,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>Should you share your should-cost model with the supplier?</h3>
 <p>Usually only part of it. Share the lines where your evidence is strongest and ask questions about them, and keep the rest back. Revealing everything gives away your preparation and your walk-away, and it turns the conversation into a debate about your model.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/should-cost-vs-actual-cost" style="color:#0d9488;">Should-cost vs actual cost</a> · <a href="/blog/rfq-automation-manufacturing" style="color:#0d9488;">RFQ automation</a> · <a href="/blog/single-source-vs-sole-source" style="color:#0d9488;">Single-source vs sole-source</a> · <a href="/blog/supplier-price-increase-negotiation" style="color:#0d9488;">Challenging a supplier price increase</a> · <a href="/blog/supplier-scorecard-template" style="color:#0d9488;">Supplier scorecard template</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/should-cost-vs-actual-cost" style="color:#0d9488;">Should-cost vs actual cost</a> · <a href="/blog/rfq-automation-manufacturing" style="color:#0d9488;">RFQ automation</a> · <a href="/blog/single-source-vs-sole-source" style="color:#0d9488;">Single-source vs sole-source</a> · <a href="/blog/supplier-price-increase-negotiation" style="color:#0d9488;">Challenging a supplier price increase</a> · <a href="/blog/supplier-scorecard-template" style="color:#0d9488;">Supplier scorecard template</a></p>
     `,
   },
   'rfq-automation-manufacturing': {
@@ -1106,7 +1106,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Collecting quotes quickly is only half the job. The other half is knowing whether they’re good. Without a reference point, buyers compare quotes only against each other, which works when there’s strong competition and fails when there isn’t.</p>
 
-<p>A <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost estimate</a> gives you an independent reference built from material, process times, rates, overhead and a fair margin. In RFQ review it does three jobs:</p>
+<p>A <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost estimate</a> gives you an independent reference built from material, process times, rates, overhead and a fair margin. In RFQ review it does three jobs:</p>
 
 <ul>
   <li><strong>Flags outliers.</strong> A quote far above or below the model needs an explanation, and a quote far below may mean a missed requirement.</li>
@@ -1249,7 +1249,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>How long does it take to roll out RFQ automation?</h3>
 <p>It depends on your data quality, the scope and how many systems must connect. A narrow pilot on one part family is usually the sensible first step, and you can expand once it’s stable. Be cautious of any promise of a fixed timeline without a look at your data.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/supplier-discovery-software" style="color:#0d9488;">Supplier discovery software</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a> · <a href="/blog/single-source-vs-sole-source" style="color:#0d9488;">Single-source vs sole-source</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/supplier-discovery-software" style="color:#0d9488;">Supplier discovery software</a> · <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a> · <a href="/blog/single-source-vs-sole-source" style="color:#0d9488;">Single-source vs sole-source</a></p>
     `,
   },
   'single-source-vs-sole-source': {
@@ -1365,7 +1365,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li><strong>Dictated terms.</strong> The supplier sets price, lead time and minimum quantities, and has little reason to flex.</li>
   <li><strong>Obsolescence.</strong> If the supplier drops the product or is acquired, your design may be stranded.</li>
   <li><strong>Lock-in through tooling and IP.</strong> If the supplier owns the tooling, tests or know-how, you can’t take the work elsewhere without rebuilding them.</li>
-  <li><strong>Hard-to-check pricing.</strong> With no competing quotes, you have no market reference. A should-cost model is the best tool you have for judging whether a price is fair, which we explain in the <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</li>
+  <li><strong>Hard-to-check pricing.</strong> With no competing quotes, you have no market reference. A should-cost model is the best tool you have for judging whether a price is fair, which we explain in the <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</li>
 </ul>
 
 <div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
@@ -1876,7 +1876,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>The rest is qualification testing, inspection reports, paperwork, setup and a handful of other things the model never knew about. That gap is why space costing trips up so many experienced estimators. The methods aren’t wrong. They were built for a different world.</p>
 
-<p>This guide shows what changes in that world, walks through a bracket at two quantities with real arithmetic, and covers how to estimate when the usual shortcuts stop working. If you want the standard method first, start with our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>This guide shows what changes in that world, walks through a bracket at two quantities with real arithmetic, and covers how to estimate when the usual shortcuts stop working. If you want the standard method first, start with our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <h2>Why Space Costing Is Different</h2>
 
@@ -2094,7 +2094,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>One thing is specific to this industry: export-controlled data has to be handled properly. Any tool that touches drawings or quote packages needs access, storage and sharing controls that fit your regulations. Ask about that first.</p>
 
-<p>Software won’t know your qualification scope or a supplier’s real capacity. What it can do is make the estimate faster, more consistent and easier to defend, so your engineers spend their time on the assumptions that matter. You can see how this applies across sectors on our <a href="/industries" style="color:#0d9488;font-weight:600;">industries page</a>, or start with the method in the <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>Software won’t know your qualification scope or a supplier’s real capacity. What it can do is make the estimate faster, more consistent and easier to defend, so your engineers spend their time on the assumptions that matter. You can see how this applies across sectors on our <a href="/industries" style="color:#0d9488;font-weight:600;">industries page</a>, or start with the method in the <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
   <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Want to see it run on your own parts?</p>
@@ -2122,7 +2122,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>Can should-cost analysis be used for space parts?</h3>
 <p>Yes, with changes. Include qualification, inspection, documentation and lot-level costs, and use the result as a reference for understanding a quote, not a hard ceiling, because scarcity and schedule risk also affect price.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/learning-curve-cost-estimating" style="color:#0d9488;">Learning curves</a> · <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/supplier-discovery-software" style="color:#0d9488;">Supplier discovery software</a> · <a href="/blog/rfq-automation-manufacturing" style="color:#0d9488;">RFQ automation</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/learning-curve-cost-estimating" style="color:#0d9488;">Learning curves</a> · <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/supplier-discovery-software" style="color:#0d9488;">Supplier discovery software</a> · <a href="/blog/rfq-automation-manufacturing" style="color:#0d9488;">RFQ automation</a></p>
     `,
   },
   'learning-curve-cost-estimating': {
@@ -2560,7 +2560,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p><strong>Independent government cost estimate (IGCE).</strong> The contract-level version. Before a government agency evaluates proposals, it prepares its own estimate of what the work should cost, so that it can judge whether offered prices are reasonable. It is “independent” because it’s prepared by the government and not by the bidder, and it’s usually kept confidential until after award.</p>
 
-<p><strong>Should-cost analysis.</strong> A bottom-up review of what a product, service or contract should cost under efficient and economical operations. Government procurement rules treat should-cost review as a specialised form of cost analysis, applied to major contracts or to a contractor’s overhead. It examines the contractor’s actual processes: labour hours, materials, tooling, overhead rates and profit. The aim is to find specific, negotiable savings. Our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> explains the method for manufacturers in general.</p>
+<p><strong>Should-cost analysis.</strong> A bottom-up review of what a product, service or contract should cost under efficient and economical operations. Government procurement rules treat should-cost review as a specialised form of cost analysis, applied to major contracts or to a contractor’s overhead. It examines the contractor’s actual processes: labour hours, materials, tooling, overhead rates and profit. The aim is to find specific, negotiable savings. Our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> explains the method for manufacturers in general.</p>
 
 <p><strong>Cost realism analysis.</strong> A related technique, used mostly on cost-reimbursement contracts. It checks whether the costs a bidder proposes are realistic for the work and consistent with its technical approach, so that an unrealistically low bid doesn’t win and then overrun. It tests for costs that are too low, while should-cost tests for costs that are too high. The two can be used on the same bid.</p>
 
@@ -2702,7 +2702,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>Can the same team prepare both?</h3>
 <p>Independence is the point of an ICE, so it’s normally prepared by a team outside the programme office. A should-cost review is usually done by cost analysts working with contracting and technical specialists. The two can share data and methods, but an ICE should not depend on the programme team’s own estimate.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/defense-should-cost-analysis" style="color:#0d9488;">Defense should-cost analysis</a> · <a href="/blog/cost-estimating-relationships-cers" style="color:#0d9488;">Cost estimating relationships</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/learning-curve-cost-estimating" style="color:#0d9488;">Learning curves (Wright’s law)</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/defense-should-cost-analysis" style="color:#0d9488;">Defense should-cost analysis</a> · <a href="/blog/cost-estimating-relationships-cers" style="color:#0d9488;">Cost estimating relationships</a> · <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/learning-curve-cost-estimating" style="color:#0d9488;">Learning curves (Wright’s law)</a></p>
     `,
   },
   'defense-should-cost-analysis': {
@@ -2764,7 +2764,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <p>This guide explains why defence buyers use should-cost, how it differs from independent cost estimates and cost realism analysis, how it works in the United States, the United Kingdom and India, and how suppliers can prepare a cost breakdown that stands up to challenge. It includes a worked example that shows one cost breakdown from three reviewers’ points of view.</p>
 
 <div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);margin:1.25rem 0;">
-  <p style="margin:0;color:#0d1117;"><strong>Two notes before we start.</strong> First, this is general information and not legal advice. Procurement rules are detailed, and several of them changed in 2026, so check the current text and take advice before relying on any figure here. Second, we use “defense” for US terms and “defence” elsewhere, following local usage. For the method behind the analysis, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+  <p style="margin:0;color:#0d1117;"><strong>Two notes before we start.</strong> First, this is general information and not legal advice. Procurement rules are detailed, and several of them changed in 2026, so check the current text and take advice before relying on any figure here. Second, we use “defense” for US terms and “defence” elsewhere, following local usage. For the method behind the analysis, see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 </div>
 
 <h2>Why Defence Buyers Use Should-Cost</h2>
@@ -2971,7 +2971,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>What is the difference between should-cost, cost realism and an independent cost estimate?</h3>
 <p>Should-cost asks what an item should cost if made efficiently. Cost realism tests whether a bidder’s proposed cost is believable for the work offered. An independent cost estimate predicts a programme’s likely total cost, prepared independently of the programme team.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/cost-estimating-relationships-cers" style="color:#0d9488;">Cost estimating relationships</a> · <a href="/blog/forging-vs-machining-cost" style="color:#0d9488;">Forging vs machining cost</a> · <a href="/blog/ice-vs-should-cost" style="color:#0d9488;">ICE vs should-cost</a> · <a href="/blog/learning-curve-cost-estimating" style="color:#0d9488;">Learning curves (Wright’s law)</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/cost-estimating-relationships-cers" style="color:#0d9488;">Cost estimating relationships</a> · <a href="/blog/forging-vs-machining-cost" style="color:#0d9488;">Forging vs machining cost</a> · <a href="/blog/ice-vs-should-cost" style="color:#0d9488;">ICE vs should-cost</a> · <a href="/blog/learning-curve-cost-estimating" style="color:#0d9488;">Learning curves (Wright’s law)</a></p>
     `,
   },
   'forging-vs-machining-cost': {
@@ -3991,7 +3991,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p><strong>Read the scope.</strong> A certificate lists what is covered. A distributor’s certificate may not cover manufacturing. A site certificate may not cover the site that will make your part. Scope mismatches are a common gap.</p>
 
-<p><strong>Understand the cost side.</strong> Meeting AS9100 costs a supplier money: audits, documentation, training, inspection and records. Some of it appears in price as overhead and inspection cost. When you build a should-cost model for an aerospace part, include a realistic inspection and quality line, and don’t compare against a quote for a non-aerospace part (our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> covers the method). Compare that cost with what a quality escape costs you, and the picture changes.</p>
+<p><strong>Understand the cost side.</strong> Meeting AS9100 costs a supplier money: audits, documentation, training, inspection and records. Some of it appears in price as overhead and inspection cost. When you build a should-cost model for an aerospace part, include a realistic inspection and quality line, and don’t compare against a quote for a non-aerospace part (our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> covers the method). Compare that cost with what a quality escape costs you, and the picture changes.</p>
 
 <p><strong>Write contracts that survive the standard changing.</strong> Refer to “AS9100 or its successor” instead of a single revision, and set out how and when a supplier must tell you about a change in certification status.</p>
 
@@ -4065,7 +4065,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>Is AS9100 changing?</h3>
 <p>Yes. AS9100 is being revised and renamed IA9100, following the 2026 edition of ISO 9001. AS9100D remains the certifiable revision for now, and a transition period of two to three years is expected once the new standard is published, though it has not been confirmed. Check with your certification body or customer for the current position.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/titanium-inconel-machining-cost" style="color:#0d9488;">Titanium and Inconel machining cost</a> · <a href="/blog/buy-to-fly-ratio" style="color:#0d9488;">Buy-to-fly ratio</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/aerospace-supplier-qualification-checklist" style="color:#0d9488;">Supplier qualification checklist</a> · <a href="/blog/nadcap-accreditation-explained" style="color:#0d9488;">Nadcap accreditation explained</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/titanium-inconel-machining-cost" style="color:#0d9488;">Titanium and Inconel machining cost</a> · <a href="/blog/buy-to-fly-ratio" style="color:#0d9488;">Buy-to-fly ratio</a> · <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/aerospace-supplier-qualification-checklist" style="color:#0d9488;">Supplier qualification checklist</a> · <a href="/blog/nadcap-accreditation-explained" style="color:#0d9488;">Nadcap accreditation explained</a></p>
     `,
   },
   'titanium-inconel-machining-cost': {
@@ -4656,7 +4656,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>A should-cost analysis builds up what a part ought to cost from its material, process time, overhead and a fair margin, then compares that with what a supplier quotes. In general manufacturing it is a negotiating aid. In aerospace it matters more, because the parts are low in volume, high in value and wrapped in requirements that general cost models often leave out.</p>
 
-<p>This guide explains how aerospace should-cost differs from the general method and how material, buy-to-fly, special processes, certification and low volume change the numbers. It then builds one worked example, a machined titanium bracket, and shows how to use the result in RFQs and long-term agreements (LTAs). For the general method, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>This guide explains how aerospace should-cost differs from the general method and how material, buy-to-fly, special processes, certification and low volume change the numbers. It then builds one worked example, a machined titanium bracket, and shows how to use the result in RFQs and long-term agreements (LTAs). For the general method, see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <h2>How Aerospace Differs From General Should-Cost</h2>
 
@@ -4984,7 +4984,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>How do you use should-cost in an LTA?</h3>
 <p>Use it to set the opening price, compare quotes line by line, define price breaks by batch size, index the material element to the stock weight, agree how productivity gains are shared, and schedule regular refreshes so the price follows real changes in cost.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;">CNC machining should-cost</a> · <a href="/blog/vave-in-aerospace-case-study" style="color:#0d9488;">VAVE in aerospace</a> · <a href="/blog/make-vs-buy-analysis" style="color:#0d9488;">Make-vs-buy analysis</a> · <a href="/blog/buy-to-fly-ratio" style="color:#0d9488;">Buy-to-fly ratio</a> · <a href="/blog/titanium-inconel-machining-cost" style="color:#0d9488;">Titanium and Inconel machining cost</a> · <a href="/blog/as9100-vs-iso-9001" style="color:#0d9488;">AS9100 vs ISO 9001</a> · <a href="/blog/aerospace-supplier-qualification-checklist" style="color:#0d9488;">Supplier qualification checklist</a> · <a href="/blog/nadcap-accreditation-explained" style="color:#0d9488;">Nadcap accreditation explained</a> · <a href="/blog/forging-vs-machining-cost" style="color:#0d9488;">Forging vs machining cost</a> · <a href="/blog/defense-should-cost-analysis" style="color:#0d9488;">Defense should-cost analysis</a> · <a href="/blog/space-manufacturing-cost" style="color:#0d9488;">Space manufacturing cost</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;">CNC machining should-cost</a> · <a href="/blog/vave-in-aerospace-case-study" style="color:#0d9488;">VAVE in aerospace</a> · <a href="/blog/make-vs-buy-analysis" style="color:#0d9488;">Make-vs-buy analysis</a> · <a href="/blog/buy-to-fly-ratio" style="color:#0d9488;">Buy-to-fly ratio</a> · <a href="/blog/titanium-inconel-machining-cost" style="color:#0d9488;">Titanium and Inconel machining cost</a> · <a href="/blog/as9100-vs-iso-9001" style="color:#0d9488;">AS9100 vs ISO 9001</a> · <a href="/blog/aerospace-supplier-qualification-checklist" style="color:#0d9488;">Supplier qualification checklist</a> · <a href="/blog/nadcap-accreditation-explained" style="color:#0d9488;">Nadcap accreditation explained</a> · <a href="/blog/forging-vs-machining-cost" style="color:#0d9488;">Forging vs machining cost</a> · <a href="/blog/defense-should-cost-analysis" style="color:#0d9488;">Defense should-cost analysis</a> · <a href="/blog/space-manufacturing-cost" style="color:#0d9488;">Space manufacturing cost</a></p>
     `,
   },
   'dfm-software-tools-compared': {
@@ -5179,7 +5179,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li>Are rates and material prices regional, and how often are they updated?</li>
   <li>Has the cost output been compared with real quotes?</li>
   <li>Does it rank issues by cost impact?</li>
-  <li>Can the same model be used to prepare supplier negotiations? (See our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.)</li>
+  <li>Can the same model be used to prepare supplier negotiations? (See our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.)</li>
 </ul>
 
 <h2>Checklist</h2>
@@ -5315,7 +5315,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>A should-cost model answers one question: what ought this part to cost, given its material, the way it is made and a fair profit? Once you have that number, a supplier’s quote stops being a price you accept or reject and becomes something you can check line by line.</p>
 
-<p>This page gives you a free Excel template that builds the model for you. It covers material, process routing, scrap, overhead, tooling, SG&amp;A and profit, and it compares the result with your supplier’s quote. Below, you’ll find what is inside, how to fill it in, and a worked example. We also cover where a spreadsheet stops being enough. For the method behind it, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>This page gives you a free Excel template that builds the model for you. It covers material, process routing, scrap, overhead, tooling, SG&amp;A and profit, and it compares the result with your supplier’s quote. Below, you’ll find what is inside, how to fill it in, and a worked example. We also cover where a spreadsheet stops being enough. For the method behind it, see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
   <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the free should-cost model template</p>
@@ -5505,7 +5505,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>When should I move from Excel to software?</h3>
 <p>When you are costing many parts, when rates need frequent updating across files, or when cycle times need to come from the CAD geometry. Excel is fine for learning the method and for small numbers of parts.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;">Should-cost model in Excel + AI</a> · <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;">CNC machining should-cost</a> · <a href="/blog/build-vs-buy-should-cost-tool" style="color:#0d9488;">Build vs buy</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;">Should-cost model in Excel + AI</a> · <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;">CNC machining should-cost</a> · <a href="/blog/build-vs-buy-should-cost-tool" style="color:#0d9488;">Build vs buy</a></p>
     `,
   },
   'build-vs-buy-should-cost-tool': {
@@ -5564,7 +5564,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Most teams that do should-cost analysis start in a spreadsheet. A few years later the workbook is on its fortieth version, one person understands it, and somebody asks: should we build a proper tool ourselves, or buy one?</p>
 
-<p>This guide helps you decide. It compares three options (spreadsheets, an in-house tool and commercial software) on cost, accuracy, upkeep and time to value, and includes a three-year total cost of ownership (TCO) example you can rework with your own numbers. For the method itself, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>This guide helps you decide. It compares three options (spreadsheets, an in-house tool and commercial software) on cost, accuracy, upkeep and time to value, and includes a three-year total cost of ownership (TCO) example you can rework with your own numbers. For the method itself, see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.25rem 0;">
   <p style="margin:0;color:#0d1117;"><strong>The short answer:</strong> spreadsheets are the cheapest option for a small team with a handful of models. Commercial software usually wins in the middle. Building only pays off at large scale, or when your process is genuinely unlike anyone else’s. The sections below show why.</p>
@@ -5714,7 +5714,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li>What does implementation involve, and how long does it take?</li>
 </ul>
 
-<p>Our guides to <a href="/blog/should-cost-modeling-software" style="color:#0d9488;font-weight:600;">choosing should-cost modeling software</a> and <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;font-weight:600;">manufacturing costing software</a> include scorecards for this, and our comparison of <a href="/blog/apriori-alternatives" style="color:#0d9488;font-weight:600;">aPriori alternatives</a> looks at specific vendors.</p>
+<p>Our guides to <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;font-weight:600;">choosing should-cost modeling software</a> and <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;font-weight:600;">manufacturing costing software</a> include scorecards for this, and our comparison of <a href="/blog/apriori-alternatives" style="color:#0d9488;font-weight:600;">aPriori alternatives</a> looks at specific vendors.</p>
 
 <p>Spreadsheets remain the right answer for very small teams. If fewer than three people build models, only a few are live and the spend they influence is small, adding software cost is hard to justify.</p>
 
@@ -5772,7 +5772,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>What should we look for in commercial cost estimation software?</h3>
 <p>Transparent assumptions you can edit, maintained and traceable cost data, calibration against your own quotes, audit trail and access control, integrations with your PLM, ERP or sourcing systems, and a realistic implementation plan.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software</a> · <a href="/blog/apriori-alternatives" style="color:#0d9488;">aPriori alternatives</a> · <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;">Should-cost model in Excel</a> · <a href="/blog/should-cost-excel-template" style="color:#0d9488;">Free should-cost Excel template</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software</a> · <a href="/blog/apriori-alternatives" style="color:#0d9488;">aPriori alternatives</a> · <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;">Should-cost model in Excel</a> · <a href="/blog/should-cost-excel-template" style="color:#0d9488;">Free should-cost Excel template</a></p>
     `,
   },
   'ml-vs-rule-based-cost-estimating': {
@@ -5781,8 +5781,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
     seo: {
       metaTitle: 'ML vs Rule-Based Cost Estimating: Which Wins?',
-      metaDescription:
-        'ML vs rule-based cost estimating compared: accuracy, data needs, explainability and when a hybrid approach works best.',
+      metaDescription: 'ML vs rule-based cost estimating compared: accuracy, data needs, explainability, and when a hybrid of the two approaches works best in manufacturing.',
       ogTitle: 'ML vs Rule-Based Cost Estimating: Which Wins, and When',
       ogDescription:
         'ML vs rule-based cost estimating compared: accuracy, data needs, explainability and when a hybrid approach works best.',
@@ -6108,7 +6107,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <h2>What AI Adds to Should-Costing</h2>
 
-<p>A should-cost is a bottom-up estimate of what a part ought to cost, built from material, process time, labour, overheads and margin, and used to check or challenge a supplier’s quote <a href="#s4" style="color:#6b7280;text-decoration:none;font-size:0.8em;">[S4]</a>. Our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> covers the method in full. Done by hand, each model takes time to build and goes stale as rates and prices change. One vendor white paper makes the point that a very precise model covering a small share of spend does less for a company than a moderately accurate one covering most of it <a href="#s6" style="color:#6b7280;text-decoration:none;font-size:0.8em;">[S6]</a>. That is a vendor view, but it names the real constraint: coverage.</p>
+<p>A should-cost is a bottom-up estimate of what a part ought to cost, built from material, process time, labour, overheads and margin, and used to check or challenge a supplier’s quote <a href="#s4" style="color:#6b7280;text-decoration:none;font-size:0.8em;">[S4]</a>. Our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> covers the method in full. Done by hand, each model takes time to build and goes stale as rates and prices change. One vendor white paper makes the point that a very precise model covering a small share of spend does less for a company than a moderately accurate one covering most of it <a href="#s6" style="color:#6b7280;text-decoration:none;font-size:0.8em;">[S6]</a>. That is a vendor view, but it names the real constraint: coverage.</p>
 
 <p>AI is meant to relieve three bottlenecks:</p>
 
@@ -6271,7 +6270,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li>Check that you can see the assumptions behind each result, so you can tell whether a large error is bad data or a bad assumption.</li>
 </ol>
 
-<p>Our <a href="/blog/should-cost-modeling-software" style="color:#0d9488;font-weight:600;">should-cost software buyer’s guide</a> includes a downloadable scorecard with a pilot-accuracy table for exactly this.</p>
+<p>Our <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;font-weight:600;">should-cost software buyer’s guide</a> includes a downloadable scorecard with a pilot-accuracy table for exactly this.</p>
 
 <h2>Data Requirements</h2>
 
@@ -6406,7 +6405,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li id="s14">[S14] Product design cost estimation for make-to-order industry, Emerging Science Journal: <a href="https://doaj.org/article/39d65869137d4b1ea38c9c6c62841f67" target="_blank" rel="nofollow noopener noreferrer" style="color:#0d9488;word-break:break-all;">https://doaj.org/article/39d65869137d4b1ea38c9c6c62841f67</a></li>
 </ol>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-modeling-software" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;">Should-cost model: Excel + AI</a> · <a href="/blog/apriori-alternatives" style="color:#0d9488;">aPriori alternatives</a> · <a href="/blog/ml-vs-rule-based-cost-estimating" style="color:#0d9488;">ML vs rule-based cost estimating</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;">Should-cost model: Excel + AI</a> · <a href="/blog/apriori-alternatives" style="color:#0d9488;">aPriori alternatives</a> · <a href="/blog/ml-vs-rule-based-cost-estimating" style="color:#0d9488;">ML vs rule-based cost estimating</a></p>
     `,
   },
   'apriori-alternatives': {
@@ -6588,7 +6587,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h2>Choosing by Team Type</h2>
 
 <ul>
-  <li><strong>You are an OEM buying parts and want should-cost for negotiation.</strong> Look at Emithran, Tset, Siemens Teamcenter PCM and aPriori. Test each on a few of your real parts, and ask whose models cover your commodities and your supplier regions. Our guide to <a href="/blog/should-cost-modeling-software" style="color:#0d9488;font-weight:600;">choosing should-cost modeling software</a> has a scorecard for this.</li>
+  <li><strong>You are an OEM buying parts and want should-cost for negotiation.</strong> Look at Emithran, Tset, Siemens Teamcenter PCM and aPriori. Test each on a few of your real parts, and ask whose models cover your commodities and your supplier regions. Our guide to <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;font-weight:600;">choosing should-cost modeling software</a> has a scorecard for this.</li>
   <li><strong>You already run Siemens PLM.</strong> Siemens Teamcenter PCM is the natural first look, because costing and product data sit together <a href="#s15" style="color:#6b7280;text-decoration:none;font-size:0.8em;">[S15]</a>. Ask about the status of the AI features, since some are announced for December 2026 <a href="#s14" style="color:#6b7280;text-decoration:none;font-size:0.8em;">[S14]</a>.</li>
   <li><strong>You are a shop or contract manufacturer quoting work.</strong> Paperless Parts and Costimator are built for this side. The OEM-side platforms solve a different problem.</li>
   <li><strong>You design in SOLIDWORKS and want quick cost feedback.</strong> SOLIDWORKS Costing sits where you already work, but plan time to maintain its templates <a href="#s18" style="color:#6b7280;text-decoration:none;font-size:0.8em;">[S18]</a>.</li>
@@ -6690,7 +6689,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li id="s27">[S27] Emithran, homepage: <a href="https://www.emithran.com" target="_blank" rel="nofollow noopener noreferrer" style="color:#0d9488;word-break:break-all;">https://www.emithran.com</a></li>
 </ol>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/apriori-vs-emithran-comparison" style="color:#0d9488;">aPriori vs Emithran</a> · <a href="/blog/costimator-alternatives" style="color:#0d9488;">Costimator alternatives</a> · <a href="/blog/should-cost-modeling-software" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/apriori-vs-emithran-comparison" style="color:#0d9488;">aPriori vs Emithran</a> · <a href="/blog/costimator-alternatives" style="color:#0d9488;">Costimator alternatives</a> · <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software</a></p>
     `,
   },
   'pcm-vs-erp-costing': {
@@ -6699,8 +6698,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
       '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs.',
     seo: {
       metaTitle: 'PCM vs ERP Costing: Why They’re Different',
-      metaDescription:
-        'PCM vs ERP costing: how product cost management differs from ERP standard costing, and when you need both.',
+      metaDescription: 'PCM vs ERP costing: how product cost management differs from ERP standard costing, what each is good at, and when manufacturers need both systems.',
       ogTitle: 'PCM vs ERP Costing: Why They’re Not the Same Thing',
       ogDescription:
         'PCM vs ERP costing: how product cost management differs from ERP standard costing, and when you need both.',
@@ -6753,7 +6751,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <ul>
   <li><strong>Early cost estimation</strong> for concepts that have no BOM or routing yet, using parametric or feature-based models</li>
-  <li><strong>Should-cost analysis:</strong> building a cost from materials, process steps, machine rates, labour, scrap, overhead and margin, so a quote can be tested (see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>)</li>
+  <li><strong>Should-cost analysis:</strong> building a cost from materials, process steps, machine rates, labour, scrap, overhead and margin, so a quote can be tested (see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>)</li>
   <li><strong>Design-to-cost and target costing:</strong> comparing the current estimate with a target at every design gate (see our <a href="/blog/target-costing" style="color:#0d9488;font-weight:600;">target costing guide</a> and <a href="/blog/design-to-cost" style="color:#0d9488;font-weight:600;">design-to-cost guide</a>)</li>
   <li><strong>What-if analysis:</strong> changing a material, process, location or volume and seeing the cost effect</li>
   <li><strong>Cost-reduction tracking:</strong> recording each saving idea, its owner and its status</li>
@@ -6891,7 +6889,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/blog/product-cost-management-software" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Read the guide</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/product-cost-management-software" style="color:#0d9488;">PCM software guide</a> · <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software</a> · <a href="/blog/should-cost-modeling-software" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/product-cost-management-software" style="color:#0d9488;">PCM software guide</a> · <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software</a> · <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a></p>
     `,
   },
   'product-cost-management-software': {
@@ -7034,7 +7032,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p><strong>3. CAD and design integration.</strong> Reading geometry from CAD files or PLM systems, so a cost estimate can come from the design itself, without re-keying data. Some tools update the estimate when the design changes.</p>
 
-<p><strong>4. Should-cost and quote analysis.</strong> Comparing supplier quotes against independent estimates, line by line, and showing the gaps that matter. This supports negotiation. For this use case in detail, see <a href="/blog/should-cost-modeling-software" style="color:#0d9488;font-weight:600;">should-cost modeling software</a> and our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p><strong>4. Should-cost and quote analysis.</strong> Comparing supplier quotes against independent estimates, line by line, and showing the gaps that matter. This supports negotiation. For this use case in detail, see <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;font-weight:600;">should-cost modeling software</a> and our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <p><strong>5. Target management.</strong> Setting cost targets, allocating them to parts and tracking the current estimate against target through design reviews, as in <a href="/blog/target-costing" style="color:#0d9488;font-weight:600;">target costing</a>.</p>
 
@@ -7169,7 +7167,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>When should a company move from spreadsheets to PCM software?</h3>
 <p>Typically when the number of parts, revisions or suppliers makes spreadsheets slow, inconsistent or hard to audit: for example, when different teams hold different costs for the same part, or when estimates can’t keep up with design changes.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software</a> · <a href="/blog/should-cost-modeling-software" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/product-cost-management-best-practices" style="color:#0d9488;">PCM best practices</a> · <a href="/blog/target-costing" style="color:#0d9488;">Target costing</a> · <a href="/blog/pcm-vs-erp-costing" style="color:#0d9488;">PCM vs ERP costing</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software</a> · <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/product-cost-management-best-practices" style="color:#0d9488;">PCM best practices</a> · <a href="/blog/target-costing" style="color:#0d9488;">Target costing</a> · <a href="/blog/pcm-vs-erp-costing" style="color:#0d9488;">PCM vs ERP costing</a></p>
     `,
   },
   'manufacturing-costing-software-guide': {
@@ -7305,7 +7303,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li>Reports and exports that finance, engineering and sourcing can all use.</li>
 </ul>
 
-<p>For a closer look at the should-cost category specifically, with vendor questions and a weighted scorecard, see our guide to <a href="/blog/should-cost-modeling-software" style="color:#0d9488;font-weight:600;">choosing should-cost modeling software</a>.</p>
+<p>For a closer look at the should-cost category specifically, with vendor questions and a weighted scorecard, see our guide to <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;font-weight:600;">choosing should-cost modeling software</a>.</p>
 
 <h2>Process Coverage</h2>
 
@@ -7456,356 +7454,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>How long does it take to implement?</h3>
 <p>A focused rollout often takes a few months, from scoping through pilot, configuration and training. Integrations and data preparation are the main variables. Starting with one clear use case and a pilot on parts with known costs shortens the time to value.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-modeling-software" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/target-costing" style="color:#0d9488;">Target costing</a> · <a href="/blog/product-cost-management-software" style="color:#0d9488;">Product cost management (PCM) software</a> · <a href="/blog/build-vs-buy-should-cost-tool" style="color:#0d9488;">Build vs buy a should-cost tool</a></p>
-    `,
-  },
-  'should-cost-modeling-software': {
-    heroImage: '/images/blog/should-cost-modeling-software.jpg',
-    authorBio:
-      '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs.',
-    seo: {
-      metaTitle: 'Should-Cost Modeling Software: How to Choose',
-      metaDescription:
-        'How to choose should-cost modeling software: must-have features, data and integrations, questions for vendors and a simple scoring checklist.',
-      ogTitle: 'Should-Cost Modeling Software: How to Choose the Right Tool',
-      ogDescription:
-        'How to choose should-cost modeling software: must-have features, data and integrations, questions for vendors and a simple scoring checklist.',
-      tags: [
-        'should cost modeling software',
-        'should cost software',
-        'should costing tools',
-        'cost modeling software',
-        'best should cost software',
-      ],
-    },
-    faqs: [
-      {
-        question: 'What is should-cost modeling software?',
-        answer:
-          'Should-cost modeling software estimates what a part or product should cost by building up the cost from material, process time, labor and machine rates, overhead and profit. Teams use it to check supplier quotes, prepare negotiations and compare design and sourcing options.',
-      },
-      {
-        question: 'How accurate is should-cost software?',
-        answer:
-          'Accuracy depends on the part, the process and the quality of the data. Well-calibrated models can be close on mature processes, but any estimate is a reference point, not a certainty. The best test is a pilot: estimate parts where you have trusted quotes, then measure the average error and any bias.',
-      },
-      {
-        question: 'What is the difference between should-cost software and spreadsheets?',
-        answer:
-          'Spreadsheets work for a few parts and one owner, but become hard to maintain and trust as models multiply. Should-cost software adds maintained data, process models, version control, quote comparison and integrations, so that estimates are consistent across a team.',
-      },
-      {
-        question: 'What features should I look for in should-cost software?',
-        answer:
-          'Prioritise transparent cost breakdowns, editable assumptions, calibration against your own quotes, process and material coverage for the parts you buy, quote-versus-should-cost comparison, and CAD, PLM and ERP integration. Treat AI features as a bonus, only if you can see and override the results.',
-      },
-      {
-        question: 'Who uses should-cost modeling software?',
-        answer:
-          'Procurement and sourcing teams use it to validate quotes and prepare negotiations. Cost engineers and design engineers use it to compare design options and support target costing. Finance teams use it to check margins and savings.',
-      },
-      {
-        question: 'How long does it take to implement should-cost software?',
-        answer:
-          'It depends on scope and integrations. A pilot on a limited set of parts can often start quickly, while a full rollout with CAD, PLM and ERP connections takes longer. Ask each vendor for a realistic plan, and start with a pilot before committing to integration work.',
-      },
-    ],
-    content: `
-<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Buyer’s Guide · Reading time: about 12 minutes</p>
-
-<p>Should-cost modeling software estimates what a part or product ought to cost, built up from the bottom: material, process time, machine and labor rates, overhead and profit. Used well, it changes a negotiation from “the supplier quoted $12” into “here is what it takes to make this part, and here is where the quote differs.”</p>
-
-<p>The tools vary a lot, and a poor fit is expensive: a model nobody trusts, data nobody maintains, and a licence that sits unused. This guide covers what should-cost software does, the capabilities that matter, the data and integrations to check, the questions to put to vendors and a weighted checklist for comparing them. For the method itself, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
-
-<h2>What Should-Cost Software Does</h2>
-
-<p>Should-cost software builds a cost estimate from the inputs that drive cost, not from past prices. You describe the part (geometry, material, process, volume and location), and the tool calculates each cost element and shows how they add up.</p>
-
-<p>It helps to separate it from the tools it is often confused with:</p>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Tool type</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Answers</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Limitation</th></tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Spreadsheets</td><td style="padding:0.65rem 0.9rem;color:#374151;">“What does my own model say?”</td><td style="padding:0.65rem 0.9rem;color:#374151;">Hard to maintain, check and share; every buyer builds a different one</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Price databases and benchmarks</td><td style="padding:0.65rem 0.9rem;color:#374151;">“What have others paid for similar parts?”</td><td style="padding:0.65rem 0.9rem;color:#374151;">Show prices, not the reasons behind them; weak for new or unusual parts</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Parametric estimators</td><td style="padding:0.65rem 0.9rem;color:#374151;">“What does a part of this size and type usually cost?”</td><td style="padding:0.65rem 0.9rem;color:#374151;">Fast, but the logic is often hidden, and it is hard to challenge a line</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Bottom-up should-cost software</td><td style="padding:0.65rem 0.9rem;color:#374151;">“What should this exact part cost, and why?”</td><td style="padding:0.65rem 0.9rem;color:#374151;">Needs good data and some set-up effort</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p>For how the estimating methods compare, see <a href="/blog/parametric-vs-analogous-cost-estimating" style="color:#0d9488;font-weight:600;">parametric vs analogous estimating</a> and <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;font-weight:600;">bottom-up cost estimating</a>.</p>
-
-<h3>What a bottom-up estimate looks like</h3>
-
-<p>An illustrative example: a machined aluminium bracket, 20,000 units a year. All figures are invented.</p>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost element</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Basis</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Amount</th></tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Material, including scrap</td><td style="padding:0.65rem 0.9rem;color:#374151;">0.42 kg plus allowance</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$2.30</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Machining</td><td style="padding:0.65rem 0.9rem;color:#374151;">4.5 min at $72/hour</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$5.40</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Setup and programming</td><td style="padding:0.65rem 0.9rem;color:#374151;">Amortised over the batch</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.30</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Anodising</td><td style="padding:0.65rem 0.9rem;color:#374151;">Subcontract process</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.80</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Overhead and SG&amp;A</td><td style="padding:0.65rem 0.9rem;color:#374151;">12% of the costs above</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$1.06</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Profit</td><td style="padding:0.65rem 0.9rem;color:#374151;">8% on cost so far ($9.86)</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$0.79</td></tr>
-      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Should-cost</td><td style="padding:0.65rem 0.9rem;color:#0d9488;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">$10.65</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p>(SG&amp;A means selling, general and administrative costs.) The supplier’s quote is $12.00. That is $1.35 above should-cost, or 12.7 percent. At 20,000 units, the gap is worth $27,000 a year. The point is not that the supplier is wrong. The point is that the buyer now has a specific, line-by-line conversation to have: is the machining time realistic, is the scrap allowance fair, is 8 percent profit the right level? For a full build-up of a machined part, step by step, see our <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;font-weight:600;">CNC machining should-cost example</a>.</p>
-
-<h3>Who uses it, and for what</h3>
-
-<p>Three jobs drive most purchases:</p>
-
-<ul>
-  <li><strong>Negotiation and quote validation.</strong> Procurement and cost engineers use it to check quotes and prepare supplier discussions.</li>
-  <li><strong>Design decisions.</strong> Engineers compare design options by cost before drawings are released, which supports <a href="/blog/target-costing" style="color:#0d9488;font-weight:600;">target costing</a> and <a href="/blog/design-to-cost" style="color:#0d9488;font-weight:600;">design-to-cost</a>.</li>
-  <li><strong>Sourcing choices.</strong> Teams test <a href="/blog/make-vs-buy-analysis" style="color:#0d9488;font-weight:600;">make-versus-buy</a> and location choices, and cost the effect of a change in volume or process.</li>
-</ul>
-
-<p>Be clear which of these matters most to you. A tool that is excellent for a procurement team may be too slow for design engineers, and the reverse is also true.</p>
-
-<p>The business case is usually simple. If better quote challenges take 2 percent off $50 million of addressable spend, that is $1.0 million a year. Compare that with the licence, the implementation and the time of the people maintaining the data.</p>
-
-<h2>Capabilities That Matter</h2>
-
-<p>Vendors list dozens of features. These are the ones that decide whether a tool gets used.</p>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Capability</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Why it matters</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">What to look for</th></tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Transparent cost breakdown</td><td style="padding:0.65rem 0.9rem;color:#374151;">You must be able to explain every line to a supplier</td><td style="padding:0.65rem 0.9rem;color:#374151;">Every element visible, with the inputs behind it</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Editable assumptions</td><td style="padding:0.65rem 0.9rem;color:#374151;">Your plant rates and supplier data differ from the defaults</td><td style="padding:0.65rem 0.9rem;color:#374151;">Change rates, cycle times, scrap and margin, with a record of changes</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Calibration</td><td style="padding:0.65rem 0.9rem;color:#374151;">Raw models are never exactly right</td><td style="padding:0.65rem 0.9rem;color:#374151;">Ability to tune against real quotes and actual costs</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Quote comparison</td><td style="padding:0.65rem 0.9rem;color:#374151;">The main job is the gap between quote and should-cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Line-by-line comparison, with the gap shown in $ and %</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">What-if scenarios</td><td style="padding:0.65rem 0.9rem;color:#374151;">Volume, material, process and location choices change cost</td><td style="padding:0.65rem 0.9rem;color:#374151;">Fast side-by-side comparison of alternatives</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Negotiation outputs</td><td style="padding:0.65rem 0.9rem;color:#374151;">The result has to be shown to a supplier</td><td style="padding:0.65rem 0.9rem;color:#374151;">Clear reports and exports that do not reveal confidential rates</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Collaboration and audit trail</td><td style="padding:0.65rem 0.9rem;color:#374151;">Several people will touch each estimate</td><td style="padding:0.65rem 0.9rem;color:#374151;">Versions, comments, approvals and ownership</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Reuse</td><td style="padding:0.65rem 0.9rem;color:#374151;">The tenth estimate should be quicker than the first</td><td style="padding:0.65rem 0.9rem;color:#374151;">Templates, libraries and copying between similar parts</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<h3>A note on AI features</h3>
-
-<p>Many tools now advertise AI. It can be useful in some places: recognising features from geometry, suggesting a likely process route, filling in missing inputs or drafting the summary of an estimate. It becomes a problem when the number comes out of a black box. If you cannot see why a figure is what it is, you cannot defend it in a negotiation, and a supplier will not accept it. Ask where the AI sits in the workflow, whether you can see and override what it chose, and how the output is checked. Our guide to <a href="/blog/ai-should-cost-software" style="color:#0d9488;font-weight:600;">how AI should-cost software works</a> breaks down which steps use machine learning and which use rules.</p>
-
-<h2>Data and Process Coverage</h2>
-
-<p>The model is only as good as the data under it. This is where tools differ most, and where demos tell you least.</p>
-
-<ul>
-  <li><strong>Process coverage.</strong> Check the processes you actually buy, not the full list on the brochure. Typical categories include machining, sheet metal and stamping, casting, forging, injection moulding, extrusion, fabrications and welding, electronics and PCB assembly, cable harnesses, additive manufacturing and surface treatments. Ask how deeply each is modelled: a “machining” module that only multiplies a weight by a rate is not a process model.</li>
-  <li><strong>Material data.</strong> Ask which materials and grades are covered, where prices come from, how often they update, and whether you can enter your own contract prices.</li>
-  <li><strong>Rates by region.</strong> Labor, machine, energy and overhead rates vary widely by country and even by region. Check that the tool covers the supplier locations you use, with sources you can inspect. Our guide to <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;font-weight:600;">machine hour rate</a> shows what goes into a rate.</li>
-  <li><strong>Cost-structure benchmarks.</strong> Overhead, SG&amp;A and profit levels differ by industry and supplier type. See whether defaults are available, whether they are documented and whether you can override them.</li>
-  <li><strong>Tooling and capital.</strong> For moulded, cast or stamped parts, tooling is a large cost. Check that the tool handles tooling cost, tool life and amortisation over volume.</li>
-  <li><strong>Logistics and duty.</strong> If you compare locations, you need freight, packaging, duties and inventory costs, not just the factory-gate cost.</li>
-  <li><strong>Your own data.</strong> The most useful data is often yours: actual quotes, purchase prices and measured cycle times. The tool should let you load it and use it to calibrate the model.</li>
-</ul>
-
-<h2>Integrations (CAD/PLM/ERP)</h2>
-
-<p>Integration decides how much manual work each estimate needs. A tool that must be fed by hand will be used for a few high-value parts and ignored for the rest.</p>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">System</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">What flows in</th><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">What to ask</th></tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">CAD</td><td style="padding:0.65rem 0.9rem;color:#374151;">Geometry: volume, surface area, features, dimensions</td><td style="padding:0.65rem 0.9rem;color:#374151;">Which formats and CAD systems are supported? Does it read features, or only a bounding box?</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">PLM</td><td style="padding:0.65rem 0.9rem;color:#374151;">Bills of materials, part numbers, revisions, attributes</td><td style="padding:0.65rem 0.9rem;color:#374151;">Can estimates attach to a part and revision, and update when the design changes?</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">ERP / purchasing</td><td style="padding:0.65rem 0.9rem;color:#374151;">Suppliers, purchase prices, volumes, currencies</td><td style="padding:0.65rem 0.9rem;color:#374151;">Can it pull quote and price history, and can it report savings back?</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Sourcing and quoting tools</td><td style="padding:0.65rem 0.9rem;color:#374151;">Quotes and RFQ data</td><td style="padding:0.65rem 0.9rem;color:#374151;">Can quotes be compared against should-cost without re-keying?</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Spend analytics and BI</td><td style="padding:0.65rem 0.9rem;color:#374151;">Spend by category and supplier</td><td style="padding:0.65rem 0.9rem;color:#374151;">Can results be exported or reached by API for reporting?</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p>Two practical points. First, ask for a reference customer using the same integrations you need, because “supports” on a data sheet can mean anything from a native connector to a custom project. Second, do not make integration a gate for the first pilot. Prove the value on a set of parts first, then integrate once you know the tool is right.</p>
-
-<p>For how should-cost estimates connect to the wider cost engineering workflow, see our guide to <a href="/blog/product-cost-management-best-practices" style="color:#0d9488;font-weight:600;">product cost management</a>.</p>
-
-<h2>Questions to Ask Vendors</h2>
-
-<p>Use the same list with every vendor, and write the answers down.</p>
-
-<h3>Models and accuracy</h3>
-
-<ul>
-  <li>Can I see the full cost breakdown for a part, with every input and formula?</li>
-  <li>How are the models validated, and against what data?</li>
-  <li>How do I calibrate against my own quotes and actuals?</li>
-  <li>What accuracy do customers see on parts like mine, and how is it measured?</li>
-</ul>
-
-<h3>Data</h3>
-
-<ul>
-  <li>Where do material prices and regional rates come from, and how often are they updated?</li>
-  <li>Can I override any default, and is the change recorded?</li>
-  <li>Which processes are modelled in depth, and which are approximations?</li>
-  <li>Who maintains the data: you, me or both?</li>
-</ul>
-
-<h3>Workflow</h3>
-
-<ul>
-  <li>What does a typical estimate involve, from CAD file to result, and how long does it take?</li>
-  <li>How do I compare a quote against should-cost?</li>
-  <li>How do I share results with a supplier without exposing internal rates?</li>
-  <li>Who needs training, and for how long?</li>
-</ul>
-
-<h3>Integration and security</h3>
-
-<ul>
-  <li>Which CAD, PLM and ERP systems are supported, and how (native, API or custom)?</li>
-  <li>Where is data hosted, and what are the security and access controls?</li>
-  <li>Can I export my data if I leave?</li>
-</ul>
-
-<h3>Commercial</h3>
-
-<ul>
-  <li>How is pricing set (users, estimates, modules)?</li>
-  <li>What does implementation cost, and what is included?</li>
-  <li>Can we run a paid or unpaid pilot on our own parts?</li>
-</ul>
-
-<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);margin:1.25rem 0;">
-  <p style="margin:0;color:#0d1117;"><strong>Red flags:</strong> a number that cannot be explained, a demo that uses only the vendor’s own sample parts, no way to calibrate, and reluctance to run a pilot on yours.</p>
-</div>
-
-<h3>Run a pilot on your own parts</h3>
-
-<p>A demo shows what the tool can do. A pilot shows whether it works for you. Pick 10 to 20 parts across your main processes, ideally ones where you have recent, trusted quotes, and ask each vendor to estimate them.</p>
-
-<p>An illustrative result for four parts:</p>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Part</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Should-cost</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Quote</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Error (vs quote)</th></tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">A</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$12.40</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$13.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">−4.6%</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">B</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$48.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$44.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+9.1%</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">C</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$7.85</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$8.10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">−3.1%</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">D</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$150.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$138.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+8.7%</td></tr>
-      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Average absolute error</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">6.4%</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p>Two cautions. A quote is not ground truth: it contains the supplier’s margin and its own pricing strategy, so some gap is expected. Also look at the pattern as well as the average. Here the estimate is high on two parts and low on two, a signed average of +2.5 percent, so there is no consistent bias. A tool that is always high or always low can be calibrated, while one that is wildly inconsistent is a bigger problem. Then give a second pass after calibration, to see how quickly the tool improves with your data.</p>
-
-<h2>Scoring Checklist</h2>
-
-<p>A weighted scorecard turns a long list of impressions into a comparison you can defend to colleagues. Score each criterion from 0 to 5, multiply by the weight, and divide by 5 to get points out of the weight.</p>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Criterion</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Weight</th></tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Cost model depth and transparency</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">20</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Process and material coverage</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">15</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Data quality, rate libraries and calibration</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">15</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">CAD and geometry input</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">PLM and ERP integration</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Workflow, quote comparison and reporting</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Security and deployment</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Usability and time to first result</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Vendor support and implementation</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Total cost of ownership</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
-      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">100</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p>An illustrative comparison of two vendors:</p>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Criterion</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Weight</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Vendor A score</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">A points</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Vendor B score</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">B points</th></tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Model depth and transparency</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">20</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">16</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">20</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Process and material coverage</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">15</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">9</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">12</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Data, rates and calibration</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">15</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">12</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">9</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">CAD and geometry input</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">6</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">PLM and ERP integration</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">6</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">8</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Workflow and reporting</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">8</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">6</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Security and deployment</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Usability</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Support and implementation</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td></tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Total cost of ownership</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td></tr>
-      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">100</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">75</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">76</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p>The totals are 75 and 76, a gap too small to mean anything. That is a realistic outcome, and it is the signal to settle the decision with a pilot on your own parts, not with more scoring. Adjust the weights to your situation: a design-led team might raise CAD input and usability, and a procurement team might raise quote comparison and reporting. Agree the weights before you see any demos, so they are not shaped by whichever vendor presented best.</p>
-
-<p style="font-size:0.95rem;"><a href="/downloads/should-cost-software-scorecard.csv" download style="color:#0d9488;font-weight:600;">Download the scorecard (CSV)</a>: the weighted checklist for up to three vendors, plus a pilot-accuracy table that calculates bias and average error.</p>
-
-<h2>Where Emithran Fits</h2>
-
-<p>Emithran’s <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a> is built for teams that want cost estimates they can explain: bottom-up models that show each cost element, not a single unexplained number, and that sit alongside the rest of the cost engineering workflow. That includes setting cost targets, allocating them and tracking cost against target during design, as covered in our <a href="/blog/target-costing" style="color:#0d9488;font-weight:600;">target costing guide</a> and <a href="/blog/design-to-cost" style="color:#0d9488;font-weight:600;">design-to-cost guide</a>.</p>
-
-<p>It is the right kind of tool if:</p>
-
-<ul>
-  <li>You want should-cost used in both sourcing and design, not only in procurement.</li>
-  <li>You need estimates that engineers, buyers and suppliers can all follow line by line.</li>
-  <li>You want should-cost connected to cost targets, so that an estimate leads to a decision and not just a report.</li>
-</ul>
-
-<p>We would rather you test us the way this guide suggests: bring your own parts, your own quotes and your own questions, and judge the result against the checklist above. To see how the platform handles your parts, <a href="/request-demo" style="color:#0d9488;font-weight:600;">request a demo</a>.</p>
-
-<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
-  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Ready to compare tools on your own parts?</p>
-  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Bring your parts, your quotes and your questions, and judge the result against the checklist above.</p>
-  <a href="/request-demo" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Request a Demo</a>
-</div>
-
-<h2>FAQ</h2>
-
-<h3>What is should-cost modeling software?</h3>
-<p>Should-cost modeling software estimates what a part or product should cost by building up the cost from material, process time, labor and machine rates, overhead and profit. Teams use it to check supplier quotes, prepare negotiations and compare design and sourcing options.</p>
-
-<h3>How accurate is should-cost software?</h3>
-<p>Accuracy depends on the part, the process and the quality of the data. Well-calibrated models can be close on mature processes, but any estimate is a reference point, not a certainty. The best test is a pilot: estimate parts where you have trusted quotes, then measure the average error and any bias.</p>
-
-<h3>What is the difference between should-cost software and spreadsheets?</h3>
-<p>Spreadsheets work for a few parts and one owner, but become hard to maintain and trust as models multiply. Should-cost software adds maintained data, process models, version control, quote comparison and integrations, so that estimates are consistent across a team.</p>
-
-<h3>What features should I look for in should-cost software?</h3>
-<p>Prioritise transparent cost breakdowns, editable assumptions, calibration against your own quotes, process and material coverage for the parts you buy, quote-versus-should-cost comparison, and CAD, PLM and ERP integration. Treat AI features as a bonus, only if you can see and override the results.</p>
-
-<h3>Who uses should-cost modeling software?</h3>
-<p>Procurement and sourcing teams use it to validate quotes and prepare negotiations. Cost engineers and design engineers use it to compare design options and support target costing. Finance teams use it to check margins and savings.</p>
-
-<h3>How long does it take to implement should-cost software?</h3>
-<p>It depends on scope and integrations. A pilot on a limited set of parts can often start quickly, while a full rollout with CAD, PLM and ERP connections takes longer. Ask each vendor for a realistic plan, and start with a pilot before committing to integration work.</p>
-
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;">CNC machining should-cost example</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/target-costing" style="color:#0d9488;">Target costing</a> · <a href="/blog/manufacturing-costing-software-guide" style="color:#0d9488;">Manufacturing costing software buyer’s guide</a> · <a href="/blog/build-vs-buy-should-cost-tool" style="color:#0d9488;">Build vs buy a should-cost tool</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/target-costing" style="color:#0d9488;">Target costing</a> · <a href="/blog/product-cost-management-software" style="color:#0d9488;">Product cost management (PCM) software</a> · <a href="/blog/build-vs-buy-should-cost-tool" style="color:#0d9488;">Build vs buy a should-cost tool</a></p>
     `,
   },
   'cnc-machining-cost-estimation': {
@@ -7846,7 +7495,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>A CNC quote is one number, but the part behind it is a stack of smaller costs: the metal, the time on the machine, the setup, the cutters, the finishing and a margin. If you can estimate each layer yourself, you can tell whether a quote is fair, where it’s padded and what to change in the design.</p>
 
-<p>This guide walks through that build-up for one machined part, step by step. Each section covers one cost element and how to estimate it from a drawing. The worked example then puts them together into a should-cost, and the last section reads a supplier quote against it. For the method behind should-cost models in general, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>This guide walks through that build-up for one machined part, step by step. Each section covers one cost element and how to estimate it from a drawing. The worked example then puts them together into a should-cost, and the last section reads a supplier quote against it. For the method behind should-cost models in general, see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <h2>What Drives CNC Part Cost</h2>
 
@@ -8194,7 +7843,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/downloads/machined-part-costing-template.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the template (CSV)</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;">Sheet metal cost estimation</a> · <a href="/blog/should-cost-excel-template" style="color:#0d9488;">Free should-cost Excel template</a> · <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/titanium-inconel-machining-cost" style="color:#0d9488;">Titanium and Inconel machining cost</a> · <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a> · <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;">Sheet metal cost estimation</a> · <a href="/blog/should-cost-excel-template" style="color:#0d9488;">Free should-cost Excel template</a> · <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/titanium-inconel-machining-cost" style="color:#0d9488;">Titanium and Inconel machining cost</a> · <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a></p>
     `,
   },
   'value-engineering': {
@@ -8319,7 +7968,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p><strong>Step 3: Link the cost to the functions.</strong> Take the bill of materials and assign each part’s cost to the function it serves. Where one part serves two functions, split the cost in a stated proportion. Where one function needs several parts, add them together.</p>
 
-<p><strong>Step 4: Estimate worth.</strong> Worth is the lowest cost at which a function could be performed reliably, by any means. It comes from brainstorming, benchmarks, supplier input and <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost models</a>, and it is an estimate. It need not be exact, and it should rest on a stated basis.</p>
+<p><strong>Step 4: Estimate worth.</strong> Worth is the lowest cost at which a function could be performed reliably, by any means. It comes from brainstorming, benchmarks, supplier input and <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost models</a>, and it is an estimate. It need not be exact, and it should rest on a stated basis.</p>
 
 <p><strong>Step 5: Calculate a value index.</strong> Divide worth by current cost:</p>
 
@@ -8787,7 +8436,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <h2>Using Should-Cost to Test Supplier Quotes</h2>
 
-<p>A quote is a price, not a cost. A should-cost model builds up what the part ought to cost the supplier, from material, process time, overhead and a fair margin, and shows how much of the quote is justified. Our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> covers the method. For the shroud:</p>
+<p>A quote is a price, not a cost. A should-cost model builds up what the part ought to cost the supplier, from material, process time, overhead and a fair margin, and shows how much of the quote is justified. Our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a> covers the method. For the shroud:</p>
 
 <div style="overflow-x:auto;margin:1.25rem 0;">
   <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
@@ -8956,7 +8605,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/downloads/make-vs-buy-worksheet.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the worksheet (CSV)</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/direct-vs-indirect-manufacturing-costs" style="color:#0d9488;">Direct vs indirect manufacturing costs</a> · <a href="/blog/total-manufacturing-cost-formula" style="color:#0d9488;">Total manufacturing cost</a> · <a href="/blog/value-engineering" style="color:#0d9488;">Value engineering</a> · <a href="/blog/single-source-vs-sole-source" style="color:#0d9488;">Single-source vs sole-source</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/direct-vs-indirect-manufacturing-costs" style="color:#0d9488;">Direct vs indirect manufacturing costs</a> · <a href="/blog/total-manufacturing-cost-formula" style="color:#0d9488;">Total manufacturing cost</a> · <a href="/blog/value-engineering" style="color:#0d9488;">Value engineering</a> · <a href="/blog/single-source-vs-sole-source" style="color:#0d9488;">Single-source vs sole-source</a></p>
     `,
   },
   'design-for-manufacturing-examples': {
@@ -10503,7 +10152,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li><strong>Profit is restored.</strong> At $179.50, the profit is $240 − $179.50 − $24 = $36.50, a 15.2 percent margin and just above the 15 percent requirement.</li>
 </ul>
 
-<p>For how supplier negotiations like the motor one are prepared, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>For how supplier negotiations like the motor one are prepared, see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <h2>Common Pitfalls</h2>
 
@@ -10566,7 +10215,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <h3>What should you do if the design can’t meet the target cost?</h3>
 <p>First check the estimate and the target itself. Then look for savings through redesign, value engineering, supplier negotiation or process changes. If the gap remains, make an explicit decision to accept lower margin, raise the price, change the scope or stop the programme, and record who made it.</p>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/design-to-cost" style="color:#0d9488;">Design-to-cost</a> · <a href="/blog/value-engineering" style="color:#0d9488;">Value engineering</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/design-to-cost" style="color:#0d9488;">Design-to-cost</a> · <a href="/blog/value-engineering" style="color:#0d9488;">Value engineering</a> · <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/bottom-up-cost-estimating" style="color:#0d9488;">Bottom-up cost estimating</a></p>
     `,
   },
   'cost-estimating-relationships-cers': {
@@ -11048,7 +10697,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <ul>
   <li><strong>New product programs once the design is defined.</strong> You need cost visibility before tooling and supplier commitments are locked in.</li>
-  <li><strong>Quote review and supplier negotiation.</strong> A line-by-line model lets you challenge specific numbers, which is the heart of <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis</a>.</li>
+  <li><strong>Quote review and supplier negotiation.</strong> A line-by-line model lets you challenge specific numbers, which is the heart of <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis</a>.</li>
   <li><strong>Make-vs-buy and sourcing decisions.</strong> You can compare internal and external cost on the same basis.</li>
   <li><strong>Cost reduction.</strong> You can test the effect of a design change before releasing it.</li>
   <li><strong>Checking a cost target.</strong> If you’ve set a target using <a href="/blog/target-costing" style="color:#0d9488;font-weight:600;">target costing</a> or <a href="/blog/design-to-cost" style="color:#0d9488;font-weight:600;">design-to-cost</a>, a bottom-up estimate is how you find out whether the current design meets it.</li>
@@ -11236,7 +10885,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>At that point teams automate the method. A good tool reads the part geometry, proposes a routing, calculates cycle times from the features, applies a maintained rate library and returns an editable cost breakdown, so the estimate updates when the design does. The point of automating is to keep the detail and traceability of bottom-up while approaching the speed of a top-down method.</p>
 
-<p>If you’re considering it, read <a href="/blog/should-cost-modeling-software" style="color:#0d9488;font-weight:600;">how to choose should-cost modeling software</a>, and see how it works in practice in our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>. For the wider comparison of approaches, see <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>.</p>
+<p>If you’re considering it, read <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;font-weight:600;">how to choose should-cost modeling software</a>, and see how it works in practice in our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>. For the wider comparison of approaches, see <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>.</p>
 
 <h2>FAQ</h2>
 
@@ -11444,7 +11093,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <p>Two warnings that apply to both:</p>
 
 <ul>
-  <li><strong>Neither shows where the cost comes from.</strong> You can’t hand a supplier a parametric number and argue about the machining line. For negotiation you need a bottom-up should-cost, as in our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</li>
+  <li><strong>Neither shows where the cost comes from.</strong> You can’t hand a supplier a parametric number and argue about the machining line. For negotiation you need a bottom-up should-cost, as in our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</li>
   <li><strong>Both inherit the history.</strong> If past parts were bought from an expensive supplier or with an inefficient process, the new estimate carries that inefficiency forward.</li>
 </ul>
 
@@ -11527,7 +11176,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/blog/manufacturing-cost-estimation-methods" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Read the guide</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;">Manufacturing cost estimation methods</a> · <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;">Should-cost modeling methodology</a> · <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;">Manufacturing cost estimation methods</a> · <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;">Should-cost modeling methodology</a> · <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a></p>
     `,
   },
   'total-manufacturing-cost-formula': {
@@ -12181,7 +11830,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Should-cost is what a part ought to cost to make, built from the process up. Actual cost is what it really costs, and the quoted price is what a supplier asks you to pay. The distance between them is the gap, and it is where procurement and cost-engineering teams find savings.</p>
 
-<p>This guide shows how to compare the three numbers, what causes the gap, how to read a supplier quote line by line, and how to turn the difference into a negotiation plan. It includes a worked example and a gap-closing worksheet. If you’re new to the method, start with our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>This guide shows how to compare the three numbers, what causes the gap, how to read a supplier quote line by line, and how to turn the difference into a negotiation plan. It includes a worked example and a gap-closing worksheet. If you’re new to the method, start with our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <h2>Should-Cost vs Actual vs Quoted Price</h2>
 
@@ -12375,7 +12024,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li><strong>Record the outcome.</strong> Update the model and the worksheet, so the next negotiation starts from better data.</li>
 </ol>
 
-<p>For the full playbook, including tactics and sequencing, read our <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;font-weight:600;">should-cost analysis and supplier negotiation guide</a>. To do this at scale across many parts, see how to choose <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;font-weight:600;">should-cost modeling software</a>, and for the methods behind your estimate, <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. You can also explore our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+<p>For the full playbook, including tactics and sequencing, read our <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;font-weight:600;">should-cost analysis and supplier negotiation guide</a>. To do this at scale across many parts, see how to choose <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;font-weight:600;">should-cost modeling software</a>, and for the methods behind your estimate, <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. You can also explore our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
 
 <h2>FAQ</h2>
 
@@ -12405,7 +12054,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/downloads/should-cost-gap-worksheet.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the worksheet (CSV)</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;">Manufacturing cost estimation methods</a> · <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;">Supplier negotiation with should-cost</a> · <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a> · <a href="/blog/supplier-price-increase-negotiation" style="color:#0d9488;">Challenging a supplier price increase</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;">Manufacturing cost estimation methods</a> · <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;">Supplier negotiation with should-cost</a> · <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a> · <a href="/blog/supplier-price-increase-negotiation" style="color:#0d9488;">Challenging a supplier price increase</a></p>
     `,
   },
   'direct-vs-indirect-manufacturing-costs': {
@@ -12760,7 +12409,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Manufacturing cost estimation is the process of predicting what it will cost to make a part or product before you make it, or before a supplier quotes it. There isn’t one right way to do it. Five methods are in common use: analogous, parametric, bottom-up, activity-based and AI-driven. Each trades speed against accuracy and needs different data.</p>
 
-<p>This guide explains each method, shows all five applied to the same part, and gives you a table for choosing between them. If you’re mainly after supplier negotiation, jump to our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>This guide explains each method, shows all five applied to the same part, and gives you a table for choosing between them. If you’re mainly after supplier negotiation, jump to our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <h2>Why the Estimation Method Matters</h2>
 
@@ -12832,7 +12481,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p><strong>Best for:</strong> quote review, supplier negotiation, make-vs-buy decisions and detailed design.</p>
 
-<p>Read the how-to in our <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;font-weight:600;">should-cost modeling methodology guide</a>, and the negotiation application in the <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
+<p>Read the how-to in our <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;font-weight:600;">should-cost modeling methodology guide</a>, and the negotiation application in the <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>.</p>
 
 <h2>Activity-Based</h2>
 
@@ -12945,10 +12594,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
   <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Read the should-cost guide</p>
   <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">The most practical entry point for purchasing and cost-engineering teams.</p>
-  <a href="/blog/should-cost-analysis-guide" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Read the should-cost guide</a>
+  <a href="/blog/what-is-should-cost-analysis" style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Read the should-cost guide</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;">Should-cost modeling methodology</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/should-cost-modeling-methodology-tools-examples" style="color:#0d9488;">Should-cost modeling methodology</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a></p>
     `,
   },
   'design-for-manufacturability-guide': {
@@ -13318,7 +12967,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Industry sources commonly estimate that a large majority of a product’s cost is committed during design, even though design itself consumes only a small share of the budget.</p>
 
-<p>The practical consequence is that the cheapest time to reduce cost is before the design is frozen. Negotiating with suppliers later can trim a few percent, while a design change can remove a third of the cost. That’s why design-to-cost sits upstream of purchasing tools like <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis</a>.</p>
+<p>The practical consequence is that the cheapest time to reduce cost is before the design is frozen. Negotiating with suppliers later can trim a few percent, while a design change can remove a third of the cost. That’s why design-to-cost sits upstream of purchasing tools like <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis</a>.</p>
 
 <h2>The Design-to-Cost Process in 6 Steps</h2>
 
@@ -13453,7 +13102,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/downloads/design-to-cost-framework.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the framework (CSV)</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/what-is-vave" style="color:#0d9488;">Value analysis and value engineering</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/what-is-vave" style="color:#0d9488;">Value analysis and value engineering</a> · <a href="/blog/machine-hour-rate-calculation" style="color:#0d9488;">Machine hour rate</a></p>
     `,
   },
   'machine-hour-rate-calculation': {
@@ -13667,7 +13316,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li>Validate your rates against a few real supplier quotes before relying on them.</li>
 </ul>
 
-<p>For the full method, see our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>. For a ready-made spreadsheet, use the <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;font-weight:600;">should-cost Excel template guide</a> or run it in our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
+<p>For the full method, see our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">should-cost analysis guide</a>. For a ready-made spreadsheet, use the <a href="/blog/how-to-build-should-cost-model-excel-ai" style="color:#0d9488;font-weight:600;">should-cost Excel template guide</a> or run it in our <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform</a>.</p>
 
 <h2>FAQ</h2>
 
@@ -13697,7 +13346,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/downloads/machine-hour-rate-calculator.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the calculator (CSV)</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;">Sheet metal cost estimation</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;">CNC machining should-cost example</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/sheet-metal-cost-estimation" style="color:#0d9488;">Sheet metal cost estimation</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a> · <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;">CNC machining should-cost example</a></p>
     `,
   },
   'sheet-metal-cost-estimation': {
@@ -13769,7 +13418,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>Sheet metal cost estimation means building a part's price from the bottom up: material, cutting, bending, hardware, finishing, setup and inspection. If you can price each of those, you can price any bracket, enclosure or panel, and you can tell whether a supplier's quote is fair.</p>
 
-<p>This guide walks through every cost component, gives you the formula, and ends with a worked example of the same bracket at 100 and 1,000 pieces. If you're new to the broader method, start with our <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;font-weight:600;">complete guide to should-cost analysis</a>.</p>
+<p>This guide walks through every cost component, gives you the formula, and ends with a worked example of the same bracket at 100 and 1,000 pieces. If you're new to the broader method, start with our <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;font-weight:600;">complete guide to should-cost analysis</a>.</p>
 
 <h2>Cost Components of a Sheet Metal Part</h2>
 
@@ -13961,407 +13610,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <a href="/downloads/sheet-metal-costing-template.csv" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the template (CSV)</a>
 </div>
 
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/should-cost-analysis-guide" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cost-breakdown-analysis" style="color:#0d9488;">Cost breakdown analysis</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a></p>
-    `,
-  },
-  'should-cost-analysis-guide': {
-    heroImage: '/images/blog/should-cost-analysis-guide.jpg',
-    authorBio:
-      '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
-    seo: {
-      metaTitle: 'Should-Cost Analysis: Complete Guide for Manufacturers',
-      metaDescription:
-        'Learn how should-cost analysis works, what data you need, and how to use it to negotiate supplier prices with confidence. Includes a worked example.',
-      ogTitle: 'Should-Cost Analysis: The Complete Guide for Manufacturers',
-      ogDescription:
-        'Learn how should-cost analysis works, what data you need, and how to use it to negotiate supplier prices with confidence. Includes a worked example.',
-      tags: [
-        'should cost analysis',
-        'should cost model',
-        'should costing',
-        'how to do a should cost analysis',
-        'should cost vs actual cost',
-        'should cost analysis example',
-      ],
-    },
-    faqs: [
-      {
-        question: 'What is should-cost analysis?',
-        answer:
-          'Should-cost analysis is a method of estimating what a part or product should cost to make, based on its material, manufacturing processes, labour, overhead and a reasonable profit margin. It gives buyers an independent reference point for judging supplier quotes and preparing negotiations.',
-      },
-      {
-        question: 'How do you do a should-cost analysis?',
-        answer:
-          "Define the part and scope, estimate the material cost from the stock size, calculate the cost of each manufacturing operation from cycle time and machine rate, add setup, tooling, labour and finishing, then apply overhead and margin. Finally, compare the total with the supplier's quote and investigate the largest gaps.",
-      },
-      {
-        question: 'What is the difference between should-cost and cost-plus?',
-        answer:
-          "Should-cost is built independently from the part and the process, so it does not depend on the supplier's reported costs. Cost-plus starts from the supplier's actual costs and adds an agreed margin, which means inefficiency is passed on to the buyer.",
-      },
-      {
-        question: 'Is a should-cost model the same as an actual cost?',
-        answer:
-          "No. A should-cost model estimates what a part ought to cost under efficient, well-run conditions. A supplier's actual cost reflects its real equipment, yield, scale and overheads. The difference between the two is useful information, not necessarily a sign of a problem.",
-      },
-      {
-        question: 'How accurate is should-cost analysis?',
-        answer:
-          'Accuracy depends on the quality of your inputs, especially cycle time, material yield and rates. A well-built model is usually best treated as a range with clearly stated assumptions rather than a single exact figure.',
-      },
-      {
-        question: 'When should you use should-cost analysis?',
-        answer:
-          'It is most useful for custom or complex parts without a market price, for high-value or high-volume purchases, during sourcing and negotiation, and when comparing make-versus-buy or regional sourcing options.',
-      },
-    ],
-    content: `
-<p style="font-size:0.85rem;color:#6b7280;margin-bottom:1.5rem;">Cost Engineering · Reading time: about 14 minutes</p>
-
-<p>A supplier sends a quote for a machined bracket. It looks reasonable, but you cannot say whether it is fair, because you have nothing to measure it against. That is the problem should-cost analysis solves. Instead of accepting a price or negotiating on instinct, you build an independent estimate of what the part ought to cost, based on its material, the processes needed to make it, and a realistic share of overhead and margin.</p>
-
-<p>This guide explains how should-cost analysis works, what data you need, and how to run one from start to finish. It includes a worked example with real arithmetic, a comparison with other pricing methods, and a practical section on using the result to negotiate with suppliers.</p>
-
-<div style="padding:1.25rem 1.5rem;border-radius:10px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);margin:1.5rem 0;">
-  <p style="font-weight:700;color:#0d1117;margin:0 0 0.5rem;">Key takeaways</p>
-  <ul style="margin:0;">
-    <li>Should-cost analysis estimates what a part should cost to make, built bottom-up from material, process, labour, overhead and margin.</li>
-    <li>It differs from cost-plus pricing and from simply reviewing a quote: it starts from the part and the process, not from the supplier's number.</li>
-    <li>The quality of the result depends on your inputs: accurate geometry, realistic cycle times and defensible machine and labour rates.</li>
-    <li>A should-cost model is most useful when it is shared in negotiation as a fact base, not used as an ultimatum.</li>
-    <li>Treat the output as a range with stated assumptions, not a single "true" price.</li>
-  </ul>
-</div>
-
-<h2>What Is Should-Cost Analysis?</h2>
-
-<p>Should-cost analysis is a method for estimating the fair cost of a part or product by modelling how it is made. You break the part into its cost elements (raw material, each manufacturing operation, labour, tooling, overhead and profit), assign a defensible value to each, and add them up. The total is the should-cost: what an efficient, well-run supplier in a given region should need to charge to produce the part and earn a reasonable margin.</p>
-
-<p>A should-cost model is sometimes called a clean-sheet estimate, because you build it from a blank page rather than from historical prices. Procurement, cost engineering and supplier development teams use should costing for several reasons:</p>
-
-<ul>
-  <li><strong>Quote validation.</strong> Check whether a supplier's price is in line with the cost of making the part.</li>
-  <li><strong>Negotiation preparation.</strong> Walk into a conversation with a line-by-line view of where the price may be high.</li>
-  <li><strong>Sourcing decisions.</strong> Compare regions, processes or make-versus-buy options on a like-for-like basis.</li>
-  <li><strong>Design feedback.</strong> Show engineers which features and tolerances drive cost, so savings can be captured before release.</li>
-</ul>
-
-<p>The approach is common in aerospace, automotive, industrial equipment and any sector that buys complex, custom-made parts, because those parts rarely have a market price you can simply look up.</p>
-
-<h3>Why Should-Cost Analysis Matters</h3>
-
-<p>For custom parts, price transparency is low. Two suppliers may quote very differently for the same drawing, and neither quote usually explains why. Without a reference point, buyers tend to fall back on negotiating a flat percentage off the last price, which may leave real savings on the table or push a supplier below a sustainable margin.</p>
-
-<p>A should-cost model changes the conversation. It shifts the question from "can you do better on price?" to "here is how we believe this part is made; where does your process differ from our assumptions?" That is a more productive, fact-based discussion for both sides.</p>
-
-<h2>Should-Cost vs Cost-Plus vs Quote Review</h2>
-
-<p>Should-cost analysis is often confused with two neighbouring methods. They answer different questions.</p>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Method</th>
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Starting point</th>
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Main question</th>
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Typical weakness</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Should-cost analysis</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">The part, its material and the manufacturing process</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">What should this part cost to make?</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Needs good process and rate data</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Cost-plus pricing</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">The supplier's reported costs</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">What did it cost the supplier, plus an agreed margin?</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Rewards inefficiency; relies on the supplier's cost data</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Quote review (price analysis)</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Competing quotes or historical prices</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Is this quote in line with others?</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Cannot tell you if all quotes are too high</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p>Cost-plus takes the supplier's actual costs as given and adds a margin. If the supplier is inefficient, the buyer pays for it. Quote review compares prices against each other or against history. It is quick, but it only tells you which quote is lower, not whether the lowest quote is fair.</p>
-
-<p>Should-cost is independent of the supplier's numbers. That independence is its main strength. It is also why a should-cost estimate and an actual cost often differ, and understanding that difference is a skill in itself. We cover it in detail in our guide to <a href="/blog/should-cost-vs-actual-cost" style="color:#0d9488;font-weight:600;">should-cost vs actual cost</a>.</p>
-
-<p>Should-cost is one of several ways to estimate manufacturing cost. For a broader comparison of analogous, parametric, bottom-up, activity-based and AI-driven approaches, see our guide to <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. Should-cost modelling is a form of bottom-up estimating, which is why it tends to be the most detailed and the most data-hungry.</p>
-
-<h2>Inputs for a Should-Cost Model: Material, Process, Labour, Overhead and Margin</h2>
-
-<p>A reliable should-cost model is only as good as its inputs. Most models draw on five groups of data.</p>
-
-<h3>1. Material cost</h3>
-
-<p>Start with the raw material the part is made from, and how much of it you need to buy.</p>
-
-<ul>
-  <li><strong>Material grade and form:</strong> for example, 6061-T6 aluminium bar, a titanium forging, or a cold-rolled steel sheet.</li>
-  <li><strong>Gross weight (blank or stock size):</strong> the amount you buy, not the finished part weight. For a machined part, the stock must be larger than the finished geometry.</li>
-  <li><strong>Price per kilogram:</strong> use a current index, a quoted price from a distributor, or your own purchasing data.</li>
-  <li><strong>Scrap and yield:</strong> machining chips, sheet offcuts and rejected parts all affect the true material cost. Some scrap can be sold back, which reduces the net cost.</li>
-</ul>
-
-<p>Material is often the most objective part of the model, because prices are tracked and published. It is also where many estimates go wrong, by using finished weight instead of stock weight.</p>
-
-<h3>2. Process and machine cost</h3>
-
-<p>Next, identify every manufacturing operation needed and estimate the time each takes. For a machined part this may include cutting, drilling, milling, turning, heat treatment and inspection.</p>
-
-<p>For each operation you need two things:</p>
-
-<ul>
-  <li><strong>Cycle time:</strong> how long the operation takes per part, including loading and unloading where relevant.</li>
-  <li><strong>Machine hour rate:</strong> what it costs to run the machine for one hour, covering depreciation, power, maintenance, floor space and similar costs.</li>
-</ul>
-
-<p>Process cost is cycle time multiplied by the machine rate, plus any setup cost spread over the batch. Cycle time is usually the hardest input to estimate, and it has the largest effect on the result for machined parts.</p>
-
-<h3>3. Labour cost</h3>
-
-<p>Labour covers the people directly involved in producing the part: machine operators, setup technicians, inspectors and finishing staff.</p>
-
-<ul>
-  <li><strong>Labour rate:</strong> use a fully loaded hourly rate for the region you are modelling. Rates differ widely between countries and even within a country.</li>
-  <li><strong>Labour time:</strong> operators often tend more than one machine, so attribute only the share of time that applies to your part.</li>
-</ul>
-
-<p>Be consistent about whether the machine hour rate already includes the operator. Counting labour in both places is a common source of overstated estimates.</p>
-
-<h3>4. Tooling and setup</h3>
-
-<p>Some costs do not scale with the number of parts. Fixtures, programming, first-article inspection and machine setup are one-time or per-batch costs. Divide them by the order quantity to get a per-part figure. This is why the same part costs more per unit at 50 pieces than at 5,000.</p>
-
-<h3>5. Overhead and margin</h3>
-
-<p>Finally, add the costs that sit around the shop floor and the profit the supplier needs to stay in business.</p>
-
-<ul>
-  <li><strong>Overhead (SG&amp;A):</strong> factory management, quality systems, engineering support, administration and sales. It is usually modelled as a percentage of the direct cost.</li>
-  <li><strong>Profit margin:</strong> a reasonable margin for the supplier's industry and risk profile.</li>
-</ul>
-
-<p>Both figures should come from a defensible source, such as published industry benchmarks, financial reports or your own supplier knowledge. If you cannot justify a number, show it as a range.</p>
-
-<h2>Step-by-Step Worked Example</h2>
-
-<p>This section answers a common question: how do you do a should-cost analysis in practice? The example below is illustrative. The prices and rates are assumptions chosen to show the method, not market data, so replace them with your own figures.</p>
-
-<div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1.25rem 0;">
-  <p style="font-size:0.95rem;color:#374151;margin:0;"><strong>The part:</strong> a machined aluminium bracket, 6061-T6, order quantity 500 pieces, anodised finish.</p>
-</div>
-
-<h3>Step 1: Define the part and the scope</h3>
-
-<p>Gather the drawing or CAD model, the material specification, tolerances, surface finish, order quantity and any special requirements. Decide the sourcing region you are modelling, because rates depend on it.</p>
-
-<h3>Step 2: Estimate the material cost</h3>
-
-<p>The finished bracket weighs less than the stock needed to machine it. In this example the blank weighs 1.2 kg, and aluminium bar costs 4.50 USD per kg.</p>
-
-<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-family:monospace;font-size:0.9rem;color:#0d1117;">
-  Material cost: 1.2 kg × 4.50 = 5.40 USD per part
-</div>
-
-<h3>Step 3: Estimate machining cost</h3>
-
-<p>The part needs three milling operations, with a total cycle time of 14 minutes. The assumed machine hour rate is 55 USD.</p>
-
-<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-family:monospace;font-size:0.9rem;color:#0d1117;">
-  Machining cost: (14 ÷ 60) × 55 = 12.83 USD per part
-</div>
-
-<h3>Step 4: Add setup, fixtures and consumables</h3>
-
-<ul>
-  <li><strong>Setup:</strong> 3 hours × 55 USD = 165 USD, spread across 500 parts = 0.33 USD per part</li>
-  <li><strong>Fixturing:</strong> 300 USD one-time cost ÷ 500 = 0.60 USD per part</li>
-  <li><strong>Cutting tools and consumables:</strong> 0.90 USD per part</li>
-</ul>
-
-<h3>Step 5: Add labour, inspection and finishing</h3>
-
-<ul>
-  <li><strong>Operator labour:</strong> the operator tends two machines, so half of the 14-minute cycle applies. At 22 USD per hour: (7 ÷ 60) × 22 = 2.57 USD per part</li>
-  <li><strong>Deburring and inspection:</strong> 4 minutes at 22 USD per hour = 1.47 USD per part</li>
-  <li><strong>Anodising (outsourced):</strong> 2.20 USD per part</li>
-</ul>
-
-<h3>Step 6: Add overhead and margin</h3>
-
-<p>The direct cost subtotal is 26.30 USD. Assume overhead of 10% and a profit margin of 12%.</p>
-
-<ul>
-  <li><strong>Overhead:</strong> 26.30 × 10% = 2.63 USD</li>
-  <li><strong>Cost with overhead:</strong> 28.93 USD</li>
-  <li><strong>Margin:</strong> 28.93 × 12% = 3.47 USD</li>
-</ul>
-
-<h3>The should-cost breakdown</h3>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost element</th>
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Basis</th>
-        <th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">USD per part</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Material</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">1.2 kg × 4.50 USD/kg</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5.40</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Machining</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">14 min × 55 USD/hr</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">12.83</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Setup</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">165 USD ÷ 500 parts</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.33</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Fixturing</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">300 USD ÷ 500 parts</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.60</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Tooling and consumables</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Per-part estimate</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.90</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Operator labour</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">7 min × 22 USD/hr</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.57</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Deburring and inspection</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">4 min × 22 USD/hr</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">1.47</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Anodising</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Outsourced process</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.20</td>
-      </tr>
-      <tr style="border-bottom:1px solid #e5e7eb;background:#f8fafc;">
-        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost subtotal</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;"></td>
-        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;text-align:right;">26.30</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Overhead</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">10% of direct cost</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.63</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Margin</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">12% of cost with overhead</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3.47</td>
-      </tr>
-      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);">
-        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Should-cost</td>
-        <td style="padding:0.65rem 0.9rem;color:#374151;"></td>
-        <td style="padding:0.65rem 0.9rem;color:#0d9488;font-weight:700;text-align:right;">32.40</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<h3>Step 7: Compare with the supplier quote</h3>
-
-<p>Suppose the supplier quoted 41.50 USD per part. The gap is 9.10 USD, or about 28% above the should-cost.</p>
-
-<p>That gap is not proof that the supplier is overcharging. It is a prompt for questions. The supplier may use a slower process, include a cost you did not model, run a smaller shop with higher overhead, or have priced in risk on tight tolerances. Each line of the model gives you a specific place to ask. The next section explains how to do that constructively.</p>
-
-<h2>Using Should-Cost Analysis in Supplier Negotiations</h2>
-
-<p>A should-cost model is most valuable when it changes how a negotiation is run. Used well, it replaces vague pressure with specific, answerable questions.</p>
-
-<h3>Share the logic, not just the number</h3>
-
-<p>Opening with "our model says 32.40 USD" invites an argument about whose number is right. Opening with "we estimated a 14-minute cycle time and a 55 USD machine rate; how does that compare with yours?" invites a discussion about facts. Suppliers often have information you lack, such as a faster process, a different machine or a better yield, and the conversation can surface it.</p>
-
-<h3>Go line by line</h3>
-
-<p>Compare the supplier's quote breakdown against your model and focus on the largest gaps first. In the example above, a large difference in machining time matters far more than a small difference in setup. Concentrate your effort where the money is.</p>
-
-<h3>Separate legitimate gaps from negotiable ones</h3>
-
-<p>Not every difference is a negotiating point. Some reflect real constraints: a small batch, a hard-to-source material, a certification requirement or a regional labour rate. Acknowledge these openly. Credibility with a supplier is worth more than a marginal price point, and a model that admits its own uncertainty is more persuasive than one that pretends to be exact.</p>
-
-<h3>Look for improvement, not only price</h3>
-
-<p>Should-cost data can point to savings that do not involve squeezing margin. Examples include changing a tolerance, switching the stock size, combining operations, or adjusting batch quantities. These benefit both sides and tend to hold up better over time than a one-off price cut.</p>
-
-<p>For a deeper look at tactics, see our <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;font-weight:600;">supplier negotiation strategy playbook</a>.</p>
-
-<h2>Common Mistakes in Should-Cost Analysis</h2>
-
-<p>Even experienced teams run into the same handful of problems.</p>
-
-<ul>
-  <li><strong>Using finished weight instead of stock weight.</strong> Material cost is based on what you buy, not what ships.</li>
-  <li><strong>Guessing cycle times.</strong> Cycle time is the most influential input for machined parts. Use CAM estimates, shop data or time studies where you can, and mark any guess as an assumption.</li>
-  <li><strong>Double-counting labour.</strong> If the machine hour rate already includes the operator, do not add operator labour again.</li>
-  <li><strong>Ignoring batch size.</strong> Setup and tooling costs behave very differently at 50 pieces and at 5,000. Always model the quantity you actually intend to order.</li>
-  <li><strong>Applying one overhead rate everywhere.</strong> Overhead and margin vary by region, supplier size and process. A single flat percentage can mislead.</li>
-  <li><strong>Treating the result as exact.</strong> A should-cost estimate is a well-supported range, not a precise price. Present it that way.</li>
-  <li><strong>Using it as an ultimatum.</strong> If the model is presented as the only correct answer, suppliers will challenge it, and you may lose the opportunity to learn from their feedback.</li>
-  <li><strong>Letting the model go stale.</strong> Material prices, labour rates and energy costs change. Review and update the inputs regularly.</li>
-</ul>
-
-<h3>Moving from spreadsheets to dedicated tools</h3>
-
-<p>Many teams begin with a spreadsheet, which is a sensible way to learn the method. As the number of parts grows, maintaining rates, templates and assumptions by hand becomes slow and error-prone. At that stage, it is worth evaluating dedicated tooling. Our guide to choosing <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;font-weight:600;">should-cost modeling software</a> explains what to look for, and you can see how our approach works on the <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform page</a>.</p>
-
-<h2>FAQ</h2>
-
-<h3>What is should-cost analysis?</h3>
-<p>Should-cost analysis is a method of estimating what a part or product should cost to make, based on its material, manufacturing processes, labour, overhead and a reasonable profit margin. It gives buyers an independent reference point for judging supplier quotes and preparing negotiations.</p>
-
-<h3>How do you do a should-cost analysis?</h3>
-<p>Define the part and scope, estimate the material cost from the stock size, calculate the cost of each manufacturing operation from cycle time and machine rate, add setup, tooling, labour and finishing, then apply overhead and margin. Finally, compare the total with the supplier's quote and investigate the largest gaps.</p>
-
-<h3>What is the difference between should-cost and cost-plus?</h3>
-<p>Should-cost is built independently from the part and the process, so it does not depend on the supplier's reported costs. Cost-plus starts from the supplier's actual costs and adds an agreed margin, which means inefficiency is passed on to the buyer.</p>
-
-<h3>Is a should-cost model the same as an actual cost?</h3>
-<p>No. A should-cost model estimates what a part ought to cost under efficient, well-run conditions. A supplier's actual cost reflects its real equipment, yield, scale and overheads. The difference between the two is useful information, not necessarily a sign of a problem.</p>
-
-<h3>How accurate is should-cost analysis?</h3>
-<p>Accuracy depends on the quality of your inputs, especially cycle time, material yield and rates. A well-built model is usually best treated as a range with clearly stated assumptions rather than a single exact figure.</p>
-
-<h3>When should you use should-cost analysis?</h3>
-<p>It is most useful for custom or complex parts without a market price, for high-value or high-volume purchases, during sourcing and negotiation, and when comparing make-versus-buy or regional sourcing options.</p>
-
-<h2>Get Started with Your Own Should-Cost Analysis</h2>
-
-<p>Should-cost analysis turns a quote from something you accept or reject into something you can examine, question and discuss. Start with one part, build the model line by line, and note every assumption. Each analysis you complete makes the next one faster and more reliable.</p>
-
-<div style="padding:1.5rem;border-radius:12px;background:#0d1117;margin:1.5rem 0;text-align:center;">
-  <p style="color:#ffffff;font-size:1.05rem;font-weight:700;margin:0 0 0.5rem;">Download the should-cost checklist</p>
-  <p style="color:#d1d5db;font-size:0.9rem;margin:0 0 1rem;">Follow the steps above on your next quote with our one-page checklist.</p>
-  <a href="/downloads/should-cost-analysis-checklist.pdf" download style="display:inline-block;padding:0.7rem 1.4rem;border-radius:8px;background:#0d9488;color:#ffffff;font-weight:600;text-decoration:none;">Download the checklist (PDF)</a>
-</div>
-
-<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;">Manufacturing cost estimation methods</a> · <a href="/blog/should-cost-vs-actual-cost" style="color:#0d9488;">Should-cost vs actual cost</a> · <a href="/blog/should-cost-modeling-software-buyers-guide" style="color:#0d9488;">Should-cost modeling software</a> · <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;">Supplier negotiation strategy</a> · <a href="/blog/cnc-machining-cost-estimation" style="color:#0d9488;">CNC machining should-cost example</a> · <a href="/blog/should-cost-excel-template" style="color:#0d9488;">Free should-cost Excel template</a> · <a href="/blog/aerospace-should-cost-analysis" style="color:#0d9488;">Aerospace should-cost analysis</a> · <a href="/blog/defense-should-cost-analysis" style="color:#0d9488;">Defense should-cost analysis</a> · <a href="/blog/rfq-automation-manufacturing" style="color:#0d9488;">RFQ automation</a> · <a href="/blog/supplier-negotiation-strategy" style="color:#0d9488;">Supplier negotiation strategy</a></p>
+<p style="font-size:0.9rem;color:#4b5563;"><strong>Related reading:</strong> <a href="/blog/what-is-should-cost-analysis" style="color:#0d9488;">Should-cost analysis guide</a> · <a href="/blog/cost-breakdown-analysis" style="color:#0d9488;">Cost breakdown analysis</a> · <a href="/blog/cost-modeling-in-manufacturing" style="color:#0d9488;">Cost modeling in manufacturing</a></p>
     `,
   },
   'compound-growth-manufacturing-cost-intelligence': {
@@ -14791,10 +14040,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
     seo: {
-      metaTitle: 'What Is Should Cost Analysis? Complete Guide for Manufacturers',
+      metaTitle: 'What Is Should-Cost Analysis? Guide + Examples',
       metaDescription:
         'Discover what should cost analysis is, how it works in manufacturing, and how AI-powered platforms help procurement teams cut part costs by up to 15%.',
-      ogTitle: 'What Is Should Cost Analysis? Complete Guide for Manufacturers',
+      ogTitle: 'What Is Should-Cost Analysis? Guide + Worked Examples',
       ogDescription:
         'A complete guide to should cost analysis — what it is, how it works, and why aerospace and EV manufacturers use it to regain control of part costs.',
       tags: [
@@ -14836,6 +14085,26 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
         question: 'What is the difference between should cost analysis and cost breakdown analysis?',
         answer:
           "They are closely related. Cost breakdown analysis refers to decomposing a supplier's quote into its cost elements. Should cost analysis is a broader discipline that builds an independent cost estimate from first principles, which is then used to interpret and challenge cost breakdowns.",
+      },
+      {
+        question: 'What is should-cost analysis?',
+        answer:
+          'Should-cost analysis is a method of estimating what a part or product should cost to make, based on its material, manufacturing processes, labour, overhead and a reasonable profit margin. It gives buyers an independent reference point for judging supplier quotes and preparing negotiations.',
+      },
+      {
+        question: 'How do you do a should-cost analysis?',
+        answer:
+          "Define the part and scope, estimate the material cost from the stock size, calculate the cost of each manufacturing operation from cycle time and machine rate, add setup, tooling, labour and finishing, then apply overhead and margin. Finally, compare the total with the supplier's quote and investigate the largest gaps.",
+      },
+      {
+        question: 'What is the difference between should-cost and cost-plus?',
+        answer:
+          "Should-cost is built independently from the part and the process, so it does not depend on the supplier's reported costs. Cost-plus starts from the supplier's actual costs and adds an agreed margin, which means inefficiency is passed on to the buyer.",
+      },
+      {
+        question: 'Is a should-cost model the same as an actual cost?',
+        answer:
+          "No. A should-cost model estimates what a part ought to cost under efficient, well-run conditions. A supplier's actual cost reflects its real equipment, yield, scale and overheads. The difference between the two is useful information, not necessarily a sign of a problem.",
       },
     ],
     content: `
@@ -14937,23 +14206,23 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1.5rem 0;">
   <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <h4 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Aerospace &amp; Defence</h4>
+    <h3 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Aerospace &amp; Defence</h3>
     <p style="font-size:0.9rem;color:#374151;line-height:1.7;margin:0;">Cost justification is mandatory on most government and Tier 1 contracts. AS9100D-certified suppliers use should cost analysis to protect their margins while remaining competitive on complex, low-volume components.</p>
   </div>
   <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <h4 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Electric Vehicles</h4>
+    <h3 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Electric Vehicles</h3>
     <p style="font-size:0.9rem;color:#374151;line-height:1.7;margin:0;">With intense pressure to reduce battery-pack and structural BOM costs to hit vehicle price targets, Indian and global EV OEMs run should cost models at every design gate — from concept to production release.</p>
   </div>
   <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <h4 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Drones &amp; UAVs</h4>
+    <h3 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Drones &amp; UAVs</h3>
     <p style="font-size:0.9rem;color:#374151;line-height:1.7;margin:0;">High geometric complexity, tight tolerances, and small batch sizes make accurate cost modeling essential for competitive quoting and supply chain selection.</p>
   </div>
   <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <h4 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Space &amp; Satellite</h4>
+    <h3 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Space &amp; Satellite</h3>
     <p style="font-size:0.9rem;color:#374151;line-height:1.7;margin:0;">Low-volume, high-value components where an inaccurate cost estimate propagates across an entire programme. ISRO component suppliers and private space companies increasingly depend on rigorous should cost models.</p>
   </div>
   <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <h4 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Heavy Engineering &amp; Industrial Equipment</h4>
+    <h3 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">Heavy Engineering &amp; Industrial Equipment</h3>
     <p style="font-size:0.9rem;color:#374151;line-height:1.7;margin:0;">Procurement teams use should cost to benchmark supplier performance annually, renegotiate long-running contracts, and identify which components are candidates for resourcing.</p>
   </div>
 </div>
@@ -14996,6 +14265,226 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>The net result: what once took a seasoned cost engineer a week can now be done in an afternoon — across an entire new product BOM.</p>
 
+<h2>Should-Cost vs Cost-Plus vs Quote Review</h2>
+
+<p>Should-cost analysis is often confused with two neighbouring methods. They answer different questions.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Method</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Starting point</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Main question</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Typical weakness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Should-cost analysis</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">The part, its material and the manufacturing process</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">What should this part cost to make?</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Needs good process and rate data</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Cost-plus pricing</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">The supplier's reported costs</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">What did it cost the supplier, plus an agreed margin?</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Rewards inefficiency; relies on the supplier's cost data</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;font-weight:600;">Quote review (price analysis)</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Competing quotes or historical prices</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Is this quote in line with others?</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Cannot tell you if all quotes are too high</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Cost-plus takes the supplier's actual costs as given and adds a margin. If the supplier is inefficient, the buyer pays for it. Quote review compares prices against each other or against history. It is quick, but it only tells you which quote is lower, not whether the lowest quote is fair.</p>
+
+<p>Should-cost is independent of the supplier's numbers. That independence is its main strength. It is also why a should-cost estimate and an actual cost often differ, and understanding that difference is a skill in itself. We cover it in detail in our guide to <a href="/blog/should-cost-vs-actual-cost" style="color:#0d9488;font-weight:600;">should-cost vs actual cost</a>.</p>
+
+<p>Should-cost is one of several ways to estimate manufacturing cost. For a broader comparison of analogous, parametric, bottom-up, activity-based and AI-driven approaches, see our guide to <a href="/blog/manufacturing-cost-estimation-methods" style="color:#0d9488;font-weight:600;">manufacturing cost estimation methods</a>. Should-cost modelling is a form of bottom-up estimating, which is why it tends to be the most detailed and the most data-hungry.</p>
+
+<h2>Worked Example: Should-Costing a Machined Part</h2>
+
+<p>This section answers a common question: how do you do a should-cost analysis in practice? The example below is illustrative. The prices and rates are assumptions chosen to show the method, not market data, so replace them with your own figures.</p>
+
+<div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1.25rem 0;">
+  <p style="font-size:0.95rem;color:#374151;margin:0;"><strong>The part:</strong> a machined aluminium bracket, 6061-T6, order quantity 500 pieces, anodised finish.</p>
+</div>
+
+<h3>Step 1: Define the part and the scope</h3>
+
+<p>Gather the drawing or CAD model, the material specification, tolerances, surface finish, order quantity and any special requirements. Decide the sourcing region you are modelling, because rates depend on it.</p>
+
+<h3>Step 2: Estimate the material cost</h3>
+
+<p>The finished bracket weighs less than the stock needed to machine it. In this example the blank weighs 1.2 kg, and aluminium bar costs 4.50 USD per kg.</p>
+
+<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-family:monospace;font-size:0.9rem;color:#0d1117;">
+  Material cost: 1.2 kg × 4.50 = 5.40 USD per part
+</div>
+
+<h3>Step 3: Estimate machining cost</h3>
+
+<p>The part needs three milling operations, with a total cycle time of 14 minutes. The assumed machine hour rate is 55 USD.</p>
+
+<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;font-family:monospace;font-size:0.9rem;color:#0d1117;">
+  Machining cost: (14 ÷ 60) × 55 = 12.83 USD per part
+</div>
+
+<h3>Step 4: Add setup, fixtures and consumables</h3>
+
+<ul>
+  <li><strong>Setup:</strong> 3 hours × 55 USD = 165 USD, spread across 500 parts = 0.33 USD per part</li>
+  <li><strong>Fixturing:</strong> 300 USD one-time cost ÷ 500 = 0.60 USD per part</li>
+  <li><strong>Cutting tools and consumables:</strong> 0.90 USD per part</li>
+</ul>
+
+<h3>Step 5: Add labour, inspection and finishing</h3>
+
+<ul>
+  <li><strong>Operator labour:</strong> the operator tends two machines, so half of the 14-minute cycle applies. At 22 USD per hour: (7 ÷ 60) × 22 = 2.57 USD per part</li>
+  <li><strong>Deburring and inspection:</strong> 4 minutes at 22 USD per hour = 1.47 USD per part</li>
+  <li><strong>Anodising (outsourced):</strong> 2.20 USD per part</li>
+</ul>
+
+<h3>Step 6: Add overhead and margin</h3>
+
+<p>The direct cost subtotal is 26.30 USD. Assume overhead of 10% and a profit margin of 12%.</p>
+
+<ul>
+  <li><strong>Overhead:</strong> 26.30 × 10% = 2.63 USD</li>
+  <li><strong>Cost with overhead:</strong> 28.93 USD</li>
+  <li><strong>Margin:</strong> 28.93 × 12% = 3.47 USD</li>
+</ul>
+
+<h3>The should-cost breakdown</h3>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Cost element</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Basis</th>
+        <th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">USD per part</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Material</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">1.2 kg × 4.50 USD/kg</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5.40</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Machining</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">14 min × 55 USD/hr</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">12.83</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Setup</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">165 USD ÷ 500 parts</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.33</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Fixturing</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">300 USD ÷ 500 parts</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.60</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Tooling and consumables</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Per-part estimate</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">0.90</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Operator labour</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">7 min × 22 USD/hr</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.57</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Deburring and inspection</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">4 min × 22 USD/hr</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">1.47</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Anodising</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Outsourced process</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.20</td>
+      </tr>
+      <tr style="border-bottom:1px solid #e5e7eb;background:#f8fafc;">
+        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Direct cost subtotal</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;"></td>
+        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;text-align:right;">26.30</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Overhead</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">10% of direct cost</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">2.63</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Margin</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">12% of cost with overhead</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3.47</td>
+      </tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);">
+        <td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Should-cost</td>
+        <td style="padding:0.65rem 0.9rem;color:#374151;"></td>
+        <td style="padding:0.65rem 0.9rem;color:#0d9488;font-weight:700;text-align:right;">32.40</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>Step 7: Compare with the supplier quote</h3>
+
+<p>Suppose the supplier quoted 41.50 USD per part. The gap is 9.10 USD, or about 28% above the should-cost.</p>
+
+<p>That gap is not proof that the supplier is overcharging. It is a prompt for questions. The supplier may use a slower process, include a cost you did not model, run a smaller shop with higher overhead, or have priced in risk on tight tolerances. Each line of the model gives you a specific place to ask. The next section explains how to do that constructively.</p>
+
+<h2>Using Should-Cost Analysis in Supplier Negotiations</h2>
+
+<p>A should-cost model is most valuable when it changes how a negotiation is run. Used well, it replaces vague pressure with specific, answerable questions.</p>
+
+<h3>Share the logic, not just the number</h3>
+
+<p>Opening with "our model says 32.40 USD" invites an argument about whose number is right. Opening with "we estimated a 14-minute cycle time and a 55 USD machine rate; how does that compare with yours?" invites a discussion about facts. Suppliers often have information you lack, such as a faster process, a different machine or a better yield, and the conversation can surface it.</p>
+
+<h3>Go line by line</h3>
+
+<p>Compare the supplier's quote breakdown against your model and focus on the largest gaps first. In the example above, a large difference in machining time matters far more than a small difference in setup. Concentrate your effort where the money is.</p>
+
+<h3>Separate legitimate gaps from negotiable ones</h3>
+
+<p>Not every difference is a negotiating point. Some reflect real constraints: a small batch, a hard-to-source material, a certification requirement or a regional labour rate. Acknowledge these openly. Credibility with a supplier is worth more than a marginal price point, and a model that admits its own uncertainty is more persuasive than one that pretends to be exact.</p>
+
+<h3>Look for improvement, not only price</h3>
+
+<p>Should-cost data can point to savings that do not involve squeezing margin. Examples include changing a tolerance, switching the stock size, combining operations, or adjusting batch quantities. These benefit both sides and tend to hold up better over time than a one-off price cut.</p>
+
+<p>For a deeper look at tactics, see our <a href="/blog/should-cost-analysis-supplier-negotiation" style="color:#0d9488;font-weight:600;">supplier negotiation strategy playbook</a>.</p>
+
+<h2>Common Mistakes in Should-Cost Analysis</h2>
+
+<p>Even experienced teams run into the same handful of problems.</p>
+
+<ul>
+  <li><strong>Using finished weight instead of stock weight.</strong> Material cost is based on what you buy, not what ships.</li>
+  <li><strong>Guessing cycle times.</strong> Cycle time is the most influential input for machined parts. Use CAM estimates, shop data or time studies where you can, and mark any guess as an assumption.</li>
+  <li><strong>Double-counting labour.</strong> If the machine hour rate already includes the operator, do not add operator labour again.</li>
+  <li><strong>Ignoring batch size.</strong> Setup and tooling costs behave very differently at 50 pieces and at 5,000. Always model the quantity you actually intend to order.</li>
+  <li><strong>Applying one overhead rate everywhere.</strong> Overhead and margin vary by region, supplier size and process. A single flat percentage can mislead.</li>
+  <li><strong>Treating the result as exact.</strong> A should-cost estimate is a well-supported range, not a precise price. Present it that way.</li>
+  <li><strong>Using it as an ultimatum.</strong> If the model is presented as the only correct answer, suppliers will challenge it, and you may lose the opportunity to learn from their feedback.</li>
+  <li><strong>Letting the model go stale.</strong> Material prices, labour rates and energy costs change. Review and update the inputs regularly.</li>
+</ul>
+
+<h3>Moving from spreadsheets to dedicated tools</h3>
+
+<p>Many teams begin with a spreadsheet, which is a sensible way to learn the method. As the number of parts grows, maintaining rates, templates and assumptions by hand becomes slow and error-prone. At that stage, it is worth evaluating dedicated tooling. Our guide to choosing <a href="/blog/should-cost-analysis-software-comparison" style="color:#0d9488;font-weight:600;">should-cost modeling software</a> explains what to look for, and you can see how our approach works on the <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost analysis platform page</a>.</p>
+
 <h2>Should Cost Analysis with Emithran</h2>
 
 <p>Emithran is an AI-powered manufacturing intelligence platform built specifically for aerospace, drone, defence, and EV supply chains. Our should cost analysis engine is built on real operational data from precision CNC manufacturing — not generic textbook cost factors.</p>
@@ -15025,7 +14514,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
     seo: {
-      metaTitle: 'How to Do Should Cost Analysis: Step-by-Step Guide for Manufacturers',
+      metaTitle: 'How to Do a Should-Cost Analysis (Step-by-Step)',
       metaDescription:
         'Learn exactly how to do should cost analysis in 7 steps — with a real machined part example, cost breakdown template, and common mistakes to avoid.',
       ogTitle: 'How to Do Should Cost Analysis: Step-by-Step Guide for Manufacturers',
@@ -15506,10 +14995,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs.',
     seo: {
-      metaTitle: 'Should Cost Analysis Software: Top Tools Compared (2026)',
+      metaTitle: "Should-Cost Analysis Software Compared + Buyer's Guide",
       metaDescription:
         "Buyer's guide to should cost analysis software: how to judge costing method, process data, BOM support and quote validation, plus a neutral look at five tools.",
-      ogTitle: 'Should Cost Analysis Software: Top Tools Compared (2026)',
+      ogTitle: "Should-Cost Analysis Software: Tools Compared & Buyer's Guide",
       ogDescription:
         "How to evaluate should cost analysis software: costing method, process and rate data, BOM support, supplier-quote validation and transparency, with a sourced look at five tools.",
       tags: [
@@ -15552,6 +15041,26 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
         question: 'Does Emithran support non-machined parts?',
         answer:
           "Yes. Emithran currently supports CNC machining, stamping, casting (sand, die and investment), injection moulding, sheet metal fabrication, roll forming, welded assemblies and PCB assembly. Forging, extrusion and additive manufacturing are being added. If your parts depend on a process that is not listed, ask about it in a demo.",
+      },
+      {
+        question: 'What is should-cost modeling software?',
+        answer:
+          'Should-cost modeling software estimates what a part or product should cost by building up the cost from material, process time, labor and machine rates, overhead and profit. Teams use it to check supplier quotes, prepare negotiations and compare design and sourcing options.',
+      },
+      {
+        question: 'How accurate is should-cost software?',
+        answer:
+          'Accuracy depends on the part, the process and the quality of the data. Well-calibrated models can be close on mature processes, but any estimate is a reference point, not a certainty. The best test is a pilot: estimate parts where you have trusted quotes, then measure the average error and any bias.',
+      },
+      {
+        question: 'What is the difference between should-cost software and spreadsheets?',
+        answer:
+          'Spreadsheets work for a few parts and one owner, but become hard to maintain and trust as models multiply. Should-cost software adds maintained data, process models, version control, quote comparison and integrations, so that estimates are consistent across a team.',
+      },
+      {
+        question: 'What features should I look for in should-cost software?',
+        answer:
+          'Prioritise transparent cost breakdowns, editable assumptions, calibration against your own quotes, process and material coverage for the parts you buy, quote-versus-should-cost comparison, and CAD, PLM and ERP integration. Treat AI features as a bonus, only if you can see and override the results.',
       },
     ],
     content: `
@@ -15720,6 +15229,192 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <li><strong>Get integration answers in writing</strong> — Ask each vendor which PLM, ERP and CAD connections are native.</li>
 </ol>
 
+<h2>Questions to Ask Vendors</h2>
+
+<p>Use the same list with every vendor, and write the answers down.</p>
+
+<h3>Models and accuracy</h3>
+
+<ul>
+  <li>Can I see the full cost breakdown for a part, with every input and formula?</li>
+  <li>How are the models validated, and against what data?</li>
+  <li>How do I calibrate against my own quotes and actuals?</li>
+  <li>What accuracy do customers see on parts like mine, and how is it measured?</li>
+</ul>
+
+<h3>Data</h3>
+
+<ul>
+  <li>Where do material prices and regional rates come from, and how often are they updated?</li>
+  <li>Can I override any default, and is the change recorded?</li>
+  <li>Which processes are modelled in depth, and which are approximations?</li>
+  <li>Who maintains the data: you, me or both?</li>
+</ul>
+
+<h3>Workflow</h3>
+
+<ul>
+  <li>What does a typical estimate involve, from CAD file to result, and how long does it take?</li>
+  <li>How do I compare a quote against should-cost?</li>
+  <li>How do I share results with a supplier without exposing internal rates?</li>
+  <li>Who needs training, and for how long?</li>
+</ul>
+
+<h3>Integration and security</h3>
+
+<ul>
+  <li>Which CAD, PLM and ERP systems are supported, and how (native, API or custom)?</li>
+  <li>Where is data hosted, and what are the security and access controls?</li>
+  <li>Can I export my data if I leave?</li>
+</ul>
+
+<h3>Commercial</h3>
+
+<ul>
+  <li>How is pricing set (users, estimates, modules)?</li>
+  <li>What does implementation cost, and what is included?</li>
+  <li>Can we run a paid or unpaid pilot on our own parts?</li>
+</ul>
+
+<div style="padding:1.1rem 1.4rem;border-radius:10px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);margin:1.25rem 0;">
+  <p style="margin:0;color:#0d1117;"><strong>Red flags:</strong> a number that cannot be explained, a demo that uses only the vendor’s own sample parts, no way to calibrate, and reluctance to run a pilot on yours.</p>
+</div>
+
+<h3>Run a pilot on your own parts</h3>
+
+<p>A demo shows what the tool can do. A pilot shows whether it works for you. Pick 10 to 20 parts across your main processes, ideally ones where you have recent, trusted quotes, and ask each vendor to estimate them.</p>
+
+<p>An illustrative result for four parts:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Part</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Should-cost</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Quote</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Error (vs quote)</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">A</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$12.40</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$13.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">−4.6%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">B</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$48.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$44.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+9.1%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">C</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$7.85</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$8.10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">−3.1%</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">D</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$150.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">$138.00</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">+8.7%</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Average absolute error</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">6.4%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>Two cautions. A quote is not ground truth: it contains the supplier’s margin and its own pricing strategy, so some gap is expected. Also look at the pattern as well as the average. Here the estimate is high on two parts and low on two, a signed average of +2.5 percent, so there is no consistent bias. A tool that is always high or always low can be calibrated, while one that is wildly inconsistent is a bigger problem. Then give a second pass after calibration, to see how quickly the tool improves with your data.</p>
+
+<h2>Scoring Checklist</h2>
+
+<p>A weighted scorecard turns a long list of impressions into a comparison you can defend to colleagues. Score each criterion from 0 to 5, multiply by the weight, and divide by 5 to get points out of the weight.</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Criterion</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Weight</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Cost model depth and transparency</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">20</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Process and material coverage</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">15</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Data quality, rate libraries and calibration</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">15</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">CAD and geometry input</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">PLM and ERP integration</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Workflow, quote comparison and reporting</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Security and deployment</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Usability and time to first result</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Vendor support and implementation</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Total cost of ownership</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">100</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>An illustrative comparison of two vendors:</p>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);"><th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Criterion</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Weight</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Vendor A score</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">A points</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">Vendor B score</th><th style="padding:0.65rem 0.9rem;text-align:right;font-weight:700;color:#0d1117;">B points</th></tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Model depth and transparency</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">20</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">16</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">20</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Process and material coverage</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">15</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">9</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">12</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Data, rates and calibration</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">15</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">12</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">9</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">CAD and geometry input</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">6</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">PLM and ERP integration</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">6</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">8</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Workflow and reporting</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">10</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">8</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">6</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Security and deployment</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Usability</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;"><td style="padding:0.65rem 0.9rem;color:#374151;">Support and implementation</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td></tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;"><td style="padding:0.65rem 0.9rem;color:#374151;">Total cost of ownership</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">5</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">3</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td><td style="padding:0.65rem 0.9rem;color:#374151;text-align:right;">4</td></tr>
+      <tr style="background:#f0fdf8;border-top:2px solid rgba(13,148,136,0.2);"><td style="padding:0.65rem 0.9rem;color:#0d1117;font-weight:700;">Total</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">100</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">75</td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;"></td><td style="padding:0.65rem 0.9rem;color:#0d9488;text-align:right;font-weight:700;">76</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<p>The totals are 75 and 76, a gap too small to mean anything. That is a realistic outcome, and it is the signal to settle the decision with a pilot on your own parts, not with more scoring. Adjust the weights to your situation: a design-led team might raise CAD input and usability, and a procurement team might raise quote comparison and reporting. Agree the weights before you see any demos, so they are not shaped by whichever vendor presented best.</p>
+
+<p style="font-size:0.95rem;"><a href="/downloads/should-cost-software-scorecard.csv" download style="color:#0d9488;font-weight:600;">Download the scorecard (CSV)</a>: the weighted checklist for up to three vendors, plus a pilot-accuracy table that calculates bias and average error.</p>
+
+<h2>Building the Business Case</h2>
+
+<p>Getting sign-off on should cost modeling software requires a business case that translates capability into financial impact.</p>
+
+<h3>Quantify the Current Cost of the Problem</h3>
+
+<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1.25rem;margin:1rem 0;">
+  <p style="font-size:0.88rem;color:#374151;margin-bottom:0.75rem;font-style:italic;">Example calculation:</p>
+  <p style="font-family:monospace;font-size:0.88rem;color:#0d1117;margin:0;">3 cost engineers × 25 hrs/week on manual modeling × ₹2,500/hr = <strong>₹46.9L/year</strong> in direct labor cost of should cost modeling alone</p>
+</div>
+
+<h3>Quantify the Savings Opportunity</h3>
+
+<p>A conservative benchmark: organisations that implement systematic should cost analysis achieve 5–12% cost reduction on the spend they benchmark, in the first renegotiation cycle.</p>
+
+<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1.25rem;margin:1rem 0;">
+  <p style="font-size:0.88rem;color:#374151;margin-bottom:0.75rem;font-style:italic;">Example projection:</p>
+  <ul style="font-family:monospace;font-size:0.88rem;color:#0d1117;padding-left:1.25rem;margin:0;line-height:2;">
+    <li>Direct materials spend: ₹80 crore/year</li>
+    <li>Addressable spend benchmarked in year 1: ₹20 crore (25%)</li>
+    <li>Conservative savings at 6%: <strong>₹1.2 crore</strong></li>
+    <li>Software cost: ₹15–25L/year</li>
+    <li>Year 1 ROI: <strong>5–8×</strong></li>
+  </ul>
+</div>
+
+<h3>Factor in Indirect Value</h3>
+<ul>
+  <li>Faster RFQ cycles (reduced time-to-award)</li>
+  <li>Improved consistency in cost engineering outputs</li>
+  <li>Earlier design feedback reducing late-stage cost surprises</li>
+  <li>Better supplier relationships built on data rather than pressure</li>
+</ul>
+
+<h3>Present the Risk of Inaction</h3>
+<p>The business case should also quantify what continuing with spreadsheets costs. If your cost engineering team is a bottleneck that delays one procurement award per quarter by two weeks, what is the cost of that delay in terms of programme timeline and working capital?</p>
+
+<h2>Implementation and Onboarding: What to Expect</h2>
+
+<div style="display:flex;flex-direction:column;gap:0.65rem;margin:1.25rem 0;">
+  <div style="display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);align-items:flex-start;">
+    <div style="min-width:80px;font-weight:700;color:#0d9488;font-size:0.85rem;padding-top:0.1rem;">Weeks 1–2</div>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">Platform setup, rate library calibration for your target geographies, and initial user onboarding. First should cost models run on pilot parts.</p>
+  </div>
+  <div style="display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);align-items:flex-start;">
+    <div style="min-width:80px;font-weight:700;color:#0d9488;font-size:0.85rem;padding-top:0.1rem;">Weeks 3–6</div>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">Integration with BOM data sources. Onboarding of full cost engineering team. First live supplier quote benchmarks.</p>
+  </div>
+  <div style="display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);align-items:flex-start;">
+    <div style="min-width:80px;font-weight:700;color:#0d9488;font-size:0.85rem;padding-top:0.1rem;">Month 2–3</div>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">Platform embedded in regular RFQ workflow. First negotiation cycle supported by should cost data.</p>
+  </div>
+  <div style="display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);align-items:flex-start;">
+    <div style="min-width:80px;font-weight:700;color:#0d9488;font-size:0.85rem;padding-top:0.1rem;">Month 3+</div>
+    <p style="font-size:0.9rem;color:#374151;margin:0;">Continuous improvement of model accuracy from feedback. VAVE initiative integration. Expansion to additional spend categories.</p>
+  </div>
+</div>
+
+<p>The key variable is data readiness. Organisations with clean, structured BOM data and engineering drawings in a consistent format move faster. Those with fragmented data sources require additional preparation time.</p>
+
 <h2>Sources and how we checked</h2>
 <p style="font-size:0.9rem;color:#374151;">Competitor details in this article come only from the public pages below, checked on 13 October 2026. Vendors change products, packaging and pricing, so confirm current details with each vendor before you decide. If you spot something out of date, <a href="/contact?source=blog-correction&cta=suggest-correction" style="color:#0d9488;font-weight:600;">tell us</a> and we will correct it.</p>
 <ul style="font-size:0.88rem;color:#374151;padding-left:1.2rem;">
@@ -15746,10 +15441,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
     seo: {
-      metaTitle: 'Should Cost Modeling: Methodology, Tools & Examples',
+      metaTitle: 'Should-Cost Model Examples by Commodity',
       metaDescription:
-        'Explore the three main should cost modeling methodologies — parametric, analogical, and bottom-up — with real manufacturing examples for aerospace, EV, and defence.',
-      ogTitle: 'Should Cost Modeling: Methodology, Tools & Examples',
+        'Worked should-cost examples by commodity: a machined titanium bracket, a fabricated battery tray and an electronics enclosure, with the method used for each.',
+      ogTitle: 'Should-Cost Model Examples by Commodity: Machined, Fabricated, Electronic',
       ogDescription:
         'Three methodologies, three industry examples, and the tools that modern manufacturers use to build credible should cost models at scale.',
       tags: [
@@ -15796,115 +15491,9 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 
 <p>This guide covers the three core should cost modeling methodologies, when to use each, and how they apply across aerospace, EV, and defence manufacturing — with real examples throughout.</p>
 
-<h2>The Three Core Should Cost Modeling Methodologies</h2>
+<h2>Should-Cost Examples by Commodity</h2>
+<p>Each example below costs a different commodity &mdash; a machined aerospace part, a fabricated EV assembly and a defence electronics enclosure &mdash; and uses the estimating method that suits it. The methodology section after the examples explains when to use each method.</p>
 
-<h3>1. Bottom-Up (Engineering Build-Up) Modeling</h3>
-
-<p><strong>What it is:</strong> The most precise and most widely used approach. A bottom-up should cost model decomposes a part or assembly into its individual manufacturing steps, applies cost data at each step, and sums to a total. Every cost element is derived independently from part geometry, process routing, material specification, and regional rates.</p>
-
-<p><strong>When to use it:</strong></p>
-<ul>
-  <li>Detailed engineering drawings or CAD models are available</li>
-  <li>You need high accuracy for supplier negotiation or contract pricing</li>
-  <li>The component is complex, high-value, or high-volume</li>
-  <li>You are benchmarking a live supplier quote</li>
-</ul>
-
-<p><strong>Accuracy:</strong> ±5–10% when using calibrated process rates and current material prices.</p>
-
-<p><strong>Limitation:</strong> Time-intensive for large BOMs without automation. A 150-line BOM modeled manually takes a cost engineer several weeks.</p>
-
-<p style="padding:0.85rem 1rem;border-radius:8px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);font-size:0.88rem;color:#374151;">For a step-by-step walkthrough of the bottom-up method, see: <a href="/blog/how-to-do-should-cost-analysis" style="color:#0d9488;font-weight:600;">How to Do Should Cost Analysis</a></p>
-
-<h3>2. Parametric Cost Modeling</h3>
-
-<p><strong>What it is:</strong> Parametric modeling estimates cost using statistical relationships between cost and measurable design parameters — weight, surface area, complexity index, material type, and so on. A parametric cost estimating relationship (CER) is a formula derived from historical data that says: "for parts like this, cost tends to scale with these variables in this way."</p>
-
-<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;">
-  <p style="font-size:0.85rem;font-weight:600;color:#0d1117;margin-bottom:0.5rem;">Example CER (simplified):</p>
-  <p style="font-family:monospace;font-size:0.88rem;color:#0d1117;margin:0;">Machined Part Cost = (A × Part Weight) + (B × Feature Count) + (C × Tolerance Class) + D</p>
-  <p style="font-size:0.82rem;color:#6b7280;margin-top:0.5rem;margin-bottom:0;">Where A, B, C, and D are coefficients derived from historical cost data.</p>
-</div>
-
-<p><strong>When to use it:</strong></p>
-<ul>
-  <li>Early design stage, when detailed drawings are not yet available</li>
-  <li>Rapid cost estimation across many concept alternatives</li>
-  <li>Benchmarking families of similar parts</li>
-  <li>Programme-level cost modelling where precision per part is less critical than directional accuracy</li>
-</ul>
-
-<p><strong>Accuracy:</strong> ±15–30%, depending on how well the CER was built and how similar the new part is to the training data.</p>
-
-<p><strong>Limitation:</strong> Accuracy degrades when the new part falls outside the range of historical data used to build the CER. Parametric models can be dangerously misleading when applied to genuinely novel designs.</p>
-
-<h3>3. Analogical Cost Modeling</h3>
-
-<p><strong>What it is:</strong> Analogical modeling estimates cost by finding the closest historical analogue — a previously costed part that is similar in geometry, material, and process — and adjusting that known cost for differences. It is systematic reasoning by similarity.</p>
-
-<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;">
-  <p style="font-size:0.85rem;font-weight:600;color:#0d1117;margin-bottom:0.5rem;">Example:</p>
-  <p style="font-size:0.88rem;color:#374151;margin:0;font-style:italic;">"This new titanium machined bracket costs approximately ₹8,200, based on a similar bracket we costed last year at ₹7,400, adjusted +11% for increased complexity (one additional pocket and tighter bore tolerance) and −3% for a lower current titanium price."</p>
-</div>
-
-<p><strong>When to use it:</strong></p>
-<ul>
-  <li>A good historical analogue exists in your cost database</li>
-  <li>Speed is more important than precision</li>
-  <li>Early RFQ response, before detailed design data is available</li>
-  <li>Checking the plausibility of a bottom-up estimate</li>
-</ul>
-
-<p><strong>Accuracy:</strong> ±10–25%, highly dependent on the quality and relevance of the analogue.</p>
-
-<p><strong>Limitation:</strong> Only as good as your historical database. Organisations without well-maintained, parametrically tagged cost records cannot do analogical modeling effectively.</p>
-
-<h2>Choosing the Right Methodology</h2>
-
-<div style="overflow-x:auto;margin:1.25rem 0;">
-  <table style="width:100%;border-collapse:collapse;font-size:0.875rem;">
-    <thead>
-      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Situation</th>
-        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Recommended Method</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Detailed drawing available, supplier negotiation</td>
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Bottom-Up</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Concept phase, multiple design alternatives</td>
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Parametric</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Quick RFQ response, good historical data</td>
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Analogical</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Programme-level budget planning</td>
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Parametric</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">VAVE analysis on production parts</td>
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Bottom-Up</td>
-      </tr>
-      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
-        <td style="padding:0.65rem 0.9rem;color:#374151;">New material or novel process (no analogues)</td>
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Bottom-Up</td>
-      </tr>
-      <tr>
-        <td style="padding:0.65rem 0.9rem;color:#374151;">Cost trend analysis across part families</td>
-        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Parametric</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<p>In practice, mature cost engineering teams use all three — parametric models at the front end of product development, analogical checks during detailed design, and bottom-up models for final negotiation and production. AI-powered platforms now enable the same team to run all three methodologies from a single interface.</p>
-
-<h2>Should Cost Modeling Examples</h2>
 
 <h3>Example 1 — Aerospace: Titanium Machined Bracket (Bottom-Up)</h3>
 
@@ -16041,21 +15630,129 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <p style="font-size:0.82rem;color:#6b7280;margin-top:0.5rem;margin-bottom:0;">Range presented in RFI response: ₹25,000–37,500. Accurate enough for the RFI stage. Bottom-up model follows once drawings are released.</p>
 </div>
 
+<h2>The Three Core Should Cost Modeling Methodologies</h2>
+
+<h3>1. Bottom-Up (Engineering Build-Up) Modeling</h3>
+
+<p><strong>What it is:</strong> The most precise and most widely used approach. A bottom-up should cost model decomposes a part or assembly into its individual manufacturing steps, applies cost data at each step, and sums to a total. Every cost element is derived independently from part geometry, process routing, material specification, and regional rates.</p>
+
+<p><strong>When to use it:</strong></p>
+<ul>
+  <li>Detailed engineering drawings or CAD models are available</li>
+  <li>You need high accuracy for supplier negotiation or contract pricing</li>
+  <li>The component is complex, high-value, or high-volume</li>
+  <li>You are benchmarking a live supplier quote</li>
+</ul>
+
+<p><strong>Accuracy:</strong> ±5–10% when using calibrated process rates and current material prices.</p>
+
+<p><strong>Limitation:</strong> Time-intensive for large BOMs without automation. A 150-line BOM modeled manually takes a cost engineer several weeks.</p>
+
+<p style="padding:0.85rem 1rem;border-radius:8px;background:rgba(13,148,136,0.06);border:1px solid rgba(13,148,136,0.15);font-size:0.88rem;color:#374151;">For a step-by-step walkthrough of the bottom-up method, see: <a href="/blog/how-to-do-should-cost-analysis" style="color:#0d9488;font-weight:600;">How to Do Should Cost Analysis</a></p>
+
+<h3>2. Parametric Cost Modeling</h3>
+
+<p><strong>What it is:</strong> Parametric modeling estimates cost using statistical relationships between cost and measurable design parameters — weight, surface area, complexity index, material type, and so on. A parametric cost estimating relationship (CER) is a formula derived from historical data that says: "for parts like this, cost tends to scale with these variables in this way."</p>
+
+<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;">
+  <p style="font-size:0.85rem;font-weight:600;color:#0d1117;margin-bottom:0.5rem;">Example CER (simplified):</p>
+  <p style="font-family:monospace;font-size:0.88rem;color:#0d1117;margin:0;">Machined Part Cost = (A × Part Weight) + (B × Feature Count) + (C × Tolerance Class) + D</p>
+  <p style="font-size:0.82rem;color:#6b7280;margin-top:0.5rem;margin-bottom:0;">Where A, B, C, and D are coefficients derived from historical cost data.</p>
+</div>
+
+<p><strong>When to use it:</strong></p>
+<ul>
+  <li>Early design stage, when detailed drawings are not yet available</li>
+  <li>Rapid cost estimation across many concept alternatives</li>
+  <li>Benchmarking families of similar parts</li>
+  <li>Programme-level cost modelling where precision per part is less critical than directional accuracy</li>
+</ul>
+
+<p><strong>Accuracy:</strong> ±15–30%, depending on how well the CER was built and how similar the new part is to the training data.</p>
+
+<p><strong>Limitation:</strong> Accuracy degrades when the new part falls outside the range of historical data used to build the CER. Parametric models can be dangerously misleading when applied to genuinely novel designs.</p>
+
+<h3>3. Analogical Cost Modeling</h3>
+
+<p><strong>What it is:</strong> Analogical modeling estimates cost by finding the closest historical analogue — a previously costed part that is similar in geometry, material, and process — and adjusting that known cost for differences. It is systematic reasoning by similarity.</p>
+
+<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1rem 1.25rem;margin:1rem 0;">
+  <p style="font-size:0.85rem;font-weight:600;color:#0d1117;margin-bottom:0.5rem;">Example:</p>
+  <p style="font-size:0.88rem;color:#374151;margin:0;font-style:italic;">"This new titanium machined bracket costs approximately ₹8,200, based on a similar bracket we costed last year at ₹7,400, adjusted +11% for increased complexity (one additional pocket and tighter bore tolerance) and −3% for a lower current titanium price."</p>
+</div>
+
+<p><strong>When to use it:</strong></p>
+<ul>
+  <li>A good historical analogue exists in your cost database</li>
+  <li>Speed is more important than precision</li>
+  <li>Early RFQ response, before detailed design data is available</li>
+  <li>Checking the plausibility of a bottom-up estimate</li>
+</ul>
+
+<p><strong>Accuracy:</strong> ±10–25%, highly dependent on the quality and relevance of the analogue.</p>
+
+<p><strong>Limitation:</strong> Only as good as your historical database. Organisations without well-maintained, parametrically tagged cost records cannot do analogical modeling effectively.</p>
+
+<h2>Choosing the Right Methodology</h2>
+
+<div style="overflow-x:auto;margin:1.25rem 0;">
+  <table style="width:100%;border-collapse:collapse;font-size:0.875rem;">
+    <thead>
+      <tr style="background:#f0fdf8;border-bottom:2px solid rgba(13,148,136,0.2);">
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Situation</th>
+        <th style="padding:0.65rem 0.9rem;text-align:left;font-weight:700;color:#0d1117;">Recommended Method</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Detailed drawing available, supplier negotiation</td>
+        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Bottom-Up</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Concept phase, multiple design alternatives</td>
+        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Parametric</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Quick RFQ response, good historical data</td>
+        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Analogical</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Programme-level budget planning</td>
+        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Parametric</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">VAVE analysis on production parts</td>
+        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Bottom-Up</td>
+      </tr>
+      <tr style="border-bottom:1px solid #f1f5f9;background:#fafafa;">
+        <td style="padding:0.65rem 0.9rem;color:#374151;">New material or novel process (no analogues)</td>
+        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Bottom-Up</td>
+      </tr>
+      <tr>
+        <td style="padding:0.65rem 0.9rem;color:#374151;">Cost trend analysis across part families</td>
+        <td style="padding:0.65rem 0.9rem;font-weight:600;color:#0d9488;">Parametric</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<p>In practice, mature cost engineering teams use all three — parametric models at the front end of product development, analogical checks during detailed design, and bottom-up models for final negotiation and production. AI-powered platforms now enable the same team to run all three methodologies from a single interface.</p>
+
 <h2>Key Data Inputs for Any Should Cost Model</h2>
 
 <p>Regardless of methodology, reliable should cost modeling depends on three data foundations:</p>
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem;margin:1.25rem 0;">
   <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <h4 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">1. Calibrated Rate Libraries</h4>
+    <h3 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">1. Calibrated Rate Libraries</h3>
     <p style="font-size:0.9rem;color:#374151;line-height:1.7;margin:0;">Machine rates, labor rates, and overhead factors must be calibrated to your target geographies and refreshed regularly. India-specific rates are particularly important and often missing from US-origin platforms.</p>
   </div>
   <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <h4 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">2. Current Material Prices</h4>
+    <h3 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">2. Current Material Prices</h3>
     <p style="font-size:0.9rem;color:#374151;line-height:1.7;margin:0;">Commodity prices for aluminium, steel, titanium, copper, and engineering plastics can move 15–30% in a 12-month period. A should cost model built on outdated material prices is a liability in negotiations, not an asset.</p>
   </div>
   <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <h4 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">3. Historical Cost Database</h4>
+    <h3 style="font-weight:700;color:#0d1117;margin-bottom:0.5rem;">3. Historical Cost Database</h3>
     <p style="font-size:0.9rem;color:#374151;line-height:1.7;margin:0;">For analogical and parametric modeling, the quality of your output is bounded by the quality of your historical cost records. Organisations that maintain well-tagged cost databases compound that investment every time they need a rapid estimate.</p>
   </div>
 </div>
@@ -16087,279 +15784,6 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.25rem;">Whether you are modeling a single critical component or benchmarking an entire supply chain BOM:</p>
   <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-bottom:1.5rem;">Emithran gives your cost engineering team the methodology, data, and speed to work at a different level.</p>
   <a href="/should-cost-analysis-software" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 2rem;background:#2dd4bf;color:#0f1b2d;font-weight:700;border-radius:9999px;text-decoration:none;font-size:0.95rem;">Explore Emithran's Should Cost Modeling Engine →</a>
-</div>
-    `,
-  },
-
-  'should-cost-modeling-software-buyers-guide': {
-    heroImage: 'https://images.pexels.com/photos/3912948/pexels-photo-3912948.jpeg',
-    authorBio:
-      '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs.',
-    seo: {
-      metaTitle: 'Should Cost Modeling Software: Complete Buyer\'s Guide (2026)',
-      metaDescription:
-        "Everything you need to evaluate and select should cost modeling software — evaluation criteria, vendor questions, pilot structure, ROI calculation, and implementation tips.",
-      ogTitle: 'Should Cost Modeling Software: Complete Buyer\'s Guide (2026)',
-      ogDescription:
-        'How to evaluate, select, and build a business case for should cost modeling software — written for procurement leaders and cost engineering directors.',
-      tags: [
-        'should cost modeling software',
-        'should cost software evaluation',
-        'cost modeling software buyer\'s guide',
-        'should cost analysis platform',
-        'manufacturing cost software selection',
-        'should cost tool ROI',
-      ],
-    },
-    faqs: [
-      {
-        question: 'How much does should cost modeling software cost?',
-        answer:
-          "Pricing varies enormously by platform tier. Enterprise platforms (aPriori, FACTON) typically start at $100,000+ annually with significant implementation costs on top. Mid-market platforms like Emithran offer more accessible pricing structured around team size and BOM complexity.",
-      },
-      {
-        question: 'How long does implementation take?',
-        answer:
-          'Enterprise platforms typically take 6–18 months to reach full deployment. Emithran is designed for significantly faster time-to-value — most teams are running live should cost models on real parts within weeks, not months.',
-      },
-      {
-        question: 'What ROI should I expect from should cost modeling software?',
-        answer:
-          'On addressable spend, most organisations achieve 5–12% cost reduction in the first renegotiation cycle supported by should cost data. Combined with engineering time savings, year-one ROI of 4–8× platform cost is a realistic benchmark for mid-size manufacturers.',
-      },
-      {
-        question: 'Do we need a dedicated cost engineer to use the software?',
-        answer:
-          "Emithran is designed to be used by procurement professionals as well as cost engineers — the AI engine handles the process routing and cost build automatically, reducing the specialist knowledge required to operate it. A cost engineering background helps interpret and act on the outputs effectively.",
-      },
-      {
-        question: 'Can should cost modeling software handle assemblies, not just individual parts?',
-        answer:
-          'Yes. Emithran handles multi-level assemblies — costing each component individually and rolling up to assembly-level totals, including bought-out parts, fasteners, and outsourced processes.',
-      },
-    ],
-    content: `
-<p style="font-size:1.1rem;color:#374151;line-height:1.8;font-style:italic;border-left:3px solid #0d9e8a;padding-left:1.25rem;margin-bottom:2rem;">The decision to invest in should cost modeling software is straightforward. The decision of which software to invest in is not.</p>
-
-<p>The market contains platforms ranging from retrofitted quoting tools to full enterprise cost engineering suites — with prices, implementation timelines, and capability gaps that vary enormously. Get it right and you have a strategic asset that changes how your procurement team negotiates. Get it wrong and you have a six-figure software expense sitting underused next to the spreadsheets your team never stopped using.</p>
-
-<p>This guide gives you the framework to get it right: what to evaluate, what to ask vendors, how to structure a proof of concept, and how to build a business case that gets sign-off.</p>
-
-<h2>Do You Actually Need Dedicated Software?</h2>
-
-<p>Before evaluating platforms, be honest about whether your current approach is genuinely broken — or just uncomfortable.</p>
-
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.25rem 0;">
-  <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(239,68,68,0.2);background:rgba(239,68,68,0.04);">
-    <p style="font-weight:700;color:#0d1117;margin-bottom:0.75rem;">You likely do <em>not</em> need dedicated software yet if:</p>
-    <ul style="font-size:0.9rem;color:#374151;line-height:1.75;padding-left:1.25rem;margin:0;">
-      <li>Your BOM has fewer than 30 components and is unlikely to grow</li>
-      <li>You run should cost analysis on fewer than 5 parts per quarter</li>
-      <li>A single experienced cost engineer can cover your full scope</li>
-    </ul>
-  </div>
-  <div style="padding:1.25rem;border-radius:12px;border:1px solid rgba(13,148,136,0.2);background:rgba(13,148,136,0.04);">
-    <p style="font-weight:700;color:#0d1117;margin-bottom:0.75rem;">You almost certainly <em>do</em> need dedicated software if:</p>
-    <ul style="font-size:0.9rem;color:#374151;line-height:1.75;padding-left:1.25rem;margin:0;">
-      <li>Your cost engineering team is a bottleneck in the RFQ cycle</li>
-      <li>Should cost models are inconsistent between team members</li>
-      <li>Design changes break your models and nobody updates them</li>
-      <li>You source across multiple geographies with outdated rate tables</li>
-      <li>You have 100+ active supplier relationships and no systematic benchmarking</li>
-      <li>Your procurement team lacks defensible data in supplier negotiations</li>
-    </ul>
-  </div>
-</div>
-
-<p>If more than two items from the second column apply to you, continuing with spreadsheets is costing you more than software would.</p>
-
-<h2>8 Criteria for Evaluating Should Cost Modeling Software</h2>
-
-<h3>1. Automation Depth: BOM-Level vs Component-Level</h3>
-
-<p>The most important question in any should cost software evaluation is: how much of the work does the platform actually do? Some platforms require engineers to manually enter cost data component by component. Others automate cost model generation from a BOM upload or CAD import.</p>
-
-<div style="padding:0.9rem 1.1rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;"><strong>Evaluate:</strong> Can the platform generate a should cost model for my full BOM without manual per-part data entry? How does it handle new part numbers with no historical data?</p>
-</div>
-
-<h3>2. Process Library Coverage</h3>
-
-<p>A should cost model is only as good as the process cost data behind it. If the platform covers CNC machining but not investment casting, or sheet metal but not composites, you will be switching between the platform and a spreadsheet for every part outside its coverage.</p>
-
-<div style="padding:0.9rem 1.1rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;"><strong>Evaluate:</strong> List your top 10 manufacturing processes by spend value. Ask the vendor to demonstrate a live should cost model for a part in each process family.</p>
-</div>
-
-<h3>3. Geographic Cost Database Calibration</h3>
-
-<p>Machine rates, labor rates, overhead factors, and material prices differ significantly by region. A platform calibrated only for US and German cost structures will produce inaccurate models for India-based suppliers — sometimes by 40–60%.</p>
-
-<div style="padding:0.9rem 1.1rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;"><strong>Evaluate:</strong> Does the platform have calibrated, regularly updated cost data for the geographies where your suppliers manufacture? Specifically ask about India, Southeast Asia, Eastern Europe, and Mexico if these are relevant to your supply chain.</p>
-</div>
-
-<h3>4. Material Price Currency</h3>
-
-<p>Commodity prices move. A should cost model built on aluminium prices from last year's budget is not a negotiation tool — it is a liability. Platforms need either live commodity price integration or a structured update cycle.</p>
-
-<div style="padding:0.9rem 1.1rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;"><strong>Evaluate:</strong> How often are material prices updated? Can the platform connect to live commodity feeds? What is the lag between a commodity price movement and reflection in the platform's models?</p>
-</div>
-
-<h3>5. Integration with Existing Systems</h3>
-
-<p>Should cost software that sits in isolation from your PLM, ERP, and procurement tools creates manual re-entry work that erodes the time savings the platform was supposed to deliver.</p>
-
-<div style="padding:0.9rem 1.1rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;"><strong>Evaluate:</strong> What are the native integrations? Is there an API for custom integration with your ERP or PLM? What is the data export format for procurement workflows?</p>
-</div>
-
-<h3>6. Scalability to Your BOM Size</h3>
-
-<p>Some platforms are designed for individual part estimation. Others are designed for BOM-level analysis across hundreds of components simultaneously. These are architecturally different products.</p>
-
-<div style="padding:0.9rem 1.1rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;"><strong>Evaluate:</strong> Ask the vendor to run a demonstration on a real BOM from your supply chain — not a curated demo dataset. Time how long it takes to generate results across 50, 100, and 200 line items.</p>
-</div>
-
-<h3>7. Supplier Benchmarking and Negotiation Support</h3>
-
-<p>Should cost modeling software that only produces cost estimates but cannot compare them against actual quotes — continuously and at scale — delivers half the value.</p>
-
-<div style="padding:0.9rem 1.1rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;"><strong>Evaluate:</strong> Does the platform track actual supplier quotes alongside should cost models? Does it calculate and report the gap? Can it generate cost justification reports formatted for supplier negotiation?</p>
-</div>
-
-<h3>8. Implementation Timeline and Onboarding</h3>
-
-<p>Enterprise platforms often require 6–18 months of implementation before they are fully operational. For a procurement team running live negotiations, that timeline is unacceptable.</p>
-
-<div style="padding:0.9rem 1.1rem;border-radius:10px;background:rgba(13,148,136,0.06);border-left:3px solid #0d9e8a;margin:1rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;"><strong>Evaluate:</strong> What does the implementation timeline look like for an organisation of your size? What does onboarding include? When will the platform be producing usable output for real parts — not test data?</p>
-</div>
-
-<h2>12 Questions to Ask Every Vendor</h2>
-
-<p>Before signing anything, get clear answers to these questions from every platform you evaluate:</p>
-
-<ol style="line-height:2;color:#374151;font-size:0.95rem;">
-  <li>How is your cost database calibrated, and how often is it updated?</li>
-  <li>Show me a live should cost model for this specific part from my supply chain — not a demo part.</li>
-  <li>What is the buy-to-fly ratio handling for machined components?</li>
-  <li>How does the platform handle parts that fall outside its process library?</li>
-  <li>What are the native integrations with PLM, ERP, and procurement systems?</li>
-  <li>What does your customer onboarding look like, and what support is available after go-live?</li>
-  <li>Who are your reference customers in aerospace / defence / EV manufacturing?</li>
-  <li>How do you handle multi-process assemblies (e.g., machined part + weld + surface treatment)?</li>
-  <li>What is the typical time-to-first-model for a new user with no prior experience on the platform?</li>
-  <li>How is should cost data versioned when designs change?</li>
-  <li>What are your data security and confidentiality protections — where is our cost data stored?</li>
-  <li>What does a typical contract look like, and what are the exit provisions?</li>
-</ol>
-
-<div style="padding:1rem 1.25rem;border-radius:10px;background:rgba(239,68,68,0.05);border-left:4px solid #ef4444;margin:1.25rem 0;">
-  <p style="font-size:0.9rem;color:#374151;margin:0;">Any vendor that cannot answer questions 1, 2, and 3 with specifics — not slides — should be removed from your shortlist.</p>
-</div>
-
-<h2>How to Structure a Proof of Concept</h2>
-
-<p>A well-structured POC separates platforms that perform on real data from platforms that only perform on their own demo material.</p>
-
-<div style="display:flex;flex-direction:column;gap:0.75rem;margin:1.25rem 0;">
-  <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <p style="font-weight:700;color:#0d9488;margin-bottom:0.35rem;">Step 1 — Select 10–15 representative parts</p>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">Choose parts that represent your actual manufacturing complexity: different materials, different process families, different geographies, different volume tiers. Include at least two parts where you have already received supplier quotes.</p>
-  </div>
-  <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <p style="font-weight:700;color:#0d9488;margin-bottom:0.35rem;">Step 2 — Define success criteria before the POC begins</p>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">Agree with the vendor on what constitutes success: should cost model generated for all 15 parts without manual process entry; model accuracy within 15% of known actual cost; full BOM analysis delivered within agreed timeframe; supplier quote benchmark report generated automatically.</p>
-  </div>
-  <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <p style="font-weight:700;color:#0d9488;margin-bottom:0.35rem;">Step 3 — Run the POC with your own data</p>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">Provide the vendor with your actual BOM, drawings, or CAD files. A good vendor will welcome this. A vendor who insists on using their own demo data is telling you something important.</p>
-  </div>
-  <div style="padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);">
-    <p style="font-weight:700;color:#0d9488;margin-bottom:0.35rem;">Step 4 — Evaluate against criteria and compare platforms</p>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">Score each platform against your defined criteria. Factor in onboarding experience — how quickly did you understand the platform, how confident are you that your organisation can use it independently within 90 days?</p>
-  </div>
-</div>
-
-<h2>Building the Business Case</h2>
-
-<p>Getting sign-off on should cost modeling software requires a business case that translates capability into financial impact.</p>
-
-<h3>Quantify the Current Cost of the Problem</h3>
-
-<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1.25rem;margin:1rem 0;">
-  <p style="font-size:0.88rem;color:#374151;margin-bottom:0.75rem;font-style:italic;">Example calculation:</p>
-  <p style="font-family:monospace;font-size:0.88rem;color:#0d1117;margin:0;">3 cost engineers × 25 hrs/week on manual modeling × ₹2,500/hr = <strong>₹46.9L/year</strong> in direct labor cost of should cost modeling alone</p>
-</div>
-
-<h3>Quantify the Savings Opportunity</h3>
-
-<p>A conservative benchmark: organisations that implement systematic should cost analysis achieve 5–12% cost reduction on the spend they benchmark, in the first renegotiation cycle.</p>
-
-<div style="background:#f8fafc;border:1px solid rgba(13,148,136,0.15);border-radius:10px;padding:1.25rem;margin:1rem 0;">
-  <p style="font-size:0.88rem;color:#374151;margin-bottom:0.75rem;font-style:italic;">Example projection:</p>
-  <ul style="font-family:monospace;font-size:0.88rem;color:#0d1117;padding-left:1.25rem;margin:0;line-height:2;">
-    <li>Direct materials spend: ₹80 crore/year</li>
-    <li>Addressable spend benchmarked in year 1: ₹20 crore (25%)</li>
-    <li>Conservative savings at 6%: <strong>₹1.2 crore</strong></li>
-    <li>Software cost: ₹15–25L/year</li>
-    <li>Year 1 ROI: <strong>5–8×</strong></li>
-  </ul>
-</div>
-
-<h3>Factor in Indirect Value</h3>
-<ul>
-  <li>Faster RFQ cycles (reduced time-to-award)</li>
-  <li>Improved consistency in cost engineering outputs</li>
-  <li>Earlier design feedback reducing late-stage cost surprises</li>
-  <li>Better supplier relationships built on data rather than pressure</li>
-</ul>
-
-<h3>Present the Risk of Inaction</h3>
-<p>The business case should also quantify what continuing with spreadsheets costs. If your cost engineering team is a bottleneck that delays one procurement award per quarter by two weeks, what is the cost of that delay in terms of programme timeline and working capital?</p>
-
-<h2>Implementation and Onboarding: What to Expect</h2>
-
-<div style="display:flex;flex-direction:column;gap:0.65rem;margin:1.25rem 0;">
-  <div style="display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);align-items:flex-start;">
-    <div style="min-width:80px;font-weight:700;color:#0d9488;font-size:0.85rem;padding-top:0.1rem;">Weeks 1–2</div>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">Platform setup, rate library calibration for your target geographies, and initial user onboarding. First should cost models run on pilot parts.</p>
-  </div>
-  <div style="display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);align-items:flex-start;">
-    <div style="min-width:80px;font-weight:700;color:#0d9488;font-size:0.85rem;padding-top:0.1rem;">Weeks 3–6</div>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">Integration with BOM data sources. Onboarding of full cost engineering team. First live supplier quote benchmarks.</p>
-  </div>
-  <div style="display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);align-items:flex-start;">
-    <div style="min-width:80px;font-weight:700;color:#0d9488;font-size:0.85rem;padding-top:0.1rem;">Month 2–3</div>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">Platform embedded in regular RFQ workflow. First negotiation cycle supported by should cost data.</p>
-  </div>
-  <div style="display:flex;gap:1rem;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(13,148,136,0.15);background:rgba(13,148,136,0.03);align-items:flex-start;">
-    <div style="min-width:80px;font-weight:700;color:#0d9488;font-size:0.85rem;padding-top:0.1rem;">Month 3+</div>
-    <p style="font-size:0.9rem;color:#374151;margin:0;">Continuous improvement of model accuracy from feedback. VAVE initiative integration. Expansion to additional spend categories.</p>
-  </div>
-</div>
-
-<p>The key variable is data readiness. Organisations with clean, structured BOM data and engineering drawings in a consistent format move faster. Those with fragmented data sources require additional preparation time.</p>
-
-<h2>Why Manufacturers Choose Emithran</h2>
-
-<p>Emithran's should cost modeling platform is designed to compress the timeline above — not extend it.</p>
-
-<ul>
-  <li><strong>Day one value:</strong> Upload your BOM and receive a should cost baseline. Not after a six-month implementation. Not after a data migration project. In your first session.</li>
-  <li><strong>India-calibrated from the ground up:</strong> Emithran is built on real operational data from precision manufacturing in India, with rate libraries covering Indian, European, and US cost structures. This is not a US platform with Indian rates added as an afterthought.</li>
-  <li><strong>Built for your industries:</strong> Aerospace, drone, defence, and EV supply chains have specific regulatory, quality, and cost structure requirements. Emithran's process library and cost benchmarks reflect these realities — AS9100D environments, small-batch economics, high-complexity geometries, and regulated material specifications.</li>
-  <li><strong>Procurement workflow integration:</strong> Should cost models connect directly to RFQ management and supplier benchmarking — not just cost estimation in isolation.</li>
-</ul>
-
-<div style="margin:2.5rem 0;padding:2rem;border-radius:16px;background:linear-gradient(135deg,#0f1b2d,#0a2a26);text-align:center;">
-  <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.25rem;">The best way to evaluate any should cost modeling platform is to test it on your actual supply chain data — not vendor demo parts.</p>
-  <p style="color:rgba(255,255,255,0.55);font-size:0.85rem;margin-bottom:1.5rem;">Bring a real BOM to your Emithran demo and walk away with a should cost baseline your team can use.</p>
-  <a href="/should-cost-analysis-software" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 2rem;background:#2dd4bf;color:#0f1b2d;font-weight:700;border-radius:9999px;text-decoration:none;font-size:0.95rem;">See Emithran's Should Cost Modeling Software — Book a Demo →</a>
 </div>
     `,
   },
@@ -17245,7 +16669,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
   </li>
   <li style="display:flex;gap:0.85rem;padding:0.85rem 1rem;border-radius:8px;border:1px solid rgba(13,148,136,0.2);background:rgba(13,148,136,0.03);">
     <span style="color:#0d9488;font-weight:700;flex-shrink:0;">✓</span>
-    <div style="font-size:0.9rem;color:#374151;"><strong style="color:#0d1117;">Be explicit about the limits.</strong> Emithran&rsquo;s process coverage is narrower than the largest CAD-driven libraries and is still expanding (see the process FAQ on the <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost software page</a>). Emithran&rsquo;s <a href="/api" style="color:#0d9488;font-weight:600;">API page</a> describes connecting to ERP, BOM and PLM systems, but native connectors for specific systems such as CATIA, NX or Creo are not listed, so confirm any integration requirement in a demo. aPriori also lists regional models of its own, so test the specific countries you buy from rather than assuming either way.</div>
+    <div style="font-size:0.9rem;color:#374151;"><strong style="color:#0d1117;">Be explicit about the limits.</strong> Emithran&rsquo;s process coverage is narrower than the largest CAD-driven libraries and is still expanding (see the process FAQ on the <a href="/should-cost-analysis-software" style="color:#0d9488;font-weight:600;">should-cost software page</a>). Emithran&rsquo;s <a href="/api-integration" style="color:#0d9488;font-weight:600;">API page</a> describes connecting to ERP, BOM and PLM systems, but native connectors for specific systems such as CATIA, NX or Creo are not listed, so confirm any integration requirement in a demo. aPriori also lists regional models of its own, so test the specific countries you buy from rather than assuming either way.</div>
   </li>
 </ul>
 
@@ -17312,7 +16736,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       "<strong>Singaravelan S.</strong> is the CEO of Emithran, which makes should-cost, BOM management and supplier intelligence software for manufacturing teams.",
     seo: {
-      metaTitle: "Costimator Alternatives: How to Choose (2026)",
+      metaTitle: "Costimator Alternatives: How to Choose",
       metaDescription:
         "Researching Costimator alternatives? See what Costimator is built for, the main alternative approaches, and a scorecard and pilot plan for your own parts.",
       ogTitle: "Costimator Alternatives: How to Choose the Right Approach",
@@ -17578,10 +17002,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs.',
     seo: {
-      metaTitle: 'Best Should-Cost Software for Aerospace (2026) | Emithran',
+      metaTitle: 'Best Should-Cost Software for Aerospace | Emithran',
       metaDescription:
         'A buyer-focused comparison of should-cost software for aerospace manufacturers — Emithran, aPriori, and Costimator — covering certification tracking, process coverage, and rollout time.',
-      ogTitle: 'Best Should-Cost Software for Aerospace Manufacturers (2026)',
+      ogTitle: 'Best Should-Cost Software for Aerospace Manufacturers',
       ogDescription:
         'What to evaluate, and how the leading should-cost platforms compare for aerospace OEMs and their suppliers.',
       tags: [
@@ -18145,10 +17569,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
     seo: {
-      metaTitle: 'Cost Modeling in Manufacturing: Methods & Best Practices (2026)',
+      metaTitle: 'Cost Modeling in Manufacturing: Methods & Examples',
       metaDescription:
         'A complete guide to cost modeling in manufacturing — standard costing, activity-based costing, should cost, and target costing — with best practices for accuracy.',
-      ogTitle: 'Cost Modeling in Manufacturing: Methods & Best Practices (2026)',
+      ogTitle: 'Cost Modeling in Manufacturing: Methods & Examples',
       ogDescription:
         'Standard costing, activity-based costing, should cost, and target costing explained — with a practical framework for choosing the right cost model for the job.',
       tags: [
@@ -18433,10 +17857,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs.',
     seo: {
-      metaTitle: 'Cost Engineering Software: Top Tools for Manufacturers (2026)',
+      metaTitle: 'Cost Engineering Software: 5 Tools Compared',
       metaDescription:
         'Compare the top cost engineering software platforms for manufacturers — covering should cost, target costing, design-to-cost, and product cost management.',
-      ogTitle: 'Cost Engineering Software: Top Tools for Manufacturers (2026)',
+      ogTitle: 'Cost Engineering Software: 5 Tools Compared',
       ogDescription:
         'A buyer\'s overview of cost engineering software platforms — what cost engineering teams actually need, and how the top tools compare.',
       tags: [
@@ -18718,10 +18142,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
     seo: {
-      metaTitle: 'Product Cost Management: Best Practices for Manufacturers (2026)',
+      metaTitle: 'Product Cost Management: 6 Best Practices',
       metaDescription:
         'A practical guide to product cost management — covering lifecycle cost tracking, cross-functional ownership, and the systems that make cost discipline stick.',
-      ogTitle: 'Product Cost Management: Best Practices for Manufacturers (2026)',
+      ogTitle: 'Product Cost Management: 6 Best Practices',
       ogDescription:
         'How leading manufacturers manage product cost across the full lifecycle — from concept through end of production — and the practices that make it stick.',
       tags: [
@@ -18950,10 +18374,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Abushan</strong> is the CTO of Emithran. He builds the cost intelligence engines that India\'s defence, space, and aerospace manufacturers run their sourcing decisions on.',
     seo: {
-      metaTitle: 'What Is BOM Management? Definition & Best Practices (2026)',
+      metaTitle: 'What Is BOM Management? Definition & Practices',
       metaDescription:
         'Learn what BOM management is, why it matters for manufacturers, and the best practices that prevent costly errors in your bill of materials process.',
-      ogTitle: 'What Is BOM Management? Definition & Best Practices (2026)',
+      ogTitle: 'What Is BOM Management? Definition & Practices',
       ogDescription:
         'A complete guide to BOM management — what it is, why errors are so costly, and the practices that keep your bill of materials accurate and audit-ready.',
       tags: [
@@ -19205,10 +18629,10 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
     authorBio:
       '<strong>Singaravelan S.</strong> is the CEO of Emithran. He has spent over fifteen years in cost engineering and supply chain strategy for automotive, aerospace, and defence OEMs.',
     seo: {
-      metaTitle: 'BOM Management Software: Complete Buyer\'s Guide (2026)',
+      metaTitle: 'BOM Management Software: Complete Buyer\'s Guide',
       metaDescription:
         'Compare the top BOM management software platforms and learn the evaluation criteria that matter — from PLM-native tools to AI-connected cost-aware BOM systems.',
-      ogTitle: 'BOM Management Software: Complete Buyer\'s Guide (2026)',
+      ogTitle: 'BOM Management Software: Complete Buyer\'s Guide',
       ogDescription:
         'Everything manufacturers need to evaluate BOM management software — top platforms compared, evaluation criteria, and how BOM tools connect to cost analysis.',
       tags: [
@@ -19724,7 +19148,7 @@ export const BLOG_CONTENT: Record<string, BlogPostContent> = {
 <p style="font-size:1.1rem;color:#374151;line-height:1.8;font-style:italic;border-left:3px solid #0d9e8a;padding-left:1.25rem;margin-bottom:2rem;">A digital twin sounds like a shop-floor simulation problem. For most manufacturing procurement and cost teams, the more immediate use case is smaller and more practical: modelling a part's cost and manufacturability before it's built, not after.</p>
 
 <h2>What is a digital twin in manufacturing?</h2>
-<p>A <a href="/glossary/digital-twin-manufacturing" style="color:#0d9488;font-weight:600;">digital twin</a> is a virtual model of a part, process, or production line used to simulate and evaluate outcomes before committing to physical production. In its full industrial form, this means a continuously updated model of an entire production line, synced with live sensor data. In the form most relevant to cost and sourcing teams, it means a part- or process-level model — geometry, material, process route — that can be evaluated for cost and manufacturability before a single physical part exists.</p>
+<p>A <a href="/glossary#digital-twin-manufacturing" style="color:#0d9488;font-weight:600;">digital twin</a> is a virtual model of a part, process, or production line used to simulate and evaluate outcomes before committing to physical production. In its full industrial form, this means a continuously updated model of an entire production line, synced with live sensor data. In the form most relevant to cost and sourcing teams, it means a part- or process-level model — geometry, material, process route — that can be evaluated for cost and manufacturability before a single physical part exists.</p>
 
 <h2>Where digital twins help manufacturing and procurement teams today</h2>
 <ul>

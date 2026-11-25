@@ -177,7 +177,7 @@ export default function AboutReferencePage() {
 
         {/* Right-half SVG background */}
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block overflow-hidden">
-          <img
+          <img width={1536} height={1024}
             src="/assets/cards/about/about.svg"
             alt=""
             aria-hidden="true"
@@ -187,7 +187,7 @@ export default function AboutReferencePage() {
 
         {/* Mobile: SVG as bottom band */}
         <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 lg:hidden overflow-hidden">
-          <img
+          <img width={1536} height={1024}
             src="/assets/cards/about/about.svg"
             alt=""
             aria-hidden="true"
@@ -353,7 +353,7 @@ export default function AboutReferencePage() {
                     markerEnd="url(#li-arrow)" />
                 </svg>
 
-                <img
+                <img width={1538} height={1022}
                   src="/assets/cards/about/about-us.png"
                   alt="About Emithran"
                   className="w-full h-auto rounded-xl"

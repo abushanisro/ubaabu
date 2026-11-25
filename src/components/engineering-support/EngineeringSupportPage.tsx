@@ -133,7 +133,7 @@ export default function EngineeringSupportPage() {
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-white">
-        <img
+        <img width={1832} height={858}
           src="/assets/auth/sign-up.svg"
           alt=""
           aria-hidden

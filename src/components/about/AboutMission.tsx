@@ -106,7 +106,7 @@ export default function AboutMission() {
                 transition={{ duration: 0.6, ease: EASE, delay: 0.3 }}
                 className="mt-5 flex items-center justify-end border-t border-black/8 pt-5"
               >
-                <img
+                <img width={300} height={150}
                   src="/assets/cocosign.png"
                   alt="Founder signature"
                   className="h-24 w-auto object-contain opacity-100"

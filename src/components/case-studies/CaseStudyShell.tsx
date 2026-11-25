@@ -185,7 +185,7 @@ export default function CaseStudyShell({
 
       {/* ── Hero ── */}
       <div className="relative min-h-[340px] md:min-h-[500px] overflow-hidden bg-[#0f1b2d]">
-        <img
+        <img width={1200} height={800}
           src={image}
           alt={imageAlt}
           className="absolute inset-0 h-full w-full object-cover"

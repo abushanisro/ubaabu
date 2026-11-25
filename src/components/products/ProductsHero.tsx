@@ -20,7 +20,7 @@ export default function ProductsHero() {
       style={{ paddingTop: '64px', background: '#ffffff' }}
     >
       {/* hero.svg background */}
-      <img
+      <img width={1280} height={720}
         aria-hidden
         src="/assets/cards/product-card/hero.svg"
         alt=""
@@ -134,7 +134,7 @@ export default function ProductsHero() {
         animationStyle="from-center"
         videoSrc="/videos/emuski.mp4"
         thumbnailSrc="/assets/hero-page/3d-drawing.webp"
-        thumbnailAlt=""
+        thumbnailAlt="Emithran platform demo: 3D part drawing with should-cost breakdown"
         isOpen={videoOpen}
         onOpenChange={setVideoOpen}
         className="absolute size-0 overflow-hidden"

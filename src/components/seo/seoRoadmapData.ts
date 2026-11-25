@@ -84,42 +84,6 @@ const strategicSourcingFaqs: SeoLandingPage['faqs'] = [
   { question: 'What data does Emithran need to support strategic sourcing decisions?', answer: 'Representative BOMs, supplier lists, historical quotes, and the sourcing categories or programmes you want visibility into. Most teams can get a useful first view within days of providing this.' },
 ]
 
-const shouldCostModelingSections: SeoLandingPage['sections'] = [
-  {
-    heading: 'Should-cost models built from process and material data',
-    body: 'Each model is assembled from the inputs that actually drive manufacturing cost, rather than scaled from a generic industry average.',
-    bullets: [
-      'Material grade and raw material index pricing.',
-      'Process-specific cycle time and machine rate assumptions.',
-      'Tooling and overhead allocation by batch size.',
-    ],
-  },
-  {
-    heading: 'Validate supplier quotes line by line',
-    body: 'Quoted prices are compared against the modeled target cost at the line-item level, so variance is visible before it becomes a negotiation surprise.',
-    bullets: [
-      'Compare quoted price against modeled target cost per part.',
-      'Flag line items that fall outside expected variance.',
-      'Track quote history across sourcing events.',
-    ],
-  },
-  {
-    heading: 'From model to negotiation brief',
-    body: 'A should-cost model is only useful if it reaches the negotiation table in a form the supplier conversation can actually use.',
-    bullets: [
-      'Exportable cost breakdowns for RFQ and negotiation.',
-      'Sensitivity views for volume, material, and geography changes.',
-      'Audit trail for engineering and finance sign-off.',
-    ],
-  },
-]
-
-const shouldCostModelingFaqs: SeoLandingPage['faqs'] = [
-  { question: 'What inputs does a should-cost model need?', answer: 'At minimum, a part drawing or CAD model, material specification, target process route, and expected volume. Supplier quote history improves accuracy further but is not required to get started.' },
-  { question: 'How accurate are should-cost models compared to actual supplier costs?', answer: 'Accuracy depends on how closely the process and material assumptions match the supplier’s actual production route. Models are designed to be directionally reliable enough to flag real variance, not to predict a supplier’s exact margin.' },
-  { question: 'Can should-cost modeling support multiple manufacturing processes in one BOM?', answer: 'Yes. A single BOM can mix machined, cast, formed, and assembled parts, each modeled against the process-specific cost drivers relevant to it.' },
-]
-
 const srmSections: SeoLandingPage['sections'] = [
   {
     heading: 'One record per supplier, not one spreadsheet per team',
@@ -480,42 +444,6 @@ const defenseFaqs: SeoLandingPage['faqs'] = [
   { question: 'Is this designed for prime contractors, subcontractors, or both?', answer: 'Both. Primes get programme-level sourcing and risk visibility, and subcontractors can use the same should-cost evidence to support their own bids and reviews.' },
 ]
 
-const supplyChainSections: SeoLandingPage['sections'] = [
-  {
-    heading: 'Map dependencies down to the BOM line item',
-    body: 'Programme-level risk is only as accurate as the part-level data underneath it.',
-    bullets: [
-      'Trace which suppliers and parts sit behind each programme commitment.',
-      'Flag single-source and geographic concentration risk at the part level.',
-      'Roll part-level risk up into programme-level exposure views.',
-    ],
-  },
-  {
-    heading: 'See risk signals before they become disruptions',
-    body: 'Risk signals are tracked continuously rather than reviewed only at scheduled intervals.',
-    bullets: [
-      'Capacity, financial, and delivery signals tracked per supplier.',
-      'Certification and audit status flagged as it changes.',
-      'Early visibility into risk concentrated in a single region or process.',
-    ],
-  },
-  {
-    heading: 'Plan alternatives before you need them',
-    body: 'Having an alternative supplier already mapped turns a disruption into a switch instead of a scramble.',
-    bullets: [
-      'Pre-qualified alternative suppliers mapped against existing single-source parts.',
-      'Should-cost comparisons ready if a sourcing switch becomes necessary.',
-      'Dual-source plans documented for the highest-risk components.',
-    ],
-  },
-]
-
-const supplyChainFaqs: SeoLandingPage['faqs'] = [
-  { question: 'How is supply chain intelligence different from supplier risk monitoring tools?', answer: 'Generic risk monitoring tools typically score a supplier in isolation. This connects that risk down to the specific BOM line items and programmes it actually affects.' },
-  { question: 'Can this map risk down to individual BOM line items?', answer: 'Yes. Risk is tracked at the supplier level and rolled up through the BOM, so you can see exactly which parts and programmes are exposed to a given risk.' },
-  { question: 'What data is needed to get supply chain visibility running?', answer: 'BOMs, supplier assignments, and any existing risk or certification data. Coverage expands as more programmes and BOMs are connected.' },
-]
-
 const benchmarkingSections: SeoLandingPage['sections'] = [
   {
     heading: 'Compare costs across process, geography, and supplier',
@@ -744,7 +672,6 @@ export const COMPARISON_PAGE_SLUGS = [
 
 export const SEO_LANDING_PAGES: SeoLandingPage[] = [
   page('strategic-sourcing-software', 'Strategic Sourcing Software for Manufacturing | Emithran', 'Strategic sourcing software for defence, aerospace, space, and precision manufacturing teams that need cost evidence, supplier qualification, and RFQ intelligence in one workflow.', 'Strategic sourcing software for manufacturing teams that cannot afford weak supplier decisions.', 'strategic sourcing software', strategicSourcingSections, strategicSourcingFaqs),
-  page('should-cost-modeling-software', 'Should-Cost Modeling Software | Emithran', 'Should-cost modeling software that turns drawings, BOMs, process routes, and supplier quotes into auditable target costs for engineered parts and assemblies.', 'Should-cost modeling software for data-backed supplier negotiation.', 'should cost modeling software', shouldCostModelingSections, shouldCostModelingFaqs),
   page('srm-software', 'SRM Software for Manufacturing Suppliers | Emithran', 'Supplier relationship management software for manufacturers that need qualification history, PPAP status, risk signals, and commercial performance in one supplier view.', 'SRM software built around real supplier performance and engineering context.', 'SRM software', srmSections, srmFaqs),
   page('spend-analysis-software', 'Spend Analysis Software for Manufacturing | Emithran', 'Spend analysis software for manufacturing procurement teams that need to find cost leakage across BOMs, suppliers, commodities, programmes, and geographies.', 'Spend analysis software that finds cost leakage inside complex manufacturing supply chains.', 'spend analysis software', spendAnalysisSections, spendAnalysisFaqs),
   page('cost-engineering-software', 'Cost Engineering Software | Emithran', 'Cost engineering software for should-cost models, manufacturing process benchmarks, part-family analysis, and negotiation-ready cost breakdowns.', 'Cost engineering software for teams that need defensible manufacturing cost models.', 'cost engineering software', costEngineeringSections, costEngineeringFaqs),
@@ -755,7 +682,6 @@ export const SEO_LANDING_PAGES: SeoLandingPage[] = [
   page('design-to-cost-software', 'Design-to-Cost Software | Emithran', 'Design-to-cost software that helps manufacturers evaluate cost targets, supplier readiness, and manufacturability tradeoffs while products are still being designed.', 'Design-to-cost software for early product cost control.', 'design to cost software', designToCostSections, designToCostFaqs),
   page('aerospace-manufacturing-software', 'Aerospace Manufacturing Software | Emithran', 'Aerospace manufacturing software for cost engineering, BOM intelligence, supplier qualification, and programme sourcing readiness.', 'Aerospace manufacturing software for cost, supplier, and BOM intelligence.', 'aerospace manufacturing software', aerospaceSections, aerospaceFaqs),
   page('defense-manufacturing-software', 'Defense Manufacturing Software | Emithran', 'Defense manufacturing software for secure BOM validation, supplier intelligence, should-cost modelling, and strategic sourcing workflows.', 'Defense manufacturing software for secure sourcing and cost intelligence.', 'defense manufacturing software', defenseSections, defenseFaqs),
-  page('supply-chain-intelligence', 'Supply Chain Intelligence Platform | Emithran', 'Supply chain intelligence for manufacturers that need supplier risk, sourcing alternatives, delivery exposure, and BOM-level dependency visibility.', 'Supply chain intelligence for mission-critical manufacturing programmes.', 'supply chain intelligence', supplyChainSections, supplyChainFaqs),
   page('manufacturing-benchmarking', 'Manufacturing Benchmarking Platform | Emithran', 'Manufacturing benchmarking software for comparing process costs, supplier quotes, geographies, and production routes across engineered parts.', 'Manufacturing benchmarking for cost engineers and sourcing teams.', 'manufacturing benchmarking', benchmarkingSections, benchmarkingFaqs),
   page('total-cost-ownership', 'Total Cost of Ownership Guide for Manufacturing | Emithran', 'A manufacturing total cost of ownership guide covering unit price, logistics, quality, inventory, tooling, risk, and supplier switching cost.', 'Total cost of ownership for manufacturing sourcing decisions.', 'total cost ownership manufacturing', tcoSections, tcoFaqs),
   page('manufacturing-process-library', 'Manufacturing Process Library | Emithran', 'A manufacturing process library for cost engineering teams covering machining, casting, forging, sheet metal, PCBA, moulding, welding, and finishing routes.', 'Manufacturing process library for should-cost and sourcing teams.', 'manufacturing process library', processLibrarySections, processLibraryFaqs),
@@ -897,7 +823,7 @@ const glossaryRelatedLinks: Record<string, { href: string; label: string }[]> = 
   'design to cost': [{ href: '/design-to-cost-software', label: 'Design-to-Cost Software' }],
   'aerospace manufacturing': [{ href: '/aerospace-cost-engineering', label: 'Aerospace Cost Engineering' }],
   'defence manufacturing': [{ href: '/defence-manufacturing', label: 'Defence Manufacturing' }],
-  'supply chain risk': [{ href: '/supply-chain-intelligence', label: 'Supply Chain Intelligence' }],
+  'supply chain risk': [{ href: '/supplier-intelligence', label: 'Supplier Intelligence' }],
   'manufacturing benchmarking': [{ href: '/manufacturing-benchmarking', label: 'Manufacturing Benchmarking' }],
   'total cost of ownership': [{ href: '/total-cost-ownership', label: 'Total Cost of Ownership Guide' }],
   'process routing': [{ href: '/manufacturing-process-library', label: 'Manufacturing Process Library' }],
@@ -909,8 +835,8 @@ const glossaryRelatedLinks: Record<string, { href: string; label: string }[]> = 
   'geometric dimensioning and tolerancing': [{ href: '/aerospace-cost-engineering', label: 'Aerospace Cost Engineering' }],
   'machine hourly rate': [{ href: '/cost-engineering-software', label: 'Cost Engineering Software' }],
   'landed cost': [{ href: '/case-studies/chassis-india-belgium', label: 'India vs Belgium Landed Cost Case Study' }],
-  'dual sourcing': [{ href: '/supply-chain-intelligence', label: 'Supply Chain Intelligence' }],
-  'single source risk': [{ href: '/supply-chain-intelligence', label: 'Supply Chain Intelligence' }],
+  'dual sourcing': [{ href: '/supplier-intelligence', label: 'Supplier Intelligence' }],
+  'single source risk': [{ href: '/supplier-intelligence', label: 'Supplier Intelligence' }],
   'supplier qualification': [{ href: '/srm-software', label: 'SRM Software' }],
   'cost breakdown analysis': [{ href: '/blog/cost-breakdown-analysis', label: 'Cost Breakdown Analysis Guide' }],
   'MRO spend': [{ href: '/spend-analysis-software', label: 'Spend Analysis Software' }],
@@ -962,10 +888,10 @@ const glossaryRelatedLinks: Record<string, { href: string; label: string }[]> = 
   'APQP': [{ href: '/srm-software', label: 'SRM Software' }],
   'space manufacturing': [{ href: '/aerospace-manufacturing-software', label: 'Aerospace Manufacturing Software' }],
   'target costing': [{ href: '/design-to-cost-software', label: 'Design-to-Cost Software' }],
-  'should cost model': [{ href: '/should-cost-analysis-software', label: 'Should-Cost Analysis Software' }, { href: '/should-cost-modeling-software', label: 'Should-Cost Modeling Software' }],
+  'should cost model': [{ href: '/should-cost-analysis-software', label: 'Should-Cost Analysis Software' }],
   'procurement savings': [{ href: '/spend-analysis-software', label: 'Spend Analysis Software' }],
   'manufacturing analytics': [{ href: '/manufacturing-intelligence', label: 'Manufacturing Intelligence Platform' }],
-  'supplier resilience': [{ href: '/supply-chain-intelligence', label: 'Supply Chain Intelligence' }],
+  'supplier resilience': [{ href: '/supplier-intelligence', label: 'Supplier Intelligence' }],
   'cost avoidance': [{ href: '/spend-analysis-software', label: 'Spend Analysis Software' }],
   'engineering change cost': [{ href: '/bom-management-software', label: 'BOM Management Software' }],
   'programme sourcing': [{ href: '/strategic-sourcing-software', label: 'Strategic Sourcing Software' }],

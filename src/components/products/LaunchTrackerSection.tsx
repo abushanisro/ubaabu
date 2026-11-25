@@ -181,6 +181,7 @@ export default function LaunchTrackerSection() {
       aria-label="Launch Tracker module"
       className="relative bg-white overflow-hidden"
     >
+      <h2 className="sr-only">Launch Tracker</h2>
       {/* Ambient - center */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 55% 45% at 50% 50%, rgba(20,184,166,0.04) 0%, transparent 70%)' }} />

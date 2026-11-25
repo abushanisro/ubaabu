@@ -1,51 +1,10 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
 import { Typewriter } from '@/components/ui/typewriter'
 import { AnimatedArrow } from '@/components/ui/animated-arrow'
 
 const CAPABILITIES = ['BOM Intelligence', 'Should-Cost', 'Supplier Radar', 'Quality & PPAP']
-
-// S(t) = S₀ · e^(r·t) - continuous compound growth
-// S₀ = $25,000 · r = 0.0025 day⁻¹ · Epoch: 2024-06-01
-// CC_R is a modelling parameter, not a customer-derived metric
-const CC_S0    = 25_000
-const CC_R     = 0.0025 / 86_400_000
-const CC_EPOCH = new Date('2024-06-01T00:00:00Z').getTime()
-
-function calcSavings() {
-  return CC_S0 * Math.exp(CC_R * (Date.now() - CC_EPOCH))
-}
-
-function LiveSavings() {
-  const [value, setValue] = useState<number | null>(null)
-
-  useEffect(() => {
-    setValue(calcSavings())
-    const id = setInterval(() => setValue(calcSavings()), 1000)
-    return () => clearInterval(id)
-  }, [])
-
-  if (value === null) return <div className="mb-6 h-5" />
-
-  const intPart = Math.floor(value).toLocaleString('en-US')
-  const decPart = (value % 1).toFixed(8).slice(2)
-
-  return (
-    <div className="mb-6 flex items-center gap-x-1 text-[11px] sm:text-sm text-black/40 whitespace-nowrap">
-      <span>Manufacturing Intelligence Index:</span>
-      <span
-        aria-live="polite"
-        aria-atomic="true"
-        style={{ fontVariantNumeric: 'tabular-nums', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', whiteSpace: 'nowrap' }}
-      >
-        <span className="font-semibold text-black/65">${intPart}</span>
-        <span className="text-black/40">.{decPart}</span>
-      </span>
-    </div>
-  )
-}
-
 
 export default function Hero() {
   const [videoOpen, setVideoOpen] = useState(false)
@@ -54,10 +13,29 @@ export default function Hero() {
     <section className="relative bg-white" style={{ minHeight: '100svh' }}>
       {/* hero background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* One <picture> so only the artwork for the current breakpoint is downloaded */}
+        {/* Mobile: the decorative teal wave is drawn as inline SVG instead of a raster
+            image. Vector shapes are not LCP candidates, so the H1 / product thumbnail
+            becomes the LCP element and paints with the first frame (SEO audit #04:
+            the decorative webp was the mobile LCP at ~4 s). */}
+        <svg className="absolute inset-0 h-full w-full translate-y-20 lg:hidden" viewBox="0 0 900 1600" preserveAspectRatio="xMidYMid slice" aria-hidden focusable="false">
+          <defs>
+            <linearGradient id="hero-wave-fill" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stopColor="#6ee7cf" />
+              <stop offset="0.45" stopColor="#14b8a6" />
+              <stop offset="1" stopColor="#2a9fb3" />
+            </linearGradient>
+            <linearGradient id="hero-wave-sheen" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#ffffff" stopOpacity="0.18" />
+              <stop offset="1" stopColor="#ffffff" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M0 1290 C 260 1150 520 1040 700 960 C 790 915 860 850 900 745 L 900 1600 L 0 1600 Z" fill="url(#hero-wave-fill)" />
+          <path d="M0 1290 C 260 1150 520 1040 700 960 C 790 915 860 850 900 745 L 900 900 C 700 1010 380 1150 0 1340 Z" fill="url(#hero-wave-sheen)" />
+        </svg>
+        {/* Desktop artwork (unchanged). On mobile the <img> falls back to a 1×1 data URI and is hidden, so no image is downloaded there. */}
         <picture>
           <source media="(min-width: 1024px)" srcSet="/assets/cards/projectcard.webp" width={1672} height={941} />
-          <img src="/assets/cards/projectcardmobile.webp" width={900} height={1599} alt="" className="absolute inset-0 h-full w-full object-cover object-center translate-y-20" fetchPriority="high" />
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width={1672} height={941} alt="" className="absolute inset-0 hidden h-full w-full object-cover object-center translate-y-20 lg:block" fetchPriority="high" />
         </picture>
       </div>
 
@@ -74,11 +52,14 @@ export default function Hero() {
 
         {/* ── LEFT: copy ── */}
         <div className="w-full max-w-[560px]">
-          <LiveSavings />
+          {/* H1 names the category and the audience (SEO audit #16). */}
           <h1 className="text-[32px] font-bold leading-[1.08] tracking-tight text-[#0a0a0a] md:text-[40px] lg:text-[50px]">
             End-to-End{' '}
             <span className="text-[#0d9e8a]">Manufacturing</span>{' '}
             Intelligence
+            <span className="mt-3 block text-[17px] font-semibold leading-snug tracking-normal text-black/70 md:text-[19px]">
+              Should-cost, BOM &amp; supplier intelligence for India’s aerospace &amp; defence OEMs
+            </span>
           </h1>
           <p className="mt-3 text-[17px] font-semibold md:text-[19px]" style={{ minHeight: '1.6em' }}>
             <span className="text-black/45">AI for </span>

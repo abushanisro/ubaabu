@@ -209,6 +209,7 @@ export default function ShipmentHubSection() {
       aria-label="Shipment Hub module"
       className="relative bg-white overflow-hidden"
     >
+      <h2 className="sr-only">Shipment Hub</h2>
       {/* Ambient - left-center */}
       <div className="pointer-events-none absolute inset-0"
         style={{ background: 'radial-gradient(ellipse 50% 45% at 5% 50%, rgba(20,184,166,0.04) 0%, transparent 70%)' }} />

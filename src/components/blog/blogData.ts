@@ -13,6 +13,12 @@ export interface BlogPost {
   image: string
   /** Descriptive alt text for the cover image; falls back to the title. */
   imageAlt?: string
+  /**
+   * Name of the person who technically reviewed the post (must match an author profile
+   * in src/lib/authors.ts). Renders "Technically reviewed by" + schema reviewedBy.
+   * Only set it when that review actually happened (SEO audit #10).
+   */
+  reviewedBy?: string
   featured?: boolean
 }
 
@@ -392,7 +398,7 @@ const POSTS_RAW: BlogPost[] = [
     date: 'November 18, 2026',
     readTime: '12 min read',
     image: '/images/blog/apriori-alternatives.jpg',
-    imageAlt: 'Emithran wordmark over line drawings of a robot arm, conveyors, a CNC machine and a factory',
+    imageAlt: 'aPriori alternatives: comparison grid of seven cost estimation tools across costing method, process coverage, BOM roll-up, quote validation, supplier data and deployment',
   },
   {
     slug: 'pcm-vs-erp-costing',
@@ -429,18 +435,6 @@ const POSTS_RAW: BlogPost[] = [
     readTime: '12 min read',
     image: '/images/blog/manufacturing-costing-software-guide.jpg',
     imageAlt: 'Operator at the control computer of a CNC router in a manufacturing workshop',
-  },
-  {
-    slug: 'should-cost-modeling-software',
-    title: 'Should-Cost Modeling Software: How to Choose the Right Tool',
-    excerpt:
-      'How to choose should-cost modeling software: must-have features, data and integrations, questions for vendors and a simple scoring checklist.',
-    category: 'Product',
-    author: AUTHORS.ceo,
-    date: 'November 18, 2026',
-    readTime: '12 min read',
-    image: '/images/blog/should-cost-modeling-software.jpg',
-    imageAlt: 'Engineer building a cost model on a laptop in a node-based modelling tool',
   },
   {
     slug: 'cnc-machining-cost-estimation',
@@ -683,20 +677,8 @@ const POSTS_RAW: BlogPost[] = [
     imageAlt: 'Sheet metal fabrication of laser-cut and bent parts',
   },
   {
-    slug: 'should-cost-analysis-guide',
-    title: 'Should-Cost Analysis: The Complete Guide for Manufacturers',
-    excerpt:
-      'Learn how should-cost analysis works, what data you need, and how to use it to negotiate supplier prices with confidence. Includes a worked example.',
-    category: 'Engineering',
-    author: AUTHORS.cto,
-    date: 'October 15, 2026',
-    readTime: '14 min read',
-    image: '/images/blog/should-cost-analysis-guide.jpg',
-    imageAlt: 'Should-cost analysis of a manufactured part with cost breakdown and supplier quote review',
-  },
-  {
     slug: 'what-is-should-cost-analysis',
-    title: 'What Is Should Cost Analysis? Complete Guide for Manufacturers',
+    title: 'What Is Should-Cost Analysis? Guide and Worked Examples',
     excerpt:
       'Discover what should cost analysis is, how it works in manufacturing, and how AI-powered platforms help procurement teams cut part costs by up to 15%.',
     category: 'Engineering',
@@ -718,7 +700,7 @@ const POSTS_RAW: BlogPost[] = [
   },
   {
     slug: 'should-cost-analysis-software-comparison',
-    title: 'Should Cost Analysis Software: Top Tools Compared (2026)',
+    title: 'Should-Cost Analysis Software: Tools Compared and Buyer\'s Guide',
     excerpt:
       'A buyer\'s guide to should cost analysis software: how to judge costing method, process data, BOM support and quote validation, with a neutral look at five tools.',
     category: 'Product',
@@ -730,25 +712,14 @@ const POSTS_RAW: BlogPost[] = [
   },
   {
     slug: 'should-cost-modeling-methodology-tools-examples',
-    title: 'Should Cost Modeling: Methodology, Tools & Examples',
+    title: 'Should-Cost Model Examples by Commodity',
     excerpt:
-      'Explore the three main should cost modeling methodologies — parametric, analogical, and bottom-up — with real manufacturing examples for aerospace, EV, and defence.',
+      'Worked should-cost examples by commodity: a machined titanium bracket, a fabricated battery tray and an electronics enclosure, plus which costing method suits each.',
     category: 'Engineering',
     author: AUTHORS.cto,
     date: 'July 1, 2026',
     readTime: '10 min read',
     image: 'https://images.pexels.com/photos/7054368/pexels-photo-7054368.jpeg',
-  },
-  {
-    slug: 'should-cost-modeling-software-buyers-guide',
-    title: 'Should Cost Modeling Software: Complete Buyer\'s Guide',
-    excerpt:
-      "Everything you need to evaluate and select should cost modeling software — evaluation criteria, vendor questions, pilot structure, ROI calculation, and implementation tips.",
-    category: 'Product',
-    author: AUTHORS.ceo,
-    date: 'July 1, 2026',
-    readTime: '11 min read',
-    image: 'https://images.pexels.com/photos/3912948/pexels-photo-3912948.jpeg',
   },
   {
     slug: 'how-to-build-should-cost-model-excel-ai',
@@ -798,7 +769,7 @@ const POSTS_RAW: BlogPost[] = [
   },
   {
     slug: 'cost-modeling-in-manufacturing',
-    title: 'Cost Modeling in Manufacturing: Methods & Best Practices (2026)',
+    title: 'Cost Modeling in Manufacturing: Methods & Best Practices',
     excerpt:
       'A complete guide to cost modeling in manufacturing — standard costing, activity-based costing, should cost, and target costing — with best practices for accuracy.',
     category: 'Engineering',
@@ -809,7 +780,7 @@ const POSTS_RAW: BlogPost[] = [
   },
   {
     slug: 'cost-engineering-software',
-    title: 'Cost Engineering Software: Top Tools for Manufacturers (2026)',
+    title: 'Cost Engineering Software: Top Tools for Manufacturers',
     excerpt:
       'Compare the top cost engineering software platforms for manufacturers — covering should cost, target costing, design-to-cost, and product cost management.',
     category: 'Product',
@@ -820,7 +791,7 @@ const POSTS_RAW: BlogPost[] = [
   },
   {
     slug: 'product-cost-management-best-practices',
-    title: 'Product Cost Management: Best Practices for Manufacturers (2026)',
+    title: 'Product Cost Management: Best Practices for Manufacturers',
     excerpt:
       'A practical guide to product cost management — covering lifecycle cost tracking, cross-functional ownership, and the systems that make cost discipline stick.',
     category: 'Engineering',
@@ -831,7 +802,7 @@ const POSTS_RAW: BlogPost[] = [
   },
   {
     slug: 'what-is-bom-management',
-    title: 'What Is BOM Management? Definition & Best Practices (2026)',
+    title: 'What Is BOM Management? Definition & Best Practices',
     excerpt:
       'Learn what BOM management is, why it matters for manufacturers, and the best practices that prevent costly errors in your bill of materials process.',
     category: 'Engineering',
@@ -842,7 +813,7 @@ const POSTS_RAW: BlogPost[] = [
   },
   {
     slug: 'bom-management-software-buyers-guide',
-    title: 'BOM Management Software: Complete Buyer\'s Guide (2026)',
+    title: 'BOM Management Software: Complete Buyer\'s Guide',
     excerpt:
       'Compare the top BOM management software platforms and learn the evaluation criteria that matter — from PLM-native tools to AI-connected cost-aware BOM systems.',
     category: 'Product',
@@ -875,7 +846,7 @@ const POSTS_RAW: BlogPost[] = [
   },
   {
     slug: 'best-should-cost-software-aerospace-manufacturers',
-    title: 'Best Should-Cost Software for Aerospace Manufacturers (2026)',
+    title: 'Best Should-Cost Software for Aerospace Manufacturers',
     excerpt:
       'A buyer-focused look at should-cost platforms for aerospace OEMs and suppliers - what to evaluate, and how Emithran, aPriori, and Costimator compare on certification tracking, process coverage, and rollout time.',
     category: 'Product',
@@ -931,4 +902,46 @@ const POSTS_RAW: BlogPost[] = [
   ...ROADMAP_POST_ROWS.map(roadmapPost),
 ]
 
-export const POSTS: BlogPost[] = POSTS_RAW.map(p => ({ ...p, ...COVER_IMAGES[p.slug] }))
+/**
+ * Planned posts that do not have hand-written copy yet. They are NOT published:
+ * excluded from POSTS (listings, related posts, sitemap, static params) and their
+ * URLs temporarily redirect (307) to the closest live page. To publish one, add its
+ * copy to BLOG_CONTENT and delete its line here — it then flows into the blog index
+ * and sitemap-blog.xml automatically. (SEO audit Nov 2026, issues #02/#03: shipping
+ * 28 copies of the same boilerplate body would have created thin duplicate pages.)
+ */
+export const DRAFT_POST_REDIRECTS: Record<string, string> = {
+  'supplier-qualification-guide': '/blog/aerospace-supplier-qualification-checklist',
+  'what-is-strategic-sourcing': '/strategic-sourcing-software',
+  'srm-software-comparison': '/srm-software',
+  'mro-spend-analysis': '/spend-analysis-software',
+  'vendor-negotiation-should-cost': '/blog/supplier-negotiation-strategy',
+  'ai-sourcing-software-guide': '/blog/supplier-discovery-software',
+  'strategic-procurement-objectives': '/strategic-sourcing-software',
+  'global-strategic-sourcing': '/strategic-sourcing-software',
+  'aerospace-manufacturing-in-india': '/aerospace-manufacturing-software',
+  'defence-manufacturing-india': '/defence-manufacturing',
+  'supply-chain-risk-management': '/blog/single-source-vs-sole-source',
+  'cmmc-compliance-manufacturing': '/defense-manufacturing-software',
+  'ai-in-manufacturing-2027-use-cases': '/blog/ai-should-cost-software',
+  'precision-manufacturing-india-benchmarks': '/manufacturing-benchmarking',
+  'space-manufacturing-supply-chain': '/blog/space-manufacturing-cost',
+  'spend-analytics-consulting': '/spend-analysis-software',
+  'spend-opportunity-assessment': '/spend-analysis-software',
+  'procurement-consulting-techniques': '/procurement-intelligence',
+  'international-procurement-process': '/strategic-sourcing-software',
+  'defence-procurement-india-guide': '/blog/defense-should-cost-analysis',
+  'manufacturing-cost-report-2027': '/state-of-manufacturing-cost-intelligence-2026',
+  'manufacturing-cost-estimation-guide': '/blog/manufacturing-cost-estimation-methods',
+  'dfm-for-aerospace-defence': '/blog/design-for-manufacturability-guide',
+  'dfm-by-process-cnc-injection-sheet-metal': '/blog/design-for-manufacturing-examples',
+  'what-is-dfma': '/blog/dfm-vs-dfma',
+  'design-for-additive-manufacturing-guide': '/blog/design-for-manufacturability-guide',
+  'supplier-benchmarking-framework': '/blog/supplier-scorecard-template',
+  'sustainable-manufacturing-guide': '/blog/manufacturing-intelligence-pillar',
+}
+
+/** Published posts only (drafts above are excluded everywhere). */
+export const POSTS: BlogPost[] = POSTS_RAW
+  .filter(p => !(p.slug in DRAFT_POST_REDIRECTS))
+  .map(p => ({ ...p, ...COVER_IMAGES[p.slug] }))

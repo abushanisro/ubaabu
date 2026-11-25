@@ -1,0 +1,34 @@
+import PricingHero from '@/components/pricing/PricingHero'
+import PricingPackages from '@/components/pricing/PricingPackages'
+import PricingFAQs from '@/components/pricing/PricingFAQs'
+import PricingCTA from '@/components/pricing/PricingCTA'
+
+import type { Metadata } from 'next'
+import { ogImages } from '@/lib/seo'
+export const metadata: Metadata = {
+  title: 'Outcome-Based Manufacturing Intelligence Pricing',
+  description:
+    'Outcome-based pricing for manufacturing intelligence: no per-seat fees or hidden costs. Plans for startups, growing OEMs and enterprise manufacturers.',
+  keywords: [
+    'manufacturing software pricing India', 'BOM software cost', 'should cost tool pricing',
+    'manufacturing intelligence subscription', 'OEM software plans', 'affordable manufacturing AI',
+  ],
+  alternates: { canonical: '/pricing' },
+  openGraph: {
+    images: ogImages,
+    title: 'Emithran Pricing - No Per-Seat Fees, No Hidden Costs',
+    description: 'Transparent, outcome-based plans for manufacturers of every scale.',
+    url: '/pricing', type: 'website', siteName: 'Emithran',
+  },
+}
+
+export default function PricingPage() {
+  return (
+    <>
+      <PricingHero />
+      <PricingPackages />
+      <PricingFAQs />
+      <PricingCTA />
+    </>
+  )
+}

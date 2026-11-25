@@ -145,7 +145,7 @@ export default function HeroAndProblem() {
                     marginBottom: '-40px',
                   }}
                 >
-                  <img
+                  <img width={1624} height={968}
                     src="/videos/card/ChatGPT Image Jun 7, 2026, 04_37_08 AM.png"
                     alt="Emithran platform overview"
                     className="w-full h-auto block"
@@ -163,7 +163,7 @@ export default function HeroAndProblem() {
                     marginTop: '-100px',
                   }}
                 >
-                  <img
+                  <img width={1633} height={963}
                     src="/videos/card/ChatGPT Image Jun 7, 2026, 04_35_49 AM.png"
                     alt="Emithran dashboard"
                     className="w-full h-auto block"
@@ -342,7 +342,7 @@ function HiddenCosts() {
                   style={{ y: imgY }}
                   className="overflow-hidden rounded-2xl"
                 >
-                  <img
+                  <img width={1392} height={1130}
                     src="/assets/cards/why-emithran/hiddencost.png"
                     alt="Hidden manufacturing costs - quality vs cost"
                     className="object-cover w-full rounded-2xl block"
@@ -357,6 +357,7 @@ function HiddenCosts() {
 
           {/* ── Right: problem rows ── */}
           <div style={{ borderTop: DIVIDER }}>
+            <h2 className="sr-only">Where manufacturing decisions break down</h2>
             {PROBLEMS.map((p, i) => (
               <ProblemRow key={p.num} p={p} index={i} />
             ))}

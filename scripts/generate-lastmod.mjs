@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Regenerates src/lib/lastmod.json — the per-route "last content change" dates used by
- * src/app/sitemap.ts. Each date is the most recent git commit touching that route's
+ * src/lib/sitemapEntries.ts. Each date is the most recent git commit touching that route's
  * source files, so sitemap <lastmod> only moves when the content actually changes
  * (instead of changing on every build).
  *
@@ -21,37 +21,39 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 
 // route -> source paths (files or directories) that define the page's content
 const ROUTES = {
-  '/': ['src/app/page.tsx', 'src/components/sections', 'src/components/emithran'],
-  '/products': ['src/app/products/page.tsx', 'src/components/products'],
-  '/solutions': ['src/app/solutions/page.tsx', 'src/components/solutions'],
-  '/industries': ['src/app/industries/page.tsx', 'src/components/industries'],
-  '/pricing': ['src/app/pricing/page.tsx', 'src/components/pricing'],
-  '/why-emithran': ['src/app/why-emithran/page.tsx'],
-  '/expert-engineering-support': ['src/app/expert-engineering-support'],
-  '/about': ['src/app/about/page.tsx', 'src/components/about'],
-  '/about/partners': ['src/app/about/partners/page.tsx', 'src/components/partners/PartnersPage.tsx', 'src/components/partners/partnerData.ts'],
-  '/about/partners/become-a-partner': ['src/app/about/partners/become-a-partner', 'src/components/partners/BecomeAPartner.tsx'],
-  '/about/partners/vendor-onboarding': ['src/app/about/partners/vendor-onboarding', 'src/components/partners/VendorOnboarding.tsx'],
-  '/contact': ['src/app/contact/page.tsx', 'src/components/contact'],
-  '/request-demo': ['src/app/request-demo/page.tsx', 'src/components/request-demo'],
-  '/should-cost-analysis-software': ['src/app/should-cost-analysis-software'],
-  '/bom-management-software': ['src/app/bom-management-software'],
-  '/supplier-intelligence': ['src/app/supplier-intelligence'],
-  '/defence-manufacturing': ['src/app/defence-manufacturing'],
-  '/aerospace-cost-engineering': ['src/app/aerospace-cost-engineering'],
-  '/state-of-manufacturing-cost-intelligence-2026': ['src/app/state-of-manufacturing-cost-intelligence-2026'],
-  '/faq': ['src/app/faq/page.tsx', 'src/components/faq'],
-  '/privacy': ['src/app/privacy/page.tsx', 'src/components/privacy'],
-  '/terms': ['src/app/terms/page.tsx', 'src/components/legal/TermsPage.tsx'],
-  '/cookies': ['src/app/cookies/page.tsx', 'src/components/legal/CookiesPage.tsx'],
-  '/dpa': ['src/app/dpa/page.tsx', 'src/components/legal/DPAPage.tsx'],
-  '/emithran-vs-dfma': ['src/app/emithran-vs-dfma'],
-  '/emithran-vs-tset': ['src/app/emithran-vs-tset'],
-  '/emithran-vs-teamcenter': ['src/app/emithran-vs-teamcenter'],
+  '/': ['src/app/(site)/page.tsx', 'src/components/sections', 'src/components/emithran'],
+  '/products': ['src/app/(site)/products/page.tsx', 'src/components/products'],
+  '/solutions': ['src/app/(site)/solutions/page.tsx', 'src/components/solutions'],
+  '/industries': ['src/app/(site)/industries/page.tsx', 'src/components/industries'],
+  '/pricing': ['src/app/(site)/pricing/page.tsx', 'src/components/pricing'],
+  '/why-emithran': ['src/app/(site)/why-emithran/page.tsx'],
+  '/expert-engineering-support': ['src/app/(site)/expert-engineering-support'],
+  '/about': ['src/app/(site)/about/page.tsx', 'src/components/about'],
+  '/about/partners': ['src/app/(site)/about/partners/page.tsx', 'src/components/partners/PartnersPage.tsx', 'src/components/partners/partnerData.ts'],
+  '/about/partners/become-a-partner': ['src/app/(site)/about/partners/become-a-partner', 'src/components/partners/BecomeAPartner.tsx'],
+  '/about/partners/vendor-onboarding': ['src/app/(site)/about/partners/vendor-onboarding', 'src/components/partners/VendorOnboarding.tsx'],
+  '/contact': ['src/app/(site)/contact/page.tsx', 'src/components/contact'],
+  '/request-demo': ['src/app/(site)/request-demo/page.tsx', 'src/components/request-demo'],
+  '/should-cost-analysis-software': ['src/app/(site)/should-cost-analysis-software'],
+  '/bom-management-software': ['src/app/(site)/bom-management-software'],
+  '/supplier-intelligence': ['src/app/(site)/supplier-intelligence'],
+  '/defence-manufacturing': ['src/app/(site)/defence-manufacturing'],
+  '/aerospace-cost-engineering': ['src/app/(site)/aerospace-cost-engineering'],
+  '/state-of-manufacturing-cost-intelligence-2026': ['src/app/(site)/state-of-manufacturing-cost-intelligence-2026'],
+  '/faq': ['src/app/(site)/faq/page.tsx', 'src/components/faq'],
+  '/privacy': ['src/app/(site)/privacy/page.tsx', 'src/components/privacy'],
+  '/terms': ['src/app/(site)/terms/page.tsx', 'src/components/legal/TermsPage.tsx'],
+  '/cookies': ['src/app/(site)/cookies/page.tsx', 'src/components/legal/CookiesPage.tsx'],
+  '/dpa': ['src/app/(site)/dpa/page.tsx', 'src/components/legal/DPAPage.tsx'],
+  '/emithran-vs-dfma': ['src/app/(site)/emithran-vs-dfma'],
+  '/emithran-vs-tset': ['src/app/(site)/emithran-vs-tset'],
+  '/emithran-vs-teamcenter': ['src/app/(site)/emithran-vs-teamcenter'],
   // Data-driven groups (one shared source of content)
-  '@landing': ['src/components/seo/seoRoadmapData.ts', 'src/components/seo/SeoLandingPage.tsx', 'src/app/[slug]'],
-  '@glossary': ['src/components/seo/seoRoadmapData.ts', 'src/app/glossary'],
-  '@de': ['src/components/seo/seoRoadmapData.ts', 'src/app/de'],
+  '@landing': ['src/components/seo/seoRoadmapData.ts', 'src/components/seo/landingContent.ts', 'src/components/seo/SeoLandingPage.tsx', 'src/app/(site)/[slug]'],
+  '@glossary': ['src/components/seo/seoRoadmapData.ts', 'src/components/seo/glossaryContent.ts', 'src/components/seo/glossaryContentA.ts', 'src/components/seo/glossaryContentB.ts', 'src/app/(site)/glossary'],
+  '@de': ['src/components/seo/seoRoadmapData.ts', 'src/components/seo/deContent.ts', 'src/app/(de)/de'],
+  '@topics': ['src/components/seo/pillarCopy.ts', 'src/lib/topics.ts', 'src/app/(site)/topics'],
+  '@authors': ['src/lib/authors.ts', 'src/app/(site)/authors'],
 }
 
 // Commits that touched many pages without changing their content (sitewide metadata or
@@ -63,8 +65,12 @@ const ignored = existsSync(ignorePath)
   : []
 const isIgnored = (hash) => ignored.some((h) => hash.startsWith(h))
 
+// Routes moved into the (site)/(de) route groups in Nov 2026 (two root layouts for
+// lang="de"). Also query the pre-move paths so history from before the move counts.
+const withLegacyPaths = (paths) => [...new Set(paths.flatMap((p) => [p, p.replace('src/app/(site)/', 'src/app/').replace('src/app/(de)/', 'src/app/')]))]
+
 function gitDate(paths) {
-  const out = execFileSync('git', ['log', '--format=%H %cI', '--', ...paths], { cwd: root, encoding: 'utf8' })
+  const out = execFileSync('git', ['log', '--format=%H %cI', '--', ...withLegacyPaths(paths)], { cwd: root, encoding: 'utf8' })
   for (const line of out.split('\n').filter(Boolean)) {
     const [hash, date] = line.split(' ')
     if (!isIgnored(hash)) return date

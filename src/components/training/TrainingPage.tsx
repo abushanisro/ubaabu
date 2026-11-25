@@ -128,7 +128,7 @@ export default function TrainingPage() {
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden bg-white">
-        <img
+        <img width={1832} height={858}
           src="/assets/auth/traning.svg"
           alt=""
           aria-hidden
