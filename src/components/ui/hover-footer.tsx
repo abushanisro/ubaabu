@@ -14,13 +14,18 @@ export const TextHoverEffect = ({
   className?: string;
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  // null until the pointer actually moves over the SVG (computing from a fake 0,0
+  // cursor on mount produced "NaN%" gradient attributes).
+  const [cursor, setCursor] = useState<{ x: number; y: number } | null>(null);
   const [hovered, setHovered] = useState(false);
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
 
   useEffect(() => {
-    if (svgRef.current && cursor.x !== null && cursor.y !== null) {
+    if (svgRef.current && cursor) {
       const svgRect = svgRef.current.getBoundingClientRect();
+      // Skip while the SVG has no size (hidden or not laid out yet): dividing by 0
+      // produced "NaN%" for cx/cy and a console error.
+      if (!svgRect.width || !svgRect.height) return;
       const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
       const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
       setMaskPosition({
@@ -61,17 +66,18 @@ export const TextHoverEffect = ({
           )}
         </linearGradient>
 
-        <motion.radialGradient
+        {/* Plain SVG gradient positioned from state (the footer uses duration 0, so the
+            former framer-motion animation was a no-op and produced NaN% values). */}
+        <radialGradient
           id="revealMask"
           gradientUnits="userSpaceOnUse"
           r="20%"
-          initial={{ cx: "50%", cy: "50%" }}
-          animate={maskPosition}
-          transition={{ duration: duration ?? 0, ease: "easeOut" }}
+          cx={maskPosition.cx}
+          cy={maskPosition.cy}
         >
           <stop offset="0%"   stopColor="white" />
           <stop offset="100%" stopColor="black" />
-        </motion.radialGradient>
+        </radialGradient>
 
         <mask id="textMask">
           <rect x="0" y="0" width="100%" height="100%" fill="url(#revealMask)" />

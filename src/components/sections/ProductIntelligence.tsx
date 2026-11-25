@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
+import { useInViewOnce } from '@/hooks/useInViewOnce'
 import { AnimatedText } from '@/components/ui/animated-underline-text-one'
 import dynamic from 'next/dynamic'
 
@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic'
 // mount the <picture> once its card is about to scroll into view.
 function LazyDemo({ name, alt }: { name: string; alt: string }) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '200px' })
+  const inView = useInViewOnce(ref, '200px')
   return (
     // Until mounted, the wrapper carries the alt text so SSR/crawlers still see a labelled image
     <div ref={ref} className="block w-full h-full" {...(inView ? {} : { role: 'img', 'aria-label': alt })}>

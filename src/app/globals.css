@@ -810,3 +810,14 @@ body::before {
 /* Typewriter caret (replaces a framer-motion blink; toggles every ~0.4 s) */
 @keyframes tw-caret-blink { 0%, 49.9% { opacity: 1; } 50%, 100% { opacity: 0; } }
 .tw-caret { animation: tw-caret-blink 0.82s step-end infinite; }
+
+/* AnimatedText underline: draw in on load (was framer-motion pathLength 0→1 + fade). */
+@keyframes ul-draw { from { stroke-dashoffset: 1; opacity: 0; } to { stroke-dashoffset: 0; opacity: 1; } }
+.animated-underline path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  d: var(--ul-path);
+  animation: ul-draw var(--ul-duration, 1.5s) ease-in-out both;
+  transition: d 0.8s ease;
+}
+.animated-underline:hover path { d: var(--ul-hover-path); }

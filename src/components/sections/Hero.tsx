@@ -1,15 +1,12 @@
-'use client'
-import { useState } from 'react'
-import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
+// Server component: the hero's markup is rendered on the server and not hydrated.
+// Interactive bits are small client islands (Typewriter, HeroVideo*).
 import { Typewriter } from '@/components/ui/typewriter'
 import { AnimatedArrow } from '@/components/ui/animated-arrow'
-import { HERO_THUMB } from '@/lib/heroImage'
+import { HeroVideoProvider, HeroVideoThumbnail, WatchOverviewButton } from './hero/HeroVideo'
 
 const CAPABILITIES = ['BOM Intelligence', 'Should-Cost', 'Supplier Radar', 'Quality & PPAP']
 
 export default function Hero() {
-  const [videoOpen, setVideoOpen] = useState(false)
-
   return (
     <section className="relative bg-white" style={{ minHeight: '100svh' }}>
       {/* hero background */}
@@ -49,6 +46,7 @@ export default function Hero() {
         .hds-btn-secondary:hover { background:oklch(0.96 0.04 180); color:oklch(0.45 0.14 185); }
       `}</style>
 
+      <HeroVideoProvider>
       <div className="relative mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 px-6 pt-20 pb-8 lg:grid-cols-2 lg:gap-10 lg:pt-28 lg:pb-12">
 
         {/* ── LEFT: copy ── */}
@@ -84,13 +82,7 @@ export default function Hero() {
               Request Demo
               <AnimatedArrow />
             </a>
-            <button onClick={() => setVideoOpen(true)} className="hds-btn-secondary flex-1 justify-center sm:flex-none">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.14 182)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <polygon points="10 8 16 12 10 16 10 8" fill="oklch(0.55 0.14 182)" stroke="none" />
-              </svg>
-              Watch Overview
-            </button>
+            <WatchOverviewButton />
           </div>
         </div>
 
@@ -100,26 +92,11 @@ export default function Hero() {
 
           {/* Main product card - HeroVideoDialog */}
           <div className="relative overflow-hidden rounded-2xl shadow-[0_32px_80px_rgba(0,0,0,0.22)]">
-            <HeroVideoDialog
-              animationStyle="from-center"
-              videoSrc="/videos/emithran-overview.mp4"
-              thumbnailSrc={HERO_THUMB.src}
-              thumbnailSrcSet={HERO_THUMB.srcSet}
-              thumbnailSizes={HERO_THUMB.sizes}
-              thumbnailWidth={HERO_THUMB.width}
-              thumbnailHeight={HERO_THUMB.height}
-              priority
-              thumbnailAlt="Emithran platform preview"
-              isOpen={videoOpen}
-              onOpenChange={setVideoOpen}
-              className="[&_img]:rounded-none [&_img]:border-0 [&_img]:shadow-none"
-            />
-
+            <HeroVideoThumbnail />
           </div>
-
-
         </div>
       </div>
+      </HeroVideoProvider>
 
       <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10" style={{ background: 'linear-gradient(to bottom, transparent, #ffffff)' }} />
 

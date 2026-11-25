@@ -1,5 +1,12 @@
 'use client'
-import { WorldMap } from '@/components/ui/map'
+import dynamic from 'next/dynamic'
+
+// Animated route map (framer-motion): loaded after hydration so framer-motion stays
+// out of the homepage's initial JavaScript. The placeholder keeps the same 2:1 box.
+const WorldMap = dynamic(() => import('@/components/ui/map').then((m) => m.WorldMap), {
+  ssr: false,
+  loading: () => <div className="w-full aspect-[2/1] bg-white rounded-xl" aria-hidden />,
+})
 
 const ROUTES = [
   {

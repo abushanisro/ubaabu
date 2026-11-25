@@ -1,8 +1,12 @@
-"use client";
 import * as React from "react";
-import { motion, Variants } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+/**
+ * Text with a hand-drawn underline that draws in on load and wobbles on hover.
+ * Pure CSS (keyframes in globals.css): no framer-motion and no client JavaScript,
+ * so it renders as a server component wherever it is used. The hover wobble uses
+ * a CSS `d: path()` transition (Chromium and Firefox; Safari keeps the static curve).
+ */
 interface AnimatedTextProps extends React.HTMLAttributes<HTMLSpanElement> {
   text: string;
   textClassName?: string;
@@ -13,56 +17,42 @@ interface AnimatedTextProps extends React.HTMLAttributes<HTMLSpanElement> {
   underlineColor?: string;
 }
 
-const AnimatedText = React.forwardRef<HTMLSpanElement, AnimatedTextProps>(
-  (
-    {
-      text,
-      textClassName,
-      underlineClassName,
-      underlinePath = "M 0,10 Q 75,0 150,10 Q 225,20 300,10",
-      underlineHoverPath = "M 0,10 Q 75,20 150,10 Q 225,0 300,10",
-      underlineDuration = 1.5,
-      underlineColor = "currentColor",
-      className,
-      ...props
-    },
-    ref
-  ) => {
-    const pathVariants: Variants = {
-      hidden: { pathLength: 0, opacity: 0 },
-      visible: {
-        pathLength: 1,
-        opacity: 1,
-        transition: { duration: underlineDuration, ease: "easeInOut" },
-      },
-    };
-
-    return (
-      <span ref={ref} className={cn("relative inline-block", className)} {...props}>
-        <span className={cn("relative", textClassName)}>{text}</span>
-        <motion.svg
-          width="100%"
-          height="12"
-          viewBox="0 0 300 20"
-          className={cn("absolute -bottom-1 left-0 w-full", underlineClassName)}
-          style={{ overflow: "visible" }}
-        >
-          <motion.path
-            d={underlinePath}
-            stroke={underlineColor}
-            strokeWidth="2.5"
-            fill="none"
-            variants={pathVariants}
-            initial="hidden"
-            animate="visible"
-            whileHover={{ d: underlineHoverPath, transition: { duration: 0.8 } }}
-          />
-        </motion.svg>
-      </span>
-    );
-  }
-);
-
-AnimatedText.displayName = "AnimatedText";
+function AnimatedText({
+  text,
+  textClassName,
+  underlineClassName,
+  underlinePath = "M 0,10 Q 75,0 150,10 Q 225,20 300,10",
+  underlineHoverPath = "M 0,10 Q 75,20 150,10 Q 225,0 300,10",
+  underlineDuration = 1.5,
+  underlineColor = "currentColor",
+  className,
+  style,
+  ...props
+}: AnimatedTextProps) {
+  return (
+    <span
+      className={cn("animated-underline relative inline-block", className)}
+      style={{
+        ...style,
+        ["--ul-path" as string]: `path("${underlinePath}")`,
+        ["--ul-hover-path" as string]: `path("${underlineHoverPath}")`,
+        ["--ul-duration" as string]: `${underlineDuration}s`,
+      }}
+      {...props}
+    >
+      <span className={cn("relative", textClassName)}>{text}</span>
+      <svg
+        width="100%"
+        height="12"
+        viewBox="0 0 300 20"
+        aria-hidden
+        className={cn("absolute -bottom-1 left-0 w-full", underlineClassName)}
+        style={{ overflow: "visible" }}
+      >
+        <path d={underlinePath} pathLength={1} stroke={underlineColor} strokeWidth="2.5" fill="none" />
+      </svg>
+    </span>
+  );
+}
 
 export { AnimatedText };

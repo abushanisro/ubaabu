@@ -9,14 +9,17 @@
 // `position: fixed` descendants, so any modal inside must be portaled to <body>.
 export default function DeferredSection({
   height,
+  id,
   children,
 }: {
   /** Approximate rendered height in px, used as the placeholder size */
   height: number
+  /** Optional id (used as the progressive-hydration trigger on the homepage) */
+  id?: string
   children: React.ReactNode
 }) {
   return (
-    <div style={{ contentVisibility: 'auto', containIntrinsicSize: `auto ${height}px` }}>
+    <div id={id} style={{ contentVisibility: 'auto', containIntrinsicSize: `auto ${height}px` }}>
       {children}
     </div>
   )

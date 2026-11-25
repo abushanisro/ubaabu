@@ -3,7 +3,17 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 import dynamic from "next/dynamic";
-import { FooterBackgroundGradient } from "@/components/ui/hover-footer";
+
+// Kept here (not imported from hover-footer) so the framer-motion module is not
+// bundled with the footer.
+function FooterBackgroundGradient() {
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      style={{ background: "radial-gradient(125% 125% at 50% 10%, #08080800 50%, #0d9e8a33 100%)" }}
+    />
+  );
+}
 
 // Decorative wordmark hover effect: loaded after hydration so framer-motion stays
 // out of every page's initial JavaScript (PageSpeed, Nov 2026).
