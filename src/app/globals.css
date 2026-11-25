@@ -378,7 +378,9 @@ body::before {
 /* FloatingPaths (components/ui/background-paths.tsx). Only stroke-dashoffset is
    animated: an opacity animation would make Chrome promote each of the 72 SVG
    paths to its own compositor layer, which costs more than it saves. */
-.floating-path { stroke-dasharray: 1 1; opacity: 0.45; animation: floating-path-flow 20s linear infinite; }
+.floating-path { stroke-dasharray: 1 1; opacity: 0.45; animation: floating-path-flow 20s linear infinite; animation-play-state: paused; }
+/* Only animate while on screen (FloatingPaths toggles .fp-running via IntersectionObserver). */
+.fp-running .floating-path { animation-play-state: running; }
 @keyframes floating-path-flow {
   0%, 100% { stroke-dashoffset: 0; }
   50%      { stroke-dashoffset: -1; }
@@ -805,3 +807,6 @@ body::before {
 .blog-content .cta-box a:hover { color: #5eead4; }
 .blog-content .cta-box strong { color: #ffffff; }
 
+/* Typewriter caret (replaces a framer-motion blink; toggles every ~0.4 s) */
+@keyframes tw-caret-blink { 0%, 49.9% { opacity: 1; } 50%, 100% { opacity: 0; } }
+.tw-caret { animation: tw-caret-blink 0.82s step-end infinite; }

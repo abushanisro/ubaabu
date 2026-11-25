@@ -2,7 +2,12 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
-import { TextHoverEffect, FooterBackgroundGradient } from "@/components/ui/hover-footer";
+import dynamic from "next/dynamic";
+import { FooterBackgroundGradient } from "@/components/ui/hover-footer";
+
+// Decorative wordmark hover effect: loaded after hydration so framer-motion stays
+// out of every page's initial JavaScript (PageSpeed, Nov 2026).
+const TextHoverEffect = dynamic(() => import("@/components/ui/hover-footer").then((m) => m.TextHoverEffect), { ssr: false });
 
 type FooterLink = {
   title: string;

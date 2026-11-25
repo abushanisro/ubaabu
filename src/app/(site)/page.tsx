@@ -40,14 +40,20 @@ export const metadata: Metadata = {
   },
 }
 
+import dynamic from 'next/dynamic'
 import Hero from '@/components/sections/Hero'
-import PlatformShowcase from '@/components/sections/PlatformShowcase'
-import ProductIntelligence from '@/components/sections/ProductIntelligence'
-import StatsSection from '@/components/sections/StatsSection'
-import WatchDemo from '@/components/sections/WatchDemo'
-import CaseStudies from '@/components/sections/CaseStudies'
-import EnterpriseSection from '@/components/sections/EnterpriseSection'
-import FinalCTA from '@/components/sections/FinalCTA'
+
+// Below-the-fold client sections are split into their own chunks. They are still
+// server-rendered (same HTML for users and crawlers), but each hydrates on its own
+// instead of in one long main-thread task with the hero, so the first paint and the
+// LCP image are not held up (PageSpeed mobile, Nov 2026: ~2 s element render delay).
+const PlatformShowcase = dynamic(() => import('@/components/sections/PlatformShowcase'))
+const ProductIntelligence = dynamic(() => import('@/components/sections/ProductIntelligence'))
+const StatsSection = dynamic(() => import('@/components/sections/StatsSection'))
+const WatchDemo = dynamic(() => import('@/components/sections/WatchDemo'))
+const CaseStudies = dynamic(() => import('@/components/sections/CaseStudies'))
+const EnterpriseSection = dynamic(() => import('@/components/sections/EnterpriseSection'))
+const FinalCTA = dynamic(() => import('@/components/sections/FinalCTA'))
 import FAQ from '@/components/sections/FAQ'
 import VendorManagementApp from '@/components/sections/VendorManagementApp'
 import PlatformPartnership from '@/components/sections/PlatformPartnership'
