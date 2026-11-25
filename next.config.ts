@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
   experimental: {
     // Two root layouts ((site) = lang="en", (de) = lang="de") need a global 404 page.
     globalNotFound: true,
+    // Inline the (Tailwind) CSS into the HTML <head> instead of render-blocking
+    // <link> requests: PageSpeed Insights (mobile, Nov 2026) attributed ~580 ms of
+    // LCP to the three blocking stylesheets on slow 4G. Trade-off: CSS is no longer
+    // cached separately for returning visitors. Remove this line to revert.
+    inlineCss: true,
   },
   turbopack: {
     root: __dirname,
