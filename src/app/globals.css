@@ -375,6 +375,30 @@ body::before {
 @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes drift { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 .em-robot-float { animation: drift 6s ease-in-out infinite; will-change: transform; }
+
+/* Enterprise robot that turns toward the cursor. <LookAtCursor> writes --look-x /
+   --look-y (-1..1); everything below is transform-only, so it runs on the compositor.
+   The head layer is cut from the same 520x520 artwork (robot-head.webp = the 102x110
+   region at 205,62) and pivots at the neck, on top of a body that turns a little. */
+.robot-rig { --look-x: 0; --look-y: 0; position: relative; width: 100%; height: 100%; perspective: 900px; }
+.robot-rig__body {
+  position: absolute; inset: 0; transform-style: preserve-3d; transform-origin: 50% 70%; will-change: transform;
+  transform: rotateY(calc(var(--look-x) * 14deg)) rotateX(calc(var(--look-y) * -6deg));
+}
+.robot-rig__layer {
+  position: absolute; display: block; user-select: none; pointer-events: none;
+  filter: drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15);
+}
+.robot-rig__torso { inset: 0; width: 100%; height: 100%; }
+.robot-rig__head {
+  left: 39.423%; top: 11.923%; width: 19.615%; height: 21.154%;
+  transform-origin: 50% 95%; will-change: transform;
+  transform:
+    translate3d(calc(var(--look-x) * 6%), calc(var(--look-y) * 4%), 0)
+    rotateY(calc(var(--look-x) * 30deg))
+    rotateX(calc(var(--look-y) * -22deg))
+    rotateZ(calc(var(--look-x) * 5deg));
+}
 /* FloatingPaths (components/ui/background-paths.tsx). Only stroke-dashoffset is
    animated: an opacity animation would make Chrome promote each of the 72 SVG
    paths to its own compositor layer, which costs more than it saves. */

@@ -2,7 +2,86 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { DottedSurface } from '@/components/ui/dotted-surface'
+import { LookAtCursor } from '@/components/ui/look-at-cursor'
+import { SplineScene } from '@/components/ui/spline-scene'
+import { useInViewOnce } from '@/hooks/useInViewOnce'
 import { visibleRafLoop } from '@/lib/visibleRafLoop'
+
+const ROBOT_SCENE = 'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode'
+const ROBOT_FILTER = 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)'
+const FADE = 'opacity 0.6s ease'
+
+/**
+ * Only devices that benefit from the live 3D robot get it: a wide screen with a real
+ * mouse, motion allowed, no data-saver, and enough memory for a WebGL scene.
+ */
+function canRunLiveRobot(): boolean {
+  const mq = (q: string) => window.matchMedia(q).matches
+  if (!mq('(min-width: 768px)') || !mq('(hover: hover) and (pointer: fine)') || mq('(prefers-reduced-motion: reduce)')) return false
+  const nav = navigator as Navigator & { connection?: { saveData?: boolean }; deviceMemory?: number }
+  if (nav.connection?.saveData) return false
+  if (nav.deviceMemory !== undefined && nav.deviceMemory < 4) return false
+  return true
+}
+
+/**
+ * Hub robot, in two tiers:
+ *
+ * 1. Server-rendered 2D rig (head + body layers cut from the pre-rendered artwork,
+ *    ~17 KB) whose head turns toward the cursor with CSS transforms. It is what
+ *    crawlers, phones, reduced-motion users and first paint get, so there is no
+ *    layout shift and nothing heavy on the critical path.
+ * 2. On capable desktops, once the section is near the viewport and the browser is
+ *    idle, the live Spline scene (real 3D head that follows the cursor in every
+ *    direction) loads in its own chunk and cross-fades over the rig. If it fails
+ *    (no WebGL, network), the rig simply stays.
+ *
+ * Decorative: hidden from assistive tech.
+ */
+function RobotFigure() {
+  const rootRef = useRef<HTMLDivElement>(null)
+  const near = useInViewOnce(rootRef, '400px 0px')
+  const [load3D, setLoad3D] = useState(false)
+  const [ready3D, setReady3D] = useState(false)
+  const [failed3D, setFailed3D] = useState(false)
+
+  useEffect(() => {
+    if (!near || !canRunLiveRobot()) return
+    const go = () => setLoad3D(true)
+    if (typeof window.requestIdleCallback === 'function') {
+      const id = window.requestIdleCallback(go, { timeout: 2500 })
+      return () => window.cancelIdleCallback(id)
+    }
+    const id = window.setTimeout(go, 300)
+    return () => window.clearTimeout(id)
+  }, [near])
+
+  const show3D = ready3D && !failed3D
+
+  return (
+    <div ref={rootRef} className="relative w-full h-full em-robot-float" aria-hidden="true">
+      <div className="absolute inset-0" style={{ opacity: show3D ? 0 : 1, transition: FADE }}>
+        <LookAtCursor className="robot-rig" originY={0.22} enabled={!show3D}>
+          <div className="robot-rig__body">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="robot-rig__layer robot-rig__torso" src="/assets/enterprise/robot-body.webp" alt="" width={520} height={520} loading="lazy" decoding="async" draggable={false} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="robot-rig__layer robot-rig__head" src="/assets/enterprise/robot-head.webp" alt="" width={102} height={110} loading="lazy" decoding="async" draggable={false} />
+          </div>
+        </LookAtCursor>
+      </div>
+
+      {load3D && !failed3D && (
+        <div className="absolute inset-0" style={{ opacity: show3D ? 1 : 0, transition: FADE, filter: ROBOT_FILTER }}>
+          <SplineScene scene={ROBOT_SCENE} className="w-full h-full" onReady={() => setReady3D(true)} onError={() => setFailed3D(true)} />
+        </div>
+      )}
+
+      <div className="absolute inset-0 pointer-events-none rounded-full"
+        style={{ background: 'radial-gradient(circle at 50% 40%, rgba(45,212,191,0.10) 0%, transparent 68%)', mixBlendMode: 'screen' }} />
+    </div>
+  )
+}
 
 
 type Item = { id: string; label: string; sub: string; desc: string; bg: string; fg: string; int: string }
@@ -662,28 +741,7 @@ export default function EnterpriseSection() {
               {/* Outer ambient glow rings */}
               <div className="absolute inset-0 pointer-events-none" style={{ borderRadius: '50%', boxShadow: '0 0 60px 20px rgba(45,212,191,0.18), 0 0 120px 40px rgba(13,158,138,0.10)' }} />
 
-              {/* Robot with brand teal filter. Pre-rendered from the Spline scene
-                  (prod.spline.design/kZDDjO5HuC9GJUM2): the live WebGL runtime was a
-                  2 MB bundle that froze scrolling for seconds while it compiled and then
-                  re-rendered (and re-filtered) every frame. A static image costs ~16 KB;
-                  the float is a transform-only animation, so it stays on the compositor. */}
-              <div className="relative w-full h-full em-robot-float"
-                style={{ filter: 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/assets/enterprise/robot.webp"
-                  alt=""
-                  aria-hidden="true"
-                  width={520}
-                  height={520}
-                  loading="lazy"
-                  decoding="async"
-                  draggable={false}
-                  className="w-full h-full object-contain select-none"
-                />
-                <div className="absolute inset-0 pointer-events-none rounded-full"
-                  style={{ background: 'radial-gradient(circle at 50% 40%, rgba(45,212,191,0.10) 0%, transparent 68%)', mixBlendMode: 'screen' }} />
-              </div>
+              <RobotFigure />
 
               {/* Floating manufacturing data chips - desktop only */}
               {!isMob && (
@@ -722,12 +780,8 @@ export default function EnterpriseSection() {
               )}
             </>
           ) : (
-            /* SSR / first paint: same robot artwork, without the client-only chips */
-            <div className="relative w-full h-full"
-              style={{ filter: 'drop-shadow(0 0 18px rgba(45,212,191,0.7)) drop-shadow(0 0 48px rgba(13,158,138,0.45)) brightness(1.08) saturate(1.15)' }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/enterprise/robot.webp" alt="" aria-hidden="true" width={520} height={520} loading="lazy" decoding="async" draggable={false} className="w-full h-full object-contain select-none" />
-            </div>
+            /* SSR / first paint: same robot, without the client-only chips */
+            <RobotFigure />
           )}
         </div>
 
