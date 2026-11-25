@@ -69,11 +69,26 @@ const isIgnored = (hash) => ignored.some((h) => hash.startsWith(h))
 // lang="de"). Also query the pre-move paths so history from before the move counts.
 const withLegacyPaths = (paths) => [...new Set(paths.flatMap((p) => [p, p.replace('src/app/(site)/', 'src/app/').replace('src/app/(de)/', 'src/app/')]))]
 
+/**
+ * Most recent commit date for a route's source paths, skipping:
+ *  - commits listed in lastmod-ignore-commits.txt,
+ *  - merge commits (no diff of their own),
+ *  - commits that only *renamed* the route's files without changing them (R100),
+ *    e.g. the Nov 2026 move into the (site)/(de) route groups. A commit that moved
+ *    AND edited a file still counts, so real content changes keep their date.
+ */
 function gitDate(paths) {
-  const out = execFileSync('git', ['log', '--format=%H %cI', '--', ...withLegacyPaths(paths)], { cwd: root, encoding: 'utf8' })
-  for (const line of out.split('\n').filter(Boolean)) {
-    const [hash, date] = line.split(' ')
-    if (!isIgnored(hash)) return date
+  const out = execFileSync(
+    'git',
+    ['log', '-M', '--name-status', '--format=@@%H %cI', '--', ...withLegacyPaths(paths)],
+    { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }
+  )
+  for (const block of out.split('@@').filter(Boolean)) {
+    const [header, ...files] = block.split('\n').filter(Boolean)
+    const [hash, date] = header.split(' ')
+    if (isIgnored(hash) || files.length === 0) continue
+    if (files.every((line) => line.startsWith('R100'))) continue
+    return date
   }
   return null
 }
