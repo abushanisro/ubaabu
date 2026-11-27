@@ -12,7 +12,7 @@ const CSP = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   "media-src 'self' blob:",
-  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://chatling.ai https://*.chatling.ai https://*.supabase.co https://challenges.cloudflare.com https://prod.spline.design https://vitals.vercel-insights.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://stats.g.doubleclick.net https://*.doubleclick.net https://www.google.com https://chatling.ai https://*.chatling.ai https://*.supabase.co https://challenges.cloudflare.com https://prod.spline.design https://vitals.vercel-insights.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
   "frame-src 'self' https://challenges.cloudflare.com https://chatling.ai https://*.chatling.ai https://www.youtube.com https://www.youtube-nocookie.com",
   "worker-src 'self' blob:",
   "object-src 'none'",
