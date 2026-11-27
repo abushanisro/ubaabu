@@ -273,6 +273,8 @@ function NewsletterSignup() {
           placeholder="Your email"
           aria-label="Your email"
           className="flex-1 h-12 px-4 text-[15px] bg-white border border-black focus:outline-none"
+          // Inline min-height so article prose styles cannot shrink the tap target (Nov 2026 audit, finding 12).
+          style={{ minHeight: 48 }}
         />
         <button type="submit" className="wired-mono h-12 px-7 bg-black text-white text-[12px] font-semibold hover:bg-[#0d9488] transition-colors">
           Sign up

@@ -1,10 +1,10 @@
-﻿import VendorOnboardingPage from '@/components/partners/VendorOnboarding'
+import VendorOnboardingPage from '@/components/partners/VendorOnboarding'
 
 import { pageOpenGraph } from '@/lib/seo'
 export const metadata = {
   alternates: { canonical: '/about/partners/vendor-onboarding' },
   openGraph: pageOpenGraph("/about/partners/vendor-onboarding", "Vendor Onboarding | Emithran", "Register your manufacturing capabilities in the Emithran supplier database. Join 647+ verified vendors across space, defence, and aerospace."),
-  title: 'Vendor Onboarding',
+  title: 'Vendor Onboarding for Manufacturing Suppliers',
   description: 'Register your manufacturing capabilities in the Emithran supplier database. Join 647+ verified vendors across space, defence, and aerospace.',
 }
 

@@ -4,6 +4,7 @@
  * everywhere else by @id. SoftwareApplication is only emitted on product pages.
  */
 import { OG_IMAGE } from '@/lib/seo'
+import { AUTHORS } from '@/lib/authors'
 
 export const SITE_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
@@ -26,7 +27,7 @@ export const organizationSchema = {
   logo: { '@type': 'ImageObject', url: `${SITE_URL}/assets/infographics/logo/logo-black.png`, width: 180, height: 45 },
   image: `${SITE_URL}${OG_IMAGE.url}`,
   description:
-    'Manufacturing intelligence platform for space, defence, aerospace and precision manufacturing companies in India: BOM management, should-cost analysis and supplier intelligence.',
+    'Manufacturing intelligence platform for aerospace, defence, space and precision manufacturing OEMs: should-cost analysis, BOM management and supplier intelligence. Headquartered in Bangalore, India.',
   foundingDate: '2023',
   numberOfEmployees: { '@type': 'QuantitativeValue', value: '11-50' },
   address: {
@@ -40,16 +41,27 @@ export const organizationSchema = {
     { '@type': 'ContactPoint', contactType: 'sales', url: `${SITE_URL}/contact`, availableLanguage: ['English', 'German'] },
     { '@type': 'ContactPoint', contactType: 'technical support', url: `${SITE_URL}/contact` },
   ],
-  founder: [
-    { '@type': 'Person', '@id': `${SITE_URL}/authors/singaravelan-s#person`, name: 'Singaravelan S.' },
-    { '@type': 'Person', '@id': `${SITE_URL}/authors/abushan#person`, name: 'Abushan' },
-  ],
+  // Founders with corroborating profiles (Nov 2026 audit finding 04: entity graph).
+  founder: AUTHORS.map((a) => ({
+    '@type': 'Person',
+    '@id': `${SITE_URL}/authors/${a.slug}#person`,
+    name: a.name,
+    jobTitle: a.jobTitle,
+    url: `${SITE_URL}/authors/${a.slug}`,
+    sameAs: [a.linkedin],
+  })),
+  // Add third-party profiles here as they go live (Crunchbase, G2, Capterra, YouTube, Wikidata).
   sameAs: ['https://www.linkedin.com/company/emithran/', 'https://x.com/emithran_ai'],
   knowsAbout: [
     'Manufacturing Intelligence', 'Should Cost Analysis', 'BOM Management', 'Defence Manufacturing',
     'Aerospace Manufacturing', 'Space Manufacturing', 'Cost Engineering', 'Supplier Intelligence', 'VAVE Analysis',
   ],
-  areaServed: ['India', 'Global'],
+  areaServed: [
+    { '@type': 'Country', name: 'India' },
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'Germany' },
+  ],
 }
 
 export const websiteSchema = {

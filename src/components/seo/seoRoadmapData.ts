@@ -1,3 +1,6 @@
+import {
+  sourcingIndiaFaqs, sourcingIndiaSections, ukShouldCostFaqs, ukShouldCostSections, usEstimatingFaqs, usEstimatingSections,
+} from './marketLandingData'
 export interface SeoLandingPage {
   slug: string
   title: string
@@ -688,6 +691,22 @@ export const SEO_LANDING_PAGES: SeoLandingPage[] = [
   page('manufacturing-intelligence', 'Manufacturing Intelligence Platform | Emithran', 'Emithran is an AI-powered manufacturing intelligence platform that connects BOMs, should-cost models, supplier data, and sourcing workflows for precision manufacturing teams.', 'Manufacturing intelligence for the complete product cost and supplier workflow.', 'manufacturing intelligence', manufacturingIntelligenceSections, manufacturingIntelligenceFaqs),
   page('resource-centre', 'Manufacturing Resource Centre | Emithran', 'Templates, calculators, guides, and reports for manufacturing cost engineering, supplier intelligence, BOM management, and sourcing teams.', 'Manufacturing resource centre for cost and sourcing teams.', 'manufacturing resource centre', resourceCentreSections, resourceCentreFaqs),
   page('german-manufacturing-cost-pilot', 'German Manufacturing Cost Pilot | Emithran', 'A Germany-focused pilot page for manufacturing cost benchmarking, supplier comparison, and should-cost workflows across India and Europe.', 'Germany manufacturing cost intelligence pilot.', 'germany manufacturing cost benchmarking', germanPilotSections, germanPilotFaqs),
+  // US and UK market pages (Nov 2026 audit, finding 03).
+  {
+    ...page('should-cost-modelling-uk', 'Should Cost Modelling Software for UK Buyers | Emithran', 'Should cost modelling for UK manufacturers, defence suppliers and public-sector buyers: bottom-up cost models, UK vs EU vs India comparisons and negotiation-ready evidence.', 'Should cost modelling for UK manufacturers and buyers.', 'should cost model uk', ukShouldCostSections, ukShouldCostFaqs),
+    eyebrow: 'United Kingdom',
+    keywords: ['should cost model uk', 'should cost modelling', 'should cost model uk government', 'should cost modelling guidance', 'manufacturing software companies in uk', 'cost modelling software uk'],
+  },
+  {
+    ...page('manufacturing-cost-estimating-software', 'Manufacturing Cost Estimating Software for US OEMs | Emithran', 'Manufacturing cost estimating software for US engineering and sourcing teams: process-based part estimates, tariff-aware landed cost and quote-versus-estimate analysis.', 'Manufacturing cost estimating software for US OEMs.', 'manufacturing cost estimating software', usEstimatingSections, usEstimatingFaqs),
+    eyebrow: 'United States',
+    keywords: ['manufacturing cost estimating software', 'manufacturing cost estimating services', 'manufacturing costing software pricing', 'cost estimating software for manufacturing', 'should cost software', 'landed cost tariffs'],
+  },
+  {
+    ...page('sourcing-from-india', 'Sourcing from India for US & UK OEMs | Emithran', 'Sourcing manufacturing from India for US and UK OEMs: India-specific should-cost, landed-cost comparison and a 72,000+ record supplier database, with engineers in Bangalore.', 'Sourcing manufacturing from India, with cost and supplier evidence.', 'sourcing from india', sourcingIndiaSections, sourcingIndiaFaqs),
+    eyebrow: 'For US & UK OEMs',
+    keywords: ['sourcing from india', 'manufacturing in india for us companies', 'india sourcing uk', 'contract manufacturing india', 'indian suppliers', 'landed cost india'],
+  },
 ]
 
 const glossarySeed = [

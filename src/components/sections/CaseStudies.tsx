@@ -259,19 +259,25 @@ export default function CaseStudies() {
         </ul>
 
         {/* Slide indicator dots - mobile */}
-        <div className="md:hidden flex justify-center gap-1.5 mt-5">
+        <div className="md:hidden flex justify-center gap-0.5 mt-4">
           {studies.map((_, i) => (
             <button
               key={i}
+              type="button"
               onClick={() => scrollTo(i)}
-              className="rounded-full transition-all duration-200"
-              style={{
-                width: i === slideIdx ? 18 : 6,
-                height: 6,
-                background: i === slideIdx ? '#0d9e8a' : 'rgba(0,0,0,0.15)',
-              }}
+              className="grid h-6 min-w-6 place-items-center"
               aria-label={`Go to slide ${i + 1}`}
-            />
+              aria-current={i === slideIdx}
+            >
+              <span
+                className="block rounded-full transition-all duration-200"
+                style={{
+                  width: i === slideIdx ? 18 : 6,
+                  height: 6,
+                  background: i === slideIdx ? '#0d9e8a' : 'rgba(0,0,0,0.15)',
+                }}
+              />
+            </button>
           ))}
         </div>
 

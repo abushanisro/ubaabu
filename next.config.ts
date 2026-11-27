@@ -1,10 +1,9 @@
 import type { NextConfig } from 'next'
 
 /**
- * Content-Security-Policy, shipped in Report-Only mode first (SEO audit Nov 2026, #15):
- * violations are reported in the browser console without blocking anything. Once a
- * week of production traffic shows no unexpected violations, rename the header to
- * `Content-Security-Policy` to enforce it.
+ * Content-Security-Policy. Shipped in Report-Only mode first (SEO audit Nov 2026, #15);
+ * the only violation Lighthouse recorded was GA4 posting to analytics.google.com, which
+ * is now allowed, so the policy is enforced (Nov 2026 audit, finding 11).
  */
 const CSP = [
   "default-src 'self'",
@@ -13,14 +12,14 @@ const CSP = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' data:",
   "media-src 'self' blob:",
-  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://chatling.ai https://*.chatling.ai https://*.supabase.co https://challenges.cloudflare.com https://prod.spline.design https://vitals.vercel-insights.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
+  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://chatling.ai https://*.chatling.ai https://*.supabase.co https://challenges.cloudflare.com https://prod.spline.design https://vitals.vercel-insights.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com",
   "frame-src 'self' https://challenges.cloudflare.com https://chatling.ai https://*.chatling.ai https://www.youtube.com https://www.youtube-nocookie.com",
   "worker-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'self'",
-  // Add 'upgrade-insecure-requests' when switching to the enforced header (it is ignored in Report-Only).
+  'upgrade-insecure-requests',
 ].join('; ')
 
 const nextConfig: NextConfig = {
@@ -65,6 +64,8 @@ const nextConfig: NextConfig = {
       { source: '/bom-management', destination: '/bom-management-software', permanent: true },
       { source: '/emuski', destination: '/expert-engineering-support', permanent: true },
       { source: '/ai-for-manufacturing', destination: '/expert-engineering-support', permanent: true },
+      // Nov 2026 audit finding 05: merge the duplicate engineering-support page.
+      { source: '/products/engineering-support', destination: '/expert-engineering-support', permanent: true },
     ]
   },
   async headers() {
@@ -85,6 +86,12 @@ const nextConfig: NextConfig = {
         source: '/de',
         headers: [{ key: 'Content-Language', value: 'de' }],
       },
+      // Raw CSV/XLSX templates are reached from /resource-centre and should not be indexed
+      // as bare files (Nov 2026 audit, finding 08). PDFs stay indexable.
+      {
+        source: '/downloads/:file([^/]+\\.(?:csv|xlsx))',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+      },
       {
         source: '/(.*)',
         headers: [
@@ -93,7 +100,7 @@ const nextConfig: NextConfig = {
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
-          { key: 'Content-Security-Policy-Report-Only', value: CSP },
+          { key: 'Content-Security-Policy', value: CSP },
         ],
       },
     ]

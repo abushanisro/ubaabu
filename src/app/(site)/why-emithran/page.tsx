@@ -8,7 +8,7 @@ import FinalCTA from '@/components/emithran/FinalCTA'
 import type { Metadata } from 'next'
 import { ogImages } from '@/lib/seo'
 export const metadata: Metadata = {
-  title: 'Why Emithran: Manufacturing OS for India\'s OEMs',
+  title: 'Why Emithran: Cost Intelligence for OEMs',
   description:
     'Why space, defence and aerospace manufacturing teams choose Emithran over generic ERP tools: deeper cost intelligence and live supplier data.',
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/why-emithran' },
   openGraph: {
     images: ogImages,
-    title: 'Why Emithran - Manufacturing Intelligence Built for India',
+    title: 'Why Emithran - Manufacturing Intelligence Built on the Shop Floor',
     description: 'Deeper cost intelligence, live supplier data, and a platform built for Indian manufacturing.',
     url: '/why-emithran', type: 'website', siteName: 'Emithran',
   },

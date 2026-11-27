@@ -29,7 +29,8 @@ const items: NavItem[] = [
       { label: 'Supplier Intelligence', href: '/supplier-intelligence' },
       { label: 'Defence Manufacturing', href: '/defence-manufacturing' },
       { label: 'Aerospace Cost Engineering', href: '/aerospace-cost-engineering' },
-      { label: 'Engineering Support', href: '/products/engineering-support' },
+      { label: 'Sourcing from India', href: '/sourcing-from-india' },
+      { label: 'Engineering Support', href: '/expert-engineering-support' },
       { label: 'Training', href: '/products/training' },
     ],
   },
@@ -106,7 +107,8 @@ export default function Navbar() {
       <nav ref={navRef} className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" prefetch={false} className="flex items-center gap-1">
-          <img src="/assets/infographics/logo/logo-white.webp" width={256} height={256} alt="Emithran" className="h-8 w-auto" />
+          {/* Decorative: the link already contains the "EMITHRAN" wordmark text (Nov 2026 audit, finding 12). */}
+          <img src="/assets/infographics/logo/logo-white.webp" width={256} height={256} alt="" className="h-8 w-auto" />
           <span className="font-display text-lg font-semibold tracking-tight text-[#080808]">EMITHRAN</span>
         </Link>
 

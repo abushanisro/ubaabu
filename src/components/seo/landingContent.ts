@@ -1,4 +1,5 @@
 import type { LandingPageExpansion } from './contentTypes'
+import { sourcingIndiaExpansion, ukShouldCostExpansion, usEstimatingExpansion } from './marketLandingData'
 
 /**
  * Long-form expansions for thin English SEO landing pages.
@@ -6,6 +7,9 @@ import type { LandingPageExpansion } from './contentTypes'
  * published case studies; all links appear in the site's valid URL list.
  */
 export const LANDING_EXPANSIONS: Record<string, LandingPageExpansion> = {
+  'should-cost-modelling-uk': ukShouldCostExpansion,
+  'manufacturing-cost-estimating-software': usEstimatingExpansion,
+  'sourcing-from-india': sourcingIndiaExpansion,
   'procurement-intelligence': {
     summary:
       'Procurement intelligence connects BOM lines, supplier records and should-cost estimates so buyers can see where money and risk sit before they negotiate. Emithran links BOM Intelligence, Should-Cost Analysis and Supplier Radar, with 72,000+ supplier records, so every sourcing decision carries part-level cost and supplier evidence.',

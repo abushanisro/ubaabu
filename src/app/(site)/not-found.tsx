@@ -96,7 +96,7 @@ const cards = [
     Icon: IconEngineering,
     title: 'Engineering Support',
     body: 'Expert support, implementation partners, and managed services to keep your platform running.',
-    href: '/products/engineering-support',
+    href: '/expert-engineering-support',
   },
   {
     Icon: IconContact,

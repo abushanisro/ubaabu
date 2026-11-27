@@ -27,7 +27,6 @@ type FooterLink = {
 const platformLinks: FooterLink[] = [
   { title: "Products",             href: "/products" },
   { title: "Expert Engineering Support", href: "/expert-engineering-support" },
-  { title: "Engineering Support",  href: "/products/engineering-support" },
   { title: "Training",             href: "/products/training" },
   { title: "Solutions",            href: "/solutions" },
   { title: "Pricing",              href: "/pricing" },
@@ -61,6 +60,10 @@ const solutionLinks: FooterLink[] = [
   { title: "Supplier Intelligence",      href: "/supplier-intelligence" },
   { title: "Defence Manufacturing",      href: "/defence-manufacturing" },
   { title: "Aerospace Cost Engineering", href: "/aerospace-cost-engineering" },
+  // US / UK market pages (Nov 2026 audit, finding 03).
+  { title: "Cost Estimating (US)",       href: "/manufacturing-cost-estimating-software" },
+  { title: "Should Cost Modelling (UK)", href: "/should-cost-modelling-uk" },
+  { title: "Sourcing from India",        href: "/sourcing-from-india" },
 ];
 
 const footerLinks = [
@@ -180,7 +183,7 @@ export default function Footer() {
 
             {/* Tagline */}
             <p className="text-sm text-white/40 leading-relaxed max-w-[320px]">
-              End-to-end manufacturing intelligence for India's space, defence, and aerospace industry.
+              End-to-end manufacturing intelligence for space, defence, aerospace and precision manufacturers.
             </p>
 
             {/* Our Locations */}
@@ -294,7 +297,7 @@ export default function Footer() {
             {/* AI summary icons */}
             <span className="text-[10px] text-white/20 uppercase tracking-widest select-none">Ask AI</span>
             <a
-              href={`https://chatgpt.com/?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a manufacturing intelligence platform for India's space, defence, and aerospace industry. Website: https://emithran.com")}`}
+              href={`https://chatgpt.com/?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a should-cost, BOM and supplier intelligence platform for aerospace, defence, space and industrial OEMs. Website: https://www.emithran.com")}`}
               aria-label="Ask ChatGPT for a summary"
               target="_blank"
               rel="noopener noreferrer"
@@ -304,7 +307,7 @@ export default function Footer() {
               <ChatGPTIcon size={18} />
             </a>
             <a
-              href={`https://grok.com/?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a manufacturing intelligence platform for India's space, defence, and aerospace industry. Website: https://emithran.com")}`}
+              href={`https://grok.com/?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a should-cost, BOM and supplier intelligence platform for aerospace, defence, space and industrial OEMs. Website: https://www.emithran.com")}`}
               aria-label="Ask Grok for a summary"
               target="_blank"
               rel="noopener noreferrer"
@@ -314,7 +317,7 @@ export default function Footer() {
               <GrokIcon size={18} />
             </a>
             <a
-              href={`https://claude.ai/new?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a manufacturing intelligence platform for India's space, defence, and aerospace industry. Website: https://emithran.com")}`}
+              href={`https://claude.ai/new?q=${encodeURIComponent("Give me a summary of Emithran Technologies — a should-cost, BOM and supplier intelligence platform for aerospace, defence, space and industrial OEMs. Website: https://www.emithran.com")}`}
               aria-label="Ask Claude for a summary"
               target="_blank"
               rel="noopener noreferrer"

@@ -299,7 +299,7 @@ export default function TrainingPage() {
                   title: 'Priority support',
                   body: 'Access a dedicated support channel with SLA-backed response times and direct escalation paths for critical production issues.',
                   cta: 'View support plans',
-                  href: '/products/engineering-support',
+                  href: '/expert-engineering-support',
                 },
                 {
                   title: 'Implementation partners',

@@ -57,7 +57,7 @@ export default function Hero() {
             <span className="text-[#0d9e8a]">Manufacturing</span>{' '}
             Intelligence
             <span className="mt-3 block text-[17px] font-semibold leading-snug tracking-normal text-black/70 md:text-[19px]">
-              Should-cost, BOM &amp; supplier intelligence for India’s aerospace &amp; defence OEMs
+              Should-cost, BOM &amp; supplier intelligence for aerospace, defence &amp; industrial OEMs
             </span>
           </h1>
           <p className="mt-3 text-[17px] font-semibold md:text-[19px]" style={{ minHeight: '1.6em' }}>

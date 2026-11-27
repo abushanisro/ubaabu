@@ -23,7 +23,7 @@ export function ProductionCard() {
         holdMs={1400}
         showRuler={false}
         showTokens={false}
-        rowHeight={22}
+        rowHeight={26}
         className="border-0 shadow-none bg-transparent"
       />
     </div>

@@ -223,7 +223,7 @@ export const TraceSpanRow = React.memo(function TraceSpanRow({
         aria-label={`${span.label}, ${span.kind ?? "tool"}, ${formatMs(span.dur)}${
           span.attempt != null && span.attempt > 1 ? `, attempt ${span.attempt}` : ""
         }`}
-        className="hover:bg-muted focus-visible:ring-ring/50 flex w-[var(--gutter)] shrink-0 cursor-pointer items-center gap-1.5 rounded-md py-1 pr-2 text-left outline-none focus-visible:ring-[3px]"
+        className="hover:bg-muted focus-visible:ring-ring/50 flex min-h-6 w-[var(--gutter)] shrink-0 cursor-pointer items-center gap-1.5 rounded-md py-1 pr-2 text-left outline-none focus-visible:ring-[3px]"
         style={{ paddingLeft: `${span.depth * 12 + 4}px` }}
       >
         {/* Queued rows step down in hue rather than opacity: 40% foreground would be ~2.8:1. */}

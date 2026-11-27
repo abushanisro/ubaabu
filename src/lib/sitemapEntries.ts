@@ -3,7 +3,7 @@
  * (SEO audit Nov 2026, issue #02). Split into three child sitemaps referenced
  * from the /sitemap.xml index:
  *   /sitemap-pages.xml    — product, landing, comparison, hub, author, case-study,
- *                           German pages and downloadable templates
+ *                           German pages and downloadable PDF templates
  *   /sitemap-blog.xml     — the blog index and every published post
  *   /sitemap-glossary.xml — the A–Z glossary and every expanded term page
  *
@@ -57,7 +57,6 @@ export function pageEntries(): SitemapEntry[] {
     e('/pricing', LM('/pricing'), 'monthly', 0.8),
     e('/why-emithran', LM('/why-emithran'), 'monthly', 0.7),
     e('/expert-engineering-support', LM('/expert-engineering-support'), 'monthly', 0.8),
-    e('/products/engineering-support', LM('/products/engineering-support'), 'monthly', 0.6),
     e('/products/training', LM('/products/training'), 'monthly', 0.6),
     e('/api-integration', LM('/api-integration'), 'monthly', 0.6),
     e('/about', LM('/about'), 'monthly', 0.7),
@@ -86,8 +85,9 @@ export function pageEntries(): SitemapEntry[] {
     ...CASE_STUDIES.map((s) => e(`/case-studies/${s.slug}`, new Date(s.dateISO), 'monthly', 0.7)),
     e('/de', groupLastModified('@de'), 'monthly', 0.5),
     ...DE_PAGES.map((p) => e(`/de/${p.slug}`, groupLastModified('@de'), 'monthly', 0.5)),
-    // Downloadable templates (CSV/XLSX/PDF are indexable file types).
-    ...DOWNLOAD_FILES.map((d) => e(d.href, LM('/resource-centre'), 'yearly', 0.4)),
+    // Downloadable templates: only PDFs are listed (Nov 2026 audit, finding 08). Raw CSV/XLSX
+    // files cannot be rendered as pages and are reached through /resource-centre instead.
+    ...DOWNLOAD_FILES.filter((d) => d.href.endsWith('.pdf')).map((d) => e(d.href, LM('/resource-centre'), 'yearly', 0.4)),
   ]
 }
 

@@ -8,7 +8,7 @@ import { ogImages } from '@/lib/seo'
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.emithran.com'
 
 export const metadata: Metadata = {
-  title: 'Supplier Intelligence Platform India',
+  title: 'Supplier Intelligence Platform for OEMs',
   description:
     'Supplier intelligence for manufacturers: 72,000+ supplier records across defence, aerospace, space and precision with qualification and risk scoring.',
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: ogImages,
-    title: 'Supplier Intelligence Platform India | Emithran',
+    title: 'Supplier Intelligence Platform for OEMs | Emithran',
     description: '72,000+ verified suppliers. Qualification scoring, risk assessment, and capability mapping for defence, aerospace, and space supply chains.',
     url: '/supplier-intelligence',
     type: 'website',
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@emithran',
     creator: '@emithran',
-    title: 'Supplier Intelligence Platform India | Emithran',
+    title: 'Supplier Intelligence Platform for OEMs | Emithran',
     description: '72,000+ verified Indian suppliers. Qualification scoring and risk assessment for mission-critical supply chains.',
   },
 }

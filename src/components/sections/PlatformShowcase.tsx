@@ -478,18 +478,26 @@ function BentoSystemCard() {
           </div>
 
           {/* Dot indicators */}
-          <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+          <div className="absolute bottom-1.5 left-0 right-0 flex justify-center gap-0.5 z-10">
             {[0, 1].map(i => (
+              // 24px hit area around the visual dot (Nov 2026 audit, finding 12).
               <button
                 key={i}
+                type="button"
                 onClick={() => setCardIdx(i)}
-                className="rounded-full transition-all duration-300"
-                style={{
-                  width: cardIdx === i ? 16 : 6,
-                  height: 6,
-                  background: cardIdx === i ? "oklch(0.68 0.13 180)" : "oklch(0.68 0.13 180 / 0.3)",
-                }}
-              />
+                aria-label={i === 0 ? "Show metrics card" : "Show analytics card"}
+                aria-pressed={cardIdx === i}
+                className="grid h-6 min-w-6 place-items-center"
+              >
+                <span
+                  className="block rounded-full transition-all duration-300"
+                  style={{
+                    width: cardIdx === i ? 16 : 6,
+                    height: 6,
+                    background: cardIdx === i ? "oklch(0.68 0.13 180)" : "oklch(0.68 0.13 180 / 0.3)",
+                  }}
+                />
+              </button>
             ))}
           </div>
         </div>
@@ -563,10 +571,14 @@ function BentoSystemCard() {
                       <div style={{ width: "50%", flexShrink: 0 }}><MetricsCard /></div>
                       <div style={{ width: "50%", flexShrink: 0 }}><AnalyticsCard /></div>
                     </div>
-                    <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
+                    <div className="absolute bottom-1.5 left-0 right-0 flex justify-center gap-0.5 z-10">
                       {[0, 1].map(i => (
-                        <button key={i} onClick={() => setCardIdx(i)} className="rounded-full transition-all duration-300"
-                          style={{ width: cardIdx === i ? 16 : 6, height: 6, background: cardIdx === i ? "oklch(0.68 0.13 180)" : "oklch(0.68 0.13 180 / 0.3)" }} />
+                        // 24px hit area around the visual dot (Nov 2026 audit, finding 12).
+                        <button key={i} type="button" onClick={() => setCardIdx(i)} aria-label={i === 0 ? "Show metrics card" : "Show analytics card"} aria-pressed={cardIdx === i}
+                          className="grid h-6 min-w-6 place-items-center">
+                          <span className="block rounded-full transition-all duration-300"
+                            style={{ width: cardIdx === i ? 16 : 6, height: 6, background: cardIdx === i ? "oklch(0.68 0.13 180)" : "oklch(0.68 0.13 180 / 0.3)" }} />
+                        </button>
                       ))}
                     </div>
                   </div>

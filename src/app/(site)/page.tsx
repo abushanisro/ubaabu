@@ -1,16 +1,17 @@
-﻿import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import { languageAlternates } from '@/lib/hreflang'
 
 export const metadata: Metadata = {
-  // Title kept at 52 chars (ideal range is 50-60 / ~600px) with the primary keyword
-  // front-loaded and brand last — already matches 2026 best practice, not changed.
-  title: 'Manufacturing Intelligence Platform India | Emithran',
+  // Nov 2026 audit (findings 03 + 05): brand-led and market-neutral (the site targets
+  // India, the US and the UK). "Manufacturing intelligence platform" is owned by
+  // /manufacturing-intelligence so the homepage no longer competes with it.
+  title: { absolute: 'Emithran | Should-Cost, BOM & Supplier Intelligence Software' },
   // Trimmed to ~153 chars (2026 guidance: 120-158 chars / ~920px to avoid truncation
   // on desktop and mobile SERPs) while keeping the customer names + headline stat.
   description:
-    "AI manufacturing intelligence for space, defence & aerospace OEMs in India. Trusted by Ashok Leyland, TATA Power, Pixxel & Digantara. 99.4% BOM accuracy.",
+    "AI should-cost, BOM and supplier intelligence for aerospace, defence, space and industrial OEMs. Trusted by Ashok Leyland, TATA Power, Pixxel & Digantara.",
   keywords: [
-    'manufacturing intelligence platform India', 'AI manufacturing software India',
+    'should cost software', 'manufacturing cost estimating software',
     'should cost analysis software', 'BOM management software',
     'defence manufacturing platform', 'aerospace cost engineering India',
     'supplier intelligence platform', 'space manufacturing India',
@@ -19,8 +20,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/', languages: languageAlternates('/') },
   openGraph: {
     images: ogImages,
-    title: 'Manufacturing Intelligence Platform India | Emithran',
-    description: 'AI-powered BOM management, should-cost analysis, and supplier intelligence for defence, aerospace, and space OEMs in India. 99.4% BOM accuracy.',
+    title: 'Emithran | Should-Cost, BOM & Supplier Intelligence Software',
+    description: 'AI-powered should-cost analysis, BOM management and supplier intelligence for aerospace, defence, space and industrial OEMs. 99.4% BOM accuracy.',
     url: '/',
     type: 'website',
     // Next.js does not merge openGraph/twitter objects with the root layout when a
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@emithran',
     creator: '@emithran',
-    title: 'Manufacturing Intelligence Platform India | Emithran',
-    description: "India's leading AI-powered BOM, should-cost, and supplier intelligence platform. Trusted by India's top OEMs.",
+    title: 'Emithran | Should-Cost, BOM & Supplier Intelligence Software',
+    description: 'AI-powered should-cost, BOM and supplier intelligence for aerospace, defence, space and industrial OEMs.',
   },
 }
 
